@@ -155,14 +155,14 @@ function pic(item, key){
     (femalePic ? flip("f", !!st.f, ic("venus"), st.f ? "Show the male" : "Show the female (she looks different)") : "") + `</span></div>`;
 }
 
-// one card per Pokédex number, as in the game; its other forms open from a button on it (her call, 9 Nov).
-// Regional forms keep their own card in their region.
+// one card per Pokédex number on each page, as in the game; its other forms open from a button on it (her call, 9 Nov).
+// Every Pokémon the same way, regional forms too (her point: Paldean Tauros should work like Unown). Regional forms sit
+// on their region's page, so there they group among themselves (Paldea: one Tauros card).
 const isRegional = e => !!REGION_GEN[(e.form || "").split(" ")[0]];
 const openForms = new Set();   // numbers whose forms are open (until the page is reloaded)
 function groupByNumber(items){
   const groups = [], byDex = {};
   for (const e of items) {
-    if (isRegional(e)) { groups.push([e]); continue; }
     if (!byDex[e.dex]) groups.push(byDex[e.dex] = []);
     byDex[e.dex].push(e);
   }
