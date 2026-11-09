@@ -50,6 +50,8 @@ const baseOf = {};   // dex number -> its plain entry (for background Pokémon)
 ENTRIES.forEach(e => { if (!baseOf[e.dex] || (!e.form && baseOf[e.dex].form)) baseOf[e.dex] = e; });
 const canLucky = e => e.released && e.class !== "mythical";   // mythicals can't be traded, so never lucky
 const sprite = k => k && SPRITES.has(k) ? `sprites/${k}.webp` : null;
+const BIG = new Set(DATA.bigSprites || []);   // the game's full-size pictures, for a Pokémon's page
+const bigSprite = k => k && BIG.has(k) ? `sprites/big/${k}.webp` : sprite(k);
 
 // ---------- what she has ----------
 let COL = norm(DATA.collection), readOnly = true;
@@ -161,11 +163,11 @@ function boxes(e){
 // the picture: small ✨ and ♀ buttons on it flip to the shiny / female picture (9 Nov: clicking the picture itself was
 // too hidden, her words). It shows shiny by itself when she has the shiny or is working on shinies.
 const picFlip = new Map();   // key -> {s, f} she has flipped to (until the page is reloaded)
-function pic(item, key){
+function pic(item, key, big = false){
   const shinyPic = sprite(item.img + ".s"), femalePic = item.femaleImg && sprite(item.femaleImg);
   const st = picFlip.get(key) || {s: has(key, "s") || prefs.work === "shiny", f: !!femalePic};   // female look first (her call)
   const k = (st.f && femalePic ? item.femaleImg : item.img) + (st.s && shinyPic ? ".s" : "");
-  const src = sprite(k) || sprite(item.img);
+  const src = big ? bigSprite(k) || bigSprite(item.img) : sprite(k) || sprite(item.img);
   const flip = (w, on, icon, title) => `<button class="flip${w === "s" ? " fs" : " ff"}" type="button" data-flip="${w}" data-pic="${attr(key)}" aria-pressed="${on}" title="${title}" aria-label="${title}">${icon}</button>`;
   return `<div class="pic">` + (src ? `<img src="${src}" alt="" loading="lazy" decoding="async">` : `<span class="blank">?</span>`) +
     `<span class="flips">` + (shinyPic ? flip("s", !!st.s, ic("sparkles"), st.s ? "Show the normal colours" : "Show the shiny") : "") +
@@ -231,6 +233,37 @@ function card(e, more = "", inForms = false){
     boxes(e) + more + `</div>`;
 }
 
+// ---------- trial looks for the banner and sidebar (her ask, 9 Nov: the plain red banner and sidebar aren't the
+// nicest). A switch at the bottom right flips between them; the one she picks stays and the switch goes.
+const LOOKS = [["red", "Now: red"], ["region", "Region colours"], ["cream", "Cream"], ["parade", "Parade"]];
+// each region's colour for the Region colours look (a suggestion, after its games' colours): Kanto red, Johto gold,
+// Hoenn sapphire, Sinnoh pearl-violet, Unova black, Kalos blue, Alola sunset orange, Galar purple, Hisui forest, Paldea scarlet-violet
+const REGION_COLOURS = {"1": "#A3302A", "2": "#8E6A0E", "3": "#16618A", "4": "#5B4B94", "5": "#36353D", "6": "#2B55A3",
+  "7": "#B5531C", "8": "#6E2D82", "hisui": "#3C6150", "9": "#952F57"};
+if (!LOOKS.some(l => l[0] === prefs.look)) prefs.look = "red";
+const setLook = v => { prefs.look = v; document.documentElement.dataset.look = v; };
+setLook(prefs.look);
+const setRegion = g => document.documentElement.style.setProperty("--rc", REGION_COLOURS[g] || "#7E2530");
+const STARTERS = [1, 4, 7, 152, 155, 158, 252, 255, 258, 387, 390, 393, 495, 498, 501, 650, 653, 656, 722, 725, 728, 810, 813, 816, 906, 909, 912];
+function heroArt(list){   // a few of the page's Pokémon, for the looks that show them (big ones first, then a parade)
+  const seen = new Set(), keys = [];
+  for (const e of list) {
+    if (keys.length >= 14) break;
+    if (!e || e.released === false || seen.has(e.img) || !sprite(e.img)) continue;
+    seen.add(e.img); keys.push(e.img);
+  }
+  return `<div class="heroart" aria-hidden="true">${keys.map((k, i) => `<img src="${i < 3 ? bigSprite(k) : sprite(k)}" alt="" style="--i:${i}" loading="lazy">`).join("")}</div>`;
+}
+function firstStages(list){   // a region's starters (first stages that aren't regional forms), then the rest of the page
+  const firsts = list.filter(e => e.released && !isRegional(e) && !(EVO_IN[e.id] || []).length && (e.evo || []).length);
+  return [...firsts.slice(0, 3), ...list];
+}
+function lookSwitch(){
+  let el = document.getElementById("lookswitch");
+  if (!el) { el = document.createElement("div"); el.id = "lookswitch"; el.className = "lookswitch"; document.body.appendChild(el); }
+  el.innerHTML = `<span class="label">Try a look</span><span class="opts">${LOOKS.map(([k, l]) => `<button type="button" data-look="${k}" aria-pressed="${prefs.look === k}">${esc(l)}</button>`).join("")}</span>`;
+}
+
 // ---------- pages ----------
 const view = document.getElementById("view"), nav = document.getElementById("nav"), q = document.getElementById("q");
 
@@ -267,7 +300,8 @@ function home(){
       row("Lucky", k.lucky, k.luckyOut, "var(--lucky)") + row("4★", k.hundo, k.out, "var(--hundo)") + `</div></a>`;
   }
   const went = EVENTS.filter(e => COL.went.includes(e.id)).length;
-  view.innerHTML = `<header class="hero"><span class="label">Pokémon GO · ${num(c.speciesOut)} Pokémon out, plus their forms</span>
+  setRegion(null);
+  view.innerHTML = `<header class="hero">${heroArt(STARTERS.map(d => baseOf[d]))}<span class="label">Pokémon GO · ${num(c.speciesOut)} Pokémon out, plus their forms</span>
     <h1>Jemma’s <em>Pokédex</em></h1>${statsHtml(c)}</header>${readOnlyNote()}
     <section class="section"><h2>By generation</h2><div class="gens">${gens}</div></section>
     <section class="section"><h2>Costumes and backgrounds</h2><div class="gens">
@@ -277,7 +311,7 @@ function home(){
     <p class="muted" style="margin-top:40px;font-size:12.5px">Pokémon data from the game, checked ${dates(DATA.updated)}.</p>`;
 }
 
-function dexPage(title, label, list){
+function dexPage(title, label, list, region){
   const items = list.filter(e => (prefs.unreleased || e.released) && boxFilter(e));
   const notOut = list.filter(e => !e.released).length;
   const groups = groupByNumber(items);
@@ -285,7 +319,8 @@ function dexPage(title, label, list){
   const picked = prefs.work !== "all";
   // one line: the tabs, Clear, and on the far right a "Not caught" toggle, always there (no tab: not caught at all; a tab: missing that box), on when a tab is picked (untick it to
   // see the ones she has too, lit up; her wording and place, 9 Nov); the not-out switch under it where there are some; how many are shown sits by the title (her layout, 9 Nov)
-  view.innerHTML = `<header class="hero"><span class="label">${esc(label)} · ${num(groups.length)} shown</span><h1>${title}</h1>${statsHtml(counts(list))}</header>${readOnlyNote()}
+  setRegion(region);
+  view.innerHTML = `<header class="hero">${heroArt(region ? firstStages(list) : STARTERS.map(d => baseOf[d]))}<span class="label">${esc(label)} · ${num(groups.length)} shown</span><h1>${title}</h1>${statsHtml(counts(list))}</header>${readOnlyNote()}
     <div class="toolbar filters" id="toolbar">
       <div class="frow"><span class="label flabel">Filter</span><div class="worktabs">` +
       BOXF.map(b => `<button type="button" class="worktab" data-work="${b.k}" aria-pressed="${prefs.work === b.k}">${esc(b.label)}</button>`).join("") +
@@ -296,42 +331,127 @@ function dexPage(title, label, list){
     ${items.length ? `<div class="grid" id="grid">${groupCards(groups)}</div>` : `<p class="empty">Nothing here.</p>`}`;
 }
 
-// one Pokémon's page (#p-201): everything about it in one place (her ask, 9 Nov, instead of the forms pop-up)
+// one Pokémon's page (#p-201), laid out like a Sim's page on her Sims site (her ask, 9 Nov): the picture and GO's own
+// Pokédex entry with the facts beside it, big boxes to tick, the evolution family, every form, its costumes and
+// backgrounds, and Previous / Next at the top. With forms, a row of small pictures picks which form the top part shows.
 const REGION_OF = {1: "Kanto", 2: "Johto", 3: "Hoenn", 4: "Sinnoh", 5: "Unova", 6: "Kalos", 7: "Alola", 8: "Galar", 9: "Paldea"};
+const pageForm = {};   // dex number -> the form picked on its page (until the page is reloaded)
+const DEX_NUMBERS = [...new Set(ENTRIES.map(e => e.dex))].sort((a, b) => a - b);
+const EVO_IN = {};     // entry id -> the entries that evolve into it
+ENTRIES.forEach(x => (x.evo || []).forEach(st => { if (byId[st.to]) (EVO_IN[st.to] = EVO_IN[st.to] || []).push(x); }));
+const metres = v => `${v.toLocaleString("en-GB", {maximumFractionDigits: 2})} m`;
+const kilos = v => `${v.toLocaleString("en-GB", {maximumFractionDigits: 2})} kg`;
+function evoWays(st){   // what an evolution takes, in GO's words where the game has them
+  const w = [];
+  if (st.candy) w.push(`${num(st.candy)} Candy`);
+  if (st.item) w.push(st.itemCount ? `${num(st.itemCount)} ${st.item}` : st.item);
+  if (st.lure) w.push(st.lure);
+  if (st.task) w.push(st.task);
+  else if (st.buddyKm) w.push(`Walk ${num(st.buddyKm)} km with your buddy`);
+  if (st.buddy && !st.task && !st.buddyKm) w.push("As your buddy");
+  if (st.time) w.push({day: "In the daytime", night: "At night", dusk: "At dusk", "full moon": "At full moon"}[st.time] || st.time);
+  if (st.gender) w.push(st.gender === "female" ? "Female only" : "Male only");
+  if (st.upsideDown) w.push("With your phone upside down");
+  if (st.tradeFree) w.push("No Candy needed if traded");
+  return w;
+}
+function evoFamily(sel){
+  // the chain this form is part of, from the game's own evolution data (Alolan Vulpix's chain is its own)
+  const seen = new Set([sel.id]), todo = [sel];
+  while (todo.length) {
+    const x = todo.pop();
+    [...(x.evo || []).map(st => byId[st.to]), ...(EVO_IN[x.id] || [])].forEach(y => { if (y && !seen.has(y.id)) { seen.add(y.id); todo.push(y); } });
+  }
+  if (seen.size < 2) return "";
+  const roots = [...seen].map(i => byId[i]).filter(x => !(EVO_IN[x.id] || []).some(y => seen.has(y.id)));
+  const node = x => `<a class="evo-mon${x.id === sel.id ? " here" : ""}${x.released ? "" : " out-not"}" href="#p-${x.dex}" data-goform="${attr(x.id)}">` +
+    (sprite(x.img) ? `<img src="${sprite(x.img)}" alt="" loading="lazy">` : `<span class="blank">?</span>`) +
+    `<b>${esc(x.name)}</b>${x.form ? `<small>${esc(x.form)}</small>` : ""}${x.released ? "" : `<small>Not out yet</small>`}</a>`;
+  const tree = (x, path) => {
+    const byTo = new Map();   // two ways to the same Pokémon are shown together
+    (x.evo || []).forEach(st => { if (byId[st.to] && !path.has(st.to)) byTo.set(st.to, [...(byTo.get(st.to) || []), st]); });
+    const kids = [...byTo].map(([to, sts]) => `<div class="evo-kid"><div class="evo-step">${ic("arrow-right")}<span>${sts.map(st => evoWays(st).map(esc).join("<br>")).join('<i class="or">or</i>')}</span></div>${tree(byId[to], new Set([...path, to]))}</div>`);
+    return `<div class="evo-branch">${node(x)}${kids.length ? `<div class="evo-kids${kids.length > 3 ? " many" : ""}">${kids.join("")}</div>` : ""}</div>`;
+  };
+  return `<div class="evo">${roots.map(r => tree(r, new Set([r.id]))).join("")}</div>`;
+}
+function bigBoxes(e){
+  // big boxes for the form shown at the top: the same boxes as on its card, in the same colours (white text when ticked)
+  const k = dk(e);
+  const B = (t, col, icon, label, applies, why) => {
+    const on = has(k, t);
+    if (!applies && !on && !why) return "";
+    return `<button class="bb" type="button" data-tick="${t}" aria-pressed="${on}" style="--bc:var(${col})"${!applies && !on ? " disabled" : ""}>${ic(icon)}<span><b>${esc(label)}</b><small>${esc(on ? "Got it" : applies ? "Not yet" : why)}</small></span></button>`;
+  };
+  return `<div class="bigboxes" data-id="${attr(e.id)}">` +
+    B("c", "--caught", "poke-ball", "Caught", true) +
+    B("cf", "--female", "venus", "Female", !!femaleTick(e), "Not this gender") +
+    B("cm", "--male", "mars", "Male", !!maleTick(e), "Not this gender") +
+    B("s", "--shiny", "sparkles", "Shiny", !!e.shiny, "No shiny yet") +
+    B("l", "--lucky", "clover", "Lucky", canLucky(e), e.class === "mythical" ? "Can’t be traded" : "Not out yet") +
+    B("h", "--hundo", "star", "4★", e.released, "Not out yet") +
+    B("sd", "--shadow", "flame", "Shadow", !!e.shadow) +
+    B("pu", "--purified", "sun", "Purified", !!e.shadow) +
+    B("dx", "--dynamax", "expand", "Dynamax", !!e.dynamax) +
+    B("gx", "--gmax", "expand", "Gigantamax", !!e.gmax) + `</div>`;
+}
 function pokemonPage(n){
-  const all = ENTRIES.filter(e => e.dex === n && (prefs.unreleased || e.released || ENTRIES.every(x => x.dex !== n || !x.released)));
+  const every = ENTRIES.filter(e => e.dex === n);
+  const all = every.filter(e => prefs.unreleased || e.released || every.every(x => !x.released));
   if (!all.length) return home();
-  const lead = groupByNumber(all)[0].lead, others = all.filter(e => e !== lead);
+  const grouped = groupByNumber(all)[0], ordered = [grouped.lead, ...grouped.others];
+  const sel = byId[pageForm[n]] && all.includes(byId[pageForm[n]]) ? byId[pageForm[n]] : grouped.lead;
   const costumes = COSTUMES.filter(c => c.dex === n);
   const evs = EVENTS.filter(ev => (ev.backgroundPokemon || []).some(name => DATA.dexByName[name.toLowerCase()] === n));
-  const gw = {both: "Male and female", male: "Male only", female: "Female only", none: "Genderless"}[lead.gender];
-  const types = [...new Set(all.flatMap(e => e.types))];
-  const kind = {legendary: "Legendary", mythical: "Mythical", "ultra-beast": "Ultra Beast"}[lead.class];
-  const yes = (on, text) => `<li class="${on ? "on" : "off"}">${ic(on ? "check" : "x")}${esc(text)}</li>`;
-  const shinyDate = all.map(e => typeof e.shiny === "string" ? e.shiny : null).filter(Boolean).sort()[0];
-  const facts = `<ul class="facts">
-    ${yes(all.some(e => e.released), all.some(e => e.released) ? "Out in Pokémon GO" : "Not out in Pokémon GO yet")}
-    ${yes(all.some(e => e.shiny), all.some(e => e.shiny) ? `Shiny out${shinyDate ? " since " + dates(shinyDate) : ""}` : "No shiny yet")}
-    ${yes(all.some(canLucky), lead.class === "mythical" ? "Can’t be lucky (mythicals can’t be traded)" : "Can be lucky")}
-    ${yes(all.some(e => e.shadow), all.some(e => e.shadow) ? "Can be shadow and purified" : "No shadow yet")}
-    ${yes(all.some(e => e.dynamax), all.some(e => e.dynamax) ? "Can be Dynamax" : "No Dynamax yet")}
-    ${yes(all.some(e => e.gmax), all.some(e => e.gmax) ? "Can be Gigantamax" : "No Gigantamax yet")}</ul>`;
+  const gw = {both: "Male and female", male: "Male only", female: "Female only", none: "Genderless"}[sel.gender];
+  const kind = {legendary: "Legendary", mythical: "Mythical", "ultra-beast": "Ultra Beast"}[sel.class];
+  const gen = genById[sel.gen] || ["", REGION_OF[sel.gen] || "", ""];
+  const at = DEX_NUMBERS.indexOf(n), prev = DEX_NUMBERS[at - 1], next = DEX_NUMBERS[at + 1];
+  const step = (m, dir) => { if (!m) return `<span></span>`; const x = groupByNumber(ENTRIES.filter(e => e.dex === m))[0].lead;
+    return `<a class="pn ${dir}" href="#p-${m}" title="${dir === "prev" ? "Previous" : "Next"}: ${attr(x.name)}">${dir === "prev" ? ic("chevron-left") : ""}${sprite(x.img) ? `<img src="${sprite(x.img)}" alt="">` : ""}<span><small>#${pad(m)}</small>${esc(x.name)}</span>${dir === "next" ? ic("chevron-right") : ""}</a>`; };
+  const yesNo = (on, yes, no) => on ? `<span class="ok">${ic("check")}${esc(yes)}</span>` : `<span class="no">${esc(no)}</span>`;
+  const row = (t, v) => v ? `<div><dt>${esc(t)}</dt><dd>${v}</dd></div>` : "";
+  const facts = `<dl class="dfacts">` +
+    row("Category", esc(sel.category || "")) + row("Type", esc(sel.types.join(" · "))) + row("Gender", esc(gw)) +
+    row("Height", sel.height ? esc(metres(sel.height)) : "") + row("Weight", sel.weight ? esc(kilos(sel.weight)) : "") +
+    row("Buddy distance", sel.buddyKm ? esc(`${num(sel.buddyKm)} km`) : "") +
+    row("In Pokémon GO", yesNo(sel.released, "Out", "Not out yet")) +
+    row("Shiny", yesNo(!!sel.shiny, typeof sel.shiny === "string" ? `Out since ${dates(sel.shiny)}` : "Out", "Not out yet")) +
+    row("Lucky", yesNo(canLucky(sel), "Can be lucky", sel.class === "mythical" ? "Never (can’t be traded)" : "Not out yet")) +
+    row("Shadow and Purified", yesNo(!!sel.shadow, "Out", "Not yet")) +
+    row("Dynamax", yesNo(!!sel.dynamax, "Out", "Not yet")) + row("Gigantamax", yesNo(!!sel.gmax, "Out", "Not yet")) + `</dl>`;
+  const desc = sel.desc ? (sel.femaleDesc ? `<p class="dex-entry"><span class="label">Male</span>${esc(sel.desc)}</p><p class="dex-entry"><span class="label">Female</span>${esc(sel.femaleDesc)}</p>`
+      : `<p class="dex-entry">${esc(sel.desc)}</p>`) : `<p class="dex-entry muted">No Pokédex entry for it in the game’s text yet.</p>`;
+  const picker = ordered.length > 1 ? `<div class="formpick" role="group" aria-label="Which form to show">${ordered.map(e =>
+    `<button type="button" data-pickform="${attr(e.id)}" aria-pressed="${e === sel}" title="${attr(e.form || e.name)}">${sprite(e.img) ? `<img src="${sprite(e.img)}" alt="" loading="lazy">` : `<span class="blank">?</span>`}<small>${esc(e.form || "Usual")}</small></button>`).join("")}</div>` : "";
+  const family = evoFamily(sel);
   const bgRows = evs.map(ev => {
     const went = COL.went.includes(ev.id), key = `b:${ev.id}:${n}`;
     return `<div class="bgrow${went ? " went" : ""}" data-bg="${attr(key)}" data-event="${attr(ev.id)}"><div><b>${esc(ev.name)}</b><span class="muted"> · ${esc(ev.city)} · ${esc(dates(ev.start, ev.end))}</span>
       <div class="muted" style="font-size:13px">${ic("image")} ${esc(ev.background)}</div></div>
       ${went ? `<div class="ticks"><button class="tk c" type="button" data-tick="c" aria-pressed="${has(key, "c")}" title="Have it with this background">${ic("poke-ball")}Have it</button>
-        <button class="tk s" type="button" data-tick="s" aria-pressed="${has(key, "s")}"${!lead.shiny && !has(key, "s") ? " disabled" : ""} title="Shiny with this background">${ic("sparkles")}Shiny</button></div>`
+        <button class="tk s" type="button" data-tick="s" aria-pressed="${has(key, "s")}"${!sel.shiny && !has(key, "s") ? " disabled" : ""} title="Shiny with this background">${ic("sparkles")}Shiny</button></div>`
         : `<button class="chip" type="button" data-went aria-pressed="false">I went</button>`}</div>`;
   }).join("");
-  view.innerHTML = `<header class="hero mon"><a class="back" href="javascript:history.back()">${ic("arrow-left")}Back</a>
-    <div class="monhead">${sprite(lead.femaleImg || lead.img) ? `<img src="${sprite(lead.femaleImg || lead.img)}" alt="">` : ""}<div>
-      <span class="label">#${pad(n)} · ${esc(REGION_OF[lead.gen] || "Hisui")}${kind ? " · " + kind : ""}</span><h1>${esc(lead.name)}</h1>
-      <div class="chips">${types.map(t => `<span class="type">${esc(t)}</span>`).join("")}<span class="type">${esc(gw)}</span></div></div></div></header>${readOnlyNote()}
-    <section class="section"><h2>${all.length > 1 ? `Forms <span class="muted">${all.length}</span>` : "Boxes"}</h2><div class="grid">${(showAllBoxes = true, all.map(e => card(e)).join(""))}</div></section>
-    <section class="section"><h2>About it in GO</h2>${facts}</section>
-    ${costumes.length ? `<section class="section"><h2>Costumes <span class="muted">${costumes.length}</span></h2><div class="grid">${costumes.map(costumeCard).join("")}</div></section>` : ""}
-    ${(showAllBoxes = false, "")}${evs.length ? `<section class="section"><h2>Backgrounds <span class="muted">${evs.length}</span></h2><div class="bgrows">${bgRows}</div></section>` : ""}`;
+  const first = esc(sel.name);
+  showAllBoxes = true;
+  const formCards = all.length > 1 ? all.map(e => card(e)).join("") : "";
+  const costumeCards = costumes.map(costumeCard).join("");
+  showAllBoxes = false;
+  setRegion(sel.gen);
+  const kin = ENTRIES.filter(x => x.family && x.family === sel.family && x !== sel);
+  view.innerHTML = `<header class="hero mon">${heroArt([sel, ...kin])}<div class="montop"><div class="crumbs"><a href="#dex">${ic("layout-grid")}Every Pokémon</a>` +
+      (gen[0] ? `<a href="#gen-${gen[0]}">${ic("layers")}${esc(gen[1])}</a>` : "") + `</div>
+      <nav class="prevnext" aria-label="Previous and next Pokémon">${step(prev, "prev")}${step(next, "next")}</nav></div>
+    <div class="monhead"><div><span class="label">#${pad(n)}${sel.category ? " · " + esc(sel.category) : ""}</span><h1>${esc(sel.name)}${sel.form ? ` <em>${esc(sel.form)}</em>` : ""}</h1>
+      <div class="chips">${sel.types.map(t => `<span class="type">${esc(t)}</span>`).join("")}<span class="type">${esc(gw)}</span>${kind ? `<span class="type">${esc(kind)}</span>` : ""}${sel.released ? "" : `<span class="type">Not out in GO yet</span>`}</div></div></div></header>${readOnlyNote()}
+    <div class="mondetail"><div class="monpic">${pic(sel, dk(sel), true)}${picker}</div>
+      <div>${desc}${facts}</div></div>
+    <section class="section"><h2>Your <em>boxes</em>${ordered.length > 1 ? ` <span class="muted">for ${esc(sel.form || "the usual form")}</span>` : ""}</h2>${bigBoxes(sel)}</section>
+    ${family ? `<section class="section"><h2>Evolution <em>family</em></h2>${family}</section>` : ""}
+    ${formCards ? `<section class="section"><h2>Every <em>form</em> <span class="muted">${all.filter(caught).length} of ${all.length} caught</span></h2><div class="grid">${formCards}</div></section>` : ""}
+    ${costumeCards ? `<section class="section"><h2>Costumes <span class="muted">${costumes.length}</span></h2><div class="grid">${costumeCards}</div></section>` : ""}
+    ${evs.length ? `<section class="section"><h2>Event <em>backgrounds</em> <span class="muted">${evs.length}</span></h2><div class="bgrows">${bgRows}</div></section>` : ""}`;
 }
 
 function costumeCard(c){
@@ -350,7 +470,8 @@ function costumesPage(){
   const ck = c => "c:" + c.id;
   const haveShiny = COSTUMES.filter(c => COL.costumes.includes(c.id) && has(ck(c), "s")).length;
   const haveAny = COSTUMES.filter(c => COL.costumes.includes(c.id) && hasAny(ck(c), ["c", "s"])).length;
-  view.innerHTML = `<header class="hero"><span class="label">Pokémon GO</span><h1>Costumes</h1>
+  setRegion(null);
+  view.innerHTML = `<header class="hero">${heroArt([...COSTUMES.filter(c => COL.costumes.includes(c.id)), ...COSTUMES.filter(c => c.shiny).reverse()])}<span class="label">Pokémon GO</span><h1>Costumes</h1>
     <div class="stats">${statTile("--deep-2", "shirt", "Collecting", COL.costumes.length, COSTUMES.length)}
     ${statTile("--caught", "poke-ball", "Caught", haveAny, COL.costumes.length)}${statTile("--shiny", "sparkles", "Shiny", haveShiny, COL.costumes.length)}</div></header>${readOnlyNote()}
     <div class="toolbar"><button class="chip" type="button" data-cmode="collecting" aria-pressed="${mode === "collecting"}">${ic("list-checks")}Ones I’m collecting</button>
@@ -383,7 +504,9 @@ function eventsPage(){
       ${mons ? `<div class="bgmons"${went ? "" : ' style="opacity:.55"'}>${mons}</div>` : ""}</div>`;
   }
   const bgs = EVENTS.filter(e => COL.went.includes(e.id) && e.background).length;
-  view.innerHTML = `<header class="hero"><span class="label">In-person events in Europe</span><h1>Events and <em>backgrounds</em></h1>
+  setRegion(null);
+  const bgMons = EVENTS.flatMap(ev => (ev.backgroundPokemon || []).map(name => baseOf[DATA.dexByName[name.toLowerCase()]]));
+  view.innerHTML = `<header class="hero">${heroArt(bgMons)}<span class="label">In-person events in Europe</span><h1>Events and <em>backgrounds</em></h1>
     <div class="stats">${statTile("--deep-2", "ticket", "Been to", COL.went.length, EVENTS.length)}
     ${statTile("--purified", "image", "With a background", bgs, COL.went.length)}</div></header>${readOnlyNote()}
     <div class="toolbar">${[["all", "Every event", EVENTS.length], ["went", "Ones I went to", COL.went.length], ["bg", "With a background", EVENTS.filter(e => e.background).length]]
@@ -413,7 +536,7 @@ function route(){
     return dexPage(`“${esc(q.value.trim())}”`, "Search", list);
   }
   const g = /^gen-(\w+)$/.exec(r);
-  if (g && genById[g[1]]) return dexPage(esc(genById[g[1]][1]), genById[g[1]][2], ENTRIES.filter(e => e.gen === g[1]));
+  if (g && genById[g[1]]) return dexPage(esc(genById[g[1]][1]), genById[g[1]][2], ENTRIES.filter(e => e.gen === g[1]), g[1]);
   if (r === "dex") return dexPage("Every <em>Pokémon</em>", "Pokémon GO", ENTRIES);
   home();
 }
@@ -457,6 +580,8 @@ async function toggleList(list, id){
 }
 
 document.addEventListener("click", ev => {
+  const go = ev.target.closest("a[data-goform]");
+  if (go) { const e = byId[go.dataset.goform]; pageForm[e.dex] = e.id; if (location.hash === "#p-" + e.dex) { ev.preventDefault(); rerender(); } return; }
   const b = ev.target.closest("button");
   if (!b) {   // anywhere else on a Pokémon's card: tick Caught, or the selected tab's box (her ask, 9 Nov)
     const c = ev.target.closest(".card[data-id]"), e = c && byId[c.dataset.id];
@@ -465,6 +590,8 @@ document.addEventListener("click", ev => {
     if (!t || (t !== "c" && t === "s" && !e.shiny && !has(dk(e), "s"))) return;
     return tick(dk(e), t, !has(dk(e), t));
   }
+  if (b.dataset.look) { setLook(b.dataset.look); keepPrefs(); lookSwitch(); return; }
+  if (b.dataset.pickform) { const e = byId[b.dataset.pickform]; pageForm[e.dex] = e.id; return rerender(); }
   if (b.hasAttribute("data-clear")) { Object.assign(prefs, {work: "all", workShow: "all"}); keepPrefs(); return rerender(); }
   if (b.hasAttribute("data-showall")) { prefs.workShow = prefs.workShow === "all" ? "need" : "all"; keepPrefs(); return rerender(); }
   if (b.dataset.work) { prefs.work = prefs.work === b.dataset.work ? "all" : b.dataset.work; prefs.workShow = prefs.work === "all" ? "all" : "need"; keepPrefs(); return rerender(); }   // click again: back to all
@@ -481,7 +608,7 @@ document.addEventListener("click", ev => {
   if (b.hasAttribute("data-collect")) return toggleList("costumes", b.closest("[data-costume]").dataset.costume);
   if (b.hasAttribute("data-went")) return toggleList("went", b.closest("[data-event]").dataset.event);
   if (b.dataset.tick) {
-    const holder = b.closest("[data-id],[data-costume],[data-bg]");
+    const holder = b.closest("[data-id],[data-costume],[data-bg]");   // a card, the big boxes on a Pokémon's page, a costume or a background
     const key = holder.dataset.id ? "d:" + holder.dataset.id : holder.dataset.costume ? "c:" + holder.dataset.costume : holder.dataset.bg;
     return tick(key, b.dataset.tick, b.getAttribute("aria-pressed") !== "true");
   }
@@ -504,8 +631,14 @@ q.addEventListener("input", () => {
 });
 document.getElementById("searchIco").innerHTML = ic("search");
 addEventListener("hashchange", () => { route(); scrollTo(0, 0); });
+addEventListener("keydown", ev => {   // ← and → step through the numbers on a Pokémon's page
+  if (!/^#p-\d+$/.test(location.hash) || ev.target.closest("input,textarea,select") || ev.altKey || ev.ctrlKey || ev.metaKey) return;
+  const a = document.querySelector(ev.key === "ArrowLeft" ? ".pn.prev" : ev.key === "ArrowRight" ? ".pn.next" : null);
+  if (a) { ev.preventDefault(); location.hash = a.getAttribute("href"); }
+});
 
 route();
+lookSwitch();
 if (location.protocol.startsWith("http")) {
   fetch("/api/collection").then(r => r.ok ? r.json() : Promise.reject()).then(c => { COL = norm(c); readOnly = false; rerender(); }).catch(() => {});
 }

@@ -340,13 +340,75 @@ main{margin-left:var(--side);min-height:100vh;container-type:inline-size}
 .card .nm{color:inherit;text-decoration:none;font-weight:700;font-size:14.5px;margin-top:10px;line-height:1.25}
 .card a.nm:hover{text-decoration:underline;text-underline-offset:3px}
 a.formsbtn{text-decoration:none}
-.hero.mon{padding-top:28px}
-.back{display:inline-flex;align-items:center;gap:6px;color:var(--on-deep-mute);text-decoration:none;font-size:13.5px;font-weight:700;position:relative;z-index:1}
-.back:hover{color:var(--on-deep)}
-.monhead{display:flex;align-items:center;gap:20px;margin-top:14px;position:relative;z-index:1}
-.monhead img{width:128px;height:128px;object-fit:contain;background:rgba(255,255,255,.08);border-radius:20px;padding:8px}
-.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
-.type{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:3px 11px;font-size:12.5px;font-weight:700}
+.hero.mon{padding-top:26px;padding-bottom:30px}
+.montop{display:flex;align-items:center;gap:12px;position:relative;z-index:1}
+.crumbs{display:flex;flex-wrap:wrap;gap:8px}
+.crumbs a{display:inline-flex;align-items:center;gap:7px;padding:5px 12px;border-radius:99px;border:1px solid rgba(255,255,255,.22);font-weight:600;font-size:13px;text-decoration:none;color:var(--on-deep)}
+.crumbs a:hover{background:rgba(255,255,255,.1)}
+.crumbs .i{opacity:.8}
+.prevnext{margin-left:auto;display:flex;gap:8px}
+.pn{display:inline-flex;align-items:center;gap:6px;padding:3px 10px 3px 6px;border-radius:12px;border:1px solid rgba(255,255,255,.18);text-decoration:none;color:var(--on-deep);font-size:13px;font-weight:700;line-height:1.15}
+.pn.next{padding:3px 6px 3px 10px;text-align:right}
+.pn:hover{background:rgba(255,255,255,.1)}
+.pn img{width:34px;height:34px;object-fit:contain}
+.pn small{display:block;font-size:11px;color:var(--on-deep-mute);font-weight:700}
+.pn .i{color:var(--on-deep-mute)}
+.monhead{display:flex;align-items:center;gap:20px;margin-top:22px;position:relative;z-index:1}
+.monhead h1 em{font-size:.6em}
+.mondetail{display:grid;grid-template-columns:300px minmax(0,1fr);gap:32px;margin-top:30px;align-items:start}
+.monpic{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px 16px 16px;display:grid;justify-items:center;gap:14px}
+.monpic .pic{width:240px;height:240px;margin:0;border-radius:50%;background:radial-gradient(closest-side,var(--soft),transparent);display:grid;place-items:center}
+.monpic .pic img{width:240px;height:240px}
+.monpic .pic .blank{width:240px;height:240px}
+.monpic .flips{right:-10px;top:4px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.type{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:4px 12px;font-size:13px;font-weight:700}
+.formpick{display:flex;flex-wrap:wrap;justify-content:center;gap:5px;border-top:1px solid var(--line);padding-top:12px;width:100%;max-height:300px;overflow:auto;scrollbar-width:thin}
+.formpick button{display:grid;justify-items:center;gap:0;width:57px;border:1px solid var(--line);background:var(--paper);border-radius:10px;padding:4px 2px 5px;cursor:pointer}
+.formpick button:hover{border-color:var(--muted)}
+.formpick button[aria-pressed="true"]{border-color:var(--deep-2);box-shadow:inset 0 0 0 1px var(--deep-2);background:color-mix(in srgb,var(--deep-2) 7%,var(--surface))}
+.formpick img{width:40px;height:40px;object-fit:contain}
+.formpick .blank{width:40px;height:40px;display:grid;place-items:center;color:var(--line)}
+.formpick small{font-size:10.5px;font-weight:700;line-height:1.2;color:var(--muted);max-width:53px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.dex-entry{font:400 22px/1.45 var(--display);margin:0 0 16px;max-width:60ch;text-wrap:pretty}
+.dex-entry .label{display:block;margin-bottom:4px}
+.dfacts{display:grid;grid-template-columns:1fr 1fr;column-gap:28px;margin:6px 0 0;border-top:1px solid var(--line)}
+.dfacts div{display:flex;justify-content:space-between;gap:16px;padding:10px 2px;border-bottom:1px solid var(--line);font-size:14.5px}
+.dfacts dt{color:var(--muted)}
+.dfacts dd{margin:0;font-weight:700;text-align:right}
+.dfacts .ok{display:inline-flex;align-items:center;gap:5px}
+.dfacts .ok .i{color:var(--caught)}
+.dfacts .no{color:var(--muted);font-weight:600}
+.section h2 em{font-style:italic}
+/* big boxes on a Pokémon's page: soft until ticked, then the box's colour with white text */
+.bigboxes{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.bb{display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:14px;border:1px solid var(--line);background:var(--surface);cursor:pointer;text-align:left;min-width:0}
+.bb > .i{width:34px;height:34px;padding:8px;border-radius:10px;background:color-mix(in srgb,var(--bc) 14%,var(--surface));color:var(--bc);box-sizing:border-box}
+.bb b{display:block;font-size:15px;line-height:1.2}
+.bb small{display:block;font-size:12px;color:var(--muted);font-weight:600}
+.bb:hover{border-color:var(--bc)}
+.bb[aria-pressed="true"]{background:var(--bc);border-color:var(--bc);color:#fff}
+.bb[aria-pressed="true"] > .i{background:rgba(255,255,255,.2);color:#fff}
+.bb[aria-pressed="true"] small{color:#fff;opacity:.85}
+.bb:disabled{cursor:default;border-style:dashed;background:transparent;opacity:.6}
+.bb:disabled > .i{background:var(--soft);color:var(--muted)}
+/* evolution family */
+.evo{display:grid;gap:14px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px 18px;overflow-x:auto}
+.evo-branch{display:flex;align-items:center;gap:6px}
+.evo-kids{display:grid;gap:6px}
+.evo-kids.many{grid-template-columns:repeat(2,minmax(0,auto))}
+.evo-kid{display:flex;align-items:center;gap:6px}
+.evo-step{display:flex;align-items:center;gap:8px;min-width:150px;max-width:210px;color:var(--muted);font-size:12.5px;font-weight:600;line-height:1.35}
+.evo-step > .i{flex:none;width:18px;height:18px}
+.evo-step .or{display:block;font-style:normal;font-size:11px;text-transform:uppercase;letter-spacing:.1em;margin:3px 0}
+.evo-mon{display:grid;justify-items:center;width:112px;padding:6px 4px 8px;border-radius:12px;border:1px solid transparent;text-decoration:none;text-align:center}
+.evo-mon:hover{border-color:var(--line);background:var(--paper)}
+.evo-mon.here{border-color:var(--deep-2);background:color-mix(in srgb,var(--deep-2) 6%,var(--surface))}
+.evo-mon.out-not{opacity:.55}
+.evo-mon img,.evo-mon .blank{width:72px;height:72px;object-fit:contain}
+.evo-mon .blank{display:grid;place-items:center;color:var(--line);font:400 30px var(--display)}
+.evo-mon b{font-size:13.5px;line-height:1.2}
+.evo-mon small{font-size:11.5px;color:var(--muted);line-height:1.2}
 .facts{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px}
 .facts li{display:flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:9px 12px;font-weight:600;font-size:14px}
 .facts li.on .i{color:var(--caught)}
@@ -389,6 +451,55 @@ a.formsbtn{text-decoration:none}
 .checkbtn .cb .i{width:13px;height:13px;stroke-width:3}
 .checkbtn[aria-pressed="true"] .cb{background:var(--deep-2);border-color:var(--deep-2)}
 .subrow .linkbtn{display:inline-flex;align-items:center;gap:4px}
+
+/* ---------- trial looks for the banner and sidebar (9 Nov), switched at the bottom right ---------- */
+.hero > :not(.heroart){position:relative;z-index:1}
+.heroart{position:absolute;inset:0;pointer-events:none;display:none;z-index:0}
+.heroart img{position:absolute;object-fit:contain}
+.lookswitch{position:fixed;right:16px;bottom:16px;z-index:40;display:flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--line);
+  border-radius:12px;padding:6px 8px 6px 12px;box-shadow:0 6px 24px rgba(0,0,0,.14)}
+.lookswitch .opts button{padding:4px 10px;font-size:12.5px}
+
+/* Region colours: each region's own colour in the banner with its starters in it; a dark sidebar that takes the region's colour for the page you're on */
+:root{--rc:#7E2530}
+:root[data-look="region"] .hero{background:radial-gradient(110% 150% at 88% -20%,color-mix(in srgb,var(--rc) 78%,#fff),var(--rc) 46%,color-mix(in srgb,var(--rc) 72%,#000) 100%)}
+:root[data-look="region"] .side{background:#1E1A21}
+:root[data-look="region"] .nav a.on{background:color-mix(in srgb,var(--rc) 75%,#1E1A21);box-shadow:inset 3px 0 0 color-mix(in srgb,var(--rc) 55%,#fff)}
+:root[data-look="region"] .heroart{display:block}
+:root[data-look="region"] .heroart img{width:150px;height:150px;top:18px;right:calc(36px + var(--i) * 128px);filter:drop-shadow(0 8px 16px rgba(0,0,0,.28))}
+:root[data-look="region"] .heroart img:nth-child(n+4){display:none}
+:root[data-look="region"] .hero::after{opacity:.6}
+
+/* Cream: a light page like paper, the sidebar and banner in cream with the red as a thin edge and the titles */
+:root[data-look="cream"] .side,:root[data-look="cream"] .hero{--on-deep:var(--ink);--on-deep-mute:var(--muted)}
+:root[data-look="cream"] .side{background:var(--soft);border-right:1px solid var(--line);box-shadow:inset -4px 0 0 var(--deep-2)}
+:root[data-look="cream"] .brand{border-bottom-color:var(--line)}
+:root[data-look="cream"] .brand b em{color:var(--deep-2)}
+:root[data-look="cream"] .search input{background:var(--surface);border-color:var(--line)}
+:root[data-look="cream"] .nav a:hover{background:color-mix(in srgb,var(--ink) 6%,transparent)}
+:root[data-look="cream"] .nav a.on{background:var(--surface);box-shadow:inset 3px 0 0 var(--deep-2)}
+:root[data-look="cream"] .nav{scrollbar-color:var(--line) transparent}
+:root[data-look="cream"] .hero{background:linear-gradient(var(--deep-2) 0 5px,transparent 5px),radial-gradient(90% 140% at 90% 0%,color-mix(in srgb,var(--deep-2) 7%,var(--surface)),var(--surface) 70%);border-bottom:1px solid var(--line)}
+:root[data-look="cream"] .hero h1 em{color:var(--deep-2)}
+:root[data-look="cream"] .hero::after{border-color:color-mix(in srgb,var(--deep-2) 7%,transparent);background:linear-gradient(transparent calc(50% - 14px),color-mix(in srgb,var(--deep-2) 7%,transparent) calc(50% - 14px) calc(50% + 14px),transparent calc(50% + 14px))}
+:root[data-look="cream"] .stat{background:var(--paper);border-color:var(--line)}
+:root[data-look="cream"] .sbar{background:var(--soft)}
+:root[data-look="cream"] .sbar i{filter:none}
+:root[data-look="cream"] .crumbs a,:root[data-look="cream"] .pn,:root[data-look="cream"] .type{border-color:var(--line);background:var(--paper)}
+:root[data-look="cream"] .crumbs a:hover,:root[data-look="cream"] .pn:hover{background:var(--soft)}
+:root[data-look="cream"] .heroart{display:block}
+:root[data-look="cream"] .heroart img{width:140px;height:140px;top:22px;right:calc(36px + var(--i) * 120px)}
+:root[data-look="cream"] .heroart img:nth-child(n+4){display:none}
+
+/* Parade: the red kept, with the page's Pokémon walking along the bottom of the banner; a Poké Ball ring low in the sidebar */
+:root[data-look="parade"] .hero{padding-bottom:92px}
+:root[data-look="parade"] .hero.mon{padding-bottom:88px}
+:root[data-look="parade"] .heroart{display:block}
+:root[data-look="parade"] .heroart img{width:70px;height:70px;bottom:6px;left:calc(max(clamp(16px,3vw,40px),(100cqw - 100%) / 2) + var(--i) * 76px);opacity:calc(1 - var(--i) * .055)}
+:root[data-look="parade"] .heroart::after{content:"";position:absolute;left:0;right:0;bottom:0;height:22px;background:linear-gradient(transparent,rgba(0,0,0,.18))}
+:root[data-look="parade"] .side{background:linear-gradient(180deg,var(--deep) 0%,color-mix(in srgb,var(--deep) 82%,#000) 100%);overflow:hidden}
+:root[data-look="parade"] .side::after{content:"";position:absolute;left:-90px;bottom:-90px;width:260px;height:260px;border-radius:50%;border:26px solid rgba(255,255,255,.05);
+  background:linear-gradient(transparent calc(50% - 13px),rgba(255,255,255,.05) calc(50% - 13px) calc(50% + 13px),transparent calc(50% + 13px));pointer-events:none}
 
 /* ---------- toast ---------- */
 .toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:var(--ink);color:var(--paper);padding:9px 16px;border-radius:10px;font-size:14px;font-weight:600;z-index:50;box-shadow:0 6px 24px rgba(0,0,0,.2)}

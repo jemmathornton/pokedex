@@ -1,11 +1,13 @@
 """Copy the game's own Pokémon pictures into site/sprites/ (one small .webp each), for every entry and costume.
 
-    python -X utf8 tools/fetch_sprites.py
+    python -X utf8 tools/fetch_sprites.py          (small pictures, 128 px, for cards: every entry and costume)
+    python -X utf8 tools/fetch_sprites.py --big    (big pictures, the game's full 256 px, for the Pokémon pages: entries only)
 
 Reads data/go/pictures.json (made by tools/import_go.py: picture key -> file in PokeMiners' pogo_assets, the game's
 picture files). Only pictures not already there are fetched, so it's quick after the first time. Each is shrunk to
 128 px (shown at 64-96 px) and kept as it is otherwise: no cropping or touching up.
-The sprites folder is kept out of git (about 15 MB, and it can always be fetched again); the weekly backup zips it.
+Big pictures go in site/sprites/big/ (9 Nov: on a Pokémon's page the small ones looked tiny, as the game draws small
+Pokémon small inside the picture). The sprites folder is kept out of git (about 15 MB, and it can always be fetched again); the weekly backup zips it.
 """
 import io, json, os, sys, urllib.parse, urllib.request
 from concurrent.futures import ThreadPoolExecutor
@@ -18,15 +20,16 @@ UA = {'User-Agent': "Jemma's Pokedex (private)"}
 SIZE = 128
 
 
-def one(item):
+def one(item, big=False):
     key, path = item
-    dest = os.path.join(OUT, key + '.webp')
+    dest = os.path.join(OUT, 'big' if big else '', key + '.webp')
     if os.path.exists(dest):
         return 'kept'
     try:
         with urllib.request.urlopen(urllib.request.Request(RAW + urllib.parse.quote(path), headers=UA), timeout=60) as r:
             im = Image.open(io.BytesIO(r.read())).convert('RGBA')
-        im.thumbnail((SIZE, SIZE), Image.LANCZOS)
+        if not big:
+            im.thumbnail((SIZE, SIZE), Image.LANCZOS)
         im.save(dest + '.tmp', 'WEBP', quality=88, method=6)
         os.replace(dest + '.tmp', dest)
         return 'new'
@@ -35,11 +38,16 @@ def one(item):
 
 
 def main():
-    os.makedirs(OUT, exist_ok=True)
+    big = '--big' in sys.argv
+    os.makedirs(os.path.join(OUT, 'big'), exist_ok=True)
     pics = json.load(open(os.path.join(ROOT, 'data', 'go', 'pictures.json'), encoding='utf-8'))
+    if big:   # entries only (not costumes): their picture, shiny, and female look
+        dex = json.load(open(os.path.join(ROOT, 'data', 'go', 'dex.json'), encoding='utf-8'))['entries']
+        want = {k for e in dex for k in (e['img'], e['img'] + '.s', e.get('femaleImg'), e.get('femaleImg') and e['femaleImg'] + '.s') if k}
+        pics = {k: v for k, v in pics.items() if k in want}
     counts, failed = {'new': 0, 'kept': 0}, []
     with ThreadPoolExecutor(8) as pool:
-        for i, res in enumerate(pool.map(one, pics.items()), 1):
+        for i, res in enumerate(pool.map(lambda it: one(it, big), pics.items()), 1):
             if res in counts:
                 counts[res] += 1
             else:

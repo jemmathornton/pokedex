@@ -17,6 +17,11 @@ Where everything comes from (copies of what was read are kept in imports/go-<dat
   (a missing box is worse than a spare one).
   The report also prints where Dittobase disagrees with what's counted as out and which shinies are out; again either
   saying out (or shiny out) is enough.
+- The game's own Pokédex text (PokeMiners' copy of GO's English text file): each Pokémon's description and category
+  ("Seed Pokémon"), word for word; a form's own text where the game has one (its keys use the game's form numbers,
+  read from the POGOProtos list in the @na-ji/pogo-protos package).
+- PokeMiners' copy of the Game Master: height, weight, buddy distance, family and evolutions (candy, items, lures,
+  trades, buddy and time-of-day rules, evolution tasks in the game's own words).
 - Which species are out: pogoapi.net (frozen in early 2024) + anything with a shiny out + research/data/go-release-check.json
   (checked 9 Nov 2026) + data/go/release-fixes.json (by hand: {"<dex or entry id>": true/false}).
 Nothing here is made up: a costume Leek Duck doesn't name gets its game code tidied ("Halloween 2017").
@@ -37,6 +42,9 @@ SOURCES = {
     'serebii-shadowpokemon.html': 'https://www.serebii.net/pokemongo/shadowpokemon.shtml',
     'serebii-maxbattles.html': 'https://www.serebii.net/pokemongo/maxbattles.shtml',
     'dittobase-go-pokedex.json': 'https://www.dittobase.com/api/go-pokemon/pokedex',
+    'gamemaster.json': 'https://raw.githubusercontent.com/PokeMiners/game_masters/master/latest/latest.json',
+    'go-text-apk.json': 'https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Texts/Latest%20APK/JSON/i18n_english.json',
+    'pogo-protos.d.ts': 'https://cdn.jsdelivr.net/npm/@na-ji/pogo-protos/compiled.d.ts',
 }
 DITTO_FLAGS = {'isShadow': ('shadow', '-shadow'), 'isDynamax': ('dynamax', '-dynamax'), 'isGigantamax': ('gmax', '-gigantamax')}
 # Dittobase's words for a form, where they differ from ours
@@ -135,6 +143,10 @@ def asset_key(url):
 def main():
     apply = '--apply' in sys.argv
     folder = os.path.join(ROOT, 'imports', f'go-{date.today().isoformat()}')
+    if '--reuse' in sys.argv:   # the newest copies already downloaded (rebuild without fetching again)
+        imports = os.path.join(ROOT, 'imports')
+        folder = os.path.join(imports, max(d for d in os.listdir(imports) if d.startswith('go-')))
+        print('reusing', os.path.basename(folder))
     os.makedirs(folder, exist_ok=True)
     paths = {n: fetch(folder, n, u) for n, u in SOURCES.items()}
     dex = json.load(open(paths['pokedex.json'], encoding='utf-8'))
@@ -216,6 +228,7 @@ def main():
             if fid and key == default_key:
                 e['default'] = True
             e['_fid'], e['_evos'] = fid or sid, [x['formId'] for x in src.get('evolutions') or []]   # for shadow evolutions
+            e['_sid'] = sid
             entries.append(e)
         # costumes: every other picture of this species that isn't a form above or a Mega / Gigantamax
         for key in sorted(files):
@@ -236,6 +249,97 @@ def main():
             if key in shiny_out:
                 c['shiny'] = shiny_out[key] or True
             costumes.append(c)
+
+    # GO's own Pokédex page for each (her ask, 9 Nov): description and category word for word from the game's text file
+    # (a form's own text where there is one), and height, weight, buddy distance and evolutions from the Game Master
+    text = json.load(open(paths['go-text-apk.json'], encoding='utf-8'))['data']
+    text = dict(zip(text[0::2], text[1::2]))
+    protos = open(paths['pogo-protos.d.ts'], encoding='utf-8').read()
+    i = protos.index('enum Form {')
+    form_no = {m.group(1): int(m.group(2)) for m in re.finditer(r'(\w+) = (\d+)', protos[i:protos.index('}', i)])}
+    gm, quests = {}, {}
+    for rec in json.load(open(paths['gamemaster.json'], encoding='utf-8')):
+        ps = rec['data'].get('pokemonSettings')
+        if ps:
+            gm.setdefault(ps.get('form') or ps['pokemonId'], ps)
+        if rec['data'].get('evolutionQuestTemplate'):
+            quests[rec['templateId']] = rec['data']['evolutionQuestTemplate']
+
+    def words(key):
+        t = text.get(key) or text.get(key.lower())
+        return re.sub(r'\s+', ' ', t).replace("'", '\u2019').strip() if t else None
+
+    def item(code):
+        return words(code.lower() + '_name') or words(code.lower()) or tidy(code.replace('ITEM_', ''))
+
+    no_text, own_text = [], 0
+    for e in entries:
+        n, fid, sid = e['dex'], e['_fid'], e['_sid']
+        num = form_no.get(fid, form_no.get(sid + '_NORMAL')) if fid != sid else None
+        for field in ('desc', 'category'):
+            own = words(f'pokemon_{field}_{n:04d}_{num:04d}') if num is not None else None
+            plain = form_no.get(sid + '_NORMAL')   # some species only have text under their normal form's number
+            v = own or words(f'pokemon_{field}_{n:04d}') or (plain is not None and words(f'pokemon_{field}_{n:04d}_{plain:04d}')) or None
+            if v:
+                e[field] = v
+            if own and field == 'desc':
+                own_text += 1
+        if not e.get('desc') and e['released']:
+            no_text.append(e['id'])
+        ps = gm.get(fid) or gm.get(sid + '_NORMAL') or gm.get(sid)
+        if not ps:
+            continue
+        if ps.get('pokedexHeightM'):
+            e['height'] = round(ps['pokedexHeightM'], 2)
+        if ps.get('pokedexWeightKg'):
+            e['weight'] = round(ps['pokedexWeightKg'], 2)
+        if ps.get('kmBuddyDistance'):
+            e['buddyKm'] = ps['kmBuddyDistance']
+        if ps.get('familyId'):
+            e['family'] = ps['familyId'].replace('FAMILY_', '')
+        steps = []
+        for b in ps.get('evolutionBranch') or []:
+            if b.get('temporaryEvolution') or not b.get('evolution'):
+                continue   # Mega Evolution isn't an evolution here
+            st = {'_to': b.get('form') or b['evolution']}
+            if b.get('candyCost'):
+                st['candy'] = b['candyCost']
+            if b.get('evolutionItemRequirement'):
+                st['item'] = item(b['evolutionItemRequirement'])
+                if b.get('evolutionItemRequirementCost', 1) > 1:
+                    st['itemCount'] = b['evolutionItemRequirementCost']
+            if b.get('lureItemRequirement'):
+                st['lure'] = item(b['lureItemRequirement'])
+            if b.get('kmBuddyDistanceRequirement'):
+                st['buddyKm'] = b['kmBuddyDistanceRequirement']
+            if b.get('mustBeBuddy'):
+                st['buddy'] = True
+            for k, v in (('onlyDaytime', 'day'), ('onlyNighttime', 'night'), ('onlyDuskPeriod', 'dusk'), ('onlyFullMoon', 'full moon')):
+                if b.get(k):
+                    st['time'] = v
+            if b.get('genderRequirement'):
+                st['gender'] = b['genderRequirement'].lower()
+            if b.get('noCandyCostViaTrade'):
+                st['tradeFree'] = True
+            if b.get('onlyUpsideDown'):
+                st['upsideDown'] = True
+            for q in b.get('questDisplay') or []:
+                qt = quests.get(q.get('questRequirementTemplateId'))
+                if qt:
+                    key = qt['display']['description']
+                    goal = (qt.get('goals') or [{}])[0].get('target')
+                    if goal and goal > 1 and key.upper().endswith('_SINGLE'):   # the game's plural wording ('Earn 70 hearts')
+                        key = key[:-len('_SINGLE')] + ('_PLURAL' if key.isupper() else '_plural')
+                    t = words(key)
+                    if t:
+                        st['task'] = t.replace('{0}', str(goal)) if goal is not None else t
+            if st not in steps:
+                steps.append(st)
+        if steps:
+            e['evo'] = steps
+    print(f'descriptions: {sum(1 for e in entries if e.get("desc"))} of {len(entries)} entries ({own_text} forms with their own text)')
+    if no_text:
+        print(f'{len(no_text)} out in GO with no description in the game text:', ', '.join(no_text[:40]))
 
     # Shadow / Purified, Dynamax, Gigantamax: from Dittobase, onto the matching entries; Serebii as a second opinion
     byid = {e['id']: e for e in entries}
@@ -323,6 +427,7 @@ def main():
 
     # a gender the game files keep as a form (Meowstic, Indeedee, Pyroar, Frillish, Jellicent, Oinkologne) is a gender
     # difference like Pikachu's (her point, 9 Nov): one entry with both genders and a female picture
+    merged = {}
     for n in sorted({e['dex'] for e in entries if e['form'] in ('Female', 'Male')}):
         same = [e for e in entries if e['dex'] == n]
         fem = next((e for e in same if e['form'] == 'Female'), None)
@@ -336,11 +441,15 @@ def main():
             if fem.get(flag):
                 base[flag] = True
         entries.remove(fem)
+        merged[id(fem)] = base
+        if fem.get('desc') and fem['desc'] != base.get('desc'):
+            base['femaleDesc'] = fem['desc']   # the game has a female Pokédex text of its own (Oinkologne)
         print(f'genders as forms merged: #{n} {base["name"]}')
 
     for e in entries:
         e.pop('_fid', None)
         e.pop('_evos', None)
+        e.pop('_sid', None)
     entries.sort(key=lambda e: (e['dex'], e['form'] is not None, e['form'] or ''))
     costumes.sort(key=lambda c: (c['dex'], c['code']))
     seen = set()
@@ -348,6 +457,22 @@ def main():
         while e['id'] in seen:
             e['id'] += '-2'
         seen.add(e['id'])
+    # evolutions point at entry ids (once the ids are final)
+    lost = []
+    for e in entries:
+        for st in e.get('evo', []):
+            t = by_fid.get(st['_to']) or by_fid.get(st['_to'] + '_NORMAL')
+            t = merged.get(id(t), t)
+            if not t:
+                lost.append(f"{e['id']}->{st['_to']}")
+            st['to'] = t['id'] if t else None
+            del st['_to']
+        if 'evo' in e:
+            e['evo'] = [st for st in e['evo'] if st['to']]
+            if not e['evo']:
+                del e['evo']
+    if lost:
+        print(f'{len(lost)} evolutions to something with no entry:', ', '.join(lost[:20]))
     pics = {k: files.get(k) for e in entries + costumes for k in (e['img'], e['img'] + '.s', e.get('femaleImg'), (e.get('femaleImg') or '') + '.s') if k and k != '.s'}
     missing = sorted(k for k, v in pics.items() if not v)
 
