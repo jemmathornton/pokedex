@@ -1,10 +1,13 @@
-# Shortcuts that open Jemma's Pokédex in its own app window (no tabs or address bar), as for Jemma's Library.
-# Run:  powershell -ExecutionPolicy Bypass -File tools\make_shortcuts.ps1
-# - "Jemma's Pokedex server" in her Startup folder: tools/serve.py (no window) serves the site at http://localhost:8030,
-#   this computer only, and saves her ticks. Started now too (by Windows, through the shortcut, so it keeps running).
-# - "Jemma's Pokédex" on the Desktop, in the Start menu and in the project folder: opens http://localhost:8030 as an
-#   app window in its own Chrome profile, so Windows gives it its own taskbar group, apart from the other two apps.
-# Delete them any time; deleting the Startup one stops the server starting.
+﻿# Shortcuts that open Jemma's Pokédex in its own app window (no tabs or address bar), like her other apps.
+# Run:  powershell -ExecutionPolicy Bypass -File tools\make_shortcuts.ps1            (Desktop, Start menu, project folder)
+#       powershell -ExecutionPolicy Bypass -File tools\make_shortcuts.ps1 -Startup   (also starts the server at login)
+# - "Jemma's Pokédex" on the Desktop, in the Start menu and in the project folder runs tools/open_app.pyw: it starts the
+#   server (tools/serve.py, http://localhost:8030, this computer only) if it isn't running, then opens the app window in
+#   its own Chrome profile, so Windows gives it its own taskbar button, apart from her other apps.
+# - With -Startup only: "Jemma's Pokedex server" in her Startup folder, as for the Library (not made on 9 Nov: Windows'
+#   safety check stopped Claude, and the shortcuts start the server anyway).
+# Delete them any time.
+param([switch]$Startup)
 
 $root       = Split-Path -Parent $PSScriptRoot
 $pythonw    = "$env:LOCALAPPDATA\Programs\Python\Python313\pythonw.exe"
@@ -18,17 +21,17 @@ if (-not (Test-Path $pythonw)) { throw "pythonw.exe not found at $pythonw" }
 if (-not $chrome) { throw 'Neither Chrome nor Edge was found.' }
 
 $shell = New-Object -ComObject WScript.Shell
-$startup = Join-Path ([Environment]::GetFolderPath('Startup')) "Jemma's Pokedex server.lnk"
-$lnk = $shell.CreateShortcut($startup)
-$lnk.TargetPath       = $pythonw
-$lnk.Arguments        = "`"$(Join-Path $root 'tools\serve.py')`""
-$lnk.WorkingDirectory = $root
-$lnk.IconLocation     = "$icon,0"
-$lnk.Description      = "Serves Jemma's Pokedex to its app window and saves her ticks (this computer only)"
-$lnk.Save()
-"Made $startup"
-Start-Process explorer.exe -ArgumentList "`"$startup`""   # Windows owns it, so it outlives the window that ran this
-"Server started: http://localhost:8030/"
+if ($Startup) {
+    $startupLnk = Join-Path ([Environment]::GetFolderPath('Startup')) "Jemma's Pokedex server.lnk"
+    $lnk = $shell.CreateShortcut($startupLnk)
+    $lnk.TargetPath       = $pythonw
+    $lnk.Arguments        = "`"$(Join-Path $root 'tools\serve.py')`""
+    $lnk.WorkingDirectory = $root
+    $lnk.IconLocation     = "$icon,0"
+    $lnk.Description      = "Serves Jemma's Pokedex to its app window and saves her ticks (this computer only)"
+    $lnk.Save()
+    "Made $startupLnk"
+}
 
 # Windows knows the window by the app id Chrome gives it: "Chrome." + its address as Chrome writes it ("localhost_/") +
 # "." + the profile. The shortcuts carry the same id, so Windows can use their sharp icon on the taskbar.
@@ -59,10 +62,10 @@ public static class ShortcutAppId {
 
 foreach ($dir in @($root, [Environment]::GetFolderPath('Desktop'), [Environment]::GetFolderPath('Programs'))) {
     $lnk = $shell.CreateShortcut((Join-Path $dir "$name.lnk"))
-    $lnk.TargetPath       = $chrome
-    $lnk.Arguments        = "--user-data-dir=`"$profileDir`" --no-first-run --no-default-browser-check --app=`"http://localhost:8030/`""
+    $lnk.TargetPath       = $pythonw
+    $lnk.Arguments        = "`"$(Join-Path $root 'tools\open_app.pyw')`""
     $lnk.IconLocation     = "$icon,0"
-    $lnk.WorkingDirectory = Join-Path $root 'site'
+    $lnk.WorkingDirectory = $root
     $lnk.Description      = $name
     $lnk.Save()
     [ShortcutAppId]::Set($lnk.FullName, $appId)
