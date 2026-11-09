@@ -27,6 +27,8 @@ const PREFS_KEY = "jemmas-pokedex-view";
 const prefs = Object.assign({layout: "C", box: {}, work: "all", workShow: "need", gender: "any", forms: "all", type: "any", kind: "any",
   unreleased: false, costumes: "auto", events: "all"}, store.get(PREFS_KEY, {}));
 if (typeof prefs.box !== "object" || !prefs.box) prefs.box = {};
+delete prefs.box.genders;
+if (prefs.work === "genders") prefs.work = "all";
 const keepPrefs = () => store.set(PREFS_KEY, prefs);
 
 // ---------- what there is ----------
@@ -47,7 +49,10 @@ const has = (key, t) => (COL.have[key] || []).includes(t);
 const hasAny = (key, ts) => ts.some(t => has(key, t));
 const dk = e => "d:" + e.id;
 const caught = e => (COL.have[dk(e)] || []).length > 0;   // any box ticked: she has one
-const gotBoth = e => has(dk(e), "cm") && has(dk(e), "cf");
+const maleTick = e => e.gender === "both" ? "cm" : e.gender === "male" ? "c" : null;
+const femaleTick = e => e.gender === "both" ? "cf" : e.gender === "female" ? "c" : null;
+const gotMale = e => !!maleTick(e) && has(dk(e), maleTick(e));
+const gotFemale = e => !!femaleTick(e) && has(dk(e), femaleTick(e));
 // species with more than one entry out in GO (Unown, Vivillon, Alolan Vulpix…): their entries are the "forms"
 const outBySpecies = {};
 ENTRIES.forEach(e => { if (e.released) (outBySpecies[e.dex] = outBySpecies[e.dex] || []).push(e); });
@@ -62,7 +67,7 @@ const EXTRAS = [
 ];
 
 function counts(list){
-  const r = {species: 0, speciesOut: 0, forms: 0, formsOut: 0, genders: 0, gendersOut: 0, shiny: 0, shinyOut: 0,
+  const r = {species: 0, speciesOut: 0, forms: 0, formsOut: 0, male: 0, maleOut: 0, female: 0, femaleOut: 0, shiny: 0, shinyOut: 0,
              lucky: 0, luckyOut: 0, hundo: 0, out: 0, sd: 0, pu: 0, shadowOut: 0, dx: 0, dynamaxOut: 0, gx: 0, gmaxOut: 0};
   const species = {};
   for (const e of list) {
@@ -71,7 +76,8 @@ function counts(list){
     r.out++;
     species[e.dex] = species[e.dex] || caught(e);
     if (hasForms(e)) { r.formsOut++; if (caught(e)) r.forms++; }
-    if (e.gender === "both") { r.gendersOut++; if (gotBoth(e)) r.genders++; }
+    if (maleTick(e)) { r.maleOut++; if (gotMale(e)) r.male++; }
+    if (femaleTick(e)) { r.femaleOut++; if (gotFemale(e)) r.female++; }
     if (e.shiny) { r.shinyOut++; if (has(k, "s")) r.shiny++; }
     if (canLucky(e)) { r.luckyOut++; if (has(k, "l")) r.lucky++; }
     if (has(k, "h")) r.hundo++;
@@ -89,7 +95,8 @@ function counts(list){
 // other two once she has chosen.
 const BOXF = [   // each box as a filter: which Pokémon it applies to, and whether she has it
   {k: "caught", label: "Caught", applies: () => true, have: e => caught(e), ticks: ["c", "cm", "cf"]},
-  {k: "genders", label: "♂ and ♀", applies: e => e.gender === "both", have: e => gotBoth(e), ticks: ["cm", "cf", "c"]},
+  {k: "male", label: "Male", applies: e => !!maleTick(e), have: gotMale, ticks: e => [maleTick(e)]},
+  {k: "female", label: "Female", applies: e => !!femaleTick(e), have: gotFemale, ticks: e => [femaleTick(e)]},
   {k: "shiny", label: "Shiny", applies: e => !!e.shiny, have: e => has(dk(e), "s"), ticks: ["s"]},
   {k: "lucky", label: "Lucky", applies: e => canLucky(e), have: e => has(dk(e), "l"), ticks: ["l"]},
   {k: "hundo", label: "4★", applies: e => e.released, have: e => has(dk(e), "h"), ticks: ["h"]},
@@ -102,31 +109,32 @@ const boxPass = (b, val, e) => val === "have" ? b.applies(e) && b.have(e) : val 
 function boxFilter(e){
   if (prefs.layout === "C") {
     const b = BOXF.find(x => x.k === prefs.work);
-    return !b || boxPass(b, prefs.workShow, e);
+    return !b || (b.applies(e) && boxPass(b, prefs.workShow, e));
   }
   return BOXF.every(b => boxPass(b, prefs.box[b.k] || "any", e));
 }
-const onlyTicks = () => prefs.layout === "C" ? (BOXF.find(x => x.k === prefs.work) || {}).ticks : null;   // C: cards show only that box
+function onlyTicks(e){   // C: cards show only the box she's working on
+  const b = prefs.layout === "C" && BOXF.find(x => x.k === prefs.work);
+  return b ? (typeof b.ticks === "function" ? b.ticks(e) : b.ticks) : null;
+}
 const TYPES = [...new Set(ENTRIES.flatMap(e => e.types))].sort();
 const KINDS = [["any", "Any", () => true], ["legendary", "Legendary", e => e.class === "legendary"], ["mythical", "Mythical", e => e.class === "mythical"],
                ["ultra-beast", "Ultra Beast", e => e.class === "ultra-beast"], ["ordinary", "Not legendary or mythical", e => !e.class]];
-const GENDERS = [["any", "Any", () => true], ["both", "Male and female", e => e.gender === "both"], ["male", "Male only", e => e.gender === "male"],
-                 ["female", "Female only", e => e.gender === "female"], ["none", "Genderless", e => e.gender === "none"]];
 const FORMS = [["all", "All Pokémon", () => true], ["forms", "Only ones with forms", hasForms], ["plain", "Only ones without forms", e => !hasForms(e)]];
 const GENDER_WORDS = {male: "♂ only", female: "♀ only", none: "Genderless"};
 
 // ---------- boxes on a card ----------
 function boxes(e){
-  const only = onlyTicks();
+  const only = onlyTicks(e);
   const k = dk(e), btn = (t, cls, html, title, off) => {
     if (only && !only.includes(t)) return "";
     const on = has(k, t);
     return `<button class="tk ${cls}" type="button" data-tick="${t}" aria-pressed="${on}" title="${attr(title)}" aria-label="${attr(title)}"${off && !on ? " disabled" : ""}>${html}</button>`;
   };
-  let row1 = e.gender === "both"
-    ? btn("cm", "c", ic("mars"), "Male") + btn("cf", "c", ic("venus"), "Female")
-    : btn("c", "c", ic("check") + "Caught", "Caught");
-  row1 += btn("s", "s", ic("sparkles") + "Shiny", e.shiny ? "Shiny" : "No shiny in GO yet", !e.shiny);
+  const row1 = (maleTick(e) ? btn(maleTick(e), "c", ic("mars"), e.gender === "male" ? "Male (male only)" : "Male") : "") +
+    (femaleTick(e) ? btn(femaleTick(e), "c", ic("venus"), e.gender === "female" ? "Female (female only)" : "Female") : "") +
+    (e.gender === "none" ? btn("c", "c", ic("check") + "Caught", "Caught (genderless)") : "") +
+    btn("s", "s", ic("sparkles") + "Shiny", e.shiny ? "Shiny" : "No shiny in GO yet", !e.shiny);
   const row2 = btn("l", "l", ic("clover") + "Lucky", e.class === "mythical" ? "Mythical: can’t be traded, so never lucky" : "Lucky", !canLucky(e)) +
     btn("h", "h", "4★", "4★ (perfect IVs)", !e.released);
   const row3 = EXTRAS.filter(x => e[x.flag]).map(x => btn(x.t, x.t, esc(x.label), x.title)).join("");
@@ -175,7 +183,8 @@ function statsHtml(c){
   return `<div class="stats">` +
     t("caught", ic("check"), c.species, c.speciesOut, "Pokémon") +
     t("caught", ic("layers"), c.forms, c.formsOut, "forms") +
-    t("caught", ic("mars") + ic("venus"), c.genders, c.gendersOut, "both genders") +
+    t("caught", ic("mars"), c.male, c.maleOut, "male") +
+    t("caught", ic("venus"), c.female, c.femaleOut, "female") +
     t("shiny", ic("sparkles"), c.shiny, c.shinyOut, "shiny") +
     t("lucky", ic("clover"), c.lucky, c.luckyOut, "lucky") +
     t("hundo", ic("star"), c.hundo, c.out, "4★") +
@@ -208,8 +217,8 @@ function home(){
 
 function dexPage(title, label, list){
   const pick = (rows, cur) => rows.find(x => x[0] === cur) || rows[0];
-  const gender = pick(GENDERS, prefs.gender), forms = pick(FORMS, prefs.forms), kind = pick(KINDS, prefs.kind);
-  const items = list.filter(e => (prefs.unreleased || e.released) && boxFilter(e) && gender[2](e) && forms[2](e) && kind[2](e) &&
+  const forms = pick(FORMS, prefs.forms), kind = pick(KINDS, prefs.kind);
+  const items = list.filter(e => (prefs.unreleased || e.released) && boxFilter(e) && forms[2](e) && kind[2](e) &&
     (prefs.type === "any" || e.types.includes(prefs.type)));
   const notOut = list.filter(e => !e.released).length;
   const opts = (rows, cur) => rows.map(x => `<option value="${x[0]}"${x[0] === cur ? " selected" : ""}>${esc(x[1])}</option>`).join("");
@@ -224,15 +233,15 @@ function dexPage(title, label, list){
       seg(`data-box-${b.k}`, prefs.box[b.k] || "any", [["any", "Any"], ["have", "Have"], ["need", "Need"]]) + `</span>`).join("")}</div></div>`;
   } else {
     boxRows = `<div class="frow"><span class="label">Working on</span><div class="worktabs">` +
-      [{k: "all", label: "Everything"}, ...BOXF.filter(b => b.k !== "caught")].map(b => `<button type="button" class="worktab" data-work="${b.k}" aria-pressed="${prefs.work === b.k}">${esc(b.label)}</button>`).join("") +
+      [{k: "all", label: "Everything"}, ...BOXF].map(b => `<button type="button" class="worktab" data-work="${b.k}" aria-pressed="${prefs.work === b.k}">${esc(b.label)}</button>`).join("") +
       `</div></div>` + (prefs.work !== "all" ? `<div class="frow"><span class="label">Show</span><span class="seg">` +
       seg("data-workshow", prefs.workShow, [["need", "Still need"], ["have", "Have"], ["all", "All"]]) + `</span></div>` : "");
   }
-  const filtered = gender[0] !== "any" || forms[0] !== "all" || kind[0] !== "any" || prefs.type !== "any" ||
+  const filtered = forms[0] !== "all" || kind[0] !== "any" || prefs.type !== "any" ||
     (prefs.layout === "C" ? prefs.work !== "all" : Object.values(prefs.box).some(v => v && v !== "any"));
   view.innerHTML = `<header class="hero"><span class="label">${esc(label)}</span><h1>${title}</h1>${statsHtml(counts(list))}</header>${readOnlyNote()}
     <div class="toolbar filters" id="toolbar">${boxRows}
-      <div class="frow"><span class="label">The Pokémon</span>${sel("Gender", "gender", GENDERS)}${sel("Forms", "forms", FORMS)}
+      <div class="frow"><span class="label">The Pokémon</span>${sel("Forms", "forms", FORMS)}
         ${sel("Type", "type", [["any", "Any type"], ...TYPES.map(t => [t, t])])}${sel("Kind", "kind", KINDS)}
         ${notOut ? `<label class="check"><input type="checkbox" data-pref="unreleased"${prefs.unreleased ? " checked" : ""}> Include ones not out in GO yet</label>` : ""}
         <span class="gap"></span>${filtered ? `<button class="linkbtn" type="button" data-clear>Clear filters</button>` : ""}<span class="shown">${num(items.length)} shown</span></div></div>
@@ -367,7 +376,7 @@ async function toggleList(list, id){
 document.addEventListener("click", ev => {
   const b = ev.target.closest("button");
   if (!b) return;
-  if (b.hasAttribute("data-clear")) { Object.assign(prefs, {box: {}, work: "all", gender: "any", forms: "all", type: "any", kind: "any"}); keepPrefs(); return rerender(); }
+  if (b.hasAttribute("data-clear")) { Object.assign(prefs, {box: {}, work: "all", forms: "all", type: "any", kind: "any"}); keepPrefs(); return rerender(); }
   if (b.dataset.layout) { prefs.layout = b.dataset.layout; keepPrefs(); return rerender(); }
   if (b.dataset.work) { prefs.work = b.dataset.work; keepPrefs(); return rerender(); }
   if (b.dataset.workshow) { prefs.workShow = b.dataset.workshow; keepPrefs(); return rerender(); }
