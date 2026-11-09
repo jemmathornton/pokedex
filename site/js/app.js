@@ -69,10 +69,10 @@ const hasForms = e => (outBySpecies[e.dex] || []).length > 1;
 
 // the extra boxes, only on the Pokémon they can apply to (Serebii's lists, tools/import_go.py)
 const EXTRAS = [
-  {t: "sd", label: "Shadow", flag: "shadow", title: "Shadow"},
-  {t: "pu", label: "Purified", flag: "shadow", title: "Purified"},
-  {t: "dx", label: "Dynamax", flag: "dynamax", title: "Dynamax"},
-  {t: "gx", label: "G-Max", flag: "gmax", title: "Gigantamax"},
+  {t: "sd", label: "Shadow", icon: "flame", flag: "shadow", title: "Shadow"},
+  {t: "pu", label: "Purified", icon: "sun", flag: "shadow", title: "Purified"},
+  {t: "dx", label: "Dynamax", icon: "chevrons-up", flag: "dynamax", title: "Dynamax"},
+  {t: "gx", label: "G-Max", icon: "cloud", flag: "gmax", title: "Gigantamax"},
 ];
 
 function counts(list){
@@ -137,8 +137,10 @@ function boxes(e){
   const row2 = btn("s", "s", ic("sparkles") + "Shiny", e.shiny ? "Shiny" : "No shiny in GO yet", !e.shiny) +
     btn("l", "l", ic("clover") + "Lucky", e.class === "mythical" ? "Mythical: can’t be traded, so never lucky" : "Lucky", !canLucky(e)) +
     btn("h", "h", "4★", "4★ (perfect IVs)", !e.released);
-  const row3 = EXTRAS.filter(x => e[x.flag]).map(x => btn(x.t, x.t, esc(x.label), x.title)).join("");
-  return [row1, row2, row3].filter(Boolean).map(r => `<div class="ticks${only ? " big" : ""}">${r}</div>`).join("");
+  // themed rows so none sits alone (her point, 9 Nov): caught and genders · shiny, lucky, 4★ · shadow, purified · Max
+  const extra = keys => EXTRAS.filter(x => keys.includes(x.t) && e[x.flag]).map(x => btn(x.t, x.t, ic(x.icon) + esc(x.label), x.title)).join("");
+  const row3 = extra(["sd", "pu"]), row4 = extra(["dx", "gx"]);
+  return [row1, row2, row3, row4].filter(Boolean).map(r => `<div class="ticks${only ? " big" : ""}">${r}</div>`).join("");
 }
 
 // the picture: small ✨ and ♀ buttons on it flip to the shiny / female picture (9 Nov: clicking the picture itself was
@@ -406,7 +408,13 @@ async function toggleList(list, id){
 document.addEventListener("click", ev => {
   if (ev.target.id === "modal") { formsOpen = null; return rerender(); }
   const b = ev.target.closest("button");
-  if (!b) return;
+  if (!b) {   // anywhere else on a Pokémon's card: tick Caught, or the selected tab's box (her ask, 9 Nov)
+    const c = ev.target.closest(".card[data-id]"), e = c && byId[c.dataset.id];
+    if (!e || ev.target.closest("a")) return;
+    const t = formTick(e);
+    if (!t || (t !== "c" && t === "s" && !e.shiny && !has(dk(e), "s"))) return;
+    return tick(dk(e), t, !has(dk(e), t));
+  }
   if (b.hasAttribute("data-clear")) { Object.assign(prefs, {work: "all"}); keepPrefs(); return rerender(); }
   if (b.dataset.work) { prefs.work = prefs.work === b.dataset.work ? "all" : b.dataset.work; keepPrefs(); return rerender(); }   // click again: back to all
   if (b.dataset.notout) { prefs.unreleased = b.dataset.notout === "yes"; keepPrefs(); return rerender(); }

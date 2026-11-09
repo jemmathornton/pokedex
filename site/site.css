@@ -223,7 +223,9 @@ main{margin-left:var(--side);min-height:100vh;container-type:inline-size}
 
 /* ---------- Pokémon cards ---------- */
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:12px;align-items:start}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:10px 10px 10px;display:flex;flex-direction:column;align-items:center;position:relative;text-align:center}
+.card[data-id]{cursor:pointer;user-select:none}
+.card[data-id]:hover{border-color:color-mix(in srgb,var(--muted) 45%,var(--line))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:10px 6px 10px;display:flex;flex-direction:column;align-items:center;position:relative;text-align:center}
 .card.out-not{opacity:.6}
 .card .no{position:absolute;left:10px;top:8px;font-size:11.5px;font-weight:700;color:var(--muted);font-variant-numeric:tabular-nums}
 .card .flags{position:absolute;right:8px;top:6px;display:flex;gap:3px}
@@ -235,9 +237,10 @@ main{margin-left:var(--side);min-height:100vh;container-type:inline-size}
 .card.got.informs{border-style:solid}
 .card b.nm{margin-top:10px;font-size:14.5px;line-height:1.25}
 .card small.fm{font-size:12px;color:var(--muted);line-height:1.3;min-height:1.3em}
-.ticks{display:flex;flex-wrap:wrap;justify-content:center;gap:4px;margin-top:8px}
-.tk{display:inline-flex;align-items:center;gap:3px;border:1px solid var(--line);background:transparent;border-radius:8px;padding:2px 7px;font-size:12px;font-weight:700;cursor:pointer;color:var(--muted);line-height:1.5}
-.tk .i{width:13px;height:13px}
+.ticks{display:flex;flex-wrap:wrap;justify-content:center;gap:3px;margin-top:8px}
+.card .ticks + .ticks{margin-top:4px}
+.tk{display:inline-flex;align-items:center;gap:3px;border:1px solid transparent;background:var(--soft);border-radius:8px;padding:2px 5px;font-size:11.5px;font-weight:700;cursor:pointer;color:var(--muted);line-height:1.5}
+.tk .i{width:12px;height:12px}
 .tk:hover{border-color:var(--muted)}
 .tk[aria-pressed="true"]{color:#fff;border-color:transparent}
 .tk.c[aria-pressed="true"]{background:var(--caught)}
@@ -252,7 +255,7 @@ main{margin-left:var(--side);min-height:100vh;container-type:inline-size}
 .tk.gx[aria-pressed="true"]{background:var(--gmax)}
 .card .ticks + .ticks{margin-top:4px}
 .card .gd{font-weight:700;color:var(--ink);opacity:.75}
-.tk:disabled{opacity:.35;cursor:default;border-style:dashed}
+.tk:disabled{opacity:.45;cursor:default;background:transparent;border:1px dashed var(--line)}
 .tk:disabled[aria-pressed="true"]{opacity:.7}
 .empty{padding:40px 0;color:var(--muted)}
 
