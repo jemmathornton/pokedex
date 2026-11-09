@@ -3,6 +3,9 @@
 Everything waiting on you. **Do** = just do it; **Decide** = your call. Tell Claude when one’s done or decided and it comes off.
 
 ## Start here
+- **Do:** Set up the shortcuts and the weekly backup. Windows wouldn’t let Claude do these two, because they start things running by themselves. In PowerShell, run
+  `powershell -ExecutionPolicy Bypass -File "C:\Users\Jemma\Documents\Pokedex\tools\make_shortcuts.ps1"` for the Desktop and Start menu shortcuts and the server that saves your ticks (started at login, like the Library’s). Then run
+  `powershell -ExecutionPolicy Bypass -File "C:\Users\Jemma\Documents\Pokedex\tools\make_backup_task.ps1"` for the backup every Sunday at 9:40.
 - **Do:** Tick the events you’ve been to on the **Events and backgrounds** page (“I went”). The list has 79 European in-person events from 2017 on; 56 had a location background. Anything missing, tell Claude. (Full list with sources: research/european-events.md.)
 - **Do:** Pick the costumes you want to collect on the **Costumes** page (“Collect this”). All 326 costume pictures in the game are there.
 - **Do:** Start ticking your shinies and luckies.
