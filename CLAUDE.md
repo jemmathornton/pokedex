@@ -10,6 +10,7 @@ A private Pokédex for Jemma’s Pokémon GO collection: every Pokémon and form
 - **Obvious bugs** can be fixed straight away; **anything needing her judgement** (what to track, which costumes or events, layout, colours) goes on `for-jemma/your-list.md` as **Do** or **Decide**.
 - **Show, don’t ask, for looks:** layout or design questions get a screenshot of each option at 1280px, never text-only options.
 - **No AI-generated art.** Pokémon pictures are the game’s own (PokeMiners’ copy of the game files); icons are Lucide (ISC, `site/js/LICENSE-lucide.txt`); the app icon is drawn from plain shapes by `tools/make_icons.py`.
+- **Icons only from the sets her apps use** (Lucide, plus Lucide Lab, Tabler or Phosphor where Lucide has nothing), and **never a real logo or brand mark** (Tabler’s brand-* icons are out; 9 Nov she spotted the X/Twitter logo among the options). Show icon options as a picture before using one.
 - **No made-up text.** Names and descriptions come from the game or the sources below, word for word. A costume Leek Duck doesn’t name gets its game code tidied, nothing more.
 - **Suggestions aren’t facts:** label anything Claude proposes as a suggestion.
 - **Her ticks are hers:** never change `data/collection/go.json` by hand or by script without her asking. Tests and checks use port 8031, which writes to the same file, so remove any test ticks afterwards (or check on a copy).
