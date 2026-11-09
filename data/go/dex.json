@@ -3854,7 +3854,8 @@
    "img": "pm201.fUNOWN_F",
    "gender": "none",
    "released": true,
-   "shiny": "2021-07-17"
+   "shiny": "2021-07-17",
+   "default": true
   },
   {
    "id": "201-g",
@@ -6167,7 +6168,8 @@
    "img": "pm327.f00",
    "gender": "both",
    "released": true,
-   "shiny": "2019-11-01"
+   "shiny": "2019-11-01",
+   "default": true
   },
   {
    "id": "327-2",
@@ -7894,7 +7896,8 @@
    "img": "pm421.fOVERCAST",
    "gender": "both",
    "released": true,
-   "shiny": "2022-04-20"
+   "shiny": "2022-04-20",
+   "default": true
   },
   {
    "id": "421-sunny",
@@ -7936,7 +7939,8 @@
    "img": "pm422.fWEST_SEA",
    "gender": "both",
    "released": true,
-   "shiny": "2023-08-27"
+   "shiny": "2023-08-27",
+   "default": true
   },
   {
    "id": "423-east-sea",
@@ -7966,7 +7970,8 @@
    "img": "pm423.fWEST_SEA",
    "gender": "both",
    "released": true,
-   "shiny": "2023-08-27"
+   "shiny": "2023-08-27",
+   "default": true
   },
   {
    "id": "424",
@@ -9075,6 +9080,7 @@
    "released": true,
    "class": "legendary",
    "shiny": "2019-09-23",
+   "default": true,
    "shadow": true
   },
   {
@@ -9166,7 +9172,8 @@
    "gender": "none",
    "released": true,
    "class": "mythical",
-   "shiny": "2024-02-24"
+   "shiny": "2024-02-24",
+   "default": true
   },
   {
    "id": "492-sky",
@@ -10339,7 +10346,8 @@
    "img": "pm550.fRED_STRIPED",
    "gender": "both",
    "released": true,
-   "shiny": "2024-12-03"
+   "shiny": "2024-12-03",
+   "default": true
   },
   {
    "id": "550-white-striped",
@@ -10457,6 +10465,7 @@
    "gender": "both",
    "released": true,
    "shiny": "2021-07-06",
+   "default": true,
    "dynamax": true,
    "shadow": true
   },
@@ -10969,7 +10978,8 @@
    "img": "pm585.fSPRING",
    "gender": "both",
    "released": true,
-   "shiny": "2025-02-21"
+   "shiny": "2025-02-21",
+   "default": true
   },
   {
    "id": "585-summer",
@@ -11029,7 +11039,8 @@
    "img": "pm586.fSPRING",
    "gender": "both",
    "released": true,
-   "shiny": "2025-02-21"
+   "shiny": "2025-02-21",
+   "default": true
   },
   {
    "id": "586-summer",
@@ -11922,6 +11933,7 @@
    "released": true,
    "class": "legendary",
    "shiny": "2021-03-06",
+   "default": true,
    "shadow": true
   },
   {
@@ -11954,6 +11966,7 @@
    "released": true,
    "class": "legendary",
    "shiny": "2021-03-11",
+   "default": true,
    "shadow": true
   },
   {
@@ -12021,6 +12034,7 @@
    "released": true,
    "class": "legendary",
    "shiny": "2021-03-01",
+   "default": true,
    "shadow": true
   },
   {
@@ -12101,7 +12115,8 @@
    "gender": "none",
    "released": true,
    "class": "mythical",
-   "shiny": "2025-11-25"
+   "shiny": "2025-11-25",
+   "default": true
   },
   {
    "id": "647-resolute",
@@ -12133,7 +12148,8 @@
    "gender": "none",
    "released": true,
    "class": "mythical",
-   "shiny": "2025-02-21"
+   "shiny": "2025-02-21",
+   "default": true
   },
   {
    "id": "649",
@@ -12444,7 +12460,8 @@
    "img": "pm664",
    "gender": "both",
    "released": true,
-   "shiny": "2025-02-18"
+   "shiny": "2025-02-18",
+   "default": true
   },
   {
    "id": "664-continental",
@@ -12458,7 +12475,8 @@
    "img": "pm664",
    "gender": "both",
    "released": true,
-   "shiny": "2025-02-18"
+   "shiny": "2025-02-18",
+   "default": true
   },
   {
    "id": "664-elegant",
@@ -12472,7 +12490,8 @@
    "img": "pm664",
    "gender": "both",
    "released": true,
-   "shiny": "2025-02-18"
+   "shiny": "2025-02-18",
+   "default": true
   },
   {
    "id": "664-fancy",
@@ -12486,7 +12505,8 @@
    "img": "pm664",
    "gender": "both",
    "released": true,
-   "shiny": "2025-02-18"
+   "shiny": "2025-02-18",
+   "default": true
   },
   {
    "id": "664-garden",
@@ -12500,7 +12520,8 @@
    "img": "pm664",
    "gender": "both",
    "released": true,
-   "shiny": "2025-02-18"
+   "shiny": "2025-02-18",
+   "default": true
   },
   {
    "id": "664-high-plains",
@@ -12514,7 +12535,8 @@
    "img": "pm664",
    "gender": "both",
    "released": true,
-   "shiny": "2025-02-18"
+   "shiny": "2025-02-18",
+   "default": true
   },
   {
    "id": "664-icy-snow",
@@ -12528,7 +12550,8 @@
    "img": "pm664",
    "gender": "both",
    "released": true,
-   "shiny": "2025-02-18"
+   "shiny": "2025-02-18",
+   "default": true
   },
   {
    "id": "664-jungle",
@@ -12542,7 +12565,8 @@
    "img": "pm664",
    "gender": "both",
    "released": true,
-   "shiny": "2025-02-18"
+   "shiny": "2025-02-18",
+   "default": true
   },
   {
    "id": "664-marine",
@@ -12556,7 +12580,8 @@
    "img": "pm664",
    "gender": "both",
    "released": true,
-   "shiny": "2025-02-18"
+   "shiny": "2025-02-18",
+   "default": true
   },
   {
    "id": "664-meadow",
@@ -12570,7 +12595,8 @@
    "img": "pm664",
    "gender": "both",
    "released": true,
-   "shiny": "2025-02-18"
+   "shiny": "2025-02-18",
+   "default": true
   },
   {
    "id": "664-modern",
@@ -12584,7 +12610,8 @@
    "img": "pm664",
    "gender": "both",
    "released": true,
-   "shiny": "2025-02-18"
+   "shiny": "2025-02-18",
+   "default": true
   },
   {
    "id": "664-monsoon",
@@ -12598,7 +12625,8 @@
    "img": "pm664",
    "gender": "both",
    "released": true,
-   "shiny": "2025-02-18"
+   "shiny": "2025-02-18",
+   "default": true
   },
   {
    "id": "664-ocean",
@@ -12612,7 +12640,8 @@
    "img": "pm664",
    "gender": "both",
    "released": true,
-   "shiny": "2025-02-18"
+   "shiny": "2025-02-18",
+   "default": true
   },
   {
    "id": "664-poke-ball",
@@ -12626,7 +12655,8 @@
    "img": "pm664",
    "gender": "both",
    "released": true,
-   "shiny": "2025-02-18"
+   "shiny": "2025-02-18",
+   "default": true
   },
   {
    "id": "664-polar",
@@ -12640,7 +12670,8 @@
    "img": "pm664",
    "gender": "both",
    "released": true,
-   "shiny": "2025-02-18"
+   "shiny": "2025-02-18",
+   "default": true
   },
   {
    "id": "664-river",
@@ -12654,7 +12685,8 @@
    "img": "pm664",
    "gender": "both",
    "released": true,
-   "shiny": "2025-02-18"
+   "shiny": "2025-02-18",
+   "default": true
   },
   {
    "id": "664-sandstorm",
@@ -12668,7 +12700,8 @@
    "img": "pm664",
    "gender": "both",
    "released": true,
-   "shiny": "2025-02-18"
+   "shiny": "2025-02-18",
+   "default": true
   },
   {
    "id": "664-savanna",
@@ -12682,7 +12715,8 @@
    "img": "pm664",
    "gender": "both",
    "released": true,
-   "shiny": "2025-02-18"
+   "shiny": "2025-02-18",
+   "default": true
   },
   {
    "id": "664-sun",
@@ -12696,7 +12730,8 @@
    "img": "pm664",
    "gender": "both",
    "released": true,
-   "shiny": "2025-02-18"
+   "shiny": "2025-02-18",
+   "default": true
   },
   {
    "id": "664-tundra",
@@ -12710,7 +12745,8 @@
    "img": "pm664",
    "gender": "both",
    "released": true,
-   "shiny": "2025-02-18"
+   "shiny": "2025-02-18",
+   "default": true
   },
   {
    "id": "665-archipelago",
@@ -12724,7 +12760,8 @@
    "img": "pm665",
    "gender": "both",
    "released": true,
-   "shiny": "2025-02-18"
+   "shiny": "2025-02-18",
+   "default": true
   },
   {
    "id": "665-continental",
@@ -12738,7 +12775,8 @@
    "img": "pm665",
    "gender": "both",
    "released": true,
-   "shiny": "2025-02-18"
+   "shiny": "2025-02-18",
+   "default": true
   },
   {
    "id": "665-elegant",
@@ -12752,7 +12790,8 @@
    "img": "pm665",
    "gender": "both",
    "released": true,
-   "shiny": "2025-02-18"
+   "shiny": "2025-02-18",
+   "default": true
   },
   {
    "id": "665-fancy",
@@ -12766,7 +12805,8 @@
    "img": "pm665",
    "gender": "both",
    "released": true,
-   "shiny": "2025-02-18"
+   "shiny": "2025-02-18",
+   "default": true
   },
   {
    "id": "665-garden",
@@ -12780,7 +12820,8 @@
    "img": "pm665",
    "gender": "both",
    "released": true,
-   "shiny": "2025-02-18"
+   "shiny": "2025-02-18",
+   "default": true
   },
   {
    "id": "665-high-plains",
@@ -12794,7 +12835,8 @@
    "img": "pm665",
    "gender": "both",
    "released": true,
-   "shiny": "2025-02-18"
+   "shiny": "2025-02-18",
+   "default": true
   },
   {
    "id": "665-icy-snow",
@@ -12808,7 +12850,8 @@
    "img": "pm665",
    "gender": "both",
    "released": true,
-   "shiny": "2025-02-18"
+   "shiny": "2025-02-18",
+   "default": true
   },
   {
    "id": "665-jungle",
@@ -12822,7 +12865,8 @@
    "img": "pm665",
    "gender": "both",
    "released": true,
-   "shiny": "2025-02-18"
+   "shiny": "2025-02-18",
+   "default": true
   },
   {
    "id": "665-marine",
@@ -12836,7 +12880,8 @@
    "img": "pm665",
    "gender": "both",
    "released": true,
-   "shiny": "2025-02-18"
+   "shiny": "2025-02-18",
+   "default": true
   },
   {
    "id": "665-meadow",
@@ -12850,7 +12895,8 @@
    "img": "pm665",
    "gender": "both",
    "released": true,
-   "shiny": "2025-02-18"
+   "shiny": "2025-02-18",
+   "default": true
   },
   {
    "id": "665-modern",
@@ -12864,7 +12910,8 @@
    "img": "pm665",
    "gender": "both",
    "released": true,
-   "shiny": "2025-02-18"
+   "shiny": "2025-02-18",
+   "default": true
   },
   {
    "id": "665-monsoon",
@@ -12878,7 +12925,8 @@
    "img": "pm665",
    "gender": "both",
    "released": true,
-   "shiny": "2025-02-18"
+   "shiny": "2025-02-18",
+   "default": true
   },
   {
    "id": "665-ocean",
@@ -12892,7 +12940,8 @@
    "img": "pm665",
    "gender": "both",
    "released": true,
-   "shiny": "2025-02-18"
+   "shiny": "2025-02-18",
+   "default": true
   },
   {
    "id": "665-poke-ball",
@@ -12906,7 +12955,8 @@
    "img": "pm665",
    "gender": "both",
    "released": true,
-   "shiny": "2025-02-18"
+   "shiny": "2025-02-18",
+   "default": true
   },
   {
    "id": "665-polar",
@@ -12920,7 +12970,8 @@
    "img": "pm665",
    "gender": "both",
    "released": true,
-   "shiny": "2025-02-18"
+   "shiny": "2025-02-18",
+   "default": true
   },
   {
    "id": "665-river",
@@ -12934,7 +12985,8 @@
    "img": "pm665",
    "gender": "both",
    "released": true,
-   "shiny": "2025-02-18"
+   "shiny": "2025-02-18",
+   "default": true
   },
   {
    "id": "665-sandstorm",
@@ -12948,7 +13000,8 @@
    "img": "pm665",
    "gender": "both",
    "released": true,
-   "shiny": "2025-02-18"
+   "shiny": "2025-02-18",
+   "default": true
   },
   {
    "id": "665-savanna",
@@ -12962,7 +13015,8 @@
    "img": "pm665",
    "gender": "both",
    "released": true,
-   "shiny": "2025-02-18"
+   "shiny": "2025-02-18",
+   "default": true
   },
   {
    "id": "665-sun",
@@ -12976,7 +13030,8 @@
    "img": "pm665",
    "gender": "both",
    "released": true,
-   "shiny": "2025-02-18"
+   "shiny": "2025-02-18",
+   "default": true
   },
   {
    "id": "665-tundra",
@@ -12990,7 +13045,8 @@
    "img": "pm665",
    "gender": "both",
    "released": true,
-   "shiny": "2025-02-18"
+   "shiny": "2025-02-18",
+   "default": true
   },
   {
    "id": "666-archipelago",
@@ -13005,7 +13061,8 @@
    "img": "pm666.fARCHIPELAGO",
    "gender": "both",
    "released": true,
-   "shiny": "2025-02-18"
+   "shiny": "2025-02-18",
+   "default": true
   },
   {
    "id": "666-continental",
@@ -13361,7 +13418,8 @@
    "img": "pm669.fRED",
    "gender": "female",
    "released": true,
-   "shiny": "2024-03-21"
+   "shiny": "2024-03-21",
+   "default": true
   },
   {
    "id": "669-white",
@@ -13431,7 +13489,8 @@
    "img": "pm670.fRED",
    "gender": "female",
    "released": true,
-   "shiny": "2024-03-21"
+   "shiny": "2024-03-21",
+   "default": true
   },
   {
    "id": "670-white",
@@ -13501,7 +13560,8 @@
    "img": "pm671.fRED",
    "gender": "female",
    "released": true,
-   "shiny": "2024-03-21"
+   "shiny": "2024-03-21",
+   "default": true
   },
   {
    "id": "671-white",
@@ -13700,7 +13760,8 @@
    "img": "pm676.fNATURAL",
    "gender": "both",
    "released": true,
-   "shiny": "2022-09-27"
+   "shiny": "2022-09-27",
+   "default": true
   },
   {
    "id": "676-pharaoh",
@@ -13802,7 +13863,8 @@
    "img": "pm681.fSHIELD",
    "gender": "both",
    "released": true,
-   "shiny": "2026-02-20"
+   "shiny": "2026-02-20",
+   "default": true
   },
   {
    "id": "682",
@@ -14300,7 +14362,8 @@
    "img": "pm710.fSMALL",
    "gender": "both",
    "released": true,
-   "shiny": "2023-08-04"
+   "shiny": "2023-08-04",
+   "default": true
   },
   {
    "id": "710-super",
@@ -14360,7 +14423,8 @@
    "img": "pm711.fSMALL",
    "gender": "both",
    "released": true,
-   "shiny": "2023-08-04"
+   "shiny": "2023-08-04",
+   "default": true
   },
   {
    "id": "711-super",
@@ -14496,7 +14560,8 @@
    "img": "pm718.fTEN_PERCENT",
    "gender": "none",
    "released": true,
-   "class": "legendary"
+   "class": "legendary",
+   "default": true
   },
   {
    "id": "718-50",
@@ -14542,7 +14607,8 @@
    "img": "pm720.fCONFINED",
    "gender": "none",
    "released": true,
-   "class": "mythical"
+   "class": "mythical",
+   "default": true
   },
   {
    "id": "720-unbound",
@@ -14885,7 +14951,8 @@
    "img": "pm741.fBAILE",
    "gender": "both",
    "released": true,
-   "shiny": "2024-02-13"
+   "shiny": "2024-02-13",
+   "default": true
   },
   {
    "id": "741-pau",
@@ -15016,7 +15083,8 @@
    "img": "pm745.fMIDDAY",
    "gender": "both",
    "released": true,
-   "shiny": "2022-03-01"
+   "shiny": "2022-03-01",
+   "default": true
   },
   {
    "id": "745-midnight",
@@ -15620,7 +15688,8 @@
    ],
    "img": "pm778.fDISGUISED",
    "gender": "both",
-   "released": true
+   "released": true,
+   "default": true
   },
   {
    "id": "779",
@@ -16724,6 +16793,7 @@
    "gender": "both",
    "released": true,
    "shiny": "2024-11-16",
+   "default": true,
    "gmax": true,
    "dynamax": true
   },
@@ -17145,6 +17215,7 @@
    "gender": "both",
    "released": true,
    "shiny": "2025-09-16",
+   "default": true,
    "femaleImg": "pm876.fFEMALE"
   },
   {
@@ -17160,7 +17231,8 @@
    "img": "pm877.fFULL_BELLY",
    "gender": "both",
    "released": true,
-   "shiny": "2025-11-18"
+   "shiny": "2025-11-18",
+   "default": true
   },
   {
    "id": "878",
@@ -17395,6 +17467,7 @@
    "gender": "both",
    "released": true,
    "class": "legendary",
+   "default": true,
    "dynamax": true
   },
   {
@@ -17576,7 +17649,8 @@
    "img": "pm905.fINCARNATE",
    "gender": "female",
    "released": true,
-   "class": "legendary"
+   "class": "legendary",
+   "default": true
   },
   {
    "id": "905-therian",
@@ -17876,7 +17950,8 @@
    "img": "pm925.fFAMILY_OF_FOUR",
    "gender": "none",
    "released": true,
-   "shiny": "2025-08-06"
+   "shiny": "2025-08-06",
+   "default": true
   },
   {
    "id": "925-family-of-three",
@@ -18678,7 +18753,8 @@
    ],
    "img": "pm978.fCURLY",
    "gender": "both",
-   "released": true
+   "released": true,
+   "default": true
   },
   {
    "id": "978-droopy",
@@ -18779,7 +18855,8 @@
    "img": "pm982.fTWO",
    "gender": "both",
    "released": true,
-   "shiny": "2025-09-23"
+   "shiny": "2025-09-23",
+   "default": true
   },
   {
    "id": "983",

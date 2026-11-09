@@ -342,7 +342,7 @@ main{margin-left:var(--side);min-height:100vh;container-type:inline-size}
 .formsbtn .i{width:13px;height:13px;color:var(--muted)}
 .formsbtn:hover{border-color:var(--muted)}
 .modal{position:fixed;inset:0;z-index:60;background:rgba(20,10,12,.45);display:grid;place-items:center;padding:24px}
-.modal-box{background:var(--surface);border-radius:16px;max-width:860px;width:100%;max-height:calc(100vh - 48px);overflow:auto;padding:22px 24px 26px;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.modal-box{background:var(--surface);border-radius:16px;max-width:1080px;width:100%;max-height:calc(100vh - 48px);overflow:auto;padding:22px 24px 26px;box-shadow:0 20px 60px rgba(0,0,0,.3)}
 .modal-head{display:flex;align-items:flex-start;gap:16px;margin-bottom:14px}
 .modal-head h2{font-size:32px;margin-top:4px}
 .modal-head p{margin:4px 0 0;font-size:13.5px}

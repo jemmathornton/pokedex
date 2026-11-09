@@ -72,6 +72,8 @@ SEREBII_FORMS = {(849, ''): ['849-amped'], (849, 'l'): ['849-low-key'], (849, 'g
                  (892, ''): ['892-single-strike'], (892, 'r'): ['892-rapid-strike'], (487, ''): ['487-altered'], (555, ''): ['555-standard'],
                  (641, ''): ['641-incarnate'], (642, ''): ['642-incarnate'], (645, ''): ['645-incarnate']}
 SEREBII_REGION = {'a': 'alolan', 'g': 'galarian', 'h': 'hisuian', 'p': 'paldean'}
+# the form the game's Pokédex shows first, where the API's own default picture isn't it (her word, 9 Nov: Unown is F)
+DEFAULT_FORM = {201: 'pm201.fUNOWN_F'}
 
 
 def serebii_rows(html, start=None, end=None):
@@ -193,6 +195,7 @@ def main():
             cands.append((f['formId'], f, key))
         if not cands:   # a new species with no pictures yet (shown as a blank until it has some)
             cands.append((None, sp, f'pm{n}'))
+        default_key = DEFAULT_FORM.get(n) or base_key   # the form shown on the card (the rest open from it)
         for fid, src, key in cands:
             used.add(key)
             types = [t['names']['English'] for t in (src.get('primaryType'), src.get('secondaryType')) if t]
@@ -210,6 +213,8 @@ def main():
                 e['femaleImg'] = key + '.g2'
             if key in shiny_out:
                 e['shiny'] = shiny_out[key] or True
+            if fid and key == default_key:
+                e['default'] = True
             e['_fid'], e['_evos'] = fid or sid, [x['formId'] for x in src.get('evolutions') or []]   # for shadow evolutions
             entries.append(e)
         # costumes: every other picture of this species that isn't a form above or a Mega / Gigantamax

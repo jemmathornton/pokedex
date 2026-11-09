@@ -166,7 +166,7 @@ function groupByNumber(items){
     byDex[e.dex].push(e);
   }
   return groups.map(g => {
-    const lead = g.find(x => !x.form) || g.find(x => /^[a-z0-9]/i.test(x.form)) || g[0];
+    const lead = g.find(x => !x.form) || g.find(x => x.default) || g.find(x => /^[a-z0-9]/i.test(x.form)) || g[0];   // the game's default form first (Unown F)
     const odd = x => /^[a-z0-9#]/i.test(x.form || "") ? 0 : 1;   // Unown: A to Z, then ! and ?
     return {lead, others: g.filter(x => x !== lead).sort((a, b) => odd(a) - odd(b))};
   });
@@ -180,8 +180,8 @@ function formTick(e){
   const t = typeof b.ticks === "function" ? b.ticks(e) : b.ticks;
   return t[0];
 }
-// a card shows a small "Forms 3/28" button; it opens a pop-up with every form as a picture to tick (9 Nov: forms inside
-// the card made Unown's card far too tall, her words). The list itself never changes.
+// a card shows a small "Forms 3/28" button; it opens a pop-up with every form as a full card with all its boxes (9 Nov:
+// forms inside the card made Unown's card far too tall; she wants shiny etc. for each form, her words). The list never changes.
 let formsOpen = null;   // the Pokédex number whose forms pop-up is open
 const groupsByDex = {};   // the current page's groups, for the pop-up
 const formGot = e => { const b = BOXF.find(x => x.k === prefs.work); return b ? b.applies(e) && b.have(e) : caught(e); };
@@ -195,17 +195,11 @@ function formsModal(){
   if (!g) return "";
   const b = BOXF.find(x => x.k === prefs.work);
   const all = [g.lead, ...g.others];
-  const tiles = all.map(e => {
-    const t = formTick(e), got = formGot(e);
-    const src = ((prefs.work === "shiny" || has(dk(e), "s")) && sprite(e.img + ".s")) || sprite(e.img);
-    return `<button class="ftile" type="button" data-formtick="${attr(e.id)}" data-t="${t || ""}" aria-pressed="${got}"${t ? "" : " disabled"}` +
-      (got ? ` style="--hl:var(${HL[b ? b.k : "caught"]})"` : "") + `>${src ? `<img src="${src}" alt="">` : `<span class="blank">?</span>`}<span>${esc(e.form || "Normal")}</span></button>`;
-  }).join("");
   return `<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="${attr(g.lead.name)} forms"><div class="modal-box">
     <div class="modal-head"><div><span class="label">#${pad(g.lead.dex)} · ${all.filter(formGot).length} of ${all.length} ticked</span><h2>${esc(g.lead.name)} forms</h2>
-      <p class="muted">Click a form to tick ${b ? esc(b.label) : "Caught"}.</p></div>
+      <p class="muted">Every form with its own boxes.</p></div>
       <button class="modal-x" type="button" data-closeforms aria-label="Close">${ic("x")}</button></div>
-    <div class="ftiles">${tiles}</div></div></div>`;
+    <div class="grid">${all.map(e => card(e)).join("")}</div></div></div>`;
 }
 function groupCards(groups){
   for (const k in groupsByDex) delete groupsByDex[k];
