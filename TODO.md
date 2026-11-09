@@ -34,13 +34,21 @@ Claude’s jobs, and the record of what was decided. Everything waiting on Jemma
 - Filter bar: tabs with Clear at the end; one line below with Still need / Have / All, a toggle (not a checkbox) for ones not out in GO yet, and how many are shown (her layout).
 
 ## Overnight plan (her ask, 9 Nov, late; start when she says go)
-- [ ] Every Pokémon’s page filled in, “like the Sim pages”: GO’s own Pokédex description word for word (found: PokeMiners pogo_assets `Texts/Latest APK/JSON/i18n_english.json`, a `data` list of key, value pairs; keys `pokemon_desc_0001`, form ones like `pokemon_desc_0037_0056`, `pokemon_category_0001` = “Seed Pokémon”; 1,220 descriptions, 1,051 categories; a copy is in imports/go-2026-11-09/go-text-apk.json). Add them in tools/import_go.py (`desc`, `category` per entry, a form’s own text where it has one).
-- [ ] Also from the Game Master (imports/go-2026-11-09/gamemaster.json): height, weight, buddy distance, evolution family with candy costs (pokemon-go-api `evolutions` too).
-- [ ] Page layout: big clickable boxes at the top (Caught, Female, Male, Shiny, Lucky, 4★…), description, details, evolution family linking to the other pages, forms section, costumes, backgrounds; Previous / Next number links.
-- [ ] Banner and sidebar looks (she finds the plain red banner and sidebar not the nicest): 3–4 options in the app behind a bottom-right switch (e.g. each region its own colour with that region’s Pokémon pictures in the banner; a lighter cream look; a faded “parade” of the page’s Pokémon), plus pictures of each at 1280px for her.
-- [ ] Tidy Home, Costumes and Events pages to match the new cards and tiles; check dark mode.
-- [ ] Icons for Shadow, Purified and Lucky: she finds the flame, sun and clover not right, and none of the Lucide options in for-jemma/icon-options-shadow-purified.png were better. Search the wider open icon libraries (Iconify: Lucide, Tabler, Phosphor, Material Symbols, MDI…; never logos, brand marks or awareness ribbons; never draw my own); game feel: Shadow = purple flames, Purified = white/blue glow, Lucky = gold sparkly background. One picture in the morning with the best few for each, numbered. Keep the current icons until she picks.
-- [ ] Morning note (for-jemma) with what changed and any questions; commit after each piece.
+- [x] Every Pokémon’s page filled in, “like the Sim pages”: GO’s own Pokédex description word for word (found: PokeMiners pogo_assets `Texts/Latest APK/JSON/i18n_english.json`, a `data` list of key, value pairs; keys `pokemon_desc_0001`, form ones like `pokemon_desc_0037_0056`, `pokemon_category_0001` = “Seed Pokémon”; 1,220 descriptions, 1,051 categories; a copy is in imports/go-2026-11-09/go-text-apk.json). Add them in tools/import_go.py (`desc`, `category` per entry, a form’s own text where it has one).
+- [x] Also from the Game Master (imports/go-2026-11-09/gamemaster.json): height, weight, buddy distance, evolution family with candy costs (pokemon-go-api `evolutions` too).
+- [x] Page layout: big clickable boxes at the top (Caught, Female, Male, Shiny, Lucky, 4★…), description, details, evolution family linking to the other pages, forms section, costumes, backgrounds; Previous / Next number links.
+- [x] Banner and sidebar looks (she finds the plain red banner and sidebar not the nicest): 3–4 options in the app behind a bottom-right switch (e.g. each region its own colour with that region’s Pokémon pictures in the banner; a lighter cream look; a faded “parade” of the page’s Pokémon), plus pictures of each at 1280px for her.
+- [x] Tidy Home, Costumes and Events pages to match the new cards and tiles; check dark mode.
+- [x] Icons for Shadow, Purified and Lucky: she finds the flame, sun and clover not right, and none of the Lucide options in for-jemma/icon-options-shadow-purified.png were better. Search the wider open icon libraries (Iconify: Lucide, Tabler, Phosphor, Material Symbols, MDI…; never logos, brand marks or awareness ribbons; never draw my own); game feel: Shadow = purple flames, Purified = white/blue glow, Lucky = gold sparkly background. One picture in the morning with the best few for each, numbered. Keep the current icons until she picks.
+- [x] Morning note (for-jemma) with what changed and any questions; commit after each piece.
+- Done overnight 9–10 Nov:
+  - Descriptions: 1,272 of 1,292 entries have GO’s text (87 forms have their own). Form text keys use the game’s form numbers, from the POGOProtos list in @na-ji/pogo-protos.
+  - There are 2,572 big pictures (256 px, about 20 MB) in site/sprites/big.
+  - The page shows a form picker, big boxes and the evolution family. Hisuian/Galarian chains are their own; links open that form.
+  - Looks: `prefs.look`, with `?look=` for pictures; the switch is `lookswitch()` in app.js and the CSS is under “trial looks”. Once she picks, delete the other looks and the switch.
+  - Icon options: research/icon-options-9-nov.json has each option’s SVG and licence (number → icon). Game-icons.net is CC BY 3.0, so it needs a credit line in LICENSE-lucide.txt if used. Solar is CC BY 4.0, likewise.
+- [ ] When she picks a look: keep only that one, remove the switch, and update CLAUDE.md (colours, sidebar).
+- [ ] When she picks icons: put them in icons.js (with licence notes), then update EXTRAS, bigBoxes, statsHtml and BOXF users.
 - Dynamax and Gigantamax icons settled (her pick, 9 Nov, after six rounds of pictures in for-jemma/icon-options*.png): both Lucide “expand” (growing giant), told apart by colour.
 - Done 9 Nov late: “Not caught” and “Not in GO” toggles stacked at the right end of the tabs line (same level, her ask; “yet” dropped); with Not in GO on, the Shiny tab also lists Pokémon whose shiny isn’t out (dashed box).
 

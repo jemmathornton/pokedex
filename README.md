@@ -4,7 +4,9 @@
 
 **Ticking:** every Pokémon has boxes for Caught, ♂ and ♀, Shiny, Lucky (the clover) and 4★, plus Shadow, Purified, Dynamax and G-Max where they apply. Click a box to tick it; it saves straight away (ticking any box ticks Caught too). The little ✨ and ♀ buttons on a picture show the shiny or female look. Dashed boxes can’t be ticked yet (no shiny in GO, or a mythical that can never be lucky).
 
-**Working on:** pick a tab (Shiny, Lucky…) to see only that box, then Still need / Have / All. Pokémon with forms show one card with a “+N forms” button.
+**Filter:** pick a tab (Shiny, Lucky…) to see only that box; “Not caught” shows just the ones still to get, “Not in GO” adds the ones not out yet. Clicking anywhere on a card ticks Caught, or the tab’s box.
+
+**A Pokémon’s page:** click its name on a card (or the “Forms” button). It has the game’s picture, GO’s own Pokédex entry, the facts, big boxes to tick, its evolution family, every form, its costumes and backgrounds. Pick a form with the small pictures under the big one; ← and → go to the previous and next number.
 
 **Costumes:** on the Costumes page, pick the ones you want with “Collect this”; they then get their own boxes.
 
