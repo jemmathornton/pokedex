@@ -72,8 +72,8 @@ const hasForms = e => (outBySpecies[e.dex] || []).length > 1;
 const EXTRAS = [
   {t: "sd", label: "Shadow", icon: "flame", flag: "shadow", title: "Shadow"},
   {t: "pu", label: "Purified", icon: "sun", flag: "shadow", title: "Purified"},
-  {t: "dx", label: "Dynamax", icon: "chevrons-up", flag: "dynamax", title: "Dynamax"},
-  {t: "gx", label: "Gigantamax", icon: "cloud", flag: "gmax", title: "Gigantamax"},
+  {t: "dx", label: "Dynamax", icon: "expand", flag: "dynamax", title: "Dynamax"},
+  {t: "gx", label: "Gigantamax", icon: "expand", flag: "gmax", title: "Gigantamax"},
 ];
 
 function counts(list){
@@ -251,8 +251,8 @@ function statsHtml(c){
     t("--hundo", "star", "4★", c.hundo, c.out) +
     t("--shadow", "flame", "Shadow", c.sd, c.shadowOut) +
     t("--purified", "sun", "Purified", c.pu, c.shadowOut) +
-    t("--dynamax", "chevrons-up", "Dynamax", c.dx, c.dynamaxOut) +
-    t("--gmax", "cloud", "Gigantamax", c.gx, c.gmaxOut) + `</div>`;
+    t("--dynamax", "expand", "Dynamax", c.dx, c.dynamaxOut) +
+    t("--gmax", "expand", "Gigantamax", c.gx, c.gmaxOut) + `</div>`;
 }
 const readOnlyNote = () => readOnly ? `<div class="notice">${ic("info")} Opened from the folder, so ticks can’t be saved here. Open it with the Jemma’s Pokédex shortcut.</div>` : "";
 
