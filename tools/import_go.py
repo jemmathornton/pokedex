@@ -10,8 +10,13 @@ Where everything comes from (copies of what was read are kept in imports/go-<dat
 - PokeMiners' pogo_assets (the game's own picture files): which forms, female pictures and costumes exist.
 - Leek Duck's Shiny Checklist: which shinies are out (and the costume names as Leek Duck writes them).
 - PokeAPI's species table: male/female ratios (genderless, male only, female only, or both).
-- Serebii's lists (pokemongo/shadowpokemon.shtml, pokemongo/maxbattles.shtml): which Pokémon can be Shadow (and so
-  Purified), Dynamax and Gigantamax in GO. Regional forms aren't on Serebii's Shadow list, so only the plain ones get it.
+- Dittobase's GO Pokédex (dittobase.com/api/go-pokemon/pokedex, the data behind its Pokédex page): which Pokémon and
+  forms are out as Shadow (and so Purified), Dynamax and Gigantamax, regional forms included (9 Nov: Serebii's Shadow
+  list leaves out every regional form, e.g. Alolan Rattata, which she spotted). Serebii's lists (pokemongo/shadowpokemon.shtml,
+  pokemongo/maxbattles.shtml) are read as a second opinion: disagreements are printed, and either source saying yes is enough
+  (a missing box is worse than a spare one).
+  The report also prints where Dittobase disagrees with what's counted as out and which shinies are out; again either
+  saying out (or shiny out) is enough.
 - Which species are out: pogoapi.net (frozen in early 2024) + anything with a shiny out + research/data/go-release-check.json
   (checked 9 Nov 2026) + data/go/release-fixes.json (by hand: {"<dex or entry id>": true/false}).
 Nothing here is made up: a costume Leek Duck doesn't name gets its game code tidied ("Halloween 2017").
@@ -31,7 +36,37 @@ SOURCES = {
     'pokeapi-species.csv': 'https://raw.githubusercontent.com/PokeAPI/pokeapi/master/data/v2/csv/pokemon_species.csv',
     'serebii-shadowpokemon.html': 'https://www.serebii.net/pokemongo/shadowpokemon.shtml',
     'serebii-maxbattles.html': 'https://www.serebii.net/pokemongo/maxbattles.shtml',
+    'dittobase-go-pokedex.json': 'https://www.dittobase.com/api/go-pokemon/pokedex',
 }
+DITTO_FLAGS = {'isShadow': ('shadow', '-shadow'), 'isDynamax': ('dynamax', '-dynamax'), 'isGigantamax': ('gmax', '-gigantamax')}
+# Dittobase's words for a form, where they differ from ours
+DITTO_WORDS = {'alola': 'alolan', 'paldea': 'paldean', 'galar': 'galarian', 'hisui': 'hisuian'}
+
+
+def ditto_ids(rec, by_slug, ids):
+    """Our entry ids for one of Dittobase's records ('rattata-alola-shadow' -> ['19-alolan'])."""
+    flag = next((f for f in DITTO_FLAGS if rec.get(f)), None)
+    slug = rec['slug']
+    if flag:
+        suffix = DITTO_FLAGS[flag][1]
+        i = slug.find(suffix)
+        if i < 0:
+            return []   # e.g. 'ho-oh-s', the Apex Shadow: not a box here
+        form_extra = slug[i + len(suffix):].strip('-')   # 'urshifu-gigantamax-rapid-strike'
+        slug = slug[:i] + ('-' + form_extra if form_extra else '')
+    sp = rec['speciesSlug']
+    part = slug[len(sp) + 1:] if slug.startswith(sp + '-') else ''
+    part = '-'.join(DITTO_WORDS.get(w, w) for w in part.split('-')) if part else ''
+    n = rec['speciesId']
+    if part and f'{n}-{part}' in ids:
+        return [f'{n}-{part}']
+    if not part and str(n) in ids:
+        return [str(n)]
+    if not part:   # no plain entry: every form of it (Toxtricity's Gigantamax is both Amped and Low Key)
+        return sorted(i for i in ids if i.startswith(f'{n}-')) if flag == 'isGigantamax' else []
+    if str(n) in ids and part in ('normal', 'standard', 'ordinary', 'altered', 'incarnate'):
+        return [str(n)]
+    return []
 # Serebii writes a form as a letter after the number in its picture name ("849-l"); what that is here
 SEREBII_FORMS = {(849, ''): ['849-amped'], (849, 'l'): ['849-low-key'], (849, 'gi'): ['849-amped', '849-low-key'],
                  (892, ''): ['892-single-strike'], (892, 'r'): ['892-rapid-strike'], (487, ''): ['487-altered'], (555, ''): ['555-standard'],
@@ -175,6 +210,7 @@ def main():
                 e['femaleImg'] = key + '.g2'
             if key in shiny_out:
                 e['shiny'] = shiny_out[key] or True
+            e['_fid'], e['_evos'] = fid or sid, [x['formId'] for x in src.get('evolutions') or []]   # for shadow evolutions
             entries.append(e)
         # costumes: every other picture of this species that isn't a form above or a Mega / Gigantamax
         for key in sorted(files):
@@ -196,8 +232,27 @@ def main():
                 c['shiny'] = shiny_out[key] or True
             costumes.append(c)
 
-    # Shadow / Purified, Dynamax, Gigantamax: from Serebii's lists, onto the matching entries
+    # Shadow / Purified, Dynamax, Gigantamax: from Dittobase, onto the matching entries; Serebii as a second opinion
     byid = {e['id']: e for e in entries}
+    ids = set(byid)
+    ditto = json.load(open(paths['dittobase-go-pokedex.json'], encoding='utf-8'))
+    by_slug = {r['slug']: r for r in ditto}
+    unmatched, from_ditto = [], {'shadow': set(), 'dynamax': set(), 'gmax': set()}
+    for r in ditto:
+        flag = next((f for f in DITTO_FLAGS if r.get(f)), None)
+        if not flag or not r.get('isReleased') or r.get('isCostume'):
+            continue
+        got = [i for i in ditto_ids(r, by_slug, ids) if byid[i]['released']]
+        if not got and not r['slug'].endswith('-s'):
+            unmatched.append(r['slug'])
+        for i in got:
+            byid[i][DITTO_FLAGS[flag][0]] = True
+            from_ditto[DITTO_FLAGS[flag][0]].add(i)
+    for flag, got in from_ditto.items():
+        print(f'{flag}: {len(got)} entries (Dittobase)')
+    if unmatched:
+        print('Dittobase records not matched (check):', ', '.join(unmatched))
+
     def targets(n, suf):
         if (n, suf) in SEREBII_FORMS:
             return [byid[i] for i in SEREBII_FORMS[(n, suf)] if i in byid]
@@ -208,22 +263,62 @@ def main():
         return []
     shadow_html = open(paths['serebii-shadowpokemon.html'], encoding='latin-1').read()
     max_html = open(paths['serebii-maxbattles.html'], encoding='latin-1').read()
-    unmatched = []
     for flag, rows in (('shadow', serebii_rows(shadow_html, 'List of Available Shadow')),
                        ('gmax', serebii_rows(max_html, 'List of Gigantamax Capable', 'List of Dynamax Capable')),
                        ('dynamax', serebii_rows(max_html, 'List of Dynamax Capable'))):
-        hits = 0
-        for n, suf in rows:
-            ts = [e for e in targets(n, suf) if e['released']]
-            if not ts:
-                unmatched.append(f'{flag} {n}{"-" + suf if suf else ""}')
-            for e in ts:
-                e[flag] = True
-                hits += 1
-        print(f'{flag}: {len(rows)} on Serebii’s list, {hits} entries marked')
-    if unmatched:
-        print('Not matched (check):', ', '.join(unmatched))
+        serebii = {e['id'] for n, suf in rows for e in targets(n, suf) if e['released']}
+        only_s = sorted(serebii - from_ditto[flag])
+        # Serebii has no regional forms on its Shadow list, so only count plain ones Dittobase lacks
+        only_d = sorted(i for i in from_ditto[flag] - serebii if not (flag == 'shadow' and byid[i]['form'] and byid[i]['form'].split()[0] in REGION.values()))
+        if only_s or only_d:
+            print(f'  {flag}: Serebii only {only_s}; Dittobase only {only_d}')
+        for i in only_s:   # either source is enough: a missing box is worse than a spare one (9 Nov)
+            byid[i][flag] = True
 
+    # a shadow that evolves stays a shadow: Shadow Alolan Meowth makes Shadow Alolan Persian (Dittobase lists only the ones
+    # caught directly). The game's own evolution data, form by form.
+    by_fid = {}
+    for e in entries:
+        by_fid[e['_fid']] = e
+        if e['form'] is None:
+            by_fid.setdefault(e['_fid'] + '_NORMAL', e)
+    added, changed = [], True
+    while changed:
+        changed = False
+        for e in entries:
+            if not e.get('shadow'):
+                continue
+            for f in e['_evos']:
+                t = by_fid.get(f)
+                if t and t['released'] and not t.get('shadow'):
+                    t['shadow'] = True
+                    added.append(t['id'])
+                    changed = True
+    if added:
+        print(f'shadow by evolving: {len(added)} more ({", ".join(sorted(added, key=lambda i: (int(i.split("-")[0]), i)))})')
+
+    # second opinion on what's out and which shinies are out
+    plain = {}
+    for r in ditto:
+        if not any(r.get(f) for f in DITTO_FLAGS) and not r.get('isCostume') and not r.get('isMega'):
+            for i in ditto_ids(r, by_slug, ids):
+                plain[i] = r
+    out_diff = sorted(i for i, r in plain.items() if bool(r.get('isReleased')) != byid[i]['released'])
+    shiny_diff = sorted(i for i, r in plain.items() if byid[i]['released'] and bool(r.get('isShinyReleased')) != bool(byid[i].get('shiny')))
+    for i in out_diff:   # either source is enough, as above
+        if plain[i].get('isReleased'):
+            byid[i]['released'] = True
+    for i in shiny_diff:
+        if plain[i].get('isShinyReleased') and not byid[i].get('shiny'):
+            byid[i]['shiny'] = True
+    if out_diff:
+        print(f'Out in GO, Dittobase disagrees ({len(out_diff)}):', ', '.join(f'{i} (Dittobase: {"out" if plain[i]["isReleased"] else "not out"})' for i in out_diff))
+    if shiny_diff:
+        print(f'Shiny out, Dittobase disagrees ({len(shiny_diff)}):', ', '.join(f'{i} (Dittobase: {"yes" if plain[i]["isShinyReleased"] else "no"})' for i in shiny_diff))
+
+    for e in entries:
+        e.pop('_fid', None)
+        e.pop('_evos', None)
     entries.sort(key=lambda e: (e['dex'], e['form'] is not None, e['form'] or ''))
     costumes.sort(key=lambda c: (c['dex'], c['code']))
     seen = set()

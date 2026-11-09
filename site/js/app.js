@@ -221,15 +221,16 @@ function dexPage(title, label, list){
   const items = list.filter(e => (prefs.unreleased || e.released) && boxFilter(e));
   const notOut = list.filter(e => !e.released).length;
   const seg = (attrName, cur, rows) => `<span class="opts">${rows.map(([v, l]) => `<button type="button" ${attrName}="${v}" aria-pressed="${v === cur}">${l}</button>`).join("")}</span>`;
-  const boxRows = `<div class="frow"><span class="label">Working on</span><div class="worktabs">` +
-    BOXF.map(b => `<button type="button" class="worktab" data-work="${b.k}" aria-pressed="${prefs.work === b.k}">${esc(b.label)}</button>`).join("") +
-    `</div></div>` + (prefs.work !== "all" ? `<div class="frow"><span class="label">Show</span><span class="seg">` +
-    seg("data-workshow", prefs.workShow, [["need", "Still need"], ["have", "Have"], ["all", "All"]]) + `</span></div>` : "");
-  const filtered = prefs.work !== "all";
+  const picked = prefs.work !== "all";
+  // one line of tabs (Clear at its end), then one line: Still need / Have / All, the not-out toggle, how many shown (her layout, 9 Nov)
   view.innerHTML = `<header class="hero"><span class="label">${esc(label)}</span><h1>${title}</h1>${statsHtml(counts(list))}</header>${readOnlyNote()}
-    <div class="toolbar filters" id="toolbar">${boxRows}
-      <div class="frow">${notOut ? `<label class="check"><input type="checkbox" data-pref="unreleased"${prefs.unreleased ? " checked" : ""}> Include ones not out in GO yet</label>` : ""}
-        <span class="gap"></span>${filtered ? `<button class="linkbtn" type="button" data-clear>Clear filters</button>` : ""}<span class="shown">${num(items.length)} shown</span></div></div>
+    <div class="toolbar filters" id="toolbar">
+      <div class="frow"><span class="label">Working on</span><div class="worktabs">` +
+      BOXF.map(b => `<button type="button" class="worktab" data-work="${b.k}" aria-pressed="${prefs.work === b.k}">${esc(b.label)}</button>`).join("") +
+      (picked ? `<button class="linkbtn" type="button" data-clear>${ic("x")}Clear</button>` : "") + `</div></div>
+      <div class="frow">${picked ? seg("data-workshow", prefs.workShow, [["need", "Still need"], ["have", "Have"], ["all", "All"]]) : ""}
+        ${notOut ? `<label class="toggle"><input type="checkbox" role="switch" data-pref="unreleased"${prefs.unreleased ? " checked" : ""}><span class="track"></span>Include ones not out in GO yet</label>` : ""}
+        <span class="gap"></span><span class="shown">${num(items.length)} shown</span></div></div>
     ${items.length ? `<div class="grid" id="grid">${items.map(card).join("")}</div>` : `<p class="empty">Nothing here.</p>`}`;
 }
 
