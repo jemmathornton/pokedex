@@ -132,8 +132,8 @@ function boxes(e){
     return `<button class="tk ${cls}" type="button" data-tick="${t}" aria-pressed="${on}" title="${attr(title)}" aria-label="${attr(title)}"${off && !on ? " disabled" : ""}>${html}</button>`;
   };
   const row1 = btn("c", "c", ic("check") + "Caught", "Caught") +
-    (maleTick(e) ? btn("cm", "c", ic("mars"), e.gender === "male" ? "Male (male only)" : "Male") : "") +
-    (femaleTick(e) ? btn("cf", "c", ic("venus"), e.gender === "female" ? "Female (female only)" : "Female") : "");
+    (maleTick(e) ? btn("cm", "m", ic("mars"), e.gender === "male" ? "Male (male only)" : "Male") : "") +
+    (femaleTick(e) ? btn("cf", "f", ic("venus"), e.gender === "female" ? "Female (female only)" : "Female") : "");
   const row2 = btn("s", "s", ic("sparkles") + "Shiny", e.shiny ? "Shiny" : "No shiny in GO yet", !e.shiny) +
     btn("l", "l", ic("clover") + "Lucky", e.class === "mythical" ? "Mythical: can’t be traded, so never lucky" : "Lucky", !canLucky(e)) +
     btn("h", "h", "4★", "4★ (perfect IVs)", !e.released);
@@ -180,8 +180,8 @@ function groupCards(groups){
   }).join("");
 }
 
-const HL = {caught: "--caught", male: "--caught", female: "--caught", shiny: "--shiny", lucky: "--lucky", hundo: "--hundo",
-            shadow: "--shadow", purified: "--purified", dynamax: "--dynamax", gmax: "--dynamax"};
+const HL = {caught: "--caught", male: "--male", female: "--female", shiny: "--shiny", lucky: "--lucky", hundo: "--hundo",
+            shadow: "--shadow", purified: "--purified", dynamax: "--dynamax", gmax: "--gmax"};
 function card(e, more = "", inForms = false){
   const flags = [];
   if (!e.released) flags.push("Not out yet");

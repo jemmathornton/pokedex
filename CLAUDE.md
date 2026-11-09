@@ -13,6 +13,7 @@ A private Pokédex for Jemma’s Pokémon GO collection: every Pokémon and form
 - **No made-up text.** Names and descriptions come from the game or the sources below, word for word. A costume Leek Duck doesn’t name gets its game code tidied, nothing more.
 - **Suggestions aren’t facts:** label anything Claude proposes as a suggestion.
 - **Her ticks are hers:** never change `data/collection/go.json` by hand or by script without her asking. Tests and checks use port 8031, which writes to the same file, so remove any test ticks afterwards (or check on a copy).
+- **Box colours (her picks, 9 Nov):** white text on every box, never mixed with black; bright, not dull; no gender stereotypes (no blue/pink for ♂/♀); Dynamax and G-Max follow the game’s dark red-pink; balanced to one palette (similar brightness). They live in site.css `:root` (`--caught`, `--male`, `--female`, `--shiny`, `--lucky`, `--hundo`, `--shadow`, `--purified`, `--dynamax`, `--gmax`). Show colour changes as a picture of the boxes before changing them.
 - Laptop (1280px) first; phone layout only when she asks.
 
 ## Where things are

@@ -132,7 +132,8 @@
   --paper:#FAF5EE; --surface:#FFFDF9; --ink:#2B1A1C; --muted:#7A6563; --line:#EADFD3; --soft:#F2E8DD;
   --nav:#5A1820; --deep:#5A1820; --deep-2:#7E2530; --on-deep:#FFF4EE; --on-deep-mute:color-mix(in srgb,#fff 62%,var(--deep));
   --accent:#F2C14E;
-  --caught:#3D5A80; --shiny:#8E44C9; --lucky:#C98A0B; --hundo:#C8323C; --shadow:#4A2A5C; --purified:#2F7FA3; --dynamax:#C2185B;
+  --caught:#315686; --male:#078E5A; --female:#6A5DCF; --shiny:#7C8795; --lucky:#D09B00; --hundo:#D14186; --shadow:#4D2D5F; --purified:#0082C5; --dynamax:#B6285A; --gmax:#80183B;
+  /* box colours: her picks after several rounds (9 Nov), balanced to one palette; white text on every box (her rule) */
   --focus:var(--deep-2);
   --display:"Instrument Serif","Iowan Old Style","Palatino Linotype",Georgia,serif;
   --body:"Manrope","Segoe UI",system-ui,sans-serif;
@@ -140,9 +141,9 @@
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --paper:#171012; --surface:#21171A; --ink:#F3E8E4; --muted:#B8A29F; --line:#352629; --soft:#2B1E21;
-  --caught:#8FB0DA; --shiny:#C79AF0; --lucky:#F0C04A; --hundo:#F07A80; --shadow:#B28BD0; --purified:#7EC3E3; --dynamax:#F27AA7; --focus:var(--accent); color-scheme:dark }}
+  --focus:var(--accent); color-scheme:dark }}
 :root[data-theme="dark"]{ --paper:#171012; --surface:#21171A; --ink:#F3E8E4; --muted:#B8A29F; --line:#352629; --soft:#2B1E21;
-  --caught:#8FB0DA; --shiny:#C79AF0; --lucky:#F0C04A; --hundo:#F07A80; --shadow:#B28BD0; --purified:#7EC3E3; --dynamax:#F27AA7; --focus:var(--accent); color-scheme:dark }
+  --focus:var(--accent); color-scheme:dark }
 
 *{box-sizing:border-box}
 [hidden]{display:none!important}
@@ -240,18 +241,19 @@ main{margin-left:var(--side);min-height:100vh;container-type:inline-size}
 .tk:hover{border-color:var(--muted)}
 .tk[aria-pressed="true"]{color:#fff;border-color:transparent}
 .tk.c[aria-pressed="true"]{background:var(--caught)}
+.tk.m[aria-pressed="true"]{background:var(--male)}
+.tk.f[aria-pressed="true"]{background:var(--female)}
 .tk.s[aria-pressed="true"]{background:var(--shiny)}
 .tk.l[aria-pressed="true"]{background:var(--lucky)}
 .tk.h[aria-pressed="true"]{background:var(--hundo)}
 .tk.sd[aria-pressed="true"]{background:var(--shadow)}
 .tk.pu[aria-pressed="true"]{background:var(--purified)}
-.tk.dx[aria-pressed="true"],.tk.gx[aria-pressed="true"]{background:var(--dynamax)}
+.tk.dx[aria-pressed="true"]{background:var(--dynamax)}
+.tk.gx[aria-pressed="true"]{background:var(--gmax)}
 .card .ticks + .ticks{margin-top:4px}
 .card .gd{font-weight:700;color:var(--ink);opacity:.75}
 .tk:disabled{opacity:.35;cursor:default;border-style:dashed}
 .tk:disabled[aria-pressed="true"]{opacity:.7}
-:root[data-theme="dark"] .tk[aria-pressed="true"]{color:#1b1214}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .tk[aria-pressed="true"]{color:#1b1214}}
 .empty{padding:40px 0;color:var(--muted)}
 
 /* ---------- home ---------- */
@@ -330,7 +332,7 @@ main{margin-left:var(--side);min-height:100vh;container-type:inline-size}
 .flip .i{width:13px;height:13px}
 .flip:hover{border-color:var(--muted);color:var(--ink)}
 .flip.fs[aria-pressed="true"]{background:var(--shiny);border-color:var(--shiny);color:#fff}
-.flip.ff[aria-pressed="true"]{background:var(--caught);border-color:var(--caught);color:#fff}
+.flip.ff[aria-pressed="true"]{background:var(--female);border-color:var(--female);color:#fff}
 
 /* ---------- toast ---------- */
 .toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:var(--ink);color:var(--paper);padding:9px 16px;border-radius:10px;font-size:14px;font-weight:600;z-index:50;box-shadow:0 6px 24px rgba(0,0,0,.2)}
