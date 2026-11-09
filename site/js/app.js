@@ -26,7 +26,7 @@ const store = {
 const PREFS_KEY = "jemmas-pokedex-view";
 const prefs = Object.assign({work: "all", workShow: "need", gender: "any", forms: "all", type: "any", kind: "any",
   unreleased: false, costumes: "auto", events: "all"}, store.get(PREFS_KEY, {}));
-if (prefs.work === "genders") prefs.work = "all";
+if (["genders", "caught"].includes(prefs.work)) prefs.work = "all";   // tabs that no longer exist
 const keepPrefs = () => store.set(PREFS_KEY, prefs);
 
 // ---------- what there is ----------
@@ -47,8 +47,9 @@ const has = (key, t) => (COL.have[key] || []).includes(t);
 const hasAny = (key, ts) => ts.some(t => has(key, t));
 const dk = e => "d:" + e.id;
 const caught = e => (COL.have[dk(e)] || []).length > 0;   // any box ticked: she has one
-const maleTick = e => e.gender === "both" ? "cm" : e.gender === "male" ? "c" : null;
-const femaleTick = e => e.gender === "both" ? "cf" : e.gender === "female" ? "c" : null;
+// Caught ("c") is on every card; ♂ ("cm") and ♀ ("cf") sit beside it wherever that gender exists (her call, 9 Nov)
+const maleTick = e => e.gender === "both" || e.gender === "male" ? "cm" : null;
+const femaleTick = e => e.gender === "both" || e.gender === "female" ? "cf" : null;
 const gotMale = e => !!maleTick(e) && has(dk(e), maleTick(e));
 const gotFemale = e => !!femaleTick(e) && has(dk(e), femaleTick(e));
 // species with more than one entry out in GO (Unown, Vivillon, Alolan Vulpix…): their entries are the "forms"
@@ -91,11 +92,10 @@ function counts(list){
 // the filters (9 Nov, her pick of three tried): choose the box she's working on (tabs), then Still need / Have / All;
 // the cards then show only that box. Every box works the same way, Male, Female and Forms included (her rule).
 const BOXF = [   // each box as a filter: which Pokémon it applies to, and whether she has it
-  {k: "caught", label: "Caught", applies: () => true, have: e => caught(e), ticks: ["c", "cm", "cf"]},
   {k: "male", label: "Male", applies: e => !!maleTick(e), have: gotMale, ticks: e => [maleTick(e)]},
   {k: "female", label: "Female", applies: e => !!femaleTick(e), have: gotFemale, ticks: e => [femaleTick(e)]},
   {k: "forms", label: "Forms", applies: e => hasForms(e), have: e => caught(e),
-   ticks: e => e.gender === "none" ? ["c"] : [maleTick(e), femaleTick(e)].filter(Boolean)},
+   ticks: ["c"]},
   {k: "shiny", label: "Shiny", applies: e => !!e.shiny, have: e => has(dk(e), "s"), ticks: ["s"]},
   {k: "lucky", label: "Lucky", applies: e => canLucky(e), have: e => has(dk(e), "l"), ticks: ["l"]},
   {k: "hundo", label: "4★", applies: e => e.released, have: e => has(dk(e), "h"), ticks: ["h"]},
@@ -123,11 +123,11 @@ function boxes(e){
     const on = has(k, t);
     return `<button class="tk ${cls}" type="button" data-tick="${t}" aria-pressed="${on}" title="${attr(title)}" aria-label="${attr(title)}"${off && !on ? " disabled" : ""}>${html}</button>`;
   };
-  const row1 = (maleTick(e) ? btn(maleTick(e), "c", ic("mars"), e.gender === "male" ? "Male (male only)" : "Male") : "") +
-    (femaleTick(e) ? btn(femaleTick(e), "c", ic("venus"), e.gender === "female" ? "Female (female only)" : "Female") : "") +
-    (e.gender === "none" ? btn("c", "c", ic("check") + "Caught", "Caught (genderless)") : "") +
-    btn("s", "s", ic("sparkles") + "Shiny", e.shiny ? "Shiny" : "No shiny in GO yet", !e.shiny);
-  const row2 = btn("l", "l", ic("clover") + "Lucky", e.class === "mythical" ? "Mythical: can’t be traded, so never lucky" : "Lucky", !canLucky(e)) +
+  const row1 = btn("c", "c", ic("check") + "Caught", "Caught") +
+    (maleTick(e) ? btn("cm", "c", ic("mars"), e.gender === "male" ? "Male (male only)" : "Male") : "") +
+    (femaleTick(e) ? btn("cf", "c", ic("venus"), e.gender === "female" ? "Female (female only)" : "Female") : "");
+  const row2 = btn("s", "s", ic("sparkles") + "Shiny", e.shiny ? "Shiny" : "No shiny in GO yet", !e.shiny) +
+    btn("l", "l", ic("clover") + "Lucky", e.class === "mythical" ? "Mythical: can’t be traded, so never lucky" : "Lucky", !canLucky(e)) +
     btn("h", "h", "4★", "4★ (perfect IVs)", !e.released);
   const row3 = EXTRAS.filter(x => e[x.flag]).map(x => btn(x.t, x.t, esc(x.label), x.title)).join("");
   return [row1, row2, row3].filter(Boolean).map(r => `<div class="ticks${only ? " big" : ""}">${r}</div>`).join("");
@@ -212,7 +212,7 @@ function dexPage(title, label, list){
   const notOut = list.filter(e => !e.released).length;
   const seg = (attrName, cur, rows) => `<span class="opts">${rows.map(([v, l]) => `<button type="button" ${attrName}="${v}" aria-pressed="${v === cur}">${l}</button>`).join("")}</span>`;
   const boxRows = `<div class="frow"><span class="label">Working on</span><div class="worktabs">` +
-    [{k: "all", label: "Everything"}, ...BOXF].map(b => `<button type="button" class="worktab" data-work="${b.k}" aria-pressed="${prefs.work === b.k}">${esc(b.label)}</button>`).join("") +
+    BOXF.map(b => `<button type="button" class="worktab" data-work="${b.k}" aria-pressed="${prefs.work === b.k}">${esc(b.label)}</button>`).join("") +
     `</div></div>` + (prefs.work !== "all" ? `<div class="frow"><span class="label">Show</span><span class="seg">` +
     seg("data-workshow", prefs.workShow, [["need", "Still need"], ["have", "Have"], ["all", "All"]]) + `</span></div>` : "");
   const filtered = prefs.work !== "all";
@@ -329,9 +329,12 @@ function setTick(key, t, on){
   if (s.size) COL.have[key] = [...s]; else delete COL.have[key];
 }
 async function tick(key, t, on){
+  const alsoCaught = on && t !== "c" && !has(key, "c");   // a ♂, ♀, shiny, lucky… one is caught too
   setTick(key, t, on);
+  if (alsoCaught) setTick(key, "c", true);
   rerender();
-  if (!await save({list: "have", key, tick: t, on})) { setTick(key, t, !on); rerender(); }
+  if (!await save({list: "have", key, tick: t, on})) { setTick(key, t, !on); if (alsoCaught) setTick(key, "c", false); return rerender(); }
+  if (alsoCaught && !await save({list: "have", key, tick: "c", on: true})) { setTick(key, "c", false); rerender(); }
 }
 async function toggleList(list, id){
   const on = !COL[list].includes(id);
@@ -344,7 +347,7 @@ document.addEventListener("click", ev => {
   const b = ev.target.closest("button");
   if (!b) return;
   if (b.hasAttribute("data-clear")) { Object.assign(prefs, {work: "all"}); keepPrefs(); return rerender(); }
-  if (b.dataset.work) { prefs.work = b.dataset.work; keepPrefs(); return rerender(); }
+  if (b.dataset.work) { prefs.work = prefs.work === b.dataset.work ? "all" : b.dataset.work; keepPrefs(); return rerender(); }   // click again: back to all
   if (b.dataset.workshow) { prefs.workShow = b.dataset.workshow; keepPrefs(); return rerender(); }
   if (b.dataset.cmode) { prefs.costumes = b.dataset.cmode; keepPrefs(); return rerender(); }
   if (b.dataset.emode) { prefs.events = b.dataset.emode; keepPrefs(); return rerender(); }
