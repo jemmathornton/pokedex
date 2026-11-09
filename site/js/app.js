@@ -116,9 +116,12 @@ const BOXF = [   // each box as a filter: which Pokémon it applies to, and whet
 const boxPass = (b, val, e) => val === "have" ? b.applies(e) && b.have(e) : val === "need" ? b.applies(e) && !b.have(e) : true;
 function boxFilter(e){
   const b = BOXF.find(x => x.k === prefs.work);
-  return !b || (b.applies(e) && boxPass(b, prefs.workShow, e));
+  if (!b) return prefs.workShow !== "need" || !caught(e);   // no tab: "Not caught" shows the ones not caught at all
+  return b.applies(e) && boxPass(b, prefs.workShow, e);
 }
-function onlyTicks(e){   // C: cards show only the box she's working on
+let showAllBoxes = false;   // the Pokémon page shows every box, whatever tab is picked
+function onlyTicks(e){   // cards show only the box she's working on
+  if (showAllBoxes) return null;
   const b = BOXF.find(x => x.k === prefs.work);
   return b ? (typeof b.ticks === "function" ? b.ticks(e) : b.ticks) : null;
 }
@@ -195,24 +198,12 @@ function formTick(e){
 }
 // a card shows a small "Forms 3/28" button; it opens a pop-up with every form as a full card with all its boxes (9 Nov:
 // forms inside the card made Unown's card far too tall; she wants shiny etc. for each form, her words). The list never changes.
-let formsOpen = null;   // the Pokédex number whose forms pop-up is open
 const groupsByDex = {};   // the current page's groups, for the pop-up
 const formGot = e => { const b = BOXF.find(x => x.k === prefs.work); return b ? b.applies(e) && b.have(e) : caught(e); };
 function formsButton(lead, others){
   if (!others.length) return "";
   const all = [lead, ...others];
-  return `<button class="formsbtn" type="button" data-forms="${lead.dex}">${ic("layers")}Forms ${all.filter(formGot).length}/${all.length}</button>`;
-}
-function formsModal(){
-  const g = groupsByDex[formsOpen];
-  if (!g) return "";
-  const b = BOXF.find(x => x.k === prefs.work);
-  const all = [g.lead, ...g.others];
-  return `<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="${attr(g.lead.name)} forms"><div class="modal-box">
-    <div class="modal-head"><div><span class="label">#${pad(g.lead.dex)} · ${all.filter(formGot).length} of ${all.length} ticked</span><h2>${esc(g.lead.name)} forms</h2>
-      <p class="muted">Every form with its own boxes.</p></div>
-      <button class="modal-x" type="button" data-closeforms aria-label="Close">${ic("x")}</button></div>
-    <div class="grid">${all.map(e => card(e)).join("")}</div></div></div>`;
+  return `<a class="formsbtn" href="#p-${lead.dex}">${ic("layers")}Forms ${all.filter(formGot).length}/${all.length}</a>`;
 }
 function groupCards(groups){
   for (const k in groupsByDex) delete groupsByDex[k];
@@ -230,12 +221,12 @@ function card(e, more = "", inForms = false){
   if (e.class === "ultra-beast") flags.push("Ultra Beast");
   const gw = GENDER_WORDS[e.gender];
   // the card is marked when she has it: caught, or with a tab on, that tab's box, in its colour (her call, 9 Nov)
-  const tab = BOXF.find(x => x.k === prefs.work);
+  const tab = !showAllBoxes && BOXF.find(x => x.k === prefs.work);
   const got = tab ? tab.applies(e) && tab.have(e) : caught(e);
   return `<div class="card${e.released ? "" : " out-not"}${got ? " got" : ""}${inForms ? " informs" : ""}" data-id="${attr(e.id)}"${got ? ` style="--hl:var(${HL[tab ? tab.k : "caught"]})"` : ""}>` +
     `<span class="no">#${pad(e.dex)}</span>` + (flags.length ? `<span class="flags">${flags.map(f => `<span>${esc(f)}</span>`).join("")}</span>` : "") +
     pic(e, dk(e)) +
-    `<b class="nm">${esc(e.name)}</b><small class="fm">${esc(e.form || "")}${e.form && gw ? " · " : ""}${gw ? `<span class="gd">${esc(gw)}</span>` : ""}</small>` +
+    `<a class="nm" href="#p-${e.dex}" title="Everything about ${attr(e.name)}">${esc(e.name)}</a><small class="fm">${esc(e.form || "")}${e.form && gw ? " · " : ""}${gw ? `<span class="gd">${esc(gw)}</span>` : ""}</small>` +
     boxes(e) + more + `</div>`;
 }
 
@@ -291,19 +282,65 @@ function dexPage(title, label, list){
   const groups = groupByNumber(items);
   const seg = (attrName, cur, rows) => `<span class="opts">${rows.map(([v, l]) => `<button type="button" ${attrName}="${v}" aria-pressed="${v === cur}">${l}</button>`).join("")}</span>`;
   const picked = prefs.work !== "all";
-  // one line: the tabs, Clear, and on the far right a "Not owned" toggle, on when a tab is picked (untick it to
+  // one line: the tabs, Clear, and on the far right a "Not caught" toggle, always there (no tab: not caught at all; a tab: missing that box), on when a tab is picked (untick it to
   // see the ones she has too, lit up; her wording and place, 9 Nov); the not-out switch under it where there are some; how many are shown sits by the title (her layout, 9 Nov)
   view.innerHTML = `<header class="hero"><span class="label">${esc(label)} · ${num(groups.length)} shown</span><h1>${title}</h1>${statsHtml(counts(list))}</header>${readOnlyNote()}
     <div class="toolbar filters" id="toolbar">
       <div class="frow"><span class="label flabel">Filter</span><div class="worktabs">` +
       BOXF.map(b => `<button type="button" class="worktab" data-work="${b.k}" aria-pressed="${prefs.work === b.k}">${esc(b.label)}</button>`).join("") +
-      (picked ? `<button class="linkbtn" type="button" data-clear>${ic("x")}Clear</button>
-        <button class="switchbtn" type="button" role="switch" data-showall aria-checked="${prefs.workShow === "need"}"><span class="track"></span>Not owned</button>` : "") +
+      (picked || prefs.workShow === "need" ? `<button class="linkbtn" type="button" data-clear>${ic("x")}Clear</button>` : "") +
+      `<button class="switchbtn" type="button" role="switch" data-showall aria-checked="${prefs.workShow === "need"}"><span class="track"></span>Not caught</button>` +
       `</div></div>
-      ${notOut ? `<div class="frow subrow">${seg("data-notout", prefs.unreleased ? "yes" : "no", [["no", "Out in GO"], ["yes", "Include not out yet"]])}</div>` : ""}</div>
-    ${items.length ? `<div class="grid" id="grid">${groupCards(groups)}</div>` : `<p class="empty">Nothing here.</p>`}` + formsModal();
+      ${notOut ? `<div class="frow subrow"><span class="gap"></span><button class="switchbtn" type="button" role="switch" data-notout="${prefs.unreleased ? "no" : "yes"}" aria-checked="${prefs.unreleased}"><span class="track"></span>Not in GO yet</button></div>` : ""}</div>
+    ${items.length ? `<div class="grid" id="grid">${groupCards(groups)}</div>` : `<p class="empty">Nothing here.</p>`}`;
 }
 
+// one Pokémon's page (#p-201): everything about it in one place (her ask, 9 Nov, instead of the forms pop-up)
+const REGION_OF = {1: "Kanto", 2: "Johto", 3: "Hoenn", 4: "Sinnoh", 5: "Unova", 6: "Kalos", 7: "Alola", 8: "Galar", 9: "Paldea"};
+function pokemonPage(n){
+  const all = ENTRIES.filter(e => e.dex === n && (prefs.unreleased || e.released || ENTRIES.every(x => x.dex !== n || !x.released)));
+  if (!all.length) return home();
+  const lead = groupByNumber(all)[0].lead, others = all.filter(e => e !== lead);
+  const costumes = COSTUMES.filter(c => c.dex === n);
+  const evs = EVENTS.filter(ev => (ev.backgroundPokemon || []).some(name => DATA.dexByName[name.toLowerCase()] === n));
+  const gw = {both: "Male and female", male: "Male only", female: "Female only", none: "Genderless"}[lead.gender];
+  const types = [...new Set(all.flatMap(e => e.types))];
+  const kind = {legendary: "Legendary", mythical: "Mythical", "ultra-beast": "Ultra Beast"}[lead.class];
+  const yes = (on, text) => `<li class="${on ? "on" : "off"}">${ic(on ? "check" : "x")}${esc(text)}</li>`;
+  const shinyDate = all.map(e => typeof e.shiny === "string" ? e.shiny : null).filter(Boolean).sort()[0];
+  const facts = `<ul class="facts">
+    ${yes(all.some(e => e.released), all.some(e => e.released) ? "Out in Pokémon GO" : "Not out in Pokémon GO yet")}
+    ${yes(all.some(e => e.shiny), all.some(e => e.shiny) ? `Shiny out${shinyDate ? " since " + dates(shinyDate) : ""}` : "No shiny yet")}
+    ${yes(all.some(canLucky), lead.class === "mythical" ? "Can’t be lucky (mythicals can’t be traded)" : "Can be lucky")}
+    ${yes(all.some(e => e.shadow), all.some(e => e.shadow) ? "Can be shadow and purified" : "No shadow yet")}
+    ${yes(all.some(e => e.dynamax), all.some(e => e.dynamax) ? "Can be Dynamax" : "No Dynamax yet")}
+    ${yes(all.some(e => e.gmax), all.some(e => e.gmax) ? "Can be Gigantamax" : "No Gigantamax yet")}</ul>`;
+  const bgRows = evs.map(ev => {
+    const went = COL.went.includes(ev.id), key = `b:${ev.id}:${n}`;
+    return `<div class="bgrow${went ? " went" : ""}" data-bg="${attr(key)}" data-event="${attr(ev.id)}"><div><b>${esc(ev.name)}</b><span class="muted"> · ${esc(ev.city)} · ${esc(dates(ev.start, ev.end))}</span>
+      <div class="muted" style="font-size:13px">${ic("image")} ${esc(ev.background)}</div></div>
+      ${went ? `<div class="ticks"><button class="tk c" type="button" data-tick="c" aria-pressed="${has(key, "c")}" title="Have it with this background">${ic("poke-ball")}Have it</button>
+        <button class="tk s" type="button" data-tick="s" aria-pressed="${has(key, "s")}"${!lead.shiny && !has(key, "s") ? " disabled" : ""} title="Shiny with this background">${ic("sparkles")}Shiny</button></div>`
+        : `<button class="chip" type="button" data-went aria-pressed="false">I went</button>`}</div>`;
+  }).join("");
+  view.innerHTML = `<header class="hero mon"><a class="back" href="javascript:history.back()">${ic("arrow-left")}Back</a>
+    <div class="monhead">${sprite(lead.femaleImg || lead.img) ? `<img src="${sprite(lead.femaleImg || lead.img)}" alt="">` : ""}<div>
+      <span class="label">#${pad(n)} · ${esc(REGION_OF[lead.gen] || "Hisui")}${kind ? " · " + kind : ""}</span><h1>${esc(lead.name)}</h1>
+      <div class="chips">${types.map(t => `<span class="type">${esc(t)}</span>`).join("")}<span class="type">${esc(gw)}</span></div></div></div></header>${readOnlyNote()}
+    <section class="section"><h2>${all.length > 1 ? `Forms <span class="muted">${all.length}</span>` : "Boxes"}</h2><div class="grid">${(showAllBoxes = true, all.map(e => card(e)).join(""))}</div></section>
+    <section class="section"><h2>About it in GO</h2>${facts}</section>
+    ${costumes.length ? `<section class="section"><h2>Costumes <span class="muted">${costumes.length}</span></h2><div class="grid">${costumes.map(costumeCard).join("")}</div></section>` : ""}
+    ${(showAllBoxes = false, "")}${evs.length ? `<section class="section"><h2>Backgrounds <span class="muted">${evs.length}</span></h2><div class="bgrows">${bgRows}</div></section>` : ""}`;
+}
+
+function costumeCard(c){
+  const on = COL.costumes.includes(c.id), key = "c:" + c.id;
+  return `<div class="card${on ? "" : " not-collecting"}" data-costume="${attr(c.id)}"><span class="no">#${pad(c.dex)}</span>` +
+    pic(c, key) + `<b class="nm">${esc(c.name)}</b><small class="fm">${esc(c.costume)}</small>` +
+    (on ? `<div class="boxgrid"><button class="tk c" type="button" data-tick="c" aria-pressed="${has(key, "c")}" title="Caught">${ic("poke-ball")}<span>Caught</span></button>` +
+      `<button class="tk s" type="button" data-tick="s" aria-pressed="${has(key, "s")}" title="${c.shiny ? "Shiny" : "No shiny in GO yet"}"${!c.shiny && !has(key, "s") ? " disabled" : ""}>${ic("sparkles")}<span>Shiny</span></button></div>` : "") +
+    `<button class="chip collect" type="button" data-collect aria-pressed="${on}">${on ? ic("check") + "Collecting" : "Collect this"}</button></div>`;
+}
 function costumesPage(){
   const mode = prefs.costumes === "auto" ? (COL.costumes.length ? "collecting" : "all") : prefs.costumes;
   const term = q.value.trim().toLowerCase();
@@ -318,14 +355,7 @@ function costumesPage(){
     <div class="toolbar"><button class="chip" type="button" data-cmode="collecting" aria-pressed="${mode === "collecting"}">${ic("list-checks")}Ones I’m collecting</button>
       <button class="chip" type="button" data-cmode="all" aria-pressed="${mode === "all"}">${ic("shirt")}Every costume</button>
       ${term ? `<span class="muted" style="font-size:13.5px">Matching “${esc(q.value.trim())}”</span>` : ""}</div>
-    ${items.length ? `<div class="grid">${items.map(c => {
-      const on = COL.costumes.includes(c.id), key = ck(c);
-      return `<div class="card${on ? "" : " not-collecting"}" data-costume="${attr(c.id)}"><span class="no">#${pad(c.dex)}</span>` +
-        pic(c, key) + `<b class="nm">${esc(c.name)}</b><small class="fm">${esc(c.costume)}</small>` +
-        (on ? `<div class="ticks"><button class="tk c" type="button" data-tick="c" aria-pressed="${has(key, "c")}" title="Caught">${ic("check")}Caught</button>` +
-          `<button class="tk s" type="button" data-tick="s" aria-pressed="${has(key, "s")}" title="${c.shiny ? "Shiny" : "No shiny in GO yet"}"${!c.shiny && !has(key, "s") ? " disabled" : ""}>${ic("sparkles")}Shiny</button></div>` : "") +
-        `<button class="chip collect" type="button" data-collect aria-pressed="${on}">${on ? ic("check") + "Collecting" : "Collect this"}</button></div>`;
-    }).join("")}</div>` : `<p class="empty">${mode === "collecting" ? "No costumes chosen yet: pick them from Every costume." : "Nothing matches."}</p>`}`;
+    ${items.length ? `<div class="grid">${items.map(costumeCard).join("")}</div>` : `<p class="empty">${mode === "collecting" ? "No costumes chosen yet: pick them from Every costume." : "Nothing matches."}</p>`}`;
 }
 
 function eventsPage(){
@@ -374,6 +404,8 @@ function route(){
   navHtml(r);
   if (r === "costumes") return costumesPage();
   if (r === "events") return eventsPage();
+  const pm = /^p-(\d+)$/.exec(r);
+  if (pm) return pokemonPage(+pm[1]);
   if (term && r !== "costumes") {
     const n = parseInt(term.replace(/^#/, ""), 10);
     const list = ENTRIES.filter(e => (e.name + " " + (e.form || "")).toLowerCase().includes(term) || e.dex === n);
@@ -424,7 +456,6 @@ async function toggleList(list, id){
 }
 
 document.addEventListener("click", ev => {
-  if (ev.target.id === "modal") { formsOpen = null; return rerender(); }
   const b = ev.target.closest("button");
   if (!b) {   // anywhere else on a Pokémon's card: tick Caught, or the selected tab's box (her ask, 9 Nov)
     const c = ev.target.closest(".card[data-id]"), e = c && byId[c.dataset.id];
@@ -433,15 +464,13 @@ document.addEventListener("click", ev => {
     if (!t || (t !== "c" && t === "s" && !e.shiny && !has(dk(e), "s"))) return;
     return tick(dk(e), t, !has(dk(e), t));
   }
-  if (b.hasAttribute("data-clear")) { Object.assign(prefs, {work: "all", workShow: "need"}); keepPrefs(); return rerender(); }
+  if (b.hasAttribute("data-clear")) { Object.assign(prefs, {work: "all", workShow: "all"}); keepPrefs(); return rerender(); }
   if (b.hasAttribute("data-showall")) { prefs.workShow = prefs.workShow === "all" ? "need" : "all"; keepPrefs(); return rerender(); }
-  if (b.dataset.work) { prefs.work = prefs.work === b.dataset.work ? "all" : b.dataset.work; prefs.workShow = "need"; keepPrefs(); return rerender(); }   // click again: back to all
+  if (b.dataset.work) { prefs.work = prefs.work === b.dataset.work ? "all" : b.dataset.work; prefs.workShow = prefs.work === "all" ? "all" : "need"; keepPrefs(); return rerender(); }   // click again: back to all
   if (b.dataset.notout) { prefs.unreleased = b.dataset.notout === "yes"; keepPrefs(); return rerender(); }
   if (b.dataset.workshow) { prefs.workShow = b.dataset.workshow; keepPrefs(); return rerender(); }
   if (b.dataset.cmode) { prefs.costumes = b.dataset.cmode; keepPrefs(); return rerender(); }
   if (b.dataset.emode) { prefs.events = b.dataset.emode; keepPrefs(); return rerender(); }
-  if (b.dataset.forms) { formsOpen = +b.dataset.forms; return rerender(); }
-  if (b.hasAttribute("data-closeforms")) { formsOpen = null; return rerender(); }
   if (b.dataset.formtick) return tick("d:" + b.dataset.formtick, b.dataset.t, b.getAttribute("aria-pressed") !== "true");
   if (b.dataset.flip) {
     const k = b.dataset.pic, item = byId[k.slice(2)] || costumeById[k.slice(2)];
@@ -473,8 +502,7 @@ q.addEventListener("input", () => {
   }, 150);
 });
 document.getElementById("searchIco").innerHTML = ic("search");
-addEventListener("keydown", ev => { if (ev.key === "Escape" && formsOpen !== null) { formsOpen = null; rerender(); } });
-addEventListener("hashchange", () => { formsOpen = null; route(); scrollTo(0, 0); });
+addEventListener("hashchange", () => { route(); scrollTo(0, 0); });
 
 route();
 if (location.protocol.startsWith("http")) {
