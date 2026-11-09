@@ -8,6 +8,7 @@ Claude’s jobs, and the record of what was decided. Everything waiting on Jemma
 - Data: 1,292 entries (1,208 out in GO) across 1,024 species; 1,126 shinies out; 96 with a different female picture; 326 costumes; 79 European events (research by a helper agent from Serebii, Leek Duck, GO Hub, Dittobase and official posts; 17 species found out since early 2024 with no shiny yet, e.g. Mimikyu, Zeraora, Minior).
 
 ## Open
+- [x] 9 Nov, her ask (“as an app, not browser”): Desktop, Start menu and folder shortcuts made. They run tools/open_app.pyw, which starts the server if needed and then opens the app window, because Windows blocked a Startup-folder server. Opened for her.
 - [ ] Check the taskbar icon once she opens the app: the shortcuts carry the app id `Chrome.localhost_/.Chrome.Default`, the same as the Library’s (different Chrome profile and port). If the two group together or the icon is blurry, read the window’s real id and change it in tools/make_shortcuts.ps1.
 - [ ] After 10 Nov: update Night Out London from what actually happened.
 - [ ] ESA museum events run until 30 Apr 2027: recheck their background Pokémon then.
