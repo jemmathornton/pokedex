@@ -26,7 +26,8 @@ const store = {
 const PREFS_KEY = "jemmas-pokedex-view";
 const prefs = Object.assign({work: "all", workShow: "need", gender: "any", forms: "all", type: "any", kind: "any",
   unreleased: false, costumes: "auto", events: "all"}, store.get(PREFS_KEY, {}));
-if (["genders", "caught", "forms"].includes(prefs.work)) prefs.work = "all";   // tabs that no longer exist
+if (["genders", "caught", "forms"].includes(prefs.work)) prefs.work = "all";
+if (!["need", "all"].includes(prefs.workShow)) prefs.workShow = "need";   // tabs that no longer exist
 const keepPrefs = () => store.set(PREFS_KEY, prefs);
 
 // ---------- what there is ----------
@@ -72,7 +73,7 @@ const EXTRAS = [
   {t: "sd", label: "Shadow", icon: "flame", flag: "shadow", title: "Shadow"},
   {t: "pu", label: "Purified", icon: "sun", flag: "shadow", title: "Purified"},
   {t: "dx", label: "Dynamax", icon: "chevrons-up", flag: "dynamax", title: "Dynamax"},
-  {t: "gx", label: "G-Max", icon: "cloud", flag: "gmax", title: "Gigantamax"},
+  {t: "gx", label: "Gigantamax", icon: "cloud", flag: "gmax", title: "Gigantamax"},
 ];
 
 function counts(list){
@@ -102,15 +103,15 @@ function counts(list){
 // the filters (9 Nov, her pick of three tried): choose the box she's working on (tabs), then Still need / Have / All;
 // the cards then show only that box. Every box works the same way, Male, Female and Forms included (her rule).
 const BOXF = [   // each box as a filter: which Pokémon it applies to, and whether she has it
-  {k: "male", label: "Male", applies: e => !!maleTick(e), have: gotMale, ticks: e => [maleTick(e)]},
   {k: "female", label: "Female", applies: e => !!femaleTick(e), have: gotFemale, ticks: e => [femaleTick(e)]},
+  {k: "male", label: "Male", applies: e => !!maleTick(e), have: gotMale, ticks: e => [maleTick(e)]},
   {k: "shiny", label: "Shiny", applies: e => !!e.shiny, have: e => has(dk(e), "s"), ticks: ["s"]},
   {k: "lucky", label: "Lucky", applies: e => canLucky(e), have: e => has(dk(e), "l"), ticks: ["l"]},
   {k: "hundo", label: "4★", applies: e => e.released, have: e => has(dk(e), "h"), ticks: ["h"]},
   {k: "shadow", label: "Shadow", applies: e => !!e.shadow, have: e => has(dk(e), "sd"), ticks: ["sd"]},
   {k: "purified", label: "Purified", applies: e => !!e.shadow, have: e => has(dk(e), "pu"), ticks: ["pu"]},
   {k: "dynamax", label: "Dynamax", applies: e => !!e.dynamax, have: e => has(dk(e), "dx"), ticks: ["dx"]},
-  {k: "gmax", label: "G-Max", applies: e => !!e.gmax, have: e => has(dk(e), "gx"), ticks: ["gx"]},
+  {k: "gmax", label: "Gigantamax", applies: e => !!e.gmax, have: e => has(dk(e), "gx"), ticks: ["gx"]},
 ];
 const boxPass = (b, val, e) => val === "have" ? b.applies(e) && b.have(e) : val === "need" ? b.applies(e) && !b.have(e) : true;
 function boxFilter(e){
@@ -125,22 +126,32 @@ const GENDER_WORDS = {male: "♂ only", female: "♀ only", none: "Genderless"};
 
 // ---------- boxes on a card ----------
 function boxes(e){
+  // a fixed two-column grid, so every box has the same place on every card (her point, 9 Nov: the ragged rows looked
+  // bizarre): Caught | Shiny · Male | Female · Lucky | 4★ · Shadow | Purified · Dynamax | G-Max. A box that can't apply
+  // to this Pokémon leaves its place empty; a pair with neither is left out.
   const only = onlyTicks(e);
-  const k = dk(e), btn = (t, cls, html, title, off) => {
+  const k = dk(e), btn = (t, cls, icon, label, title, off) => {
     if (only && !only.includes(t)) return "";
     const on = has(k, t);
-    return `<button class="tk ${cls}" type="button" data-tick="${t}" aria-pressed="${on}" title="${attr(title)}" aria-label="${attr(title)}"${off && !on ? " disabled" : ""}>${html}</button>`;
+    return `<button class="tk ${cls}" type="button" data-tick="${t}" aria-pressed="${on}" title="${attr(title)}" aria-label="${attr(title)}"${off && !on ? " disabled" : ""}>${ic(icon)}<span>${esc(label)}</span></button>`;
   };
-  const row1 = btn("c", "c", ic("check") + "Caught", "Caught") +
-    (maleTick(e) ? btn("cm", "m", ic("mars"), e.gender === "male" ? "Male (male only)" : "Male") : "") +
-    (femaleTick(e) ? btn("cf", "f", ic("venus"), e.gender === "female" ? "Female (female only)" : "Female") : "");
-  const row2 = btn("s", "s", ic("sparkles") + "Shiny", e.shiny ? "Shiny" : "No shiny in GO yet", !e.shiny) +
-    btn("l", "l", ic("clover") + "Lucky", e.class === "mythical" ? "Mythical: can’t be traded, so never lucky" : "Lucky", !canLucky(e)) +
-    btn("h", "h", "4★", "4★ (perfect IVs)", !e.released);
-  // themed rows so none sits alone (her point, 9 Nov): caught and genders · shiny, lucky, 4★ · shadow, purified · Max
-  const extra = keys => EXTRAS.filter(x => keys.includes(x.t) && e[x.flag]).map(x => btn(x.t, x.t, ic(x.icon) + esc(x.label), x.title)).join("");
-  const row3 = extra(["sd", "pu"]), row4 = extra(["dx", "gx"]);
-  return [row1, row2, row3, row4].filter(Boolean).map(r => `<div class="ticks${only ? " big" : ""}">${r}</div>`).join("");
+  const x = t => EXTRAS.find(z => z.t === t);
+  const extra = t => e[x(t).flag] ? btn(t, t, x(t).icon, x(t).label, x(t).title) : "";
+  const pairs = [
+    [btn("c", "c", "poke-ball", "Caught", "Caught"), btn("s", "s", "sparkles", "Shiny", e.shiny ? "Shiny" : "No shiny in GO yet", !e.shiny)],
+    [femaleTick(e) ? btn("cf", "f", "venus", "Female", e.gender === "female" ? "Female (female only)" : "Female") : "",
+     maleTick(e) ? btn("cm", "m", "mars", "Male", e.gender === "male" ? "Male (male only)" : "Male") : ""],   // female first (her call)
+    [btn("l", "l", "clover", "Lucky", e.class === "mythical" ? "Mythical: can’t be traded, so never lucky" : "Lucky", !canLucky(e)),
+     btn("h", "h", "star", "4★", "4★ (perfect IVs)", !e.released)],
+    [extra("sd"), extra("pu")],
+  ];
+  const wide = [extra("dx"), extra("gx")].filter(Boolean);   // Dynamax and Gigantamax get a full row each, so the words fit
+  if (only) {   // working on one box: just that one, bigger
+    const one = pairs.flat().concat(wide).filter(Boolean).join("");
+    return one ? `<div class="ticks big">${one}</div>` : "";
+  }
+  return `<div class="boxgrid">` + pairs.filter(pr => pr[0] || pr[1]).map(pr => (pr[0] || "<span></span>") + (pr[1] || "<span></span>")).join("") +
+    wide.map(w => w.replace('class="tk ', 'class="tk wide ')).join("") + `</div>`;
 }
 
 // the picture: small ✨ and ♀ buttons on it flip to the shiny / female picture (9 Nov: clicking the picture itself was
@@ -148,13 +159,13 @@ function boxes(e){
 const picFlip = new Map();   // key -> {s, f} she has flipped to (until the page is reloaded)
 function pic(item, key){
   const shinyPic = sprite(item.img + ".s"), femalePic = item.femaleImg && sprite(item.femaleImg);
-  const st = picFlip.get(key) || {s: has(key, "s") || prefs.work === "shiny", f: false};
+  const st = picFlip.get(key) || {s: has(key, "s") || prefs.work === "shiny", f: !!femalePic};   // female look first (her call)
   const k = (st.f && femalePic ? item.femaleImg : item.img) + (st.s && shinyPic ? ".s" : "");
   const src = sprite(k) || sprite(item.img);
   const flip = (w, on, icon, title) => `<button class="flip${w === "s" ? " fs" : " ff"}" type="button" data-flip="${w}" data-pic="${attr(key)}" aria-pressed="${on}" title="${title}" aria-label="${title}">${icon}</button>`;
   return `<div class="pic">` + (src ? `<img src="${src}" alt="" loading="lazy" decoding="async">` : `<span class="blank">?</span>`) +
     `<span class="flips">` + (shinyPic ? flip("s", !!st.s, ic("sparkles"), st.s ? "Show the normal colours" : "Show the shiny") : "") +
-    (femalePic ? flip("f", !!st.f, ic("venus"), st.f ? "Show the male" : "Show the female (she looks different)") : "") + `</span></div>`;
+    (femalePic ? flip("f", !!st.f, ic(st.f ? "mars" : "venus"), st.f ? "Show the male (he looks different)" : "Show the female") : "") + `</span></div>`;
 }
 
 // one card per Pokédex number on each page, as in the game; its other forms open from a button on it (her call, 9 Nov).
@@ -209,7 +220,7 @@ function groupCards(groups){
   return groups.map(({lead, others}) => card(lead, formsButton(lead, others))).join("");
 }
 
-const HL = {caught: "--caught", male: "--male", female: "--female", shiny: "--shiny", lucky: "--lucky", hundo: "--hundo",
+const HL = {caught: "--caught", female: "--female", male: "--male", shiny: "--shiny", lucky: "--lucky", hundo: "--hundo",
             shadow: "--shadow", purified: "--purified", dynamax: "--dynamax", gmax: "--gmax"};
 function card(e, more = "", inForms = false){
   const flags = [];
@@ -231,19 +242,25 @@ function card(e, more = "", inForms = false){
 // ---------- pages ----------
 const view = document.getElementById("view"), nav = document.getElementById("nav"), q = document.getElementById("q");
 
+function statTile(colour, icon, label, have, of, extra = ""){
+  return `<div class="stat" style="--sc:var(${colour})"><span class="sl">${ic(icon)}${esc(label)}</span><b>${num(have)}<small> of ${num(of)}</small></b>
+    <span class="sbar"><i style="width:${of ? have / of * 100 : 0}%"></i></span>${extra}</div>`;
+}
 function statsHtml(c){
-  const t = (cls, icon, have, of, what) => `<div class="stat ${cls}"><b>${num(have)}</b><span>${icon}${what} of ${num(of)}</span></div>`;
+  // the counts at the top: an even grid of tiles, each with its box's icon and colour, "3 of 151" and a bar (her point:
+  // the old row of uneven tiles looked bad). Forms sit inside the Pokémon tile.
+  const t = (colour, icon, label, have, of, extra = "") => of ? statTile(colour, icon, label, have, of, extra) : "";
   return `<div class="stats">` +
-    t("caught", ic("check"), c.species, c.speciesOut, "Pokémon") +
-    t("caught", ic("layers"), c.forms, c.formsOut, "forms") +
-    t("caught", ic("mars"), c.male, c.maleOut, "male") +
-    t("caught", ic("venus"), c.female, c.femaleOut, "female") +
-    t("shiny", ic("sparkles"), c.shiny, c.shinyOut, "shiny") +
-    t("lucky", ic("clover"), c.lucky, c.luckyOut, "lucky") +
-    t("hundo", ic("star"), c.hundo, c.out, "4★") +
-    (c.shadowOut ? t("shadow", "", c.sd, c.shadowOut, "shadow") + t("purified", "", c.pu, c.shadowOut, "purified") : "") +
-    (c.dynamaxOut ? t("dynamax", "", c.dx, c.dynamaxOut, "Dynamax") : "") +
-    (c.gmaxOut ? t("dynamax", "", c.gx, c.gmaxOut, "Gigantamax") : "") + `</div>`;
+    t("--caught", "poke-ball", "Pokémon", c.species, c.speciesOut, c.formsOut ? `<span class="sx">Forms ${num(c.forms)} of ${num(c.formsOut)}</span>` : "") +
+    t("--female", "venus", "Female", c.female, c.femaleOut) +
+    t("--male", "mars", "Male", c.male, c.maleOut) +
+    t("--shiny", "sparkles", "Shiny", c.shiny, c.shinyOut) +
+    t("--lucky", "clover", "Lucky", c.lucky, c.luckyOut) +
+    t("--hundo", "star", "4★", c.hundo, c.out) +
+    t("--shadow", "flame", "Shadow", c.sd, c.shadowOut) +
+    t("--purified", "sun", "Purified", c.pu, c.shadowOut) +
+    t("--dynamax", "chevrons-up", "Dynamax", c.dx, c.dynamaxOut) +
+    t("--gmax", "cloud", "Gigantamax", c.gx, c.gmaxOut) + `</div>`;
 }
 const readOnlyNote = () => readOnly ? `<div class="notice">${ic("info")} Opened from the folder, so ticks can’t be saved here. Open it with the Jemma’s Pokédex shortcut.</div>` : "";
 
@@ -274,14 +291,16 @@ function dexPage(title, label, list){
   const groups = groupByNumber(items);
   const seg = (attrName, cur, rows) => `<span class="opts">${rows.map(([v, l]) => `<button type="button" ${attrName}="${v}" aria-pressed="${v === cur}">${l}</button>`).join("")}</span>`;
   const picked = prefs.work !== "all";
-  // one line of tabs (Clear at its end), then one line: Still need / Have / All, the not-out toggle, how many shown (her layout, 9 Nov)
+  // one line of tabs; under it Clear and a "Show all" check (a tab shows the ones still needed; Show all adds the ones
+  // she has, lit up), and the not-out switch on the right (her layout, 9 Nov)
   view.innerHTML = `<header class="hero"><span class="label">${esc(label)}</span><h1>${title}</h1>${statsHtml(counts(list))}</header>${readOnlyNote()}
     <div class="toolbar filters" id="toolbar">
       <div class="frow"><span class="wlabel"><span class="label">Working on</span><span class="shown">${num(groups.length)} shown</span></span><div class="worktabs">` +
       BOXF.map(b => `<button type="button" class="worktab" data-work="${b.k}" aria-pressed="${prefs.work === b.k}">${esc(b.label)}</button>`).join("") +
-      (picked ? `<button class="linkbtn" type="button" data-clear>${ic("x")}Clear</button>` : "") + `</div></div>
-      ${picked || notOut ? `<div class="frow subrow">${picked ? seg("data-workshow", prefs.workShow, [["need", "Still need"], ["have", "Have"], ["all", "All"]]) : ""}
-        ${notOut ? seg("data-notout", prefs.unreleased ? "yes" : "no", [["no", "Out in GO"], ["yes", "Include not out yet"]]) : ""}</div>` : ""}</div>
+      `</div></div>
+      ${picked || notOut ? `<div class="frow subrow">${picked ? `<button class="linkbtn" type="button" data-clear>${ic("x")}Clear</button>
+        <button class="checkbtn" type="button" data-showall aria-pressed="${prefs.workShow === "all"}"><span class="cb">${prefs.workShow === "all" ? ic("check") : ""}</span>Show all</button>` : ""}
+        <span class="gap"></span>${notOut ? seg("data-notout", prefs.unreleased ? "yes" : "no", [["no", "Out in GO"], ["yes", "Include not out yet"]]) : ""}</div>` : ""}</div>
     ${items.length ? `<div class="grid" id="grid">${groupCards(groups)}</div>` : `<p class="empty">Nothing here.</p>`}` + formsModal();
 }
 
@@ -294,9 +313,8 @@ function costumesPage(){
   const haveShiny = COSTUMES.filter(c => COL.costumes.includes(c.id) && has(ck(c), "s")).length;
   const haveAny = COSTUMES.filter(c => COL.costumes.includes(c.id) && hasAny(ck(c), ["c", "s"])).length;
   view.innerHTML = `<header class="hero"><span class="label">Pokémon GO</span><h1>Costumes</h1>
-    <div class="stats"><div class="stat"><b>${num(COL.costumes.length)}</b><span>collecting, of ${num(COSTUMES.length)}</span></div>
-    <div class="stat caught"><b>${num(haveAny)}</b><span>${ic("check")}caught</span></div>
-    <div class="stat shiny"><b>${num(haveShiny)}</b><span>${ic("sparkles")}shiny</span></div></div></header>${readOnlyNote()}
+    <div class="stats">${statTile("--deep-2", "shirt", "Collecting", COL.costumes.length, COSTUMES.length)}
+    ${statTile("--caught", "poke-ball", "Caught", haveAny, COL.costumes.length)}${statTile("--shiny", "sparkles", "Shiny", haveShiny, COL.costumes.length)}</div></header>${readOnlyNote()}
     <div class="toolbar"><button class="chip" type="button" data-cmode="collecting" aria-pressed="${mode === "collecting"}">${ic("list-checks")}Ones I’m collecting</button>
       <button class="chip" type="button" data-cmode="all" aria-pressed="${mode === "all"}">${ic("shirt")}Every costume</button>
       ${term ? `<span class="muted" style="font-size:13.5px">Matching “${esc(q.value.trim())}”</span>` : ""}</div>
@@ -335,8 +353,8 @@ function eventsPage(){
   }
   const bgs = EVENTS.filter(e => COL.went.includes(e.id) && e.background).length;
   view.innerHTML = `<header class="hero"><span class="label">In-person events in Europe</span><h1>Events and <em>backgrounds</em></h1>
-    <div class="stats"><div class="stat"><b>${num(COL.went.length)}</b><span>${ic("ticket")}been to, of ${num(EVENTS.length)}</span></div>
-    <div class="stat"><b>${num(bgs)}</b><span>${ic("image")}with a background</span></div></div></header>${readOnlyNote()}
+    <div class="stats">${statTile("--deep-2", "ticket", "Been to", COL.went.length, EVENTS.length)}
+    ${statTile("--purified", "image", "With a background", bgs, COL.went.length)}</div></header>${readOnlyNote()}
     <div class="toolbar">${[["all", "Every event", EVENTS.length], ["went", "Ones I went to", COL.went.length], ["bg", "With a background", EVENTS.filter(e => e.background).length]]
       .map(([k, l]) => `<button class="chip" type="button" data-emode="${k}" aria-pressed="${mode === k}">${l}</button>`).join("")}</div>
     <div class="events">${html || `<p class="empty">None yet: tick “I went” on the events you’ve been to.</p>`}</div>`;
@@ -415,8 +433,9 @@ document.addEventListener("click", ev => {
     if (!t || (t !== "c" && t === "s" && !e.shiny && !has(dk(e), "s"))) return;
     return tick(dk(e), t, !has(dk(e), t));
   }
-  if (b.hasAttribute("data-clear")) { Object.assign(prefs, {work: "all"}); keepPrefs(); return rerender(); }
-  if (b.dataset.work) { prefs.work = prefs.work === b.dataset.work ? "all" : b.dataset.work; keepPrefs(); return rerender(); }   // click again: back to all
+  if (b.hasAttribute("data-clear")) { Object.assign(prefs, {work: "all", workShow: "need"}); keepPrefs(); return rerender(); }
+  if (b.hasAttribute("data-showall")) { prefs.workShow = prefs.workShow === "all" ? "need" : "all"; keepPrefs(); return rerender(); }
+  if (b.dataset.work) { prefs.work = prefs.work === b.dataset.work ? "all" : b.dataset.work; prefs.workShow = "need"; keepPrefs(); return rerender(); }   // click again: back to all
   if (b.dataset.notout) { prefs.unreleased = b.dataset.notout === "yes"; keepPrefs(); return rerender(); }
   if (b.dataset.workshow) { prefs.workShow = b.dataset.workshow; keepPrefs(); return rerender(); }
   if (b.dataset.cmode) { prefs.costumes = b.dataset.cmode; keepPrefs(); return rerender(); }
@@ -425,7 +444,8 @@ document.addEventListener("click", ev => {
   if (b.hasAttribute("data-closeforms")) { formsOpen = null; return rerender(); }
   if (b.dataset.formtick) return tick("d:" + b.dataset.formtick, b.dataset.t, b.getAttribute("aria-pressed") !== "true");
   if (b.dataset.flip) {
-    const k = b.dataset.pic, st = {...(picFlip.get(k) || {s: has(k, "s") || prefs.work === "shiny", f: false})};
+    const k = b.dataset.pic, item = byId[k.slice(2)] || costumeById[k.slice(2)];
+    const st = {...(picFlip.get(k) || {s: has(k, "s") || prefs.work === "shiny", f: !!(item && item.femaleImg && sprite(item.femaleImg))})};
     st[b.dataset.flip] = !st[b.dataset.flip]; picFlip.set(k, st); return rerender();
   }
   if (b.hasAttribute("data-collect")) return toggleList("costumes", b.closest("[data-costume]").dataset.costume);
