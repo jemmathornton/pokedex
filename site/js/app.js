@@ -242,7 +242,7 @@ const REGION_COLOURS = {"1": "#A3302A", "2": "#8E6A0E", "3": "#16618A", "4": "#5
   "7": "#B5531C", "8": "#6E2D82", "hisui": "#3C6150", "9": "#952F57"};
 if (!LOOKS.some(l => l[0] === prefs.look)) prefs.look = "red";
 const setLook = v => { prefs.look = v; document.documentElement.dataset.look = v; };
-setLook(prefs.look);
+setLook(new URLSearchParams(location.search).get("look") || prefs.look);   // ?look=cream shows a look without keeping it (for the pictures)
 const setRegion = g => document.documentElement.style.setProperty("--rc", REGION_COLOURS[g] || "#7E2530");
 const STARTERS = [1, 4, 7, 152, 155, 158, 252, 255, 258, 387, 390, 393, 495, 498, 501, 650, 653, 656, 722, 725, 728, 810, 813, 816, 906, 909, 912];
 function heroArt(list){   // a few of the page's Pokémon, for the looks that show them (big ones first, then a parade)
@@ -294,10 +294,12 @@ function home(){
   let gens = "";
   for (const [g, region, small] of GENS) {
     const list = ENTRIES.filter(e => e.gen === g), k = counts(list);
-    const row = (name, have, of, col) => `<span>${name}</span><span class="bar" style="--c:${col}"><i style="width:${of ? have / of * 100 : 0}%"></i></span><span class="v">${num(have)} / ${num(of)}</span>`;
-    gens += `<a class="gen" href="#gen-${g}"><span class="label">${esc(small)}</span><h3>${esc(region)}</h3><div class="rows">` +
-      row("Pokémon", k.species, k.speciesOut, "var(--caught)") + row("Shiny", k.shiny, k.shinyOut, "var(--shiny)") +
-      row("Lucky", k.lucky, k.luckyOut, "var(--lucky)") + row("4★", k.hundo, k.out, "var(--hundo)") + `</div></a>`;
+    const row = (name, icon, have, of, col) => `<span class="rl" style="--c:${col}">${ic(icon)}${name}</span><span class="bar" style="--c:${col}"><i style="width:${of ? have / of * 100 : 0}%"></i></span><span class="v">${num(have)} / ${num(of)}</span>`;
+    const three = firstStages(list).slice(0, 3);
+    gens += `<a class="gen" href="#gen-${g}" style="--rc:${REGION_COLOURS[g]}"><span class="genart" aria-hidden="true">${three.map(e => sprite(e.img) ? `<img src="${sprite(e.img)}" alt="" loading="lazy">` : "").join("")}</span>` +
+      `<span class="label">${esc(small)}</span><h3>${esc(region)}</h3><div class="rows">` +
+      row("Pokémon", "poke-ball", k.species, k.speciesOut, "var(--caught)") + row("Shiny", "sparkles", k.shiny, k.shinyOut, "var(--shiny)") +
+      row("Lucky", "clover", k.lucky, k.luckyOut, "var(--lucky)") + row("4★", "star", k.hundo, k.out, "var(--hundo)") + `</div></a>`;
   }
   const went = EVENTS.filter(e => COL.went.includes(e.id)).length;
   setRegion(null);
@@ -305,8 +307,8 @@ function home(){
     <h1>Jemma’s <em>Pokédex</em></h1>${statsHtml(c)}</header>${readOnlyNote()}
     <section class="section"><h2>By generation</h2><div class="gens">${gens}</div></section>
     <section class="section"><h2>Costumes and backgrounds</h2><div class="gens">
-      <a class="gen" href="#costumes"><span class="label">Costumes</span><h3>${num(COL.costumes.length)} collecting</h3><p class="muted" style="margin:6px 0 0;font-size:13.5px">of ${num(COSTUMES.length)} in the game</p></a>
-      <a class="gen" href="#events"><span class="label">European events</span><h3>${num(went)} been to</h3><p class="muted" style="margin:6px 0 0;font-size:13.5px">of ${num(EVENTS.length)} listed</p></a>
+      <a class="gen" href="#costumes"><span class="genart" aria-hidden="true">${(COL.costumes.length ? COSTUMES.filter(c => COL.costumes.includes(c.id)) : COSTUMES.filter(c => c.shiny).slice(-3)).slice(0, 3).map(c => sprite(c.img) ? `<img src="${sprite(c.img)}" alt="" loading="lazy">` : "").join("")}</span><span class="label">Costumes</span><h3>${num(COL.costumes.length)} collecting</h3><p class="muted" style="margin:6px 0 0;font-size:13.5px">of ${num(COSTUMES.length)} in the game</p></a>
+      <a class="gen" href="#events"><span class="genart" aria-hidden="true">${(EVENTS[0].backgroundPokemon || []).slice(0, 3).map(name => baseOf[DATA.dexByName[name.toLowerCase()]]).filter(Boolean).map(e => `<img src="${sprite(e.img)}" alt="" loading="lazy">`).join("")}</span><span class="label">European events</span><h3>${num(went)} been to</h3><p class="muted" style="margin:6px 0 0;font-size:13.5px">of ${num(EVENTS.length)} listed</p></a>
     </div></section>
     <p class="muted" style="margin-top:40px;font-size:12.5px">Pokémon data from the game, checked ${dates(DATA.updated)}.</p>`;
 }
@@ -457,7 +459,7 @@ function pokemonPage(n){
 function costumeCard(c){
   const on = COL.costumes.includes(c.id), key = "c:" + c.id;
   return `<div class="card${on ? "" : " not-collecting"}" data-costume="${attr(c.id)}"><span class="no">#${pad(c.dex)}</span>` +
-    pic(c, key) + `<b class="nm">${esc(c.name)}</b><small class="fm">${esc(c.costume)}</small>` +
+    pic(c, key) + `<a class="nm" href="#p-${c.dex}" title="Everything about ${attr(c.name)}">${esc(c.name)}</a><small class="fm">${esc(c.costume)}</small>` +
     (on ? `<div class="boxgrid"><button class="tk c" type="button" data-tick="c" aria-pressed="${has(key, "c")}" title="Caught">${ic("poke-ball")}<span>Caught</span></button>` +
       `<button class="tk s" type="button" data-tick="s" aria-pressed="${has(key, "s")}" title="${c.shiny ? "Shiny" : "No shiny in GO yet"}"${!c.shiny && !has(key, "s") ? " disabled" : ""}>${ic("sparkles")}<span>Shiny</span></button></div>` : "") +
     `<button class="chip collect" type="button" data-collect aria-pressed="${on}">${on ? ic("check") + "Collecting" : "Collect this"}</button></div>`;
@@ -473,10 +475,11 @@ function costumesPage(){
   setRegion(null);
   view.innerHTML = `<header class="hero">${heroArt([...COSTUMES.filter(c => COL.costumes.includes(c.id)), ...COSTUMES.filter(c => c.shiny).reverse()])}<span class="label">Pokémon GO</span><h1>Costumes</h1>
     <div class="stats">${statTile("--deep-2", "shirt", "Collecting", COL.costumes.length, COSTUMES.length)}
-    ${statTile("--caught", "poke-ball", "Caught", haveAny, COL.costumes.length)}${statTile("--shiny", "sparkles", "Shiny", haveShiny, COL.costumes.length)}</div></header>${readOnlyNote()}
-    <div class="toolbar"><button class="chip" type="button" data-cmode="collecting" aria-pressed="${mode === "collecting"}">${ic("list-checks")}Ones I’m collecting</button>
-      <button class="chip" type="button" data-cmode="all" aria-pressed="${mode === "all"}">${ic("shirt")}Every costume</button>
-      ${term ? `<span class="muted" style="font-size:13.5px">Matching “${esc(q.value.trim())}”</span>` : ""}</div>
+    ${COL.costumes.length ? statTile("--caught", "poke-ball", "Caught", haveAny, COL.costumes.length) + statTile("--shiny", "sparkles", "Shiny", haveShiny, COL.costumes.length) : ""}</div></header>${readOnlyNote()}
+    <div class="toolbar filters"><div class="frow"><span class="label flabel">Show</span><div class="worktabs">
+      <button class="worktab" type="button" data-cmode="collecting" aria-pressed="${mode === "collecting"}">Ones I’m collecting <span class="n">${num(COL.costumes.length)}</span></button>
+      <button class="worktab" type="button" data-cmode="all" aria-pressed="${mode === "all"}">Every costume <span class="n">${num(COSTUMES.length)}</span></button>
+      ${term ? `<span class="muted" style="font-size:13.5px;margin-left:8px">Matching “${esc(q.value.trim())}”</span>` : ""}</div></div></div>
     ${items.length ? `<div class="grid">${items.map(costumeCard).join("")}</div>` : `<p class="empty">${mode === "collecting" ? "No costumes chosen yet: pick them from Every costume." : "Nothing matches."}</p>`}`;
 }
 
@@ -493,7 +496,7 @@ function eventsPage(){
       const e = baseOf[DATA.dexByName[name.toLowerCase()]];
       if (!e) return "";
       const key = `b:${ev.id}:${e.dex}`, src = sprite(has(key, "s") && sprite(e.img + ".s") ? e.img + ".s" : e.img);
-      return `<div class="bgmon" data-bg="${attr(key)}">${src ? `<img src="${src}" alt="" loading="lazy">` : ""}<div class="t">${esc(e.name)}` +
+      return `<div class="bgmon" data-bg="${attr(key)}">${src ? `<img src="${src}" alt="" loading="lazy">` : ""}<div class="t"><a href="#p-${e.dex}">${esc(e.name)}</a>` +
         (went ? `<div class="ticks"><button class="tk c" type="button" data-tick="c" aria-pressed="${has(key, "c")}" title="Have it with this background">${ic("check")}</button>` +
           `<button class="tk s" type="button" data-tick="s" aria-pressed="${has(key, "s")}" title="${e.shiny ? "Shiny with this background" : "No shiny in GO yet"}"${!e.shiny && !has(key, "s") ? " disabled" : ""}>${ic("sparkles")}</button></div>` : "") + `</div></div>`;
     }).join("");
@@ -508,9 +511,9 @@ function eventsPage(){
   const bgMons = EVENTS.flatMap(ev => (ev.backgroundPokemon || []).map(name => baseOf[DATA.dexByName[name.toLowerCase()]]));
   view.innerHTML = `<header class="hero">${heroArt(bgMons)}<span class="label">In-person events in Europe</span><h1>Events and <em>backgrounds</em></h1>
     <div class="stats">${statTile("--deep-2", "ticket", "Been to", COL.went.length, EVENTS.length)}
-    ${statTile("--purified", "image", "With a background", bgs, COL.went.length)}</div></header>${readOnlyNote()}
-    <div class="toolbar">${[["all", "Every event", EVENTS.length], ["went", "Ones I went to", COL.went.length], ["bg", "With a background", EVENTS.filter(e => e.background).length]]
-      .map(([k, l]) => `<button class="chip" type="button" data-emode="${k}" aria-pressed="${mode === k}">${l}</button>`).join("")}</div>
+    ${COL.went.length ? statTile("--purified", "image", "With a background", bgs, COL.went.length) : ""}</div></header>${readOnlyNote()}
+    <div class="toolbar filters"><div class="frow"><span class="label flabel">Show</span><div class="worktabs">${[["all", "Every event", EVENTS.length], ["went", "Ones I went to", COL.went.length], ["bg", "With a background", EVENTS.filter(e => e.background).length]]
+      .map(([k, l, n]) => `<button class="worktab" type="button" data-emode="${k}" aria-pressed="${mode === k}">${l} <span class="n">${num(n)}</span></button>`).join("")}</div></div></div>
     <div class="events">${html || `<p class="empty">None yet: tick “I went” on the events you’ve been to.</p>`}</div>`;
 }
 
@@ -525,7 +528,8 @@ function navHtml(route){
 function route(){
   const r = (location.hash || "#home").slice(1);
   const term = q.value.trim().toLowerCase();
-  navHtml(r);
+  const pn = /^p-(\d+)$/.exec(r), lead = pn && groupByNumber(ENTRIES.filter(e => e.dex === +pn[1]))[0];
+  navHtml(lead ? "gen-" + lead.lead.gen : r);   // a Pokémon's page lights up its region in the sidebar
   if (r === "costumes") return costumesPage();
   if (r === "events") return eventsPage();
   const pm = /^p-(\d+)$/.exec(r);

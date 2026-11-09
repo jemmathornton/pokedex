@@ -262,6 +262,16 @@ main{margin-left:var(--side);min-height:100vh;container-type:inline-size}
 .bar i{display:block;height:100%;border-radius:99px;background:var(--c)}
 .gen .rows span:last-child,.gen .rows .v{font-variant-numeric:tabular-nums;color:var(--muted);text-align:right}
 
+.gen{position:relative;overflow:hidden}
+.genart{position:absolute;right:8px;top:4px;display:flex}
+.genart img{width:58px;height:58px;object-fit:contain;margin-left:-12px}
+.gen .rl{display:inline-flex;align-items:center;gap:6px}
+.gen .rl .i{width:16px;height:16px;padding:2.5px;border-radius:5px;background:var(--c);color:#fff;box-sizing:border-box}
+.gen:hover{border-color:color-mix(in srgb,var(--rc,var(--deep-2)) 50%,var(--line))}
+.worktab .n{font-weight:600;opacity:.65;margin-left:2px;font-variant-numeric:tabular-nums}
+.bgmon .t a{color:inherit;text-decoration:none}
+.bgmon .t a:hover{text-decoration:underline;text-underline-offset:3px}
+
 /* ---------- events ---------- */
 .events{display:grid;gap:12px}
 .event{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
@@ -466,9 +476,10 @@ a.formsbtn{text-decoration:none}
 :root[data-look="region"] .side{background:#1E1A21}
 :root[data-look="region"] .nav a.on{background:color-mix(in srgb,var(--rc) 75%,#1E1A21);box-shadow:inset 3px 0 0 color-mix(in srgb,var(--rc) 55%,#fff)}
 :root[data-look="region"] .heroart{display:block}
-:root[data-look="region"] .heroart img{width:150px;height:150px;top:18px;right:calc(36px + var(--i) * 128px);filter:drop-shadow(0 8px 16px rgba(0,0,0,.28))}
+:root[data-look="region"] .heroart img{width:150px;height:150px;top:18px;right:calc(36px + (2 - var(--i)) * 128px);filter:drop-shadow(0 8px 16px rgba(0,0,0,.28))}
 :root[data-look="region"] .heroart img:nth-child(n+4){display:none}
 :root[data-look="region"] .hero::after{opacity:.6}
+:root[data-look="region"] .hero.mon .heroart,:root[data-look="cream"] .hero.mon .heroart{display:none}   /* the page has its own big picture */
 
 /* Cream: a light page like paper, the sidebar and banner in cream with the red as a thin edge and the titles */
 :root[data-look="cream"] .side,:root[data-look="cream"] .hero{--on-deep:var(--ink);--on-deep-mute:var(--muted)}
@@ -488,7 +499,7 @@ a.formsbtn{text-decoration:none}
 :root[data-look="cream"] .crumbs a,:root[data-look="cream"] .pn,:root[data-look="cream"] .type{border-color:var(--line);background:var(--paper)}
 :root[data-look="cream"] .crumbs a:hover,:root[data-look="cream"] .pn:hover{background:var(--soft)}
 :root[data-look="cream"] .heroart{display:block}
-:root[data-look="cream"] .heroart img{width:140px;height:140px;top:22px;right:calc(36px + var(--i) * 120px)}
+:root[data-look="cream"] .heroart img{width:140px;height:140px;top:22px;right:calc(36px + (2 - var(--i)) * 120px)}
 :root[data-look="cream"] .heroart img:nth-child(n+4){display:none}
 
 /* Parade: the red kept, with the page's Pokémon walking along the bottom of the banner; a Poké Ball ring low in the sidebar */
@@ -512,3 +523,7 @@ a.formsbtn{text-decoration:none}
   main{margin-left:0}
   .grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
 }
+
+/* dark mode: the box icons on a Pokémon's page lighter, so the dark ones (Shadow, Gigantamax) still show */
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .bb:not([aria-pressed="true"]):not(:disabled) > .i{color:color-mix(in srgb,var(--bc) 55%,#fff);background:color-mix(in srgb,var(--bc) 32%,var(--surface))}}
+:root[data-theme="dark"] .bb:not([aria-pressed="true"]):not(:disabled) > .i{color:color-mix(in srgb,var(--bc) 55%,#fff);background:color-mix(in srgb,var(--bc) 32%,var(--surface))}
