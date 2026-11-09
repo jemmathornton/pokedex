@@ -180,22 +180,37 @@ function formTick(e){
   const t = typeof b.ticks === "function" ? b.ticks(e) : b.ticks;
   return t[0];
 }
-function formStrip(others){
+// a card shows a small "Forms 3/28" button; it opens a pop-up with every form as a picture to tick (9 Nov: forms inside
+// the card made Unown's card far too tall, her words). The list itself never changes.
+let formsOpen = null;   // the Pokédex number whose forms pop-up is open
+const groupsByDex = {};   // the current page's groups, for the pop-up
+const formGot = e => { const b = BOXF.find(x => x.k === prefs.work); return b ? b.applies(e) && b.have(e) : caught(e); };
+function formsButton(lead, others){
   if (!others.length) return "";
+  const all = [lead, ...others];
+  return `<button class="formsbtn" type="button" data-forms="${lead.dex}">${ic("layers")}Forms ${all.filter(formGot).length}/${all.length}</button>`;
+}
+function formsModal(){
+  const g = groupsByDex[formsOpen];
+  if (!g) return "";
   const b = BOXF.find(x => x.k === prefs.work);
-  const thumbs = others.map(e => {
-    const t = formTick(e), got = b ? b.applies(e) && b.have(e) : caught(e);
-    const shinyPic = (prefs.work === "shiny" || has(dk(e), "s")) && sprite(e.img + ".s");
-    const src = shinyPic || sprite(e.img);
-    const what = `${e.form}${t ? "" : " (can’t be " + (b ? b.label.toLowerCase() : "") + ")"}`;
-    return `<button class="fthumb" type="button" data-formtick="${attr(e.id)}" data-t="${t || ""}" aria-pressed="${got}" title="${attr(what)}" aria-label="${attr(what)}"${t ? "" : " disabled"}` +
-      (got ? ` style="--hl:var(${HL[b ? b.k : "caught"]})"` : "") + `>${src ? `<img src="${src}" alt="" loading="lazy">` : "?"}</button>`;
+  const all = [g.lead, ...g.others];
+  const tiles = all.map(e => {
+    const t = formTick(e), got = formGot(e);
+    const src = ((prefs.work === "shiny" || has(dk(e), "s")) && sprite(e.img + ".s")) || sprite(e.img);
+    return `<button class="ftile" type="button" data-formtick="${attr(e.id)}" data-t="${t || ""}" aria-pressed="${got}"${t ? "" : " disabled"}` +
+      (got ? ` style="--hl:var(${HL[b ? b.k : "caught"]})"` : "") + `>${src ? `<img src="${src}" alt="">` : `<span class="blank">?</span>`}<span>${esc(e.form || "Normal")}</span></button>`;
   }).join("");
-  const have = others.filter(e => b ? b.applies(e) && b.have(e) : caught(e)).length;
-  return `<div class="forms"><span class="fl">${others.length} more form${others.length === 1 ? "" : "s"} · ${have} ticked</span><div class="fthumbs">${thumbs}</div></div>`;
+  return `<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="${attr(g.lead.name)} forms"><div class="modal-box">
+    <div class="modal-head"><div><span class="label">#${pad(g.lead.dex)} · ${all.filter(formGot).length} of ${all.length} ticked</span><h2>${esc(g.lead.name)} forms</h2>
+      <p class="muted">Click a form to tick ${b ? esc(b.label) : "Caught"}.</p></div>
+      <button class="modal-x" type="button" data-closeforms aria-label="Close">${ic("x")}</button></div>
+    <div class="ftiles">${tiles}</div></div></div>`;
 }
 function groupCards(groups){
-  return groups.map(({lead, others}) => card(lead, formStrip(others))).join("");
+  for (const k in groupsByDex) delete groupsByDex[k];
+  groups.forEach(g => { groupsByDex[g.lead.dex] = g; });
+  return groups.map(({lead, others}) => card(lead, formsButton(lead, others))).join("");
 }
 
 const HL = {caught: "--caught", male: "--male", female: "--female", shiny: "--shiny", lucky: "--lucky", hundo: "--hundo",
@@ -271,7 +286,7 @@ function dexPage(title, label, list){
       (picked ? `<button class="linkbtn" type="button" data-clear>${ic("x")}Clear</button>` : "") + `</div></div>
       ${picked || notOut ? `<div class="frow subrow">${picked ? seg("data-workshow", prefs.workShow, [["need", "Still need"], ["have", "Have"], ["all", "All"]]) : ""}
         ${notOut ? seg("data-notout", prefs.unreleased ? "yes" : "no", [["no", "Out in GO"], ["yes", "Include not out yet"]]) : ""}</div>` : ""}</div>
-    ${items.length ? `<div class="grid" id="grid">${groupCards(groups)}</div>` : `<p class="empty">Nothing here.</p>`}`;
+    ${items.length ? `<div class="grid" id="grid">${groupCards(groups)}</div>` : `<p class="empty">Nothing here.</p>`}` + formsModal();
 }
 
 function costumesPage(){
@@ -395,6 +410,7 @@ async function toggleList(list, id){
 }
 
 document.addEventListener("click", ev => {
+  if (ev.target.id === "modal") { formsOpen = null; return rerender(); }
   const b = ev.target.closest("button");
   if (!b) return;
   if (b.hasAttribute("data-clear")) { Object.assign(prefs, {work: "all"}); keepPrefs(); return rerender(); }
@@ -403,6 +419,8 @@ document.addEventListener("click", ev => {
   if (b.dataset.workshow) { prefs.workShow = b.dataset.workshow; keepPrefs(); return rerender(); }
   if (b.dataset.cmode) { prefs.costumes = b.dataset.cmode; keepPrefs(); return rerender(); }
   if (b.dataset.emode) { prefs.events = b.dataset.emode; keepPrefs(); return rerender(); }
+  if (b.dataset.forms) { formsOpen = +b.dataset.forms; return rerender(); }
+  if (b.hasAttribute("data-closeforms")) { formsOpen = null; return rerender(); }
   if (b.dataset.formtick) return tick("d:" + b.dataset.formtick, b.dataset.t, b.getAttribute("aria-pressed") !== "true");
   if (b.dataset.flip) {
     const k = b.dataset.pic, st = {...(picFlip.get(k) || {s: has(k, "s") || prefs.work === "shiny", f: false})};
@@ -433,7 +451,8 @@ q.addEventListener("input", () => {
   }, 150);
 });
 document.getElementById("searchIco").innerHTML = ic("search");
-addEventListener("hashchange", () => { route(); scrollTo(0, 0); });
+addEventListener("keydown", ev => { if (ev.key === "Escape" && formsOpen !== null) { formsOpen = null; rerender(); } });
+addEventListener("hashchange", () => { formsOpen = null; route(); scrollTo(0, 0); });
 
 route();
 if (location.protocol.startsWith("http")) {

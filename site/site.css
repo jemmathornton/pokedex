@@ -336,16 +336,24 @@ main{margin-left:var(--side);min-height:100vh;container-type:inline-size}
 .flip.fs[aria-pressed="true"]{background:var(--shiny);border-color:var(--shiny);color:#fff}
 .flip.ff[aria-pressed="true"]{background:var(--female);border-color:var(--female);color:#fff}
 
-/* forms inside a card: small pictures, faded until ticked */
-.forms{margin-top:10px;width:100%;border-top:1px dashed var(--line);padding-top:8px}
-.forms .fl{display:block;font-size:11.5px;font-weight:700;color:var(--muted);margin-bottom:6px}
-.fthumbs{display:flex;flex-wrap:wrap;justify-content:center;gap:4px}
-.fthumb{width:32px;height:32px;padding:0;border:1px solid var(--line);border-radius:8px;background:var(--paper);cursor:pointer;display:grid;place-items:center}
-.fthumb img{width:28px;height:28px;object-fit:contain;opacity:.45;filter:grayscale(.5)}
-.fthumb:hover img{opacity:.8;filter:none}
-.fthumb[aria-pressed="true"]{border:2px solid var(--hl);background:color-mix(in srgb,var(--hl) 12%,var(--surface))}
-.fthumb[aria-pressed="true"] img{opacity:1;filter:none}
-.fthumb:disabled{cursor:default;opacity:.35}
+/* forms: a small button on the card opens a pop-up of every form, faded until ticked */
+.formsbtn{margin-top:8px;display:inline-flex;align-items:center;gap:5px;border:1px solid var(--line);background:var(--paper);border-radius:999px;
+  padding:3px 11px;font-size:12.5px;font-weight:700;color:var(--ink);cursor:pointer}
+.formsbtn .i{width:13px;height:13px;color:var(--muted)}
+.formsbtn:hover{border-color:var(--muted)}
+.modal{position:fixed;inset:0;z-index:60;background:rgba(20,10,12,.45);display:grid;place-items:center;padding:24px}
+.modal-box{background:var(--surface);border-radius:16px;max-width:860px;width:100%;max-height:calc(100vh - 48px);overflow:auto;padding:22px 24px 26px;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.modal-head{display:flex;align-items:flex-start;gap:16px;margin-bottom:14px}
+.modal-head h2{font-size:32px;margin-top:4px}
+.modal-head p{margin:4px 0 0;font-size:13.5px}
+.modal-x{margin-left:auto;border:1px solid var(--line);background:var(--paper);border-radius:50%;width:34px;height:34px;display:grid;place-items:center;cursor:pointer;flex:none}
+.ftiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:8px}
+.ftile{border:1px solid var(--line);background:var(--paper);border-radius:12px;padding:8px 6px;display:grid;justify-items:center;gap:4px;cursor:pointer;font-size:12.5px;font-weight:700;color:var(--ink)}
+.ftile img{width:64px;height:64px;object-fit:contain;opacity:.45;filter:grayscale(.5)}
+.ftile:hover img{opacity:.85;filter:none}
+.ftile[aria-pressed="true"]{border:2px solid var(--hl);background:color-mix(in srgb,var(--hl) 12%,var(--surface))}
+.ftile[aria-pressed="true"] img{opacity:1;filter:none}
+.ftile:disabled{cursor:default;opacity:.35}
 
 /* ---------- toast ---------- */
 .toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:var(--ink);color:var(--paper);padding:9px 16px;border-radius:10px;font-size:14px;font-weight:600;z-index:50;box-shadow:0 6px 24px rgba(0,0,0,.2)}
