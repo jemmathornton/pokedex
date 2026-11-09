@@ -24,7 +24,9 @@ const store = {
   set(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch {} },
 };
 const PREFS_KEY = "jemmas-pokedex-view";
-const prefs = Object.assign({show: "all", gender: "any", forms: "all", unreleased: false, costumes: "auto", events: "all"}, store.get(PREFS_KEY, {}));
+const prefs = Object.assign({layout: "C", box: {}, work: "all", workShow: "need", gender: "any", forms: "all", type: "any", kind: "any",
+  unreleased: false, costumes: "auto", events: "all"}, store.get(PREFS_KEY, {}));
+if (typeof prefs.box !== "object" || !prefs.box) prefs.box = {};
 const keepPrefs = () => store.set(PREFS_KEY, prefs);
 
 // ---------- what there is ----------
@@ -82,30 +84,32 @@ function counts(list){
   return r;
 }
 
-// the filters: what to show, which genders, forms
-const SHOWS = [
-  ["Everything", [["all", "Everything", () => true]]],
-  ["Still to get", [
-    ["need-caught", "Not caught yet", e => !caught(e)],
-    ["need-gender", "Missing ♂ or ♀", e => e.gender === "both" && !gotBoth(e)],
-    ["need-shiny", "No shiny yet", e => e.shiny && !has(dk(e), "s")],
-    ["need-lucky", "No lucky yet", e => canLucky(e) && !has(dk(e), "l")],
-    ["need-hundo", "No 4★ yet", e => !has(dk(e), "h")],
-    ["need-shadow", "No shadow yet", e => e.shadow && !has(dk(e), "sd")],
-    ["need-purified", "No purified yet", e => e.shadow && !has(dk(e), "pu")],
-    ["need-dynamax", "No Dynamax yet", e => e.dynamax && !has(dk(e), "dx")],
-    ["need-gmax", "No Gigantamax yet", e => e.gmax && !has(dk(e), "gx")]]],
-  ["What I have", [
-    ["have-caught", "Caught", e => caught(e)],
-    ["have-shiny", "Shinies", e => has(dk(e), "s")],
-    ["have-lucky", "Luckies", e => has(dk(e), "l")],
-    ["have-hundo", "4★s", e => has(dk(e), "h")],
-    ["have-shadow", "Shadows", e => has(dk(e), "sd")],
-    ["have-purified", "Purified", e => has(dk(e), "pu")],
-    ["have-dynamax", "Dynamax", e => has(dk(e), "dx")],
-    ["have-gmax", "Gigantamax", e => has(dk(e), "gx")]]],
+// the filters. Trial (9 Nov, her ask): three layouts, A (a drop-down per box), B (Any/Have/Need switches per box),
+// C (pick the box you're working on: cards show only that box). The switch at the bottom right picks one; remove the
+// other two once she has chosen.
+const BOXF = [   // each box as a filter: which Pokémon it applies to, and whether she has it
+  {k: "caught", label: "Caught", applies: () => true, have: e => caught(e), ticks: ["c", "cm", "cf"]},
+  {k: "genders", label: "♂ and ♀", applies: e => e.gender === "both", have: e => gotBoth(e), ticks: ["cm", "cf", "c"]},
+  {k: "shiny", label: "Shiny", applies: e => !!e.shiny, have: e => has(dk(e), "s"), ticks: ["s"]},
+  {k: "lucky", label: "Lucky", applies: e => canLucky(e), have: e => has(dk(e), "l"), ticks: ["l"]},
+  {k: "hundo", label: "4★", applies: e => e.released, have: e => has(dk(e), "h"), ticks: ["h"]},
+  {k: "shadow", label: "Shadow", applies: e => !!e.shadow, have: e => has(dk(e), "sd"), ticks: ["sd"]},
+  {k: "purified", label: "Purified", applies: e => !!e.shadow, have: e => has(dk(e), "pu"), ticks: ["pu"]},
+  {k: "dynamax", label: "Dynamax", applies: e => !!e.dynamax, have: e => has(dk(e), "dx"), ticks: ["dx"]},
+  {k: "gmax", label: "G-Max", applies: e => !!e.gmax, have: e => has(dk(e), "gx"), ticks: ["gx"]},
 ];
-const SHOW_LIST = SHOWS.flatMap(g => g[1]);
+const boxPass = (b, val, e) => val === "have" ? b.applies(e) && b.have(e) : val === "need" ? b.applies(e) && !b.have(e) : true;
+function boxFilter(e){
+  if (prefs.layout === "C") {
+    const b = BOXF.find(x => x.k === prefs.work);
+    return !b || boxPass(b, prefs.workShow, e);
+  }
+  return BOXF.every(b => boxPass(b, prefs.box[b.k] || "any", e));
+}
+const onlyTicks = () => prefs.layout === "C" ? (BOXF.find(x => x.k === prefs.work) || {}).ticks : null;   // C: cards show only that box
+const TYPES = [...new Set(ENTRIES.flatMap(e => e.types))].sort();
+const KINDS = [["any", "Any", () => true], ["legendary", "Legendary", e => e.class === "legendary"], ["mythical", "Mythical", e => e.class === "mythical"],
+               ["ultra-beast", "Ultra Beast", e => e.class === "ultra-beast"], ["ordinary", "Not legendary or mythical", e => !e.class]];
 const GENDERS = [["any", "Any", () => true], ["both", "Male and female", e => e.gender === "both"], ["male", "Male only", e => e.gender === "male"],
                  ["female", "Female only", e => e.gender === "female"], ["none", "Genderless", e => e.gender === "none"]];
 const FORMS = [["all", "All Pokémon", () => true], ["forms", "Only ones with forms", hasForms], ["plain", "Only ones without forms", e => !hasForms(e)]];
@@ -113,7 +117,9 @@ const GENDER_WORDS = {male: "♂ only", female: "♀ only", none: "Genderless"};
 
 // ---------- boxes on a card ----------
 function boxes(e){
+  const only = onlyTicks();
   const k = dk(e), btn = (t, cls, html, title, off) => {
+    if (only && !only.includes(t)) return "";
     const on = has(k, t);
     return `<button class="tk ${cls}" type="button" data-tick="${t}" aria-pressed="${on}" title="${attr(title)}" aria-label="${attr(title)}"${off && !on ? " disabled" : ""}>${html}</button>`;
   };
@@ -124,7 +130,7 @@ function boxes(e){
   const row2 = btn("l", "l", ic("clover") + "Lucky", e.class === "mythical" ? "Mythical: can’t be traded, so never lucky" : "Lucky", !canLucky(e)) +
     btn("h", "h", "4★", "4★ (perfect IVs)", !e.released);
   const row3 = EXTRAS.filter(x => e[x.flag]).map(x => btn(x.t, x.t, esc(x.label), x.title)).join("");
-  return `<div class="ticks">${row1}</div><div class="ticks">${row2}</div>` + (row3 ? `<div class="ticks">${row3}</div>` : "");
+  return [row1, row2, row3].filter(Boolean).map(r => `<div class="ticks${only ? " big" : ""}">${r}</div>`).join("");
 }
 
 // the picture: click to look through the versions there are (normal, female, shiny, shiny female)
@@ -201,20 +207,35 @@ function home(){
 }
 
 function dexPage(title, label, list){
-  const show = SHOW_LIST.find(x => x[0] === prefs.show) || SHOW_LIST[0];
-  const gender = GENDERS.find(x => x[0] === prefs.gender) || GENDERS[0];
-  const forms = FORMS.find(x => x[0] === prefs.forms) || FORMS[0];
-  const items = list.filter(e => (prefs.unreleased || e.released) && show[2](e) && gender[2](e) && forms[2](e));
+  const pick = (rows, cur) => rows.find(x => x[0] === cur) || rows[0];
+  const gender = pick(GENDERS, prefs.gender), forms = pick(FORMS, prefs.forms), kind = pick(KINDS, prefs.kind);
+  const items = list.filter(e => (prefs.unreleased || e.released) && boxFilter(e) && gender[2](e) && forms[2](e) && kind[2](e) &&
+    (prefs.type === "any" || e.types.includes(prefs.type)));
   const notOut = list.filter(e => !e.released).length;
   const opts = (rows, cur) => rows.map(x => `<option value="${x[0]}"${x[0] === cur ? " selected" : ""}>${esc(x[1])}</option>`).join("");
-  const filtered = show[0] !== "all" || gender[0] !== "any" || forms[0] !== "all";
+  const sel = (name, pref, rows) => `<label class="sel">${name} <select data-pref="${pref}">${opts(rows, prefs[pref])}</select></label>`;
+  const seg = (attrName, cur, rows) => `<span class="opts">${rows.map(([v, l]) => `<button type="button" ${attrName}="${v}" aria-pressed="${v === cur}">${l}</button>`).join("")}</span>`;
+  let boxRows;
+  if (prefs.layout === "A") {
+    boxRows = `<div class="frow"><span class="label">Your boxes</span>${BOXF.map(b => `<label class="sel">${esc(b.label)} <select data-box="${b.k}">` +
+      opts([["any", "Any"], ["have", "Have it"], ["need", "Still need"]], prefs.box[b.k] || "any") + `</select></label>`).join("")}</div>`;
+  } else if (prefs.layout === "B") {
+    boxRows = `<div class="frow"><span class="label">Your boxes</span><div class="fgrid">${BOXF.map(b => `<span class="seg"><b>${esc(b.label)}</b>` +
+      seg(`data-box-${b.k}`, prefs.box[b.k] || "any", [["any", "Any"], ["have", "Have"], ["need", "Need"]]) + `</span>`).join("")}</div></div>`;
+  } else {
+    boxRows = `<div class="frow"><span class="label">Working on</span><div class="worktabs">` +
+      [{k: "all", label: "Everything"}, ...BOXF.filter(b => b.k !== "caught")].map(b => `<button type="button" class="worktab" data-work="${b.k}" aria-pressed="${prefs.work === b.k}">${esc(b.label)}</button>`).join("") +
+      `</div></div>` + (prefs.work !== "all" ? `<div class="frow"><span class="label">Show</span><span class="seg">` +
+      seg("data-workshow", prefs.workShow, [["need", "Still need"], ["have", "Have"], ["all", "All"]]) + `</span></div>` : "");
+  }
+  const filtered = gender[0] !== "any" || forms[0] !== "all" || kind[0] !== "any" || prefs.type !== "any" ||
+    (prefs.layout === "C" ? prefs.work !== "all" : Object.values(prefs.box).some(v => v && v !== "any"));
   view.innerHTML = `<header class="hero"><span class="label">${esc(label)}</span><h1>${title}</h1>${statsHtml(counts(list))}</header>${readOnlyNote()}
-    <div class="toolbar filters" id="toolbar"><span class="label">${ic("eye")} Filters</span>
-      <label class="sel">Show <select data-pref="show">${SHOWS.map(g => g[0] === "Everything" ? opts(g[1], show[0]) : `<optgroup label="${esc(g[0])}">${opts(g[1], show[0])}</optgroup>`).join("")}</select></label>
-      <label class="sel">Gender <select data-pref="gender">${opts(GENDERS, gender[0])}</select></label>
-      <label class="sel">Forms <select data-pref="forms">${opts(FORMS, forms[0])}</select></label>
-      ${notOut ? `<label class="check"><input type="checkbox" data-pref="unreleased"${prefs.unreleased ? " checked" : ""}> Include ones not out in GO yet</label>` : ""}
-      <span class="gap"></span>${filtered ? `<button class="linkbtn" type="button" data-clear>Clear filters</button>` : ""}<span class="shown">${num(items.length)} shown</span></div>
+    <div class="toolbar filters" id="toolbar">${boxRows}
+      <div class="frow"><span class="label">The Pokémon</span>${sel("Gender", "gender", GENDERS)}${sel("Forms", "forms", FORMS)}
+        ${sel("Type", "type", [["any", "Any type"], ...TYPES.map(t => [t, t])])}${sel("Kind", "kind", KINDS)}
+        ${notOut ? `<label class="check"><input type="checkbox" data-pref="unreleased"${prefs.unreleased ? " checked" : ""}> Include ones not out in GO yet</label>` : ""}
+        <span class="gap"></span>${filtered ? `<button class="linkbtn" type="button" data-clear>Clear filters</button>` : ""}<span class="shown">${num(items.length)} shown</span></div></div>
     ${items.length ? `<div class="grid" id="grid">${items.map(card).join("")}</div>` : `<p class="empty">Nothing here.</p>`}`;
 }
 
@@ -284,6 +305,7 @@ function navHtml(route){
 }
 
 function route(){
+  trialSwitch();
   const r = (location.hash || "#home").slice(1);
   const term = q.value.trim().toLowerCase();
   navHtml(r);
@@ -300,6 +322,13 @@ function route(){
   home();
 }
 function rerender(){ const y = scrollY; route(); scrollTo(0, y); }
+function trialSwitch(){   // trial: which filter layout (remove once she has chosen)
+  let el = document.getElementById("trial");
+  if (!el) { el = document.createElement("div"); el.id = "trial"; el.className = "trial"; document.body.appendChild(el); }
+  const names = {A: "A drop-down for each box", B: "Any / Have / Need switches", C: "Pick what you’re working on"};
+  el.innerHTML = `<span class="label">Trying out: filters</span><div class="opts">${Object.keys(names).map(k =>
+    `<button type="button" data-layout="${k}" aria-pressed="${prefs.layout === k}" title="${names[k]}">${k}</button>`).join("")}</div><small>${names[prefs.layout]}</small>`;
+}
 
 // ---------- saving ----------
 const toastEl = document.getElementById("toast");
@@ -338,7 +367,12 @@ async function toggleList(list, id){
 document.addEventListener("click", ev => {
   const b = ev.target.closest("button");
   if (!b) return;
-  if (b.hasAttribute("data-clear")) { Object.assign(prefs, {show: "all", gender: "any", forms: "all"}); keepPrefs(); return rerender(); }
+  if (b.hasAttribute("data-clear")) { Object.assign(prefs, {box: {}, work: "all", gender: "any", forms: "all", type: "any", kind: "any"}); keepPrefs(); return rerender(); }
+  if (b.dataset.layout) { prefs.layout = b.dataset.layout; keepPrefs(); return rerender(); }
+  if (b.dataset.work) { prefs.work = b.dataset.work; keepPrefs(); return rerender(); }
+  if (b.dataset.workshow) { prefs.workShow = b.dataset.workshow; keepPrefs(); return rerender(); }
+  const boxAttr = [...b.attributes].find(a => a.name.startsWith("data-box-"));
+  if (boxAttr) { prefs.box[boxAttr.name.slice(9)] = boxAttr.value; keepPrefs(); return rerender(); }
   if (b.dataset.cmode) { prefs.costumes = b.dataset.cmode; keepPrefs(); return rerender(); }
   if (b.dataset.emode) { prefs.events = b.dataset.emode; keepPrefs(); return rerender(); }
   if (b.dataset.pic) { const k = b.dataset.pic; picChoice.set(k, (picChoice.get(k) ?? currentPic(b)) + 1); return rerender(); }
@@ -358,6 +392,8 @@ function currentPic(btn){   // which version the picture shows now (so the first
 }
 
 document.addEventListener("change", ev => {   // the filters
+  const bx = ev.target.closest("[data-box]");
+  if (bx) { prefs.box[bx.dataset.box] = bx.value; keepPrefs(); return rerender(); }
   const el = ev.target.closest("[data-pref]");
   if (!el) return;
   prefs[el.dataset.pref] = el.type === "checkbox" ? el.checked : el.value;

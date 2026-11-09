@@ -287,6 +287,28 @@ main{margin-left:var(--side);min-height:100vh;container-type:inline-size}
 .card .collect{margin-top:8px}
 .card.not-collecting .pic img{filter:saturate(.8)}
 
+/* ---------- filters (trial 9 Nov: layouts A, B, C; the bottom-right switch picks one) ---------- */
+.filters{flex-direction:column;align-items:stretch;gap:10px}
+.frow{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+.frow + .frow{padding-top:10px;border-top:1px dashed var(--line)}
+.frow > .label{min-width:100px}
+.fgrid{display:grid;grid-template-columns:repeat(5,max-content);gap:10px 22px}
+.seg{display:inline-flex;flex-direction:column;align-items:flex-start;gap:3px}
+.seg b{font-size:12px;font-weight:700}
+.opts{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--surface)}
+.opts button{border:0;border-left:1px solid var(--line);background:none;padding:3px 10px;font-size:12.5px;font-weight:600;color:var(--muted);cursor:pointer}
+.opts button:first-child{border-left:0}
+.opts button[aria-pressed="true"]{background:var(--deep);color:var(--on-deep)}
+.worktabs{display:flex;flex-wrap:wrap;gap:6px}
+.worktab{padding:7px 14px;border-radius:10px;border:1px solid var(--line);background:var(--surface);font-weight:700;font-size:14px;cursor:pointer}
+.worktab:hover{border-color:var(--muted)}
+.worktab[aria-pressed="true"]{background:var(--deep);color:var(--on-deep);border-color:var(--deep)}
+.ticks.big .tk{font-size:13px;padding:4px 14px}
+.trial{position:fixed;right:16px;bottom:16px;z-index:40;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 12px;
+  box-shadow:0 6px 24px rgba(0,0,0,.15);display:grid;gap:6px;justify-items:start}
+.trial .opts button{font-size:14px;padding:4px 14px;font-weight:700}
+.trial small{font-size:12px;color:var(--muted)}
+
 /* ---------- toast ---------- */
 .toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:var(--ink);color:var(--paper);padding:9px 16px;border-radius:10px;font-size:14px;font-weight:600;z-index:50;box-shadow:0 6px 24px rgba(0,0,0,.2)}
 
