@@ -17,6 +17,8 @@ Claude’s jobs, and the record of what was decided. Everything waiting on Jemma
 ## 9 Nov, evening (her checks)
 - She spotted missing Alolan shadows: Serebii’s Shadow list has no regional forms. Now Dittobase’s data is the main source (regional shadows included), Serebii a second opinion, either saying yes is enough, and shadow carries through evolutions. Result: 488 shadow, 156 Dynamax, 19 Gigantamax entries. The two lists disagreed on about 20 plain shadows (e.g. Kabuto, Poochyena, Seel, Krabby only on Dittobase; Pancham and Pangoro only on Serebii) and some Dynamax (Magikarp, Gyarados, Spheal on Dittobase; Mawile, Drampa on Serebii).
 - Out in GO / shiny cross-checked against Dittobase too: Hisuian Zorua and Zoroark now out; Rockruff (Dusk), Poltchageist and Sinistcha shinies now out. Left as they were where Leek Duck says out/shiny and Dittobase doesn’t (e.g. Hisuian Sliggoo and Goodra, Applin line, Snom). Shadow regional forms Dittobase lists as not out yet (Galarian Meowth, Hisuian Growlithe, Paldean Wooper and others) have no Shadow box.
+- Forms taken out of the Working on tabs (her point: every tab is a yes/no box, forms are more Pokémon to list). How forms show is still open.
+- The “shown” count sits under the Working on label, so the tabs stay on one line.
 - Filter bar: tabs with Clear at the end; one line below with Still need / Have / All, a toggle (not a checkbox) for ones not out in GO yet, and how many are shown (her layout).
 
 ## Open

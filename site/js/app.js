@@ -26,7 +26,7 @@ const store = {
 const PREFS_KEY = "jemmas-pokedex-view";
 const prefs = Object.assign({work: "all", workShow: "need", gender: "any", forms: "all", type: "any", kind: "any",
   unreleased: false, costumes: "auto", events: "all"}, store.get(PREFS_KEY, {}));
-if (["genders", "caught"].includes(prefs.work)) prefs.work = "all";   // tabs that no longer exist
+if (["genders", "caught", "forms"].includes(prefs.work)) prefs.work = "all";   // tabs that no longer exist
 const keepPrefs = () => store.set(PREFS_KEY, prefs);
 
 // ---------- what there is ----------
@@ -104,8 +104,6 @@ function counts(list){
 const BOXF = [   // each box as a filter: which Pokémon it applies to, and whether she has it
   {k: "male", label: "Male", applies: e => !!maleTick(e), have: gotMale, ticks: e => [maleTick(e)]},
   {k: "female", label: "Female", applies: e => !!femaleTick(e), have: gotFemale, ticks: e => [femaleTick(e)]},
-  {k: "forms", label: "Forms", applies: e => hasForms(e), have: e => caught(e),
-   ticks: ["c"]},
   {k: "shiny", label: "Shiny", applies: e => !!e.shiny, have: e => has(dk(e), "s"), ticks: ["s"]},
   {k: "lucky", label: "Lucky", applies: e => canLucky(e), have: e => has(dk(e), "l"), ticks: ["l"]},
   {k: "hundo", label: "4★", applies: e => e.released, have: e => has(dk(e), "h"), ticks: ["h"]},
@@ -225,12 +223,11 @@ function dexPage(title, label, list){
   // one line of tabs (Clear at its end), then one line: Still need / Have / All, the not-out toggle, how many shown (her layout, 9 Nov)
   view.innerHTML = `<header class="hero"><span class="label">${esc(label)}</span><h1>${title}</h1>${statsHtml(counts(list))}</header>${readOnlyNote()}
     <div class="toolbar filters" id="toolbar">
-      <div class="frow"><span class="label">Working on</span><div class="worktabs">` +
+      <div class="frow"><span class="wlabel"><span class="label">Working on</span><span class="shown">${num(items.length)} shown</span></span><div class="worktabs">` +
       BOXF.map(b => `<button type="button" class="worktab" data-work="${b.k}" aria-pressed="${prefs.work === b.k}">${esc(b.label)}</button>`).join("") +
       (picked ? `<button class="linkbtn" type="button" data-clear>${ic("x")}Clear</button>` : "") + `</div></div>
-      <div class="frow">${picked ? seg("data-workshow", prefs.workShow, [["need", "Still need"], ["have", "Have"], ["all", "All"]]) : ""}
-        ${notOut ? `<label class="toggle"><input type="checkbox" role="switch" data-pref="unreleased"${prefs.unreleased ? " checked" : ""}><span class="track"></span>Include ones not out in GO yet</label>` : ""}
-        <span class="gap"></span><span class="shown">${num(items.length)} shown</span></div></div>
+      ${picked || notOut ? `<div class="frow">${picked ? seg("data-workshow", prefs.workShow, [["need", "Still need"], ["have", "Have"], ["all", "All"]]) : ""}
+        ${notOut ? `<label class="toggle"><input type="checkbox" role="switch" data-pref="unreleased"${prefs.unreleased ? " checked" : ""}><span class="track"></span>Include ones not out in GO yet</label>` : ""}</div>` : ""}</div>
     ${items.length ? `<div class="grid" id="grid">${items.map(card).join("")}</div>` : `<p class="empty">Nothing here.</p>`}`;
 }
 
