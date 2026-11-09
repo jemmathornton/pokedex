@@ -186,6 +186,8 @@ function groupCards(groups){
   }).join("");
 }
 
+const HL = {caught: "--caught", male: "--caught", female: "--caught", shiny: "--shiny", lucky: "--lucky", hundo: "--hundo",
+            shadow: "--shadow", purified: "--purified", dynamax: "--dynamax", gmax: "--dynamax"};
 function card(e, more = "", inForms = false){
   const flags = [];
   if (!e.released) flags.push("Not out yet");
@@ -193,7 +195,10 @@ function card(e, more = "", inForms = false){
   if (e.class === "mythical") flags.push("Mythical");
   if (e.class === "ultra-beast") flags.push("Ultra Beast");
   const gw = GENDER_WORDS[e.gender];
-  return `<div class="card${e.released ? "" : " out-not"}${has(dk(e), "l") ? " lucky-on" : ""}${inForms ? " informs" : ""}" data-id="${attr(e.id)}">` +
+  // the card is marked when she has it: caught, or with a tab on, that tab's box, in its colour (her call, 9 Nov)
+  const tab = BOXF.find(x => x.k === prefs.work);
+  const got = tab ? tab.applies(e) && tab.have(e) : caught(e);
+  return `<div class="card${e.released ? "" : " out-not"}${got ? " got" : ""}${inForms ? " informs" : ""}" data-id="${attr(e.id)}"${got ? ` style="--hl:var(${HL[tab ? tab.k : "caught"]})"` : ""}>` +
     `<span class="no">#${pad(e.dex)}</span>` + (flags.length ? `<span class="flags">${flags.map(f => `<span>${esc(f)}</span>`).join("")}</span>` : "") +
     pic(e, dk(e)) +
     `<b class="nm">${esc(e.name)}</b><small class="fm">${esc(e.form || "")}${e.form && gw ? " · " : ""}${gw ? `<span class="gd">${esc(gw)}</span>` : ""}</small>` +
