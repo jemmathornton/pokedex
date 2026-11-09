@@ -387,8 +387,8 @@ function bigBoxes(e){
   };
   return `<div class="bigboxes" data-id="${attr(e.id)}">` +
     B("c", "--caught", "poke-ball", "Caught", true) +
-    B("cf", "--female", "venus", "Female", !!femaleTick(e), "Not this gender") +
-    B("cm", "--male", "mars", "Male", !!maleTick(e), "Not this gender") +
+    B("cf", "--female", "venus", "Female", !!femaleTick(e)) +   // a gender it can't be isn't shown (genderless, male only…)
+    B("cm", "--male", "mars", "Male", !!maleTick(e)) +
     B("s", "--shiny", "sparkles", "Shiny", !!e.shiny, "No shiny yet") +
     B("l", "--lucky", "clover", "Lucky", canLucky(e), e.class === "mythical" ? "Can’t be traded" : "Not out yet") +
     B("h", "--hundo", "star", "4★", e.released, "Not out yet") +
