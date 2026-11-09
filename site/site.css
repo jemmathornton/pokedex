@@ -319,6 +319,13 @@ main{margin-left:var(--side);min-height:100vh;container-type:inline-size}
 .toggle input:checked + .track::after{transform:translateX(14px)}
 .toggle input:focus-visible + .track{outline:2px solid var(--focus);outline-offset:2px}
 
+/* forms: one card per number, the rest open from it */
+.morebtn{margin-top:8px;border:1px solid color-mix(in srgb,var(--deep-2) 35%,var(--line));background:color-mix(in srgb,var(--deep-2) 7%,var(--surface));
+  color:var(--deep-2);border-radius:999px;padding:3px 12px;font-size:12.5px;font-weight:700;cursor:pointer}
+.morebtn:hover{background:color-mix(in srgb,var(--deep-2) 14%,var(--surface))}
+.morebtn[aria-expanded="true"]{background:var(--deep-2);color:var(--on-deep);border-color:var(--deep-2)}
+.card.informs{background:color-mix(in srgb,var(--deep-2) 5%,var(--surface));border-color:color-mix(in srgb,var(--deep-2) 30%,var(--line));border-style:dashed}
+
 /* ---------- toast ---------- */
 .toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:var(--ink);color:var(--paper);padding:9px 16px;border-radius:10px;font-size:14px;font-weight:600;z-index:50;box-shadow:0 6px 24px rgba(0,0,0,.2)}
 

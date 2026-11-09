@@ -161,18 +161,43 @@ function pic(item, key){
     (v[i].what ? `<span class="what${v[i].s ? " s" : ""}">${esc(v[i].what)}</span>` : "") + `</button>`;
 }
 
-function card(e){
+// one card per Pokédex number, as in the game; its other forms open from a button on it (her call, 9 Nov).
+// Regional forms keep their own card in their region.
+const isRegional = e => !!REGION_GEN[(e.form || "").split(" ")[0]];
+const openForms = new Set();   // numbers whose forms are open (until the page is reloaded)
+function groupByNumber(items){
+  const groups = [], byDex = {};
+  for (const e of items) {
+    if (isRegional(e)) { groups.push([e]); continue; }
+    if (!byDex[e.dex]) groups.push(byDex[e.dex] = []);
+    byDex[e.dex].push(e);
+  }
+  return groups.map(g => {
+    const lead = g.find(x => !x.form) || g.find(x => /^[a-z0-9]/i.test(x.form)) || g[0];
+    const odd = x => /^[a-z0-9#]/i.test(x.form || "") ? 0 : 1;   // Unown: A to Z, then ! and ?
+    return {lead, others: g.filter(x => x !== lead).sort((a, b) => odd(a) - odd(b))};
+  });
+}
+function groupCards(groups){
+  return groups.map(({lead, others}) => {
+    const open = openForms.has(lead.dex);
+    const more = others.length ? `<button class="morebtn" type="button" data-expand="${lead.dex}" aria-expanded="${open}">${open ? "Hide forms" : `+${others.length} form${others.length === 1 ? "" : "s"}`}</button>` : "";
+    return card(lead, more) + (open ? others.map(x => card(x, "", true)).join("") : "");
+  }).join("");
+}
+
+function card(e, more = "", inForms = false){
   const flags = [];
   if (!e.released) flags.push("Not out yet");
   if (e.class === "legendary") flags.push("Legendary");
   if (e.class === "mythical") flags.push("Mythical");
   if (e.class === "ultra-beast") flags.push("Ultra Beast");
   const gw = GENDER_WORDS[e.gender];
-  return `<div class="card${e.released ? "" : " out-not"}${has(dk(e), "l") ? " lucky-on" : ""}" data-id="${attr(e.id)}">` +
+  return `<div class="card${e.released ? "" : " out-not"}${has(dk(e), "l") ? " lucky-on" : ""}${inForms ? " informs" : ""}" data-id="${attr(e.id)}">` +
     `<span class="no">#${pad(e.dex)}</span>` + (flags.length ? `<span class="flags">${flags.map(f => `<span>${esc(f)}</span>`).join("")}</span>` : "") +
     pic(e, dk(e)) +
     `<b class="nm">${esc(e.name)}</b><small class="fm">${esc(e.form || "")}${e.form && gw ? " · " : ""}${gw ? `<span class="gd">${esc(gw)}</span>` : ""}</small>` +
-    boxes(e) + `</div>`;
+    boxes(e) + more + `</div>`;
 }
 
 // ---------- pages ----------
@@ -218,17 +243,18 @@ function home(){
 function dexPage(title, label, list){
   const items = list.filter(e => (prefs.unreleased || e.released) && boxFilter(e));
   const notOut = list.filter(e => !e.released).length;
+  const groups = groupByNumber(items);
   const seg = (attrName, cur, rows) => `<span class="opts">${rows.map(([v, l]) => `<button type="button" ${attrName}="${v}" aria-pressed="${v === cur}">${l}</button>`).join("")}</span>`;
   const picked = prefs.work !== "all";
   // one line of tabs (Clear at its end), then one line: Still need / Have / All, the not-out toggle, how many shown (her layout, 9 Nov)
   view.innerHTML = `<header class="hero"><span class="label">${esc(label)}</span><h1>${title}</h1>${statsHtml(counts(list))}</header>${readOnlyNote()}
     <div class="toolbar filters" id="toolbar">
-      <div class="frow"><span class="wlabel"><span class="label">Working on</span><span class="shown">${num(items.length)} shown</span></span><div class="worktabs">` +
+      <div class="frow"><span class="wlabel"><span class="label">Working on</span><span class="shown">${num(groups.length)} shown</span></span><div class="worktabs">` +
       BOXF.map(b => `<button type="button" class="worktab" data-work="${b.k}" aria-pressed="${prefs.work === b.k}">${esc(b.label)}</button>`).join("") +
       (picked ? `<button class="linkbtn" type="button" data-clear>${ic("x")}Clear</button>` : "") + `</div></div>
       ${picked || notOut ? `<div class="frow">${picked ? seg("data-workshow", prefs.workShow, [["need", "Still need"], ["have", "Have"], ["all", "All"]]) : ""}
         ${notOut ? `<label class="toggle"><input type="checkbox" role="switch" data-pref="unreleased"${prefs.unreleased ? " checked" : ""}><span class="track"></span>Include ones not out in GO yet</label>` : ""}</div>` : ""}</div>
-    ${items.length ? `<div class="grid" id="grid">${items.map(card).join("")}</div>` : `<p class="empty">Nothing here.</p>`}`;
+    ${items.length ? `<div class="grid" id="grid">${groupCards(groups)}</div>` : `<p class="empty">Nothing here.</p>`}`;
 }
 
 function costumesPage(){
@@ -291,8 +317,8 @@ function eventsPage(){
 function navHtml(route){
   const link = (href, icon, text, n) => `<a href="${href}" class="${route === href.slice(1) ? "on" : ""}">${ic(icon)}${esc(text)}${n !== undefined ? `<span class="n">${num(n)}</span>` : ""}</a>`;
   const out = ENTRIES.filter(e => e.released);
-  nav.innerHTML = `<div class="nav-group">${link("#home", "house", "Home")}${link("#dex", "layout-grid", "Every Pokémon", out.length)}</div>
-    <div class="nav-group"><span class="label">Generations</span>${GENS.map(([g, n]) => link("#gen-" + g, "layers", g === "hisui" ? n : `${g} · ${n}`, out.filter(e => e.gen === g).length)).join("")}</div>
+  nav.innerHTML = `<div class="nav-group">${link("#home", "house", "Home")}${link("#dex", "layout-grid", "Every Pokémon", groupByNumber(out).length)}</div>
+    <div class="nav-group"><span class="label">Generations</span>${GENS.map(([g, n]) => link("#gen-" + g, "layers", g === "hisui" ? n : `${g} · ${n}`, groupByNumber(out.filter(e => e.gen === g)).length)).join("")}</div>
     <div class="nav-group"><span class="label">More</span>${link("#costumes", "shirt", "Costumes", COL.costumes.length)}${link("#events", "ticket", "Events and backgrounds", COL.went.length)}</div>`;
 }
 
@@ -359,6 +385,7 @@ document.addEventListener("click", ev => {
   if (b.dataset.workshow) { prefs.workShow = b.dataset.workshow; keepPrefs(); return rerender(); }
   if (b.dataset.cmode) { prefs.costumes = b.dataset.cmode; keepPrefs(); return rerender(); }
   if (b.dataset.emode) { prefs.events = b.dataset.emode; keepPrefs(); return rerender(); }
+  if (b.dataset.expand) { const n = +b.dataset.expand; openForms.has(n) ? openForms.delete(n) : openForms.add(n); return rerender(); }
   if (b.dataset.pic) { const k = b.dataset.pic; picChoice.set(k, (picChoice.get(k) ?? currentPic(b)) + 1); return rerender(); }
   if (b.hasAttribute("data-collect")) return toggleList("costumes", b.closest("[data-costume]").dataset.costume);
   if (b.hasAttribute("data-went")) return toggleList("went", b.closest("[data-event]").dataset.event);
