@@ -1,0 +1,42 @@
+# Jemma’s Pokédex
+
+A private Pokédex for Jemma’s Pokémon GO collection: every Pokémon and form in GO, with boxes for caught (male and female), shiny (male and female), lucky and 4★; costumes she chooses to collect; and the in-person European events she has been to, with their location backgrounds. Started 9 Nov 2026 in the style of her other apps (`Documents\SimTracker`, her Sims site, and `Documents\HomeLibrary`, her library): a static site plus a small local server that saves her ticks. Built so other Pokémon games can be added later. Open things are in `TODO.md`; everything waiting on her is in `for-jemma/your-list.md`.
+
+## Working rules (as for her other apps)
+
+- **Never edit Jemma’s own files without asking** (Downloads, Documents, Pictures…). Copy them into the project and work on the copy.
+- **British English** in everything shown; **curly apostrophes** in displayed text (ids, links and data keys stay straight). Pokémon, form, event and costume names keep the game’s or the source’s spelling.
+- **Short, plain answers.** She reviews by looking at the app, not by reading reports.
+- **Obvious bugs** can be fixed straight away; **anything needing her judgement** (what to track, which costumes or events, layout, colours) goes on `for-jemma/your-list.md` as **Do** or **Decide**.
+- **Show, don’t ask, for looks:** layout or design questions get a screenshot of each option at 1280px, never text-only options.
+- **No AI-generated art.** Pokémon pictures are the game’s own (PokeMiners’ copy of the game files); icons are Lucide (ISC, `site/js/LICENSE-lucide.txt`); the app icon is drawn from plain shapes by `tools/make_icons.py`.
+- **No made-up text.** Names and descriptions come from the game or the sources below, word for word. A costume Leek Duck doesn’t name gets its game code tidied, nothing more.
+- **Suggestions aren’t facts:** label anything Claude proposes as a suggestion.
+- **Her ticks are hers:** never change `data/collection/go.json` by hand or by script without her asking. Tests and checks use port 8031, which writes to the same file, so remove any test ticks afterwards (or check on a copy).
+- Laptop (1280px) first; phone layout only when she asks.
+
+## Where things are
+
+- `site/`: the app (`index.html`, `site.css`, `js/app.js`, `js/icons.js`, `js/data.js` **generated, never edit**, `sprites/` the game’s pictures, not in git, `fonts/` Instrument Serif and Manrope kept locally, SIL Open Font Licence). The only folder to upload if it ever goes online.
+- `data/`: the source of truth.
+  - `go/dex.json` (**generated** by tools/import_go.py): one entry per Pokémon or form GO counts in its Pokédex (`id` like `37` or `37-alolan`, `dex`, `gen`, `name`, `form`, `types`, `img` picture key, `gender` both / male / female / none, `femaleImg` when the female looks different, `released`, `shiny` date it came out, `class` legendary / mythical / ultra-beast). Mega, Gigantamax, Apex (`_S`) and in-battle shapes aren’t entries. `go/costumes.json` (generated): every costume picture in the game files (`costume` = Leek Duck’s name, `shiny` when out). `go/pictures.json` (generated): picture key → file in the game files. `go/release-fixes.json` (by hand, optional): `{"<dex or entry id>": true/false}` overrides for what’s out.
+  - `events.json`: in-person European GO events (from research/data/european-events.json, newest first): `id`, `name`, `city`, `country`, `start`, `end`, `background` (null = none), `backgroundPokemon` (species names), `debutShinies`, `sources`, `unsure`. The `unsure` notes stay off the site.
+  - `collection/go.json`: **her ticks**, written by tools/serve.py as she clicks: `have` {key: [ticks]} with keys `d:<entry id>`, `c:<costume id>`, `b:<event id>:<dex>` and ticks `c` caught, `cm`/`cf` caught male/female, `s`/`sm`/`sf` shiny (male/female), `l` lucky, `h` 4★; `went` [event ids]; `costumes` [costume ids she collects]. A shiny, lucky or 4★ one counts as caught, a shiny female as a female.
+- `research/`: notes (european-events.md; data/go-release-check.json, which species are out, checked 9 Nov 2026).
+- `imports/go-<date>/`: raw copies of what tools/import_go.py read (not in git).
+- `for-jemma/your-list.md`: everything waiting on her.
+
+## How to work here
+
+- Python 3.13: `C:/Users/Jemma/AppData/Local/Programs/Python/Python313/python.exe` (not on PATH), run with `-X utf8`. Pillow is installed. Ask before installing anything else.
+- **New GO data** (a new shiny, a new species, a new costume): `tools/import_go.py` (report; `--apply` writes data/go/), then `tools/fetch_sprites.py` (new pictures only), then `tools/build.py`. Sources: pokemon-go-api (the Game Master: species, names, types, forms, legendary/mythical), PokeMiners pogo_assets (pictures, female pictures, costumes), Leek Duck’s Shiny Checklist (`leekduck.com/shiny/pms.json`: shinies out and costume names), PokeAPI’s species table (gender ratios), pogoapi.net (released species, frozen early 2024) plus `research/data/go-release-check.json`. Leek Duck’s list is the only up-to-date one for “out”: a species out with no shiny yet needs a line in the release check or `release-fixes.json`. The report lists forms counted as out with no shiny, for checking.
+- **Changing the page:** edit `site/` by hand, then `tools/build.py` (stamps fingerprints so the app window never shows an old copy).
+- **Server:** `tools/serve.py` serves `site/` at http://localhost:8030 (this computer only) and saves ticks (`POST /api/tick`, header `X-Pokedex: 1`). Started at login from her Startup folder (“Jemma's Pokedex server”). Restart it only with `explorer.exe "<Startup>\Jemma's Pokedex server.lnk"`, so Windows owns it; started from Claude’s shell it dies with the session. Check its parent is explorer.exe.
+- **Checking:** the `pokedex` preview (`.claude/launch.json`) runs a second copy on port 8031 (same data). Look at changed pages at 1280px. Remove any test ticks.
+- **Shortcuts:** `tools/make_shortcuts.ps1` (Startup server, and “Jemma’s Pokédex” on the Desktop, Start menu and project folder: a Chrome app window on http://localhost:8030 with its own profile in %LOCALAPPDATA%\Jemmas Pokedex). App icon: `tools/make_icons.py` (a new picture needs a new .ico name).
+- **Weekly backup:** the Windows task “Jemma's Pokedex - weekly backup” (Sundays 09:40, `tools/make_backup_task.ps1`) runs `tools/backup.py`: commits any changes (her ticks), then zips the project (pictures included, imports left out) to Documents\PokedexBackups (keeps 8). Log in `logs/backup.log`.
+- Git repo (no remote): commit after each piece of work (`data.js` included, so the folder always works as it is).
+
+## Later: other games
+
+`DATA.game` is `"go"` and her ticks are in `collection/go.json`; another game gets its own `data/<game>/` import, `collection/<game>.json` and its own section in the sidebar. Which game first is on her list.

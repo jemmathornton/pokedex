@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+*.tmp
+*.lnk
+logs/
+# raw downloads, fetched again by tools/import_go.py
+imports/
+# the game's pictures (about 20 MB), fetched again by tools/fetch_sprites.py; the weekly backup zips them
+site/sprites/

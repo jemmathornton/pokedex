@@ -1,0 +1,1703 @@
+[
+  {
+    "id": "night-out-2026-london",
+    "name": "Pokémon Night Out (London)",
+    "city": "London",
+    "country": "United Kingdom",
+    "start": "2026-11-10",
+    "end": "2026-11-10",
+    "background": "Night Out - London",
+    "backgroundPokemon": [
+      "Pikachu",
+      "Gengar",
+      "Toxtricity"
+    ],
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/pokemonnightout.shtml",
+      "https://leekduck.com/events/pokemon-night-out-london-2026/"
+    ],
+    "unsure": [
+      "Upcoming (the day after this list was compiled); details may change",
+      "GO gameplay is for concert ticket holders at The O2; Dittobase says 5 species can have the background but names only these"
+    ]
+  },
+  {
+    "id": "esa-2026-science-museum-london",
+    "name": "Pokémon GO x European Space Agency (Science Museum)",
+    "city": "London",
+    "country": "United Kingdom",
+    "start": "2026-10-04",
+    "end": "2027-04-30",
+    "background": "London Science Museum",
+    "backgroundPokemon": [
+      "Pikachu",
+      "Clefairy",
+      "Magnemite",
+      "Starmie",
+      "Solrock",
+      "Blipbug"
+    ],
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/pokemongoxesa.shtml",
+      "https://pokemongo.com/en/news/european-space-agency-event"
+    ],
+    "unsure": [
+      "Serebii lists London as 2 Oct 2026 - 3 Jan 2027 on one page; official end date is 30 Apr 2027",
+      "Still running; field research and boosted spawns only 4-10 Oct 2026, raids and Astronaut Pikachu until 30 Apr 2027",
+      "Pikachu listed both as Astronaut Pikachu and plain Pikachu"
+    ]
+  },
+  {
+    "id": "esa-2026-cite-de-lespace-toulouse",
+    "name": "Pokémon GO x European Space Agency (Cité de l'espace)",
+    "city": "Toulouse",
+    "country": "France",
+    "start": "2026-10-04",
+    "end": "2027-04-30",
+    "background": "Cité de l'Espace",
+    "backgroundPokemon": [
+      "Pikachu",
+      "Clefairy",
+      "Magnemite",
+      "Starmie",
+      "Solrock",
+      "Blipbug"
+    ],
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/pokemongoxesa.shtml",
+      "https://pokemongo.com/en/news/european-space-agency-event"
+    ],
+    "unsure": [
+      "Still running; field research and boosted spawns only 4-10 Oct 2026, raids and Astronaut Pikachu until 30 Apr 2027",
+      "Pikachu listed both as Astronaut Pikachu and plain Pikachu"
+    ]
+  },
+  {
+    "id": "esa-2026-deutsches-museum-nuremberg",
+    "name": "Pokémon GO x European Space Agency (Deutsches Museum Nürnberg)",
+    "city": "Nuremberg",
+    "country": "Germany",
+    "start": "2026-10-04",
+    "end": "2027-04-30",
+    "background": "Germany Space Center",
+    "backgroundPokemon": [
+      "Pikachu",
+      "Clefairy",
+      "Magnemite",
+      "Starmie",
+      "Solrock",
+      "Blipbug"
+    ],
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/pokemongoxesa.shtml",
+      "https://pokemongo.com/en/news/european-space-agency-event"
+    ],
+    "unsure": [
+      "Background name 'Germany Space Center' (Serebii) / 'Space Center Germany' (Dittobase); match to the Nuremberg museum is inferred",
+      "Still running; field research and boosted spawns only 4-10 Oct 2026, raids and Astronaut Pikachu until 30 Apr 2027",
+      "Pikachu listed both as Astronaut Pikachu and plain Pikachu"
+    ]
+  },
+  {
+    "id": "esa-2026-museu-de-les-ciencies-valencia",
+    "name": "Pokémon GO x European Space Agency (Museu de les Ciències)",
+    "city": "Valencia",
+    "country": "Spain",
+    "start": "2026-10-04",
+    "end": "2027-04-30",
+    "background": "Ciutat de les Arts",
+    "backgroundPokemon": [
+      "Pikachu",
+      "Clefairy",
+      "Magnemite",
+      "Starmie",
+      "Solrock",
+      "Blipbug"
+    ],
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/pokemongoxesa.shtml",
+      "https://pokemongo.com/en/news/european-space-agency-event"
+    ],
+    "unsure": [
+      "Background name given as 'Ciutat de les Arts' (Serebii) and 'Ciudad de las Artes' (Dittobase)",
+      "Still running; field research and boosted spawns only 4-10 Oct 2026, raids and Astronaut Pikachu until 30 Apr 2027",
+      "Pikachu listed both as Astronaut Pikachu and plain Pikachu"
+    ]
+  },
+  {
+    "id": "esa-2026-space-expo-noordwijk",
+    "name": "Pokémon GO x European Space Agency (Space Expo)",
+    "city": "Noordwijk",
+    "country": "Netherlands",
+    "start": "2026-10-04",
+    "end": "2027-04-30",
+    "background": "Netherlands Space Expo",
+    "backgroundPokemon": [
+      "Pikachu",
+      "Clefairy",
+      "Magnemite",
+      "Starmie",
+      "Solrock",
+      "Blipbug"
+    ],
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/pokemongoxesa.shtml",
+      "https://pokemongo.com/en/news/european-space-agency-event"
+    ],
+    "unsure": [
+      "Still running; field research and boosted spawns only 4-10 Oct 2026, raids and Astronaut Pikachu until 30 Apr 2027",
+      "Pikachu listed both as Astronaut Pikachu and plain Pikachu"
+    ]
+  },
+  {
+    "id": "esa-2026-euro-space-center-transinne",
+    "name": "Pokémon GO x European Space Agency (Euro Space Center)",
+    "city": "Transinne",
+    "country": "Belgium",
+    "start": "2026-10-04",
+    "end": "2027-04-30",
+    "background": "Euro Space Center",
+    "backgroundPokemon": [
+      "Pikachu",
+      "Clefairy",
+      "Magnemite",
+      "Starmie",
+      "Solrock",
+      "Blipbug"
+    ],
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/pokemongoxesa.shtml",
+      "https://pokemongo.com/en/news/european-space-agency-event"
+    ],
+    "unsure": [
+      "Still running; field research and boosted spawns only 4-10 Oct 2026, raids and Astronaut Pikachu until 30 Apr 2027",
+      "Pikachu listed both as Astronaut Pikachu and plain Pikachu"
+    ]
+  },
+  {
+    "id": "sdcc-malaga-2026",
+    "name": "San Diego Comic-Con Málaga",
+    "city": "Málaga",
+    "country": "Spain",
+    "start": "2026-10-01",
+    "end": "2026-10-04",
+    "background": "San Diego Comic Con Malaga",
+    "backgroundPokemon": [
+      "Pikachu"
+    ],
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/sandiegocomicconmalaga.shtml",
+      "https://www.serebii.net/pokemongo/backgrounds.shtml"
+    ],
+    "unsure": [
+      "Exact in-person mechanics and venue not confirmed"
+    ]
+  },
+  {
+    "id": "city-safari-2026-lisbon",
+    "name": "City Safari: Lisbon",
+    "city": "Lisbon",
+    "country": "Portugal",
+    "start": "2026-09-26",
+    "end": "2026-09-27",
+    "background": "City Safari - Lisbon",
+    "backgroundPokemon": [
+      "Eevee"
+    ],
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/citysafari-lisbon.shtml",
+      "https://www.serebii.net/pokemongo/backgrounds.shtml"
+    ],
+    "unsure": [
+      "Background is for Eevee (Explorer Hat) only"
+    ]
+  },
+  {
+    "id": "city-safari-2026-marseille",
+    "name": "City Safari: Marseille",
+    "city": "Marseille",
+    "country": "France",
+    "start": "2026-09-26",
+    "end": "2026-09-27",
+    "background": "City Safari - Marseille",
+    "backgroundPokemon": [
+      "Eevee"
+    ],
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/citysafari-marseille.shtml",
+      "https://www.serebii.net/pokemongo/backgrounds.shtml"
+    ],
+    "unsure": [
+      "Background is for Eevee (Explorer Hat) only"
+    ]
+  },
+  {
+    "id": "city-safari-2026-munich",
+    "name": "City Safari: Munich",
+    "city": "Munich",
+    "country": "Germany",
+    "start": "2026-09-26",
+    "end": "2026-09-27",
+    "background": "City Safari - Munich",
+    "backgroundPokemon": [
+      "Eevee"
+    ],
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/citysafari-munich.shtml",
+      "https://www.serebii.net/pokemongo/backgrounds.shtml"
+    ],
+    "unsure": [
+      "Background is for Eevee (Explorer Hat) only"
+    ]
+  },
+  {
+    "id": "lego-collab-2026-uk-poland",
+    "name": "Pokémon GO x LEGO collaboration (select LEGO stores)",
+    "city": "Various (UK and Poland)",
+    "country": "United Kingdom / Poland",
+    "start": "2026-08-03",
+    "end": "2026-09-30",
+    "background": "LEGO Pokémon",
+    "backgroundPokemon": [
+      "Pikachu"
+    ],
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/pokemongoandlegocollaborationevent.shtml",
+      "https://www.serebii.net/pokemongo/backgrounds.shtml"
+    ],
+    "unsure": [
+      "'LEGO Pokémon' is a special (non-location) background; same one first given at GO Fest Copenhagen",
+      "Exact participating stores not listed; also ran in USA and Australia"
+    ]
+  },
+  {
+    "id": "national-trust-2026-anglesey-abbey",
+    "name": "Pokémon GO x National Trust (Anglesey Abbey)",
+    "city": "Anglesey Abbey",
+    "country": "United Kingdom (England)",
+    "start": "2026-07-18",
+    "end": "2026-09-06",
+    "background": "National Trust Anglesey Abbey",
+    "backgroundPokemon": [
+      "Treecko",
+      "Grovyle",
+      "Sceptile",
+      "Sewaddle"
+    ],
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/nationaltrust.shtml",
+      "https://www.serebii.net/pokemongo/backgrounds.shtml"
+    ],
+    "unsure": [
+      "Free partnership event; one of 27 sites with raids, Timed Research and a background (140 sites got PokéStops only)"
+    ]
+  },
+  {
+    "id": "national-trust-2026-attingham-park",
+    "name": "Pokémon GO x National Trust (Attingham Park)",
+    "city": "Attingham Park",
+    "country": "United Kingdom (England)",
+    "start": "2026-07-18",
+    "end": "2026-09-06",
+    "background": "National Trust Attingham Park",
+    "backgroundPokemon": [
+      "Treecko",
+      "Grovyle",
+      "Sceptile",
+      "Sewaddle"
+    ],
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/nationaltrust.shtml",
+      "https://www.serebii.net/pokemongo/backgrounds.shtml"
+    ],
+    "unsure": [
+      "Free partnership event; one of 27 sites with raids, Timed Research and a background (140 sites got PokéStops only)"
+    ]
+  },
+  {
+    "id": "national-trust-2026-belton-house",
+    "name": "Pokémon GO x National Trust (Belton House)",
+    "city": "Belton House",
+    "country": "United Kingdom (England)",
+    "start": "2026-07-18",
+    "end": "2026-09-06",
+    "background": "National Trust Belton House",
+    "backgroundPokemon": [
+      "Treecko",
+      "Grovyle",
+      "Sceptile",
+      "Sewaddle"
+    ],
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/nationaltrust.shtml",
+      "https://www.serebii.net/pokemongo/backgrounds.shtml"
+    ],
+    "unsure": [
+      "Free partnership event; one of 27 sites with raids, Timed Research and a background (140 sites got PokéStops only)"
+    ]
+  },
+  {
+    "id": "national-trust-2026-calke-abbey",
+    "name": "Pokémon GO x National Trust (Calke Abbey)",
+    "city": "Calke Abbey",
+    "country": "United Kingdom (England)",
+    "start": "2026-07-18",
+    "end": "2026-09-06",
+    "background": "National Trust Calke Abbey",
+    "backgroundPokemon": [
+      "Treecko",
+      "Grovyle",
+      "Sceptile",
+      "Sewaddle"
+    ],
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/nationaltrust.shtml",
+      "https://www.serebii.net/pokemongo/backgrounds.shtml"
+    ],
+    "unsure": [
+      "Free partnership event; one of 27 sites with raids, Timed Research and a background (140 sites got PokéStops only)"
+    ]
+  },
+  {
+    "id": "national-trust-2026-chirk",
+    "name": "Pokémon GO x National Trust (Chirk)",
+    "city": "Chirk",
+    "country": "United Kingdom (Wales)",
+    "start": "2026-07-18",
+    "end": "2026-09-06",
+    "background": "National Trust Chirk",
+    "backgroundPokemon": [
+      "Treecko",
+      "Grovyle",
+      "Sceptile",
+      "Seedot"
+    ],
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/nationaltrust.shtml",
+      "https://www.serebii.net/pokemongo/backgrounds.shtml"
+    ],
+    "unsure": [
+      "Free partnership event; one of 27 sites with raids, Timed Research and a background (140 sites got PokéStops only)"
+    ]
+  },
+  {
+    "id": "national-trust-2026-cliveden",
+    "name": "Pokémon GO x National Trust (Cliveden)",
+    "city": "Cliveden",
+    "country": "United Kingdom (England)",
+    "start": "2026-07-18",
+    "end": "2026-09-06",
+    "background": "National Trust Cliveden",
+    "backgroundPokemon": [
+      "Treecko",
+      "Grovyle",
+      "Sceptile",
+      "Hoppip"
+    ],
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/nationaltrust.shtml",
+      "https://www.serebii.net/pokemongo/backgrounds.shtml"
+    ],
+    "unsure": [
+      "Free partnership event; one of 27 sites with raids, Timed Research and a background (140 sites got PokéStops only)"
+    ]
+  },
+  {
+    "id": "national-trust-2026-clumber-park",
+    "name": "Pokémon GO x National Trust (Clumber Park)",
+    "city": "Clumber Park",
+    "country": "United Kingdom (England)",
+    "start": "2026-07-18",
+    "end": "2026-09-06",
+    "background": "National Trust Clumber Park",
+    "backgroundPokemon": [
+      "Treecko",
+      "Grovyle",
+      "Sceptile",
+      "Sewaddle"
+    ],
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/nationaltrust.shtml",
+      "https://www.serebii.net/pokemongo/backgrounds.shtml"
+    ],
+    "unsure": [
+      "Free partnership event; one of 27 sites with raids, Timed Research and a background (140 sites got PokéStops only)"
+    ]
+  },
+  {
+    "id": "national-trust-2026-dunham-massey",
+    "name": "Pokémon GO x National Trust (Dunham Massey)",
+    "city": "Dunham Massey",
+    "country": "United Kingdom (England)",
+    "start": "2026-07-18",
+    "end": "2026-09-06",
+    "background": "National Trust Dunham Massey",
+    "backgroundPokemon": [
+      "Treecko",
+      "Grovyle",
+      "Sceptile",
+      "Pineco"
+    ],
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/nationaltrust.shtml",
+      "https://www.serebii.net/pokemongo/backgrounds.shtml"
+    ],
+    "unsure": [
+      "Free partnership event; one of 27 sites with raids, Timed Research and a background (140 sites got PokéStops only)"
+    ]
+  },
+  {
+    "id": "national-trust-2026-fountains-abbey-estate",
+    "name": "Pokémon GO x National Trust (Fountains Abbey Estate)",
+    "city": "Fountains Abbey Estate",
+    "country": "United Kingdom (England)",
+    "start": "2026-07-18",
+    "end": "2026-09-06",
+    "background": "National Trust Fountains Abbey Estate",
+    "backgroundPokemon": [
+      "Treecko",
+      "Grovyle",
+      "Sceptile",
+      "Pineco"
+    ],
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/nationaltrust.shtml",
+      "https://www.serebii.net/pokemongo/backgrounds.shtml"
+    ],
+    "unsure": [
+      "Free partnership event; one of 27 sites with raids, Timed Research and a background (140 sites got PokéStops only)"
+    ]
+  },
+  {
+    "id": "national-trust-2026-gibside",
+    "name": "Pokémon GO x National Trust (Gibside)",
+    "city": "Gibside",
+    "country": "United Kingdom (England)",
+    "start": "2026-07-18",
+    "end": "2026-09-06",
+    "background": "National Trust Gibside",
+    "backgroundPokemon": [
+      "Treecko",
+      "Grovyle",
+      "Sceptile",
+      "Pineco"
+    ],
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/nationaltrust.shtml",
+      "https://www.serebii.net/pokemongo/backgrounds.shtml"
+    ],
+    "unsure": [
+      "Free partnership event; one of 27 sites with raids, Timed Research and a background (140 sites got PokéStops only)"
+    ]
+  },
+  {
+    "id": "national-trust-2026-hanbury",
+    "name": "Pokémon GO x National Trust (Hanbury)",
+    "city": "Hanbury",
+    "country": "United Kingdom (England)",
+    "start": "2026-07-18",
+    "end": "2026-09-06",
+    "background": "National Trust Hanbury",
+    "backgroundPokemon": [
+      "Treecko",
+      "Grovyle",
+      "Sceptile",
+      "Sewaddle"
+    ],
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/nationaltrust.shtml",
+      "https://www.serebii.net/pokemongo/backgrounds.shtml"
+    ],
+    "unsure": [
+      "Free partnership event; one of 27 sites with raids, Timed Research and a background (140 sites got PokéStops only)"
+    ]
+  },
+  {
+    "id": "national-trust-2026-hardwick",
+    "name": "Pokémon GO x National Trust (Hardwick)",
+    "city": "Hardwick",
+    "country": "United Kingdom (England)",
+    "start": "2026-07-18",
+    "end": "2026-09-06",
+    "background": "National Trust Hardwick",
+    "backgroundPokemon": [
+      "Treecko",
+      "Grovyle",
+      "Sceptile",
+      "Sewaddle"
+    ],
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/nationaltrust.shtml",
+      "https://www.serebii.net/pokemongo/backgrounds.shtml"
+    ],
+    "unsure": [
+      "Free partnership event; one of 27 sites with raids, Timed Research and a background (140 sites got PokéStops only)"
+    ]
+  },
+  {
+    "id": "national-trust-2026-killerton",
+    "name": "Pokémon GO x National Trust (Killerton)",
+    "city": "Killerton",
+    "country": "United Kingdom (England)",
+    "start": "2026-07-18",
+    "end": "2026-09-06",
+    "background": "National Trust Killerton",
+    "backgroundPokemon": [
+      "Treecko",
+      "Grovyle",
+      "Sceptile",
+      "Seedot"
+    ],
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/nationaltrust.shtml",
+      "https://www.serebii.net/pokemongo/backgrounds.shtml"
+    ],
+    "unsure": [
+      "Free partnership event; one of 27 sites with raids, Timed Research and a background (140 sites got PokéStops only)"
+    ]
+  },
+  {
+    "id": "national-trust-2026-kingston-lacy",
+    "name": "Pokémon GO x National Trust (Kingston Lacy)",
+    "city": "Kingston Lacy",
+    "country": "United Kingdom (England)",
+    "start": "2026-07-18",
+    "end": "2026-09-06",
+    "background": "National Trust Kingston Lacy",
+    "backgroundPokemon": [
+      "Treecko",
+      "Grovyle",
+      "Sceptile",
+      "Seedot"
+    ],
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/nationaltrust.shtml",
+      "https://www.serebii.net/pokemongo/backgrounds.shtml"
+    ],
+    "unsure": [
+      "Free partnership event; one of 27 sites with raids, Timed Research and a background (140 sites got PokéStops only)"
+    ]
+  },
+  {
+    "id": "national-trust-2026-lacock",
+    "name": "Pokémon GO x National Trust (Lacock)",
+    "city": "Lacock",
+    "country": "United Kingdom (England)",
+    "start": "2026-07-18",
+    "end": "2026-09-06",
+    "background": "National Trust Lacock",
+    "backgroundPokemon": [
+      "Treecko",
+      "Grovyle",
+      "Sceptile",
+      "Seedot"
+    ],
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/nationaltrust.shtml",
+      "https://www.serebii.net/pokemongo/backgrounds.shtml"
+    ],
+    "unsure": [
+      "Free partnership event; one of 27 sites with raids, Timed Research and a background (140 sites got PokéStops only)"
+    ]
+  },
+  {
+    "id": "national-trust-2026-lyme-park",
+    "name": "Pokémon GO x National Trust (Lyme Park)",
+    "city": "Lyme Park",
+    "country": "United Kingdom (England)",
+    "start": "2026-07-18",
+    "end": "2026-09-06",
+    "background": "National Trust Lyme Park",
+    "backgroundPokemon": [
+      "Treecko",
+      "Grovyle",
+      "Sceptile",
+      "Pineco"
+    ],
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/nationaltrust.shtml",
+      "https://www.serebii.net/pokemongo/backgrounds.shtml"
+    ],
+    "unsure": [
+      "Free partnership event; one of 27 sites with raids, Timed Research and a background (140 sites got PokéStops only)"
+    ]
+  },
+  {
+    "id": "national-trust-2026-mottisfont",
+    "name": "Pokémon GO x National Trust (Mottisfont)",
+    "city": "Mottisfont",
+    "country": "United Kingdom (England)",
+    "start": "2026-07-18",
+    "end": "2026-09-06",
+    "background": "National Trust Mottisfont",
+    "backgroundPokemon": [
+      "Treecko",
+      "Grovyle",
+      "Sceptile",
+      "Hoppip"
+    ],
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/nationaltrust.shtml",
+      "https://www.serebii.net/pokemongo/backgrounds.shtml"
+    ],
+    "unsure": [
+      "Free partnership event; one of 27 sites with raids, Timed Research and a background (140 sites got PokéStops only)"
+    ]
+  },
+  {
+    "id": "national-trust-2026-mount-stewart",
+    "name": "Pokémon GO x National Trust (Mount Stewart)",
+    "city": "Mount Stewart",
+    "country": "United Kingdom (Northern Ireland)",
+    "start": "2026-07-18",
+    "end": "2026-09-06",
+    "background": "National Trust Mount Stewart",
+    "backgroundPokemon": [
+      "Treecko",
+      "Grovyle",
+      "Sceptile",
+      "Pineco"
+    ],
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/nationaltrust.shtml",
+      "https://www.serebii.net/pokemongo/backgrounds.shtml"
+    ],
+    "unsure": [
+      "Free partnership event; one of 27 sites with raids, Timed Research and a background (140 sites got PokéStops only)"
+    ]
+  },
+  {
+    "id": "national-trust-2026-nymans",
+    "name": "Pokémon GO x National Trust (Nymans)",
+    "city": "Nymans",
+    "country": "United Kingdom (England)",
+    "start": "2026-07-18",
+    "end": "2026-09-06",
+    "background": "National Trust Nymans",
+    "backgroundPokemon": [
+      "Treecko",
+      "Grovyle",
+      "Sceptile",
+      "Hoppip"
+    ],
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/nationaltrust.shtml",
+      "https://www.serebii.net/pokemongo/backgrounds.shtml"
+    ],
+    "unsure": [
+      "Free partnership event; one of 27 sites with raids, Timed Research and a background (140 sites got PokéStops only)"
+    ]
+  },
+  {
+    "id": "national-trust-2026-polesden",
+    "name": "Pokémon GO x National Trust (Polesden)",
+    "city": "Polesden",
+    "country": "United Kingdom (England)",
+    "start": "2026-07-18",
+    "end": "2026-09-06",
+    "background": "National Trust Polesden",
+    "backgroundPokemon": [
+      "Treecko",
+      "Grovyle",
+      "Sceptile",
+      "Hoppip"
+    ],
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/nationaltrust.shtml",
+      "https://www.serebii.net/pokemongo/backgrounds.shtml"
+    ],
+    "unsure": [
+      "Free partnership event; one of 27 sites with raids, Timed Research and a background (140 sites got PokéStops only)"
+    ]
+  },
+  {
+    "id": "national-trust-2026-scotney-castle",
+    "name": "Pokémon GO x National Trust (Scotney Castle)",
+    "city": "Scotney Castle",
+    "country": "United Kingdom (England)",
+    "start": "2026-07-18",
+    "end": "2026-09-06",
+    "background": "National Trust Scotney Castle",
+    "backgroundPokemon": [
+      "Treecko",
+      "Grovyle",
+      "Sceptile",
+      "Hoppip"
+    ],
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/nationaltrust.shtml",
+      "https://www.serebii.net/pokemongo/backgrounds.shtml"
+    ],
+    "unsure": [
+      "Free partnership event; one of 27 sites with raids, Timed Research and a background (140 sites got PokéStops only)"
+    ]
+  },
+  {
+    "id": "national-trust-2026-stourhead",
+    "name": "Pokémon GO x National Trust (Stourhead)",
+    "city": "Stourhead",
+    "country": "United Kingdom (England)",
+    "start": "2026-07-18",
+    "end": "2026-09-06",
+    "background": "National Trust Stourhead",
+    "backgroundPokemon": [
+      "Treecko",
+      "Grovyle",
+      "Sceptile",
+      "Seedot"
+    ],
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/nationaltrust.shtml",
+      "https://www.serebii.net/pokemongo/backgrounds.shtml"
+    ],
+    "unsure": [
+      "Free partnership event; one of 27 sites with raids, Timed Research and a background (140 sites got PokéStops only)"
+    ]
+  },
+  {
+    "id": "national-trust-2026-stowe-garden-park",
+    "name": "Pokémon GO x National Trust (Stowe Garden Park)",
+    "city": "Stowe Garden Park",
+    "country": "United Kingdom (England)",
+    "start": "2026-07-18",
+    "end": "2026-09-06",
+    "background": "National Trust Stowe Garden Park",
+    "backgroundPokemon": [
+      "Treecko",
+      "Grovyle",
+      "Sceptile",
+      "Hoppip"
+    ],
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/nationaltrust.shtml",
+      "https://www.serebii.net/pokemongo/backgrounds.shtml"
+    ],
+    "unsure": [
+      "Free partnership event; one of 27 sites with raids, Timed Research and a background (140 sites got PokéStops only)"
+    ]
+  },
+  {
+    "id": "national-trust-2026-tredegar-house",
+    "name": "Pokémon GO x National Trust (Tredegar House)",
+    "city": "Tredegar House",
+    "country": "United Kingdom (Wales)",
+    "start": "2026-07-18",
+    "end": "2026-09-06",
+    "background": "National Trust Tredegar House",
+    "backgroundPokemon": [
+      "Treecko",
+      "Grovyle",
+      "Sceptile",
+      "Seedot"
+    ],
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/nationaltrust.shtml",
+      "https://www.serebii.net/pokemongo/backgrounds.shtml"
+    ],
+    "unsure": [
+      "Free partnership event; one of 27 sites with raids, Timed Research and a background (140 sites got PokéStops only)"
+    ]
+  },
+  {
+    "id": "national-trust-2026-trelissick",
+    "name": "Pokémon GO x National Trust (Trelissick)",
+    "city": "Trelissick",
+    "country": "United Kingdom (England)",
+    "start": "2026-07-18",
+    "end": "2026-09-06",
+    "background": "National Trust Trelissick",
+    "backgroundPokemon": [
+      "Treecko",
+      "Grovyle",
+      "Sceptile",
+      "Seedot"
+    ],
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/nationaltrust.shtml",
+      "https://www.serebii.net/pokemongo/backgrounds.shtml"
+    ],
+    "unsure": [
+      "Free partnership event; one of 27 sites with raids, Timed Research and a background (140 sites got PokéStops only)"
+    ]
+  },
+  {
+    "id": "national-trust-2026-tyntesfield",
+    "name": "Pokémon GO x National Trust (Tyntesfield)",
+    "city": "Tyntesfield",
+    "country": "United Kingdom (England)",
+    "start": "2026-07-18",
+    "end": "2026-09-06",
+    "background": "National Trust Tyntesfield",
+    "backgroundPokemon": [
+      "Treecko",
+      "Grovyle",
+      "Seedot"
+    ],
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/nationaltrust.shtml",
+      "https://www.serebii.net/pokemongo/backgrounds.shtml"
+    ],
+    "unsure": [
+      "Free partnership event; one of 27 sites with raids, Timed Research and a background (140 sites got PokéStops only)",
+      "Serebii omits Sceptile for Tyntesfield - probably a typo"
+    ]
+  },
+  {
+    "id": "national-trust-2026-wimpole",
+    "name": "Pokémon GO x National Trust (Wimpole)",
+    "city": "Wimpole",
+    "country": "United Kingdom (England)",
+    "start": "2026-07-18",
+    "end": "2026-09-06",
+    "background": "National Trust Wimpole",
+    "backgroundPokemon": [
+      "Treecko",
+      "Grovyle",
+      "Sceptile",
+      "Sewaddle"
+    ],
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/nationaltrust.shtml",
+      "https://www.serebii.net/pokemongo/backgrounds.shtml"
+    ],
+    "unsure": [
+      "Free partnership event; one of 27 sites with raids, Timed Research and a background (140 sites got PokéStops only)"
+    ]
+  },
+  {
+    "id": "go-fest-2026-copenhagen",
+    "name": "Pokémon GO Fest 2026: Copenhagen",
+    "city": "Copenhagen",
+    "country": "Denmark",
+    "start": "2026-06-12",
+    "end": "2026-06-14",
+    "background": "GO Fest 2026 Copenhagen",
+    "backgroundPokemon": [
+      "Tauros",
+      "Moltres",
+      "Mewtwo",
+      "Entei",
+      "Kyogre",
+      "Groudon",
+      "Zeraora"
+    ],
+    "debutShinies": [
+      "Wash Rotom",
+      "Tauros (Paldean Combat Breed)"
+    ],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/gofest2026copenhagen.shtml",
+      "https://leekduck.com/events/pokemon-go-fest-2026-copenhagen/"
+    ],
+    "unsure": [
+      "Leek Duck describes the background only for Mewtwo from in-person Super Mega Raids; the wider list is Serebii's",
+      "Tauros = Paldean Combat Breed; Leek Duck does not call shiny Paldean Tauros a debut",
+      "Special 'LEGO Pokémon' background (Pikachu) also given here"
+    ]
+  },
+  {
+    "id": "carnival-flamigo-2026-cologne",
+    "name": "Carnival de Flamigo (Cologne)",
+    "city": "Cologne",
+    "country": "Germany",
+    "start": "2026-02-03",
+    "end": "2026-02-08",
+    "background": "Carnival Flamigo Cologne",
+    "backgroundPokemon": [
+      "Flamigo"
+    ],
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/carnivaldeflamigo.shtml",
+      "https://www.dittobase.com/pokemon-go/backgrounds"
+    ],
+    "unsure": [
+      "In-person venue and mechanics not described; Dittobase calls the background 'Stamp Rally Cologne'"
+    ]
+  },
+  {
+    "id": "city-safari-2025-amsterdam",
+    "name": "City Safari: Amsterdam",
+    "city": "Amsterdam",
+    "country": "Netherlands",
+    "start": "2025-09-27",
+    "end": "2025-09-28",
+    "background": "City Safari Amsterdam",
+    "backgroundPokemon": [
+      "Eevee"
+    ],
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/citysafari-amsterdam.shtml",
+      "https://pokemongo.com/en/post/valencia-amsterdam-details"
+    ],
+    "unsure": [
+      "Background is for Eevee (Explorer Hat) only",
+      "Serebii's background list shows 13-14 Sep 2025, but the event pages and official post say 27-28 Sep 2025"
+    ]
+  },
+  {
+    "id": "city-safari-2025-valencia",
+    "name": "City Safari: Valencia",
+    "city": "Valencia",
+    "country": "Spain",
+    "start": "2025-09-27",
+    "end": "2025-09-28",
+    "background": "City Safari Valencia",
+    "backgroundPokemon": [
+      "Eevee"
+    ],
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/citysafari-valencia.shtml",
+      "https://pokemongo.com/en/post/valencia-amsterdam-details"
+    ],
+    "unsure": [
+      "Background is for Eevee (Explorer Hat) only",
+      "Serebii's background list shows 13-14 Sep 2025, but the event pages and official post say 27-28 Sep 2025"
+    ]
+  },
+  {
+    "id": "mega-evolution-paris-2025",
+    "name": "Pokémon Mega Evolution Paris (GO Stamp Rally)",
+    "city": "Paris",
+    "country": "France",
+    "start": "2025-09-13",
+    "end": "2025-09-14",
+    "background": "Mega Evolution Paris; Mega Evolution Paris 2",
+    "backgroundPokemon": [
+      "Charmander",
+      "Charmeleon",
+      "Charizard"
+    ],
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/megaevolutionparis.shtml",
+      "https://pokemongohub.net/post/event/the-pokemon-go-stamp-rally-is-coming-to-france/"
+    ],
+    "unsure": [
+      "Two backgrounds; Charmander is caught with them and Charmeleon/Charizard keep them on evolution (per Dittobase)",
+      "Serebii also lists Charmander under the GO Fest 2025 Paris background - unclear"
+    ]
+  },
+  {
+    "id": "road-trip-2025-cologne",
+    "name": "Pokémon GO Road Trip 2025: Cologne (Koelnmesse (Gamescom))",
+    "city": "Cologne",
+    "country": "Germany",
+    "start": "2025-08-20",
+    "end": "2025-08-24",
+    "background": "Road Trip 2025 Cologne",
+    "backgroundPokemon": [
+      "Pikachu"
+    ],
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/pokemongoroadtrip.shtml",
+      "https://www.dittobase.com/pokemon-go/backgrounds"
+    ],
+    "unsure": [
+      "Background is for Pikachu (Summer Style) only",
+      "Serebii's Road Trip page lists no Cologne background, but its background list and Dittobase do"
+    ]
+  },
+  {
+    "id": "road-trip-2025-the-hague",
+    "name": "Pokémon GO Road Trip 2025: The Hague (The Pier)",
+    "city": "The Hague",
+    "country": "Netherlands",
+    "start": "2025-08-16",
+    "end": "2025-08-16",
+    "background": "Road Trip 2025 The Hague",
+    "backgroundPokemon": [
+      "Pikachu"
+    ],
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/pokemongoroadtrip.shtml",
+      "https://www.dittobase.com/pokemon-go/backgrounds"
+    ],
+    "unsure": [
+      "Background is for Pikachu (Summer Style) only"
+    ]
+  },
+  {
+    "id": "road-trip-2025-berlin",
+    "name": "Pokémon GO Road Trip 2025: Berlin (Uber Platz)",
+    "city": "Berlin",
+    "country": "Germany",
+    "start": "2025-08-09",
+    "end": "2025-08-09",
+    "background": "Road Trip 2025 Berlin",
+    "backgroundPokemon": [
+      "Pikachu"
+    ],
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/pokemongoroadtrip.shtml",
+      "https://www.dittobase.com/pokemon-go/backgrounds"
+    ],
+    "unsure": [
+      "Background is for Pikachu (Summer Style) only"
+    ]
+  },
+  {
+    "id": "road-trip-2025-valencia",
+    "name": "Pokémon GO Road Trip 2025: Valencia (Ciudad de las Artes y las Ciencias)",
+    "city": "Valencia",
+    "country": "Spain",
+    "start": "2025-08-02",
+    "end": "2025-08-02",
+    "background": "Road Trip 2025 Valencia",
+    "backgroundPokemon": [
+      "Pikachu"
+    ],
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/pokemongoroadtrip.shtml",
+      "https://www.dittobase.com/pokemon-go/backgrounds"
+    ],
+    "unsure": [
+      "Background is for Pikachu (Summer Style) only"
+    ]
+  },
+  {
+    "id": "road-trip-2025-paris",
+    "name": "Pokémon GO Road Trip 2025: Paris (Gare de Lyon)",
+    "city": "Paris",
+    "country": "France",
+    "start": "2025-07-26",
+    "end": "2025-07-26",
+    "background": "Road Trip 2025 Paris",
+    "backgroundPokemon": [
+      "Pikachu"
+    ],
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/pokemongoroadtrip.shtml",
+      "https://www.dittobase.com/pokemon-go/backgrounds"
+    ],
+    "unsure": [
+      "Background is for Pikachu (Summer Style) only"
+    ]
+  },
+  {
+    "id": "road-trip-2025-london",
+    "name": "Pokémon GO Road Trip 2025: London (Potters Fields Park)",
+    "city": "London",
+    "country": "United Kingdom",
+    "start": "2025-07-19",
+    "end": "2025-07-19",
+    "background": "Road Trip 2025 London",
+    "backgroundPokemon": [
+      "Pikachu"
+    ],
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/pokemongoroadtrip.shtml",
+      "https://www.dittobase.com/pokemon-go/backgrounds"
+    ],
+    "unsure": [
+      "Background is for Pikachu (Summer Style) only"
+    ]
+  },
+  {
+    "id": "road-trip-2025-manchester",
+    "name": "Pokémon GO Road Trip 2025: Manchester (Cathedral Gardens)",
+    "city": "Manchester",
+    "country": "United Kingdom",
+    "start": "2025-07-16",
+    "end": "2025-07-16",
+    "background": "Road Trip 2025 Manchester",
+    "backgroundPokemon": [
+      "Pikachu"
+    ],
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/pokemongoroadtrip.shtml",
+      "https://www.dittobase.com/pokemon-go/backgrounds"
+    ],
+    "unsure": [
+      "Background is for Pikachu (Summer Style) only"
+    ]
+  },
+  {
+    "id": "go-fest-2025-paris",
+    "name": "Pokémon GO Fest 2025: Paris",
+    "city": "Paris (Parc de Sceaux)",
+    "country": "France",
+    "start": "2025-06-13",
+    "end": "2025-06-15",
+    "background": "GO Fest 2025 Paris",
+    "backgroundPokemon": [
+      "Inteleon",
+      "Zacian",
+      "Zamazenta"
+    ],
+    "debutShinies": [
+      "Carbink",
+      "Frigibax",
+      "Arctibax",
+      "Baxcalibur"
+    ],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/pokemongofest2025paris.shtml",
+      "https://pokemongohub.net/post/event/pokemon-go-fest-2025-paris-france/"
+    ],
+    "unsure": [
+      "Parc de Sceaux is in Sceaux, just south of Paris",
+      "Inteleon here is Gigantamax/Max Battle Inteleon",
+      "Serebii also lists Charmander for this background (probably from the Sept 2025 Paris event)"
+    ]
+  },
+  {
+    "id": "city-safari-2025-milan",
+    "name": "City Safari: Milan",
+    "city": "Milan",
+    "country": "Italy",
+    "start": "2025-03-29",
+    "end": "2025-03-30",
+    "background": "City Safari Milan",
+    "backgroundPokemon": [
+      "Eevee"
+    ],
+    "debutShinies": [
+      "Mudbray",
+      "Mudsdale"
+    ],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/citysafari-milan.shtml",
+      "https://www.serebii.net/pokemongo/backgrounds.shtml"
+    ],
+    "unsure": [
+      "Background is for Eevee (Explorer Hat) only"
+    ]
+  },
+  {
+    "id": "go-fest-2024-madrid",
+    "name": "Pokémon GO Fest 2024: Madrid",
+    "city": "Madrid (Parque Juan Carlos I)",
+    "country": "Spain",
+    "start": "2024-06-14",
+    "end": "2024-06-16",
+    "background": "GO Fest Madrid",
+    "backgroundPokemon": [
+      "Solgaleo",
+      "Lunala",
+      "Nihilego",
+      "Kartana",
+      "Guzzlord",
+      "Necrozma",
+      "Stakataka",
+      "Blacephalon"
+    ],
+    "debutShinies": [
+      "Crabrawler",
+      "Crabominable",
+      "Pheromosa"
+    ],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/pokemongofest2024madrid.shtml",
+      "https://gofest.pokemongolive.com/madrid"
+    ],
+    "unsure": [
+      "Debut shinies from Serebii only; not cross-checked"
+    ]
+  },
+  {
+    "id": "euic-2024-london",
+    "name": "Pokémon Europe International Championships 2024 (in-person GO bonuses)",
+    "city": "London (ExCeL)",
+    "country": "United Kingdom",
+    "start": "2024-04-05",
+    "end": "2024-04-07",
+    "background": null,
+    "backgroundPokemon": null,
+    "debutShinies": [],
+    "sources": [
+      "https://nintendowire.com/guides/pokemon-go/season-of-world-of-wonders/2024-pokemon-europe-international-championships/",
+      "https://leekduck.com/events/pokemon-europe-international-championships-2024-timed-research"
+    ],
+    "unsure": [
+      "In-person bonuses ran 3-7 Apr 2024 per Nintendo Wire",
+      "No background found in any list"
+    ]
+  },
+  {
+    "id": "art-through-the-ages-2023-paris",
+    "name": "Art Through the Ages showcase (Val d'Europe)",
+    "city": "Serris (Val d'Europe, near Paris)",
+    "country": "France",
+    "start": "2023-10-16",
+    "end": "2023-11-12",
+    "background": null,
+    "backgroundPokemon": null,
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/artthroughtheages2023.shtml"
+    ],
+    "unsure": [
+      "Free local tie-in; Serebii gives the venue as Val d'Europe shopping centre"
+    ]
+  },
+  {
+    "id": "city-safari-2023-barcelona",
+    "name": "City Safari: Barcelona",
+    "city": "Barcelona",
+    "country": "Spain",
+    "start": "2023-10-13",
+    "end": "2023-10-14",
+    "background": "City Safari Barcelona",
+    "backgroundPokemon": [
+      "Eevee"
+    ],
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/citysafari-barcelona.shtml",
+      "https://www.dittobase.com/pokemon-go/backgrounds"
+    ],
+    "unsure": [
+      "Background is for Eevee (Explorer Hat) per Serebii; the Explorer Hat Eevee link for 2023 is not cross-checked"
+    ]
+  },
+  {
+    "id": "go-fest-2023-london",
+    "name": "Pokémon GO Fest 2023: London",
+    "city": "London (Brockwell Park)",
+    "country": "United Kingdom",
+    "start": "2023-08-04",
+    "end": "2023-08-06",
+    "background": "GO Fest London",
+    "backgroundPokemon": [
+      "Rayquaza",
+      "Cresselia",
+      "Xerneas",
+      "Yveltal"
+    ],
+    "debutShinies": [
+      "Unown (!)",
+      "Dewpider",
+      "Petilil"
+    ],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/pokemongofest2023london.shtml",
+      "https://pokemongohub.net/post/event/go-fest-2023-london/"
+    ],
+    "unsure": [
+      "Debut shinies per Pokémon GO Hub; Serebii names none"
+    ]
+  },
+  {
+    "id": "euic-2023-london",
+    "name": "Pokémon Europe International Championships 2023 (local GO event)",
+    "city": "London (ExCeL)",
+    "country": "United Kingdom",
+    "start": "2023-04-14",
+    "end": "2023-04-16",
+    "background": null,
+    "backgroundPokemon": null,
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/pokemoneuropeinternationalchampionships2023.shtml"
+    ],
+    "unsure": [
+      "No background given, although location backgrounds already existed (from Feb 2023)"
+    ]
+  },
+  {
+    "id": "ultra-beast-arrival-2022-london",
+    "name": "Ultra Beast Arrival (London)",
+    "city": "London",
+    "country": "United Kingdom",
+    "start": "2022-11-26",
+    "end": "2022-11-26",
+    "background": null,
+    "backgroundPokemon": null,
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/ultrabeastarrival.shtml"
+    ],
+    "unsure": [
+      "Venue and spawn list not given by Serebii"
+    ]
+  },
+  {
+    "id": "egx-2022-london",
+    "name": "EGX 2022",
+    "city": "London (ExCeL)",
+    "country": "United Kingdom",
+    "start": "2022-09-22",
+    "end": "2022-09-25",
+    "background": null,
+    "backgroundPokemon": null,
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/egx2022.shtml"
+    ],
+    "unsure": [
+      "Serebii says the field research was 'for all players' - may not have been in-person only"
+    ]
+  },
+  {
+    "id": "worlds-2022-london",
+    "name": "Pokémon World Championships 2022 (local GO event)",
+    "city": "London (ExCeL)",
+    "country": "United Kingdom",
+    "start": "2022-08-17",
+    "end": "2022-08-21",
+    "background": null,
+    "backgroundPokemon": null,
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/pokemonworldchampionships2022.shtml"
+    ],
+    "unsure": []
+  },
+  {
+    "id": "go-fest-2022-berlin",
+    "name": "Pokémon GO Fest 2022: Berlin",
+    "city": "Berlin (Britzer Garten)",
+    "country": "Germany",
+    "start": "2022-07-01",
+    "end": "2022-07-03",
+    "background": null,
+    "backgroundPokemon": null,
+    "debutShinies": [
+      "Snorlax (Cowboy Hat)",
+      "Pansear",
+      "Simisear",
+      "Foongus",
+      "Amoonguss"
+    ],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/pokemongofest2022berlin.shtml"
+    ],
+    "unsure": []
+  },
+  {
+    "id": "safari-zone-2022-seville",
+    "name": "Pokémon GO Safari Zone: Seville",
+    "city": "Seville (Parque del Alamillo)",
+    "country": "Spain",
+    "start": "2022-05-13",
+    "end": "2022-05-15",
+    "background": null,
+    "backgroundPokemon": null,
+    "debutShinies": [
+      "Corphish",
+      "Crawdaunt"
+    ],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/safarizoneseville.shtml"
+    ],
+    "unsure": [
+      "Serebii lists Corphish/Crawdaunt under 'new shinies' without saying 'debut' explicitly"
+    ]
+  },
+  {
+    "id": "euic-2022-frankfurt",
+    "name": "Pokémon Europe International Championships 2022 (local GO event)",
+    "city": "Frankfurt",
+    "country": "Germany",
+    "start": "2022-04-22",
+    "end": "2022-04-24",
+    "background": null,
+    "backgroundPokemon": null,
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/pokemoneuropeaninternationalchampionships2022.shtml"
+    ],
+    "unsure": []
+  },
+  {
+    "id": "safari-zone-2021-liverpool",
+    "name": "Pokémon GO Safari Zone: Liverpool",
+    "city": "Liverpool (Sefton Park)",
+    "country": "United Kingdom",
+    "start": "2021-10-15",
+    "end": "2021-10-17",
+    "background": null,
+    "backgroundPokemon": null,
+    "debutShinies": [
+      "Chinchou",
+      "Lanturn"
+    ],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/safarizoneliverpool.shtml",
+      "https://www.nme.com/news/gaming-news/pokemon-go-in-person-event-attended-by-20000-fans-3074283"
+    ],
+    "unsure": [
+      "Originally 17-19 Apr 2020, postponed for COVID-19",
+      "Hybrid: ticket holders got spawns anywhere; in-person amenities at Sefton Park",
+      "Shiny debut per Serebii only"
+    ]
+  },
+  {
+    "id": "pokemon-center-london-2019",
+    "name": "Pokémon Center London opening tie-in",
+    "city": "London",
+    "country": "United Kingdom",
+    "start": "2019-10-11",
+    "end": "2019-11-15",
+    "background": null,
+    "backgroundPokemon": null,
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/pokemoncenterlondontie-in.shtml"
+    ],
+    "unsure": [
+      "City-wide boosted spawns, no venue or ticket"
+    ]
+  },
+  {
+    "id": "go-fest-2019-dortmund",
+    "name": "Pokémon GO Fest 2019: Dortmund",
+    "city": "Dortmund (Westfalenpark)",
+    "country": "Germany",
+    "start": "2019-07-04",
+    "end": "2019-07-07",
+    "background": null,
+    "backgroundPokemon": null,
+    "debutShinies": [
+      "Nidoran♂",
+      "Nidorino",
+      "Nidoking"
+    ],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/gofestdortmund2019.shtml"
+    ],
+    "unsure": []
+  },
+  {
+    "id": "itb-berlin-2019",
+    "name": "ITB Berlin 2019 tie-in",
+    "city": "Berlin",
+    "country": "Germany",
+    "start": "2019-03-06",
+    "end": "2019-03-10",
+    "background": null,
+    "backgroundPokemon": null,
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/itbberlin2019.shtml"
+    ],
+    "unsure": [
+      "Minor trade-fair tie-in (Teddiursa/Ursaring spawns)"
+    ]
+  },
+  {
+    "id": "lets-go-roadtrip-2018-london",
+    "name": "Pokémon: Let's Go Roadtrip (MCM Comic Con London)",
+    "city": "London (ExCeL)",
+    "country": "United Kingdom",
+    "start": "2018-10-26",
+    "end": "2018-10-28",
+    "background": null,
+    "backgroundPokemon": null,
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/pokemonletsgoroadtrip.shtml"
+    ],
+    "unsure": [
+      "Switch-game promotion with a special PokéStop and Pikachu/Eevee spawns"
+    ]
+  },
+  {
+    "id": "safari-zone-2018-dortmund",
+    "name": "Pokémon GO Safari Zone: Dortmund",
+    "city": "Dortmund (Westfalenpark)",
+    "country": "Germany",
+    "start": "2018-06-30",
+    "end": "2018-07-01",
+    "background": null,
+    "backgroundPokemon": null,
+    "debutShinies": [
+      "Roselia"
+    ],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/dortmundsafarizone.shtml",
+      "https://pokemongo.com/en/news/safarizonedortmund"
+    ],
+    "unsure": [
+      "Free, no ticket; shiny Roselia was released globally at the same time"
+    ]
+  },
+  {
+    "id": "safari-zone-2017-stockholm",
+    "name": "Pokémon GO Safari Zone Europe 2017 (Stockholm)",
+    "city": "Stockholm (Mall of Scandinavia)",
+    "country": "Sweden",
+    "start": "2017-10-14",
+    "end": "2017-10-14",
+    "background": null,
+    "backgroundPokemon": null,
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/europesafarizone2017.shtml",
+      "https://pokemongohub.net/post/featured/pokemon-go-safari-zone/"
+    ],
+    "unsure": [
+      "Originally planned for August 2017; postponed to October"
+    ]
+  },
+  {
+    "id": "safari-zone-2017-amstelveen",
+    "name": "Pokémon GO Safari Zone Europe 2017 (Amstelveen, near Amsterdam)",
+    "city": "Amstelveen, near Amsterdam (Stadshart Amstelveen)",
+    "country": "Netherlands",
+    "start": "2017-10-14",
+    "end": "2017-10-14",
+    "background": null,
+    "backgroundPokemon": null,
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/europesafarizone2017.shtml",
+      "https://pokemongohub.net/post/featured/pokemon-go-safari-zone/"
+    ],
+    "unsure": [
+      "Originally planned for August 2017; postponed to October"
+    ]
+  },
+  {
+    "id": "safari-zone-2017-copenhagen",
+    "name": "Pokémon GO Safari Zone Europe 2017 (Copenhagen)",
+    "city": "Copenhagen (Fisketorvet)",
+    "country": "Denmark",
+    "start": "2017-10-07",
+    "end": "2017-10-07",
+    "background": null,
+    "backgroundPokemon": null,
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/europesafarizone2017.shtml",
+      "https://pokemongohub.net/post/featured/pokemon-go-safari-zone/"
+    ],
+    "unsure": [
+      "Originally planned for August 2017; postponed to October"
+    ]
+  },
+  {
+    "id": "safari-zone-2017-prague",
+    "name": "Pokémon GO Safari Zone Europe 2017 (Prague)",
+    "city": "Prague (Centrum Černý Most)",
+    "country": "Czech Republic",
+    "start": "2017-10-07",
+    "end": "2017-10-07",
+    "background": null,
+    "backgroundPokemon": null,
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/europesafarizone2017.shtml",
+      "https://pokemongohub.net/post/featured/pokemon-go-safari-zone/"
+    ],
+    "unsure": [
+      "Originally planned for August 2017; postponed to October"
+    ]
+  },
+  {
+    "id": "safari-zone-2017-oberhausen",
+    "name": "Pokémon GO Safari Zone Europe 2017 (Oberhausen)",
+    "city": "Oberhausen (CentrO)",
+    "country": "Germany",
+    "start": "2017-09-16",
+    "end": "2017-09-16",
+    "background": null,
+    "backgroundPokemon": null,
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/europesafarizone2017.shtml",
+      "https://pokemongohub.net/post/featured/pokemon-go-safari-zone/"
+    ],
+    "unsure": []
+  },
+  {
+    "id": "safari-zone-2017-paris",
+    "name": "Pokémon GO Safari Zone Europe 2017 (Paris)",
+    "city": "Paris (Les Quatre Temps)",
+    "country": "France",
+    "start": "2017-09-16",
+    "end": "2017-09-16",
+    "background": null,
+    "backgroundPokemon": null,
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/europesafarizone2017.shtml",
+      "https://pokemongohub.net/post/featured/pokemon-go-safari-zone/"
+    ],
+    "unsure": [
+      "Les Quatre Temps is in La Défense, just outside Paris proper"
+    ]
+  },
+  {
+    "id": "safari-zone-2017-barcelona",
+    "name": "Pokémon GO Safari Zone Europe 2017 (Barcelona)",
+    "city": "Barcelona (La Maquinista)",
+    "country": "Spain",
+    "start": "2017-09-16",
+    "end": "2017-09-16",
+    "background": null,
+    "backgroundPokemon": null,
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/europesafarizone2017.shtml",
+      "https://pokemongohub.net/post/featured/pokemon-go-safari-zone/"
+    ],
+    "unsure": []
+  },
+  {
+    "id": "chester-heritage-festival-2017",
+    "name": "Chester Heritage Festival: Pokémon GO Experience",
+    "city": "Chester",
+    "country": "United Kingdom",
+    "start": "2017-07-22",
+    "end": "2017-07-23",
+    "background": null,
+    "backgroundPokemon": null,
+    "debutShinies": [],
+    "sources": [
+      "https://www.serebii.net/pokemongo/reallifeevents/chesterheritagefestival.shtml"
+    ],
+    "unsure": [
+      "Run with Big Heritage; new PokéStops/Gyms and a stamp trail, no special spawns listed"
+    ]
+  }
+]

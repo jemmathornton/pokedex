@@ -1,0 +1,3054 @@
+{
+ "updated": "2026-11-09",
+ "costumes": [
+  {
+   "id": "1-fall-2019",
+   "dex": 1,
+   "name": "Bulbasaur",
+   "costume": "Shedinja costume",
+   "code": "FALL_2019",
+   "img": "pm1.fFALL_2019",
+   "shiny": "2019-10-17"
+  },
+  {
+   "id": "1-jan-2020-noevolve",
+   "dex": 1,
+   "name": "Bulbasaur",
+   "costume": "Party Hat",
+   "code": "JAN_2020_NOEVOLVE",
+   "img": "pm1.cJAN_2020_NOEVOLVE",
+   "shiny": "2020-02-25"
+  },
+  {
+   "id": "1-spring-2020-noevolve",
+   "dex": 1,
+   "name": "Bulbasaur",
+   "costume": "Pikachu Visor",
+   "code": "SPRING_2020_NOEVOLVE",
+   "img": "pm1.cSPRING_2020_NOEVOLVE",
+   "shiny": "2020-07-25"
+  },
+  {
+   "id": "2-jan-2020-noevolve",
+   "dex": 2,
+   "name": "Ivysaur",
+   "costume": "Party Hat",
+   "code": "JAN_2020_NOEVOLVE",
+   "img": "pm2.cJAN_2020_NOEVOLVE",
+   "shiny": "2025-07-01"
+  },
+  {
+   "id": "2-spring-2020-noevolve",
+   "dex": 2,
+   "name": "Ivysaur",
+   "costume": "Pikachu Visor",
+   "code": "SPRING_2020_NOEVOLVE",
+   "img": "pm2.cSPRING_2020_NOEVOLVE",
+   "shiny": "2026-06-05"
+  },
+  {
+   "id": "3-copy-2019",
+   "dex": 3,
+   "name": "Venusaur",
+   "costume": "Copy 2019",
+   "code": "COPY_2019",
+   "img": "pm3.fCOPY_2019",
+   "femaleImg": "pm3.fCOPY_2019.g2"
+  },
+  {
+   "id": "3-jan-2020-noevolve",
+   "dex": 3,
+   "name": "Venusaur",
+   "costume": "Party Hat",
+   "code": "JAN_2020_NOEVOLVE",
+   "img": "pm3.cJAN_2020_NOEVOLVE",
+   "femaleImg": "pm3.cJAN_2020_NOEVOLVE.g2",
+   "shiny": "2025-07-01"
+  },
+  {
+   "id": "3-spring-2020-noevolve",
+   "dex": 3,
+   "name": "Venusaur",
+   "costume": "Pikachu Visor",
+   "code": "SPRING_2020_NOEVOLVE",
+   "img": "pm3.cSPRING_2020_NOEVOLVE",
+   "femaleImg": "pm3.cSPRING_2020_NOEVOLVE.g2",
+   "shiny": "2026-06-05"
+  },
+  {
+   "id": "4-fall-2019",
+   "dex": 4,
+   "name": "Charmander",
+   "costume": "Cubone costume",
+   "code": "FALL_2019",
+   "img": "pm4.fFALL_2019",
+   "shiny": "2019-10-17"
+  },
+  {
+   "id": "4-goggles-2026",
+   "dex": 4,
+   "name": "Charmander",
+   "costume": "Goggles",
+   "code": "GOGGLES_2026",
+   "img": "pm4.fGOGGLES_2026",
+   "shiny": "2026-09-16"
+  },
+  {
+   "id": "4-jan-2020-noevolve",
+   "dex": 4,
+   "name": "Charmander",
+   "costume": "Party Hat",
+   "code": "JAN_2020_NOEVOLVE",
+   "img": "pm4.cJAN_2020_NOEVOLVE",
+   "shiny": "2020-02-25"
+  },
+  {
+   "id": "4-spring-2020-noevolve",
+   "dex": 4,
+   "name": "Charmander",
+   "costume": "Pikachu Visor",
+   "code": "SPRING_2020_NOEVOLVE",
+   "img": "pm4.cSPRING_2020_NOEVOLVE",
+   "shiny": "2020-07-25"
+  },
+  {
+   "id": "5-goggles-2026",
+   "dex": 5,
+   "name": "Charmeleon",
+   "costume": "Goggles",
+   "code": "GOGGLES_2026",
+   "img": "pm5.fGOGGLES_2026",
+   "shiny": "2026-09-16"
+  },
+  {
+   "id": "5-jan-2020-noevolve",
+   "dex": 5,
+   "name": "Charmeleon",
+   "costume": "Party Hat",
+   "code": "JAN_2020_NOEVOLVE",
+   "img": "pm5.cJAN_2020_NOEVOLVE",
+   "shiny": "2022-07-06"
+  },
+  {
+   "id": "5-spring-2020-noevolve",
+   "dex": 5,
+   "name": "Charmeleon",
+   "costume": "Pikachu Visor",
+   "code": "SPRING_2020_NOEVOLVE",
+   "img": "pm5.cSPRING_2020_NOEVOLVE",
+   "shiny": "2026-06-12"
+  },
+  {
+   "id": "6-copy-2019",
+   "dex": 6,
+   "name": "Charizard",
+   "costume": "Copy 2019",
+   "code": "COPY_2019",
+   "img": "pm6.fCOPY_2019"
+  },
+  {
+   "id": "6-goggles-2026",
+   "dex": 6,
+   "name": "Charizard",
+   "costume": "Goggles",
+   "code": "GOGGLES_2026",
+   "img": "pm6.fGOGGLES_2026",
+   "shiny": "2026-09-16"
+  },
+  {
+   "id": "6-jan-2020-noevolve",
+   "dex": 6,
+   "name": "Charizard",
+   "costume": "Party Hat",
+   "code": "JAN_2020_NOEVOLVE",
+   "img": "pm6.cJAN_2020_NOEVOLVE",
+   "shiny": "2022-07-06"
+  },
+  {
+   "id": "6-spring-2020-noevolve",
+   "dex": 6,
+   "name": "Charizard",
+   "costume": "Pikachu Visor",
+   "code": "SPRING_2020_NOEVOLVE",
+   "img": "pm6.cSPRING_2020_NOEVOLVE",
+   "shiny": "2026-06-12"
+  },
+  {
+   "id": "7-fall-2019",
+   "dex": 7,
+   "name": "Squirtle",
+   "costume": "Yamask costume",
+   "code": "FALL_2019",
+   "img": "pm7.fFALL_2019",
+   "shiny": "2019-10-17"
+  },
+  {
+   "id": "7-jan-2020-noevolve",
+   "dex": 7,
+   "name": "Squirtle",
+   "costume": "Party Hat",
+   "code": "JAN_2020_NOEVOLVE",
+   "img": "pm7.cJAN_2020_NOEVOLVE",
+   "shiny": "2020-02-25"
+  },
+  {
+   "id": "7-spring-2020-noevolve",
+   "dex": 7,
+   "name": "Squirtle",
+   "costume": "Pikachu Visor",
+   "code": "SPRING_2020_NOEVOLVE",
+   "img": "pm7.cSPRING_2020_NOEVOLVE",
+   "shiny": "2020-07-25"
+  },
+  {
+   "id": "7-summer-2018",
+   "dex": 7,
+   "name": "Squirtle",
+   "costume": "Sunglasses",
+   "code": "SUMMER_2018",
+   "img": "pm7.cSUMMER_2018",
+   "shiny": "2018-07-08"
+  },
+  {
+   "id": "8-jan-2020-noevolve",
+   "dex": 8,
+   "name": "Wartortle",
+   "costume": "Party Hat",
+   "code": "JAN_2020_NOEVOLVE",
+   "img": "pm8.cJAN_2020_NOEVOLVE",
+   "shiny": "2023-07-03"
+  },
+  {
+   "id": "8-spring-2020-noevolve",
+   "dex": 8,
+   "name": "Wartortle",
+   "costume": "Pikachu Visor",
+   "code": "SPRING_2020_NOEVOLVE",
+   "img": "pm8.cSPRING_2020_NOEVOLVE",
+   "shiny": "2026-05-29"
+  },
+  {
+   "id": "8-summer-2018",
+   "dex": 8,
+   "name": "Wartortle",
+   "costume": "Sunglasses",
+   "code": "SUMMER_2018",
+   "img": "pm8.cSUMMER_2018",
+   "shiny": "2018-07-08"
+  },
+  {
+   "id": "9-copy-2019",
+   "dex": 9,
+   "name": "Blastoise",
+   "costume": "Copy 2019",
+   "code": "COPY_2019",
+   "img": "pm9.fCOPY_2019"
+  },
+  {
+   "id": "9-jan-2020-noevolve",
+   "dex": 9,
+   "name": "Blastoise",
+   "costume": "Party Hat",
+   "code": "JAN_2020_NOEVOLVE",
+   "img": "pm9.cJAN_2020_NOEVOLVE",
+   "shiny": "2023-07-03"
+  },
+  {
+   "id": "9-spring-2020-noevolve",
+   "dex": 9,
+   "name": "Blastoise",
+   "costume": "Pikachu Visor",
+   "code": "SPRING_2020_NOEVOLVE",
+   "img": "pm9.cSPRING_2020_NOEVOLVE",
+   "shiny": "2026-05-29"
+  },
+  {
+   "id": "9-summer-2018",
+   "dex": 9,
+   "name": "Blastoise",
+   "costume": "Sunglasses",
+   "code": "SUMMER_2018",
+   "img": "pm9.cSUMMER_2018",
+   "shiny": "2018-07-08"
+  },
+  {
+   "id": "10-gofest-2026",
+   "dex": 10,
+   "name": "Caterpie",
+   "costume": "Poké Ball Hat",
+   "code": "GOFEST_2026",
+   "img": "pm10.fGOFEST_2026",
+   "shiny": "2026-05-29"
+  },
+  {
+   "id": "12-fashion-2021-noevolve",
+   "dex": 12,
+   "name": "Butterfree",
+   "costume": "Fashionable",
+   "code": "FASHION_2021_NOEVOLVE",
+   "img": "pm12.cFASHION_2021_NOEVOLVE",
+   "femaleImg": "pm12.cFASHION_2021_NOEVOLVE.g2",
+   "shiny": "2021-09-21"
+  },
+  {
+   "id": "20-jan-2020-noevolve",
+   "dex": 20,
+   "name": "Raticate",
+   "costume": "Party Hat",
+   "code": "JAN_2020_NOEVOLVE",
+   "img": "pm20.cJAN_2020_NOEVOLVE",
+   "femaleImg": "pm20.cJAN_2020_NOEVOLVE.g2",
+   "shiny": "2019-02-26"
+  },
+  {
+   "id": "25-adventure-hat-2020",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Adventure Hat",
+   "code": "ADVENTURE_HAT_2020",
+   "img": "pm25.fADVENTURE_HAT_2020",
+   "femaleImg": "pm25.fADVENTURE_HAT_2020.g2",
+   "shiny": "2020-12-14"
+  },
+  {
+   "id": "25-anniversary",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Party Hat",
+   "code": "ANNIVERSARY",
+   "img": "pm25.cANNIVERSARY",
+   "femaleImg": "pm25.cANNIVERSARY.g2",
+   "shiny": "2017-02-26"
+  },
+  {
+   "id": "25-anniversary-2022-noevolve",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Cake Costume",
+   "code": "ANNIVERSARY_2022_NOEVOLVE",
+   "img": "pm25.cANNIVERSARY_2022_NOEVOLVE",
+   "femaleImg": "pm25.cANNIVERSARY_2022_NOEVOLVE.g2",
+   "shiny": "2022-07-06"
+  },
+  {
+   "id": "25-anniversary-2026",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Professor Willow’s assistant",
+   "code": "ANNIVERSARY_2026",
+   "img": "pm25.fANNIVERSARY_2026",
+   "femaleImg": "pm25.fANNIVERSARY_2026.g2",
+   "shiny": "2026-07-21"
+  },
+  {
+   "id": "25-anniversary-2026-malaysia-01",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "PokéXciting! Kuala Lumpur",
+   "code": "ANNIVERSARY_2026_MALAYSIA_01",
+   "img": "pm25.fANNIVERSARY_2026_MALAYSIA_01",
+   "femaleImg": "pm25.fANNIVERSARY_2026_MALAYSIA_01.g2",
+   "shiny": "2026-09-12"
+  },
+  {
+   "id": "25-anniversary-2026-philippine-01",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "PokéXciting! Manila",
+   "code": "ANNIVERSARY_2026_PHILIPPINE_01",
+   "img": "pm25.fANNIVERSARY_2026_PHILIPPINE_01",
+   "femaleImg": "pm25.fANNIVERSARY_2026_PHILIPPINE_01.g2",
+   "shiny": "2026-09-12"
+  },
+  {
+   "id": "25-anniversary-2026-singapore-01",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "PokéXciting! Singapore",
+   "code": "ANNIVERSARY_2026_SINGAPORE_01",
+   "img": "pm25.fANNIVERSARY_2026_SINGAPORE_01",
+   "femaleImg": "pm25.fANNIVERSARY_2026_SINGAPORE_01.g2",
+   "shiny": "2026-09-12"
+  },
+  {
+   "id": "25-anniversary-2026-taiwan-01",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "PokéXciting! Taipei",
+   "code": "ANNIVERSARY_2026_TAIWAN_01",
+   "img": "pm25.fANNIVERSARY_2026_TAIWAN_01",
+   "femaleImg": "pm25.fANNIVERSARY_2026_TAIWAN_01.g2",
+   "shiny": "2026-09-12"
+  },
+  {
+   "id": "25-anniversary-2026-thailand-01",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "PokéXciting! Bangkok",
+   "code": "ANNIVERSARY_2026_THAILAND_01",
+   "img": "pm25.fANNIVERSARY_2026_THAILAND_01",
+   "femaleImg": "pm25.fANNIVERSARY_2026_THAILAND_01.g2",
+   "shiny": "2027-02-13"
+  },
+  {
+   "id": "25-april-2020-noevolve",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Flower Hat",
+   "code": "APRIL_2020_NOEVOLVE",
+   "img": "pm25.cAPRIL_2020_NOEVOLVE",
+   "femaleImg": "pm25.cAPRIL_2020_NOEVOLVE.g2",
+   "shiny": "2020-04-09"
+  },
+  {
+   "id": "25-bb-2026",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Baseball Jersey",
+   "code": "BB_2026",
+   "img": "pm25.fBB_2026",
+   "femaleImg": "pm25.fBB_2026.g2",
+   "shiny": "2026-04-03"
+  },
+  {
+   "id": "25-copy-2019",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Copy 2019",
+   "code": "COPY_2019",
+   "img": "pm25.fCOPY_2019",
+   "femaleImg": "pm25.fCOPY_2019.g2"
+  },
+  {
+   "id": "25-costume-1",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "World Cap",
+   "code": "COSTUME_1",
+   "img": "pm25.cCOSTUME_1",
+   "femaleImg": "pm25.cCOSTUME_1.g2",
+   "shiny": "2020-10-06"
+  },
+  {
+   "id": "25-costume-2",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "New Year's Hat",
+   "code": "COSTUME_2",
+   "img": "pm25.cCOSTUME_2",
+   "femaleImg": "pm25.cCOSTUME_2.g2",
+   "shiny": "2020-12-29"
+  },
+  {
+   "id": "25-costume-2020",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "4ᵗʰ Anniversary Balloons",
+   "code": "COSTUME_2020",
+   "img": "pm25.fCOSTUME_2020",
+   "femaleImg": "pm25.fCOSTUME_2020.g2",
+   "shiny": "2020-05-22"
+  },
+  {
+   "id": "25-diwali-2024",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Saree",
+   "code": "DIWALI_2024",
+   "img": "pm25.fDIWALI_2024",
+   "shiny": "2024-11-01"
+  },
+  {
+   "id": "25-doctor",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Doctor",
+   "code": "DOCTOR",
+   "img": "pm25.fDOCTOR"
+  },
+  {
+   "id": "25-fall-2018",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "HF Custom Cap",
+   "code": "FALL_2018",
+   "img": "pm25.cFALL_2018",
+   "femaleImg": "pm25.cFALL_2018.g2",
+   "shiny": "2018-10-05"
+  },
+  {
+   "id": "25-fall-2019",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Mimikyu Costume",
+   "code": "FALL_2019",
+   "img": "pm25.fFALL_2019",
+   "femaleImg": "pm25.fFALL_2019.g2",
+   "shiny": "2019-10-17"
+  },
+  {
+   "id": "25-fall-2023-noevolve",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Tricks & Treats",
+   "code": "FALL_2023_NOEVOLVE",
+   "img": "pm25.cFALL_2023_NOEVOLVE",
+   "femaleImg": "pm25.cFALL_2023_NOEVOLVE.g2",
+   "shiny": "2023-10-26"
+  },
+  {
+   "id": "25-feb-2019",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Feb 2019",
+   "code": "FEB_2019",
+   "img": "pm25.cFEB_2019",
+   "femaleImg": "pm25.cFEB_2019.g2"
+  },
+  {
+   "id": "25-flying-01",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Green Balloons",
+   "code": "FLYING_01",
+   "img": "pm25.fFLYING_01",
+   "femaleImg": "pm25.fFLYING_01.g2",
+   "shiny": "2022-10-20"
+  },
+  {
+   "id": "25-flying-02",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Purple Balloons",
+   "code": "FLYING_02",
+   "img": "pm25.fFLYING_02",
+   "femaleImg": "pm25.fFLYING_02.g2",
+   "shiny": "2022-11-24"
+  },
+  {
+   "id": "25-flying-03",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Orange Balloons",
+   "code": "FLYING_03",
+   "img": "pm25.fFLYING_03",
+   "femaleImg": "pm25.fFLYING_03.g2",
+   "shiny": "2023-07-28"
+  },
+  {
+   "id": "25-flying-04",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Black Balloons",
+   "code": "FLYING_04",
+   "img": "pm25.fFLYING_04",
+   "femaleImg": "pm25.fFLYING_04.g2",
+   "shiny": "2024-03-02"
+  },
+  {
+   "id": "25-flying-5th-anniv",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "5ᵗʰ Anniversary Balloon",
+   "code": "FLYING_5TH_ANNIV",
+   "img": "pm25.fFLYING_5TH_ANNIV",
+   "femaleImg": "pm25.fFLYING_5TH_ANNIV.g2",
+   "shiny": "2021-07-06"
+  },
+  {
+   "id": "25-flying-okinawa",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Red & Orange Balloons",
+   "code": "FLYING_OKINAWA",
+   "img": "pm25.fFLYING_OKINAWA",
+   "femaleImg": "pm25.fFLYING_OKINAWA.g2",
+   "shiny": "2022-05-03"
+  },
+  {
+   "id": "25-fossil-2026",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Excavator",
+   "code": "FOSSIL_2026",
+   "img": "pm25.fFOSSIL_2026",
+   "femaleImg": "pm25.fFOSSIL_2026.g2",
+   "shiny": "2026-05-22"
+  },
+  {
+   "id": "25-glass-helmet-2026",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Astronaut",
+   "code": "GLASS_HELMET_2026",
+   "img": "pm25.fGLASS_HELMET_2026",
+   "shiny": "2026-10-04"
+  },
+  {
+   "id": "25-gofest-2021-noevolve",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Meloetta Hat",
+   "code": "GOFEST_2021_NOEVOLVE",
+   "img": "pm25.cGOFEST_2021_NOEVOLVE",
+   "femaleImg": "pm25.cGOFEST_2021_NOEVOLVE.g2",
+   "shiny": "2021-07-17"
+  },
+  {
+   "id": "25-gofest-2022",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Shaymin Scarf",
+   "code": "GOFEST_2022",
+   "img": "pm25.fGOFEST_2022",
+   "femaleImg": "pm25.fGOFEST_2022.g2",
+   "shiny": "2022-08-27"
+  },
+  {
+   "id": "25-gofest-2022-noevolve",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Gracidea Flower",
+   "code": "GOFEST_2022_NOEVOLVE",
+   "img": "pm25.cGOFEST_2022_NOEVOLVE",
+   "femaleImg": "pm25.cGOFEST_2022_NOEVOLVE.g2",
+   "shiny": "2022-06-04"
+  },
+  {
+   "id": "25-gofest-2024-mtiara",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Moon Crown",
+   "code": "GOFEST_2024_MTIARA",
+   "img": "pm25.fGOFEST_2024_MTIARA",
+   "femaleImg": "pm25.fGOFEST_2024_MTIARA.g2",
+   "shiny": "2024-05-30"
+  },
+  {
+   "id": "25-gofest-2024-stiara",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Sun Crown",
+   "code": "GOFEST_2024_STIARA",
+   "img": "pm25.fGOFEST_2024_STIARA",
+   "femaleImg": "pm25.fGOFEST_2024_STIARA.g2",
+   "shiny": "2024-05-30"
+  },
+  {
+   "id": "25-gofest-2025-goggles-blue",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Blue Dapper",
+   "code": "GOFEST_2025_GOGGLES_BLUE",
+   "img": "pm25.fGOFEST_2025_GOGGLES_BLUE",
+   "femaleImg": "pm25.fGOFEST_2025_GOGGLES_BLUE.g2",
+   "shiny": "2025-06-28"
+  },
+  {
+   "id": "25-gofest-2025-goggles-red",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Red Dapper",
+   "code": "GOFEST_2025_GOGGLES_RED",
+   "img": "pm25.fGOFEST_2025_GOGGLES_RED",
+   "femaleImg": "pm25.fGOFEST_2025_GOGGLES_RED.g2",
+   "shiny": "2025-06-28"
+  },
+  {
+   "id": "25-gofest-2025-goggles-yellow",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Yellow Dapper",
+   "code": "GOFEST_2025_GOGGLES_YELLOW",
+   "img": "pm25.fGOFEST_2025_GOGGLES_YELLOW",
+   "femaleImg": "pm25.fGOFEST_2025_GOGGLES_YELLOW.g2",
+   "shiny": "2025-06-28"
+  },
+  {
+   "id": "25-gofest-2025-monocle-blue",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Blue Formal",
+   "code": "GOFEST_2025_MONOCLE_BLUE",
+   "img": "pm25.fGOFEST_2025_MONOCLE_BLUE",
+   "femaleImg": "pm25.fGOFEST_2025_MONOCLE_BLUE.g2",
+   "shiny": "2025-05-29"
+  },
+  {
+   "id": "25-gofest-2025-monocle-red",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Red Formal",
+   "code": "GOFEST_2025_MONOCLE_RED",
+   "img": "pm25.fGOFEST_2025_MONOCLE_RED",
+   "femaleImg": "pm25.fGOFEST_2025_MONOCLE_RED.g2",
+   "shiny": "2025-05-29"
+  },
+  {
+   "id": "25-gofest-2025-monocle-yellow",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Yellow Formal",
+   "code": "GOFEST_2025_MONOCLE_YELLOW",
+   "img": "pm25.fGOFEST_2025_MONOCLE_YELLOW",
+   "femaleImg": "pm25.fGOFEST_2025_MONOCLE_YELLOW.g2",
+   "shiny": "2025-05-29"
+  },
+  {
+   "id": "25-gofest-2026-cap-blue",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Team Mystic Hat",
+   "code": "GOFEST_2026_CAP_BLUE",
+   "img": "pm25.fGOFEST_2026_CAP_BLUE",
+   "femaleImg": "pm25.fGOFEST_2026_CAP_BLUE.g2",
+   "shiny": "2026-05-25"
+  },
+  {
+   "id": "25-gofest-2026-cap-red",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Team Valor Hat",
+   "code": "GOFEST_2026_CAP_RED",
+   "img": "pm25.fGOFEST_2026_CAP_RED",
+   "femaleImg": "pm25.fGOFEST_2026_CAP_RED.g2",
+   "shiny": "2026-06-11"
+  },
+  {
+   "id": "25-gofest-2026-cap-yellow",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Team Instinct Hat",
+   "code": "GOFEST_2026_CAP_YELLOW",
+   "img": "pm25.fGOFEST_2026_CAP_YELLOW",
+   "femaleImg": "pm25.fGOFEST_2026_CAP_YELLOW.g2",
+   "shiny": "2026-06-04"
+  },
+  {
+   "id": "25-gotour-2023-bandana",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "GO Tour 2023 Bandana",
+   "code": "GOTOUR_2023_BANDANA",
+   "img": "pm25.cGOTOUR_2023_BANDANA",
+   "femaleImg": "pm25.cGOTOUR_2023_BANDANA.g2"
+  },
+  {
+   "id": "25-gotour-2023-bandana-noevolve",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "May's Bow",
+   "code": "GOTOUR_2023_BANDANA_NOEVOLVE",
+   "img": "pm25.cGOTOUR_2023_BANDANA_NOEVOLVE",
+   "femaleImg": "pm25.cGOTOUR_2023_BANDANA_NOEVOLVE.g2",
+   "shiny": "2022-12-31"
+  },
+  {
+   "id": "25-gotour-2023-hat",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "GO Tour 2023 Hat",
+   "code": "GOTOUR_2023_HAT",
+   "img": "pm25.cGOTOUR_2023_HAT",
+   "femaleImg": "pm25.cGOTOUR_2023_HAT.g2"
+  },
+  {
+   "id": "25-gotour-2023-hat-noevolve",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Brendan's Hat",
+   "code": "GOTOUR_2023_HAT_NOEVOLVE",
+   "img": "pm25.cGOTOUR_2023_HAT_NOEVOLVE",
+   "femaleImg": "pm25.cGOTOUR_2023_HAT_NOEVOLVE.g2",
+   "shiny": "2022-12-31"
+  },
+  {
+   "id": "25-gotour-2024-a",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Lucas' Cap",
+   "code": "GOTOUR_2024_A",
+   "img": "pm25.fGOTOUR_2024_A",
+   "femaleImg": "pm25.fGOTOUR_2024_A.g2",
+   "shiny": "2024-02-17"
+  },
+  {
+   "id": "25-gotour-2024-a-02",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Dawn's Hat",
+   "code": "GOTOUR_2024_A_02",
+   "img": "pm25.fGOTOUR_2024_A_02",
+   "femaleImg": "pm25.fGOTOUR_2024_A_02.g2",
+   "shiny": "2024-02-17"
+  },
+  {
+   "id": "25-gotour-2024-b",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Rei's Cap",
+   "code": "GOTOUR_2024_B",
+   "img": "pm25.fGOTOUR_2024_B",
+   "femaleImg": "pm25.fGOTOUR_2024_B.g2",
+   "shiny": "2024-02-17"
+  },
+  {
+   "id": "25-gotour-2024-b-02",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Akari's Kerchief",
+   "code": "GOTOUR_2024_B_02",
+   "img": "pm25.fGOTOUR_2024_B_02",
+   "femaleImg": "pm25.fGOTOUR_2024_B_02.g2",
+   "shiny": "2024-02-17"
+  },
+  {
+   "id": "25-gotour-2025-a",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Hilbert's Hat",
+   "code": "GOTOUR_2025_A",
+   "img": "pm25.fGOTOUR_2025_A",
+   "femaleImg": "pm25.fGOTOUR_2025_A.g2",
+   "shiny": "2025-02-21"
+  },
+  {
+   "id": "25-gotour-2025-a-02",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Hilda's Hat",
+   "code": "GOTOUR_2025_A_02",
+   "img": "pm25.fGOTOUR_2025_A_02",
+   "femaleImg": "pm25.fGOTOUR_2025_A_02.g2",
+   "shiny": "2025-02-21"
+  },
+  {
+   "id": "25-gotour-2025-b",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Nate's Visor",
+   "code": "GOTOUR_2025_B",
+   "img": "pm25.fGOTOUR_2025_B",
+   "femaleImg": "pm25.fGOTOUR_2025_B.g2",
+   "shiny": "2025-02-21"
+  },
+  {
+   "id": "25-gotour-2025-b-02",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Rosa's Visor",
+   "code": "GOTOUR_2025_B_02",
+   "img": "pm25.fGOTOUR_2025_B_02",
+   "femaleImg": "pm25.fGOTOUR_2025_B_02.g2",
+   "shiny": "2025-02-21"
+  },
+  {
+   "id": "25-gotour-2026-a",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Red's Hat",
+   "code": "GOTOUR_2026_A",
+   "img": "pm25.fGOTOUR_2026_A",
+   "femaleImg": "pm25.fGOTOUR_2026_A.g2",
+   "shiny": "2026-02-23"
+  },
+  {
+   "id": "25-gotour-2026-a-02",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Leaf's Hat",
+   "code": "GOTOUR_2026_A_02",
+   "img": "pm25.fGOTOUR_2026_A_02",
+   "femaleImg": "pm25.fGOTOUR_2026_A_02.g2",
+   "shiny": "2026-02-23"
+  },
+  {
+   "id": "25-gotour-2026-b",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Ethan's Hat",
+   "code": "GOTOUR_2026_B",
+   "img": "pm25.fGOTOUR_2026_B",
+   "femaleImg": "pm25.fGOTOUR_2026_B.g2",
+   "shiny": "2026-02-24"
+  },
+  {
+   "id": "25-gotour-2026-b-02",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Lyra's Hat",
+   "code": "GOTOUR_2026_B_02",
+   "img": "pm25.fGOTOUR_2026_B_02",
+   "femaleImg": "pm25.fGOTOUR_2026_B_02.g2",
+   "shiny": "2026-02-24"
+  },
+  {
+   "id": "25-gotour-2026-c",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Calem's Hat",
+   "code": "GOTOUR_2026_C",
+   "img": "pm25.fGOTOUR_2026_C",
+   "femaleImg": "pm25.fGOTOUR_2026_C.g2",
+   "shiny": "2026-02-28"
+  },
+  {
+   "id": "25-gotour-2026-c-02",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Serena's Hat",
+   "code": "GOTOUR_2026_C_02",
+   "img": "pm25.fGOTOUR_2026_C_02",
+   "femaleImg": "pm25.fGOTOUR_2026_C_02.g2",
+   "shiny": "2026-02-28"
+  },
+  {
+   "id": "25-halloween-2017",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Halloween Hat",
+   "code": "HALLOWEEN_2017",
+   "img": "pm25.cHALLOWEEN_2017",
+   "femaleImg": "pm25.cHALLOWEEN_2017.g2",
+   "shiny": "2017-10-20"
+  },
+  {
+   "id": "25-halloween-2021-noevolve",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Halloween Mischief",
+   "code": "HALLOWEEN_2021_NOEVOLVE",
+   "img": "pm25.cHALLOWEEN_2021_NOEVOLVE",
+   "femaleImg": "pm25.cHALLOWEEN_2021_NOEVOLVE.g2",
+   "shiny": "2021-10-15"
+  },
+  {
+   "id": "25-halloween-2026",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Halloween hat & capelet",
+   "code": "HALLOWEEN_2026",
+   "img": "pm25.fHALLOWEEN_2026",
+   "femaleImg": "pm25.fHALLOWEEN_2026.g2",
+   "shiny": "2026-10-27"
+  },
+  {
+   "id": "25-hoenn-2020-noevolve",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Rayquaza Hat",
+   "code": "HOENN_2020_NOEVOLVE",
+   "img": "pm25.cHOENN_2020_NOEVOLVE",
+   "femaleImg": "pm25.cHOENN_2020_NOEVOLVE.g2",
+   "shiny": "2020-05-15"
+  },
+  {
+   "id": "25-holiday-2016",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Holiday Hat",
+   "code": "HOLIDAY_2016",
+   "img": "pm25.cHOLIDAY_2016",
+   "femaleImg": "pm25.cHOLIDAY_2016.g2",
+   "shiny": "2016-12-25"
+  },
+  {
+   "id": "25-holiday-2023",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Holiday Outfit",
+   "code": "HOLIDAY_2023",
+   "img": "pm25.cHOLIDAY_2023",
+   "femaleImg": "pm25.cHOLIDAY_2023.g2",
+   "shiny": "2023-12-18"
+  },
+  {
+   "id": "25-horizons",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Captains Hat",
+   "code": "HORIZONS",
+   "img": "pm25.fHORIZONS",
+   "femaleImg": "pm25.fHORIZONS.g2",
+   "shiny": "2024-03-05"
+  },
+  {
+   "id": "25-indonesia-2025-noevolve",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Indonesia Football Jersey",
+   "code": "INDONESIA_2025_NOEVOLVE",
+   "img": "pm25.cINDONESIA_2025_NOEVOLVE",
+   "femaleImg": "pm25.cINDONESIA_2025_NOEVOLVE.g2",
+   "shiny": "2025-08-04"
+  },
+  {
+   "id": "25-jan-2020-noevolve",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Spotted Party Hat",
+   "code": "JAN_2020_NOEVOLVE",
+   "img": "pm25.cJAN_2020_NOEVOLVE",
+   "femaleImg": "pm25.cJAN_2020_NOEVOLVE.g2",
+   "shiny": "2020-02-25"
+  },
+  {
+   "id": "25-jan-2023-noevolve",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Party Top Hat",
+   "code": "JAN_2023_NOEVOLVE",
+   "img": "pm25.cJAN_2023_NOEVOLVE",
+   "femaleImg": "pm25.cJAN_2023_NOEVOLVE.g2",
+   "shiny": "2022-12-31"
+  },
+  {
+   "id": "25-jeju",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Blue Shirt (Citrus)",
+   "code": "JEJU",
+   "img": "pm25.fJEJU",
+   "femaleImg": "pm25.fJEJU.g2",
+   "shiny": "2023-07-28"
+  },
+  {
+   "id": "25-johto-2020-noevolve",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Umbreon Hat",
+   "code": "JOHTO_2020_NOEVOLVE",
+   "img": "pm25.cJOHTO_2020_NOEVOLVE",
+   "femaleImg": "pm25.cJOHTO_2020_NOEVOLVE.g2",
+   "shiny": "2020-05-08"
+  },
+  {
+   "id": "25-kanto-2020-noevolve",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Charizard Hat",
+   "code": "KANTO_2020_NOEVOLVE",
+   "img": "pm25.cKANTO_2020_NOEVOLVE",
+   "femaleImg": "pm25.cKANTO_2020_NOEVOLVE.g2",
+   "shiny": "2020-05-01"
+  },
+  {
+   "id": "25-kariyushi",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Kariyushi Shirt",
+   "code": "KARIYUSHI",
+   "img": "pm25.fKARIYUSHI",
+   "femaleImg": "pm25.fKARIYUSHI.g2",
+   "shiny": "2022-03-19"
+  },
+  {
+   "id": "25-kurta",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Kurta",
+   "code": "KURTA",
+   "img": "pm25.fKURTA",
+   "shiny": "2025-03-13"
+  },
+  {
+   "id": "25-k-2026-a-01",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Hanbok",
+   "code": "K_2026_A_01",
+   "img": "pm25.fK_2026_A_01",
+   "shiny": "2026-09-18"
+  },
+  {
+   "id": "25-may-2019-noevolve",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Straw Hat",
+   "code": "MAY_2019_NOEVOLVE",
+   "img": "pm25.cMAY_2019_NOEVOLVE",
+   "femaleImg": "pm25.cMAY_2019_NOEVOLVE.g2",
+   "shiny": "2019-07-22"
+  },
+  {
+   "id": "25-november-2018",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Flower Crown",
+   "code": "NOVEMBER_2018",
+   "img": "pm25.cNOVEMBER_2018",
+   "femaleImg": "pm25.cNOVEMBER_2018.g2",
+   "shiny": "2019-02-26"
+  },
+  {
+   "id": "25-one-year-anniversary",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Original Cap",
+   "code": "ONE_YEAR_ANNIVERSARY",
+   "img": "pm25.cONE_YEAR_ANNIVERSARY",
+   "femaleImg": "pm25.cONE_YEAR_ANNIVERSARY.g2",
+   "shiny": "2017-06-06"
+  },
+  {
+   "id": "25-pi",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Detective",
+   "code": "PI",
+   "img": "pm25.cPI",
+   "femaleImg": "pm25.cPI.g2",
+   "shiny": "2023-10-05"
+  },
+  {
+   "id": "25-pop-star",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Pop Star",
+   "code": "POP_STAR",
+   "img": "pm25.fPOP_STAR",
+   "shiny": "2024-11-16"
+  },
+  {
+   "id": "25-pxp-2026",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Cosmog-themed spacesuit",
+   "code": "PXP_2026",
+   "img": "pm25.fPXP_2026",
+   "shiny": "2026-08-25"
+  },
+  {
+   "id": "25-rock-star",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Rock Star",
+   "code": "ROCK_STAR",
+   "img": "pm25.fROCK_STAR",
+   "shiny": "2024-11-16"
+  },
+  {
+   "id": "25-safari-2020-noevolve",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Safari Hat",
+   "code": "SAFARI_2020_NOEVOLVE",
+   "img": "pm25.cSAFARI_2020_NOEVOLVE",
+   "femaleImg": "pm25.cSAFARI_2020_NOEVOLVE.g2",
+   "shiny": "2020-03-27"
+  },
+  {
+   "id": "25-sinnoh-2020-noevolve",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Lucario Hat",
+   "code": "SINNOH_2020_NOEVOLVE",
+   "img": "pm25.cSINNOH_2020_NOEVOLVE",
+   "femaleImg": "pm25.cSINNOH_2020_NOEVOLVE.g2",
+   "shiny": "2020-05-22"
+  },
+  {
+   "id": "25-spring-2023",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Cherry Blossom",
+   "code": "SPRING_2023",
+   "img": "pm25.cSPRING_2023",
+   "femaleImg": "pm25.cSPRING_2023.g2",
+   "shiny": "2023-04-04"
+  },
+  {
+   "id": "25-summer-2018",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Summer Flair",
+   "code": "SUMMER_2018",
+   "img": "pm25.cSUMMER_2018",
+   "femaleImg": "pm25.cSUMMER_2018.g2",
+   "shiny": "2018-07-05"
+  },
+  {
+   "id": "25-summer-2023-a",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Malachite Crown",
+   "code": "SUMMER_2023_A",
+   "img": "pm25.fSUMMER_2023_A",
+   "femaleImg": "pm25.fSUMMER_2023_A.g2",
+   "shiny": "2023-08-04"
+  },
+  {
+   "id": "25-summer-2023-b",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Aquamarine Crown",
+   "code": "SUMMER_2023_B",
+   "img": "pm25.fSUMMER_2023_B",
+   "femaleImg": "pm25.fSUMMER_2023_B.g2",
+   "shiny": "2023-08-04"
+  },
+  {
+   "id": "25-summer-2023-c",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Quartz Crown",
+   "code": "SUMMER_2023_C",
+   "img": "pm25.fSUMMER_2023_C",
+   "femaleImg": "pm25.fSUMMER_2023_C.g2",
+   "shiny": "2023-08-04"
+  },
+  {
+   "id": "25-summer-2023-d",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Pyrite Crown",
+   "code": "SUMMER_2023_D",
+   "img": "pm25.fSUMMER_2023_D",
+   "femaleImg": "pm25.fSUMMER_2023_D.g2",
+   "shiny": "2023-08-04"
+  },
+  {
+   "id": "25-summer-2023-e",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Amethyst Crown",
+   "code": "SUMMER_2023_E",
+   "img": "pm25.fSUMMER_2023_E",
+   "femaleImg": "pm25.fSUMMER_2023_E.g2",
+   "shiny": "2023-08-04"
+  },
+  {
+   "id": "25-tcg-2022-noevolve",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "TCG Hat",
+   "code": "TCG_2022_NOEVOLVE",
+   "img": "pm25.cTCG_2022_NOEVOLVE",
+   "femaleImg": "pm25.cTCG_2022_NOEVOLVE.g2",
+   "shiny": "2022-06-16"
+  },
+  {
+   "id": "25-tshirt-01",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Green Shirt (Berry)",
+   "code": "TSHIRT_01",
+   "img": "pm25.fTSHIRT_01",
+   "femaleImg": "pm25.fTSHIRT_01.g2",
+   "shiny": "2022-10-20"
+  },
+  {
+   "id": "25-tshirt-02",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Purple Shirt (Flower)",
+   "code": "TSHIRT_02",
+   "img": "pm25.fTSHIRT_02",
+   "femaleImg": "pm25.fTSHIRT_02.g2",
+   "shiny": "2022-11-24"
+  },
+  {
+   "id": "25-tshirt-03",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Batik Shirt",
+   "code": "TSHIRT_03",
+   "img": "pm25.fTSHIRT_03",
+   "femaleImg": "pm25.fTSHIRT_03.g2",
+   "shiny": "2024-03-02"
+  },
+  {
+   "id": "25-visor-2026",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Marathon Visor",
+   "code": "VISOR_2026",
+   "img": "pm25.fVISOR_2026",
+   "femaleImg": "pm25.fVISOR_2026.g2",
+   "shiny": "2026-05-12"
+  },
+  {
+   "id": "25-vs-2019",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Libre",
+   "code": "VS_2019",
+   "img": "pm25.fVS_2019",
+   "shiny": "2020-12-29"
+  },
+  {
+   "id": "25-wcs-2022",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "WC 2022",
+   "code": "WCS_2022",
+   "img": "pm25.fWCS_2022",
+   "femaleImg": "pm25.fWCS_2022.g2",
+   "shiny": "2022-08-27"
+  },
+  {
+   "id": "25-wcs-2023",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "WC 2023",
+   "code": "WCS_2023",
+   "img": "pm25.fWCS_2023",
+   "femaleImg": "pm25.fWCS_2023.g2",
+   "shiny": "2023-08-23"
+  },
+  {
+   "id": "25-wcs-2024",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "WC 2024",
+   "code": "WCS_2024",
+   "img": "pm25.fWCS_2024",
+   "femaleImg": "pm25.fWCS_2024.g2",
+   "shiny": "2024-08-16"
+  },
+  {
+   "id": "25-wcs-2025",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "WC 2025 Varsity Jacket",
+   "code": "WCS_2025",
+   "img": "pm25.fWCS_2025",
+   "femaleImg": "pm25.fWCS_2025.g2",
+   "shiny": "2025-08-15"
+  },
+  {
+   "id": "25-wcs-2026",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "WC 2026",
+   "code": "WCS_2026",
+   "img": "pm25.fWCS_2026",
+   "shiny": "2026-08-28"
+  },
+  {
+   "id": "25-winter-2018",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Beanie Hat",
+   "code": "WINTER_2018",
+   "img": "pm25.cWINTER_2018",
+   "femaleImg": "pm25.cWINTER_2018.g2",
+   "shiny": "2019-12-24"
+  },
+  {
+   "id": "25-winter-2020",
+   "dex": 25,
+   "name": "Pikachu",
+   "costume": "Holiday Costume",
+   "code": "WINTER_2020",
+   "img": "pm25.fWINTER_2020",
+   "femaleImg": "pm25.fWINTER_2020.g2",
+   "shiny": "2020-12-22"
+  },
+  {
+   "id": "26-anniversary",
+   "dex": 26,
+   "name": "Raichu",
+   "costume": "Party Hat",
+   "code": "ANNIVERSARY",
+   "img": "pm26.cANNIVERSARY",
+   "femaleImg": "pm26.cANNIVERSARY.g2",
+   "shiny": "2017-02-26"
+  },
+  {
+   "id": "26-costume-1",
+   "dex": 26,
+   "name": "Raichu",
+   "costume": "World Cap",
+   "code": "COSTUME_1",
+   "img": "pm26.cCOSTUME_1",
+   "femaleImg": "pm26.cCOSTUME_1.g2",
+   "shiny": "2020-10-06"
+  },
+  {
+   "id": "26-costume-2",
+   "dex": 26,
+   "name": "Raichu",
+   "costume": "New Year's Hat",
+   "code": "COSTUME_2",
+   "img": "pm26.cCOSTUME_2",
+   "femaleImg": "pm26.cCOSTUME_2.g2",
+   "shiny": "2020-12-29"
+  },
+  {
+   "id": "26-fall-2018",
+   "dex": 26,
+   "name": "Raichu",
+   "costume": "HF Custom Cap",
+   "code": "FALL_2018",
+   "img": "pm26.cFALL_2018",
+   "femaleImg": "pm26.cFALL_2018.g2",
+   "shiny": "2018-10-05"
+  },
+  {
+   "id": "26-feb-2019",
+   "dex": 26,
+   "name": "Raichu",
+   "costume": "Feb 2019",
+   "code": "FEB_2019",
+   "img": "pm26.cFEB_2019",
+   "femaleImg": "pm26.cFEB_2019.g2"
+  },
+  {
+   "id": "26-halloween-2017",
+   "dex": 26,
+   "name": "Raichu",
+   "costume": "Halloween Hat",
+   "code": "HALLOWEEN_2017",
+   "img": "pm26.cHALLOWEEN_2017",
+   "femaleImg": "pm26.cHALLOWEEN_2017.g2",
+   "shiny": "2017-10-20"
+  },
+  {
+   "id": "26-holiday-2016",
+   "dex": 26,
+   "name": "Raichu",
+   "costume": "Holiday Hat",
+   "code": "HOLIDAY_2016",
+   "img": "pm26.cHOLIDAY_2016",
+   "femaleImg": "pm26.cHOLIDAY_2016.g2",
+   "shiny": "2016-12-25"
+  },
+  {
+   "id": "26-holiday-2023",
+   "dex": 26,
+   "name": "Raichu",
+   "costume": "Holiday Outfit",
+   "code": "HOLIDAY_2023",
+   "img": "pm26.cHOLIDAY_2023",
+   "femaleImg": "pm26.cHOLIDAY_2023.g2",
+   "shiny": "2023-12-18"
+  },
+  {
+   "id": "26-november-2018",
+   "dex": 26,
+   "name": "Raichu",
+   "costume": "Flower Crown",
+   "code": "NOVEMBER_2018",
+   "img": "pm26.cNOVEMBER_2018",
+   "femaleImg": "pm26.cNOVEMBER_2018.g2",
+   "shiny": "2019-02-26"
+  },
+  {
+   "id": "26-one-year-anniversary",
+   "dex": 26,
+   "name": "Raichu",
+   "costume": "Original Cap",
+   "code": "ONE_YEAR_ANNIVERSARY",
+   "img": "pm26.cONE_YEAR_ANNIVERSARY",
+   "femaleImg": "pm26.cONE_YEAR_ANNIVERSARY.g2",
+   "shiny": "2019-06-06"
+  },
+  {
+   "id": "26-pi",
+   "dex": 26,
+   "name": "Raichu",
+   "costume": "Detective",
+   "code": "PI",
+   "img": "pm26.cPI",
+   "femaleImg": "pm26.cPI.g2",
+   "shiny": "2023-10-05"
+  },
+  {
+   "id": "26-spring-2023",
+   "dex": 26,
+   "name": "Raichu",
+   "costume": "Cherry Blossom",
+   "code": "SPRING_2023",
+   "img": "pm26.cSPRING_2023",
+   "femaleImg": "pm26.cSPRING_2023.g2",
+   "shiny": "2023-04-04"
+  },
+  {
+   "id": "26-summer-2018",
+   "dex": 26,
+   "name": "Raichu",
+   "costume": "Summer Flair",
+   "code": "SUMMER_2018",
+   "img": "pm26.cSUMMER_2018",
+   "femaleImg": "pm26.cSUMMER_2018.g2",
+   "shiny": "2018-07-05"
+  },
+  {
+   "id": "26-winter-2018",
+   "dex": 26,
+   "name": "Raichu",
+   "costume": "Beanie Hat",
+   "code": "WINTER_2018",
+   "img": "pm26.cWINTER_2018",
+   "femaleImg": "pm26.cWINTER_2018.g2",
+   "shiny": "2019-12-24"
+  },
+  {
+   "id": "31-royal-noevolve",
+   "dex": 31,
+   "name": "Nidoqueen",
+   "costume": "Crown",
+   "code": "ROYAL_NOEVOLVE",
+   "img": "pm31.cROYAL_NOEVOLVE",
+   "shiny": "2025-05-10"
+  },
+  {
+   "id": "33-jan-2020-noevolve",
+   "dex": 33,
+   "name": "Nidorino",
+   "costume": "Party Hat",
+   "code": "JAN_2020_NOEVOLVE",
+   "img": "pm33.cJAN_2020_NOEVOLVE",
+   "shiny": "2020-03-01"
+  },
+  {
+   "id": "34-royal-noevolve",
+   "dex": 34,
+   "name": "Nidoking",
+   "costume": "Crown",
+   "code": "ROYAL_NOEVOLVE",
+   "img": "pm34.cROYAL_NOEVOLVE",
+   "shiny": "2025-05-10"
+  },
+  {
+   "id": "37-fall-2022",
+   "dex": 37,
+   "name": "Vulpix",
+   "costume": "Spooky Festival",
+   "code": "FALL_2022",
+   "img": "pm37.cFALL_2022",
+   "shiny": "2022-10-27"
+  },
+  {
+   "id": "38-fall-2022",
+   "dex": 38,
+   "name": "Ninetales",
+   "costume": "Spooky Festival",
+   "code": "FALL_2022",
+   "img": "pm38.cFALL_2022",
+   "shiny": "2022-10-27"
+  },
+  {
+   "id": "39-jan-2024",
+   "dex": 39,
+   "name": "Jigglypuff",
+   "costume": "Ribbon",
+   "code": "JAN_2024",
+   "img": "pm39.cJAN_2024",
+   "shiny": "2024-01-01"
+  },
+  {
+   "id": "40-jan-2024",
+   "dex": 40,
+   "name": "Wigglytuff",
+   "costume": "Ribbon",
+   "code": "JAN_2024",
+   "img": "pm40.cJAN_2024",
+   "shiny": "2024-01-01"
+  },
+  {
+   "id": "41-halloween-2026-01",
+   "dex": 41,
+   "name": "Zubat",
+   "costume": "Top Hat",
+   "code": "HALLOWEEN_2026_01",
+   "img": "pm41.fHALLOWEEN_2026_01",
+   "femaleImg": "pm41.fHALLOWEEN_2026_01.g2",
+   "shiny": "2026-10-27"
+  },
+  {
+   "id": "42-halloween-2026-01",
+   "dex": 42,
+   "name": "Golbat",
+   "costume": "Top Hat",
+   "code": "HALLOWEEN_2026_01",
+   "img": "pm42.fHALLOWEEN_2026_01",
+   "femaleImg": "pm42.fHALLOWEEN_2026_01.g2",
+   "shiny": "2026-10-27"
+  },
+  {
+   "id": "50-fall-2022",
+   "dex": 50,
+   "name": "Diglett",
+   "costume": "Fashionable",
+   "code": "FALL_2022",
+   "img": "pm50.cFALL_2022",
+   "shiny": "2022-09-27"
+  },
+  {
+   "id": "51-fall-2022",
+   "dex": 51,
+   "name": "Dugtrio",
+   "costume": "Fashionable",
+   "code": "FALL_2022",
+   "img": "pm51.cFALL_2022",
+   "shiny": "2022-09-27"
+  },
+  {
+   "id": "54-holiday-2023",
+   "dex": 54,
+   "name": "Psyduck",
+   "costume": "Holiday Attire",
+   "code": "HOLIDAY_2023",
+   "img": "pm54.cHOLIDAY_2023",
+   "shiny": "2023-12-18"
+  },
+  {
+   "id": "54-swim-2025",
+   "dex": 54,
+   "name": "Psyduck",
+   "costume": "Swim Ring",
+   "code": "SWIM_2025",
+   "img": "pm54.fSWIM_2025",
+   "shiny": "2025-09-09"
+  },
+  {
+   "id": "55-holiday-2023",
+   "dex": 55,
+   "name": "Golduck",
+   "costume": "Holiday Attire",
+   "code": "HOLIDAY_2023",
+   "img": "pm55.cHOLIDAY_2023",
+   "shiny": "2023-12-18"
+  },
+  {
+   "id": "68-wildarea-2026-01",
+   "dex": 68,
+   "name": "Machamp",
+   "costume": "Modern Jacket",
+   "code": "WILDAREA_2026_01",
+   "img": "pm68.fWILDAREA_2026_01",
+   "shiny": "2026-11-05"
+  },
+  {
+   "id": "77-spring-2023-valor",
+   "dex": 77,
+   "name": "Ponyta",
+   "costume": "Candela accessory",
+   "code": "SPRING_2023_VALOR",
+   "img": "pm77.cSPRING_2023_VALOR",
+   "shiny": "2023-05-11"
+  },
+  {
+   "id": "78-spring-2023-valor",
+   "dex": 78,
+   "name": "Rapidash",
+   "costume": "Candela accessory",
+   "code": "SPRING_2023_VALOR",
+   "img": "pm78.cSPRING_2023_VALOR",
+   "shiny": "2023-05-11"
+  },
+  {
+   "id": "79-2020",
+   "dex": 79,
+   "name": "Slowpoke",
+   "costume": "New Year",
+   "code": "2020",
+   "img": "pm79.f2020",
+   "shiny": "2020-11-30"
+  },
+  {
+   "id": "79-pi-noevolve",
+   "dex": 79,
+   "name": "Slowpoke",
+   "costume": "w Hat",
+   "code": "PI_NOEVOLVE",
+   "img": "pm79.cPI_NOEVOLVE",
+   "shiny": "2023-10-05"
+  },
+  {
+   "id": "80-2021",
+   "dex": 80,
+   "name": "Slowbro",
+   "costume": "New Year",
+   "code": "2021",
+   "img": "pm80.f2021",
+   "shiny": "2020-11-30"
+  },
+  {
+   "id": "88-anniversary-2024",
+   "dex": 88,
+   "name": "Grimer",
+   "costume": "Party Hat",
+   "code": "ANNIVERSARY_2024",
+   "img": "pm88.cANNIVERSARY_2024",
+   "shiny": "2024-06-24"
+  },
+  {
+   "id": "89-anniversary-2024",
+   "dex": 89,
+   "name": "Muk",
+   "costume": "Party Hat",
+   "code": "ANNIVERSARY_2024",
+   "img": "pm89.cANNIVERSARY_2024",
+   "shiny": "2024-06-24"
+  },
+  {
+   "id": "94-costume-2020",
+   "dex": 94,
+   "name": "Gengar",
+   "costume": "Halloween",
+   "code": "COSTUME_2020",
+   "img": "pm94.fCOSTUME_2020",
+   "shiny": "2020-10-23"
+  },
+  {
+   "id": "94-fall-2022-noevolve",
+   "dex": 94,
+   "name": "Gengar",
+   "costume": "Spooky Festival",
+   "code": "FALL_2022_NOEVOLVE",
+   "img": "pm94.cFALL_2022_NOEVOLVE",
+   "shiny": "2022-10-27"
+  },
+  {
+   "id": "94-fall-2023-noevolve",
+   "dex": 94,
+   "name": "Gengar",
+   "costume": "Tricks & Treats",
+   "code": "FALL_2023_NOEVOLVE",
+   "img": "pm94.cFALL_2023_NOEVOLVE",
+   "shiny": "2023-10-26"
+  },
+  {
+   "id": "94-jan-2020-noevolve",
+   "dex": 94,
+   "name": "Gengar",
+   "costume": "Party Hat",
+   "code": "JAN_2020_NOEVOLVE",
+   "img": "pm94.cJAN_2020_NOEVOLVE",
+   "shiny": "2020-03-01"
+  },
+  {
+   "id": "104-fall-2023",
+   "dex": 104,
+   "name": "Cubone",
+   "costume": "Cempasúchil Crown",
+   "code": "FALL_2023",
+   "img": "pm104.cFALL_2023",
+   "shiny": "2023-11-01"
+  },
+  {
+   "id": "105-fall-2023",
+   "dex": 105,
+   "name": "Marowak",
+   "costume": "Cempasúchil Crown",
+   "code": "FALL_2023",
+   "img": "pm105.cFALL_2023",
+   "shiny": "2023-11-01"
+  },
+  {
+   "id": "113-november-2018",
+   "dex": 113,
+   "name": "Chansey",
+   "costume": "Flower Crown",
+   "code": "NOVEMBER_2018",
+   "img": "pm113.cNOVEMBER_2018",
+   "shiny": "2021-04-04"
+  },
+  {
+   "id": "125-spring-2023-instinct",
+   "dex": 125,
+   "name": "Electabuzz",
+   "costume": "Spark accessory",
+   "code": "SPRING_2023_INSTINCT",
+   "img": "pm125.cSPRING_2023_INSTINCT",
+   "shiny": "2023-05-02"
+  },
+  {
+   "id": "131-costume-2020",
+   "dex": 131,
+   "name": "Lapras",
+   "costume": "w Scarf",
+   "code": "COSTUME_2020",
+   "img": "pm131.fCOSTUME_2020",
+   "shiny": "2022-05-12"
+  },
+  {
+   "id": "131-spring-2023-mystic",
+   "dex": 131,
+   "name": "Lapras",
+   "costume": "Blanche accessory",
+   "code": "SPRING_2023_MYSTIC",
+   "img": "pm131.cSPRING_2023_MYSTIC",
+   "shiny": "2023-04-13"
+  },
+  {
+   "id": "132-spring-2026-a",
+   "dex": 132,
+   "name": "Ditto",
+   "costume": "w Cap",
+   "code": "SPRING_2026_A",
+   "img": "pm132.fSPRING_2026_A",
+   "shiny": "2026-03-10"
+  },
+  {
+   "id": "132-spring-2026-b",
+   "dex": 132,
+   "name": "Ditto",
+   "costume": "w Hat",
+   "code": "SPRING_2026_B",
+   "img": "pm132.fSPRING_2026_B",
+   "shiny": "2026-03-10"
+  },
+  {
+   "id": "133-gofest-2024-mtiara",
+   "dex": 133,
+   "name": "Eevee",
+   "costume": "Moon Tiara",
+   "code": "GOFEST_2024_MTIARA",
+   "img": "pm133.fGOFEST_2024_MTIARA",
+   "femaleImg": "pm133.fGOFEST_2024_MTIARA.g2",
+   "shiny": "2024-05-30"
+  },
+  {
+   "id": "133-gofest-2024-stiara",
+   "dex": 133,
+   "name": "Eevee",
+   "costume": "Sun Tiara",
+   "code": "GOFEST_2024_STIARA",
+   "img": "pm133.fGOFEST_2024_STIARA",
+   "femaleImg": "pm133.fGOFEST_2024_STIARA.g2",
+   "shiny": "2024-05-30"
+  },
+  {
+   "id": "133-holiday-2022",
+   "dex": 133,
+   "name": "Eevee",
+   "costume": "Holiday Hat",
+   "code": "HOLIDAY_2022",
+   "img": "pm133.cHOLIDAY_2022",
+   "femaleImg": "pm133.cHOLIDAY_2022.g2",
+   "shiny": "2022-12-31"
+  },
+  {
+   "id": "133-jan-2020-noevolve",
+   "dex": 133,
+   "name": "Eevee",
+   "costume": "Spotted Party Hat",
+   "code": "JAN_2020_NOEVOLVE",
+   "img": "pm133.cJAN_2020_NOEVOLVE",
+   "femaleImg": "pm133.cJAN_2020_NOEVOLVE.g2",
+   "shiny": "2020-02-25"
+  },
+  {
+   "id": "133-may-2023",
+   "dex": 133,
+   "name": "Eevee",
+   "costume": "May 2023",
+   "code": "May_2023",
+   "img": "pm133.cMay_2023"
+  },
+  {
+   "id": "133-november-2018",
+   "dex": 133,
+   "name": "Eevee",
+   "costume": "Flower Crown",
+   "code": "NOVEMBER_2018",
+   "img": "pm133.cNOVEMBER_2018",
+   "femaleImg": "pm133.cNOVEMBER_2018.g2",
+   "shiny": "2019-02-26"
+  },
+  {
+   "id": "133-spring-2023",
+   "dex": 133,
+   "name": "Eevee",
+   "costume": "Cherry Blossoms",
+   "code": "SPRING_2023",
+   "img": "pm133.cSPRING_2023",
+   "femaleImg": "pm133.cSPRING_2023.g2",
+   "shiny": "2023-04-04"
+  },
+  {
+   "id": "134-holiday-2022",
+   "dex": 134,
+   "name": "Vaporeon",
+   "costume": "Holiday Hat",
+   "code": "HOLIDAY_2022",
+   "img": "pm134.cHOLIDAY_2022",
+   "shiny": "2022-12-31"
+  },
+  {
+   "id": "134-may-2023",
+   "dex": 134,
+   "name": "Vaporeon",
+   "costume": "Safari Hat",
+   "code": "MAY_2023",
+   "img": "pm134.cMAY_2023",
+   "shiny": "2023-10-07"
+  },
+  {
+   "id": "134-november-2018",
+   "dex": 134,
+   "name": "Vaporeon",
+   "costume": "Flower Crown",
+   "code": "NOVEMBER_2018",
+   "img": "pm134.cNOVEMBER_2018",
+   "shiny": "2019-02-26"
+  },
+  {
+   "id": "134-spring-2023",
+   "dex": 134,
+   "name": "Vaporeon",
+   "costume": "Cherry Blossoms",
+   "code": "SPRING_2023",
+   "img": "pm134.cSPRING_2023",
+   "shiny": "2023-04-04"
+  },
+  {
+   "id": "135-holiday-2022",
+   "dex": 135,
+   "name": "Jolteon",
+   "costume": "Holiday Hat",
+   "code": "HOLIDAY_2022",
+   "img": "pm135.cHOLIDAY_2022",
+   "shiny": "2022-12-31"
+  },
+  {
+   "id": "135-may-2023",
+   "dex": 135,
+   "name": "Jolteon",
+   "costume": "Safari Hat",
+   "code": "MAY_2023",
+   "img": "pm135.cMAY_2023",
+   "shiny": "2023-10-07"
+  },
+  {
+   "id": "135-november-2018",
+   "dex": 135,
+   "name": "Jolteon",
+   "costume": "Flower Crown",
+   "code": "NOVEMBER_2018",
+   "img": "pm135.cNOVEMBER_2018",
+   "shiny": "2019-02-26"
+  },
+  {
+   "id": "135-spring-2023",
+   "dex": 135,
+   "name": "Jolteon",
+   "costume": "Cherry Blossoms",
+   "code": "SPRING_2023",
+   "img": "pm135.cSPRING_2023",
+   "shiny": "2023-04-04"
+  },
+  {
+   "id": "136-holiday-2022",
+   "dex": 136,
+   "name": "Flareon",
+   "costume": "Holiday Hat",
+   "code": "HOLIDAY_2022",
+   "img": "pm136.cHOLIDAY_2022",
+   "shiny": "2022-12-31"
+  },
+  {
+   "id": "136-may-2023",
+   "dex": 136,
+   "name": "Flareon",
+   "costume": "Safari Hat",
+   "code": "MAY_2023",
+   "img": "pm136.cMAY_2023",
+   "shiny": "2023-10-07"
+  },
+  {
+   "id": "136-november-2018",
+   "dex": 136,
+   "name": "Flareon",
+   "costume": "Flower Crown",
+   "code": "NOVEMBER_2018",
+   "img": "pm136.cNOVEMBER_2018",
+   "shiny": "2019-02-26"
+  },
+  {
+   "id": "136-spring-2023",
+   "dex": 136,
+   "name": "Flareon",
+   "costume": "Cherry Blossoms",
+   "code": "SPRING_2023",
+   "img": "pm136.cSPRING_2023",
+   "shiny": "2023-04-04"
+  },
+  {
+   "id": "142-summer-2023",
+   "dex": 142,
+   "name": "Aerodactyl",
+   "costume": "w Satchel",
+   "code": "SUMMER_2023",
+   "img": "pm142.fSUMMER_2023",
+   "shiny": "2023-08-04"
+  },
+  {
+   "id": "143-gofest-2022-noevolve",
+   "dex": 143,
+   "name": "Snorlax",
+   "costume": "Cowboy Hat",
+   "code": "GOFEST_2022_NOEVOLVE",
+   "img": "pm143.cGOFEST_2022_NOEVOLVE",
+   "shiny": "2022-07-16"
+  },
+  {
+   "id": "143-nightcap",
+   "dex": 143,
+   "name": "Snorlax",
+   "costume": "Nightcap",
+   "code": "NIGHTCAP",
+   "img": "pm143.cNIGHTCAP",
+   "shiny": "2023-07-15"
+  },
+  {
+   "id": "143-wildarea-2024",
+   "dex": 143,
+   "name": "Snorlax",
+   "costume": "Studded Jacket",
+   "code": "WILDAREA_2024",
+   "img": "pm143.fWILDAREA_2024",
+   "shiny": "2024-11-16"
+  },
+  {
+   "id": "149-fall-2023",
+   "dex": 149,
+   "name": "Dragonite",
+   "costume": "Fashionable",
+   "code": "FALL_2023",
+   "img": "pm149.cFALL_2023",
+   "shiny": "2023-11-15"
+  },
+  {
+   "id": "150-a",
+   "dex": 150,
+   "name": "Mewtwo",
+   "costume": "A",
+   "code": "A",
+   "img": "pm150.fA"
+  },
+  {
+   "id": "150-one-year-anniversary",
+   "dex": 150,
+   "name": "Mewtwo",
+   "costume": "One Year Anniversary",
+   "code": "ONE_YEAR_ANNIVERSARY",
+   "img": "pm150.cONE_YEAR_ANNIVERSARY"
+  },
+  {
+   "id": "163-jan-2022-noevolve",
+   "dex": 163,
+   "name": "Hoothoot",
+   "costume": "New Year's Hat",
+   "code": "JAN_2022_NOEVOLVE",
+   "img": "pm163.cJAN_2022_NOEVOLVE",
+   "shiny": "2022-01-01"
+  },
+  {
+   "id": "164-jan-2022-noevolve",
+   "dex": 164,
+   "name": "Noctowl",
+   "costume": "New Year's Hat",
+   "code": "JAN_2022_NOEVOLVE",
+   "img": "pm164.cJAN_2022_NOEVOLVE",
+   "shiny": "2022-12-31"
+  },
+  {
+   "id": "169-halloween-2026-01",
+   "dex": 169,
+   "name": "Crobat",
+   "costume": "Top Hat",
+   "code": "HALLOWEEN_2026_01",
+   "img": "pm169.fHALLOWEEN_2026_01",
+   "shiny": "2026-10-27"
+  },
+  {
+   "id": "172-anniversary",
+   "dex": 172,
+   "name": "Pichu",
+   "costume": "Party Hat",
+   "code": "ANNIVERSARY",
+   "img": "pm172.cANNIVERSARY",
+   "shiny": "2017-02-26"
+  },
+  {
+   "id": "172-costume-2",
+   "dex": 172,
+   "name": "Pichu",
+   "costume": "New Year's Hat",
+   "code": "COSTUME_2",
+   "img": "pm172.cCOSTUME_2",
+   "shiny": "2020-12-29"
+  },
+  {
+   "id": "172-fall-2018",
+   "dex": 172,
+   "name": "Pichu",
+   "costume": "Fall 2018",
+   "code": "FALL_2018",
+   "img": "pm172.cFALL_2018"
+  },
+  {
+   "id": "172-halloween-2017",
+   "dex": 172,
+   "name": "Pichu",
+   "costume": "Halloween Hat",
+   "code": "HALLOWEEN_2017",
+   "img": "pm172.cHALLOWEEN_2017",
+   "shiny": "2017-10-20"
+  },
+  {
+   "id": "172-holiday-2016",
+   "dex": 172,
+   "name": "Pichu",
+   "costume": "Holiday Hat",
+   "code": "HOLIDAY_2016",
+   "img": "pm172.cHOLIDAY_2016",
+   "shiny": "2016-12-25"
+  },
+  {
+   "id": "172-november-2018",
+   "dex": 172,
+   "name": "Pichu",
+   "costume": "Flower Crown",
+   "code": "NOVEMBER_2018",
+   "img": "pm172.cNOVEMBER_2018",
+   "shiny": "2019-02-26"
+  },
+  {
+   "id": "172-one-year-anniversary",
+   "dex": 172,
+   "name": "Pichu",
+   "costume": "Original Cap",
+   "code": "ONE_YEAR_ANNIVERSARY",
+   "img": "pm172.cONE_YEAR_ANNIVERSARY",
+   "shiny": "2017-06-06"
+  },
+  {
+   "id": "172-spring-2023",
+   "dex": 172,
+   "name": "Pichu",
+   "costume": "Cherry Blossom",
+   "code": "SPRING_2023",
+   "img": "pm172.cSPRING_2023",
+   "shiny": "2023-04-04"
+  },
+  {
+   "id": "172-summer-2018",
+   "dex": 172,
+   "name": "Pichu",
+   "costume": "Summer Flair",
+   "code": "SUMMER_2018",
+   "img": "pm172.cSUMMER_2018",
+   "shiny": "2018-07-05"
+  },
+  {
+   "id": "172-winter-2018",
+   "dex": 172,
+   "name": "Pichu",
+   "costume": "Beanie Hat",
+   "code": "WINTER_2018",
+   "img": "pm172.cWINTER_2018",
+   "shiny": "2019-12-24"
+  },
+  {
+   "id": "175-april-2020-noevolve",
+   "dex": 175,
+   "name": "Togepi",
+   "costume": "Flower Crown",
+   "code": "APRIL_2020_NOEVOLVE",
+   "img": "pm175.cAPRIL_2020_NOEVOLVE",
+   "shiny": "2018-03-22"
+  },
+  {
+   "id": "176-april-2020-noevolve",
+   "dex": 176,
+   "name": "Togetic",
+   "costume": "Flower Crown",
+   "code": "APRIL_2020_NOEVOLVE",
+   "img": "pm176.cAPRIL_2020_NOEVOLVE",
+   "shiny": "2022-04-12"
+  },
+  {
+   "id": "185-winter-2025",
+   "dex": 185,
+   "name": "Sudowoodo",
+   "costume": "Holiday Attire",
+   "code": "WINTER_2025",
+   "img": "pm185.fWINTER_2025",
+   "femaleImg": "pm185.fWINTER_2025.g2",
+   "shiny": "2025-12-18"
+  },
+  {
+   "id": "194-fall-2023",
+   "dex": 194,
+   "name": "Wooper",
+   "costume": "Fashionable",
+   "code": "FALL_2023",
+   "img": "pm194.cFALL_2023",
+   "femaleImg": "pm194.cFALL_2023.g2",
+   "shiny": "2023-11-15"
+  },
+  {
+   "id": "195-fall-2023",
+   "dex": 195,
+   "name": "Quagsire",
+   "costume": "Fashionable",
+   "code": "FALL_2023",
+   "img": "pm195.cFALL_2023",
+   "femaleImg": "pm195.cFALL_2023.g2",
+   "shiny": "2023-11-15"
+  },
+  {
+   "id": "196-gofest-2024-sscarf",
+   "dex": 196,
+   "name": "Espeon",
+   "costume": "Sun Scarf",
+   "code": "GOFEST_2024_SSCARF",
+   "img": "pm196.fGOFEST_2024_SSCARF",
+   "shiny": "2024-06-14"
+  },
+  {
+   "id": "196-holiday-2022",
+   "dex": 196,
+   "name": "Espeon",
+   "costume": "Holiday Hat",
+   "code": "HOLIDAY_2022",
+   "img": "pm196.cHOLIDAY_2022",
+   "shiny": "2022-12-31"
+  },
+  {
+   "id": "196-may-2023",
+   "dex": 196,
+   "name": "Espeon",
+   "costume": "Safari Hat",
+   "code": "MAY_2023",
+   "img": "pm196.cMAY_2023",
+   "shiny": "2023-10-07"
+  },
+  {
+   "id": "196-november-2018",
+   "dex": 196,
+   "name": "Espeon",
+   "costume": "Flower Crown",
+   "code": "NOVEMBER_2018",
+   "img": "pm196.cNOVEMBER_2018",
+   "shiny": "2019-02-26"
+  },
+  {
+   "id": "196-spring-2023",
+   "dex": 196,
+   "name": "Espeon",
+   "costume": "Cherry Blossoms",
+   "code": "SPRING_2023",
+   "img": "pm196.cSPRING_2023",
+   "shiny": "2023-04-04"
+  },
+  {
+   "id": "197-gofest-2024-mscarf",
+   "dex": 197,
+   "name": "Umbreon",
+   "costume": "Moon Scarf",
+   "code": "GOFEST_2024_MSCARF",
+   "img": "pm197.fGOFEST_2024_MSCARF",
+   "shiny": "2024-06-14"
+  },
+  {
+   "id": "197-holiday-2022",
+   "dex": 197,
+   "name": "Umbreon",
+   "costume": "Holiday Hat",
+   "code": "HOLIDAY_2022",
+   "img": "pm197.cHOLIDAY_2022",
+   "shiny": "2022-12-31"
+  },
+  {
+   "id": "197-may-2023",
+   "dex": 197,
+   "name": "Umbreon",
+   "costume": "Safari Hat",
+   "code": "MAY_2023",
+   "img": "pm197.cMAY_2023",
+   "shiny": "2023-10-07"
+  },
+  {
+   "id": "197-november-2018",
+   "dex": 197,
+   "name": "Umbreon",
+   "costume": "Flower Crown",
+   "code": "NOVEMBER_2018",
+   "img": "pm197.cNOVEMBER_2018",
+   "shiny": "2019-02-26"
+  },
+  {
+   "id": "197-spring-2023",
+   "dex": 197,
+   "name": "Umbreon",
+   "costume": "Cherry Blossoms",
+   "code": "SPRING_2023",
+   "img": "pm197.cSPRING_2023",
+   "shiny": "2023-04-04"
+  },
+  {
+   "id": "199-2022",
+   "dex": 199,
+   "name": "Slowking",
+   "costume": "New Year",
+   "code": "2022",
+   "img": "pm199.f2022",
+   "shiny": "2022-01-01"
+  },
+  {
+   "id": "202-jan-2020-noevolve",
+   "dex": 202,
+   "name": "Wobbuffet",
+   "costume": "(♂) Party Hat",
+   "code": "JAN_2020_NOEVOLVE",
+   "img": "pm202.cJAN_2020_NOEVOLVE",
+   "femaleImg": "pm202.cJAN_2020_NOEVOLVE.g2",
+   "shiny": "2018-03-22"
+  },
+  {
+   "id": "215-fashion-2021-noevolve",
+   "dex": 215,
+   "name": "Sneasel",
+   "costume": "Fashionable",
+   "code": "FASHION_2021_NOEVOLVE",
+   "img": "pm215.cFASHION_2021_NOEVOLVE",
+   "femaleImg": "pm215.cFASHION_2021_NOEVOLVE.g2",
+   "shiny": "2021-09-21"
+  },
+  {
+   "id": "216-halloween-2025",
+   "dex": 216,
+   "name": "Teddiursa",
+   "costume": "Witch Hat",
+   "code": "HALLOWEEN_2025",
+   "img": "pm216.cHALLOWEEN_2025",
+   "shiny": "2025-10-27"
+  },
+  {
+   "id": "217-halloween-2025",
+   "dex": 217,
+   "name": "Ursaring",
+   "costume": "Witch Hat",
+   "code": "HALLOWEEN_2025",
+   "img": "pm217.cHALLOWEEN_2025",
+   "femaleImg": "pm217.cHALLOWEEN_2025.g2",
+   "shiny": "2025-10-27"
+  },
+  {
+   "id": "222-spring-2026",
+   "dex": 222,
+   "name": "Corsola",
+   "costume": "(G) Pink Sunglasses",
+   "code": "SPRING_2026",
+   "img": "pm222.fSPRING_2026",
+   "shiny": "2026-04-14"
+  },
+  {
+   "id": "225-winter-2020",
+   "dex": 225,
+   "name": "Delibird",
+   "costume": "Holiday",
+   "code": "WINTER_2020",
+   "img": "pm225.fWINTER_2020",
+   "shiny": "2020-12-22"
+  },
+  {
+   "id": "234-winter-2018",
+   "dex": 234,
+   "name": "Stantler",
+   "costume": "Christmas Bells",
+   "code": "WINTER_2018",
+   "img": "pm234.cWINTER_2018",
+   "shiny": "2019-12-24"
+  },
+  {
+   "id": "238-fall-2020-noevolve",
+   "dex": 238,
+   "name": "Smoochum",
+   "costume": "w Bow",
+   "code": "FALL_2020_NOEVOLVE",
+   "img": "pm238.cFALL_2020_NOEVOLVE",
+   "shiny": "2020-10-02"
+  },
+  {
+   "id": "239-spring-2023-instinct",
+   "dex": 239,
+   "name": "Elekid",
+   "costume": "Spark accessory",
+   "code": "SPRING_2023_INSTINCT",
+   "img": "pm239.cSPRING_2023_INSTINCT",
+   "shiny": "2023-05-02"
+  },
+  {
+   "id": "242-november-2018",
+   "dex": 242,
+   "name": "Blissey",
+   "costume": "Flower Crown",
+   "code": "NOVEMBER_2018",
+   "img": "pm242.cNOVEMBER_2018",
+   "shiny": "2021-04-04"
+  },
+  {
+   "id": "249-one-year-anniversary",
+   "dex": 249,
+   "name": "Lugia",
+   "costume": "One Year Anniversary",
+   "code": "ONE_YEAR_ANNIVERSARY",
+   "img": "pm249.cONE_YEAR_ANNIVERSARY"
+  },
+  {
+   "id": "265-jan-2020-noevolve",
+   "dex": 265,
+   "name": "Wurmple",
+   "costume": "Party Hat",
+   "code": "JAN_2020_NOEVOLVE",
+   "img": "pm265.cJAN_2020_NOEVOLVE",
+   "shiny": "2020-01-02"
+  },
+  {
+   "id": "281-fall-2020-noevolve",
+   "dex": 281,
+   "name": "Kirlia",
+   "costume": "Top Hat",
+   "code": "FALL_2020_NOEVOLVE",
+   "img": "pm281.cFALL_2020_NOEVOLVE",
+   "shiny": "2019-08-03"
+  },
+  {
+   "id": "282-gofest-2021-noevolve",
+   "dex": 282,
+   "name": "Gardevoir",
+   "costume": "GO Fest 2021",
+   "code": "GOFEST_2021_NOEVOLVE",
+   "img": "pm282.cGOFEST_2021_NOEVOLVE"
+  },
+  {
+   "id": "287-summer-2024",
+   "dex": 287,
+   "name": "Slakoth",
+   "costume": "Visor",
+   "code": "SUMMER_2024",
+   "img": "pm287.cSUMMER_2024",
+   "shiny": "2024-06-07"
+  },
+  {
+   "id": "288-summer-2024",
+   "dex": 288,
+   "name": "Vigoroth",
+   "costume": "Visor",
+   "code": "SUMMER_2024",
+   "img": "pm288.cSUMMER_2024",
+   "shiny": "2024-06-07"
+  },
+  {
+   "id": "289-summer-2024",
+   "dex": 289,
+   "name": "Slaking",
+   "costume": "Visor",
+   "code": "SUMMER_2024",
+   "img": "pm289.cSUMMER_2024",
+   "shiny": "2024-06-07"
+  },
+  {
+   "id": "302-costume-2020",
+   "dex": 302,
+   "name": "Sableye",
+   "costume": "Litwick Hat",
+   "code": "COSTUME_2020",
+   "img": "pm302.fCOSTUME_2020",
+   "shiny": "2020-10-23"
+  },
+  {
+   "id": "330-gofest-2021-noevolve",
+   "dex": 330,
+   "name": "Flygon",
+   "costume": "GO Fest 2021",
+   "code": "GOFEST_2021_NOEVOLVE",
+   "img": "pm330.cGOFEST_2021_NOEVOLVE"
+  },
+  {
+   "id": "355-fall-2022-noevolve",
+   "dex": 355,
+   "name": "Duskull",
+   "costume": "Cempasúchil Crown",
+   "code": "FALL_2022_NOEVOLVE",
+   "img": "pm355.cFALL_2022_NOEVOLVE",
+   "shiny": "2022-11-01"
+  },
+  {
+   "id": "356-fall-2022-noevolve",
+   "dex": 356,
+   "name": "Dusclops",
+   "costume": "Cempasúchil Crown",
+   "code": "FALL_2022_NOEVOLVE",
+   "img": "pm356.cFALL_2022_NOEVOLVE",
+   "shiny": "2022-11-01"
+  },
+  {
+   "id": "359-fall-2022-noevolve",
+   "dex": 359,
+   "name": "Absol",
+   "costume": "Sunglasses",
+   "code": "FALL_2022_NOEVOLVE",
+   "img": "pm359.cFALL_2022_NOEVOLVE",
+   "shiny": "2022-09-27"
+  },
+  {
+   "id": "363-holiday-2021-noevolve",
+   "dex": 363,
+   "name": "Spheal",
+   "costume": "Holiday",
+   "code": "HOLIDAY_2021_NOEVOLVE",
+   "img": "pm363.cHOLIDAY_2021_NOEVOLVE",
+   "shiny": "2021-12-16"
+  },
+  {
+   "id": "387-gems-1-2021-noevolve",
+   "dex": 387,
+   "name": "Turtwig",
+   "costume": "Luca's Hat",
+   "code": "GEMS_1_2021_NOEVOLVE",
+   "img": "pm387.cGEMS_1_2021_NOEVOLVE",
+   "shiny": "2021-11-16"
+  },
+  {
+   "id": "387-gems-2-2021-noevolve",
+   "dex": 387,
+   "name": "Turtwig",
+   "costume": "Dawn's Hat",
+   "code": "GEMS_2_2021_NOEVOLVE",
+   "img": "pm387.cGEMS_2_2021_NOEVOLVE",
+   "shiny": "2021-11-16"
+  },
+  {
+   "id": "390-gems-1-2021-noevolve",
+   "dex": 390,
+   "name": "Chimchar",
+   "costume": "Luca's Hat",
+   "code": "GEMS_1_2021_NOEVOLVE",
+   "img": "pm390.cGEMS_1_2021_NOEVOLVE",
+   "shiny": "2021-11-16"
+  },
+  {
+   "id": "390-gems-2-2021-noevolve",
+   "dex": 390,
+   "name": "Chimchar",
+   "costume": "Dawn's Hat",
+   "code": "GEMS_2_2021_NOEVOLVE",
+   "img": "pm390.cGEMS_2_2021_NOEVOLVE",
+   "shiny": "2021-11-16"
+  },
+  {
+   "id": "393-gems-1-2021-noevolve",
+   "dex": 393,
+   "name": "Piplup",
+   "costume": "Luca's Hat",
+   "code": "GEMS_1_2021_NOEVOLVE",
+   "img": "pm393.cGEMS_1_2021_NOEVOLVE",
+   "shiny": "2021-11-16"
+  },
+  {
+   "id": "393-gems-2-2021-noevolve",
+   "dex": 393,
+   "name": "Piplup",
+   "costume": "Dawn's Hat",
+   "code": "GEMS_2_2021_NOEVOLVE",
+   "img": "pm393.cGEMS_2_2021_NOEVOLVE",
+   "shiny": "2021-11-16"
+  },
+  {
+   "id": "393-halloween-2021-noevolve",
+   "dex": 393,
+   "name": "Piplup",
+   "costume": "Halloween Mischief",
+   "code": "HALLOWEEN_2021_NOEVOLVE",
+   "img": "pm393.cHALLOWEEN_2021_NOEVOLVE",
+   "shiny": "2021-10-15"
+  },
+  {
+   "id": "403-fall-2020-noevolve",
+   "dex": 403,
+   "name": "Shinx",
+   "costume": "Top Hat",
+   "code": "FALL_2020_NOEVOLVE",
+   "img": "pm403.cFALL_2020_NOEVOLVE",
+   "femaleImg": "pm403.cFALL_2020_NOEVOLVE.g2",
+   "shiny": "2018-10-16"
+  },
+  {
+   "id": "426-halloween-2021-noevolve",
+   "dex": 426,
+   "name": "Drifblim",
+   "costume": "Halloween Mischief",
+   "code": "HALLOWEEN_2021_NOEVOLVE",
+   "img": "pm426.cHALLOWEEN_2021_NOEVOLVE",
+   "shiny": "2021-10-15"
+  },
+  {
+   "id": "427-april-2020-noevolve",
+   "dex": 427,
+   "name": "Buneary",
+   "costume": "Flower Crown",
+   "code": "APRIL_2020_NOEVOLVE",
+   "img": "pm427.cAPRIL_2020_NOEVOLVE",
+   "shiny": "2020-04-09"
+  },
+  {
+   "id": "428-april-2020-noevolve",
+   "dex": 428,
+   "name": "Lopunny",
+   "costume": "Flower Crown",
+   "code": "APRIL_2020_NOEVOLVE",
+   "img": "pm428.cAPRIL_2020_NOEVOLVE",
+   "shiny": "2022-04-12"
+  },
+  {
+   "id": "440-november-2018",
+   "dex": 440,
+   "name": "Happiny",
+   "costume": "Flower Crown",
+   "code": "NOVEMBER_2018",
+   "img": "pm440.cNOVEMBER_2018",
+   "shiny": "2021-04-04"
+  },
+  {
+   "id": "453-fall-2020-noevolve",
+   "dex": 453,
+   "name": "Croagunk",
+   "costume": "Backwards Cap",
+   "code": "FALL_2020_NOEVOLVE",
+   "img": "pm453.cFALL_2020_NOEVOLVE",
+   "femaleImg": "pm453.cFALL_2020_NOEVOLVE.g2",
+   "shiny": "2020-03-31"
+  },
+  {
+   "id": "454-fall-2020-noevolve",
+   "dex": 454,
+   "name": "Toxicroak",
+   "costume": "Backwards Cap",
+   "code": "FALL_2020_NOEVOLVE",
+   "img": "pm454.cFALL_2020_NOEVOLVE",
+   "femaleImg": "pm454.cFALL_2020_NOEVOLVE.g2",
+   "shiny": "2022-09-27"
+  },
+  {
+   "id": "466-spring-2023-instinct",
+   "dex": 466,
+   "name": "Electivire",
+   "costume": "Spark accessory",
+   "code": "SPRING_2023_INSTINCT",
+   "img": "pm466.cSPRING_2023_INSTINCT",
+   "shiny": "2023-05-02"
+  },
+  {
+   "id": "468-april-2020-noevolve",
+   "dex": 468,
+   "name": "Togekiss",
+   "costume": "Flower Crown",
+   "code": "APRIL_2020_NOEVOLVE",
+   "img": "pm468.cAPRIL_2020_NOEVOLVE",
+   "shiny": "2022-04-12"
+  },
+  {
+   "id": "470-holiday-2022",
+   "dex": 470,
+   "name": "Leafeon",
+   "costume": "Holiday Hat",
+   "code": "HOLIDAY_2022",
+   "img": "pm470.cHOLIDAY_2022",
+   "shiny": "2022-12-31"
+  },
+  {
+   "id": "470-may-2023",
+   "dex": 470,
+   "name": "Leafeon",
+   "costume": "Safari Hat",
+   "code": "MAY_2023",
+   "img": "pm470.cMAY_2023",
+   "shiny": "2023-10-07"
+  },
+  {
+   "id": "470-november-2018",
+   "dex": 470,
+   "name": "Leafeon",
+   "costume": "Flower Crown",
+   "code": "NOVEMBER_2018",
+   "img": "pm470.cNOVEMBER_2018",
+   "shiny": "2019-05-17"
+  },
+  {
+   "id": "470-spring-2023",
+   "dex": 470,
+   "name": "Leafeon",
+   "costume": "Cherry Blossoms",
+   "code": "SPRING_2023",
+   "img": "pm470.cSPRING_2023",
+   "shiny": "2023-04-04"
+  },
+  {
+   "id": "471-holiday-2021-noevolve",
+   "dex": 471,
+   "name": "Glaceon",
+   "costume": "Holiday",
+   "code": "HOLIDAY_2021_NOEVOLVE",
+   "img": "pm471.cHOLIDAY_2021_NOEVOLVE",
+   "shiny": "2021-12-16"
+  },
+  {
+   "id": "471-holiday-2022",
+   "dex": 471,
+   "name": "Glaceon",
+   "costume": "Holiday Hat",
+   "code": "HOLIDAY_2022",
+   "img": "pm471.cHOLIDAY_2022",
+   "shiny": "2022-12-31"
+  },
+  {
+   "id": "471-may-2023",
+   "dex": 471,
+   "name": "Glaceon",
+   "costume": "Safari Hat",
+   "code": "MAY_2023",
+   "img": "pm471.cMAY_2023",
+   "shiny": "2023-10-07"
+  },
+  {
+   "id": "471-november-2018",
+   "dex": 471,
+   "name": "Glaceon",
+   "costume": "Flower Crown",
+   "code": "NOVEMBER_2018",
+   "img": "pm471.cNOVEMBER_2018",
+   "shiny": "2019-05-17"
+  },
+  {
+   "id": "471-spring-2023",
+   "dex": 471,
+   "name": "Glaceon",
+   "costume": "Cherry Blossoms",
+   "code": "SPRING_2023",
+   "img": "pm471.cSPRING_2023",
+   "shiny": "2023-04-04"
+  },
+  {
+   "id": "477-fall-2022-noevolve",
+   "dex": 477,
+   "name": "Dusknoir",
+   "costume": "Cempasúchil Crown",
+   "code": "FALL_2022_NOEVOLVE",
+   "img": "pm477.cFALL_2022_NOEVOLVE",
+   "shiny": "2022-11-01"
+  },
+  {
+   "id": "522-fashion-2021-noevolve",
+   "dex": 522,
+   "name": "Blitzle",
+   "costume": "Fashionable",
+   "code": "FASHION_2021_NOEVOLVE",
+   "img": "pm522.cFASHION_2021_NOEVOLVE",
+   "shiny": "2021-09-21"
+  },
+  {
+   "id": "546-spring-2024",
+   "dex": 546,
+   "name": "Cottonee",
+   "costume": "Flower Crown",
+   "code": "SPRING_2024",
+   "img": "pm546.cSPRING_2024",
+   "shiny": "2024-03-21"
+  },
+  {
+   "id": "547-spring-2024",
+   "dex": 547,
+   "name": "Whimsicott",
+   "costume": "Flower Crown",
+   "code": "SPRING_2024",
+   "img": "pm547.cSPRING_2024",
+   "shiny": "2024-03-21"
+  },
+  {
+   "id": "572-fashion-2025",
+   "dex": 572,
+   "name": "Minccino",
+   "costume": "Fashionable",
+   "code": "FASHION_2025",
+   "img": "pm572.cFASHION_2025",
+   "shiny": "2025-01-10"
+  },
+  {
+   "id": "573-fashion-2025",
+   "dex": 573,
+   "name": "Cinccino",
+   "costume": "Fashionable",
+   "code": "FASHION_2025",
+   "img": "pm573.cFASHION_2025",
+   "shiny": "2025-01-10"
+  },
+  {
+   "id": "613-winter-2020",
+   "dex": 613,
+   "name": "Cubchoo",
+   "costume": "Holiday",
+   "code": "WINTER_2020",
+   "img": "pm613.fWINTER_2020",
+   "shiny": "2020-12-18"
+  },
+  {
+   "id": "614-winter-2020",
+   "dex": 614,
+   "name": "Beartic",
+   "costume": "Holiday",
+   "code": "WINTER_2020",
+   "img": "pm614.fWINTER_2020",
+   "shiny": "2022-12-23"
+  },
+  {
+   "id": "656-fall-2024",
+   "dex": 656,
+   "name": "Froakie",
+   "costume": "Halloween",
+   "code": "FALL_2024",
+   "img": "pm656.cFALL_2024",
+   "shiny": "2024-10-22"
+  },
+  {
+   "id": "657-fall-2024",
+   "dex": 657,
+   "name": "Frogadier",
+   "costume": "Halloween",
+   "code": "FALL_2024",
+   "img": "pm657.cFALL_2024",
+   "shiny": "2024-10-22"
+  },
+  {
+   "id": "658-fall-2024",
+   "dex": 658,
+   "name": "Greninja",
+   "costume": "Halloween",
+   "code": "FALL_2024",
+   "img": "pm658.cFALL_2024",
+   "shiny": "2024-10-22"
+  },
+  {
+   "id": "700-holiday-2022",
+   "dex": 700,
+   "name": "Sylveon",
+   "costume": "Holiday Hat",
+   "code": "HOLIDAY_2022",
+   "img": "pm700.cHOLIDAY_2022",
+   "shiny": "2022-12-31"
+  },
+  {
+   "id": "700-may-2023",
+   "dex": 700,
+   "name": "Sylveon",
+   "costume": "Safari Hat",
+   "code": "MAY_2023",
+   "img": "pm700.cMAY_2023",
+   "shiny": "2023-10-07"
+  },
+  {
+   "id": "700-november-2018",
+   "dex": 700,
+   "name": "Sylveon",
+   "costume": "Flower Crown",
+   "code": "NOVEMBER_2018",
+   "img": "pm700.cNOVEMBER_2018",
+   "shiny": "2019-05-17"
+  },
+  {
+   "id": "700-spring-2023",
+   "dex": 700,
+   "name": "Sylveon",
+   "costume": "Cherry Blossoms",
+   "code": "SPRING_2023",
+   "img": "pm700.cSPRING_2023",
+   "shiny": "2023-04-04"
+  },
+  {
+   "id": "702-winter-2024",
+   "dex": 702,
+   "name": "Dedenne",
+   "costume": "Holiday Attire",
+   "code": "WINTER_2024",
+   "img": "pm702.cWINTER_2024",
+   "shiny": "2024-12-17"
+  },
+  {
+   "id": "714-halloween-2025",
+   "dex": 714,
+   "name": "Noibat",
+   "costume": "Headband",
+   "code": "HALLOWEEN_2025",
+   "img": "pm714.cHALLOWEEN_2025",
+   "shiny": "2025-10-27"
+  },
+  {
+   "id": "715-halloween-2025",
+   "dex": 715,
+   "name": "Noivern",
+   "costume": "Headband",
+   "code": "HALLOWEEN_2025",
+   "img": "pm715.cHALLOWEEN_2025",
+   "shiny": "2025-10-27"
+  },
+  {
+   "id": "716-neutral",
+   "dex": 716,
+   "name": "Xerneas",
+   "costume": "Neutral",
+   "code": "NEUTRAL",
+   "img": "pm716.fNEUTRAL"
+  },
+  {
+   "id": "722-fall-2024",
+   "dex": 722,
+   "name": "Rowlet",
+   "costume": "Halloween",
+   "code": "FALL_2024",
+   "img": "pm722.cFALL_2024",
+   "shiny": "2024-10-22"
+  },
+  {
+   "id": "723-fall-2024",
+   "dex": 723,
+   "name": "Dartrix",
+   "costume": "Halloween",
+   "code": "FALL_2024",
+   "img": "pm723.cFALL_2024",
+   "shiny": "2024-10-22"
+  },
+  {
+   "id": "724-fall-2024",
+   "dex": 724,
+   "name": "Decidueye",
+   "costume": "Halloween",
+   "code": "FALL_2024",
+   "img": "pm724.cFALL_2024",
+   "shiny": "2024-10-22"
+  },
+  {
+   "id": "737-winter-2025",
+   "dex": 737,
+   "name": "Charjabug",
+   "costume": "Holiday Attire",
+   "code": "WINTER_2025",
+   "img": "pm737.fWINTER_2025",
+   "shiny": "2025-12-18"
+  },
+  {
+   "id": "738-winter-2025",
+   "dex": 738,
+   "name": "Vikavolt",
+   "costume": "Holiday Attire",
+   "code": "WINTER_2025",
+   "img": "pm738.fWINTER_2025",
+   "shiny": "2025-12-18"
+  },
+  {
+   "id": "760-wildarea-2025",
+   "dex": 760,
+   "name": "Bewear",
+   "costume": "Wilderness Cape",
+   "code": "WILDAREA_2025",
+   "img": "pm760.fWILDAREA_2025",
+   "shiny": "2025-11-07"
+  },
+  {
+   "id": "831-winter-2024",
+   "dex": 831,
+   "name": "Wooloo",
+   "costume": "Holiday Attire",
+   "code": "WINTER_2024",
+   "img": "pm831.cWINTER_2024",
+   "shiny": "2024-12-22"
+  },
+  {
+   "id": "832-winter-2024",
+   "dex": 832,
+   "name": "Dubwool",
+   "costume": "Holiday Attire",
+   "code": "WINTER_2024",
+   "img": "pm832.cWINTER_2024",
+   "shiny": "2024-12-22"
+  },
+  {
+   "id": "854-a-halloween-2026-01",
+   "dex": 854,
+   "name": "Sinistea",
+   "costume": "Antique w Bow",
+   "code": "A_HALLOWEEN_2026_01",
+   "img": "pm854.fA_HALLOWEEN_2026_01",
+   "shiny": "2026-10-27"
+  },
+  {
+   "id": "854-p-halloween-2026-01",
+   "dex": 854,
+   "name": "Sinistea",
+   "costume": "Phony w Bow",
+   "code": "P_HALLOWEEN_2026_01",
+   "img": "pm854.fP_HALLOWEEN_2026_01",
+   "shiny": "2026-10-27"
+  },
+  {
+   "id": "855-a-halloween-2026-01",
+   "dex": 855,
+   "name": "Polteageist",
+   "costume": "Antique w Bow",
+   "code": "A_HALLOWEEN_2026_01",
+   "img": "pm855.fA_HALLOWEEN_2026_01",
+   "shiny": "2026-10-27"
+  },
+  {
+   "id": "855-p-halloween-2026-01",
+   "dex": 855,
+   "name": "Polteageist",
+   "costume": "Phony w Bow",
+   "code": "P_HALLOWEEN_2026_01",
+   "img": "pm855.fP_HALLOWEEN_2026_01",
+   "shiny": "2026-10-27"
+  },
+  {
+   "id": "870-gofest-2025-train-conductor",
+   "dex": 870,
+   "name": "Falinks",
+   "costume": "Train",
+   "code": "GOFEST_2025_TRAIN_CONDUCTOR",
+   "img": "pm870.fGOFEST_2025_TRAIN_CONDUCTOR",
+   "shiny": "2025-05-29"
+  },
+  {
+   "id": "901-halloween-2025",
+   "dex": 901,
+   "name": "Ursaluna",
+   "costume": "Witch Hat",
+   "code": "HALLOWEEN_2025",
+   "img": "pm901.cHALLOWEEN_2025",
+   "shiny": "2025-10-27"
+  },
+  {
+   "id": "907-horizons-2025-noevolve",
+   "dex": 907,
+   "name": "Floragato",
+   "costume": "Liko's Hat",
+   "code": "HORIZONS_2025_NOEVOLVE",
+   "img": "pm907.cHORIZONS_2025_NOEVOLVE",
+   "shiny": "2025-04-16"
+  },
+  {
+   "id": "999-coin-a1",
+   "dex": 999,
+   "name": "Gimmighoul",
+   "costume": "(9)",
+   "code": "COIN_A1",
+   "img": "pm999.fCOIN_A1",
+   "shiny": "2025-07-01"
+  },
+  {
+   "id": "999-coin-a2-2026",
+   "dex": 999,
+   "name": "Gimmighoul",
+   "costume": "(10)",
+   "code": "COIN_A2_2026",
+   "img": "pm999.fCOIN_A2_2026",
+   "shiny": "2026-07-04"
+  }
+ ]
+}

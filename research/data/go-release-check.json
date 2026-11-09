@@ -1,0 +1,741 @@
+{
+  "checked": "2026-11-09",
+  "species": [
+    {
+      "dex": 489,
+      "name": "Phione",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/phione"
+    },
+    {
+      "dex": 490,
+      "name": "Manaphy",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/manaphy"
+    },
+    {
+      "dex": 493,
+      "name": "Arceus",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/arceus"
+    },
+    {
+      "dex": 746,
+      "name": "Wishiwashi",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/wishiwashi-solo"
+    },
+    {
+      "dex": 771,
+      "name": "Pyukumuku",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/pyukumuku"
+    },
+    {
+      "dex": 772,
+      "name": "Type: Null",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/type-null"
+    },
+    {
+      "dex": 773,
+      "name": "Silvally",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/silvally"
+    },
+    {
+      "dex": 774,
+      "name": "Minior",
+      "released": true,
+      "debut": "2026-10-19",
+      "how": "Wild spawns (Green Core Meteor Form) during Minior Showers: Orionids, Oct 19-24 2026",
+      "source": "https://pokemongohub.net/post/event/minior-showers-orionids-october-2026/"
+    },
+    {
+      "dex": 778,
+      "name": "Mimikyu",
+      "released": true,
+      "debut": "2026-04-01",
+      "how": "Rare wild spawn and Field Research during April Fool's event 'A Shockingly Good Time'",
+      "source": "https://pokemongohub.net/post/news/mimikyu-finally-coming-to-pokemon-go/"
+    },
+    {
+      "dex": 801,
+      "name": "Magearna",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/magearna"
+    },
+    {
+      "dex": 807,
+      "name": "Zeraora",
+      "released": true,
+      "debut": "2026-05-29",
+      "how": "Special Research 'A Thunderous Discovery' at in-person GO Fest 2026 (Tokyo May 29-Jun 1, then Chicago Jun 5-7, Copenhagen Jun 12-14)",
+      "source": "https://pokemongohub.net/post/research/zeraora-special-research-a-thunderous-discovery-tokyo-copenhagen-chicago/"
+    },
+    {
+      "dex": 824,
+      "name": "Blipbug",
+      "released": true,
+      "debut": "2026-03-17",
+      "how": "One-Star Raids and GO Pass rewards during Bug Out 2026",
+      "source": "https://leekduck.com/events/bug-out-2026/"
+    },
+    {
+      "dex": 825,
+      "name": "Dottler",
+      "released": true,
+      "debut": "2026-03-17",
+      "how": "Evolve Blipbug (25 candy); also GO Pass reward, Bug Out 2026",
+      "source": "https://leekduck.com/events/bug-out-2026/"
+    },
+    {
+      "dex": 826,
+      "name": "Orbeetle",
+      "released": true,
+      "debut": "2026-03-17",
+      "how": "Evolve Dottler (100 candy), Bug Out 2026",
+      "source": "https://leekduck.com/events/bug-out-2026/"
+    },
+    {
+      "dex": 833,
+      "name": "Chewtle",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/chewtle"
+    },
+    {
+      "dex": 834,
+      "name": "Drednaw",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/drednaw"
+    },
+    {
+      "dex": 843,
+      "name": "Silicobra",
+      "released": true,
+      "debut": "2026-04-14",
+      "how": "Wild spawns (desert-type areas only) during Sustainability Week 2026",
+      "source": "https://pokemongohub.net/post/event/sustainability-week-2026/"
+    },
+    {
+      "dex": 844,
+      "name": "Sandaconda",
+      "released": true,
+      "debut": "2026-04-14",
+      "how": "Evolve Silicobra (50 candy), Sustainability Week 2026",
+      "source": "https://pokemongohub.net/post/event/sustainability-week-2026/"
+    },
+    {
+      "dex": 846,
+      "name": "Arrokuda",
+      "released": true,
+      "debut": "2026-08-18",
+      "how": "Field Research, Rainy Lure Modules and GO Pass during Ultra Unlock: Water Festival",
+      "source": "https://leekduck.com/events/water-festival-2026/"
+    },
+    {
+      "dex": 847,
+      "name": "Barraskewda",
+      "released": true,
+      "debut": "2026-08-18",
+      "how": "Evolve Arrokuda (50 candy), Water Festival 2026",
+      "source": "https://leekduck.com/events/water-festival-2026/"
+    },
+    {
+      "dex": 868,
+      "name": "Milcery",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/milcery"
+    },
+    {
+      "dex": 869,
+      "name": "Alcremie",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/alcremie"
+    },
+    {
+      "dex": 871,
+      "name": "Pincurchin",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/pincurchin"
+    },
+    {
+      "dex": 875,
+      "name": "Eiscue",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/eiscue"
+    },
+    {
+      "dex": 878,
+      "name": "Cufant",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/cufant"
+    },
+    {
+      "dex": 879,
+      "name": "Copperajah",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/copperajah"
+    },
+    {
+      "dex": 880,
+      "name": "Dracozolt",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/dracozolt"
+    },
+    {
+      "dex": 881,
+      "name": "Arctozolt",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/arctozolt"
+    },
+    {
+      "dex": 882,
+      "name": "Dracovish",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/dracovish"
+    },
+    {
+      "dex": 883,
+      "name": "Arctovish",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/arctovish"
+    },
+    {
+      "dex": 896,
+      "name": "Glastrier",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/glastrier"
+    },
+    {
+      "dex": 897,
+      "name": "Spectrier",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/spectrier"
+    },
+    {
+      "dex": 898,
+      "name": "Calyrex",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/calyrex"
+    },
+    {
+      "dex": 902,
+      "name": "Basculegion",
+      "released": false,
+      "debut": null,
+      "how": "Not released; White-Striped Basculin cannot evolve yet. GO Hub (2026-11-09) still calls Basculegion a potential debut",
+      "source": "https://pokemongohub.net/post/news/save-the-dates-for-next-seasons-community-days-and-events-2/"
+    },
+    {
+      "dex": 931,
+      "name": "Squawkabilly",
+      "released": true,
+      "debut": "2026-06-23",
+      "how": "Wild spawns and Field Research during Flying Taxi event (Blue/Green plumage hemisphere-regional)",
+      "source": "https://leekduck.com/events/flying-taxi-2026/"
+    },
+    {
+      "dex": 942,
+      "name": "Maschiff",
+      "released": true,
+      "debut": "2026-09-11",
+      "how": "5 km Eggs, Field Research and GO Pass in second half of Mega Squads event",
+      "source": "https://pokemongohub.net/post/event/pokemon-go-mega-squads-event-guide/"
+    },
+    {
+      "dex": 943,
+      "name": "Mabosstiff",
+      "released": true,
+      "debut": "2026-09-11",
+      "how": "Evolve Maschiff (50 candy), Mega Squads event",
+      "source": "https://pokemongohub.net/post/event/pokemon-go-mega-squads-event-guide/"
+    },
+    {
+      "dex": 946,
+      "name": "Bramblin",
+      "released": true,
+      "debut": "2026-10-13",
+      "how": "GO Pass, Incense and Field Research during Fall Marathon: Buddy Trek",
+      "source": "https://leekduck.com/events/fall-marathon-buddy-trek-2026/"
+    },
+    {
+      "dex": 947,
+      "name": "Brambleghast",
+      "released": true,
+      "debut": "2026-10-13",
+      "how": "Evolve Bramblin (50 candy + walk 20 km as buddy), Fall Marathon: Buddy Trek",
+      "source": "https://leekduck.com/events/fall-marathon-buddy-trek-2026/"
+    },
+    {
+      "dex": 951,
+      "name": "Capsakid",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/capsakid"
+    },
+    {
+      "dex": 952,
+      "name": "Scovillain",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/scovillain"
+    },
+    {
+      "dex": 953,
+      "name": "Rellor",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/rellor"
+    },
+    {
+      "dex": 954,
+      "name": "Rabsca",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/rabsca"
+    },
+    {
+      "dex": 955,
+      "name": "Flittle",
+      "released": true,
+      "debut": "2026-05-12",
+      "how": "5 km Eggs and GO Pass during Spring Marathon 2026",
+      "source": "https://www.pocketgamer.com/pokemon-go/spring-marathon-event/"
+    },
+    {
+      "dex": 956,
+      "name": "Espathra",
+      "released": true,
+      "debut": "2026-05-12",
+      "how": "Evolve Flittle (50 candy), Spring Marathon 2026",
+      "source": "https://www.pocketgamer.com/pokemon-go/spring-marathon-event/"
+    },
+    {
+      "dex": 963,
+      "name": "Finizen",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/finizen"
+    },
+    {
+      "dex": 964,
+      "name": "Palafin",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/palafin"
+    },
+    {
+      "dex": 967,
+      "name": "Cyclizar",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/cyclizar"
+    },
+    {
+      "dex": 976,
+      "name": "Veluza",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/veluza"
+    },
+    {
+      "dex": 981,
+      "name": "Farigiraf",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/farigiraf"
+    },
+    {
+      "dex": 984,
+      "name": "Great Tusk",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/great-tusk"
+    },
+    {
+      "dex": 985,
+      "name": "Scream Tail",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/scream-tail"
+    },
+    {
+      "dex": 986,
+      "name": "Brute Bonnet",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/brute-bonnet"
+    },
+    {
+      "dex": 987,
+      "name": "Flutter Mane",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/flutter-mane"
+    },
+    {
+      "dex": 988,
+      "name": "Slither Wing",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/slither-wing"
+    },
+    {
+      "dex": 989,
+      "name": "Sandy Shocks",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/sandy-shocks"
+    },
+    {
+      "dex": 990,
+      "name": "Iron Treads",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/iron-treads"
+    },
+    {
+      "dex": 991,
+      "name": "Iron Bundle",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/iron-bundle"
+    },
+    {
+      "dex": 992,
+      "name": "Iron Hands",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/iron-hands"
+    },
+    {
+      "dex": 993,
+      "name": "Iron Jugulis",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/iron-jugulis"
+    },
+    {
+      "dex": 994,
+      "name": "Iron Moth",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/iron-moth"
+    },
+    {
+      "dex": 995,
+      "name": "Iron Thorns",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/iron-thorns"
+    },
+    {
+      "dex": 1001,
+      "name": "Wo-Chien",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/wo-chien"
+    },
+    {
+      "dex": 1002,
+      "name": "Chien-Pao",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/chien-pao"
+    },
+    {
+      "dex": 1003,
+      "name": "Ting-Lu",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/ting-lu"
+    },
+    {
+      "dex": 1004,
+      "name": "Chi-Yu",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/chi-yu"
+    },
+    {
+      "dex": 1005,
+      "name": "Roaring Moon",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/roaring-moon"
+    },
+    {
+      "dex": 1006,
+      "name": "Iron Valiant",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/iron-valiant"
+    },
+    {
+      "dex": 1007,
+      "name": "Koraidon",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/koraidon"
+    },
+    {
+      "dex": 1008,
+      "name": "Miraidon",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/miraidon"
+    },
+    {
+      "dex": 1009,
+      "name": "Walking Wake",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/walking-wake"
+    },
+    {
+      "dex": 1010,
+      "name": "Iron Leaves",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/iron-leaves"
+    },
+    {
+      "dex": 1014,
+      "name": "Okidogi",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/okidogi"
+    },
+    {
+      "dex": 1015,
+      "name": "Munkidori",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/munkidori"
+    },
+    {
+      "dex": 1016,
+      "name": "Fezandipiti",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/fezandipiti"
+    },
+    {
+      "dex": 1017,
+      "name": "Ogerpon",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/ogerpon"
+    },
+    {
+      "dex": 1018,
+      "name": "Archaludon",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/archaludon"
+    },
+    {
+      "dex": 1020,
+      "name": "Gouging Fire",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/gouging-fire"
+    },
+    {
+      "dex": 1021,
+      "name": "Raging Bolt",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/raging-bolt"
+    },
+    {
+      "dex": 1022,
+      "name": "Iron Boulder",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/iron-boulder"
+    },
+    {
+      "dex": 1023,
+      "name": "Iron Crown",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/iron-crown"
+    },
+    {
+      "dex": 1024,
+      "name": "Terapagos",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/terapagos"
+    },
+    {
+      "dex": 1025,
+      "name": "Pecharunt",
+      "released": false,
+      "debut": null,
+      "how": "Not released as of 2026-11-09 (listed Unreleased on Dittobase and PokemonDB unavailable list)",
+      "source": "https://www.dittobase.com/pokemon-go/pokedex/pecharunt"
+    },
+    {
+      "dex": 1011,
+      "name": "Dipplin",
+      "released": true,
+      "debut": "2025-10-10",
+      "how": "Evolve Applin (200 candy + 20 Syrupy Apples) during Harvest Festival 2025",
+      "source": "https://pokemongo.com/news/harvest-festival-2025"
+    },
+    {
+      "dex": 1012,
+      "name": "Poltchageist",
+      "released": true,
+      "debut": "2025-10-21",
+      "how": "One-Star Raids during Halloween 2025 Part I",
+      "source": "https://pokemongo.com/news/halloween-part-1-2025"
+    },
+    {
+      "dex": 1013,
+      "name": "Sinistcha",
+      "released": true,
+      "debut": "2025-10-21",
+      "how": "Evolve Poltchageist (50 candy), Halloween 2025 Part I",
+      "source": "https://pokemongo.com/news/halloween-part-1-2025"
+    },
+    {
+      "dex": 1019,
+      "name": "Hydrapple",
+      "released": true,
+      "debut": "2025-10-10",
+      "how": "Evolve Dipplin (400 candy + catch 7 Dragon types as buddy), Harvest Festival 2025",
+      "source": "https://pokemongo.com/news/harvest-festival-2025"
+    },
+    {
+      "dex": 848,
+      "name": "Toxel",
+      "released": true,
+      "debut": "2024-11-16",
+      "how": "10 km Eggs at GO Wild Area: Fukuoka (in-person); globally via 10 km Eggs in Into the Wild from Nov 18 2024",
+      "source": "https://leekduck.com/events/pokemon-go-wild-area-2024-fukuoka-japan"
+    },
+    {
+      "dex": 849,
+      "name": "Toxtricity",
+      "released": true,
+      "debut": "2024-11-16",
+      "how": "4-star raids, Max Battles and Special Research at GO Wild Area: Fukuoka; globally at GO Wild Area: Global Nov 23-24 2024",
+      "source": "https://leekduck.com/events/pokemon-go-wild-area-2024-fukuoka-japan"
+    },
+    {
+      "dex": 854,
+      "name": "Sinistea",
+      "released": true,
+      "debut": "2024-12-03",
+      "how": "Raids and Collection Challenge during Just My Cup of Tea (with Polteageist)",
+      "source": "https://pokemongo.com/news/just-my-cup-of-tea-2024"
+    },
+    {
+      "dex": 968,
+      "name": "Orthworm",
+      "released": true,
+      "debut": "2026-04-28",
+      "how": "Three-Star Raids during Steeled Resolve 2026",
+      "source": "https://pokemongohub.net/post/event/steeled-resolve-event-2026/"
+    },
+    {
+      "dex": 973,
+      "name": "Flamigo",
+      "released": true,
+      "debut": "2026-02-03",
+      "how": "Wild spawns and research during Carnival of Flamigo 2026",
+      "source": "https://www.pokemon.com/uk/pokemon-news/flamigo-flock-to-pokemon-go-for-carnival-of-flamigo-event"
+    }
+  ]
+}
