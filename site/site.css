@@ -132,7 +132,7 @@
   --paper:#FAF5EE; --surface:#FFFDF9; --ink:#2B1A1C; --muted:#7A6563; --line:#EADFD3; --soft:#F2E8DD;
   --nav:#5A1820; --deep:#5A1820; --deep-2:#7E2530; --on-deep:#FFF4EE; --on-deep-mute:color-mix(in srgb,#fff 62%,var(--deep));
   --accent:#F2C14E;
-  --caught:#3D5A80; --shiny:#8E44C9; --lucky:#C98A0B; --hundo:#C8323C;
+  --caught:#3D5A80; --shiny:#8E44C9; --lucky:#C98A0B; --hundo:#C8323C; --shadow:#4A2A5C; --purified:#2F7FA3; --dynamax:#C2185B;
   --focus:var(--deep-2);
   --display:"Instrument Serif","Iowan Old Style","Palatino Linotype",Georgia,serif;
   --body:"Manrope","Segoe UI",system-ui,sans-serif;
@@ -140,9 +140,9 @@
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --paper:#171012; --surface:#21171A; --ink:#F3E8E4; --muted:#B8A29F; --line:#352629; --soft:#2B1E21;
-  --caught:#8FB0DA; --shiny:#C79AF0; --lucky:#F0C04A; --hundo:#F07A80; --focus:var(--accent); color-scheme:dark }}
+  --caught:#8FB0DA; --shiny:#C79AF0; --lucky:#F0C04A; --hundo:#F07A80; --shadow:#B28BD0; --purified:#7EC3E3; --dynamax:#F27AA7; --focus:var(--accent); color-scheme:dark }}
 :root[data-theme="dark"]{ --paper:#171012; --surface:#21171A; --ink:#F3E8E4; --muted:#B8A29F; --line:#352629; --soft:#2B1E21;
-  --caught:#8FB0DA; --shiny:#C79AF0; --lucky:#F0C04A; --hundo:#F07A80; --focus:var(--accent); color-scheme:dark }
+  --caught:#8FB0DA; --shiny:#C79AF0; --lucky:#F0C04A; --hundo:#F07A80; --shadow:#B28BD0; --purified:#7EC3E3; --dynamax:#F27AA7; --focus:var(--accent); color-scheme:dark }
 
 *{box-sizing:border-box}
 [hidden]{display:none!important}
@@ -194,6 +194,7 @@ main{margin-left:var(--side);min-height:100vh;container-type:inline-size}
 .stat b{display:block;font:400 28px/1.05 var(--display)}
 .stat span{font-size:12.5px;color:var(--on-deep-mute);font-weight:600}
 .stat .i{vertical-align:-2px;margin-right:4px}
+.stats{gap:8px}.stat{min-width:112px;padding:8px 12px}.stat b{font-size:25px}
 .stat.caught .i{color:#BBD0EC}.stat.shiny .i{color:#DDB7FA}.stat.lucky .i{color:var(--accent)}.stat.hundo .i{color:#FF9EA3}
 
 .section{margin-top:34px}
@@ -209,6 +210,14 @@ main{margin-left:var(--side);min-height:100vh;container-type:inline-size}
 .chip[aria-pressed="true"]{background:var(--deep);border-color:var(--deep);color:var(--on-deep)}
 .chip .n{font-weight:500;opacity:.75;font-variant-numeric:tabular-nums}
 .toolbar .gap{flex:1}
+.filters{gap:14px}
+.filters .label{display:inline-flex;align-items:center;gap:6px}
+.sel{display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:600;color:var(--muted)}
+.sel select{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:8px;padding:5px 8px;font-size:13.5px;font-weight:600;cursor:pointer}
+.check{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:600;color:var(--muted);cursor:pointer}
+.check input{accent-color:var(--deep-2)}
+.linkbtn{border:0;background:none;padding:0;font-size:13.5px;font-weight:700;color:var(--deep-2);text-decoration:underline;cursor:pointer}
+.shown{font-size:13.5px;color:var(--muted);font-variant-numeric:tabular-nums}
 .toolbar .sep{width:1px;height:22px;background:var(--line);margin:0 4px}
 
 /* ---------- Pokémon cards ---------- */
@@ -236,6 +245,11 @@ main{margin-left:var(--side);min-height:100vh;container-type:inline-size}
 .tk.s[aria-pressed="true"]{background:var(--shiny)}
 .tk.l[aria-pressed="true"]{background:var(--lucky)}
 .tk.h[aria-pressed="true"]{background:var(--hundo)}
+.tk.sd[aria-pressed="true"]{background:var(--shadow)}
+.tk.pu[aria-pressed="true"]{background:var(--purified)}
+.tk.dx[aria-pressed="true"],.tk.gx[aria-pressed="true"]{background:var(--dynamax)}
+.card .ticks + .ticks{margin-top:4px}
+.card .gd{font-weight:700;color:var(--ink);opacity:.75}
 .tk:disabled{opacity:.35;cursor:default;border-style:dashed}
 .tk:disabled[aria-pressed="true"]{opacity:.7}
 :root[data-theme="dark"] .tk[aria-pressed="true"]{color:#1b1214}

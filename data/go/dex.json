@@ -14,7 +14,9 @@
    "img": "pm1",
    "gender": "both",
    "released": true,
-   "shiny": "2018-03-25"
+   "shiny": "2018-03-25",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "2",
@@ -29,7 +31,9 @@
    "img": "pm2",
    "gender": "both",
    "released": true,
-   "shiny": "2018-03-25"
+   "shiny": "2018-03-25",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "3",
@@ -45,7 +49,10 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm3.g2",
-   "shiny": "2018-03-25"
+   "shiny": "2018-03-25",
+   "shadow": true,
+   "gmax": true,
+   "dynamax": true
   },
   {
    "id": "4",
@@ -59,7 +66,9 @@
    "img": "pm4",
    "gender": "both",
    "released": true,
-   "shiny": "2018-05-19"
+   "shiny": "2018-05-19",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "5",
@@ -73,7 +82,9 @@
    "img": "pm5",
    "gender": "both",
    "released": true,
-   "shiny": "2018-05-19"
+   "shiny": "2018-05-19",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "6",
@@ -88,7 +99,10 @@
    "img": "pm6",
    "gender": "both",
    "released": true,
-   "shiny": "2018-05-19"
+   "shiny": "2018-05-19",
+   "shadow": true,
+   "gmax": true,
+   "dynamax": true
   },
   {
    "id": "7",
@@ -102,7 +116,9 @@
    "img": "pm7",
    "gender": "both",
    "released": true,
-   "shiny": "2018-07-08"
+   "shiny": "2018-07-08",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "8",
@@ -116,7 +132,9 @@
    "img": "pm8",
    "gender": "both",
    "released": true,
-   "shiny": "2018-07-08"
+   "shiny": "2018-07-08",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "9",
@@ -130,7 +148,10 @@
    "img": "pm9",
    "gender": "both",
    "released": true,
-   "shiny": "2018-07-08"
+   "shiny": "2018-07-08",
+   "shadow": true,
+   "gmax": true,
+   "dynamax": true
   },
   {
    "id": "10",
@@ -144,7 +165,9 @@
    "img": "pm10",
    "gender": "both",
    "released": true,
-   "shiny": "2018-11-01"
+   "shiny": "2018-11-01",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "11",
@@ -158,7 +181,9 @@
    "img": "pm11",
    "gender": "both",
    "released": true,
-   "shiny": "2018-11-01"
+   "shiny": "2018-11-01",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "12",
@@ -174,7 +199,10 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm12.g2",
-   "shiny": "2018-11-01"
+   "shiny": "2018-11-01",
+   "shadow": true,
+   "gmax": true,
+   "dynamax": true
   },
   {
    "id": "13",
@@ -189,7 +217,8 @@
    "img": "pm13",
    "gender": "both",
    "released": true,
-   "shiny": "2020-06-19"
+   "shiny": "2020-06-19",
+   "shadow": true
   },
   {
    "id": "14",
@@ -204,7 +233,8 @@
    "img": "pm14",
    "gender": "both",
    "released": true,
-   "shiny": "2020-06-19"
+   "shiny": "2020-06-19",
+   "shadow": true
   },
   {
    "id": "15",
@@ -219,7 +249,8 @@
    "img": "pm15",
    "gender": "both",
    "released": true,
-   "shiny": "2020-06-19"
+   "shiny": "2020-06-19",
+   "shadow": true
   },
   {
    "id": "16",
@@ -234,7 +265,8 @@
    "img": "pm16",
    "gender": "both",
    "released": true,
-   "shiny": "2019-02-26"
+   "shiny": "2019-02-26",
+   "shadow": true
   },
   {
    "id": "17",
@@ -249,7 +281,8 @@
    "img": "pm17",
    "gender": "both",
    "released": true,
-   "shiny": "2019-02-26"
+   "shiny": "2019-02-26",
+   "shadow": true
   },
   {
    "id": "18",
@@ -264,7 +297,8 @@
    "img": "pm18",
    "gender": "both",
    "released": true,
-   "shiny": "2019-02-26"
+   "shiny": "2019-02-26",
+   "shadow": true
   },
   {
    "id": "19",
@@ -279,7 +313,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm19.g2",
-   "shiny": "2019-02-26"
+   "shiny": "2019-02-26",
+   "shadow": true
   },
   {
    "id": "19-alolan",
@@ -309,7 +344,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm20.g2",
-   "shiny": "2019-02-26"
+   "shiny": "2019-02-26",
+   "shadow": true
   },
   {
    "id": "20-alolan",
@@ -368,7 +404,8 @@
    "img": "pm23",
    "gender": "both",
    "released": true,
-   "shiny": "2019-07-25"
+   "shiny": "2019-07-25",
+   "shadow": true
   },
   {
    "id": "24",
@@ -382,7 +419,8 @@
    "img": "pm24",
    "gender": "both",
    "released": true,
-   "shiny": "2019-07-25"
+   "shiny": "2019-07-25",
+   "shadow": true
   },
   {
    "id": "25",
@@ -397,7 +435,9 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm25.g2",
-   "shiny": "2017-08-09"
+   "shiny": "2017-08-09",
+   "gmax": true,
+   "dynamax": true
   },
   {
    "id": "26",
@@ -412,7 +452,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm26.g2",
-   "shiny": "2017-08-09"
+   "shiny": "2017-08-09",
+   "dynamax": true
   },
   {
    "id": "26-alolan",
@@ -441,7 +482,8 @@
    "img": "pm27",
    "gender": "both",
    "released": true,
-   "shiny": "2018-12-06"
+   "shiny": "2018-12-06",
+   "shadow": true
   },
   {
    "id": "27-alolan",
@@ -470,7 +512,8 @@
    "img": "pm28",
    "gender": "both",
    "released": true,
-   "shiny": "2018-12-06"
+   "shiny": "2018-12-06",
+   "shadow": true
   },
   {
    "id": "28-alolan",
@@ -499,7 +542,8 @@
    "img": "pm29",
    "gender": "female",
    "released": true,
-   "shiny": "2018-10-11"
+   "shiny": "2018-10-11",
+   "shadow": true
   },
   {
    "id": "30",
@@ -513,7 +557,8 @@
    "img": "pm30",
    "gender": "female",
    "released": true,
-   "shiny": "2018-10-11"
+   "shiny": "2018-10-11",
+   "shadow": true
   },
   {
    "id": "31",
@@ -528,7 +573,8 @@
    "img": "pm31",
    "gender": "female",
    "released": true,
-   "shiny": "2018-10-11"
+   "shiny": "2018-10-11",
+   "shadow": true
   },
   {
    "id": "32",
@@ -542,7 +588,8 @@
    "img": "pm32",
    "gender": "male",
    "released": true,
-   "shiny": "2019-07-04"
+   "shiny": "2019-07-04",
+   "shadow": true
   },
   {
    "id": "33",
@@ -556,7 +603,8 @@
    "img": "pm33",
    "gender": "male",
    "released": true,
-   "shiny": "2019-07-04"
+   "shiny": "2019-07-04",
+   "shadow": true
   },
   {
    "id": "34",
@@ -571,7 +619,8 @@
    "img": "pm34",
    "gender": "male",
    "released": true,
-   "shiny": "2019-07-04"
+   "shiny": "2019-07-04",
+   "shadow": true
   },
   {
    "id": "35",
@@ -613,7 +662,8 @@
    "img": "pm37",
    "gender": "both",
    "released": true,
-   "shiny": "2020-10-09"
+   "shiny": "2020-10-09",
+   "shadow": true
   },
   {
    "id": "37-alolan",
@@ -641,7 +691,8 @@
    "img": "pm38",
    "gender": "both",
    "released": true,
-   "shiny": "2020-10-09"
+   "shiny": "2020-10-09",
+   "shadow": true
   },
   {
    "id": "38-alolan",
@@ -702,7 +753,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm41.g2",
-   "shiny": "2019-07-25"
+   "shiny": "2019-07-25",
+   "shadow": true
   },
   {
    "id": "42",
@@ -718,7 +770,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm42.g2",
-   "shiny": "2019-07-25"
+   "shiny": "2019-07-25",
+   "shadow": true
   },
   {
    "id": "43",
@@ -733,7 +786,8 @@
    "img": "pm43",
    "gender": "both",
    "released": true,
-   "shiny": "2019-10-03"
+   "shiny": "2019-10-03",
+   "shadow": true
   },
   {
    "id": "44",
@@ -749,7 +803,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm44.g2",
-   "shiny": "2019-10-03"
+   "shiny": "2019-10-03",
+   "shadow": true
   },
   {
    "id": "45",
@@ -765,7 +820,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm45.g2",
-   "shiny": "2019-10-03"
+   "shiny": "2019-10-03",
+   "shadow": true
   },
   {
    "id": "46",
@@ -810,7 +866,8 @@
    "img": "pm48",
    "gender": "both",
    "released": true,
-   "shiny": "2020-05-01"
+   "shiny": "2020-05-01",
+   "shadow": true
   },
   {
    "id": "49",
@@ -825,7 +882,8 @@
    "img": "pm49",
    "gender": "both",
    "released": true,
-   "shiny": "2020-05-01"
+   "shiny": "2020-05-01",
+   "shadow": true
   },
   {
    "id": "50",
@@ -839,7 +897,8 @@
    "img": "pm50",
    "gender": "both",
    "released": true,
-   "shiny": "2019-04-29"
+   "shiny": "2019-04-29",
+   "shadow": true
   },
   {
    "id": "50-alolan",
@@ -868,7 +927,8 @@
    "img": "pm51",
    "gender": "both",
    "released": true,
-   "shiny": "2019-04-29"
+   "shiny": "2019-04-29",
+   "shadow": true
   },
   {
    "id": "51-alolan",
@@ -897,7 +957,9 @@
    "img": "pm52",
    "gender": "both",
    "released": true,
-   "shiny": "2019-11-07"
+   "shiny": "2019-11-07",
+   "shadow": true,
+   "gmax": true
   },
   {
    "id": "52-alolan",
@@ -939,7 +1001,8 @@
    "img": "pm53",
    "gender": "both",
    "released": true,
-   "shiny": "2019-11-07"
+   "shiny": "2019-11-07",
+   "shadow": true
   },
   {
    "id": "53-alolan",
@@ -967,7 +1030,8 @@
    "img": "pm54",
    "gender": "both",
    "released": true,
-   "shiny": "2019-01-25"
+   "shiny": "2019-01-25",
+   "shadow": true
   },
   {
    "id": "55",
@@ -981,7 +1045,8 @@
    "img": "pm55",
    "gender": "both",
    "released": true,
-   "shiny": "2019-01-25"
+   "shiny": "2019-01-25",
+   "shadow": true
   },
   {
    "id": "56",
@@ -995,7 +1060,8 @@
    "img": "pm56",
    "gender": "both",
    "released": true,
-   "shiny": "2019-03-05"
+   "shiny": "2019-03-05",
+   "shadow": true
   },
   {
    "id": "57",
@@ -1009,7 +1075,8 @@
    "img": "pm57",
    "gender": "both",
    "released": true,
-   "shiny": "2019-03-05"
+   "shiny": "2019-03-05",
+   "shadow": true
   },
   {
    "id": "58",
@@ -1023,7 +1090,9 @@
    "img": "pm58",
    "gender": "both",
    "released": true,
-   "shiny": "2018-09-01"
+   "shiny": "2018-09-01",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "58-hisuian",
@@ -1052,7 +1121,9 @@
    "img": "pm59",
    "gender": "both",
    "released": true,
-   "shiny": "2018-09-01"
+   "shiny": "2018-09-01",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "59-hisuian",
@@ -1081,7 +1152,8 @@
    "img": "pm60",
    "gender": "both",
    "released": true,
-   "shiny": "2019-08-06"
+   "shiny": "2019-08-06",
+   "shadow": true
   },
   {
    "id": "61",
@@ -1095,7 +1167,8 @@
    "img": "pm61",
    "gender": "both",
    "released": true,
-   "shiny": "2019-08-06"
+   "shiny": "2019-08-06",
+   "shadow": true
   },
   {
    "id": "62",
@@ -1110,7 +1183,8 @@
    "img": "pm62",
    "gender": "both",
    "released": true,
-   "shiny": "2019-08-06"
+   "shiny": "2019-08-06",
+   "shadow": true
   },
   {
    "id": "63",
@@ -1124,7 +1198,9 @@
    "img": "pm63",
    "gender": "both",
    "released": true,
-   "shiny": "2020-04-25"
+   "shiny": "2020-04-25",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "64",
@@ -1139,7 +1215,9 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm64.g2",
-   "shiny": "2020-04-25"
+   "shiny": "2020-04-25",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "65",
@@ -1154,7 +1232,9 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm65.g2",
-   "shiny": "2020-04-25"
+   "shiny": "2020-04-25",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "66",
@@ -1168,7 +1248,9 @@
    "img": "pm66",
    "gender": "both",
    "released": true,
-   "shiny": "2019-03-05"
+   "shiny": "2019-03-05",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "67",
@@ -1182,7 +1264,9 @@
    "img": "pm67",
    "gender": "both",
    "released": true,
-   "shiny": "2019-03-05"
+   "shiny": "2019-03-05",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "68",
@@ -1196,7 +1280,10 @@
    "img": "pm68",
    "gender": "both",
    "released": true,
-   "shiny": "2019-03-05"
+   "shiny": "2019-03-05",
+   "shadow": true,
+   "gmax": true,
+   "dynamax": true
   },
   {
    "id": "69",
@@ -1211,7 +1298,8 @@
    "img": "pm69",
    "gender": "both",
    "released": true,
-   "shiny": "2020-07-16"
+   "shiny": "2020-07-16",
+   "shadow": true
   },
   {
    "id": "70",
@@ -1226,7 +1314,8 @@
    "img": "pm70",
    "gender": "both",
    "released": true,
-   "shiny": "2020-07-16"
+   "shiny": "2020-07-16",
+   "shadow": true
   },
   {
    "id": "71",
@@ -1241,7 +1330,8 @@
    "img": "pm71",
    "gender": "both",
    "released": true,
-   "shiny": "2020-07-16"
+   "shiny": "2020-07-16",
+   "shadow": true
   },
   {
    "id": "72",
@@ -1256,7 +1346,8 @@
    "img": "pm72",
    "gender": "both",
    "released": true,
-   "shiny": "2019-11-19"
+   "shiny": "2019-11-19",
+   "shadow": true
   },
   {
    "id": "73",
@@ -1271,7 +1362,8 @@
    "img": "pm73",
    "gender": "both",
    "released": true,
-   "shiny": "2019-11-19"
+   "shiny": "2019-11-19",
+   "shadow": true
   },
   {
    "id": "74",
@@ -1286,7 +1378,8 @@
    "img": "pm74",
    "gender": "both",
    "released": true,
-   "shiny": "2018-09-13"
+   "shiny": "2018-09-13",
+   "shadow": true
   },
   {
    "id": "74-alolan",
@@ -1316,7 +1409,8 @@
    "img": "pm75",
    "gender": "both",
    "released": true,
-   "shiny": "2018-09-13"
+   "shiny": "2018-09-13",
+   "shadow": true
   },
   {
    "id": "75-alolan",
@@ -1346,7 +1440,8 @@
    "img": "pm76",
    "gender": "both",
    "released": true,
-   "shiny": "2018-09-13"
+   "shiny": "2018-09-13",
+   "shadow": true
   },
   {
    "id": "76-alolan",
@@ -1433,7 +1528,8 @@
    "img": "pm79",
    "gender": "both",
    "released": true,
-   "shiny": "2020-11-16"
+   "shiny": "2020-11-16",
+   "shadow": true
   },
   {
    "id": "79-galarian",
@@ -1462,7 +1558,8 @@
    "img": "pm80",
    "gender": "both",
    "released": true,
-   "shiny": "2020-11-16"
+   "shiny": "2020-11-16",
+   "shadow": true
   },
   {
    "id": "80-galarian",
@@ -1492,7 +1589,8 @@
    "img": "pm81",
    "gender": "none",
    "released": true,
-   "shiny": "2018-11-16"
+   "shiny": "2018-11-16",
+   "shadow": true
   },
   {
    "id": "82",
@@ -1507,7 +1605,8 @@
    "img": "pm82",
    "gender": "none",
    "released": true,
-   "shiny": "2018-11-16"
+   "shiny": "2018-11-16",
+   "shadow": true
   },
   {
    "id": "83",
@@ -1611,7 +1710,8 @@
    "img": "pm88",
    "gender": "both",
    "released": true,
-   "shiny": "2018-09-13"
+   "shiny": "2018-09-13",
+   "shadow": true
   },
   {
    "id": "88-alolan",
@@ -1640,7 +1740,8 @@
    "img": "pm89",
    "gender": "both",
    "released": true,
-   "shiny": "2018-09-13"
+   "shiny": "2018-09-13",
+   "shadow": true
   },
   {
    "id": "89-alolan",
@@ -1669,7 +1770,8 @@
    "img": "pm90",
    "gender": "both",
    "released": true,
-   "shiny": "2018-06-07"
+   "shiny": "2018-06-07",
+   "shadow": true
   },
   {
    "id": "91",
@@ -1684,7 +1786,8 @@
    "img": "pm91",
    "gender": "both",
    "released": true,
-   "shiny": "2018-06-07"
+   "shiny": "2018-06-07",
+   "shadow": true
   },
   {
    "id": "92",
@@ -1699,7 +1802,9 @@
    "img": "pm92",
    "gender": "both",
    "released": true,
-   "shiny": "2018-11-03"
+   "shiny": "2018-11-03",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "93",
@@ -1714,7 +1819,9 @@
    "img": "pm93",
    "gender": "both",
    "released": true,
-   "shiny": "2018-11-03"
+   "shiny": "2018-11-03",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "94",
@@ -1729,7 +1836,10 @@
    "img": "pm94",
    "gender": "both",
    "released": true,
-   "shiny": "2018-11-03"
+   "shiny": "2018-11-03",
+   "shadow": true,
+   "gmax": true,
+   "dynamax": true
   },
   {
    "id": "95",
@@ -1744,7 +1854,8 @@
    "img": "pm95",
    "gender": "both",
    "released": true,
-   "shiny": "2019-06-04"
+   "shiny": "2019-06-04",
+   "shadow": true
   },
   {
    "id": "96",
@@ -1758,7 +1869,8 @@
    "img": "pm96",
    "gender": "both",
    "released": true,
-   "shiny": "2018-10-05"
+   "shiny": "2018-10-05",
+   "shadow": true
   },
   {
    "id": "97",
@@ -1773,7 +1885,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm97.g2",
-   "shiny": "2018-10-05"
+   "shiny": "2018-10-05",
+   "shadow": true
   },
   {
    "id": "98",
@@ -1787,7 +1900,8 @@
    "img": "pm98",
    "gender": "both",
    "released": true,
-   "shiny": "2018-10-01"
+   "shiny": "2018-10-01",
+   "dynamax": true
   },
   {
    "id": "99",
@@ -1801,7 +1915,9 @@
    "img": "pm99",
    "gender": "both",
    "released": true,
-   "shiny": "2018-10-01"
+   "shiny": "2018-10-01",
+   "gmax": true,
+   "dynamax": true
   },
   {
    "id": "100",
@@ -1815,7 +1931,8 @@
    "img": "pm100",
    "gender": "none",
    "released": true,
-   "shiny": "2020-05-08"
+   "shiny": "2020-05-08",
+   "shadow": true
   },
   {
    "id": "100-hisuian",
@@ -1844,7 +1961,8 @@
    "img": "pm101",
    "gender": "none",
    "released": true,
-   "shiny": "2020-05-08"
+   "shiny": "2020-05-08",
+   "shadow": true
   },
   {
    "id": "101-hisuian",
@@ -1874,7 +1992,8 @@
    "img": "pm102",
    "gender": "both",
    "released": true,
-   "shiny": "2020-04-09"
+   "shiny": "2020-04-09",
+   "shadow": true
   },
   {
    "id": "103",
@@ -1889,7 +2008,8 @@
    "img": "pm103",
    "gender": "both",
    "released": true,
-   "shiny": "2020-04-08"
+   "shiny": "2020-04-08",
+   "shadow": true
   },
   {
    "id": "103-alolan",
@@ -1918,7 +2038,8 @@
    "img": "pm104",
    "gender": "both",
    "released": true,
-   "shiny": "2018-11-05"
+   "shiny": "2018-11-05",
+   "shadow": true
   },
   {
    "id": "105",
@@ -1932,7 +2053,8 @@
    "img": "pm105",
    "gender": "both",
    "released": true,
-   "shiny": "2018-11-05"
+   "shiny": "2018-11-05",
+   "shadow": true
   },
   {
    "id": "105-alolan",
@@ -1961,7 +2083,9 @@
    "img": "pm106",
    "gender": "male",
    "released": true,
-   "shiny": "2021-02-20"
+   "shiny": "2021-02-20",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "107",
@@ -1975,7 +2099,9 @@
    "img": "pm107",
    "gender": "male",
    "released": true,
-   "shiny": "2021-02-20"
+   "shiny": "2021-02-20",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "108",
@@ -2003,7 +2129,8 @@
    "img": "pm109",
    "gender": "both",
    "released": true,
-   "shiny": "2019-07-25"
+   "shiny": "2019-07-25",
+   "shadow": true
   },
   {
    "id": "110",
@@ -2017,7 +2144,8 @@
    "img": "pm110",
    "gender": "both",
    "released": true,
-   "shiny": "2019-07-25"
+   "shiny": "2019-07-25",
+   "shadow": true
   },
   {
    "id": "110-galarian",
@@ -2048,7 +2176,9 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm111.g2",
-   "shiny": "2020-02-22"
+   "shiny": "2020-02-22",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "112",
@@ -2064,7 +2194,9 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm112.g2",
-   "shiny": "2020-02-22"
+   "shiny": "2020-02-22",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "113",
@@ -2078,7 +2210,8 @@
    "img": "pm113",
    "gender": "female",
    "released": true,
-   "shiny": "2020-02-13"
+   "shiny": "2020-02-13",
+   "dynamax": true
   },
   {
    "id": "114",
@@ -2092,7 +2225,8 @@
    "img": "pm114",
    "gender": "both",
    "released": true,
-   "shiny": "2020-07-24"
+   "shiny": "2020-07-24",
+   "shadow": true
   },
   {
    "id": "115",
@@ -2120,7 +2254,8 @@
    "img": "pm116",
    "gender": "both",
    "released": true,
-   "shiny": "2019-06-13"
+   "shiny": "2019-06-13",
+   "shadow": true
   },
   {
    "id": "117",
@@ -2134,7 +2269,8 @@
    "img": "pm117",
    "gender": "both",
    "released": true,
-   "shiny": "2019-06-13"
+   "shiny": "2019-06-13",
+   "shadow": true
   },
   {
    "id": "118",
@@ -2178,7 +2314,8 @@
    "img": "pm120",
    "gender": "none",
    "released": true,
-   "shiny": "2020-08-07"
+   "shiny": "2020-08-07",
+   "shadow": true
   },
   {
    "id": "121",
@@ -2193,7 +2330,8 @@
    "img": "pm121",
    "gender": "none",
    "released": true,
-   "shiny": "2020-08-07"
+   "shiny": "2020-08-07",
+   "shadow": true
   },
   {
    "id": "122",
@@ -2239,7 +2377,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm123.g2",
-   "shiny": "2019-04-02"
+   "shiny": "2019-04-02",
+   "shadow": true
   },
   {
    "id": "124",
@@ -2268,7 +2407,9 @@
    "img": "pm125",
    "gender": "both",
    "released": true,
-   "shiny": "2018-11-15"
+   "shiny": "2018-11-15",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "126",
@@ -2282,7 +2423,9 @@
    "img": "pm126",
    "gender": "both",
    "released": true,
-   "shiny": "2018-03-22"
+   "shiny": "2018-03-22",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "127",
@@ -2296,7 +2439,8 @@
    "img": "pm127",
    "gender": "both",
    "released": true,
-   "shiny": "2018-11-01"
+   "shiny": "2018-11-01",
+   "shadow": true
   },
   {
    "id": "128",
@@ -2369,7 +2513,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm129.g2",
-   "shiny": "2017-03-22"
+   "shiny": "2017-03-22",
+   "shadow": true
   },
   {
    "id": "130",
@@ -2385,7 +2530,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm130.g2",
-   "shiny": "2017-03-22"
+   "shiny": "2017-03-22",
+   "shadow": true
   },
   {
    "id": "131",
@@ -2400,7 +2546,9 @@
    "img": "pm131",
    "gender": "both",
    "released": true,
-   "shiny": "2019-04-18"
+   "shiny": "2019-04-18",
+   "shadow": true,
+   "gmax": true
   },
   {
    "id": "132",
@@ -2429,7 +2577,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm133.g2",
-   "shiny": "2018-08-11"
+   "shiny": "2018-08-11",
+   "dynamax": true
   },
   {
    "id": "134",
@@ -2443,7 +2592,8 @@
    "img": "pm134",
    "gender": "both",
    "released": true,
-   "shiny": "2018-08-11"
+   "shiny": "2018-08-11",
+   "dynamax": true
   },
   {
    "id": "135",
@@ -2457,7 +2607,8 @@
    "img": "pm135",
    "gender": "both",
    "released": true,
-   "shiny": "2018-08-11"
+   "shiny": "2018-08-11",
+   "dynamax": true
   },
   {
    "id": "136",
@@ -2471,7 +2622,8 @@
    "img": "pm136",
    "gender": "both",
    "released": true,
-   "shiny": "2018-08-11"
+   "shiny": "2018-08-11",
+   "dynamax": true
   },
   {
    "id": "137",
@@ -2485,7 +2637,8 @@
    "img": "pm137",
    "gender": "none",
    "released": true,
-   "shiny": "2020-09-19"
+   "shiny": "2020-09-19",
+   "shadow": true
   },
   {
    "id": "138",
@@ -2500,7 +2653,9 @@
    "img": "pm138",
    "gender": "both",
    "released": true,
-   "shiny": "2018-05-24"
+   "shiny": "2018-05-24",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "139",
@@ -2515,7 +2670,9 @@
    "img": "pm139",
    "gender": "both",
    "released": true,
-   "shiny": "2018-05-24"
+   "shiny": "2018-05-24",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "140",
@@ -2530,7 +2687,8 @@
    "img": "pm140",
    "gender": "both",
    "released": true,
-   "shiny": "2018-05-24"
+   "shiny": "2018-05-24",
+   "dynamax": true
   },
   {
    "id": "141",
@@ -2545,7 +2703,8 @@
    "img": "pm141",
    "gender": "both",
    "released": true,
-   "shiny": "2018-05-24"
+   "shiny": "2018-05-24",
+   "dynamax": true
   },
   {
    "id": "142",
@@ -2560,7 +2719,8 @@
    "img": "pm142",
    "gender": "both",
    "released": true,
-   "shiny": "2018-05-24"
+   "shiny": "2018-05-24",
+   "shadow": true
   },
   {
    "id": "143",
@@ -2574,7 +2734,9 @@
    "img": "pm143",
    "gender": "both",
    "released": true,
-   "shiny": "2021-02-20"
+   "shiny": "2021-02-20",
+   "shadow": true,
+   "gmax": true
   },
   {
    "id": "144",
@@ -2590,7 +2752,9 @@
    "gender": "none",
    "released": true,
    "class": "legendary",
-   "shiny": "2018-07-07"
+   "shiny": "2018-07-07",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "144-galarian",
@@ -2622,7 +2786,9 @@
    "gender": "none",
    "released": true,
    "class": "legendary",
-   "shiny": "2018-07-21"
+   "shiny": "2018-07-21",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "145-galarian",
@@ -2654,7 +2820,9 @@
    "gender": "none",
    "released": true,
    "class": "legendary",
-   "shiny": "2018-09-08"
+   "shiny": "2018-09-08",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "146-galarian",
@@ -2684,7 +2852,8 @@
    "img": "pm147",
    "gender": "both",
    "released": true,
-   "shiny": "2018-02-24"
+   "shiny": "2018-02-24",
+   "shadow": true
   },
   {
    "id": "148",
@@ -2698,7 +2867,8 @@
    "img": "pm148",
    "gender": "both",
    "released": true,
-   "shiny": "2018-02-24"
+   "shiny": "2018-02-24",
+   "shadow": true
   },
   {
    "id": "149",
@@ -2713,7 +2883,8 @@
    "img": "pm149",
    "gender": "both",
    "released": true,
-   "shiny": "2018-02-24"
+   "shiny": "2018-02-24",
+   "shadow": true
   },
   {
    "id": "150",
@@ -2728,7 +2899,8 @@
    "gender": "none",
    "released": true,
    "class": "legendary",
-   "shiny": "2019-09-16"
+   "shiny": "2019-09-16",
+   "shadow": true
   },
   {
    "id": "151",
@@ -2757,7 +2929,8 @@
    "img": "pm152",
    "gender": "both",
    "released": true,
-   "shiny": "2018-09-22"
+   "shiny": "2018-09-22",
+   "shadow": true
   },
   {
    "id": "153",
@@ -2771,7 +2944,8 @@
    "img": "pm153",
    "gender": "both",
    "released": true,
-   "shiny": "2018-09-22"
+   "shiny": "2018-09-22",
+   "shadow": true
   },
   {
    "id": "154",
@@ -2786,7 +2960,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm154.g2",
-   "shiny": "2018-09-22"
+   "shiny": "2018-09-22",
+   "shadow": true
   },
   {
    "id": "155",
@@ -2800,7 +2975,8 @@
    "img": "pm155",
    "gender": "both",
    "released": true,
-   "shiny": "2018-11-10"
+   "shiny": "2018-11-10",
+   "shadow": true
   },
   {
    "id": "156",
@@ -2814,7 +2990,8 @@
    "img": "pm156",
    "gender": "both",
    "released": true,
-   "shiny": "2018-11-10"
+   "shiny": "2018-11-10",
+   "shadow": true
   },
   {
    "id": "157",
@@ -2828,7 +3005,8 @@
    "img": "pm157",
    "gender": "both",
    "released": true,
-   "shiny": "2018-11-10"
+   "shiny": "2018-11-10",
+   "shadow": true
   },
   {
    "id": "157-hisuian",
@@ -2857,7 +3035,8 @@
    "img": "pm158",
    "gender": "both",
    "released": true,
-   "shiny": "2019-01-12"
+   "shiny": "2019-01-12",
+   "shadow": true
   },
   {
    "id": "159",
@@ -2871,7 +3050,8 @@
    "img": "pm159",
    "gender": "both",
    "released": true,
-   "shiny": "2019-01-12"
+   "shiny": "2019-01-12",
+   "shadow": true
   },
   {
    "id": "160",
@@ -2885,7 +3065,8 @@
    "img": "pm160",
    "gender": "both",
    "released": true,
-   "shiny": "2019-01-12"
+   "shiny": "2019-01-12",
+   "shadow": true
   },
   {
    "id": "161",
@@ -2928,7 +3109,9 @@
    "img": "pm163",
    "gender": "both",
    "released": true,
-   "shiny": "2022-01-01"
+   "shiny": "2022-01-01",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "164",
@@ -2943,7 +3126,9 @@
    "img": "pm164",
    "gender": "both",
    "released": true,
-   "shiny": "2022-01-01"
+   "shiny": "2022-01-01",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "165",
@@ -2959,7 +3144,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm165.g2",
-   "shiny": "2020-09-10"
+   "shiny": "2020-09-10",
+   "shadow": true
   },
   {
    "id": "166",
@@ -2975,7 +3161,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm166.g2",
-   "shiny": "2020-09-10"
+   "shiny": "2020-09-10",
+   "shadow": true
   },
   {
    "id": "167",
@@ -3020,7 +3207,8 @@
    "img": "pm169",
    "gender": "both",
    "released": true,
-   "shiny": "2019-07-25"
+   "shiny": "2019-07-25",
+   "shadow": true
   },
   {
    "id": "170",
@@ -3137,7 +3325,8 @@
    "img": "pm177",
    "gender": "both",
    "released": true,
-   "shiny": "2018-08-20"
+   "shiny": "2018-08-20",
+   "shadow": true
   },
   {
    "id": "178",
@@ -3153,7 +3342,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm178.g2",
-   "shiny": "2018-08-20"
+   "shiny": "2018-08-20",
+   "shadow": true
   },
   {
    "id": "179",
@@ -3167,7 +3357,8 @@
    "img": "pm179",
    "gender": "both",
    "released": true,
-   "shiny": "2018-04-15"
+   "shiny": "2018-04-15",
+   "shadow": true
   },
   {
    "id": "180",
@@ -3181,7 +3372,8 @@
    "img": "pm180",
    "gender": "both",
    "released": true,
-   "shiny": "2018-04-15"
+   "shiny": "2018-04-15",
+   "shadow": true
   },
   {
    "id": "181",
@@ -3195,7 +3387,8 @@
    "img": "pm181",
    "gender": "both",
    "released": true,
-   "shiny": "2018-04-15"
+   "shiny": "2018-04-15",
+   "shadow": true
   },
   {
    "id": "182",
@@ -3209,7 +3402,8 @@
    "img": "pm182",
    "gender": "both",
    "released": true,
-   "shiny": "2019-10-03"
+   "shiny": "2019-10-03",
+   "shadow": true
   },
   {
    "id": "183",
@@ -3254,7 +3448,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm185.g2",
-   "shiny": "2019-08-05"
+   "shiny": "2019-08-05",
+   "shadow": true
   },
   {
    "id": "186",
@@ -3269,7 +3464,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm186.g2",
-   "shiny": "2019-08-06"
+   "shiny": "2019-08-06",
+   "shadow": true
   },
   {
    "id": "187",
@@ -3284,7 +3480,8 @@
    "img": "pm187",
    "gender": "both",
    "released": true,
-   "shiny": "2022-02-12"
+   "shiny": "2022-02-12",
+   "shadow": true
   },
   {
    "id": "188",
@@ -3299,7 +3496,8 @@
    "img": "pm188",
    "gender": "both",
    "released": true,
-   "shiny": "2022-02-12"
+   "shiny": "2022-02-12",
+   "shadow": true
   },
   {
    "id": "189",
@@ -3314,7 +3512,8 @@
    "img": "pm189",
    "gender": "both",
    "released": true,
-   "shiny": "2022-02-12"
+   "shiny": "2022-02-12",
+   "shadow": true
   },
   {
    "id": "190",
@@ -3329,7 +3528,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm190.g2",
-   "shiny": "2019-05-07"
+   "shiny": "2019-05-07",
+   "shadow": true
   },
   {
    "id": "191",
@@ -3388,7 +3588,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm194.g2",
-   "shiny": "2020-12-11"
+   "shiny": "2020-12-11",
+   "shadow": true
   },
   {
    "id": "194-paldean",
@@ -3419,7 +3620,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm195.g2",
-   "shiny": "2020-12-11"
+   "shiny": "2020-12-11",
+   "shadow": true
   },
   {
    "id": "196",
@@ -3433,7 +3635,8 @@
    "img": "pm196",
    "gender": "both",
    "released": true,
-   "shiny": "2018-08-11"
+   "shiny": "2018-08-11",
+   "dynamax": true
   },
   {
    "id": "197",
@@ -3447,7 +3650,8 @@
    "img": "pm197",
    "gender": "both",
    "released": true,
-   "shiny": "2018-08-11"
+   "shiny": "2018-08-11",
+   "dynamax": true
   },
   {
    "id": "198",
@@ -3463,7 +3667,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm198.g2",
-   "shiny": "2018-03-31"
+   "shiny": "2018-03-31",
+   "shadow": true
   },
   {
    "id": "199",
@@ -3478,7 +3683,8 @@
    "img": "pm199",
    "gender": "both",
    "released": true,
-   "shiny": "2020-11-16"
+   "shiny": "2020-11-16",
+   "shadow": true
   },
   {
    "id": "199-galarian",
@@ -3507,7 +3713,8 @@
    "img": "pm200",
    "gender": "both",
    "released": true,
-   "shiny": "2018-12-01"
+   "shiny": "2018-12-01",
+   "shadow": true
   },
   {
    "id": "201-exclamation",
@@ -3914,7 +4121,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm202.g2",
-   "shiny": "2018-03-22"
+   "shiny": "2018-03-22",
+   "shadow": true
   },
   {
    "id": "203",
@@ -3930,7 +4138,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm203.g2",
-   "shiny": "2022-02-26"
+   "shiny": "2022-02-26",
+   "shadow": true
   },
   {
    "id": "204",
@@ -3944,7 +4153,8 @@
    "img": "pm204",
    "gender": "both",
    "released": true,
-   "shiny": "2018-08-20"
+   "shiny": "2018-08-20",
+   "shadow": true
   },
   {
    "id": "205",
@@ -3959,7 +4169,8 @@
    "img": "pm205",
    "gender": "both",
    "released": true,
-   "shiny": "2018-08-20"
+   "shiny": "2018-08-20",
+   "shadow": true
   },
   {
    "id": "206",
@@ -3989,7 +4200,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm207.g2",
-   "shiny": "2019-09-02"
+   "shiny": "2019-09-02",
+   "shadow": true
   },
   {
    "id": "208",
@@ -4005,7 +4217,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm208.g2",
-   "shiny": "2019-06-04"
+   "shiny": "2019-06-04",
+   "shadow": true
   },
   {
    "id": "209",
@@ -4019,7 +4232,8 @@
    "img": "pm209",
    "gender": "both",
    "released": true,
-   "shiny": "2018-08-01"
+   "shiny": "2018-08-01",
+   "shadow": true
   },
   {
    "id": "210",
@@ -4033,7 +4247,8 @@
    "img": "pm210",
    "gender": "both",
    "released": true,
-   "shiny": "2018-08-01"
+   "shiny": "2018-08-01",
+   "shadow": true
   },
   {
    "id": "211",
@@ -4048,7 +4263,8 @@
    "img": "pm211",
    "gender": "both",
    "released": true,
-   "shiny": "2020-07-25"
+   "shiny": "2020-07-25",
+   "shadow": true
   },
   {
    "id": "211-hisuian",
@@ -4079,7 +4295,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm212.g2",
-   "shiny": "2019-04-02"
+   "shiny": "2019-04-02",
+   "shadow": true
   },
   {
    "id": "213",
@@ -4094,7 +4311,9 @@
    "img": "pm213",
    "gender": "both",
    "released": true,
-   "shiny": "2019-04-18"
+   "shiny": "2019-04-18",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "214",
@@ -4126,7 +4345,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm215.g2",
-   "shiny": "2019-07-25"
+   "shiny": "2019-07-25",
+   "shadow": true
   },
   {
    "id": "215-hisuian",
@@ -4156,7 +4376,8 @@
    "img": "pm216",
    "gender": "both",
    "released": true,
-   "shiny": "2020-03-26"
+   "shiny": "2020-03-26",
+   "shadow": true
   },
   {
    "id": "217",
@@ -4171,7 +4392,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm217.g2",
-   "shiny": "2020-03-26"
+   "shiny": "2020-03-26",
+   "shadow": true
   },
   {
    "id": "218",
@@ -4215,7 +4437,8 @@
    "img": "pm220",
    "gender": "both",
    "released": true,
-   "shiny": "2019-02-16"
+   "shiny": "2019-02-16",
+   "shadow": true
   },
   {
    "id": "221",
@@ -4231,7 +4454,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm221.g2",
-   "shiny": "2019-02-16"
+   "shiny": "2019-02-16",
+   "shadow": true
   },
   {
    "id": "222",
@@ -4304,7 +4528,8 @@
    "img": "pm225",
    "gender": "both",
    "released": true,
-   "shiny": "2018-12-18"
+   "shiny": "2018-12-18",
+   "shadow": true
   },
   {
    "id": "226",
@@ -4334,7 +4559,8 @@
    "img": "pm227",
    "gender": "both",
    "released": true,
-   "shiny": "2019-11-01"
+   "shiny": "2019-11-01",
+   "shadow": true
   },
   {
    "id": "228",
@@ -4349,7 +4575,8 @@
    "img": "pm228",
    "gender": "both",
    "released": true,
-   "shiny": "2018-08-01"
+   "shiny": "2018-08-01",
+   "shadow": true
   },
   {
    "id": "229",
@@ -4365,7 +4592,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm229.g2",
-   "shiny": "2018-08-01"
+   "shiny": "2018-08-01",
+   "shadow": true
   },
   {
    "id": "230",
@@ -4380,7 +4608,8 @@
    "img": "pm230",
    "gender": "both",
    "released": true,
-   "shiny": "2019-06-13"
+   "shiny": "2019-06-13",
+   "shadow": true
   },
   {
    "id": "231",
@@ -4394,7 +4623,8 @@
    "img": "pm231",
    "gender": "both",
    "released": true,
-   "shiny": "2022-02-26"
+   "shiny": "2022-02-26",
+   "shadow": true
   },
   {
    "id": "232",
@@ -4409,7 +4639,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm232.g2",
-   "shiny": "2022-02-26"
+   "shiny": "2022-02-26",
+   "shadow": true
   },
   {
    "id": "233",
@@ -4423,7 +4654,8 @@
    "img": "pm233",
    "gender": "none",
    "released": true,
-   "shiny": "2020-09-19"
+   "shiny": "2020-09-19",
+   "shadow": true
   },
   {
    "id": "234",
@@ -4437,7 +4669,8 @@
    "img": "pm234",
    "gender": "both",
    "released": true,
-   "shiny": "2019-12-24"
+   "shiny": "2019-12-24",
+   "shadow": true
   },
   {
    "id": "235",
@@ -4479,7 +4712,9 @@
    "img": "pm237",
    "gender": "male",
    "released": true,
-   "shiny": "2022-02-26"
+   "shiny": "2022-02-26",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "238",
@@ -4550,7 +4785,8 @@
    "img": "pm242",
    "gender": "female",
    "released": true,
-   "shiny": "2020-02-13"
+   "shiny": "2020-02-13",
+   "dynamax": true
   },
   {
    "id": "243",
@@ -4565,7 +4801,9 @@
    "gender": "none",
    "released": true,
    "class": "legendary",
-   "shiny": "2019-06-29"
+   "shiny": "2019-06-29",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "244",
@@ -4580,7 +4818,9 @@
    "gender": "none",
    "released": true,
    "class": "legendary",
-   "shiny": "2019-07-14"
+   "shiny": "2019-07-14",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "245",
@@ -4595,7 +4835,9 @@
    "gender": "none",
    "released": true,
    "class": "legendary",
-   "shiny": "2019-08-17"
+   "shiny": "2019-08-17",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "246",
@@ -4610,7 +4852,8 @@
    "img": "pm246",
    "gender": "both",
    "released": true,
-   "shiny": "2018-06-16"
+   "shiny": "2018-06-16",
+   "shadow": true
   },
   {
    "id": "247",
@@ -4625,7 +4868,8 @@
    "img": "pm247",
    "gender": "both",
    "released": true,
-   "shiny": "2018-06-16"
+   "shiny": "2018-06-16",
+   "shadow": true
   },
   {
    "id": "248",
@@ -4640,7 +4884,8 @@
    "img": "pm248",
    "gender": "both",
    "released": true,
-   "shiny": "2018-06-16"
+   "shiny": "2018-06-16",
+   "shadow": true
   },
   {
    "id": "249",
@@ -4656,7 +4901,9 @@
    "gender": "none",
    "released": true,
    "class": "legendary",
-   "shiny": "2018-03-16"
+   "shiny": "2018-03-16",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "250",
@@ -4672,7 +4919,9 @@
    "gender": "none",
    "released": true,
    "class": "legendary",
-   "shiny": "2018-05-19"
+   "shiny": "2018-05-19",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "251",
@@ -4702,7 +4951,8 @@
    "img": "pm252",
    "gender": "both",
    "released": true,
-   "shiny": "2019-03-23"
+   "shiny": "2019-03-23",
+   "shadow": true
   },
   {
    "id": "253",
@@ -4716,7 +4966,8 @@
    "img": "pm253",
    "gender": "both",
    "released": true,
-   "shiny": "2019-03-23"
+   "shiny": "2019-03-23",
+   "shadow": true
   },
   {
    "id": "254",
@@ -4730,7 +4981,8 @@
    "img": "pm254",
    "gender": "both",
    "released": true,
-   "shiny": "2019-03-23"
+   "shiny": "2019-03-23",
+   "shadow": true
   },
   {
    "id": "255",
@@ -4745,7 +4997,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm255.g2",
-   "shiny": "2019-05-19"
+   "shiny": "2019-05-19",
+   "shadow": true
   },
   {
    "id": "256",
@@ -4761,7 +5014,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm256.g2",
-   "shiny": "2019-05-19"
+   "shiny": "2019-05-19",
+   "shadow": true
   },
   {
    "id": "257",
@@ -4777,7 +5031,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm257.g2",
-   "shiny": "2019-05-19"
+   "shiny": "2019-05-19",
+   "shadow": true
   },
   {
    "id": "258",
@@ -4791,7 +5046,8 @@
    "img": "pm258",
    "gender": "both",
    "released": true,
-   "shiny": "2019-07-21"
+   "shiny": "2019-07-21",
+   "shadow": true
   },
   {
    "id": "259",
@@ -4806,7 +5062,8 @@
    "img": "pm259",
    "gender": "both",
    "released": true,
-   "shiny": "2019-07-21"
+   "shiny": "2019-07-21",
+   "shadow": true
   },
   {
    "id": "260",
@@ -4821,7 +5078,8 @@
    "img": "pm260",
    "gender": "both",
    "released": true,
-   "shiny": "2019-07-21"
+   "shiny": "2019-07-21",
+   "shadow": true
   },
   {
    "id": "261",
@@ -4835,7 +5093,8 @@
    "img": "pm261",
    "gender": "both",
    "released": true,
-   "shiny": "2018-02-15"
+   "shiny": "2018-02-15",
+   "shadow": true
   },
   {
    "id": "262",
@@ -4849,7 +5108,8 @@
    "img": "pm262",
    "gender": "both",
    "released": true,
-   "shiny": "2018-02-15"
+   "shiny": "2018-02-15",
+   "shadow": true
   },
   {
    "id": "263",
@@ -5041,7 +5301,8 @@
    "img": "pm273",
    "gender": "both",
    "released": true,
-   "shiny": "2020-05-23"
+   "shiny": "2020-05-23",
+   "shadow": true
   },
   {
    "id": "274",
@@ -5057,7 +5318,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm274.g2",
-   "shiny": "2020-05-23"
+   "shiny": "2020-05-23",
+   "shadow": true
   },
   {
    "id": "275",
@@ -5073,7 +5335,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm275.g2",
-   "shiny": "2020-05-23"
+   "shiny": "2020-05-23",
+   "shadow": true
   },
   {
    "id": "276",
@@ -5088,7 +5351,8 @@
    "img": "pm276",
    "gender": "both",
    "released": true,
-   "shiny": "2019-01-15"
+   "shiny": "2019-01-15",
+   "shadow": true
   },
   {
    "id": "277",
@@ -5103,7 +5367,8 @@
    "img": "pm277",
    "gender": "both",
    "released": true,
-   "shiny": "2019-01-15"
+   "shiny": "2019-01-15",
+   "shadow": true
   },
   {
    "id": "278",
@@ -5148,7 +5413,9 @@
    "img": "pm280",
    "gender": "both",
    "released": true,
-   "shiny": "2019-08-03"
+   "shiny": "2019-08-03",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "281",
@@ -5163,7 +5430,9 @@
    "img": "pm281",
    "gender": "both",
    "released": true,
-   "shiny": "2019-08-03"
+   "shiny": "2019-08-03",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "282",
@@ -5178,7 +5447,9 @@
    "img": "pm282",
    "gender": "both",
    "released": true,
-   "shiny": "2019-08-03"
+   "shiny": "2019-08-03",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "283",
@@ -5251,7 +5522,8 @@
    "img": "pm287",
    "gender": "both",
    "released": true,
-   "shiny": "2019-06-08"
+   "shiny": "2019-06-08",
+   "shadow": true
   },
   {
    "id": "288",
@@ -5265,7 +5537,8 @@
    "img": "pm288",
    "gender": "both",
    "released": true,
-   "shiny": "2019-06-08"
+   "shiny": "2019-06-08",
+   "shadow": true
   },
   {
    "id": "289",
@@ -5279,7 +5552,8 @@
    "img": "pm289",
    "gender": "both",
    "released": true,
-   "shiny": "2019-06-08"
+   "shiny": "2019-06-08",
+   "shadow": true
   },
   {
    "id": "290",
@@ -5338,7 +5612,8 @@
    "img": "pm293",
    "gender": "both",
    "released": true,
-   "shiny": "2021-07-17"
+   "shiny": "2021-07-17",
+   "shadow": true
   },
   {
    "id": "294",
@@ -5352,7 +5627,8 @@
    "img": "pm294",
    "gender": "both",
    "released": true,
-   "shiny": "2021-07-17"
+   "shiny": "2021-07-17",
+   "shadow": true
   },
   {
    "id": "295",
@@ -5366,7 +5642,8 @@
    "img": "pm295",
    "gender": "both",
    "released": true,
-   "shiny": "2021-07-17"
+   "shiny": "2021-07-17",
+   "shadow": true
   },
   {
    "id": "296",
@@ -5380,7 +5657,8 @@
    "img": "pm296",
    "gender": "both",
    "released": true,
-   "shiny": "2018-05-01"
+   "shiny": "2018-05-01",
+   "shadow": true
   },
   {
    "id": "297",
@@ -5394,7 +5672,8 @@
    "img": "pm297",
    "gender": "both",
    "released": true,
-   "shiny": "2018-05-01"
+   "shiny": "2018-05-01",
+   "shadow": true
   },
   {
    "id": "298",
@@ -5423,7 +5702,8 @@
    "img": "pm299",
    "gender": "both",
    "released": true,
-   "shiny": "2021-03-09"
+   "shiny": "2021-03-09",
+   "shadow": true
   },
   {
    "id": "300",
@@ -5466,7 +5746,9 @@
    "img": "pm302",
    "gender": "both",
    "released": true,
-   "shiny": "2017-10-20"
+   "shiny": "2017-10-20",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "303",
@@ -5481,7 +5763,9 @@
    "img": "pm303",
    "gender": "both",
    "released": true,
-   "shiny": "2017-12-08"
+   "shiny": "2017-12-08",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "304",
@@ -5496,7 +5780,8 @@
    "img": "pm304",
    "gender": "both",
    "released": true,
-   "shiny": "2018-01-23"
+   "shiny": "2018-01-23",
+   "shadow": true
   },
   {
    "id": "305",
@@ -5511,7 +5796,8 @@
    "img": "pm305",
    "gender": "both",
    "released": true,
-   "shiny": "2018-01-23"
+   "shiny": "2018-01-23",
+   "shadow": true
   },
   {
    "id": "306",
@@ -5526,7 +5812,8 @@
    "img": "pm306",
    "gender": "both",
    "released": true,
-   "shiny": "2018-01-23"
+   "shiny": "2018-01-23",
+   "shadow": true
   },
   {
    "id": "307",
@@ -5572,7 +5859,8 @@
    "img": "pm309",
    "gender": "both",
    "released": true,
-   "shiny": "2019-09-01"
+   "shiny": "2019-09-01",
+   "shadow": true
   },
   {
    "id": "310",
@@ -5586,7 +5874,8 @@
    "img": "pm310",
    "gender": "both",
    "released": true,
-   "shiny": "2019-09-01"
+   "shiny": "2019-09-01",
+   "shadow": true
   },
   {
    "id": "311",
@@ -5703,7 +5992,8 @@
    "img": "pm318",
    "gender": "both",
    "released": true,
-   "shiny": "2019-08-23"
+   "shiny": "2019-08-23",
+   "shadow": true
   },
   {
    "id": "319",
@@ -5718,7 +6008,8 @@
    "img": "pm319",
    "gender": "both",
    "released": true,
-   "shiny": "2019-08-23"
+   "shiny": "2019-08-23",
+   "shadow": true
   },
   {
    "id": "320",
@@ -5732,7 +6023,9 @@
    "img": "pm320",
    "gender": "both",
    "released": true,
-   "shiny": "2018-04-23"
+   "shiny": "2018-04-23",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "321",
@@ -5746,7 +6039,9 @@
    "img": "pm321",
    "gender": "both",
    "released": true,
-   "shiny": "2018-04-23"
+   "shiny": "2018-04-23",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "322",
@@ -5762,7 +6057,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm322.g2",
-   "shiny": "2022-06-04"
+   "shiny": "2022-06-04",
+   "shadow": true
   },
   {
    "id": "323",
@@ -5778,7 +6074,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm323.g2",
-   "shiny": "2022-06-04"
+   "shiny": "2022-06-04",
+   "shadow": true
   },
   {
    "id": "324",
@@ -5806,7 +6103,8 @@
    "img": "pm325",
    "gender": "both",
    "released": true,
-   "shiny": "2019-02-04"
+   "shiny": "2019-02-04",
+   "shadow": true
   },
   {
    "id": "326",
@@ -5820,7 +6118,8 @@
    "img": "pm326",
    "gender": "both",
    "released": true,
-   "shiny": "2019-02-04"
+   "shiny": "2019-02-04",
+   "shadow": true
   },
   {
    "id": "327-1",
@@ -5960,7 +6259,9 @@
    "img": "pm328",
    "gender": "both",
    "released": true,
-   "shiny": "2019-10-11"
+   "shiny": "2019-10-11",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "329",
@@ -5975,7 +6276,9 @@
    "img": "pm329",
    "gender": "both",
    "released": true,
-   "shiny": "2019-10-11"
+   "shiny": "2019-10-11",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "330",
@@ -5990,7 +6293,9 @@
    "img": "pm330",
    "gender": "both",
    "released": true,
-   "shiny": "2019-10-11"
+   "shiny": "2019-10-11",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "331",
@@ -6004,7 +6309,8 @@
    "img": "pm331",
    "gender": "both",
    "released": true,
-   "shiny": "2023-02-18"
+   "shiny": "2023-02-18",
+   "shadow": true
   },
   {
    "id": "332",
@@ -6020,7 +6326,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm332.g2",
-   "shiny": "2023-02-18"
+   "shiny": "2023-02-18",
+   "shadow": true
   },
   {
    "id": "333",
@@ -6035,7 +6342,8 @@
    "img": "pm333",
    "gender": "both",
    "released": true,
-   "shiny": "2018-02-09"
+   "shiny": "2018-02-09",
+   "shadow": true
   },
   {
    "id": "334",
@@ -6050,7 +6358,8 @@
    "img": "pm334",
    "gender": "both",
    "released": true,
-   "shiny": "2018-02-09"
+   "shiny": "2018-02-09",
+   "shadow": true
   },
   {
    "id": "335",
@@ -6123,7 +6432,8 @@
    "img": "pm339",
    "gender": "both",
    "released": true,
-   "shiny": "2019-08-23"
+   "shiny": "2019-08-23",
+   "shadow": true
   },
   {
    "id": "340",
@@ -6138,7 +6448,8 @@
    "img": "pm340",
    "gender": "both",
    "released": true,
-   "shiny": "2019-08-23"
+   "shiny": "2019-08-23",
+   "shadow": true
   },
   {
    "id": "341",
@@ -6152,7 +6463,8 @@
    "img": "pm341",
    "gender": "both",
    "released": true,
-   "shiny": "2022-05-13"
+   "shiny": "2022-05-13",
+   "shadow": true
   },
   {
    "id": "342",
@@ -6167,7 +6479,8 @@
    "img": "pm342",
    "gender": "both",
    "released": true,
-   "shiny": "2022-05-13"
+   "shiny": "2022-05-13",
+   "shadow": true
   },
   {
    "id": "343",
@@ -6182,7 +6495,8 @@
    "img": "pm343",
    "gender": "none",
    "released": true,
-   "shiny": "2020-03-27"
+   "shiny": "2020-03-27",
+   "shadow": true
   },
   {
    "id": "344",
@@ -6197,7 +6511,8 @@
    "img": "pm344",
    "gender": "none",
    "released": true,
-   "shiny": "2020-03-27"
+   "shiny": "2020-03-27",
+   "shadow": true
   },
   {
    "id": "345",
@@ -6212,7 +6527,8 @@
    "img": "pm345",
    "gender": "both",
    "released": true,
-   "shiny": "2019-06-04"
+   "shiny": "2019-06-04",
+   "shadow": true
   },
   {
    "id": "346",
@@ -6227,7 +6543,8 @@
    "img": "pm346",
    "gender": "both",
    "released": true,
-   "shiny": "2019-06-04"
+   "shiny": "2019-06-04",
+   "shadow": true
   },
   {
    "id": "347",
@@ -6242,7 +6559,8 @@
    "img": "pm347",
    "gender": "both",
    "released": true,
-   "shiny": "2019-06-04"
+   "shiny": "2019-06-04",
+   "shadow": true
   },
   {
    "id": "348",
@@ -6257,7 +6575,8 @@
    "img": "pm348",
    "gender": "both",
    "released": true,
-   "shiny": "2019-06-04"
+   "shiny": "2019-06-04",
+   "shadow": true
   },
   {
    "id": "349",
@@ -6271,7 +6590,8 @@
    "img": "pm349",
    "gender": "both",
    "released": true,
-   "shiny": "2019-01-19"
+   "shiny": "2019-01-19",
+   "shadow": true
   },
   {
    "id": "350",
@@ -6286,7 +6606,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm350.g2",
-   "shiny": "2019-01-19"
+   "shiny": "2019-01-19",
+   "shadow": true
   },
   {
    "id": "351",
@@ -6370,7 +6691,8 @@
    "img": "pm353",
    "gender": "both",
    "released": true,
-   "shiny": "2017-10-31"
+   "shiny": "2017-10-31",
+   "shadow": true
   },
   {
    "id": "354",
@@ -6384,7 +6706,8 @@
    "img": "pm354",
    "gender": "both",
    "released": true,
-   "shiny": "2017-10-31"
+   "shiny": "2017-10-31",
+   "shadow": true
   },
   {
    "id": "355",
@@ -6398,7 +6721,8 @@
    "img": "pm355",
    "gender": "both",
    "released": true,
-   "shiny": "2017-10-26"
+   "shiny": "2017-10-26",
+   "shadow": true
   },
   {
    "id": "356",
@@ -6412,7 +6736,8 @@
    "img": "pm356",
    "gender": "both",
    "released": true,
-   "shiny": "2017-10-26"
+   "shiny": "2017-10-26",
+   "shadow": true
   },
   {
    "id": "357",
@@ -6455,7 +6780,8 @@
    "img": "pm359",
    "gender": "both",
    "released": true,
-   "shiny": "2017-12-08"
+   "shiny": "2017-12-08",
+   "shadow": true
   },
   {
    "id": "360",
@@ -6483,7 +6809,8 @@
    "img": "pm361",
    "gender": "both",
    "released": true,
-   "shiny": "2017-12-21"
+   "shiny": "2017-12-21",
+   "shadow": true
   },
   {
    "id": "362",
@@ -6497,7 +6824,8 @@
    "img": "pm362",
    "gender": "both",
    "released": true,
-   "shiny": "2017-12-21"
+   "shiny": "2017-12-21",
+   "shadow": true
   },
   {
    "id": "363",
@@ -6512,7 +6840,8 @@
    "img": "pm363",
    "gender": "both",
    "released": true,
-   "shiny": "2021-12-16"
+   "shiny": "2021-12-16",
+   "shadow": true
   },
   {
    "id": "364",
@@ -6527,7 +6856,8 @@
    "img": "pm364",
    "gender": "both",
    "released": true,
-   "shiny": "2021-12-16"
+   "shiny": "2021-12-16",
+   "shadow": true
   },
   {
    "id": "365",
@@ -6542,7 +6872,8 @@
    "img": "pm365",
    "gender": "both",
    "released": true,
-   "shiny": "2021-12-16"
+   "shiny": "2021-12-16",
+   "shadow": true
   },
   {
    "id": "366",
@@ -6628,7 +6959,8 @@
    "img": "pm371",
    "gender": "both",
    "released": true,
-   "shiny": "2019-04-13"
+   "shiny": "2019-04-13",
+   "shadow": true
   },
   {
    "id": "372",
@@ -6642,7 +6974,8 @@
    "img": "pm372",
    "gender": "both",
    "released": true,
-   "shiny": "2019-04-13"
+   "shiny": "2019-04-13",
+   "shadow": true
   },
   {
    "id": "373",
@@ -6657,7 +6990,8 @@
    "img": "pm373",
    "gender": "both",
    "released": true,
-   "shiny": "2019-04-13"
+   "shiny": "2019-04-13",
+   "shadow": true
   },
   {
    "id": "374",
@@ -6672,7 +7006,9 @@
    "img": "pm374",
    "gender": "none",
    "released": true,
-   "shiny": "2018-10-21"
+   "shiny": "2018-10-21",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "375",
@@ -6687,7 +7023,9 @@
    "img": "pm375",
    "gender": "none",
    "released": true,
-   "shiny": "2018-10-21"
+   "shiny": "2018-10-21",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "376",
@@ -6702,7 +7040,9 @@
    "img": "pm376",
    "gender": "none",
    "released": true,
-   "shiny": "2018-10-21"
+   "shiny": "2018-10-21",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "377",
@@ -6717,7 +7057,9 @@
    "gender": "none",
    "released": true,
    "class": "legendary",
-   "shiny": "2019-11-01"
+   "shiny": "2019-11-01",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "378",
@@ -6732,7 +7074,9 @@
    "gender": "none",
    "released": true,
    "class": "legendary",
-   "shiny": "2019-11-01"
+   "shiny": "2019-11-01",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "379",
@@ -6747,7 +7091,9 @@
    "gender": "none",
    "released": true,
    "class": "legendary",
-   "shiny": "2019-11-01"
+   "shiny": "2019-11-01",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "380",
@@ -6763,7 +7109,9 @@
    "gender": "female",
    "released": true,
    "class": "legendary",
-   "shiny": "2019-02-22"
+   "shiny": "2019-02-22",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "381",
@@ -6779,7 +7127,9 @@
    "gender": "male",
    "released": true,
    "class": "legendary",
-   "shiny": "2019-04-15"
+   "shiny": "2019-04-15",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "382",
@@ -6794,7 +7144,8 @@
    "gender": "none",
    "released": true,
    "class": "legendary",
-   "shiny": "2018-06-07"
+   "shiny": "2018-06-07",
+   "shadow": true
   },
   {
    "id": "383",
@@ -6809,7 +7160,8 @@
    "gender": "none",
    "released": true,
    "class": "legendary",
-   "shiny": "2019-01-15"
+   "shiny": "2019-01-15",
+   "shadow": true
   },
   {
    "id": "384",
@@ -6915,7 +7267,8 @@
    "img": "pm387",
    "gender": "both",
    "released": true,
-   "shiny": "2019-09-14"
+   "shiny": "2019-09-14",
+   "shadow": true
   },
   {
    "id": "388",
@@ -6929,7 +7282,8 @@
    "img": "pm388",
    "gender": "both",
    "released": true,
-   "shiny": "2019-09-14"
+   "shiny": "2019-09-14",
+   "shadow": true
   },
   {
    "id": "389",
@@ -6944,7 +7298,8 @@
    "img": "pm389",
    "gender": "both",
    "released": true,
-   "shiny": "2019-09-14"
+   "shiny": "2019-09-14",
+   "shadow": true
   },
   {
    "id": "390",
@@ -6958,7 +7313,8 @@
    "img": "pm390",
    "gender": "both",
    "released": true,
-   "shiny": "2019-11-15"
+   "shiny": "2019-11-15",
+   "shadow": true
   },
   {
    "id": "391",
@@ -6973,7 +7329,8 @@
    "img": "pm391",
    "gender": "both",
    "released": true,
-   "shiny": "2019-11-15"
+   "shiny": "2019-11-15",
+   "shadow": true
   },
   {
    "id": "392",
@@ -6988,7 +7345,8 @@
    "img": "pm392",
    "gender": "both",
    "released": true,
-   "shiny": "2019-11-15"
+   "shiny": "2019-11-15",
+   "shadow": true
   },
   {
    "id": "393",
@@ -7002,7 +7360,8 @@
    "img": "pm393",
    "gender": "both",
    "released": true,
-   "shiny": "2020-01-18"
+   "shiny": "2020-01-18",
+   "shadow": true
   },
   {
    "id": "394",
@@ -7016,7 +7375,8 @@
    "img": "pm394",
    "gender": "both",
    "released": true,
-   "shiny": "2020-01-18"
+   "shiny": "2020-01-18",
+   "shadow": true
   },
   {
    "id": "395",
@@ -7031,7 +7391,8 @@
    "img": "pm395",
    "gender": "both",
    "released": true,
-   "shiny": "2020-01-18"
+   "shiny": "2020-01-18",
+   "shadow": true
   },
   {
    "id": "396",
@@ -7047,7 +7408,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm396.g2",
-   "shiny": "2022-07-17"
+   "shiny": "2022-07-17",
+   "shadow": true
   },
   {
    "id": "397",
@@ -7063,7 +7425,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm397.g2",
-   "shiny": "2022-07-17"
+   "shiny": "2022-07-17",
+   "shadow": true
   },
   {
    "id": "398",
@@ -7079,7 +7442,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm398.g2",
-   "shiny": "2022-07-17"
+   "shiny": "2022-07-17",
+   "shadow": true
   },
   {
    "id": "399",
@@ -7094,7 +7458,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm399.g2",
-   "shiny": "2021-06-25"
+   "shiny": "2021-06-25",
+   "shadow": true
   },
   {
    "id": "400",
@@ -7110,7 +7475,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm400.g2",
-   "shiny": "2021-06-25"
+   "shiny": "2021-06-25",
+   "shadow": true
   },
   {
    "id": "401",
@@ -7155,7 +7521,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm403.g2",
-   "shiny": "2018-10-16"
+   "shiny": "2018-10-16",
+   "shadow": true
   },
   {
    "id": "404",
@@ -7170,7 +7537,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm404.g2",
-   "shiny": "2018-10-16"
+   "shiny": "2018-10-16",
+   "shadow": true
   },
   {
    "id": "405",
@@ -7185,7 +7553,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm405.g2",
-   "shiny": "2018-10-16"
+   "shiny": "2018-10-16",
+   "shadow": true
   },
   {
    "id": "406",
@@ -7230,7 +7599,8 @@
    "img": "pm408",
    "gender": "both",
    "released": true,
-   "shiny": "2021-07-23"
+   "shiny": "2021-07-23",
+   "shadow": true
   },
   {
    "id": "409",
@@ -7244,7 +7614,8 @@
    "img": "pm409",
    "gender": "both",
    "released": true,
-   "shiny": "2021-07-23"
+   "shiny": "2021-07-23",
+   "shadow": true
   },
   {
    "id": "410",
@@ -7259,7 +7630,8 @@
    "img": "pm410",
    "gender": "both",
    "released": true,
-   "shiny": "2021-07-23"
+   "shiny": "2021-07-23",
+   "shadow": true
   },
   {
    "id": "411",
@@ -7274,7 +7646,8 @@
    "img": "pm411",
    "gender": "both",
    "released": true,
-   "shiny": "2021-07-23"
+   "shiny": "2021-07-23",
+   "shadow": true
   },
   {
    "id": "412-plant",
@@ -7392,7 +7765,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm415.g2",
-   "shiny": "2022-07-22"
+   "shiny": "2022-07-22",
+   "dynamax": true
   },
   {
    "id": "416",
@@ -7407,7 +7781,8 @@
    "img": "pm416",
    "gender": "female",
    "released": true,
-   "shiny": "2022-07-22"
+   "shiny": "2022-07-22",
+   "dynamax": true
   },
   {
    "id": "417",
@@ -7567,7 +7942,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm424.g2",
-   "shiny": "2019-05-07"
+   "shiny": "2019-05-07",
+   "shadow": true
   },
   {
    "id": "425",
@@ -7582,7 +7958,8 @@
    "img": "pm425",
    "gender": "both",
    "released": true,
-   "shiny": "2018-10-23"
+   "shiny": "2018-10-23",
+   "shadow": true
   },
   {
    "id": "426",
@@ -7597,7 +7974,8 @@
    "img": "pm426",
    "gender": "both",
    "released": true,
-   "shiny": "2018-10-23"
+   "shiny": "2018-10-23",
+   "shadow": true
   },
   {
    "id": "427",
@@ -7639,7 +8017,8 @@
    "img": "pm429",
    "gender": "both",
    "released": true,
-   "shiny": "2018-12-01"
+   "shiny": "2018-12-01",
+   "shadow": true
   },
   {
    "id": "430",
@@ -7654,7 +8033,8 @@
    "img": "pm430",
    "gender": "both",
    "released": true,
-   "shiny": "2018-11-14"
+   "shiny": "2018-11-14",
+   "shadow": true
   },
   {
    "id": "431",
@@ -7668,7 +8048,8 @@
    "img": "pm431",
    "gender": "both",
    "released": true,
-   "shiny": "2020-05-22"
+   "shiny": "2020-05-22",
+   "shadow": true
   },
   {
    "id": "432",
@@ -7682,7 +8063,8 @@
    "img": "pm432",
    "gender": "both",
    "released": true,
-   "shiny": "2020-05-22"
+   "shiny": "2020-05-22",
+   "shadow": true
   },
   {
    "id": "433",
@@ -7711,7 +8093,8 @@
    "img": "pm434",
    "gender": "both",
    "released": true,
-   "shiny": "2024-02-24"
+   "shiny": "2024-02-24",
+   "shadow": true
   },
   {
    "id": "435",
@@ -7726,7 +8109,8 @@
    "img": "pm435",
    "gender": "both",
    "released": true,
-   "shiny": "2024-02-24"
+   "shiny": "2024-02-24",
+   "shadow": true
   },
   {
    "id": "436",
@@ -7845,7 +8229,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm443.g2",
-   "shiny": "2019-12-17"
+   "shiny": "2019-12-17",
+   "shadow": true
   },
   {
    "id": "444",
@@ -7861,7 +8246,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm444.g2",
-   "shiny": "2019-12-17"
+   "shiny": "2019-12-17",
+   "shadow": true
   },
   {
    "id": "445",
@@ -7877,7 +8263,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm445.g2",
-   "shiny": "2019-12-17"
+   "shiny": "2019-12-17",
+   "shadow": true
   },
   {
    "id": "446",
@@ -7935,7 +8322,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm449.g2",
-   "shiny": "2020-02-07"
+   "shiny": "2020-02-07",
+   "shadow": true
   },
   {
    "id": "450",
@@ -7950,7 +8338,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm450.g2",
-   "shiny": "2020-02-07"
+   "shiny": "2020-02-07",
+   "shadow": true
   },
   {
    "id": "451",
@@ -7965,7 +8354,8 @@
    "img": "pm451",
    "gender": "both",
    "released": true,
-   "shiny": "2020-03-05"
+   "shiny": "2020-03-05",
+   "shadow": true
   },
   {
    "id": "452",
@@ -7980,7 +8370,8 @@
    "img": "pm452",
    "gender": "both",
    "released": true,
-   "shiny": "2020-03-05"
+   "shiny": "2020-03-05",
+   "shadow": true
   },
   {
    "id": "453",
@@ -7996,7 +8387,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm453.g2",
-   "shiny": "2020-03-31"
+   "shiny": "2020-03-31",
+   "shadow": true
   },
   {
    "id": "454",
@@ -8012,7 +8404,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm454.g2",
-   "shiny": "2020-03-31"
+   "shiny": "2020-03-31",
+   "shadow": true
   },
   {
    "id": "455",
@@ -8087,7 +8480,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm459.g2",
-   "shiny": "2019-12-24"
+   "shiny": "2019-12-24",
+   "shadow": true
   },
   {
    "id": "460",
@@ -8103,7 +8497,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm460.g2",
-   "shiny": "2019-12-24"
+   "shiny": "2019-12-24",
+   "shadow": true
   },
   {
    "id": "461",
@@ -8119,7 +8514,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm461.g2",
-   "shiny": "2019-07-25"
+   "shiny": "2019-07-25",
+   "shadow": true
   },
   {
    "id": "462",
@@ -8134,7 +8530,8 @@
    "img": "pm462",
    "gender": "none",
    "released": true,
-   "shiny": "2018-11-16"
+   "shiny": "2018-11-16",
+   "shadow": true
   },
   {
    "id": "463",
@@ -8164,7 +8561,9 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm464.g2",
-   "shiny": "2020-02-22"
+   "shiny": "2020-02-22",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "465",
@@ -8179,7 +8578,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm465.g2",
-   "shiny": "2020-07-24"
+   "shiny": "2020-07-24",
+   "shadow": true
   },
   {
    "id": "466",
@@ -8193,7 +8593,9 @@
    "img": "pm466",
    "gender": "both",
    "released": true,
-   "shiny": "2018-11-15"
+   "shiny": "2018-11-15",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "467",
@@ -8207,7 +8609,9 @@
    "img": "pm467",
    "gender": "both",
    "released": true,
-   "shiny": "2018-03-22"
+   "shiny": "2018-03-22",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "468",
@@ -8251,7 +8655,8 @@
    "img": "pm470",
    "gender": "both",
    "released": true,
-   "shiny": "2018-08-11"
+   "shiny": "2018-08-11",
+   "dynamax": true
   },
   {
    "id": "471",
@@ -8265,7 +8670,8 @@
    "img": "pm471",
    "gender": "both",
    "released": true,
-   "shiny": "2018-08-11"
+   "shiny": "2018-08-11",
+   "dynamax": true
   },
   {
    "id": "472",
@@ -8280,7 +8686,8 @@
    "img": "pm472",
    "gender": "both",
    "released": true,
-   "shiny": "2019-09-02"
+   "shiny": "2019-09-02",
+   "shadow": true
   },
   {
    "id": "473",
@@ -8296,7 +8703,8 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm473.g2",
-   "shiny": "2019-02-16"
+   "shiny": "2019-02-16",
+   "shadow": true
   },
   {
    "id": "474",
@@ -8310,7 +8718,8 @@
    "img": "pm474",
    "gender": "none",
    "released": true,
-   "shiny": "2020-09-19"
+   "shiny": "2020-09-19",
+   "shadow": true
   },
   {
    "id": "475",
@@ -8325,7 +8734,9 @@
    "img": "pm475",
    "gender": "male",
    "released": true,
-   "shiny": "2019-08-03"
+   "shiny": "2019-08-03",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "476",
@@ -8340,7 +8751,8 @@
    "img": "pm476",
    "gender": "both",
    "released": true,
-   "shiny": "2021-03-09"
+   "shiny": "2021-03-09",
+   "shadow": true
   },
   {
    "id": "477",
@@ -8354,7 +8766,8 @@
    "img": "pm477",
    "gender": "both",
    "released": true,
-   "shiny": "2017-10-26"
+   "shiny": "2017-10-26",
+   "shadow": true
   },
   {
    "id": "478",
@@ -8369,7 +8782,8 @@
    "img": "pm478",
    "gender": "female",
    "released": true,
-   "shiny": "2019-01-31"
+   "shiny": "2019-01-31",
+   "shadow": true
   },
   {
    "id": "479",
@@ -8470,7 +8884,8 @@
    "gender": "none",
    "released": true,
    "class": "legendary",
-   "shiny": "2021-09-14"
+   "shiny": "2021-09-14",
+   "dynamax": true
   },
   {
    "id": "481",
@@ -8485,7 +8900,8 @@
    "gender": "none",
    "released": true,
    "class": "legendary",
-   "shiny": "2021-09-14"
+   "shiny": "2021-09-14",
+   "dynamax": true
   },
   {
    "id": "482",
@@ -8500,7 +8916,8 @@
    "gender": "none",
    "released": true,
    "class": "legendary",
-   "shiny": "2021-09-14"
+   "shiny": "2021-09-14",
+   "dynamax": true
   },
   {
    "id": "483",
@@ -8516,7 +8933,9 @@
    "gender": "none",
    "released": true,
    "class": "legendary",
-   "shiny": "2021-07-23"
+   "shiny": "2021-07-23",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "483-origin",
@@ -8548,7 +8967,9 @@
    "gender": "none",
    "released": true,
    "class": "legendary",
-   "shiny": "2021-08-06"
+   "shiny": "2021-08-06",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "484-origin",
@@ -8580,7 +9001,8 @@
    "gender": "both",
    "released": true,
    "class": "legendary",
-   "shiny": "2020-01-07"
+   "shiny": "2020-01-07",
+   "shadow": true
   },
   {
    "id": "486",
@@ -8595,7 +9017,8 @@
    "gender": "none",
    "released": true,
    "class": "legendary",
-   "shiny": "2021-06-17"
+   "shiny": "2021-06-17",
+   "shadow": true
   },
   {
    "id": "487-altered",
@@ -8611,7 +9034,8 @@
    "gender": "none",
    "released": true,
    "class": "legendary",
-   "shiny": "2019-09-23"
+   "shiny": "2019-09-23",
+   "shadow": true
   },
   {
    "id": "487-origin",
@@ -8642,7 +9066,8 @@
    "gender": "female",
    "released": true,
    "class": "legendary",
-   "shiny": "2019-05-27"
+   "shiny": "2019-05-27",
+   "shadow": true
   },
   {
    "id": "489",
@@ -8685,7 +9110,8 @@
    "gender": "none",
    "released": true,
    "class": "mythical",
-   "shiny": "2020-03-06"
+   "shiny": "2020-03-06",
+   "shadow": true
   },
   {
    "id": "492-land",
@@ -8997,7 +9423,8 @@
    "img": "pm495",
    "gender": "both",
    "released": true,
-   "shiny": "2021-01-04"
+   "shiny": "2021-01-04",
+   "shadow": true
   },
   {
    "id": "496",
@@ -9011,7 +9438,8 @@
    "img": "pm496",
    "gender": "both",
    "released": true,
-   "shiny": "2021-01-04"
+   "shiny": "2021-01-04",
+   "shadow": true
   },
   {
    "id": "497",
@@ -9025,7 +9453,8 @@
    "img": "pm497",
    "gender": "both",
    "released": true,
-   "shiny": "2021-01-04"
+   "shiny": "2021-01-04",
+   "shadow": true
   },
   {
    "id": "498",
@@ -9039,7 +9468,8 @@
    "img": "pm498",
    "gender": "both",
    "released": true,
-   "shiny": "2021-07-03"
+   "shiny": "2021-07-03",
+   "shadow": true
   },
   {
    "id": "499",
@@ -9054,7 +9484,8 @@
    "img": "pm499",
    "gender": "both",
    "released": true,
-   "shiny": "2021-07-03"
+   "shiny": "2021-07-03",
+   "shadow": true
   },
   {
    "id": "500",
@@ -9069,7 +9500,8 @@
    "img": "pm500",
    "gender": "both",
    "released": true,
-   "shiny": "2021-07-03"
+   "shiny": "2021-07-03",
+   "shadow": true
   },
   {
    "id": "501",
@@ -9083,7 +9515,8 @@
    "img": "pm501",
    "gender": "both",
    "released": true,
-   "shiny": "2021-09-19"
+   "shiny": "2021-09-19",
+   "shadow": true
   },
   {
    "id": "502",
@@ -9097,7 +9530,8 @@
    "img": "pm502",
    "gender": "both",
    "released": true,
-   "shiny": "2021-09-19"
+   "shiny": "2021-09-19",
+   "shadow": true
   },
   {
    "id": "503",
@@ -9111,7 +9545,8 @@
    "img": "pm503",
    "gender": "both",
    "released": true,
-   "shiny": "2021-09-19"
+   "shiny": "2021-09-19",
+   "shadow": true
   },
   {
    "id": "503-hisuian",
@@ -9140,7 +9575,8 @@
    "img": "pm504",
    "gender": "both",
    "released": true,
-   "shiny": "2019-09-16"
+   "shiny": "2019-09-16",
+   "shadow": true
   },
   {
    "id": "505",
@@ -9154,7 +9590,8 @@
    "img": "pm505",
    "gender": "both",
    "released": true,
-   "shiny": "2019-09-16"
+   "shiny": "2019-09-16",
+   "shadow": true
   },
   {
    "id": "506",
@@ -9210,7 +9647,8 @@
    "img": "pm509",
    "gender": "both",
    "released": true,
-   "shiny": "2022-11-24"
+   "shiny": "2022-11-24",
+   "shadow": true
   },
   {
    "id": "510",
@@ -9224,7 +9662,8 @@
    "img": "pm510",
    "gender": "both",
    "released": true,
-   "shiny": "2022-11-24"
+   "shiny": "2022-11-24",
+   "shadow": true
   },
   {
    "id": "511",
@@ -9351,7 +9790,9 @@
    "img": "pm519",
    "gender": "both",
    "released": true,
-   "shiny": "2020-07-02"
+   "shiny": "2020-07-02",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "520",
@@ -9366,7 +9807,9 @@
    "img": "pm520",
    "gender": "both",
    "released": true,
-   "shiny": "2020-07-02"
+   "shiny": "2020-07-02",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "521",
@@ -9382,7 +9825,9 @@
    "gender": "both",
    "released": true,
    "femaleImg": "pm521.g2",
-   "shiny": "2020-07-02"
+   "shiny": "2020-07-02",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "522",
@@ -9396,7 +9841,8 @@
    "img": "pm522",
    "gender": "both",
    "released": true,
-   "shiny": "2021-09-28"
+   "shiny": "2021-09-28",
+   "shadow": true
   },
   {
    "id": "523",
@@ -9410,7 +9856,8 @@
    "img": "pm523",
    "gender": "both",
    "released": true,
-   "shiny": "2021-09-28"
+   "shiny": "2021-09-28",
+   "shadow": true
   },
   {
    "id": "524",
@@ -9424,7 +9871,9 @@
    "img": "pm524",
    "gender": "both",
    "released": true,
-   "shiny": "2020-08-14"
+   "shiny": "2020-08-14",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "525",
@@ -9438,7 +9887,9 @@
    "img": "pm525",
    "gender": "both",
    "released": true,
-   "shiny": "2020-08-14"
+   "shiny": "2020-08-14",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "526",
@@ -9452,7 +9903,8 @@
    "img": "pm526",
    "gender": "both",
    "released": true,
-   "shiny": "2020-08-14"
+   "shiny": "2020-08-14",
+   "dynamax": true
   },
   {
    "id": "527",
@@ -9467,7 +9919,8 @@
    "img": "pm527",
    "gender": "both",
    "released": true,
-   "shiny": "2020-07-24"
+   "shiny": "2020-07-24",
+   "dynamax": true
   },
   {
    "id": "528",
@@ -9482,7 +9935,8 @@
    "img": "pm528",
    "gender": "both",
    "released": true,
-   "shiny": "2020-07-24"
+   "shiny": "2020-07-24",
+   "dynamax": true
   },
   {
    "id": "529",
@@ -9496,7 +9950,9 @@
    "img": "pm529",
    "gender": "both",
    "released": true,
-   "shiny": "2023-04-20"
+   "shiny": "2023-04-20",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "530",
@@ -9511,7 +9967,9 @@
    "img": "pm530",
    "gender": "both",
    "released": true,
-   "shiny": "2023-04-20"
+   "shiny": "2023-04-20",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "531",
@@ -9539,7 +9997,8 @@
    "img": "pm532",
    "gender": "both",
    "released": true,
-   "shiny": "2020-03-13"
+   "shiny": "2020-03-13",
+   "shadow": true
   },
   {
    "id": "533",
@@ -9553,7 +10012,8 @@
    "img": "pm533",
    "gender": "both",
    "released": true,
-   "shiny": "2020-03-13"
+   "shiny": "2020-03-13",
+   "shadow": true
   },
   {
    "id": "534",
@@ -9567,7 +10027,8 @@
    "img": "pm534",
    "gender": "both",
    "released": true,
-   "shiny": "2020-03-13"
+   "shiny": "2020-03-13",
+   "shadow": true
   },
   {
    "id": "535",
@@ -9625,7 +10086,8 @@
    "img": "pm538",
    "gender": "male",
    "released": true,
-   "shiny": "2021-07-17"
+   "shiny": "2021-07-17",
+   "shadow": true
   },
   {
    "id": "539",
@@ -9639,7 +10101,8 @@
    "img": "pm539",
    "gender": "male",
    "released": true,
-   "shiny": "2021-07-17"
+   "shiny": "2021-07-17",
+   "shadow": true
   },
   {
    "id": "540",
@@ -9699,7 +10162,8 @@
    "img": "pm543",
    "gender": "both",
    "released": true,
-   "shiny": "2022-08-10"
+   "shiny": "2022-08-10",
+   "shadow": true
   },
   {
    "id": "544",
@@ -9714,7 +10178,8 @@
    "img": "pm544",
    "gender": "both",
    "released": true,
-   "shiny": "2022-08-10"
+   "shiny": "2022-08-10",
+   "shadow": true
   },
   {
    "id": "545",
@@ -9729,7 +10194,8 @@
    "img": "pm545",
    "gender": "both",
    "released": true,
-   "shiny": "2022-08-10"
+   "shiny": "2022-08-10",
+   "shadow": true
   },
   {
    "id": "546",
@@ -9903,7 +10369,9 @@
    "img": "pm554",
    "gender": "both",
    "released": true,
-   "shiny": "2021-07-06"
+   "shiny": "2021-07-06",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "554-galarian",
@@ -9945,7 +10413,9 @@
    "img": "pm555.fSTANDARD",
    "gender": "both",
    "released": true,
-   "shiny": "2021-07-06"
+   "shiny": "2021-07-06",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "556",
@@ -9974,7 +10444,8 @@
    "img": "pm557",
    "gender": "both",
    "released": true,
-   "shiny": "2020-06-25"
+   "shiny": "2020-06-25",
+   "shadow": true
   },
   {
    "id": "558",
@@ -9989,7 +10460,8 @@
    "img": "pm558",
    "gender": "both",
    "released": true,
-   "shiny": "2020-06-25"
+   "shiny": "2020-06-25",
+   "shadow": true
   },
   {
    "id": "559",
@@ -10092,7 +10564,8 @@
    "img": "pm564",
    "gender": "both",
    "released": true,
-   "shiny": "2022-06-07"
+   "shiny": "2022-06-07",
+   "shadow": true
   },
   {
    "id": "565",
@@ -10107,7 +10580,8 @@
    "img": "pm565",
    "gender": "both",
    "released": true,
-   "shiny": "2022-06-07"
+   "shiny": "2022-06-07",
+   "shadow": true
   },
   {
    "id": "566",
@@ -10122,7 +10596,8 @@
    "img": "pm566",
    "gender": "both",
    "released": true,
-   "shiny": "2022-06-07"
+   "shiny": "2022-06-07",
+   "shadow": true
   },
   {
    "id": "567",
@@ -10137,7 +10612,8 @@
    "img": "pm567",
    "gender": "both",
    "released": true,
-   "shiny": "2022-06-07"
+   "shiny": "2022-06-07",
+   "shadow": true
   },
   {
    "id": "568",
@@ -10151,7 +10627,9 @@
    "img": "pm568",
    "gender": "both",
    "released": true,
-   "shiny": "2021-04-20"
+   "shiny": "2021-04-20",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "569",
@@ -10165,7 +10643,9 @@
    "img": "pm569",
    "gender": "both",
    "released": true,
-   "shiny": "2021-04-20"
+   "shiny": "2021-04-20",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "570",
@@ -10263,7 +10743,8 @@
    "img": "pm574",
    "gender": "both",
    "released": true,
-   "shiny": "2023-11-15"
+   "shiny": "2023-11-15",
+   "shadow": true
   },
   {
    "id": "575",
@@ -10277,7 +10758,8 @@
    "img": "pm575",
    "gender": "both",
    "released": true,
-   "shiny": "2023-11-15"
+   "shiny": "2023-11-15",
+   "shadow": true
   },
   {
    "id": "576",
@@ -10291,7 +10773,8 @@
    "img": "pm576",
    "gender": "both",
    "released": true,
-   "shiny": "2023-11-15"
+   "shiny": "2023-11-15",
+   "shadow": true
   },
   {
    "id": "577",
@@ -10305,7 +10788,8 @@
    "img": "pm577",
    "gender": "both",
    "released": true,
-   "shiny": "2023-09-20"
+   "shiny": "2023-09-20",
+   "shadow": true
   },
   {
    "id": "578",
@@ -10319,7 +10803,8 @@
    "img": "pm578",
    "gender": "both",
    "released": true,
-   "shiny": "2023-09-20"
+   "shiny": "2023-09-20",
+   "shadow": true
   },
   {
    "id": "579",
@@ -10333,7 +10818,8 @@
    "img": "pm579",
    "gender": "both",
    "released": true,
-   "shiny": "2023-09-20"
+   "shiny": "2023-09-20",
+   "shadow": true
   },
   {
    "id": "580",
@@ -10348,7 +10834,8 @@
    "img": "pm580",
    "gender": "both",
    "released": true,
-   "shiny": "2024-07-05"
+   "shiny": "2024-07-05",
+   "shadow": true
   },
   {
    "id": "581",
@@ -10363,7 +10850,8 @@
    "img": "pm581",
    "gender": "both",
    "released": true,
-   "shiny": "2024-07-05"
+   "shiny": "2024-07-05",
+   "shadow": true
   },
   {
    "id": "582",
@@ -10554,7 +11042,8 @@
    "img": "pm588",
    "gender": "both",
    "released": true,
-   "shiny": "2022-06-04"
+   "shiny": "2022-06-04",
+   "shadow": true
   },
   {
    "id": "589",
@@ -10569,7 +11058,8 @@
    "img": "pm589",
    "gender": "both",
    "released": true,
-   "shiny": "2022-06-04"
+   "shiny": "2022-06-04",
+   "shadow": true
   },
   {
    "id": "590",
@@ -10584,7 +11074,8 @@
    "img": "pm590",
    "gender": "both",
    "released": true,
-   "shiny": "2022-07-01"
+   "shiny": "2022-07-01",
+   "shadow": true
   },
   {
    "id": "591",
@@ -10599,7 +11090,8 @@
    "img": "pm591",
    "gender": "both",
    "released": true,
-   "shiny": "2022-07-01"
+   "shiny": "2022-07-01",
+   "shadow": true
   },
   {
    "id": "592",
@@ -10688,7 +11180,8 @@
    "img": "pm595",
    "gender": "both",
    "released": true,
-   "shiny": "2023-08-27"
+   "shiny": "2023-08-27",
+   "shadow": true
   },
   {
    "id": "596",
@@ -10703,7 +11196,8 @@
    "img": "pm596",
    "gender": "both",
    "released": true,
-   "shiny": "2023-08-27"
+   "shiny": "2023-08-27",
+   "shadow": true
   },
   {
    "id": "597",
@@ -10718,7 +11212,8 @@
    "img": "pm597",
    "gender": "both",
    "released": true,
-   "shiny": "2020-11-07"
+   "shiny": "2020-11-07",
+   "shadow": true
   },
   {
    "id": "598",
@@ -10733,7 +11228,8 @@
    "img": "pm598",
    "gender": "both",
    "released": true,
-   "shiny": "2020-11-07"
+   "shiny": "2020-11-07",
+   "shadow": true
   },
   {
    "id": "599",
@@ -10860,7 +11356,8 @@
    "img": "pm607",
    "gender": "both",
    "released": true,
-   "shiny": "2022-10-15"
+   "shiny": "2022-10-15",
+   "shadow": true
   },
   {
    "id": "608",
@@ -10875,7 +11372,8 @@
    "img": "pm608",
    "gender": "both",
    "released": true,
-   "shiny": "2022-10-15"
+   "shiny": "2022-10-15",
+   "shadow": true
   },
   {
    "id": "609",
@@ -10890,7 +11388,8 @@
    "img": "pm609",
    "gender": "both",
    "released": true,
-   "shiny": "2022-10-15"
+   "shiny": "2022-10-15",
+   "shadow": true
   },
   {
    "id": "610",
@@ -10974,7 +11473,8 @@
    "img": "pm615",
    "gender": "none",
    "released": true,
-   "shiny": "2023-12-09"
+   "shiny": "2023-12-09",
+   "dynamax": true
   },
   {
    "id": "616",
@@ -10988,7 +11488,8 @@
    "img": "pm616",
    "gender": "both",
    "released": true,
-   "shiny": "2022-06-04"
+   "shiny": "2022-06-04",
+   "shadow": true
   },
   {
    "id": "617",
@@ -11002,7 +11503,8 @@
    "img": "pm617",
    "gender": "both",
    "released": true,
-   "shiny": "2022-06-04"
+   "shiny": "2022-06-04",
+   "shadow": true
   },
   {
    "id": "618",
@@ -11089,7 +11591,8 @@
    "img": "pm622",
    "gender": "none",
    "released": true,
-   "shiny": "2023-08-18"
+   "shiny": "2023-08-18",
+   "shadow": true
   },
   {
    "id": "623",
@@ -11104,7 +11607,8 @@
    "img": "pm623",
    "gender": "none",
    "released": true,
-   "shiny": "2023-08-18"
+   "shiny": "2023-08-18",
+   "shadow": true
   },
   {
    "id": "624",
@@ -11267,7 +11771,9 @@
    "img": "pm633",
    "gender": "both",
    "released": true,
-   "shiny": "2020-08-01"
+   "shiny": "2020-08-01",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "634",
@@ -11282,7 +11788,9 @@
    "img": "pm634",
    "gender": "both",
    "released": true,
-   "shiny": "2020-08-01"
+   "shiny": "2020-08-01",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "635",
@@ -11297,7 +11805,9 @@
    "img": "pm635",
    "gender": "both",
    "released": true,
-   "shiny": "2020-08-01"
+   "shiny": "2020-08-01",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "636",
@@ -11390,7 +11900,8 @@
    "gender": "male",
    "released": true,
    "class": "legendary",
-   "shiny": "2021-03-06"
+   "shiny": "2021-03-06",
+   "shadow": true
   },
   {
    "id": "641-therian",
@@ -11421,7 +11932,8 @@
    "gender": "male",
    "released": true,
    "class": "legendary",
-   "shiny": "2021-03-11"
+   "shiny": "2021-03-11",
+   "shadow": true
   },
   {
    "id": "642-therian",
@@ -11453,7 +11965,8 @@
    "gender": "none",
    "released": true,
    "class": "legendary",
-   "shiny": "2021-12-01"
+   "shiny": "2021-12-01",
+   "shadow": true
   },
   {
    "id": "644",
@@ -11469,7 +11982,8 @@
    "gender": "none",
    "released": true,
    "class": "legendary",
-   "shiny": "2021-12-01"
+   "shiny": "2021-12-01",
+   "shadow": true
   },
   {
    "id": "645-incarnate",
@@ -11485,7 +11999,8 @@
    "gender": "male",
    "released": true,
    "class": "legendary",
-   "shiny": "2021-03-01"
+   "shiny": "2021-03-01",
+   "shadow": true
   },
   {
    "id": "645-therian",
@@ -11691,7 +12206,8 @@
    "img": "pm650",
    "gender": "both",
    "released": true,
-   "shiny": "2023-01-07"
+   "shiny": "2023-01-07",
+   "shadow": true
   },
   {
    "id": "651",
@@ -11705,7 +12221,8 @@
    "img": "pm651",
    "gender": "both",
    "released": true,
-   "shiny": "2023-01-07"
+   "shiny": "2023-01-07",
+   "shadow": true
   },
   {
    "id": "652",
@@ -11720,7 +12237,8 @@
    "img": "pm652",
    "gender": "both",
    "released": true,
-   "shiny": "2023-01-07"
+   "shiny": "2023-01-07",
+   "shadow": true
   },
   {
    "id": "653",
@@ -11734,7 +12252,8 @@
    "img": "pm653",
    "gender": "both",
    "released": true,
-   "shiny": "2023-05-21"
+   "shiny": "2023-05-21",
+   "shadow": true
   },
   {
    "id": "654",
@@ -11748,7 +12267,8 @@
    "img": "pm654",
    "gender": "both",
    "released": true,
-   "shiny": "2023-05-21"
+   "shiny": "2023-05-21",
+   "shadow": true
   },
   {
    "id": "655",
@@ -11763,7 +12283,8 @@
    "img": "pm655",
    "gender": "both",
    "released": true,
-   "shiny": "2023-05-21"
+   "shiny": "2023-05-21",
+   "shadow": true
   },
   {
    "id": "656",
@@ -11777,7 +12298,8 @@
    "img": "pm656",
    "gender": "both",
    "released": true,
-   "shiny": "2023-08-13"
+   "shiny": "2023-08-13",
+   "shadow": true
   },
   {
    "id": "657",
@@ -11791,7 +12313,8 @@
    "img": "pm657",
    "gender": "both",
    "released": true,
-   "shiny": "2023-08-13"
+   "shiny": "2023-08-13",
+   "shadow": true
   },
   {
    "id": "658",
@@ -11806,7 +12329,8 @@
    "img": "pm658",
    "gender": "both",
    "released": true,
-   "shiny": "2023-08-13"
+   "shiny": "2023-08-13",
+   "shadow": true
   },
   {
    "id": "659",
@@ -11820,7 +12344,8 @@
    "img": "pm659",
    "gender": "both",
    "released": true,
-   "shiny": "2021-04-04"
+   "shiny": "2021-04-04",
+   "shadow": true
   },
   {
    "id": "660",
@@ -11835,7 +12360,8 @@
    "img": "pm660",
    "gender": "both",
    "released": true,
-   "shiny": "2021-04-04"
+   "shiny": "2021-04-04",
+   "shadow": true
   },
   {
    "id": "661",
@@ -11850,7 +12376,8 @@
    "img": "pm661",
    "gender": "both",
    "released": true,
-   "shiny": "2021-03-06"
+   "shiny": "2021-03-06",
+   "shadow": true
   },
   {
    "id": "662",
@@ -11865,7 +12392,8 @@
    "img": "pm662",
    "gender": "both",
    "released": true,
-   "shiny": "2021-03-06"
+   "shiny": "2021-03-06",
+   "shadow": true
   },
   {
    "id": "663",
@@ -11880,7 +12408,8 @@
    "img": "pm663",
    "gender": "both",
    "released": true,
-   "shiny": "2021-03-06"
+   "shiny": "2021-03-06",
+   "shadow": true
   },
   {
    "id": "664-archipelago",
@@ -13035,7 +13564,8 @@
    "img": "pm674",
    "gender": "both",
    "released": true,
-   "shiny": "2023-06-16"
+   "shiny": "2023-06-16",
+   "shadow": true
   },
   {
    "id": "675",
@@ -13050,7 +13580,8 @@
    "img": "pm675",
    "gender": "both",
    "released": true,
-   "shiny": "2023-06-16"
+   "shiny": "2023-06-16",
+   "shadow": true
   },
   {
    "id": "676-dandy",
@@ -13348,7 +13879,9 @@
    "img": "pm686",
    "gender": "both",
    "released": true,
-   "shiny": "2022-09-03"
+   "shiny": "2022-09-03",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "687",
@@ -13363,7 +13896,9 @@
    "img": "pm687",
    "gender": "both",
    "released": true,
-   "shiny": "2022-09-03"
+   "shiny": "2022-09-03",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "688",
@@ -13466,7 +14001,8 @@
    "img": "pm694",
    "gender": "both",
    "released": true,
-   "shiny": "2023-01-27"
+   "shiny": "2023-01-27",
+   "shadow": true
   },
   {
    "id": "695",
@@ -13481,7 +14017,8 @@
    "img": "pm695",
    "gender": "both",
    "released": true,
-   "shiny": "2023-01-27"
+   "shiny": "2023-01-27",
+   "shadow": true
   },
   {
    "id": "696",
@@ -13496,7 +14033,8 @@
    "img": "pm696",
    "gender": "both",
    "released": true,
-   "shiny": "2023-07-27"
+   "shiny": "2023-07-27",
+   "shadow": true
   },
   {
    "id": "697",
@@ -13511,7 +14049,8 @@
    "img": "pm697",
    "gender": "both",
    "released": true,
-   "shiny": "2023-07-27"
+   "shiny": "2023-07-27",
+   "shadow": true
   },
   {
    "id": "698",
@@ -13526,7 +14065,8 @@
    "img": "pm698",
    "gender": "both",
    "released": true,
-   "shiny": "2023-07-27"
+   "shiny": "2023-07-27",
+   "shadow": true
   },
   {
    "id": "699",
@@ -13541,7 +14081,8 @@
    "img": "pm699",
    "gender": "both",
    "released": true,
-   "shiny": "2023-07-27"
+   "shiny": "2023-07-27",
+   "shadow": true
   },
   {
    "id": "700",
@@ -13555,7 +14096,8 @@
    "img": "pm700",
    "gender": "both",
    "released": true,
-   "shiny": "2021-05-25"
+   "shiny": "2021-05-25",
+   "dynamax": true
   },
   {
    "id": "701",
@@ -13895,7 +14437,8 @@
    "img": "pm714",
    "gender": "both",
    "released": true,
-   "shiny": "2022-10-20"
+   "shiny": "2022-10-20",
+   "shadow": true
   },
   {
    "id": "715",
@@ -13910,7 +14453,8 @@
    "img": "pm715",
    "gender": "both",
    "released": true,
-   "shiny": "2022-10-20"
+   "shiny": "2022-10-20",
+   "shadow": true
   },
   {
    "id": "716",
@@ -14193,7 +14737,8 @@
    "img": "pm731",
    "gender": "both",
    "released": true,
-   "shiny": "2025-11-30"
+   "shiny": "2025-11-30",
+   "shadow": true
   },
   {
    "id": "732",
@@ -14208,7 +14753,8 @@
    "img": "pm732",
    "gender": "both",
    "released": true,
-   "shiny": "2025-11-30"
+   "shiny": "2025-11-30",
+   "shadow": true
   },
   {
    "id": "733",
@@ -14223,7 +14769,8 @@
    "img": "pm733",
    "gender": "both",
    "released": true,
-   "shiny": "2025-11-30"
+   "shiny": "2025-11-30",
+   "shadow": true
   },
   {
    "id": "734",
@@ -14265,7 +14812,8 @@
    "img": "pm736",
    "gender": "both",
    "released": true,
-   "shiny": "2023-09-23"
+   "shiny": "2023-09-23",
+   "shadow": true
   },
   {
    "id": "737",
@@ -14280,7 +14828,8 @@
    "img": "pm737",
    "gender": "both",
    "released": true,
-   "shiny": "2023-09-23"
+   "shiny": "2023-09-23",
+   "shadow": true
   },
   {
    "id": "738",
@@ -14295,7 +14844,8 @@
    "img": "pm738",
    "gender": "both",
    "released": true,
-   "shiny": "2023-09-23"
+   "shiny": "2023-09-23",
+   "shadow": true
   },
   {
    "id": "739",
@@ -14569,7 +15119,8 @@
    "img": "pm751",
    "gender": "both",
    "released": true,
-   "shiny": "2023-08-04"
+   "shiny": "2023-08-04",
+   "shadow": true
   },
   {
    "id": "752",
@@ -14584,7 +15135,8 @@
    "img": "pm752",
    "gender": "both",
    "released": true,
-   "shiny": "2023-08-04"
+   "shiny": "2023-08-04",
+   "shadow": true
   },
   {
    "id": "753",
@@ -14598,7 +15150,8 @@
    "img": "pm753",
    "gender": "both",
    "released": true,
-   "shiny": "2023-06-16"
+   "shiny": "2023-06-16",
+   "shadow": true
   },
   {
    "id": "754",
@@ -14612,7 +15165,8 @@
    "img": "pm754",
    "gender": "both",
    "released": true,
-   "shiny": "2023-06-16"
+   "shiny": "2023-06-16",
+   "shadow": true
   },
   {
    "id": "755",
@@ -14627,7 +15181,8 @@
    "img": "pm755",
    "gender": "both",
    "released": true,
-   "shiny": "2023-11-07"
+   "shiny": "2023-11-07",
+   "shadow": true
   },
   {
    "id": "756",
@@ -14642,7 +15197,8 @@
    "img": "pm756",
    "gender": "both",
    "released": true,
-   "shiny": "2023-11-07"
+   "shiny": "2023-11-07",
+   "shadow": true
   },
   {
    "id": "757",
@@ -14687,7 +15243,8 @@
    "img": "pm759",
    "gender": "both",
    "released": true,
-   "shiny": "2022-04-23"
+   "shiny": "2022-04-23",
+   "shadow": true
   },
   {
    "id": "760",
@@ -14702,7 +15259,8 @@
    "img": "pm760",
    "gender": "both",
    "released": true,
-   "shiny": "2022-04-23"
+   "shiny": "2022-04-23",
+   "shadow": true
   },
   {
    "id": "761",
@@ -14716,7 +15274,8 @@
    "img": "pm761",
    "gender": "female",
    "released": true,
-   "shiny": "2024-05-19"
+   "shiny": "2024-05-19",
+   "dynamax": true
   },
   {
    "id": "762",
@@ -14730,7 +15289,8 @@
    "img": "pm762",
    "gender": "female",
    "released": true,
-   "shiny": "2024-05-19"
+   "shiny": "2024-05-19",
+   "dynamax": true
   },
   {
    "id": "763",
@@ -14744,7 +15304,8 @@
    "img": "pm763",
    "gender": "female",
    "released": true,
-   "shiny": "2024-05-19"
+   "shiny": "2024-05-19",
+   "dynamax": true
   },
   {
    "id": "764",
@@ -14786,7 +15347,8 @@
    "img": "pm766",
    "gender": "both",
    "released": true,
-   "shiny": "2024-09-22"
+   "shiny": "2024-09-22",
+   "dynamax": true
   },
   {
    "id": "767",
@@ -14801,7 +15363,8 @@
    "img": "pm767",
    "gender": "both",
    "released": true,
-   "shiny": "2024-04-04"
+   "shiny": "2024-04-04",
+   "shadow": true
   },
   {
    "id": "768",
@@ -14816,7 +15379,8 @@
    "img": "pm768",
    "gender": "both",
    "released": true,
-   "shiny": "2024-04-04"
+   "shiny": "2024-04-04",
+   "shadow": true
   },
   {
    "id": "769",
@@ -14831,7 +15395,8 @@
    "img": "pm769",
    "gender": "both",
    "released": true,
-   "shiny": "2024-12-17"
+   "shiny": "2024-12-17",
+   "shadow": true
   },
   {
    "id": "770",
@@ -14846,7 +15411,8 @@
    "img": "pm770",
    "gender": "both",
    "released": true,
-   "shiny": "2024-12-17"
+   "shiny": "2024-12-17",
+   "shadow": true
   },
   {
    "id": "771",
@@ -15087,7 +15653,8 @@
    "img": "pm780",
    "gender": "both",
    "released": true,
-   "shiny": "2023-02-05"
+   "shiny": "2023-02-05",
+   "dynamax": true
   },
   {
    "id": "781",
@@ -15548,7 +16115,8 @@
    "gender": "none",
    "released": true,
    "class": "mythical",
-   "shiny": "2019-02-05"
+   "shiny": "2019-02-05",
+   "dynamax": true
   },
   {
    "id": "809",
@@ -15563,7 +16131,8 @@
    "gender": "none",
    "released": true,
    "class": "mythical",
-   "shiny": "2019-02-05"
+   "shiny": "2019-02-05",
+   "dynamax": true
   },
   {
    "id": "810",
@@ -15577,7 +16146,8 @@
    "img": "pm810",
    "gender": "both",
    "released": true,
-   "shiny": "2026-01-18"
+   "shiny": "2026-01-18",
+   "dynamax": true
   },
   {
    "id": "811",
@@ -15591,7 +16161,8 @@
    "img": "pm811",
    "gender": "both",
    "released": true,
-   "shiny": "2026-01-18"
+   "shiny": "2026-01-18",
+   "dynamax": true
   },
   {
    "id": "812",
@@ -15605,7 +16176,9 @@
    "img": "pm812",
    "gender": "both",
    "released": true,
-   "shiny": "2026-01-18"
+   "shiny": "2026-01-18",
+   "gmax": true,
+   "dynamax": true
   },
   {
    "id": "813",
@@ -15619,7 +16192,8 @@
    "img": "pm813",
    "gender": "both",
    "released": true,
-   "shiny": "2026-03-14"
+   "shiny": "2026-03-14",
+   "dynamax": true
   },
   {
    "id": "814",
@@ -15633,7 +16207,8 @@
    "img": "pm814",
    "gender": "both",
    "released": true,
-   "shiny": "2026-03-14"
+   "shiny": "2026-03-14",
+   "dynamax": true
   },
   {
    "id": "815",
@@ -15647,7 +16222,9 @@
    "img": "pm815",
    "gender": "both",
    "released": true,
-   "shiny": "2026-03-14"
+   "shiny": "2026-03-14",
+   "gmax": true,
+   "dynamax": true
   },
   {
    "id": "816",
@@ -15661,7 +16238,8 @@
    "img": "pm816",
    "gender": "both",
    "released": true,
-   "shiny": "2026-07-04"
+   "shiny": "2026-07-04",
+   "dynamax": true
   },
   {
    "id": "817",
@@ -15675,7 +16253,8 @@
    "img": "pm817",
    "gender": "both",
    "released": true,
-   "shiny": "2026-07-04"
+   "shiny": "2026-07-04",
+   "dynamax": true
   },
   {
    "id": "818",
@@ -15689,7 +16268,9 @@
    "img": "pm818",
    "gender": "both",
    "released": true,
-   "shiny": "2026-07-04"
+   "shiny": "2026-07-04",
+   "gmax": true,
+   "dynamax": true
   },
   {
    "id": "819",
@@ -15703,7 +16284,8 @@
    "img": "pm819",
    "gender": "both",
    "released": true,
-   "shiny": "2024-09-03"
+   "shiny": "2024-09-03",
+   "dynamax": true
   },
   {
    "id": "820",
@@ -15717,7 +16299,8 @@
    "img": "pm820",
    "gender": "both",
    "released": true,
-   "shiny": "2024-09-03"
+   "shiny": "2024-09-03",
+   "dynamax": true
   },
   {
    "id": "821",
@@ -15731,7 +16314,9 @@
    "img": "pm821",
    "gender": "both",
    "released": true,
-   "shiny": "2025-07-22"
+   "shiny": "2025-07-22",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "822",
@@ -15745,7 +16330,9 @@
    "img": "pm822",
    "gender": "both",
    "released": true,
-   "shiny": "2025-07-22"
+   "shiny": "2025-07-22",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "823",
@@ -15760,7 +16347,9 @@
    "img": "pm823",
    "gender": "both",
    "released": true,
-   "shiny": "2025-07-22"
+   "shiny": "2025-07-22",
+   "shadow": true,
+   "dynamax": true
   },
   {
    "id": "824",
@@ -15869,7 +16458,8 @@
    "img": "pm831",
    "gender": "both",
    "released": true,
-   "shiny": "2024-09-03"
+   "shiny": "2024-09-03",
+   "dynamax": true
   },
   {
    "id": "832",
@@ -15883,7 +16473,8 @@
    "img": "pm832",
    "gender": "both",
    "released": true,
-   "shiny": "2024-09-03"
+   "shiny": "2024-09-03",
+   "dynamax": true
   },
   {
    "id": "833",
@@ -16118,7 +16709,9 @@
    "img": "pm849.fAMPED",
    "gender": "both",
    "released": true,
-   "shiny": "2024-11-16"
+   "shiny": "2024-11-16",
+   "gmax": true,
+   "dynamax": true
   },
   {
    "id": "849-low-key",
@@ -16133,7 +16726,9 @@
    "img": "pm849.fLOW_KEY",
    "gender": "both",
    "released": true,
-   "shiny": "2024-11-16"
+   "shiny": "2024-11-16",
+   "gmax": true,
+   "dynamax": true
   },
   {
    "id": "850",
@@ -16148,7 +16743,8 @@
    "img": "pm850",
    "gender": "both",
    "released": true,
-   "shiny": "2026-03-17"
+   "shiny": "2026-03-17",
+   "dynamax": true
   },
   {
    "id": "851",
@@ -16163,7 +16759,8 @@
    "img": "pm851",
    "gender": "both",
    "released": true,
-   "shiny": "2026-03-17"
+   "shiny": "2026-03-17",
+   "dynamax": true
   },
   {
    "id": "852",
@@ -16259,7 +16856,8 @@
    "img": "pm856",
    "gender": "female",
    "released": true,
-   "shiny": "2025-11-07"
+   "shiny": "2025-11-07",
+   "dynamax": true
   },
   {
    "id": "857",
@@ -16273,7 +16871,8 @@
    "img": "pm857",
    "gender": "female",
    "released": true,
-   "shiny": "2025-11-07"
+   "shiny": "2025-11-07",
+   "dynamax": true
   },
   {
    "id": "858",
@@ -16288,7 +16887,8 @@
    "img": "pm858",
    "gender": "female",
    "released": true,
-   "shiny": "2025-11-07"
+   "shiny": "2025-11-07",
+   "dynamax": true
   },
   {
    "id": "859",
@@ -16333,7 +16933,8 @@
    "img": "pm861",
    "gender": "male",
    "released": true,
-   "shiny": "2025-11-07"
+   "shiny": "2025-11-07",
+   "gmax": true
   },
   {
    "id": "862",
@@ -16460,7 +17061,8 @@
    "img": "pm870",
    "gender": "none",
    "released": true,
-   "shiny": "2024-09-08"
+   "shiny": "2024-09-08",
+   "dynamax": true
   },
   {
    "id": "871",
@@ -16671,7 +17273,9 @@
    "img": "pm884",
    "gender": "both",
    "released": true,
-   "shiny": "2025-09-30"
+   "shiny": "2025-09-30",
+   "gmax": true,
+   "dynamax": true
   },
   {
    "id": "885",
@@ -16774,7 +17378,8 @@
    "img": "pm891",
    "gender": "both",
    "released": true,
-   "class": "legendary"
+   "class": "legendary",
+   "dynamax": true
   },
   {
    "id": "892-rapid-strike",
@@ -16789,7 +17394,8 @@
    "img": "pm892.fRAPID_STRIKE",
    "gender": "both",
    "released": true,
-   "class": "legendary"
+   "class": "legendary",
+   "dynamax": true
   },
   {
    "id": "892-single-strike",
@@ -16804,7 +17410,8 @@
    "img": "pm892.fSINGLE_STRIKE",
    "gender": "both",
    "released": true,
-   "class": "legendary"
+   "class": "legendary",
+   "dynamax": true
   },
   {
    "id": "893",
@@ -16849,7 +17456,8 @@
    "gender": "none",
    "released": true,
    "class": "legendary",
-   "shiny": "2024-11-27"
+   "shiny": "2024-11-27",
+   "dynamax": true
   },
   {
    "id": "896",
@@ -16937,7 +17545,8 @@
    "img": "pm901",
    "gender": "both",
    "released": true,
-   "shiny": "2022-11-12"
+   "shiny": "2022-11-12",
+   "shadow": true
   },
   {
    "id": "903",
@@ -16952,7 +17561,8 @@
    "img": "pm903",
    "gender": "both",
    "released": true,
-   "shiny": "2023-12-05"
+   "shiny": "2023-12-05",
+   "shadow": true
   },
   {
    "id": "904",
@@ -18140,7 +18750,8 @@
    "img": "pm979",
    "gender": "both",
    "released": true,
-   "shiny": "2024-01-19"
+   "shiny": "2024-01-19",
+   "shadow": true
   },
   {
    "id": "980",

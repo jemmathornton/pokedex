@@ -10,6 +10,8 @@ Where everything comes from (copies of what was read are kept in imports/go-<dat
 - PokeMiners' pogo_assets (the game's own picture files): which forms, female pictures and costumes exist.
 - Leek Duck's Shiny Checklist: which shinies are out (and the costume names as Leek Duck writes them).
 - PokeAPI's species table: male/female ratios (genderless, male only, female only, or both).
+- Serebii's lists (pokemongo/shadowpokemon.shtml, pokemongo/maxbattles.shtml): which Pokémon can be Shadow (and so
+  Purified), Dynamax and Gigantamax in GO. Regional forms aren't on Serebii's Shadow list, so only the plain ones get it.
 - Which species are out: pogoapi.net (frozen in early 2024) + anything with a shiny out + research/data/go-release-check.json
   (checked 9 Nov 2026) + data/go/release-fixes.json (by hand: {"<dex or entry id>": true/false}).
 Nothing here is made up: a costume Leek Duck doesn't name gets its game code tidied ("Halloween 2017").
@@ -19,7 +21,7 @@ from datetime import date
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, 'data', 'go')
-UA = {'User-Agent': "Jemma's Pokedex (private)"}
+UA = {'User-Agent': "Mozilla/5.0 (Jemma's Pokedex, private)"}
 SOURCES = {
     'pokedex.json': 'https://pokemon-go-api.github.io/pokemon-go-api/api/pokedex.json',
     'assets-tree.json': 'https://api.github.com/repos/PokeMiners/pogo_assets/git/trees/master?recursive=1',
@@ -27,7 +29,24 @@ SOURCES = {
     'leekduck-names.json': 'https://leekduck.com/shiny/name.json',
     'pogoapi-released.json': 'https://pogoapi.net/api/v1/released_pokemon.json',
     'pokeapi-species.csv': 'https://raw.githubusercontent.com/PokeAPI/pokeapi/master/data/v2/csv/pokemon_species.csv',
+    'serebii-shadowpokemon.html': 'https://www.serebii.net/pokemongo/shadowpokemon.shtml',
+    'serebii-maxbattles.html': 'https://www.serebii.net/pokemongo/maxbattles.shtml',
 }
+# Serebii writes a form as a letter after the number in its picture name ("849-l"); what that is here
+SEREBII_FORMS = {(849, ''): ['849-amped'], (849, 'l'): ['849-low-key'], (849, 'gi'): ['849-amped', '849-low-key'],
+                 (892, ''): ['892-single-strike'], (892, 'r'): ['892-rapid-strike'], (487, ''): ['487-altered'], (555, ''): ['555-standard'],
+                 (641, ''): ['641-incarnate'], (642, ''): ['642-incarnate'], (645, ''): ['645-incarnate']}
+SEREBII_REGION = {'a': 'alolan', 'g': 'galarian', 'h': 'hisuian', 'p': 'paldean'}
+
+
+def serebii_rows(html, start=None, end=None):
+    """(dex, form letter) for each Pokémon in a Serebii list, between two headings."""
+    if start:
+        html = html[html.index(start):]
+    if end:
+        html = html[:html.index(end)]
+    pat = r'<td class="cen">\s*#(\d{4})\s*</td>\s*<td class="cen">.*?<img src="/pokemongo/pokemon/(\d+)-?([a-z]*)\.png"'
+    return [(int(n), suf) for n, _, suf in re.findall(pat, html, re.S)]
 ASSET_DIRS = ('Images/Pokemon/Addressable Assets/', 'Images/Pokemon - 256x256/Addressable Assets/')
 ASSET_RAW = 'https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/'
 
@@ -176,6 +195,34 @@ def main():
             if key in shiny_out:
                 c['shiny'] = shiny_out[key] or True
             costumes.append(c)
+
+    # Shadow / Purified, Dynamax, Gigantamax: from Serebii's lists, onto the matching entries
+    byid = {e['id']: e for e in entries}
+    def targets(n, suf):
+        if (n, suf) in SEREBII_FORMS:
+            return [byid[i] for i in SEREBII_FORMS[(n, suf)] if i in byid]
+        if suf in ('', 'gi'):
+            return [byid[str(n)]] if str(n) in byid else []
+        if suf in SEREBII_REGION:
+            return [e for e in entries if e['dex'] == n and e['id'].startswith(f'{n}-{SEREBII_REGION[suf]}')]
+        return []
+    shadow_html = open(paths['serebii-shadowpokemon.html'], encoding='latin-1').read()
+    max_html = open(paths['serebii-maxbattles.html'], encoding='latin-1').read()
+    unmatched = []
+    for flag, rows in (('shadow', serebii_rows(shadow_html, 'List of Available Shadow')),
+                       ('gmax', serebii_rows(max_html, 'List of Gigantamax Capable', 'List of Dynamax Capable')),
+                       ('dynamax', serebii_rows(max_html, 'List of Dynamax Capable'))):
+        hits = 0
+        for n, suf in rows:
+            ts = [e for e in targets(n, suf) if e['released']]
+            if not ts:
+                unmatched.append(f'{flag} {n}{"-" + suf if suf else ""}')
+            for e in ts:
+                e[flag] = True
+                hits += 1
+        print(f'{flag}: {len(rows)} on Serebii’s list, {hits} entries marked')
+    if unmatched:
+        print('Not matched (check):', ', '.join(unmatched))
 
     entries.sort(key=lambda e: (e['dex'], e['form'] is not None, e['form'] or ''))
     costumes.sort(key=lambda c: (c['dex'], c['code']))

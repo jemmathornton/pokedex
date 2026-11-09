@@ -10,8 +10,8 @@ Everything waiting on you. **Do** = just do it; **Decide** = your call. Tell Cla
 - **Do:** Start ticking your shinies and luckies.
 
 ## Decide
-- **Decide:** Extra boxes? For now there’s caught ♂/♀, shiny ♂/♀, lucky and 4★. Possible extras: shiny lucky, shiny 4★ (shundo), lucky ♂/♀, shadow and purified.
-- **Decide:** Gender boxes for every Pokémon that comes in both genders (as now: 947 of them), or only for the 96 whose female looks different?
+- **Decide:** Any more boxes? There’s now ♂, ♀ (or Caught), Shiny, Lucky, 4★, and Shadow, Purified, Dynamax and G-Max on the Pokémon that can be them. Others you could have: shiny lucky, shiny 4★ (shundo), shiny shadow.
+- **Decide:** Shadow regional forms (e.g. Alolan or Galarian ones): Serebii’s list only has the plain Pokémon, so they have no Shadow box yet. Want them looked up?
 - **Decide:** Background Pokémon in their event outfits: City Safari backgrounds only go on Explorer Hat Eevee, Road Trip ones on Summer Style Pikachu. Show the outfit pictures there instead of the plain ones?
 - **Decide:** Colours and layout: have a look and say what you’d change (Claude will show options as pictures).
 - **Decide:** Which game to add after GO, when you want it.

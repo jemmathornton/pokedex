@@ -24,7 +24,7 @@ const store = {
   set(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch {} },
 };
 const PREFS_KEY = "jemmas-pokedex-view";
-const prefs = Object.assign({show: "all", unreleased: false, costumes: "auto", events: "all"}, store.get(PREFS_KEY, {}));
+const prefs = Object.assign({show: "all", gender: "any", forms: "all", unreleased: false, costumes: "auto", events: "all"}, store.get(PREFS_KEY, {}));
 const keepPrefs = () => store.set(PREFS_KEY, prefs);
 
 // ---------- what there is ----------
@@ -44,55 +44,87 @@ function norm(c){ c = c || {}; return {have: c.have || {}, went: c.went || [], c
 const has = (key, t) => (COL.have[key] || []).includes(t);
 const hasAny = (key, ts) => ts.some(t => has(key, t));
 const dk = e => "d:" + e.id;
-// a shiny, lucky or 4★ one is caught too; a shiny female counts as a female
-const caught = e => (COL.have[dk(e)] || []).length > 0;
-const gotMale = e => hasAny(dk(e), ["cm", "sm"]), gotFemale = e => hasAny(dk(e), ["cf", "sf"]);
+const caught = e => (COL.have[dk(e)] || []).length > 0;   // any box ticked: she has one
+const gotBoth = e => has(dk(e), "cm") && has(dk(e), "cf");
+// species with more than one entry out in GO (Unown, Vivillon, Alolan Vulpix…): their entries are the "forms"
+const outBySpecies = {};
+ENTRIES.forEach(e => { if (e.released) (outBySpecies[e.dex] = outBySpecies[e.dex] || []).push(e); });
+const hasForms = e => (outBySpecies[e.dex] || []).length > 1;
+
+// the extra boxes, only on the Pokémon they can apply to (Serebii's lists, tools/import_go.py)
+const EXTRAS = [
+  {t: "sd", label: "Shadow", flag: "shadow", title: "Shadow"},
+  {t: "pu", label: "Purified", flag: "shadow", title: "Purified"},
+  {t: "dx", label: "Dynamax", flag: "dynamax", title: "Dynamax"},
+  {t: "gx", label: "G-Max", flag: "gmax", title: "Gigantamax"},
+];
 
 function counts(list){
-  const r = {caught: 0, shinyHave: 0, shinyOut: 0, lucky: 0, luckyOut: 0, hundo: 0, out: 0, genders: 0, gendersOut: 0};
+  const r = {species: 0, speciesOut: 0, forms: 0, formsOut: 0, genders: 0, gendersOut: 0, shiny: 0, shinyOut: 0,
+             lucky: 0, luckyOut: 0, hundo: 0, out: 0, sd: 0, pu: 0, shadowOut: 0, dx: 0, dynamaxOut: 0, gx: 0, gmaxOut: 0};
+  const species = {};
   for (const e of list) {
     if (!e.released) continue;
     const k = dk(e);
     r.out++;
-    if (caught(e)) r.caught++;
-    if (e.gender === "both") { r.gendersOut++; if (gotMale(e) && gotFemale(e)) r.genders++; }
-    if (e.shiny) { r.shinyOut++; if (hasAny(k, ["s", "sm", "sf"])) r.shinyHave++; }
+    species[e.dex] = species[e.dex] || caught(e);
+    if (hasForms(e)) { r.formsOut++; if (caught(e)) r.forms++; }
+    if (e.gender === "both") { r.gendersOut++; if (gotBoth(e)) r.genders++; }
+    if (e.shiny) { r.shinyOut++; if (has(k, "s")) r.shiny++; }
     if (canLucky(e)) { r.luckyOut++; if (has(k, "l")) r.lucky++; }
     if (has(k, "h")) r.hundo++;
+    if (e.shadow) { r.shadowOut++; if (has(k, "sd")) r.sd++; if (has(k, "pu")) r.pu++; }
+    if (e.dynamax) { r.dynamaxOut++; if (has(k, "dx")) r.dx++; }
+    if (e.gmax) { r.gmaxOut++; if (has(k, "gx")) r.gx++; }
   }
+  r.speciesOut = Object.keys(species).length;
+  r.species = Object.values(species).filter(Boolean).length;
   return r;
 }
 
+// the filters: what to show, which genders, forms
 const SHOWS = [
-  ["all", "Everything", () => true],
-  ["need-caught", "Not caught", e => !caught(e)],
-  ["need-gender", "Missing a gender", e => e.gender === "both" && !(gotMale(e) && gotFemale(e))],
-  ["need-shiny", "No shiny yet", e => e.shiny && !hasAny(dk(e), ["s", "sm", "sf"])],
-  ["need-lucky", "No lucky yet", e => canLucky(e) && !has(dk(e), "l")],
-  ["need-hundo", "No 4★ yet", e => !has(dk(e), "h")],
-  ["have-shiny", "Shinies I have", e => hasAny(dk(e), ["s", "sm", "sf"])],
-  ["have-lucky", "Luckies I have", e => has(dk(e), "l")],
+  ["Everything", [["all", "Everything", () => true]]],
+  ["Still to get", [
+    ["need-caught", "Not caught yet", e => !caught(e)],
+    ["need-gender", "Missing ♂ or ♀", e => e.gender === "both" && !gotBoth(e)],
+    ["need-shiny", "No shiny yet", e => e.shiny && !has(dk(e), "s")],
+    ["need-lucky", "No lucky yet", e => canLucky(e) && !has(dk(e), "l")],
+    ["need-hundo", "No 4★ yet", e => !has(dk(e), "h")],
+    ["need-shadow", "No shadow yet", e => e.shadow && !has(dk(e), "sd")],
+    ["need-purified", "No purified yet", e => e.shadow && !has(dk(e), "pu")],
+    ["need-dynamax", "No Dynamax yet", e => e.dynamax && !has(dk(e), "dx")],
+    ["need-gmax", "No Gigantamax yet", e => e.gmax && !has(dk(e), "gx")]]],
+  ["What I have", [
+    ["have-caught", "Caught", e => caught(e)],
+    ["have-shiny", "Shinies", e => has(dk(e), "s")],
+    ["have-lucky", "Luckies", e => has(dk(e), "l")],
+    ["have-hundo", "4★s", e => has(dk(e), "h")],
+    ["have-shadow", "Shadows", e => has(dk(e), "sd")],
+    ["have-purified", "Purified", e => has(dk(e), "pu")],
+    ["have-dynamax", "Dynamax", e => has(dk(e), "dx")],
+    ["have-gmax", "Gigantamax", e => has(dk(e), "gx")]]],
 ];
+const SHOW_LIST = SHOWS.flatMap(g => g[1]);
+const GENDERS = [["any", "Any", () => true], ["both", "Male and female", e => e.gender === "both"], ["male", "Male only", e => e.gender === "male"],
+                 ["female", "Female only", e => e.gender === "female"], ["none", "Genderless", e => e.gender === "none"]];
+const FORMS = [["all", "All Pokémon", () => true], ["forms", "Only ones with forms", hasForms], ["plain", "Only ones without forms", e => !hasForms(e)]];
+const GENDER_WORDS = {male: "♂ only", female: "♀ only", none: "Genderless"};
 
 // ---------- boxes on a card ----------
 function boxes(e){
-  const g = e.gender, b = [];
-  const gi = {male: ic("mars"), female: ic("venus")};
-  if (g === "both") {
-    b.push({t: "cm", c: "c", html: gi.male, title: "Caught: male"}, {t: "cf", c: "c", html: gi.female, title: "Caught: female"});
-    b.push({t: "sm", c: "s", html: ic("sparkles") + gi.male, title: "Shiny: male", off: !e.shiny},
-           {t: "sf", c: "s", html: ic("sparkles") + gi.female, title: "Shiny: female", off: !e.shiny});
-  } else {
-    b.push({t: "c", c: "c", html: gi[g] || "Caught", title: g === "none" ? "Caught" : `Caught (${g} only)`});
-    b.push({t: "s", c: "s", html: ic("sparkles") + (gi[g] || ""), title: "Shiny", off: !e.shiny});
-  }
-  b.push({t: "l", c: "l", html: ic("clover"), title: e.class === "mythical" ? "Mythical: can’t be traded, so never lucky" : "Lucky", off: !canLucky(e)});
-  b.push({t: "h", c: "h", html: "4★", title: "4★ (perfect IVs)", off: !e.released});
-  return b.map(x => {
-    const on = has(dk(e), x.t);
-    const title = x.off && x.c === "s" ? "No shiny in GO yet" : x.title;
-    return `<button class="tk ${x.c}" type="button" data-tick="${x.t}" aria-pressed="${on}" title="${attr(title)}" aria-label="${attr(title)}"${x.off && !on ? " disabled" : ""}>${x.html}</button>`;
-  }).join("");
+  const k = dk(e), btn = (t, cls, html, title, off) => {
+    const on = has(k, t);
+    return `<button class="tk ${cls}" type="button" data-tick="${t}" aria-pressed="${on}" title="${attr(title)}" aria-label="${attr(title)}"${off && !on ? " disabled" : ""}>${html}</button>`;
+  };
+  let row1 = e.gender === "both"
+    ? btn("cm", "c", ic("mars"), "Male") + btn("cf", "c", ic("venus"), "Female")
+    : btn("c", "c", ic("check") + "Caught", "Caught");
+  row1 += btn("s", "s", ic("sparkles") + "Shiny", e.shiny ? "Shiny" : "No shiny in GO yet", !e.shiny);
+  const row2 = btn("l", "l", ic("clover") + "Lucky", e.class === "mythical" ? "Mythical: can’t be traded, so never lucky" : "Lucky", !canLucky(e)) +
+    btn("h", "h", "4★", "4★ (perfect IVs)", !e.released);
+  const row3 = EXTRAS.filter(x => e[x.flag]).map(x => btn(x.t, x.t, esc(x.label), x.title)).join("");
+  return `<div class="ticks">${row1}</div><div class="ticks">${row2}</div>` + (row3 ? `<div class="ticks">${row3}</div>` : "");
 }
 
 // the picture: click to look through the versions there are (normal, female, shiny, shiny female)
@@ -104,15 +136,10 @@ function variants(item){
   if (item.femaleImg && sprite(item.femaleImg + ".s")) v.push({k: item.femaleImg + ".s", what: "Shiny ♀", s: true});
   return v;
 }
-function pic(item, key, shinyTicks){
+function pic(item, key){
   const v = variants(item);
   let i = picChoice.get(key);
-  if (i === undefined) {   // she has a shiny: show it (the female one if that's the only shiny she has)
-    const want = shinyTicks.filter(t => has(key, t));
-    const femaleOnly = want.length === 1 && want[0] === "sf";
-    const found = want.length ? v.findIndex(x => x.s && x.what.includes("♀") === femaleOnly) : -1;
-    i = found >= 0 ? found : want.length ? Math.max(0, v.findIndex(x => x.s)) : 0;
-  }
+  if (i === undefined) i = has(key, "s") ? Math.max(0, v.findIndex(x => x.s)) : 0;   // she has the shiny: show it
   i = i % v.length;
   const src = sprite(v[i].k);
   return `<button class="pic" type="button" data-pic="${attr(key)}" title="${v.length > 1 ? "Click to see the other versions" : ""}">` +
@@ -126,23 +153,29 @@ function card(e){
   if (e.class === "legendary") flags.push("Legendary");
   if (e.class === "mythical") flags.push("Mythical");
   if (e.class === "ultra-beast") flags.push("Ultra Beast");
+  const gw = GENDER_WORDS[e.gender];
   return `<div class="card${e.released ? "" : " out-not"}${has(dk(e), "l") ? " lucky-on" : ""}" data-id="${attr(e.id)}">` +
     `<span class="no">#${pad(e.dex)}</span>` + (flags.length ? `<span class="flags">${flags.map(f => `<span>${esc(f)}</span>`).join("")}</span>` : "") +
-    pic(e, dk(e), ["s", "sm", "sf"]) +
-    `<b class="nm">${esc(e.name)}</b><small class="fm">${esc(e.form || "")}</small>` +
-    `<div class="ticks">${boxes(e)}</div></div>`;
+    pic(e, dk(e)) +
+    `<b class="nm">${esc(e.name)}</b><small class="fm">${esc(e.form || "")}${e.form && gw ? " · " : ""}${gw ? `<span class="gd">${esc(gw)}</span>` : ""}</small>` +
+    boxes(e) + `</div>`;
 }
 
 // ---------- pages ----------
 const view = document.getElementById("view"), nav = document.getElementById("nav"), q = document.getElementById("q");
 
 function statsHtml(c){
-  return `<div class="stats">
-    <div class="stat caught"><b>${num(c.caught)}</b><span>${ic("check")}caught of ${num(c.out)}</span></div>
-    <div class="stat caught"><b>${num(c.genders)}</b><span>${ic("mars")}${ic("venus")}both of ${num(c.gendersOut)}</span></div>
-    <div class="stat shiny"><b>${num(c.shinyHave)}</b><span>${ic("sparkles")}shiny of ${num(c.shinyOut)}</span></div>
-    <div class="stat lucky"><b>${num(c.lucky)}</b><span>${ic("clover")}lucky of ${num(c.luckyOut)}</span></div>
-    <div class="stat hundo"><b>${num(c.hundo)}</b><span>${ic("star")}4★ of ${num(c.out)}</span></div></div>`;
+  const t = (cls, icon, have, of, what) => `<div class="stat ${cls}"><b>${num(have)}</b><span>${icon}${what} of ${num(of)}</span></div>`;
+  return `<div class="stats">` +
+    t("caught", ic("check"), c.species, c.speciesOut, "Pokémon") +
+    t("caught", ic("layers"), c.forms, c.formsOut, "forms") +
+    t("caught", ic("mars") + ic("venus"), c.genders, c.gendersOut, "both genders") +
+    t("shiny", ic("sparkles"), c.shiny, c.shinyOut, "shiny") +
+    t("lucky", ic("clover"), c.lucky, c.luckyOut, "lucky") +
+    t("hundo", ic("star"), c.hundo, c.out, "4★") +
+    (c.shadowOut ? t("shadow", "", c.sd, c.shadowOut, "shadow") + t("purified", "", c.pu, c.shadowOut, "purified") : "") +
+    (c.dynamaxOut ? t("dynamax", "", c.dx, c.dynamaxOut, "Dynamax") : "") +
+    (c.gmaxOut ? t("dynamax", "", c.gx, c.gmaxOut, "Gigantamax") : "") + `</div>`;
 }
 const readOnlyNote = () => readOnly ? `<div class="notice">${ic("info")} Opened from the folder, so ticks can’t be saved here. Open it with the Jemma’s Pokédex shortcut.</div>` : "";
 
@@ -153,11 +186,11 @@ function home(){
     const list = ENTRIES.filter(e => e.gen == g), k = counts(list);
     const row = (name, have, of, col) => `<span>${name}</span><span class="bar" style="--c:${col}"><i style="width:${of ? have / of * 100 : 0}%"></i></span><span class="v">${num(have)} / ${num(of)}</span>`;
     gens += `<a class="gen" href="#gen-${g}"><span class="label">Generation ${g}</span><h3>${GENS[g]}</h3><div class="rows">` +
-      row("Caught", k.caught, k.out, "var(--caught)") + row("Shiny", k.shinyHave, k.shinyOut, "var(--shiny)") +
+      row("Pokémon", k.species, k.speciesOut, "var(--caught)") + row("Shiny", k.shiny, k.shinyOut, "var(--shiny)") +
       row("Lucky", k.lucky, k.luckyOut, "var(--lucky)") + row("4★", k.hundo, k.out, "var(--hundo)") + `</div></a>`;
   }
   const went = EVENTS.filter(e => COL.went.includes(e.id)).length;
-  view.innerHTML = `<header class="hero"><span class="label">Pokémon GO · ${num(c.out)} Pokémon and forms out</span>
+  view.innerHTML = `<header class="hero"><span class="label">Pokémon GO · ${num(c.speciesOut)} Pokémon out, plus their forms</span>
     <h1>Jemma’s <em>Pokédex</em></h1>${statsHtml(c)}</header>${readOnlyNote()}
     <section class="section"><h2>By generation</h2><div class="gens">${gens}</div></section>
     <section class="section"><h2>Costumes and backgrounds</h2><div class="gens">
@@ -168,13 +201,20 @@ function home(){
 }
 
 function dexPage(title, label, list){
-  const shown = SHOWS.find(s => s[0] === prefs.show) || SHOWS[0];
-  const pool = list.filter(e => prefs.unreleased || e.released);
-  const items = pool.filter(shown[2]);
-  const hidden = list.length - pool.length;
+  const show = SHOW_LIST.find(x => x[0] === prefs.show) || SHOW_LIST[0];
+  const gender = GENDERS.find(x => x[0] === prefs.gender) || GENDERS[0];
+  const forms = FORMS.find(x => x[0] === prefs.forms) || FORMS[0];
+  const items = list.filter(e => (prefs.unreleased || e.released) && show[2](e) && gender[2](e) && forms[2](e));
+  const notOut = list.filter(e => !e.released).length;
+  const opts = (rows, cur) => rows.map(x => `<option value="${x[0]}"${x[0] === cur ? " selected" : ""}>${esc(x[1])}</option>`).join("");
+  const filtered = show[0] !== "all" || gender[0] !== "any" || forms[0] !== "all";
   view.innerHTML = `<header class="hero"><span class="label">${esc(label)}</span><h1>${title}</h1>${statsHtml(counts(list))}</header>${readOnlyNote()}
-    <div class="toolbar" id="toolbar">${SHOWS.map(s => `<button class="chip" type="button" data-show="${s[0]}" aria-pressed="${s[0] === shown[0]}">${esc(s[1])}${s[0] !== "all" ? ` <span class="n">${num(pool.filter(s[2]).length)}</span>` : ""}</button>`).join("")}
-      <span class="gap"></span>${hidden || prefs.unreleased ? `<button class="chip" type="button" data-unreleased aria-pressed="${prefs.unreleased}">${ic(prefs.unreleased ? "eye" : "eye-off")}Not out in GO yet <span class="n">${num(list.filter(e => !e.released).length)}</span></button>` : ""}</div>
+    <div class="toolbar filters" id="toolbar"><span class="label">${ic("eye")} Filters</span>
+      <label class="sel">Show <select data-pref="show">${SHOWS.map(g => g[0] === "Everything" ? opts(g[1], show[0]) : `<optgroup label="${esc(g[0])}">${opts(g[1], show[0])}</optgroup>`).join("")}</select></label>
+      <label class="sel">Gender <select data-pref="gender">${opts(GENDERS, gender[0])}</select></label>
+      <label class="sel">Forms <select data-pref="forms">${opts(FORMS, forms[0])}</select></label>
+      ${notOut ? `<label class="check"><input type="checkbox" data-pref="unreleased"${prefs.unreleased ? " checked" : ""}> Include ones not out in GO yet</label>` : ""}
+      <span class="gap"></span>${filtered ? `<button class="linkbtn" type="button" data-clear>Clear filters</button>` : ""}<span class="shown">${num(items.length)} shown</span></div>
     ${items.length ? `<div class="grid" id="grid">${items.map(card).join("")}</div>` : `<p class="empty">Nothing here.</p>`}`;
 }
 
@@ -190,13 +230,13 @@ function costumesPage(){
     <div class="stats"><div class="stat"><b>${num(COL.costumes.length)}</b><span>collecting, of ${num(COSTUMES.length)}</span></div>
     <div class="stat caught"><b>${num(haveAny)}</b><span>${ic("check")}caught</span></div>
     <div class="stat shiny"><b>${num(haveShiny)}</b><span>${ic("sparkles")}shiny</span></div></div></header>${readOnlyNote()}
-    <div class="toolbar"><button class="chip" type="button" data-cmode="collecting" aria-pressed="${mode === "collecting"}">${ic("list-checks")}Ones I’m collecting <span class="n">${num(COL.costumes.length)}</span></button>
-      <button class="chip" type="button" data-cmode="all" aria-pressed="${mode === "all"}">${ic("shirt")}Every costume <span class="n">${num(COSTUMES.length)}</span></button>
+    <div class="toolbar"><button class="chip" type="button" data-cmode="collecting" aria-pressed="${mode === "collecting"}">${ic("list-checks")}Ones I’m collecting</button>
+      <button class="chip" type="button" data-cmode="all" aria-pressed="${mode === "all"}">${ic("shirt")}Every costume</button>
       ${term ? `<span class="muted" style="font-size:13.5px">Matching “${esc(q.value.trim())}”</span>` : ""}</div>
     ${items.length ? `<div class="grid">${items.map(c => {
       const on = COL.costumes.includes(c.id), key = ck(c);
       return `<div class="card${on ? "" : " not-collecting"}" data-costume="${attr(c.id)}"><span class="no">#${pad(c.dex)}</span>` +
-        pic(c, key, ["s"]) + `<b class="nm">${esc(c.name)}</b><small class="fm">${esc(c.costume)}</small>` +
+        pic(c, key) + `<b class="nm">${esc(c.name)}</b><small class="fm">${esc(c.costume)}</small>` +
         (on ? `<div class="ticks"><button class="tk c" type="button" data-tick="c" aria-pressed="${has(key, "c")}" title="Caught">${ic("check")}Caught</button>` +
           `<button class="tk s" type="button" data-tick="s" aria-pressed="${has(key, "s")}" title="${c.shiny ? "Shiny" : "No shiny in GO yet"}"${!c.shiny && !has(key, "s") ? " disabled" : ""}>${ic("sparkles")}Shiny</button></div>` : "") +
         `<button class="chip collect" type="button" data-collect aria-pressed="${on}">${on ? ic("check") + "Collecting" : "Collect this"}</button></div>`;
@@ -231,7 +271,7 @@ function eventsPage(){
     <div class="stats"><div class="stat"><b>${num(COL.went.length)}</b><span>${ic("ticket")}been to, of ${num(EVENTS.length)}</span></div>
     <div class="stat"><b>${num(bgs)}</b><span>${ic("image")}with a background</span></div></div></header>${readOnlyNote()}
     <div class="toolbar">${[["all", "Every event", EVENTS.length], ["went", "Ones I went to", COL.went.length], ["bg", "With a background", EVENTS.filter(e => e.background).length]]
-      .map(([k, l, n]) => `<button class="chip" type="button" data-emode="${k}" aria-pressed="${mode === k}">${l} <span class="n">${num(n)}</span></button>`).join("")}</div>
+      .map(([k, l]) => `<button class="chip" type="button" data-emode="${k}" aria-pressed="${mode === k}">${l}</button>`).join("")}</div>
     <div class="events">${html || `<p class="empty">None yet: tick “I went” on the events you’ve been to.</p>`}</div>`;
 }
 
@@ -298,8 +338,7 @@ async function toggleList(list, id){
 document.addEventListener("click", ev => {
   const b = ev.target.closest("button");
   if (!b) return;
-  if (b.dataset.show) { prefs.show = b.dataset.show; keepPrefs(); return rerender(); }
-  if (b.hasAttribute("data-unreleased")) { prefs.unreleased = !prefs.unreleased; keepPrefs(); return rerender(); }
+  if (b.hasAttribute("data-clear")) { Object.assign(prefs, {show: "all", gender: "any", forms: "all"}); keepPrefs(); return rerender(); }
   if (b.dataset.cmode) { prefs.costumes = b.dataset.cmode; keepPrefs(); return rerender(); }
   if (b.dataset.emode) { prefs.events = b.dataset.emode; keepPrefs(); return rerender(); }
   if (b.dataset.pic) { const k = b.dataset.pic; picChoice.set(k, (picChoice.get(k) ?? currentPic(b)) + 1); return rerender(); }
@@ -317,6 +356,13 @@ function currentPic(btn){   // which version the picture shows now (so the first
   if (!item || !img) return 0;
   return Math.max(0, variants(item).findIndex(v => img.getAttribute("src") === sprite(v.k)));
 }
+
+document.addEventListener("change", ev => {   // the filters
+  const el = ev.target.closest("[data-pref]");
+  if (!el) return;
+  prefs[el.dataset.pref] = el.type === "checkbox" ? el.checked : el.value;
+  keepPrefs(); rerender();
+});
 
 let qTimer;
 q.addEventListener("input", () => {
