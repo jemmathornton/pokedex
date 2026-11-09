@@ -33,6 +33,15 @@ Claude’s jobs, and the record of what was decided. Everything waiting on Jemma
 - The “shown” count sits under the Working on label, so the tabs stay on one line.
 - Filter bar: tabs with Clear at the end; one line below with Still need / Have / All, a toggle (not a checkbox) for ones not out in GO yet, and how many are shown (her layout).
 
+## Overnight plan (her ask, 9 Nov, late; start when she says go)
+- [ ] Every Pokémon’s page filled in, “like the Sim pages”: GO’s own Pokédex description word for word (found: PokeMiners pogo_assets `Texts/Latest APK/JSON/i18n_english.json`, a `data` list of key, value pairs; keys `pokemon_desc_0001`, form ones like `pokemon_desc_0037_0056`, `pokemon_category_0001` = “Seed Pokémon”; 1,220 descriptions, 1,051 categories; a copy is in imports/go-2026-11-09/go-text-apk.json). Add them in tools/import_go.py (`desc`, `category` per entry, a form’s own text where it has one).
+- [ ] Also from the Game Master (imports/go-2026-11-09/gamemaster.json): height, weight, buddy distance, evolution family with candy costs (pokemon-go-api `evolutions` too).
+- [ ] Page layout: big clickable boxes at the top (Caught, Female, Male, Shiny, Lucky, 4★…), description, details, evolution family linking to the other pages, forms section, costumes, backgrounds; Previous / Next number links.
+- [ ] Banner and sidebar looks (she finds the plain red banner and sidebar not the nicest): 3–4 options in the app behind a bottom-right switch (e.g. each region its own colour with that region’s Pokémon pictures in the banner; a lighter cream look; a faded “parade” of the page’s Pokémon), plus pictures of each at 1280px for her.
+- [ ] Tidy Home, Costumes and Events pages to match the new cards and tiles; check dark mode.
+- [ ] Morning note (for-jemma) with what changed and any questions; commit after each piece.
+- Waiting on her: Dynamax and Gigantamax icon numbers (for-jemma/icon-options.jpg; current: up-arrows and cloud).
+
 ## Open
 - [x] 9 Nov, her ask (“as an app, not browser”): Desktop, Start menu and folder shortcuts made. They run tools/open_app.pyw, which starts the server if needed and then opens the app window, because Windows blocked a Startup-folder server. Opened for her.
 - [ ] Check the taskbar icon once she opens the app: the shortcuts carry the app id `Chrome.localhost_/.Chrome.Default`, the same as the Library’s (different Chrome profile and port). If the two group together or the icon is blurry, read the window’s real id and change it in tools/make_shortcuts.ps1.
