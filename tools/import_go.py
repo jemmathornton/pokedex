@@ -316,6 +316,23 @@ def main():
     if shiny_diff:
         print(f'Shiny out, Dittobase disagrees ({len(shiny_diff)}):', ', '.join(f'{i} (Dittobase: {"yes" if plain[i]["isShinyReleased"] else "no"})' for i in shiny_diff))
 
+    # a gender the game files keep as a form (Meowstic, Indeedee, Pyroar, Frillish, Jellicent, Oinkologne) is a gender
+    # difference like Pikachu's (her point, 9 Nov): one entry with both genders and a female picture
+    for n in sorted({e['dex'] for e in entries if e['form'] in ('Female', 'Male')}):
+        same = [e for e in entries if e['dex'] == n]
+        fem = next((e for e in same if e['form'] == 'Female'), None)
+        base = next((e for e in same if e['form'] is None), None) or next((e for e in same if e['form'] == 'Male'), None)
+        if not fem or not base:
+            continue
+        base.update(id=str(n), form=None, gender='both', femaleImg=fem['img'], released=base['released'] or fem['released'])
+        if fem.get('shiny') and not base.get('shiny'):
+            base['shiny'] = fem['shiny']
+        for flag in ('shadow', 'dynamax', 'gmax'):
+            if fem.get(flag):
+                base[flag] = True
+        entries.remove(fem)
+        print(f'genders as forms merged: #{n} {base["name"]}')
+
     for e in entries:
         e.pop('_fid', None)
         e.pop('_evos', None)

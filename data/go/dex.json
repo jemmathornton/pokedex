@@ -11152,22 +11152,8 @@
    "img": "pm592",
    "gender": "both",
    "released": true,
-   "shiny": "2023-02-08"
-  },
-  {
-   "id": "592-female",
-   "dex": 592,
-   "gen": 5,
-   "name": "Frillish",
-   "form": "Female",
-   "types": [
-    "Water",
-    "Ghost"
-   ],
-   "img": "pm592.fFEMALE",
-   "gender": "both",
-   "released": true,
-   "shiny": "2023-02-08"
+   "shiny": "2023-02-08",
+   "femaleImg": "pm592.fFEMALE"
   },
   {
    "id": "593",
@@ -11182,22 +11168,8 @@
    "img": "pm593",
    "gender": "both",
    "released": true,
-   "shiny": "2023-02-08"
-  },
-  {
-   "id": "593-female",
-   "dex": 593,
-   "gen": 5,
-   "name": "Jellicent",
-   "form": "Female",
-   "types": [
-    "Water",
-    "Ghost"
-   ],
-   "img": "pm593.fFEMALE",
-   "gender": "both",
-   "released": true,
-   "shiny": "2023-02-08"
+   "shiny": "2023-02-08",
+   "femaleImg": "pm593.fFEMALE"
   },
   {
    "id": "594",
@@ -13346,22 +13318,8 @@
    "img": "pm668",
    "gender": "both",
    "released": true,
-   "shiny": "2022-02-01"
-  },
-  {
-   "id": "668-female",
-   "dex": 668,
-   "gen": 6,
-   "name": "Pyroar",
-   "form": "Female",
-   "types": [
-    "Fire",
-    "Normal"
-   ],
-   "img": "pm668.fFEMALE",
-   "gender": "both",
-   "released": true,
-   "shiny": "2022-02-01"
+   "shiny": "2022-02-01",
+   "femaleImg": "pm668.fFEMALE"
   },
   {
    "id": "669-blue",
@@ -13798,21 +13756,8 @@
    "img": "pm678",
    "gender": "both",
    "released": true,
-   "shiny": "2022-02-01"
-  },
-  {
-   "id": "678-female",
-   "dex": 678,
-   "gen": 6,
-   "name": "Meowstic",
-   "form": "Female",
-   "types": [
-    "Psychic"
-   ],
-   "img": "pm678.fFEMALE",
-   "gender": "both",
-   "released": true,
-   "shiny": "2022-02-01"
+   "shiny": "2022-02-01",
+   "femaleImg": "pm678.fFEMALE"
   },
   {
    "id": "679",
@@ -17187,26 +17132,11 @@
    "released": false
   },
   {
-   "id": "876-female",
+   "id": "876",
    "dex": 876,
    "gen": 8,
    "name": "Indeedee",
-   "form": "Female",
-   "types": [
-    "Psychic",
-    "Normal"
-   ],
-   "img": "pm876.fFEMALE",
-   "gender": "both",
-   "released": true,
-   "shiny": "2025-09-16"
-  },
-  {
-   "id": "876-male",
-   "dex": 876,
-   "gen": 8,
-   "name": "Indeedee",
-   "form": "Male",
+   "form": null,
    "types": [
     "Psychic",
     "Normal"
@@ -17214,7 +17144,8 @@
    "img": "pm876.fMALE",
    "gender": "both",
    "released": true,
-   "shiny": "2025-09-16"
+   "shiny": "2025-09-16",
+   "femaleImg": "pm876.fFEMALE"
   },
   {
    "id": "877-full-belly",
@@ -17815,23 +17746,10 @@
     "Normal"
    ],
    "img": "pm916",
-   "gender": "male",
+   "gender": "both",
    "released": true,
-   "shiny": "2023-09-05"
-  },
-  {
-   "id": "916-female",
-   "dex": 916,
-   "gen": 9,
-   "name": "Oinkologne",
-   "form": "Female",
-   "types": [
-    "Normal"
-   ],
-   "img": "pm916.fFEMALE",
-   "gender": "male",
-   "released": true,
-   "shiny": "2023-09-05"
+   "shiny": "2023-09-05",
+   "femaleImg": "pm916.fFEMALE"
   },
   {
    "id": "917",
