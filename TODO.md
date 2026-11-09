@@ -9,13 +9,12 @@ Claude’s jobs, and the record of what was decided. Everything waiting on Jemma
 
 ## 9 Nov, later (her comments)
 - One of each gender and one shiny, kept apart: boxes are now ♂, ♀ (Caught for one-gender and genderless), Shiny, Lucky, 4★.
-- Genderless, ♂ only and ♀ only are written on each card, with a Gender filter.
-- Forms counted on their own (“forms” next to “Pokémon” in the counts) and a Forms filter.
-- Filters are now drop-downs (Show, Gender, Forms) and a “shown” count, apart from the counts at the top.
+- Genderless, ♂ only and ♀ only are written on each card.
+- Forms counted on their own (“forms” next to “Pokémon” in the counts).
+- Filters (her pick of three tried in the app): tabs for what she’s working on (Everything, Caught, Male, Female, Forms, Shiny, Lucky, 4★, Shadow, Purified, Dynamax, G-Max), then Still need / Have / All; the cards then show only that box. Her rule: every box is filtered the same way, Male, Female and Forms included; no separate Gender or Forms drop-downs. Cards keep the ♂ ♀ symbols.
 - Shadow, Purified, Dynamax and Gigantamax added, on the Pokémon Serebii lists for each (448 shadow, 145 Dynamax, 18 G-Max entries).
 
 ## Open
-- [ ] Trial (9 Nov, her ask; Male and Female are separate boxes in every layout, no Gender drop-down, her call; cards keep the ♂ ♀ symbols): three filter layouts in the app, switched at the bottom right. A: a drop-down per box; B: Any/Have/Need switches per box; C (shown first): pick the box you’re working on, cards show only that box. Once she picks, remove the other two, the switch (`trialSwitch` in app.js) and the trial CSS block.
 - [x] 9 Nov, her ask (“as an app, not browser”): Desktop, Start menu and folder shortcuts made. They run tools/open_app.pyw, which starts the server if needed and then opens the app window, because Windows blocked a Startup-folder server. Opened for her.
 - [ ] Check the taskbar icon once she opens the app: the shortcuts carry the app id `Chrome.localhost_/.Chrome.Default`, the same as the Library’s (different Chrome profile and port). If the two group together or the icon is blurry, read the window’s real id and change it in tools/make_shortcuts.ps1.
 - [ ] After 10 Nov: update Night Out London from what actually happened.

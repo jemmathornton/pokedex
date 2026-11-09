@@ -24,10 +24,8 @@ const store = {
   set(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch {} },
 };
 const PREFS_KEY = "jemmas-pokedex-view";
-const prefs = Object.assign({layout: "C", box: {}, work: "all", workShow: "need", gender: "any", forms: "all", type: "any", kind: "any",
+const prefs = Object.assign({work: "all", workShow: "need", gender: "any", forms: "all", type: "any", kind: "any",
   unreleased: false, costumes: "auto", events: "all"}, store.get(PREFS_KEY, {}));
-if (typeof prefs.box !== "object" || !prefs.box) prefs.box = {};
-delete prefs.box.genders;
 if (prefs.work === "genders") prefs.work = "all";
 const keepPrefs = () => store.set(PREFS_KEY, prefs);
 
@@ -90,13 +88,14 @@ function counts(list){
   return r;
 }
 
-// the filters. Trial (9 Nov, her ask): three layouts, A (a drop-down per box), B (Any/Have/Need switches per box),
-// C (pick the box you're working on: cards show only that box). The switch at the bottom right picks one; remove the
-// other two once she has chosen.
+// the filters (9 Nov, her pick of three tried): choose the box she's working on (tabs), then Still need / Have / All;
+// the cards then show only that box. Every box works the same way, Male, Female and Forms included (her rule).
 const BOXF = [   // each box as a filter: which Pokémon it applies to, and whether she has it
   {k: "caught", label: "Caught", applies: () => true, have: e => caught(e), ticks: ["c", "cm", "cf"]},
   {k: "male", label: "Male", applies: e => !!maleTick(e), have: gotMale, ticks: e => [maleTick(e)]},
   {k: "female", label: "Female", applies: e => !!femaleTick(e), have: gotFemale, ticks: e => [femaleTick(e)]},
+  {k: "forms", label: "Forms", applies: e => hasForms(e), have: e => caught(e),
+   ticks: e => e.gender === "none" ? ["c"] : [maleTick(e), femaleTick(e)].filter(Boolean)},
   {k: "shiny", label: "Shiny", applies: e => !!e.shiny, have: e => has(dk(e), "s"), ticks: ["s"]},
   {k: "lucky", label: "Lucky", applies: e => canLucky(e), have: e => has(dk(e), "l"), ticks: ["l"]},
   {k: "hundo", label: "4★", applies: e => e.released, have: e => has(dk(e), "h"), ticks: ["h"]},
@@ -107,20 +106,13 @@ const BOXF = [   // each box as a filter: which Pokémon it applies to, and whet
 ];
 const boxPass = (b, val, e) => val === "have" ? b.applies(e) && b.have(e) : val === "need" ? b.applies(e) && !b.have(e) : true;
 function boxFilter(e){
-  if (prefs.layout === "C") {
-    const b = BOXF.find(x => x.k === prefs.work);
-    return !b || (b.applies(e) && boxPass(b, prefs.workShow, e));
-  }
-  return BOXF.every(b => boxPass(b, prefs.box[b.k] || "any", e));
+  const b = BOXF.find(x => x.k === prefs.work);
+  return !b || (b.applies(e) && boxPass(b, prefs.workShow, e));
 }
 function onlyTicks(e){   // C: cards show only the box she's working on
-  const b = prefs.layout === "C" && BOXF.find(x => x.k === prefs.work);
+  const b = BOXF.find(x => x.k === prefs.work);
   return b ? (typeof b.ticks === "function" ? b.ticks(e) : b.ticks) : null;
 }
-const TYPES = [...new Set(ENTRIES.flatMap(e => e.types))].sort();
-const KINDS = [["any", "Any", () => true], ["legendary", "Legendary", e => e.class === "legendary"], ["mythical", "Mythical", e => e.class === "mythical"],
-               ["ultra-beast", "Ultra Beast", e => e.class === "ultra-beast"], ["ordinary", "Not legendary or mythical", e => !e.class]];
-const FORMS = [["all", "All Pokémon", () => true], ["forms", "Only ones with forms", hasForms], ["plain", "Only ones without forms", e => !hasForms(e)]];
 const GENDER_WORDS = {male: "♂ only", female: "♀ only", none: "Genderless"};
 
 // ---------- boxes on a card ----------
@@ -216,34 +208,17 @@ function home(){
 }
 
 function dexPage(title, label, list){
-  const pick = (rows, cur) => rows.find(x => x[0] === cur) || rows[0];
-  const forms = pick(FORMS, prefs.forms), kind = pick(KINDS, prefs.kind);
-  const items = list.filter(e => (prefs.unreleased || e.released) && boxFilter(e) && forms[2](e) && kind[2](e) &&
-    (prefs.type === "any" || e.types.includes(prefs.type)));
+  const items = list.filter(e => (prefs.unreleased || e.released) && boxFilter(e));
   const notOut = list.filter(e => !e.released).length;
-  const opts = (rows, cur) => rows.map(x => `<option value="${x[0]}"${x[0] === cur ? " selected" : ""}>${esc(x[1])}</option>`).join("");
-  const sel = (name, pref, rows) => `<label class="sel">${name} <select data-pref="${pref}">${opts(rows, prefs[pref])}</select></label>`;
   const seg = (attrName, cur, rows) => `<span class="opts">${rows.map(([v, l]) => `<button type="button" ${attrName}="${v}" aria-pressed="${v === cur}">${l}</button>`).join("")}</span>`;
-  let boxRows;
-  if (prefs.layout === "A") {
-    boxRows = `<div class="frow"><span class="label">Your boxes</span>${BOXF.map(b => `<label class="sel">${esc(b.label)} <select data-box="${b.k}">` +
-      opts([["any", "Any"], ["have", "Have it"], ["need", "Still need"]], prefs.box[b.k] || "any") + `</select></label>`).join("")}</div>`;
-  } else if (prefs.layout === "B") {
-    boxRows = `<div class="frow"><span class="label">Your boxes</span><div class="fgrid">${BOXF.map(b => `<span class="seg"><b>${esc(b.label)}</b>` +
-      seg(`data-box-${b.k}`, prefs.box[b.k] || "any", [["any", "Any"], ["have", "Have"], ["need", "Need"]]) + `</span>`).join("")}</div></div>`;
-  } else {
-    boxRows = `<div class="frow"><span class="label">Working on</span><div class="worktabs">` +
-      [{k: "all", label: "Everything"}, ...BOXF].map(b => `<button type="button" class="worktab" data-work="${b.k}" aria-pressed="${prefs.work === b.k}">${esc(b.label)}</button>`).join("") +
-      `</div></div>` + (prefs.work !== "all" ? `<div class="frow"><span class="label">Show</span><span class="seg">` +
-      seg("data-workshow", prefs.workShow, [["need", "Still need"], ["have", "Have"], ["all", "All"]]) + `</span></div>` : "");
-  }
-  const filtered = forms[0] !== "all" || kind[0] !== "any" || prefs.type !== "any" ||
-    (prefs.layout === "C" ? prefs.work !== "all" : Object.values(prefs.box).some(v => v && v !== "any"));
+  const boxRows = `<div class="frow"><span class="label">Working on</span><div class="worktabs">` +
+    [{k: "all", label: "Everything"}, ...BOXF].map(b => `<button type="button" class="worktab" data-work="${b.k}" aria-pressed="${prefs.work === b.k}">${esc(b.label)}</button>`).join("") +
+    `</div></div>` + (prefs.work !== "all" ? `<div class="frow"><span class="label">Show</span><span class="seg">` +
+    seg("data-workshow", prefs.workShow, [["need", "Still need"], ["have", "Have"], ["all", "All"]]) + `</span></div>` : "");
+  const filtered = prefs.work !== "all";
   view.innerHTML = `<header class="hero"><span class="label">${esc(label)}</span><h1>${title}</h1>${statsHtml(counts(list))}</header>${readOnlyNote()}
     <div class="toolbar filters" id="toolbar">${boxRows}
-      <div class="frow"><span class="label">The Pokémon</span>${sel("Forms", "forms", FORMS)}
-        ${sel("Type", "type", [["any", "Any type"], ...TYPES.map(t => [t, t])])}${sel("Kind", "kind", KINDS)}
-        ${notOut ? `<label class="check"><input type="checkbox" data-pref="unreleased"${prefs.unreleased ? " checked" : ""}> Include ones not out in GO yet</label>` : ""}
+      <div class="frow">${notOut ? `<label class="check"><input type="checkbox" data-pref="unreleased"${prefs.unreleased ? " checked" : ""}> Include ones not out in GO yet</label>` : ""}
         <span class="gap"></span>${filtered ? `<button class="linkbtn" type="button" data-clear>Clear filters</button>` : ""}<span class="shown">${num(items.length)} shown</span></div></div>
     ${items.length ? `<div class="grid" id="grid">${items.map(card).join("")}</div>` : `<p class="empty">Nothing here.</p>`}`;
 }
@@ -314,7 +289,6 @@ function navHtml(route){
 }
 
 function route(){
-  trialSwitch();
   const r = (location.hash || "#home").slice(1);
   const term = q.value.trim().toLowerCase();
   navHtml(r);
@@ -331,13 +305,6 @@ function route(){
   home();
 }
 function rerender(){ const y = scrollY; route(); scrollTo(0, y); }
-function trialSwitch(){   // trial: which filter layout (remove once she has chosen)
-  let el = document.getElementById("trial");
-  if (!el) { el = document.createElement("div"); el.id = "trial"; el.className = "trial"; document.body.appendChild(el); }
-  const names = {A: "A drop-down for each box", B: "Any / Have / Need switches", C: "Pick what you’re working on"};
-  el.innerHTML = `<span class="label">Trying out: filters</span><div class="opts">${Object.keys(names).map(k =>
-    `<button type="button" data-layout="${k}" aria-pressed="${prefs.layout === k}" title="${names[k]}">${k}</button>`).join("")}</div><small>${names[prefs.layout]}</small>`;
-}
 
 // ---------- saving ----------
 const toastEl = document.getElementById("toast");
@@ -376,12 +343,9 @@ async function toggleList(list, id){
 document.addEventListener("click", ev => {
   const b = ev.target.closest("button");
   if (!b) return;
-  if (b.hasAttribute("data-clear")) { Object.assign(prefs, {box: {}, work: "all", forms: "all", type: "any", kind: "any"}); keepPrefs(); return rerender(); }
-  if (b.dataset.layout) { prefs.layout = b.dataset.layout; keepPrefs(); return rerender(); }
+  if (b.hasAttribute("data-clear")) { Object.assign(prefs, {work: "all"}); keepPrefs(); return rerender(); }
   if (b.dataset.work) { prefs.work = b.dataset.work; keepPrefs(); return rerender(); }
   if (b.dataset.workshow) { prefs.workShow = b.dataset.workshow; keepPrefs(); return rerender(); }
-  const boxAttr = [...b.attributes].find(a => a.name.startsWith("data-box-"));
-  if (boxAttr) { prefs.box[boxAttr.name.slice(9)] = boxAttr.value; keepPrefs(); return rerender(); }
   if (b.dataset.cmode) { prefs.costumes = b.dataset.cmode; keepPrefs(); return rerender(); }
   if (b.dataset.emode) { prefs.events = b.dataset.emode; keepPrefs(); return rerender(); }
   if (b.dataset.pic) { const k = b.dataset.pic; picChoice.set(k, (picChoice.get(k) ?? currentPic(b)) + 1); return rerender(); }
@@ -401,8 +365,6 @@ function currentPic(btn){   // which version the picture shows now (so the first
 }
 
 document.addEventListener("change", ev => {   // the filters
-  const bx = ev.target.closest("[data-box]");
-  if (bx) { prefs.box[bx.dataset.box] = bx.value; keepPrefs(); return rerender(); }
   const el = ev.target.closest("[data-pref]");
   if (!el) return;
   prefs[el.dataset.pref] = el.type === "checkbox" ? el.checked : el.value;
