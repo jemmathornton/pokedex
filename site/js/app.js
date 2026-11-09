@@ -291,14 +291,14 @@ function dexPage(title, label, list){
   const groups = groupByNumber(items);
   const seg = (attrName, cur, rows) => `<span class="opts">${rows.map(([v, l]) => `<button type="button" ${attrName}="${v}" aria-pressed="${v === cur}">${l}</button>`).join("")}</span>`;
   const picked = prefs.work !== "all";
-  // one line: the tabs, then Clear and a "Show all" check (a tab shows the ones still needed; Show all adds the ones she
-  // has, lit up); the not-out switch under it where there are some; how many are shown sits by the title (her layout, 9 Nov)
+  // one line: the tabs, Clear, and on the far right a "Not owned" toggle, on when a tab is picked (untick it to
+  // see the ones she has too, lit up; her wording and place, 9 Nov); the not-out switch under it where there are some; how many are shown sits by the title (her layout, 9 Nov)
   view.innerHTML = `<header class="hero"><span class="label">${esc(label)} · ${num(groups.length)} shown</span><h1>${title}</h1>${statsHtml(counts(list))}</header>${readOnlyNote()}
     <div class="toolbar filters" id="toolbar">
-      <div class="frow"><div class="worktabs">` +
+      <div class="frow"><span class="label flabel">Filter</span><div class="worktabs">` +
       BOXF.map(b => `<button type="button" class="worktab" data-work="${b.k}" aria-pressed="${prefs.work === b.k}">${esc(b.label)}</button>`).join("") +
       (picked ? `<button class="linkbtn" type="button" data-clear>${ic("x")}Clear</button>
-        <button class="checkbtn" type="button" data-showall aria-pressed="${prefs.workShow === "all"}"><span class="cb">${prefs.workShow === "all" ? ic("check") : ""}</span>Show all</button>` : "") +
+        <button class="switchbtn" type="button" role="switch" data-showall aria-checked="${prefs.workShow === "need"}"><span class="track"></span>Not owned</button>` : "") +
       `</div></div>
       ${notOut ? `<div class="frow subrow">${seg("data-notout", prefs.unreleased ? "yes" : "no", [["no", "Out in GO"], ["yes", "Include not out yet"]])}</div>` : ""}</div>
     ${items.length ? `<div class="grid" id="grid">${groupCards(groups)}</div>` : `<p class="empty">Nothing here.</p>`}` + formsModal();
