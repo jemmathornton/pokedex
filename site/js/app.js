@@ -159,7 +159,6 @@ function pic(item, key){
 // Every Pokémon the same way, regional forms too (her point: Paldean Tauros should work like Unown). Regional forms sit
 // on their region's page, so there they group among themselves (Paldea: one Tauros card).
 const isRegional = e => !!REGION_GEN[(e.form || "").split(" ")[0]];
-const openForms = new Set();   // numbers whose forms are open (until the page is reloaded)
 function groupByNumber(items){
   const groups = [], byDex = {};
   for (const e of items) {
@@ -172,12 +171,31 @@ function groupByNumber(items){
     return {lead, others: g.filter(x => x !== lead).sort((a, b) => odd(a) - odd(b))};
   });
 }
-function groupCards(groups){
-  return groups.map(({lead, others}) => {
-    const open = openForms.has(lead.dex);
-    const more = others.length ? `<button class="morebtn" type="button" data-expand="${lead.dex}" aria-expanded="${open}">${open ? "Hide forms" : `+${others.length} form${others.length === 1 ? "" : "s"}`}</button>` : "";
-    return card(lead, more) + (open ? others.map(x => card(x, "", true)).join("") : "");
+// a Pokémon's other forms: small pictures inside its card (9 Nov: no expanding, and not as ordinary cards, her words).
+// Clicking one ticks that form: Caught, or with a tab on, that tab's box. Ticked ones light up in the box's colour.
+function formTick(e){
+  const b = BOXF.find(x => x.k === prefs.work);
+  if (!b) return "c";
+  if (!b.applies(e)) return null;
+  const t = typeof b.ticks === "function" ? b.ticks(e) : b.ticks;
+  return t[0];
+}
+function formStrip(others){
+  if (!others.length) return "";
+  const b = BOXF.find(x => x.k === prefs.work);
+  const thumbs = others.map(e => {
+    const t = formTick(e), got = b ? b.applies(e) && b.have(e) : caught(e);
+    const shinyPic = (prefs.work === "shiny" || has(dk(e), "s")) && sprite(e.img + ".s");
+    const src = shinyPic || sprite(e.img);
+    const what = `${e.form}${t ? "" : " (can’t be " + (b ? b.label.toLowerCase() : "") + ")"}`;
+    return `<button class="fthumb" type="button" data-formtick="${attr(e.id)}" data-t="${t || ""}" aria-pressed="${got}" title="${attr(what)}" aria-label="${attr(what)}"${t ? "" : " disabled"}` +
+      (got ? ` style="--hl:var(${HL[b ? b.k : "caught"]})"` : "") + `>${src ? `<img src="${src}" alt="" loading="lazy">` : "?"}</button>`;
   }).join("");
+  const have = others.filter(e => b ? b.applies(e) && b.have(e) : caught(e)).length;
+  return `<div class="forms"><span class="fl">${others.length} more form${others.length === 1 ? "" : "s"} · ${have} ticked</span><div class="fthumbs">${thumbs}</div></div>`;
+}
+function groupCards(groups){
+  return groups.map(({lead, others}) => card(lead, formStrip(others))).join("");
 }
 
 const HL = {caught: "--caught", male: "--male", female: "--female", shiny: "--shiny", lucky: "--lucky", hundo: "--hundo",
@@ -385,7 +403,7 @@ document.addEventListener("click", ev => {
   if (b.dataset.workshow) { prefs.workShow = b.dataset.workshow; keepPrefs(); return rerender(); }
   if (b.dataset.cmode) { prefs.costumes = b.dataset.cmode; keepPrefs(); return rerender(); }
   if (b.dataset.emode) { prefs.events = b.dataset.emode; keepPrefs(); return rerender(); }
-  if (b.dataset.expand) { const n = +b.dataset.expand; openForms.has(n) ? openForms.delete(n) : openForms.add(n); return rerender(); }
+  if (b.dataset.formtick) return tick("d:" + b.dataset.formtick, b.dataset.t, b.getAttribute("aria-pressed") !== "true");
   if (b.dataset.flip) {
     const k = b.dataset.pic, st = {...(picFlip.get(k) || {s: has(k, "s") || prefs.work === "shiny", f: false})};
     st[b.dataset.flip] = !st[b.dataset.flip]; picFlip.set(k, st); return rerender();

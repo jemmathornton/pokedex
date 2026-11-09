@@ -222,7 +222,7 @@ main{margin-left:var(--side);min-height:100vh;container-type:inline-size}
 .toolbar .sep{width:1px;height:22px;background:var(--line);margin:0 4px}
 
 /* ---------- Pokémon cards ---------- */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:12px;align-items:start}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:10px 10px 10px;display:flex;flex-direction:column;align-items:center;position:relative;text-align:center}
 .card.out-not{opacity:.6}
 .card .no{position:absolute;left:10px;top:8px;font-size:11.5px;font-weight:700;color:var(--muted);font-variant-numeric:tabular-nums}
@@ -335,6 +335,17 @@ main{margin-left:var(--side);min-height:100vh;container-type:inline-size}
 .flip:hover{border-color:var(--muted);color:var(--ink)}
 .flip.fs[aria-pressed="true"]{background:var(--shiny);border-color:var(--shiny);color:#fff}
 .flip.ff[aria-pressed="true"]{background:var(--female);border-color:var(--female);color:#fff}
+
+/* forms inside a card: small pictures, faded until ticked */
+.forms{margin-top:10px;width:100%;border-top:1px dashed var(--line);padding-top:8px}
+.forms .fl{display:block;font-size:11.5px;font-weight:700;color:var(--muted);margin-bottom:6px}
+.fthumbs{display:flex;flex-wrap:wrap;justify-content:center;gap:4px}
+.fthumb{width:32px;height:32px;padding:0;border:1px solid var(--line);border-radius:8px;background:var(--paper);cursor:pointer;display:grid;place-items:center}
+.fthumb img{width:28px;height:28px;object-fit:contain;opacity:.45;filter:grayscale(.5)}
+.fthumb:hover img{opacity:.8;filter:none}
+.fthumb[aria-pressed="true"]{border:2px solid var(--hl);background:color-mix(in srgb,var(--hl) 12%,var(--surface))}
+.fthumb[aria-pressed="true"] img{opacity:1;filter:none}
+.fthumb:disabled{cursor:default;opacity:.35}
 
 /* ---------- toast ---------- */
 .toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:var(--ink);color:var(--paper);padding:9px 16px;border-radius:10px;font-size:14px;font-weight:600;z-index:50;box-shadow:0 6px 24px rgba(0,0,0,.2)}
