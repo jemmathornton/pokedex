@@ -40,7 +40,8 @@ Claude’s jobs, and the record of what was decided. Everything waiting on Jemma
 - [ ] Banner and sidebar looks (she finds the plain red banner and sidebar not the nicest): 3–4 options in the app behind a bottom-right switch (e.g. each region its own colour with that region’s Pokémon pictures in the banner; a lighter cream look; a faded “parade” of the page’s Pokémon), plus pictures of each at 1280px for her.
 - [ ] Tidy Home, Costumes and Events pages to match the new cards and tiles; check dark mode.
 - [ ] Morning note (for-jemma) with what changed and any questions; commit after each piece.
-- Waiting on her: Dynamax and Gigantamax icon numbers (for-jemma/icon-options.jpg; current: up-arrows and cloud).
+- Waiting on her: Dynamax and Gigantamax icon numbers (for-jemma/icon-options-2.jpg: options from Lucide, Tabler, Phosphor only, the sets her apps use; the game’s symbol is a pink X, wider at the bottom; current: up-arrows and cloud). Phosphor butterfly is in icons.js already (with its MIT note in LICENSE-lucide.txt) but not used.
+- Done 9 Nov late: “Not caught” and “Not in GO” toggles stacked at the right end of the tabs line (same level, her ask; “yet” dropped); with Not in GO on, the Shiny tab also lists Pokémon whose shiny isn’t out (dashed box).
 
 ## Open
 - [x] 9 Nov, her ask (“as an app, not browser”): Desktop, Start menu and folder shortcuts made. They run tools/open_app.pyw, which starts the server if needed and then opens the app window, because Windows blocked a Startup-folder server. Opened for her.
