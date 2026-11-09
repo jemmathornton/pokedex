@@ -141,24 +141,18 @@ function boxes(e){
   return [row1, row2, row3].filter(Boolean).map(r => `<div class="ticks${only ? " big" : ""}">${r}</div>`).join("");
 }
 
-// the picture: click to look through the versions there are (normal, female, shiny, shiny female)
-const picChoice = new Map();
-function variants(item){
-  const v = [{k: item.img, what: ""}];
-  if (item.femaleImg) v.push({k: item.femaleImg, what: "♀"});
-  if (sprite(item.img + ".s")) v.push({k: item.img + ".s", what: "Shiny", s: true});
-  if (item.femaleImg && sprite(item.femaleImg + ".s")) v.push({k: item.femaleImg + ".s", what: "Shiny ♀", s: true});
-  return v;
-}
+// the picture: small ✨ and ♀ buttons on it flip to the shiny / female picture (9 Nov: clicking the picture itself was
+// too hidden, her words). It shows shiny by itself when she has the shiny or is working on shinies.
+const picFlip = new Map();   // key -> {s, f} she has flipped to (until the page is reloaded)
 function pic(item, key){
-  const v = variants(item);
-  let i = picChoice.get(key);
-  if (i === undefined) i = has(key, "s") ? Math.max(0, v.findIndex(x => x.s)) : 0;   // she has the shiny: show it
-  i = i % v.length;
-  const src = sprite(v[i].k);
-  return `<button class="pic" type="button" data-pic="${attr(key)}" title="${v.length > 1 ? "Click to see the other versions" : ""}">` +
-    (src ? `<img src="${src}" alt="" loading="lazy" decoding="async">` : `<span class="blank">?</span>`) +
-    (v[i].what ? `<span class="what${v[i].s ? " s" : ""}">${esc(v[i].what)}</span>` : "") + `</button>`;
+  const shinyPic = sprite(item.img + ".s"), femalePic = item.femaleImg && sprite(item.femaleImg);
+  const st = picFlip.get(key) || {s: has(key, "s") || prefs.work === "shiny", f: false};
+  const k = (st.f && femalePic ? item.femaleImg : item.img) + (st.s && shinyPic ? ".s" : "");
+  const src = sprite(k) || sprite(item.img);
+  const flip = (w, on, icon, title) => `<button class="flip${w === "s" ? " fs" : " ff"}" type="button" data-flip="${w}" data-pic="${attr(key)}" aria-pressed="${on}" title="${title}" aria-label="${title}">${icon}</button>`;
+  return `<div class="pic">` + (src ? `<img src="${src}" alt="" loading="lazy" decoding="async">` : `<span class="blank">?</span>`) +
+    `<span class="flips">` + (shinyPic ? flip("s", !!st.s, ic("sparkles"), st.s ? "Show the normal colours" : "Show the shiny") : "") +
+    (femalePic ? flip("f", !!st.f, ic("venus"), st.f ? "Show the male" : "Show the female (she looks different)") : "") + `</span></div>`;
 }
 
 // one card per Pokédex number, as in the game; its other forms open from a button on it (her call, 9 Nov).
@@ -391,7 +385,10 @@ document.addEventListener("click", ev => {
   if (b.dataset.cmode) { prefs.costumes = b.dataset.cmode; keepPrefs(); return rerender(); }
   if (b.dataset.emode) { prefs.events = b.dataset.emode; keepPrefs(); return rerender(); }
   if (b.dataset.expand) { const n = +b.dataset.expand; openForms.has(n) ? openForms.delete(n) : openForms.add(n); return rerender(); }
-  if (b.dataset.pic) { const k = b.dataset.pic; picChoice.set(k, (picChoice.get(k) ?? currentPic(b)) + 1); return rerender(); }
+  if (b.dataset.flip) {
+    const k = b.dataset.pic, st = {...(picFlip.get(k) || {s: has(k, "s") || prefs.work === "shiny", f: false})};
+    st[b.dataset.flip] = !st[b.dataset.flip]; picFlip.set(k, st); return rerender();
+  }
   if (b.hasAttribute("data-collect")) return toggleList("costumes", b.closest("[data-costume]").dataset.costume);
   if (b.hasAttribute("data-went")) return toggleList("went", b.closest("[data-event]").dataset.event);
   if (b.dataset.tick) {
@@ -400,12 +397,6 @@ document.addEventListener("click", ev => {
     return tick(key, b.dataset.tick, b.getAttribute("aria-pressed") !== "true");
   }
 });
-function currentPic(btn){   // which version the picture shows now (so the first click moves on from it)
-  const key = btn.dataset.pic, id = key.slice(2), item = key.startsWith("d:") ? byId[id] : costumeById[id];
-  const img = btn.querySelector("img");
-  if (!item || !img) return 0;
-  return Math.max(0, variants(item).findIndex(v => img.getAttribute("src") === sprite(v.k)));
-}
 
 document.addEventListener("change", ev => {   // the filters
   const el = ev.target.closest("[data-pref]");

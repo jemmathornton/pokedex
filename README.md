@@ -2,7 +2,9 @@
 
 **To open it:** double-click **Jemma’s Pokédex** on your Desktop (also in the Start menu, and in this folder). It opens in its own window.
 
-**Ticking:** every Pokémon has boxes for caught (♂ and ♀), shiny (♂ and ♀), lucky (the clover) and 4★. Click a box to tick it; it saves straight away. Click a Pokémon’s picture to see its other versions (female, shiny). Dashed boxes can’t be ticked yet (no shiny in GO, or a mythical that can never be lucky).
+**Ticking:** every Pokémon has boxes for Caught, ♂ and ♀, Shiny, Lucky (the clover) and 4★, plus Shadow, Purified, Dynamax and G-Max where they apply. Click a box to tick it; it saves straight away (ticking any box ticks Caught too). The little ✨ and ♀ buttons on a picture show the shiny or female look. Dashed boxes can’t be ticked yet (no shiny in GO, or a mythical that can never be lucky).
+
+**Working on:** pick a tab (Shiny, Lucky…) to see only that box, then Still need / Have / All. Pokémon with forms show one card with a “+N forms” button.
 
 **Costumes:** on the Costumes page, pick the ones you want with “Collect this”; they then get their own boxes.
 
