@@ -30,8 +30,18 @@ if (["genders", "caught"].includes(prefs.work)) prefs.work = "all";   // tabs th
 const keepPrefs = () => store.set(PREFS_KEY, prefs);
 
 // ---------- what there is ----------
-const GENS = {1: "Kanto", 2: "Johto", 3: "Hoenn", 4: "Sinnoh", 5: "Unova", 6: "Kalos", 7: "Alola", 8: "Galar", 9: "Paldea"};
+// the sections, in game order: [key, region, small label]. Hisui stands on its own between Galar and Paldea (her call, 9 Nov)
+const GENS = [["1", "Kanto", "Generation 1"], ["2", "Johto", "Generation 2"], ["3", "Hoenn", "Generation 3"], ["4", "Sinnoh", "Generation 4"],
+  ["5", "Unova", "Generation 5"], ["6", "Kalos", "Generation 6"], ["7", "Alola", "Generation 7"], ["8", "Galar", "Generation 8"],
+  ["hisui", "Hisui", "Legends: Arceus"], ["9", "Paldea", "Generation 9"]];
+const genById = Object.fromEntries(GENS.map(g => [g[0], g]));
 const ENTRIES = DATA.entries, COSTUMES = DATA.costumes, EVENTS = DATA.events;
+// regional forms go under their region, not their species' generation (her call, 9 Nov): Alolan Vulpix in Alola, not Kanto.
+// Hisui also gets the Pokémon that first appeared there (#899–905, Wyrdeer to Enamorus).
+const REGION_GEN = {Alolan: "7", Galarian: "8", Hisuian: "hisui", Paldean: "9"};
+ENTRIES.forEach(e => {
+  e.gen = REGION_GEN[(e.form || "").split(" ")[0]] || (e.dex >= 899 && e.dex <= 905 ? "hisui" : String(e.gen));
+});
 const SPRITES = new Set(DATA.sprites);
 const byId = Object.fromEntries(ENTRIES.map(e => [e.id, e]));
 const costumeById = Object.fromEntries(COSTUMES.map(c => [c.id, c]));
@@ -189,10 +199,10 @@ const readOnlyNote = () => readOnly ? `<div class="notice">${ic("info")} Opened 
 function home(){
   const c = counts(ENTRIES);
   let gens = "";
-  for (const g of Object.keys(GENS)) {
-    const list = ENTRIES.filter(e => e.gen == g), k = counts(list);
+  for (const [g, region, small] of GENS) {
+    const list = ENTRIES.filter(e => e.gen === g), k = counts(list);
     const row = (name, have, of, col) => `<span>${name}</span><span class="bar" style="--c:${col}"><i style="width:${of ? have / of * 100 : 0}%"></i></span><span class="v">${num(have)} / ${num(of)}</span>`;
-    gens += `<a class="gen" href="#gen-${g}"><span class="label">Generation ${g}</span><h3>${GENS[g]}</h3><div class="rows">` +
+    gens += `<a class="gen" href="#gen-${g}"><span class="label">${esc(small)}</span><h3>${esc(region)}</h3><div class="rows">` +
       row("Pokémon", k.species, k.speciesOut, "var(--caught)") + row("Shiny", k.shiny, k.shinyOut, "var(--shiny)") +
       row("Lucky", k.lucky, k.luckyOut, "var(--lucky)") + row("4★", k.hundo, k.out, "var(--hundo)") + `</div></a>`;
   }
@@ -284,7 +294,7 @@ function navHtml(route){
   const link = (href, icon, text, n) => `<a href="${href}" class="${route === href.slice(1) ? "on" : ""}">${ic(icon)}${esc(text)}${n !== undefined ? `<span class="n">${num(n)}</span>` : ""}</a>`;
   const out = ENTRIES.filter(e => e.released);
   nav.innerHTML = `<div class="nav-group">${link("#home", "house", "Home")}${link("#dex", "layout-grid", "Every Pokémon", out.length)}</div>
-    <div class="nav-group"><span class="label">Generations</span>${Object.entries(GENS).map(([g, n]) => link("#gen-" + g, "layers", `${g} · ${n}`, out.filter(e => e.gen == g).length)).join("")}</div>
+    <div class="nav-group"><span class="label">Generations</span>${GENS.map(([g, n]) => link("#gen-" + g, "layers", g === "hisui" ? n : `${g} · ${n}`, out.filter(e => e.gen === g).length)).join("")}</div>
     <div class="nav-group"><span class="label">More</span>${link("#costumes", "shirt", "Costumes", COL.costumes.length)}${link("#events", "ticket", "Events and backgrounds", COL.went.length)}</div>`;
 }
 
@@ -299,8 +309,8 @@ function route(){
     const list = ENTRIES.filter(e => (e.name + " " + (e.form || "")).toLowerCase().includes(term) || e.dex === n);
     return dexPage(`“${esc(q.value.trim())}”`, "Search", list);
   }
-  const g = /^gen-(\d)$/.exec(r);
-  if (g) return dexPage(esc(GENS[g[1]]), `Generation ${g[1]}`, ENTRIES.filter(e => e.gen == g[1]));
+  const g = /^gen-(\w+)$/.exec(r);
+  if (g && genById[g[1]]) return dexPage(esc(genById[g[1]][1]), genById[g[1]][2], ENTRIES.filter(e => e.gen === g[1]));
   if (r === "dex") return dexPage("Every <em>Pokémon</em>", "Pokémon GO", ENTRIES);
   home();
 }
