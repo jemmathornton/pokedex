@@ -251,8 +251,8 @@ function dexPage(title, label, list){
       <div class="frow"><span class="wlabel"><span class="label">Working on</span><span class="shown">${num(groups.length)} shown</span></span><div class="worktabs">` +
       BOXF.map(b => `<button type="button" class="worktab" data-work="${b.k}" aria-pressed="${prefs.work === b.k}">${esc(b.label)}</button>`).join("") +
       (picked ? `<button class="linkbtn" type="button" data-clear>${ic("x")}Clear</button>` : "") + `</div></div>
-      ${picked || notOut ? `<div class="frow">${picked ? seg("data-workshow", prefs.workShow, [["need", "Still need"], ["have", "Have"], ["all", "All"]]) : ""}
-        ${notOut ? `<label class="toggle"><input type="checkbox" role="switch" data-pref="unreleased"${prefs.unreleased ? " checked" : ""}><span class="track"></span>Include ones not out in GO yet</label>` : ""}</div>` : ""}</div>
+      ${picked || notOut ? `<div class="frow subrow">${picked ? seg("data-workshow", prefs.workShow, [["need", "Still need"], ["have", "Have"], ["all", "All"]]) : ""}
+        ${notOut ? seg("data-notout", prefs.unreleased ? "yes" : "no", [["no", "Out in GO"], ["yes", "Include not out yet"]]) : ""}</div>` : ""}</div>
     ${items.length ? `<div class="grid" id="grid">${groupCards(groups)}</div>` : `<p class="empty">Nothing here.</p>`}`;
 }
 
@@ -381,6 +381,7 @@ document.addEventListener("click", ev => {
   if (!b) return;
   if (b.hasAttribute("data-clear")) { Object.assign(prefs, {work: "all"}); keepPrefs(); return rerender(); }
   if (b.dataset.work) { prefs.work = prefs.work === b.dataset.work ? "all" : b.dataset.work; keepPrefs(); return rerender(); }   // click again: back to all
+  if (b.dataset.notout) { prefs.unreleased = b.dataset.notout === "yes"; keepPrefs(); return rerender(); }
   if (b.dataset.workshow) { prefs.workShow = b.dataset.workshow; keepPrefs(); return rerender(); }
   if (b.dataset.cmode) { prefs.costumes = b.dataset.cmode; keepPrefs(); return rerender(); }
   if (b.dataset.emode) { prefs.events = b.dataset.emode; keepPrefs(); return rerender(); }
