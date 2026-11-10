@@ -480,7 +480,7 @@ function costumeCard(c){
   return `<div class="card" data-costume="${attr(c.id)}"><span class="no">#${pad(c.dex)}</span>` +
     pic(c, key) + `<a class="nm" href="#p-${c.dex}" title="Open ${attr(c.name)}’s page">${esc(c.name)}</a><small class="fm">${esc(c.costume)}</small>` +
     `<div class="boxgrid"><button class="tk c" type="button" data-tick="c" aria-pressed="${has(key, "c")}" title="Caught">${ic("poke-ball")}<span>Caught</span></button>` +
-    `<button class="tk s" type="button" data-tick="s" aria-pressed="${has(key, "s")}" title="${c.shiny ? "Shiny" : "No shiny in GO yet"}"${!c.shiny && !has(key, "s") ? " disabled" : ""}>${ic("sparkles")}<span>Shiny</span></button></div></div>`;
+    `<button class="tk s" type="button" data-tick="s" aria-pressed="${has(key, "s")}" title="${c.shiny ? "Shiny: a bonus, not counted" : "No shiny in GO yet"}"${!c.shiny && !has(key, "s") ? " disabled" : ""}>${ic("sparkles")}<span>Shiny bonus</span></button></div></div>`;   // a costume’s shiny is a bonus, like Shiny Shadow (her call, 10 Nov)
 }
 function costumesPage(){
   const term = q.value.trim().toLowerCase();
@@ -489,7 +489,7 @@ function costumesPage(){
   const ck = c => "c:" + c.id, mine = myCostumes();
   setRegion(null);
   view.innerHTML = `<header class="hero">${heroArt(mine)}<span class="label">Pokémon GO</span><h1>Costumes</h1>
-    ${mine.length ? `<div class="stats">${statTile("--caught", "poke-ball", "Caught", mine.filter(c => hasAny(ck(c), ["c", "s"])).length, mine.length)}${statTile("--shiny", "sparkles", "Shiny", mine.filter(c => has(ck(c), "s")).length, mine.length)}</div>` : ""}</header>${readOnlyNote()}
+    ${mine.length ? `<div class="stats">${statTile("--caught", "poke-ball", "Caught", mine.filter(c => hasAny(ck(c), ["c", "s"])).length, mine.length)}</div>` : ""}</header>${readOnlyNote()}
     ${term ? `<p class="muted" style="font-size:13.5px">Matching “${esc(q.value.trim())}”</p>` : ""}
     ${items.length ? `<div class="grid" style="margin-top:22px">${items.map(costumeCard).join("")}</div>` : `<p class="empty">${term ? "Nothing matches." : "No costumes yet."}</p>`}`;
 }
