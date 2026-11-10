@@ -9,3 +9,5 @@ imports/
 site/sprites/
 # the game's location cards for the event backgrounds (about 3 MB), fetched again by tools/fetch_backgrounds.py
 site/backgrounds/
+# the game's Gigantamax pictures and the Lucky/Shadow looks for the Pokémon page, fetched again by tools/fetch_sprites.py --extras
+site/variants/

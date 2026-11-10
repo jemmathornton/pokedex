@@ -370,15 +370,30 @@ function evoFamily(sel){
   };
   return `<div class="evo">${roots.map(r => tree(r, new Set([r.id]))).join("")}</div>`;
 }
+// TRIAL (10 Nov, options for her): ?boxes=cards or ?boxes=strip shows the boxes as pictures of the Pokémon that way
+const BOXLOOK = new URLSearchParams(location.search).get("boxes") || "now";
+const DEMO = new Set((new URLSearchParams(location.search).get("demo") || "").split(",").filter(Boolean));   // pictures only: shows these boxes ticked, saves nothing
+function boxPic(e, t){   // the picture for one box: the game's own pictures and looks (G-Max picture, Lucky sparkles, Shadow flames)
+  const fem = e.femaleImg && BIG.has(e.femaleImg) ? e.femaleImg : e.img;
+  const gmax = `pm${e.dex}.fGIGANTAMAX`;
+  const k = t === "s" ? e.img + ".s" : t === "cf" ? fem : t === "gx" && BIG.has(gmax) ? gmax : e.img;
+  return bigSprite(k) || bigSprite(e.img);
+}
 function bigBoxes(e){
   // big boxes for the form shown at the top: the same boxes as on its card, in the same colours (white text when ticked)
   const k = dk(e);
   const B = (t, col, icon, label, applies, why) => {
-    const on = has(k, t);
+    const on = has(k, t) || DEMO.has(t);
     if (!applies && !on && !why) return "";
+    if (BOXLOOK !== "now") {
+      const src = boxPic(e, t);
+      return `<button class="pc pc-${t}${BOXLOOK === "strip" ? " small" : ""}" type="button" data-tick="${t}" aria-pressed="${on}" style="--bc:var(${col})"${!applies && !on ? " disabled" : ""}>` +
+        `<span class="pcpic">${src ? `<img src="${src}" alt="" loading="lazy">` : ""}${on ? `<span class="pcok">${ic("check")}</span>` : ""}</span>` +
+        `<span class="pclab">${ic(icon)}<b>${esc(BOXLOOK === "strip" && label === "Gigantamax" ? "G-Max" : label)}</b></span>${BOXLOOK === "strip" ? "" : `<small>${esc(on ? "Got it" : applies ? "Not yet" : why)}</small>`}</button>`;
+    }
     return `<button class="bb" type="button" data-tick="${t}" aria-pressed="${on}" style="--bc:var(${col})"${!applies && !on ? " disabled" : ""}>${ic(icon)}<span><b>${esc(label)}</b><small>${esc(on ? "Got it" : applies ? "Not yet" : why)}</small></span></button>`;
   };
-  return `<div class="bigboxes" data-id="${attr(e.id)}">` +
+  return `<div class="bigboxes${BOXLOOK !== "now" ? " pcs pcs-" + BOXLOOK : ""}" data-id="${attr(e.id)}">` +
     B("c", "--caught", "poke-ball", "Caught", true) +
     B("cf", "--female", "venus", "Female", !!femaleTick(e)) +   // a gender it can't be isn't shown (genderless, male only…)
     B("cm", "--male", "mars", "Male", !!maleTick(e)) +

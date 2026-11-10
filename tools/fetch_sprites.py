@@ -37,7 +37,30 @@ def one(item, big=False):
         return f'failed {key}: {e}'
 
 
+# the game's own looks for the Pokémon page's picture cards (--extras): the Lucky sparkles and the Shadow flames, as they are in the game
+EXTRAS = {'lucky': 'Images/Friends/ui_bg_lucky_pokemon.png', 'shadow-flame': 'Images/Effects/tx_shadow_cloud_02.png'}
+
+
+def extras():
+    """--extras: the Gigantamax pictures (256 px, into sprites/big as pm94.fGIGANTAMAX…) and the looks above (into site/variants/)."""
+    imports = sorted(d for d in os.listdir(os.path.join(ROOT, 'imports')) if d.startswith('go-'))
+    tree = json.load(open(os.path.join(ROOT, 'imports', imports[-1], 'assets-tree.json'), encoding='utf-8'))
+    paths = [x['path'] for x in (tree['tree'] if isinstance(tree, dict) else tree)]
+    d256 = 'Images/Pokemon - 256x256/Addressable Assets/'
+    items = [(p[len(d256):-len('.icon.png')], p) for p in paths if p.startswith(d256) and '.fGIGANTAMAX' in p and p.endswith('.icon.png')]
+    res = [one(it, True) for it in items]
+    os.makedirs(os.path.join(ROOT, 'site', 'variants'), exist_ok=True)
+    for name, path in EXTRAS.items():
+        dest = os.path.join(ROOT, 'site', 'variants', name + '.png')
+        if not os.path.exists(dest):
+            with urllib.request.urlopen(urllib.request.Request(RAW + urllib.parse.quote(path), headers=UA), timeout=60) as r:
+                open(dest, 'wb').write(r.read())
+    print(f'Gigantamax pictures: {res.count("new")} new, {res.count("kept")} kept, {len(res) - res.count("new") - res.count("kept")} failed; looks in site/variants/')
+
+
 def main():
+    if '--extras' in sys.argv:
+        return extras()
     big = '--big' in sys.argv
     os.makedirs(os.path.join(OUT, 'big'), exist_ok=True)
     pics = json.load(open(os.path.join(ROOT, 'data', 'go', 'pictures.json'), encoding='utf-8'))
