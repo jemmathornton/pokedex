@@ -5,7 +5,6 @@ Everything waiting on you. **Do** = just do it; **Decide** = your call. Tell Cla
 ## Decide
 - **Region banner pictures:** a number (or Colour) for each region. More landscape shots without people are being found first; then `for-jemma/region-banner-options.png` is redone with them.
 
-- **Any more boxes?** You have ♂, ♀ (or Caught), Shiny, Lucky, 4★, Shadow, Purified, Dynamax, G-Max and Mega, plus Shiny Shadow and costume shinies as bonuses. Others you could have: shiny lucky, shiny 4★ (shundo).
 - **Which game to add after GO**, when you want it.
 
 ## Do
@@ -22,4 +21,5 @@ Everything waiting on you. **Do** = just do it; **Decide** = your call. Tell Cla
 - Icons: Shadow 3, Purified 1, Lucky 12.
 - Events: only the ones you went to or took part in, with every Pokémon you could have got on each background (Road to Kalos, Tours, Copenhagen with Candela Ponyta and Rapidash, Dark Skies with the Max Finale extras).
 - Costumes: the 285 you could get in the UK or at your events.
-- Megas: a full box (Mega X and Y each), 64 out in GO.
+- Megas: a full box (Mega X and Y each), 64 out in GO; icon 3 (DNA), burnt orange.
+- No more boxes for now (her call, 10 Nov: shiny lucky, shundo and shiny purified not wanted).
