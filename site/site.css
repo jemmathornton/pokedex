@@ -542,3 +542,7 @@ a.formsbtn{text-decoration:none}
 .card.bgcard .nm{margin-top:8px}
 .card.bgcard.not-went .bgpic{opacity:.75}
 .bggrid{margin-top:12px}
+
+/* no parade on a Pokémon's page (her call, 10 Nov: good on regions, odd there) */
+:root[data-look="mix"] .hero.mon .heroart,:root[data-look="parade"] .hero.mon .heroart{display:none}
+:root[data-look="mix"] .hero.mon,:root[data-look="parade"] .hero.mon{padding-bottom:30px}
