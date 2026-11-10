@@ -1136,9 +1136,10 @@
    "backgroundPokemon": [
     "Pikachu",
     "Moltres",
-    "Ponyta"
+    "Ponyta",
+    "Rapidash"
    ],
-   "note": "Road to Kalos, Kanto day (23 Feb 2026, raids): Pikachu (Red’s Hat or Leaf’s Hat) could get any team’s background, and Moltres always got this one. Ponyta (Candela accessory) from the Triumph Together research (Aug 2024) and the Candela’s Quest GO Pass (Jun 2026), open to every team.",
+   "note": "Road to Kalos, Kanto day (23 Feb 2026, raids): Pikachu (Red’s Hat or Leaf’s Hat) could get any team’s background, and Moltres always got this one. Ponyta (Candela accessory) from the Triumph Together research (Aug 2024) and the Candela’s Quest GO Pass (Jun 2026), open to every team. Evolving it keeps the background (Rapidash).",
    "sources": [
     "https://www.serebii.net/pokemongo/backgrounds.shtml",
     "https://serebii.net/pokemongo/events/triumphtogether.shtml",
@@ -1154,7 +1155,8 @@
     "25-gotour-2026-a",
     "25-gotour-2026-a-02",
     "146",
-    "77-spring-2023-valor"
+    "77-spring-2023-valor",
+    "78-spring-2023-valor"
    ]
   },
   {
