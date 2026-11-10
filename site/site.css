@@ -594,3 +594,6 @@ a.formsbtn{text-decoration:none}
 .pc-mg[aria-pressed="true"] .pcpic img{filter:drop-shadow(0 0 6px rgba(0,0,0,.18))}
 .pc.small .pclab{white-space:nowrap;font-size:11.5px}
 .pc:not([aria-pressed="true"]) .pcpic{filter:grayscale(.6) opacity(.85)}   /* not got yet: the background part-greyed too (her call, 10 Nov) */
+/* TRIAL: the whole screenshot, not cropped: full height on the right, the region colour fading into it on the left */
+:root[data-look] .hero.withshot.whole{background:linear-gradient(90deg,color-mix(in srgb,var(--rc) 92%,#000) 0%,color-mix(in srgb,var(--rc) 85%,#000) 48%,color-mix(in srgb,var(--rc) 40%,transparent) 58%,transparent 68%),
+  var(--shot) right center/auto 100% no-repeat,color-mix(in srgb,var(--rc) 85%,#000)}
