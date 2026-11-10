@@ -426,11 +426,11 @@ function bigBoxes(e){
 }
 // Shiny Shadow: a bonus, like a costume (her ask, 10 Nov): not counted anywhere and not on the list cards; its own card with
 // the shiny picture, under the evolution family (her call)
-function shinyShadowCard(e){
-  const key = "d:" + e.id, on = has(key, "ss"), src = sprite(e.img + ".s") || sprite(e.img);
-  return `<div class="card ssc" data-id="${attr(e.id)}"><span class="no">#${pad(e.dex)}</span><div class="pic">${src ? `<img src="${src}" alt="" loading="lazy">` : `<span class="blank">?</span>`}</div>` +
-    `<span class="nm">${esc(e.name)}</span><small class="fm">${esc(e.form ? e.form + " · " : "")}Shiny Shadow</small>` +
-    `<div class="boxgrid"><button class="tk sd wide" type="button" data-tick="ss" aria-pressed="${on}" title="Shiny Shadow: a bonus, not counted">${ic("shadow")}<span>Shiny Shadow</span></button></div></div>`;
+function shinyShadowCard(e){   // a picture box like the others (her note: clicking anywhere on it ticks it): the shiny picture in the Shadow flames
+  const on = has("d:" + e.id, "ss"), src = bigSprite(e.img + ".s") || bigSprite(e.img);
+  return `<div class="bigboxes pcs pcs-cards ssbox" data-id="${attr(e.id)}"><button class="pc pc-sd" type="button" data-tick="ss" aria-pressed="${on}" style="--bc:var(--shadow)" title="Shiny Shadow: a bonus, not counted">` +
+    `<span class="pcpic">${src ? `<img src="${src}" alt="" loading="lazy">` : ""}${on ? `<span class="pcok">${ic("check")}</span>` : ""}</span>` +
+    `<span class="pclab">${ic("shadow")}<b>Shiny Shadow</b></span><small>${on ? "Got it" : "Not yet"}</small></button></div>`;
 }
 // what can never be, from the main games (her call, 10 Nov: “Not possible” rather than “Unavailable”): only these species
 // have a Gigantamax form at all (regional forms of them don't), and Zacian, Zamazenta and Eternatus can't Dynamax
@@ -486,7 +486,7 @@ function pokemonPage(n){
     <section class="section"><div class="boxhead"><h2>Your <em>boxes</em>${ordered.length > 1 ? ` <span class="muted">for ${esc(sel.form || "the usual form")}</span>` : ""}</h2>` +
       `<span class="trybox"><span class="label">Try a look</span><span class="opts">${[["now", "1 · Boxes"], ["cards", "2 · Cards"], ["strip", "3 · Strip"]].map(([v, l]) => `<button type="button" data-boxlook="${v}" aria-pressed="${boxLook() === v}">${l}</button>`).join("")}</span></span></div>${bigBoxes(sel)}</section>
     ${family ? `<section class="section"><h2>Evolution <em>family</em></h2>${family}</section>` : ""}
-    ${sel.shadowShiny || has("d:" + sel.id, "ss") ? `<section class="section"><h2>Shiny <em>Shadow</em></h2><p class="muted" style="margin:-6px 0 14px;font-size:13.5px">A bonus, not counted.</p><div class="grid">${shinyShadowCard(sel)}</div></section>` : ""}
+    ${sel.shadowShiny || has("d:" + sel.id, "ss") ? `<section class="section"><h2>Shiny <em>Shadow</em></h2><p class="muted" style="margin:-6px 0 14px;font-size:13.5px">A bonus, not counted.</p>${shinyShadowCard(sel)}</section>` : ""}
     ${formCards ? `<section class="section"><h2>Every <em>form</em> <span class="muted">${all.filter(caught).length} of ${all.length} caught</span></h2><div class="grid">${formCards}</div></section>` : ""}
     ${costumeCards ? `<section class="section"><h2>Costumes</h2><p class="muted" style="margin:-6px 0 14px;font-size:13.5px">A costume’s Shiny is a bonus, not counted.</p><div class="grid">${costumeCards}</div></section>` : ""}
     ${evs.length ? `<section class="section"><h2>Event <em>backgrounds</em></h2><div class="grid">${bgCards}</div></section>` : ""}`;

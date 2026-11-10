@@ -509,7 +509,7 @@ a.formsbtn{text-decoration:none}
 :root[data-look="mix"] .side{overflow:hidden}
 
 /* the bonus boxes on a Pokémon's page (Shiny Shadow): not counted */
-.ssc .pic img{filter:drop-shadow(0 0 7px color-mix(in srgb,var(--shadow) 70%,transparent))}   /* a hint of the Shadow aura on the shiny picture */
+.ssbox{grid-template-columns:repeat(5,minmax(0,1fr))}   /* the Shiny Shadow box: one card, the size of the picture cards */
 
 /* background cards: the game's location card behind the Pokémon, like a costume card (10 Nov) */
 .card.bgcard{cursor:pointer;padding-top:6px}
