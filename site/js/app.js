@@ -411,11 +411,11 @@ function pokemonPage(n){
   const at = DEX_NUMBERS.indexOf(n), prev = DEX_NUMBERS[at - 1], next = DEX_NUMBERS[at + 1];
   const step = (m, dir) => { if (!m) return `<span></span>`; const x = groupByNumber(ENTRIES.filter(e => e.dex === m))[0].lead;
     return `<a class="pn ${dir}" href="#p-${m}" title="${dir === "prev" ? "Previous" : "Next"}: ${attr(x.name)}">${dir === "prev" ? ic("chevron-left") : ""}${sprite(x.img) ? `<img src="${sprite(x.img)}" alt="">` : ""}<span><small>#${pad(m)}</small>${esc(x.name)}</span>${dir === "next" ? ic("chevron-right") : ""}</a>`; };
-  const yesNo = (on, yes, no) => on ? `<span class="ok">${ic("check")}${esc(yes)}</span>` : `<span class="no">${esc(no)}</span>`;
+  const yesNo = (on, yes, no) => on ? esc(yes) : `<span class="no">${esc(no)}</span>`;   // no ticks here: they looked like "caught" (her point, 10 Nov)
   const row = (t, v) => v ? `<div><dt>${esc(t)}</dt><dd>${v}</dd></div>` : "";
   const facts = `<dl class="dfacts">` +
     row("Category", esc(sel.category || "")) + row("Type", esc(sel.types.join(" · "))) + row("Gender", esc(gw)) +
-    row("Height", sel.height ? esc(metres(sel.height)) : "") + row("Weight", sel.weight ? esc(kilos(sel.weight)) : "") +
+    row("Usual height", sel.height ? esc(metres(sel.height)) : "") + row("Usual weight", sel.weight ? esc(kilos(sel.weight)) : "") +   // the species' Pokédex size; each one caught varies
     row("Buddy distance", sel.buddyKm ? esc(`${num(sel.buddyKm)} km`) : "") +
     row("In Pokémon GO", yesNo(sel.released, "Out", "Not out yet")) +
     row("Shiny", yesNo(!!sel.shiny, typeof sel.shiny === "string" ? `Out since ${dates(sel.shiny)}` : "Out", "Not out yet")) +
