@@ -233,16 +233,14 @@ function card(e, more = "", inForms = false){
     boxes(e) + more + `</div>`;
 }
 
-// ---------- trial looks for the banner and sidebar (her ask, 9 Nov: the plain red banner and sidebar aren't the
-// nicest). A switch at the bottom right flips between them; the one she picks stays and the switch goes.
-const LOOKS = [["mix", "Colours + parade"], ["red", "Now: red"], ["region", "Region colours"], ["cream", "Cream"], ["parade", "Parade"]];
-// each region's colour for the Region colours look (a suggestion, after its games' colours): Kanto red, Johto gold,
+// ---------- the banner and sidebar look: “Colours + parade” (her pick, 10 Nov, of the trial looks): each region's colour in
+// the banner and its Pokémon walking along the bottom, a dark sidebar; no parade on a Pokémon's page. The CSS is under
+// “the look” in site.css (data-look="mix"); she may want to change the parade later.
+// each region's colour (a suggestion, after its games' colours): Kanto red, Johto gold,
 // Hoenn sapphire, Sinnoh pearl-violet, Unova black, Kalos blue, Alola sunset orange, Galar purple, Hisui forest, Paldea scarlet-violet
 const REGION_COLOURS = {"1": "#A3302A", "2": "#8E6A0E", "3": "#16618A", "4": "#5B4B94", "5": "#36353D", "6": "#2B55A3",
   "7": "#B5531C", "8": "#6E2D82", "hisui": "#3C6150", "9": "#952F57"};
-if (!LOOKS.some(l => l[0] === prefs.look) || !prefs.lookMix) { prefs.look = "mix"; prefs.lookMix = true; }   // 10 Nov, her ask: region colours with the parade, shown first
-const setLook = v => { prefs.look = v; document.documentElement.dataset.look = v; };
-setLook(new URLSearchParams(location.search).get("look") || prefs.look);   // ?look=cream shows a look without keeping it (for the pictures)
+document.documentElement.dataset.look = "mix";
 const setRegion = g => document.documentElement.style.setProperty("--rc", REGION_COLOURS[g] || "#7E2530");
 const STARTERS = [1, 4, 7, 152, 155, 158, 252, 255, 258, 387, 390, 393, 495, 498, 501, 650, 653, 656, 722, 725, 728, 810, 813, 816, 906, 909, 912];
 function heroArt(list){   // a few of the page's Pokémon, for the looks that show them (big ones first, then a parade)
@@ -257,11 +255,6 @@ function heroArt(list){   // a few of the page's Pokémon, for the looks that sh
 function firstStages(list){   // a region's starters (first stages that aren't regional forms), then the rest of the page
   const firsts = list.filter(e => e.released && !isRegional(e) && !(EVO_IN[e.id] || []).length && (e.evo || []).length);
   return [...firsts.slice(0, 3), ...list];
-}
-function lookSwitch(){
-  let el = document.getElementById("lookswitch");
-  if (!el) { el = document.createElement("div"); el.id = "lookswitch"; el.className = "lookswitch"; document.body.appendChild(el); }
-  el.innerHTML = `<span class="label">Try a look</span><span class="opts">${LOOKS.map(([k, l]) => `<button type="button" data-look="${k}" aria-pressed="${prefs.look === k}">${esc(l)}</button>`).join("")}</span>`;
 }
 
 // ---------- pages ----------
@@ -465,7 +458,7 @@ function bgCard(ev, e, wentButton){
   const src = bigSprite(has(key, "s") && sprite(e.img + ".s") ? e.img + ".s" : e.img);
   const bg = BGS.has(ev.id) ? `backgrounds/${ev.id}.webp` : null;
   return `<div class="card bgcard${went ? "" : " not-went"}" data-bg="${attr(key)}" data-event="${attr(ev.id)}" data-bgdex="${e.dex}">` +
-    `<div class="bgpic"${bg ? ` style="background-image:url('${bg}')"` : ""}>${src ? `<img src="${src}" alt="" loading="lazy">` : ""}</div>` +
+    `<div class="bgpic${bg ? "" : " nobg"}"${bg ? ` style="background-image:url('${bg}')"` : ""}>${bg ? "" : `<span class="nobg-note">No picture in the game files yet</span>`}${src ? `<img src="${src}" alt="" loading="lazy">` : ""}</div>` +
     `<a class="nm" href="#p-${e.dex}">${esc(e.name)}</a><small class="fm">${esc(ev.background || ev.name)}</small>` +
     (went ? `<div class="boxgrid"><button class="tk c" type="button" data-tick="c" aria-pressed="${has(key, "c")}" title="Have it with this background">${ic("poke-ball")}<span>Caught</span></button>` +
       `<button class="tk s" type="button" data-tick="s" aria-pressed="${has(key, "s")}" title="${e.shiny ? "Shiny with this background" : "No shiny in GO yet"}"${!e.shiny && !has(key, "s") ? " disabled" : ""}>${ic("sparkles")}<span>Shiny</span></button></div>`
@@ -598,7 +591,6 @@ document.addEventListener("click", ev => {
     location.hash = "#p-" + e.dex;
     return;
   }
-  if (b.dataset.look) { setLook(b.dataset.look); keepPrefs(); lookSwitch(); return; }
   if (b.dataset.pickform) { const e = byId[b.dataset.pickform]; pageForm[e.dex] = e.id; return rerender(); }
   if (b.hasAttribute("data-clear")) { Object.assign(prefs, {work: "all", workShow: "all"}); keepPrefs(); return rerender(); }
   if (b.hasAttribute("data-showall")) { prefs.workShow = prefs.workShow === "all" ? "need" : "all"; keepPrefs(); return rerender(); }
@@ -646,7 +638,6 @@ addEventListener("keydown", ev => {   // ← and → step through the numbers on
 });
 
 route();
-lookSwitch();
 if (location.protocol.startsWith("http")) {
   fetch("/api/collection").then(r => r.ok ? r.json() : Promise.reject()).then(c => { COL = norm(c); readOnly = false; rerender(); }).catch(() => {});
 }

@@ -463,13 +463,10 @@ a.formsbtn{text-decoration:none}
 .checkbtn[aria-pressed="true"] .cb{background:var(--deep-2);border-color:var(--deep-2)}
 .subrow .linkbtn{display:inline-flex;align-items:center;gap:4px}
 
-/* ---------- trial looks for the banner and sidebar (9 Nov), switched at the bottom right ---------- */
+/* ---------- the look (her pick, 10 Nov: “Colours + parade”, data-look="mix"); the region and parade rules below are what it is made of ---------- */
 .hero > :not(.heroart){position:relative;z-index:1}
 .heroart{position:absolute;inset:0;pointer-events:none;display:none;z-index:0}
 .heroart img{position:absolute;object-fit:contain}
-.lookswitch{position:fixed;right:16px;bottom:16px;z-index:40;display:flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--line);
-  border-radius:12px;padding:6px 8px 6px 12px;box-shadow:0 6px 24px rgba(0,0,0,.14)}
-.lookswitch .opts button{padding:4px 10px;font-size:12.5px}
 
 /* Region colours: each region's own colour in the banner with its starters in it; a dark sidebar that takes the region's colour for the page you're on */
 :root{--rc:#7E2530}
@@ -480,28 +477,7 @@ a.formsbtn{text-decoration:none}
 :root[data-look="region"] .heroart img{width:150px;height:150px;top:18px;right:calc(36px + (2 - var(--i)) * 128px);filter:drop-shadow(0 8px 16px rgba(0,0,0,.28))}
 :root[data-look="region"] .heroart img:nth-child(n+4){display:none}
 :root[data-look="region"] .hero::after,:root[data-look="mix"] .hero::after{opacity:.6}
-:root[data-look="region"] .hero.mon .heroart,:root[data-look="cream"] .hero.mon .heroart{display:none}   /* the page has its own big picture */
-
-/* Cream: a light page like paper, the sidebar and banner in cream with the red as a thin edge and the titles */
-:root[data-look="cream"] .side,:root[data-look="cream"] .hero{--on-deep:var(--ink);--on-deep-mute:var(--muted)}
-:root[data-look="cream"] .side{background:var(--soft);border-right:1px solid var(--line);box-shadow:inset -4px 0 0 var(--deep-2)}
-:root[data-look="cream"] .brand{border-bottom-color:var(--line)}
-:root[data-look="cream"] .brand b em{color:var(--deep-2)}
-:root[data-look="cream"] .search input{background:var(--surface);border-color:var(--line)}
-:root[data-look="cream"] .nav a:hover{background:color-mix(in srgb,var(--ink) 6%,transparent)}
-:root[data-look="cream"] .nav a.on{background:var(--surface);box-shadow:inset 3px 0 0 var(--deep-2)}
-:root[data-look="cream"] .nav{scrollbar-color:var(--line) transparent}
-:root[data-look="cream"] .hero{background:linear-gradient(var(--deep-2) 0 5px,transparent 5px),radial-gradient(90% 140% at 90% 0%,color-mix(in srgb,var(--deep-2) 7%,var(--surface)),var(--surface) 70%);border-bottom:1px solid var(--line)}
-:root[data-look="cream"] .hero h1 em{color:var(--deep-2)}
-:root[data-look="cream"] .hero::after{border-color:color-mix(in srgb,var(--deep-2) 7%,transparent);background:linear-gradient(transparent calc(50% - 14px),color-mix(in srgb,var(--deep-2) 7%,transparent) calc(50% - 14px) calc(50% + 14px),transparent calc(50% + 14px))}
-:root[data-look="cream"] .stat{background:var(--paper);border-color:var(--line)}
-:root[data-look="cream"] .sbar{background:var(--soft)}
-:root[data-look="cream"] .sbar i{filter:none}
-:root[data-look="cream"] .crumbs a,:root[data-look="cream"] .pn,:root[data-look="cream"] .type{border-color:var(--line);background:var(--paper)}
-:root[data-look="cream"] .crumbs a:hover,:root[data-look="cream"] .pn:hover{background:var(--soft)}
-:root[data-look="cream"] .heroart{display:block}
-:root[data-look="cream"] .heroart img{width:140px;height:140px;top:22px;right:calc(36px + (2 - var(--i)) * 120px)}
-:root[data-look="cream"] .heroart img:nth-child(n+4){display:none}
+:root[data-look="region"] .hero.mon .heroart{display:none}   /* the page has its own big picture */
 
 /* Parade: the red kept, with the page's Pokémon walking along the bottom of the banner; a Poké Ball ring low in the sidebar */
 :root[data-look="parade"] .hero,:root[data-look="mix"] .hero{padding-bottom:92px}
@@ -546,3 +522,7 @@ a.formsbtn{text-decoration:none}
 /* no parade on a Pokémon's page (her call, 10 Nov: good on regions, odd there) */
 :root[data-look="mix"] .hero.mon .heroart,:root[data-look="parade"] .hero.mon .heroart{display:none}
 :root[data-look="mix"] .hero.mon,:root[data-look="parade"] .hero.mon{padding-bottom:30px}
+
+/* a background with no picture in the game files yet (10 Nov): said so, rather than an empty box */
+.bgpic.nobg{position:relative;background:repeating-linear-gradient(135deg,var(--soft) 0 10px,color-mix(in srgb,var(--soft) 60%,var(--surface)) 10px 20px)}
+.bgpic .nobg-note{position:absolute;top:8px;left:8px;right:8px;font-size:11px;font-weight:700;color:var(--muted);line-height:1.3}
