@@ -1,0 +1,3163 @@
+{
+ "1-fall-2019": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Halloween 2019, worldwide in the wild",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "1-jan-2020-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Party hat events worldwide (anniversaries, Pokémon Day, New Year); evolved forms from the 2022, 2023 and 2025 anniversary parties",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "1-spring-2020-noevolve": {
+  "verdict": "yes",
+  "group": "event",
+  "how": "Debuted at GO Fest 2020; back in 2026 in 5 km Eggs during Road of Legends, at GO Fest 2026 Copenhagen and in GO Fest 2026: Global (free), where they could evolve with the visor",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/pokemon-go-fest-2026-global/",
+   "https://leekduck.com/events/pokemon-go-fest-2026-copenhagen/",
+   "https://leekduck.com/events/road-of-legends-2026/"
+  ]
+ },
+ "2-jan-2020-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Party hat events worldwide (anniversaries, Pokémon Day, New Year); evolved forms from the 2022, 2023 and 2025 anniversary parties",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "2-spring-2020-noevolve": {
+  "verdict": "yes",
+  "group": "event",
+  "how": "Debuted at GO Fest 2020; back in 2026 in 5 km Eggs during Road of Legends, at GO Fest 2026 Copenhagen and in GO Fest 2026: Global (free), where they could evolve with the visor",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/pokemon-go-fest-2026-global/",
+   "https://leekduck.com/events/pokemon-go-fest-2026-copenhagen/",
+   "https://leekduck.com/events/road-of-legends-2026/"
+  ]
+ },
+ "3-copy-2019": {
+  "verdict": "no",
+  "group": "unreleased",
+  "how": "Clone (“Copy 2019”) Pokémon from the Mewtwo Strikes Back Evolution promotion: picture only",
+  "why_not": "Never released (no shiny, no Leek Duck name, no event found)",
+  "sources": [
+   "https://leekduck.com/shiny/"
+  ]
+ },
+ "3-jan-2020-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Party hat events worldwide (anniversaries, Pokémon Day, New Year); evolved forms from the 2022, 2023 and 2025 anniversary parties",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "3-spring-2020-noevolve": {
+  "verdict": "yes",
+  "group": "event",
+  "how": "Debuted at GO Fest 2020; back in 2026 in 5 km Eggs during Road of Legends, at GO Fest 2026 Copenhagen and in GO Fest 2026: Global (free), where they could evolve with the visor",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/pokemon-go-fest-2026-global/",
+   "https://leekduck.com/events/pokemon-go-fest-2026-copenhagen/",
+   "https://leekduck.com/events/road-of-legends-2026/"
+  ]
+ },
+ "4-fall-2019": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Halloween 2019, worldwide in the wild",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "4-goggles-2026": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Charmander wearing Friede’s goggles: Pokémon Horizons celebration event, Sep 2026 (wild, research, Lures, GO Pass); evolves",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/pokemon-horizons-the-series-celebration-event-2026/"
+  ]
+ },
+ "4-jan-2020-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Party hat events worldwide (anniversaries, Pokémon Day, New Year); evolved forms from the 2022, 2023 and 2025 anniversary parties",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "4-spring-2020-noevolve": {
+  "verdict": "yes",
+  "group": "event",
+  "how": "Debuted at GO Fest 2020; back in 2026 in 5 km Eggs during Road of Legends, at GO Fest 2026 Copenhagen and in GO Fest 2026: Global (free), where they could evolve with the visor",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/pokemon-go-fest-2026-global/",
+   "https://leekduck.com/events/pokemon-go-fest-2026-copenhagen/",
+   "https://leekduck.com/events/road-of-legends-2026/"
+  ]
+ },
+ "5-goggles-2026": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Charmander wearing Friede’s goggles: Pokémon Horizons celebration event, Sep 2026 (wild, research, Lures, GO Pass); evolves",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/pokemon-horizons-the-series-celebration-event-2026/"
+  ]
+ },
+ "5-jan-2020-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Party hat events worldwide (anniversaries, Pokémon Day, New Year); evolved forms from the 2022, 2023 and 2025 anniversary parties",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "5-spring-2020-noevolve": {
+  "verdict": "yes",
+  "group": "event",
+  "how": "Debuted at GO Fest 2020; back in 2026 in 5 km Eggs during Road of Legends, at GO Fest 2026 Copenhagen and in GO Fest 2026: Global (free), where they could evolve with the visor",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/pokemon-go-fest-2026-global/",
+   "https://leekduck.com/events/pokemon-go-fest-2026-copenhagen/",
+   "https://leekduck.com/events/road-of-legends-2026/"
+  ]
+ },
+ "6-copy-2019": {
+  "verdict": "no",
+  "group": "unreleased",
+  "how": "Clone (“Copy 2019”) Pokémon from the Mewtwo Strikes Back Evolution promotion: picture only",
+  "why_not": "Never released (no shiny, no Leek Duck name, no event found)",
+  "sources": [
+   "https://leekduck.com/shiny/"
+  ]
+ },
+ "6-goggles-2026": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Charmander wearing Friede’s goggles: Pokémon Horizons celebration event, Sep 2026 (wild, research, Lures, GO Pass); evolves",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/pokemon-horizons-the-series-celebration-event-2026/"
+  ]
+ },
+ "6-jan-2020-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Party hat events worldwide (anniversaries, Pokémon Day, New Year); evolved forms from the 2022, 2023 and 2025 anniversary parties",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "6-spring-2020-noevolve": {
+  "verdict": "yes",
+  "group": "event",
+  "how": "Debuted at GO Fest 2020; back in 2026 in 5 km Eggs during Road of Legends, at GO Fest 2026 Copenhagen and in GO Fest 2026: Global (free), where they could evolve with the visor",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/pokemon-go-fest-2026-global/",
+   "https://leekduck.com/events/pokemon-go-fest-2026-copenhagen/",
+   "https://leekduck.com/events/road-of-legends-2026/"
+  ]
+ },
+ "7-fall-2019": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Halloween 2019, worldwide in the wild",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "7-jan-2020-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Party hat events worldwide (anniversaries, Pokémon Day, New Year); evolved forms from the 2022, 2023 and 2025 anniversary parties",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "7-spring-2020-noevolve": {
+  "verdict": "yes",
+  "group": "event",
+  "how": "Debuted at GO Fest 2020; back in 2026 in 5 km Eggs during Road of Legends, at GO Fest 2026 Copenhagen and in GO Fest 2026: Global (free), where they could evolve with the visor",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/pokemon-go-fest-2026-global/",
+   "https://leekduck.com/events/pokemon-go-fest-2026-copenhagen/",
+   "https://leekduck.com/events/road-of-legends-2026/"
+  ]
+ },
+ "7-summer-2018": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Summer 2018 events worldwide (Squirtle Squad sunglasses; Summer Style Pikachu)",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "8-jan-2020-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Party hat events worldwide (anniversaries, Pokémon Day, New Year); evolved forms from the 2022, 2023 and 2025 anniversary parties",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "8-spring-2020-noevolve": {
+  "verdict": "yes",
+  "group": "event",
+  "how": "Debuted at GO Fest 2020; back in 2026 in 5 km Eggs during Road of Legends, at GO Fest 2026 Copenhagen and in GO Fest 2026: Global (free), where they could evolve with the visor",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/pokemon-go-fest-2026-global/",
+   "https://leekduck.com/events/pokemon-go-fest-2026-copenhagen/",
+   "https://leekduck.com/events/road-of-legends-2026/"
+  ]
+ },
+ "8-summer-2018": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Summer 2018 events worldwide (Squirtle Squad sunglasses; Summer Style Pikachu)",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "9-copy-2019": {
+  "verdict": "no",
+  "group": "unreleased",
+  "how": "Clone (“Copy 2019”) Pokémon from the Mewtwo Strikes Back Evolution promotion: picture only",
+  "why_not": "Never released (no shiny, no Leek Duck name, no event found)",
+  "sources": [
+   "https://leekduck.com/shiny/"
+  ]
+ },
+ "9-jan-2020-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Party hat events worldwide (anniversaries, Pokémon Day, New Year); evolved forms from the 2022, 2023 and 2025 anniversary parties",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "9-spring-2020-noevolve": {
+  "verdict": "yes",
+  "group": "event",
+  "how": "Debuted at GO Fest 2020; back in 2026 in 5 km Eggs during Road of Legends, at GO Fest 2026 Copenhagen and in GO Fest 2026: Global (free), where they could evolve with the visor",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/pokemon-go-fest-2026-global/",
+   "https://leekduck.com/events/pokemon-go-fest-2026-copenhagen/",
+   "https://leekduck.com/events/road-of-legends-2026/"
+  ]
+ },
+ "9-summer-2018": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Summer 2018 events worldwide (Squirtle Squad sunglasses; Summer Style Pikachu)",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "10-gofest-2026": {
+  "verdict": "yes",
+  "group": "event",
+  "how": "Caterpie in a Poké Ball hat: wild at the three in-person GO Fest 2026 events, Copenhagen included (she went); not in the Global event",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/pokemon-go-fest-2026-copenhagen/",
+   "https://pokemongohub.net/post/news/poke-ball-hat-caterpie-to-debut-at-in-person-pokemon-go-fests/"
+  ]
+ },
+ "12-fashion-2021-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Fashion Week events worldwide (from 2021)",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "20-jan-2020-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Party hat events worldwide (anniversaries, Pokémon Day, New Year); evolved forms from the 2022, 2023 and 2025 anniversary parties",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "25-adventure-hat-2020": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Explorer Pikachu: Secrets of the Jungle event, Dec 2020, wild and raids worldwide",
+  "why_not": null,
+  "sources": [
+   "https://pokemongo.com/news/movie2020",
+   "https://leekduck.com/events/pokemonspotlighthour2020-12-15/"
+  ]
+ },
+ "25-anniversary": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Anniversary and Pokémon Day party hats, worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "25-anniversary-2022-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Cake hat Pikachu: 6th anniversary 2022 worldwide; back in the 9th and 10th anniversary parties and the July 2026 Pikachu celebration",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/special-anniversary-pikachu-celebration-2026/",
+   "https://leekduck.com/events/10th-anniversary-party/"
+  ]
+ },
+ "25-anniversary-2026": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Professor Willow’s assistant Pikachu: Happy Birthday, Professor Willow!, 21 Jul 2026, research and one-star raids worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/happy-birthday-professor-willow-2026/"
+  ]
+ },
+ "25-anniversary-2026-malaysia-01": {
+  "verdict": "no",
+  "group": "remote",
+  "how": "PokéXciting! event in Asia-Pacific (Kuala Lumpur)",
+  "why_not": "Region-locked to Malaysia",
+  "sources": [
+   "https://pokemongo.com/news/event-apac-30th-anniversary-2026"
+  ]
+ },
+ "25-anniversary-2026-philippine-01": {
+  "verdict": "no",
+  "group": "remote",
+  "how": "PokéXciting! event in Asia-Pacific (Manila)",
+  "why_not": "Region-locked to the Philippines",
+  "sources": [
+   "https://pokemongo.com/news/event-apac-30th-anniversary-2026"
+  ]
+ },
+ "25-anniversary-2026-singapore-01": {
+  "verdict": "no",
+  "group": "remote",
+  "how": "PokéXciting! event in Asia-Pacific (Singapore)",
+  "why_not": "Region-locked to Singapore",
+  "sources": [
+   "https://pokemongo.com/news/event-apac-30th-anniversary-2026"
+  ]
+ },
+ "25-anniversary-2026-taiwan-01": {
+  "verdict": "no",
+  "group": "remote",
+  "how": "PokéXciting! event in Asia-Pacific (Taipei)",
+  "why_not": "Region-locked to Taiwan",
+  "sources": [
+   "https://pokemongo.com/news/event-apac-30th-anniversary-2026"
+  ]
+ },
+ "25-anniversary-2026-thailand-01": {
+  "verdict": "no",
+  "group": "remote",
+  "how": "PokéXciting! event in Asia-Pacific (Bangkok; Leek Duck dates its shiny Feb 2027)",
+  "why_not": "Region-locked to Thailand",
+  "sources": [
+   "https://pokemongo.com/news/event-apac-30th-anniversary-2026"
+  ]
+ },
+ "25-april-2020-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Spring/Easter events worldwide (2018–2022); Flower Hat Pikachu also in the July 2026 Pikachu celebration",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "25-bb-2026": {
+  "verdict": "no",
+  "group": "remote",
+  "how": "Pikachu in a baseball jersey: Pokémon Baseball Festa 2026, the Japanese professional baseball (NPB) tie-in",
+  "why_not": "Japan only (NPB ballparks)",
+  "sources": [
+   "https://pacificleague.com/en/news/80183",
+   "https://pokemongohub.net/post/tag/pikachu-wearing-a-baseball-shirt/"
+  ]
+ },
+ "25-copy-2019": {
+  "verdict": "no",
+  "group": "unreleased",
+  "how": "Clone (“Copy 2019”) Pokémon from the Mewtwo Strikes Back Evolution promotion: picture only",
+  "why_not": "Never released (no shiny, no Leek Duck name, no event found)",
+  "sources": [
+   "https://leekduck.com/shiny/"
+  ]
+ },
+ "25-costume-1": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "World Cap Pikachu: Spotlight Hour 6 Oct 2020 worldwide; evolves into Raichu",
+  "why_not": null,
+  "sources": [
+   "https://pokemongo.com/news/spotlight-oct20"
+  ]
+ },
+ "25-costume-2": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "New Year events worldwide (from New Year 2021)",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "25-costume-2020": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Flying Pikachu with multicoloured balloons (4th anniversary era); back in the July 2026 Pikachu celebration",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/special-anniversary-pikachu-celebration-2026/"
+  ]
+ },
+ "25-diwali-2024": {
+  "verdict": "no",
+  "group": "remote",
+  "how": "Saree Pikachu: Diwali / Festival of Lights events",
+  "why_not": "India only",
+  "sources": [
+   "https://pokemongo.com/en/news/festival-of-lights-2025",
+   "https://pokemongo.com/news/festival-of-colors-2026"
+  ]
+ },
+ "25-doctor": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Pikachu, Ph.D. (game code PIKACHU_DOCTOR): encounter from the Platinum PokéStop Showcase medal (100 wins), worldwide since Feb 2024; no shiny",
+  "why_not": null,
+  "sources": [
+   "https://pokemongo.com/news/pokestop-showcase-updates-pikachu-2024"
+  ]
+ },
+ "25-fall-2018": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "H.F. Custom (fragment) cap Pikachu: wild 5–7 Oct 2018; evolves into Raichu",
+  "why_not": null,
+  "sources": [
+   "https://serebii.net/pokemongo/events/h.f.customtie-in.shtml",
+   "https://serebii.net/news/2018/05-October-2018.shtml"
+  ]
+ },
+ "25-fall-2019": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Halloween 2019, worldwide in the wild",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "25-fall-2023-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Halloween 2023 worldwide (Gengar also in Halloween 2026)",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "25-feb-2019": {
+  "verdict": "no",
+  "group": "unreleased",
+  "how": "Picture in the game files only",
+  "why_not": "Never released (no shiny, no Leek Duck name, no event found)",
+  "sources": [
+   "https://leekduck.com/shiny/"
+  ]
+ },
+ "25-flying-01": {
+  "verdict": "no",
+  "group": "remote",
+  "how": "Flying Pikachu with green balloons: Safari Zone Taipei, Oct 2022 (spawned across Taipei)",
+  "why_not": "Taipei only",
+  "sources": [
+   "https://pokemongo.com/news/pokemon-go-safari-zone-taipei"
+  ]
+ },
+ "25-flying-02": {
+  "verdict": "no",
+  "group": "remote",
+  "how": "Flying Pikachu with purple balloons: Safari Zone Singapore, Nov 2022",
+  "why_not": "Singapore only",
+  "sources": [
+   "https://pokemongo.com/news/pokemon-go-safari-zone-singapore"
+  ]
+ },
+ "25-flying-03": {
+  "verdict": "no",
+  "group": "remote",
+  "how": "Flying Pikachu with orange balloons: Pokémon Air Adventures, Jeju Island, Jul 2023",
+  "why_not": "Jeju Island (Korea) only",
+  "sources": [
+   "https://pokemongo.com/events/airadventures-jejuisland",
+   "https://serebii.net/pokemongo/reallifeevents/pokemonairadventures-jejuisland.shtml"
+  ]
+ },
+ "25-flying-04": {
+  "verdict": "no",
+  "group": "remote",
+  "how": "Flying Pikachu with special balloons: Pikachu’s Indonesia Journey, Bali, 2–3 Mar 2024",
+  "why_not": "Indonesia (Bali) only",
+  "sources": [
+   "https://www.serebii.net/transportation/pokemonairadventures/pikachu'sindonesiajourney.shtml"
+  ]
+ },
+ "25-flying-5th-anniv": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Flying Pikachu: 5th anniversary 2021 worldwide; back in the July 2026 Pikachu celebration",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/special-anniversary-pikachu-celebration-2026/"
+  ]
+ },
+ "25-flying-okinawa": {
+  "verdict": "no",
+  "group": "remote",
+  "how": "Flying Pikachu with red and orange balloons: Okinawa (Pokémon Air Adventures), 2022",
+  "why_not": "Okinawa (Japan) only",
+  "sources": [
+   "https://pokemongo.com/news/flying-pikachu-2022"
+  ]
+ },
+ "25-fossil-2026": {
+  "verdict": "no",
+  "group": "event",
+  "how": "Excavator Pikachu: Pokémon Fossil Museum, Field Museum Chicago (May 2026 – Apr 2027), in-person raids at the museum",
+  "why_not": "Only at the museum in Chicago",
+  "sources": [
+   "https://pokemongo.com/news/pgo-pokemon-fossil-musuem-chicago-2026",
+   "https://leekduck.com/events/pokemon-fossil-museum-chicago-2026/"
+  ]
+ },
+ "25-glass-helmet-2026": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Astronaut Pikachu: World Space Week 2026 (global, with the ESA), one-star raids and free Timed Research",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/world-space-week-2026/"
+  ]
+ },
+ "25-gofest-2021-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Meloetta hat Pikachu: GO Fest 2021; back worldwide in the July 2026 Pikachu celebration (research and free GO Pass)",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/special-anniversary-pikachu-celebration-2026/"
+  ]
+ },
+ "25-gofest-2022": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Shaymin scarf Pikachu: GO Fest 2022 Finale; back worldwide in the July 2026 Pikachu celebration (research and free GO Pass)",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/special-anniversary-pikachu-celebration-2026/"
+  ]
+ },
+ "25-gofest-2022-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Gracidea Pikachu: GO Fest 2022; back worldwide in the July 2026 Pikachu celebration (research and free GO Pass)",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/special-anniversary-pikachu-celebration-2026/"
+  ]
+ },
+ "25-gofest-2024-mtiara": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Moon crown Pikachu: GO Fest 2024 (Madrid and Global, both hers); also the July 2026 Pikachu celebration and Twilight Wishes 2026",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/special-anniversary-pikachu-celebration-2026/",
+   "https://leekduck.com/events/twilight-wishes-2026/"
+  ]
+ },
+ "25-gofest-2024-stiara": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Sun crown Pikachu: GO Fest 2024 (Madrid and Global, both hers); also the July 2026 Pikachu celebration and Twilight Wishes 2026",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/special-anniversary-pikachu-celebration-2026/",
+   "https://leekduck.com/events/twilight-wishes-2026/"
+  ]
+ },
+ "25-gofest-2025-goggles-blue": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Dapper Pikachu: GO Fest 2025 (Paris and Global, both hers); also wild in the July 2026 Pikachu celebration",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/pokemon-go-fest-2025-global/",
+   "https://leekduck.com/events/special-anniversary-pikachu-celebration-2026/"
+  ]
+ },
+ "25-gofest-2025-goggles-red": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Dapper Pikachu: GO Fest 2025 (Paris and Global, both hers); also wild in the July 2026 Pikachu celebration",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/pokemon-go-fest-2025-global/",
+   "https://leekduck.com/events/special-anniversary-pikachu-celebration-2026/"
+  ]
+ },
+ "25-gofest-2025-goggles-yellow": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Dapper Pikachu: GO Fest 2025 (Paris and Global, both hers); also wild in the July 2026 Pikachu celebration",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/pokemon-go-fest-2025-global/",
+   "https://leekduck.com/events/special-anniversary-pikachu-celebration-2026/"
+  ]
+ },
+ "25-gofest-2025-monocle-blue": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Formal Pikachu: GO Fest 2025 in person (Paris, hers); also one-star raids in the July 2026 Pikachu celebration",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/special-anniversary-pikachu-celebration-2026/"
+  ]
+ },
+ "25-gofest-2025-monocle-red": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Formal Pikachu: GO Fest 2025 in person (Paris, hers); also one-star raids in the July 2026 Pikachu celebration",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/special-anniversary-pikachu-celebration-2026/"
+  ]
+ },
+ "25-gofest-2025-monocle-yellow": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Formal Pikachu: GO Fest 2025 in person (Paris, hers); also one-star raids in the July 2026 Pikachu celebration",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/special-anniversary-pikachu-celebration-2026/"
+  ]
+ },
+ "25-gofest-2026-cap-blue": {
+  "verdict": "yes",
+  "group": "event",
+  "how": "Team Mystic hat Pikachu: GO Fest 2026 Tokyo in person; all three hats in GO Fest 2026: Global (free) raids and research, and the Road of Legends GO Pass",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/pokemon-go-fest-2026-global/",
+   "https://leekduck.com/events/road-of-legends-2026/"
+  ]
+ },
+ "25-gofest-2026-cap-red": {
+  "verdict": "yes",
+  "group": "event",
+  "how": "Team Valor hat Pikachu: GO Fest 2026 Copenhagen (hers), GO Fest 2026: Global (free) raids and research, Road of Legends GO Pass",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/pokemon-go-fest-2026-copenhagen/",
+   "https://leekduck.com/events/pokemon-go-fest-2026-global/"
+  ]
+ },
+ "25-gofest-2026-cap-yellow": {
+  "verdict": "yes",
+  "group": "event",
+  "how": "Team Instinct hat Pikachu: GO Fest 2026 Chicago in person; all three hats in GO Fest 2026: Global (free) raids and research, and the Road of Legends GO Pass",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/pokemon-go-fest-2026-global/",
+   "https://leekduck.com/events/road-of-legends-2026/"
+  ]
+ },
+ "25-gotour-2023-bandana": {
+  "verdict": "no",
+  "group": "unreleased",
+  "how": "Picture in the game files only",
+  "why_not": "Never released (no shiny, no Leek Duck name, no event found)",
+  "sources": [
+   "https://leekduck.com/shiny/"
+  ]
+ },
+ "25-gotour-2023-bandana-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "May’s bow Pikachu: GO Tour Hoenn 2023; back worldwide in the July 2026 Pikachu celebration research",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/special-anniversary-pikachu-celebration-2026/"
+  ]
+ },
+ "25-gotour-2023-hat": {
+  "verdict": "no",
+  "group": "unreleased",
+  "how": "Picture in the game files only",
+  "why_not": "Never released (no shiny, no Leek Duck name, no event found)",
+  "sources": [
+   "https://leekduck.com/shiny/"
+  ]
+ },
+ "25-gotour-2023-hat-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Brendan’s hat Pikachu: GO Tour Hoenn 2023; back worldwide in the July 2026 Pikachu celebration research",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/special-anniversary-pikachu-celebration-2026/"
+  ]
+ },
+ "25-gotour-2024-a": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "GO Tour Sinnoh 2024 Pikachu; back worldwide in the July 2026 Pikachu celebration research",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/special-anniversary-pikachu-celebration-2026/"
+  ]
+ },
+ "25-gotour-2024-a-02": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "GO Tour Sinnoh 2024 Pikachu; back worldwide in the July 2026 Pikachu celebration research",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/special-anniversary-pikachu-celebration-2026/"
+  ]
+ },
+ "25-gotour-2024-b": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "GO Tour Sinnoh 2024 Pikachu; back worldwide in the July 2026 Pikachu celebration research",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/special-anniversary-pikachu-celebration-2026/"
+  ]
+ },
+ "25-gotour-2024-b-02": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "GO Tour Sinnoh 2024 Pikachu; back worldwide in the July 2026 Pikachu celebration research",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/special-anniversary-pikachu-celebration-2026/"
+  ]
+ },
+ "25-gotour-2025-a": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "GO Tour Unova 2025 Pikachu (Global, hers); also the July 2026 Pikachu celebration research",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/pokemon-go-tour-unova-global-2025/",
+   "https://leekduck.com/events/special-anniversary-pikachu-celebration-2026/"
+  ]
+ },
+ "25-gotour-2025-a-02": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "GO Tour Unova 2025 Pikachu (Global, hers); also the July 2026 Pikachu celebration research",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/pokemon-go-tour-unova-global-2025/",
+   "https://leekduck.com/events/special-anniversary-pikachu-celebration-2026/"
+  ]
+ },
+ "25-gotour-2025-b": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "GO Tour Unova 2025 Pikachu (Global, hers); also the July 2026 Pikachu celebration research",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/pokemon-go-tour-unova-global-2025/",
+   "https://leekduck.com/events/special-anniversary-pikachu-celebration-2026/"
+  ]
+ },
+ "25-gotour-2025-b-02": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "GO Tour Unova 2025 Pikachu (Global, hers); also the July 2026 Pikachu celebration research",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/pokemon-go-tour-unova-global-2025/",
+   "https://leekduck.com/events/special-anniversary-pikachu-celebration-2026/"
+  ]
+ },
+ "25-gotour-2026-a": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Road to Kalos / GO Tour Kalos 2026 Pikachu (both hers); also the July 2026 Pikachu celebration research",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/road-to-kalos",
+   "https://leekduck.com/events/pokemon-go-tour-kalos-global-2026/",
+   "https://leekduck.com/events/special-anniversary-pikachu-celebration-2026/"
+  ]
+ },
+ "25-gotour-2026-a-02": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Road to Kalos / GO Tour Kalos 2026 Pikachu (both hers); also the July 2026 Pikachu celebration research",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/road-to-kalos",
+   "https://leekduck.com/events/pokemon-go-tour-kalos-global-2026/",
+   "https://leekduck.com/events/special-anniversary-pikachu-celebration-2026/"
+  ]
+ },
+ "25-gotour-2026-b": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Road to Kalos / GO Tour Kalos 2026 Pikachu (both hers); also the July 2026 Pikachu celebration research",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/road-to-kalos",
+   "https://leekduck.com/events/pokemon-go-tour-kalos-global-2026/",
+   "https://leekduck.com/events/special-anniversary-pikachu-celebration-2026/"
+  ]
+ },
+ "25-gotour-2026-b-02": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Road to Kalos / GO Tour Kalos 2026 Pikachu (both hers); also the July 2026 Pikachu celebration research",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/road-to-kalos",
+   "https://leekduck.com/events/pokemon-go-tour-kalos-global-2026/",
+   "https://leekduck.com/events/special-anniversary-pikachu-celebration-2026/"
+  ]
+ },
+ "25-gotour-2026-c": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Calem’s hat Pikachu: GO Tour Kalos 2026 Global (hers); also the July 2026 Pikachu celebration research",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/pokemon-go-tour-kalos-global-2026/",
+   "https://leekduck.com/events/special-anniversary-pikachu-celebration-2026/"
+  ]
+ },
+ "25-gotour-2026-c-02": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Serena’s hat Pikachu: GO Tour Kalos 2026 Global (hers); also the July 2026 Pikachu celebration research",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/pokemon-go-tour-kalos-global-2026/",
+   "https://leekduck.com/events/special-anniversary-pikachu-celebration-2026/"
+  ]
+ },
+ "25-halloween-2017": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Halloween 2017 onward, worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "25-halloween-2021-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Halloween 2021 worldwide (Piplup and Drifblim back in Halloween 2026)",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "25-halloween-2026": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Pikachu wearing a hat and capelet: Halloween 2026 (research, wild) worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/halloween-2026-part-1/"
+  ]
+ },
+ "25-hoenn-2020-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Throwback Challenge 2020 (Hoenn week), wild worldwide, May 2020",
+  "why_not": null,
+  "sources": [
+   "https://pokemongo.com/news/throwbackchallenge2020"
+  ]
+ },
+ "25-holiday-2016": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Holiday events from Dec 2016, worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "25-holiday-2023": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Holiday 2023 worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "25-horizons": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Captain Pikachu: Pokémon Horizons events (2024 onward, incl. Sep 2026), worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/pokemon-horizons-the-series-celebration-event-2026/"
+  ]
+ },
+ "25-indonesia-2025-noevolve": {
+  "verdict": "no",
+  "group": "remote",
+  "how": "Goal Time with Pikachu, Aug and Oct 2025",
+  "why_not": "Indonesia only",
+  "sources": [
+   "https://pokemongo.com/news/goaltimewithpikachu2025"
+  ]
+ },
+ "25-jan-2020-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Party hat events worldwide (anniversaries, Pokémon Day, New Year); evolved forms from the 2022, 2023 and 2025 anniversary parties",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "25-jan-2023-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Party top hat Pikachu: New Year 2023 worldwide; also the July 2026 Pikachu celebration",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/special-anniversary-pikachu-celebration-2026/"
+  ]
+ },
+ "25-jeju": {
+  "verdict": "no",
+  "group": "remote",
+  "how": "Citrus-shirt Pikachu: Pokémon Air Adventures, Jeju Island, from Jul 2023",
+  "why_not": "Jeju Island (Korea) only",
+  "sources": [
+   "https://pokemongo.com/events/airadventures-jejuisland"
+  ]
+ },
+ "25-johto-2020-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Throwback Challenge 2020 (Johto week), wild worldwide, May 2020",
+  "why_not": null,
+  "sources": [
+   "https://pokemongo.com/news/throwbackchallenge2020"
+  ]
+ },
+ "25-kanto-2020-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Throwback Challenge 2020 (Kanto week), wild worldwide, May 2020",
+  "why_not": null,
+  "sources": [
+   "https://pokemongo.com/news/throwbackchallenge2020"
+  ]
+ },
+ "25-kariyushi": {
+  "verdict": "no",
+  "group": "remote",
+  "how": "Kariyushi-shirt Pikachu: Okinawa, from Mar 2022",
+  "why_not": "Okinawa (Japan) only",
+  "sources": [
+   "https://pokemongo.com/news/flying-pikachu-2022"
+  ]
+ },
+ "25-kurta": {
+  "verdict": "no",
+  "group": "remote",
+  "how": "Kurta Pikachu: Holi / Festival of Colours events (2025, 2026)",
+  "why_not": "India only",
+  "sources": [
+   "https://pokemongo.com/news/festival-of-colors-2026"
+  ]
+ },
+ "25-k-2026-a-01": {
+  "verdict": "no",
+  "group": "remote",
+  "how": "Hanbok Pikachu: Korean Chuseok event, Sep 2026",
+  "why_not": "Korea only",
+  "sources": [
+   "https://www.invenglobal.com/articles/25288/pok%C3%A9mon-go-debuts-orange-hanbok-pikachu"
+  ]
+ },
+ "25-may-2019-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Straw hat Pikachu: One Piece tie-in, wild worldwide 22–29 Jul 2019",
+  "why_not": null,
+  "sources": [
+   "https://pokemongo.com/news/strawhat"
+  ]
+ },
+ "25-november-2018": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Spring events worldwide (2019 onward); Pikachu also in the July 2026 Pikachu celebration",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "25-one-year-anniversary": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Original (Ash) cap: 1st anniversary 2017 and later events, worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "25-pi": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Detective Pikachu Returns event, Oct 2023, worldwide; evolves into Raichu",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/"
+  ]
+ },
+ "25-pop-star": {
+  "verdict": "yes",
+  "group": "event",
+  "how": "Pop Star Pikachu: GO Tour Kanto 2021; returned in GO Wild Area 2024: Global (ticket holders; hers)",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/pokemon-go-wild-area-2024-global/"
+  ]
+ },
+ "25-pxp-2026": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Pikachu in a Cosmog-themed spacesuit: PokémonXP & 2026 Worlds global event (one-star raids, research), Aug 2026",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/pokemon-xp-2026-worlds/"
+  ]
+ },
+ "25-rock-star": {
+  "verdict": "yes",
+  "group": "event",
+  "how": "Rock Star Pikachu: GO Tour Kanto 2021; returned in GO Wild Area 2024: Global (ticket holders; hers)",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/pokemon-go-wild-area-2024-global/"
+  ]
+ },
+ "25-safari-2020-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Safari hat Pikachu (2020); back worldwide in one-star raids in the July 2026 Pikachu celebration",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/special-anniversary-pikachu-celebration-2026/"
+  ]
+ },
+ "25-sinnoh-2020-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Throwback Challenge 2020 (Sinnoh week), wild worldwide, May 2020",
+  "why_not": null,
+  "sources": [
+   "https://pokemongo.com/news/throwbackchallenge2020"
+  ]
+ },
+ "25-spring-2023": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Spring into Spring 2023 worldwide (cherry blossoms); Pikachu also in the July 2026 Pikachu celebration",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "25-summer-2018": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Summer 2018 events worldwide (Squirtle Squad sunglasses; Summer Style Pikachu)",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "25-summer-2023-a": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Crown Pikachu: GO Fest 2023 (London, hers); also wild or raids in the July 2026 Pikachu celebration",
+  "why_not": null,
+  "sources": [
+   "https://serebii.net/pokemongo/reallifeevents/pokemongofest2023london.shtml",
+   "https://leekduck.com/events/special-anniversary-pikachu-celebration-2026/"
+  ]
+ },
+ "25-summer-2023-b": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Crown Pikachu: GO Fest 2023 (London, hers); also wild or raids in the July 2026 Pikachu celebration",
+  "why_not": null,
+  "sources": [
+   "https://serebii.net/pokemongo/reallifeevents/pokemongofest2023london.shtml",
+   "https://leekduck.com/events/special-anniversary-pikachu-celebration-2026/"
+  ]
+ },
+ "25-summer-2023-c": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Crown Pikachu: GO Fest 2023 (London, hers); also wild or raids in the July 2026 Pikachu celebration",
+  "why_not": null,
+  "sources": [
+   "https://serebii.net/pokemongo/reallifeevents/pokemongofest2023london.shtml",
+   "https://leekduck.com/events/special-anniversary-pikachu-celebration-2026/"
+  ]
+ },
+ "25-summer-2023-d": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Crown Pikachu: GO Fest 2023 (London, hers); also wild or raids in the July 2026 Pikachu celebration",
+  "why_not": null,
+  "sources": [
+   "https://serebii.net/pokemongo/reallifeevents/pokemongofest2023london.shtml",
+   "https://leekduck.com/events/special-anniversary-pikachu-celebration-2026/"
+  ]
+ },
+ "25-summer-2023-e": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Crown Pikachu: GO Fest 2023 (London, hers); also wild or raids in the July 2026 Pikachu celebration",
+  "why_not": null,
+  "sources": [
+   "https://serebii.net/pokemongo/reallifeevents/pokemongofest2023london.shtml",
+   "https://leekduck.com/events/special-anniversary-pikachu-celebration-2026/"
+  ]
+ },
+ "25-tcg-2022-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Pokémon TCG crossover event, 16–30 Jun 2022, worldwide",
+  "why_not": null,
+  "sources": [
+   "https://pokemongo.com/news/Pokemon-TCG-Crossover-Event"
+  ]
+ },
+ "25-tshirt-01": {
+  "verdict": "no",
+  "group": "remote",
+  "how": "Green (fruit/berry) shirt Pikachu: Safari Zone Taipei, Oct 2022, then around Taipei",
+  "why_not": "Taipei only",
+  "sources": [
+   "https://pokemongo.com/news/pokemon-go-safari-zone-taipei"
+  ]
+ },
+ "25-tshirt-02": {
+  "verdict": "no",
+  "group": "remote",
+  "how": "Purple flower-shirt Pikachu: Safari Zone Singapore, Nov 2022, then around Singapore",
+  "why_not": "Singapore only",
+  "sources": [
+   "https://pokemongo.com/news/pokemon-go-safari-zone-singapore"
+  ]
+ },
+ "25-tshirt-03": {
+  "verdict": "no",
+  "group": "remote",
+  "how": "Batik-shirt Pikachu: Pikachu’s Indonesia Journey (2024) and Patterns of the Wild (Oct 2026)",
+  "why_not": "Indonesia only",
+  "sources": [
+   "https://leekduck.com/events/patterns-of-the-wild-2026/"
+  ]
+ },
+ "25-visor-2026": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Marathon visor Pikachu: free Timed Research (walk 42 km) in the Spring, Summer and Fall Marathon events 2026",
+  "why_not": null,
+  "sources": [
+   "https://pokemongo.com/news/spring-marathon-2026",
+   "https://leekduck.com/events/summer-marathon-2026/"
+  ]
+ },
+ "25-vs-2019": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Pikachu Libre: GO Battle League rewards and later events, worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/"
+  ]
+ },
+ "25-wcs-2022": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Worlds Pikachu; back worldwide in the July 2026 Pikachu celebration raids and research",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/special-anniversary-pikachu-celebration-2026/"
+  ]
+ },
+ "25-wcs-2023": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Worlds Pikachu; back worldwide in the July 2026 Pikachu celebration raids and research",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/special-anniversary-pikachu-celebration-2026/"
+  ]
+ },
+ "25-wcs-2024": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Worlds Pikachu; back worldwide in the July 2026 Pikachu celebration raids and research",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/special-anniversary-pikachu-celebration-2026/"
+  ]
+ },
+ "25-wcs-2025": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Varsity-jacket Pikachu (Worlds 2025); back worldwide in the July 2026 Pikachu celebration raids and research",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/special-anniversary-pikachu-celebration-2026/"
+  ]
+ },
+ "25-wcs-2026": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Worlds 2026 Pikachu: PokémonXP & 2026 Worlds global event (one-star raids, research), Aug 2026",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/pokemon-xp-2026-worlds/"
+  ]
+ },
+ "25-winter-2018": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Holiday 2019 worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "25-winter-2020": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Holiday 2020 worldwide (Beartic by evolving Cubchoo)",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "26-anniversary": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Anniversary and Pokémon Day party hats, worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "26-costume-1": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "World Cap Pikachu: Spotlight Hour 6 Oct 2020 worldwide; evolves into Raichu",
+  "why_not": null,
+  "sources": [
+   "https://pokemongo.com/news/spotlight-oct20"
+  ]
+ },
+ "26-costume-2": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "New Year events worldwide (from New Year 2021)",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "26-fall-2018": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "H.F. Custom (fragment) cap Pikachu: wild 5–7 Oct 2018; evolves into Raichu",
+  "why_not": null,
+  "sources": [
+   "https://serebii.net/pokemongo/events/h.f.customtie-in.shtml",
+   "https://serebii.net/news/2018/05-October-2018.shtml"
+  ]
+ },
+ "26-feb-2019": {
+  "verdict": "no",
+  "group": "unreleased",
+  "how": "Picture in the game files only",
+  "why_not": "Never released (no shiny, no Leek Duck name, no event found)",
+  "sources": [
+   "https://leekduck.com/shiny/"
+  ]
+ },
+ "26-halloween-2017": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Halloween 2017 onward, worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "26-holiday-2016": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Holiday events from Dec 2016, worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "26-holiday-2023": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Holiday 2023 worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "26-one-year-anniversary": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Original (Ash) cap: 1st anniversary 2017 and later events, worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "26-pi": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Detective Pikachu Returns event, Oct 2023, worldwide; evolves into Raichu",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/"
+  ]
+ },
+ "26-spring-2023": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Spring into Spring 2023 worldwide (cherry blossoms); Pikachu also in the July 2026 Pikachu celebration",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "26-summer-2018": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Summer 2018 events worldwide (Squirtle Squad sunglasses; Summer Style Pikachu)",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "26-winter-2018": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Holiday 2019 worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "31-royal-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Crown Clash event, May 2025, three-star raids worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/crown-clash",
+   "https://pokemongo.com/news/crown-clash-2025"
+  ]
+ },
+ "33-jan-2020-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Party hat events worldwide (anniversaries, Pokémon Day, New Year); evolved forms from the 2022, 2023 and 2025 anniversary parties",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "34-royal-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Crown Clash event, May 2025, three-star raids worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/crown-clash",
+   "https://pokemongo.com/news/crown-clash-2025"
+  ]
+ },
+ "37-fall-2022": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Halloween 2022 (Vulpix line) and Fashion Week 2022 (Diglett line), worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "38-fall-2022": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Halloween 2022 (Vulpix line) and Fashion Week 2022 (Diglett line), worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "39-jan-2024": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "New Year 2024 worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "40-jan-2024": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "New Year 2024 worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "41-halloween-2026-01": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Zubat wearing a top hat: Halloween 2026 worldwide (evolve for Golbat, Crobat)",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/halloween-2026-part-1/"
+  ]
+ },
+ "42-halloween-2026-01": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Zubat wearing a top hat: Halloween 2026 worldwide (evolve for Golbat, Crobat)",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/halloween-2026-part-1/"
+  ]
+ },
+ "50-fall-2022": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Halloween 2022 (Vulpix line) and Fashion Week 2022 (Diglett line), worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "51-fall-2022": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Halloween 2022 (Vulpix line) and Fashion Week 2022 (Diglett line), worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "54-holiday-2023": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Holiday 2023 worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "54-swim-2025": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Psyduck in a swim ring: Water Festival 2025 and Ultra Unlock: Water Festival 2026, worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/water-festival-2026/"
+  ]
+ },
+ "55-holiday-2023": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Holiday 2023 worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "68-wildarea-2026-01": {
+  "verdict": "yes",
+  "group": "event",
+  "how": "Machamp wearing a modern jacket: GO Wild Area 2026: Global (14–15 Nov 2026, three-star raids, all Trainers) and the Into the Wild GO Pass (9–15 Nov). Still to come on 10 Nov",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/pokemon-go-wild-area-2026-global/",
+   "https://leekduck.com/events/into-the-wild-2026/"
+  ]
+ },
+ "77-spring-2023-valor": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Ponyta with Candela accessory: free GO Pass in Candela’s Quest for Victory, Jun 2026 (evolve for Rapidash)",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/candelas-quest-for-victory/"
+  ]
+ },
+ "78-spring-2023-valor": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Ponyta with Candela accessory: free GO Pass in Candela’s Quest for Victory, Jun 2026 (evolve for Rapidash)",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/candelas-quest-for-victory/"
+  ]
+ },
+ "79-2020": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Slowpoke with 2020 glasses: New Year 2021 and 2022 events worldwide",
+  "why_not": null,
+  "sources": [
+   "https://pokemongo.com/news/new-year-2021",
+   "https://leekduck.com/events/new-year-event-2022"
+  ]
+ },
+ "79-pi-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Slowpoke in a hat: Detective Pikachu Returns event, Oct 2023, worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/"
+  ]
+ },
+ "80-2021": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Slowbro with 2021 glasses: evolve the 2020-glasses Slowpoke (New Year 2021)",
+  "why_not": null,
+  "sources": [
+   "https://pokemongo.com/news/new-year-2021"
+  ]
+ },
+ "88-anniversary-2024": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "8th anniversary 2024 and later anniversary parties, worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "89-anniversary-2024": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "8th anniversary 2024 and later anniversary parties, worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "94-costume-2020": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Halloween 2020 worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "94-fall-2022-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Halloween 2022 (Gengar), Día de Muertos 2022 (Duskull line) and Fashion Week 2022 (Absol), worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "94-fall-2023-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Halloween 2023 worldwide (Gengar also in Halloween 2026)",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "94-jan-2020-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Party hat events worldwide (anniversaries, Pokémon Day, New Year); evolved forms from the 2022, 2023 and 2025 anniversary parties",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "104-fall-2023": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Día de Muertos 2023 (Cubone line) and Fashion Week 2023 (Dragonite, Wooper line), worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "105-fall-2023": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Día de Muertos 2023 (Cubone line) and Fashion Week 2023 (Dragonite, Wooper line), worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "113-november-2018": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Spring events worldwide (2019 onward); Pikachu also in the July 2026 Pikachu celebration",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "125-spring-2023-instinct": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Elekid with Spark accessory: free GO Pass in Spark’s Caretaking Quest, Jun 2026 (evolve for Electabuzz, Electivire)",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/sparks-caretaking-quest/"
+  ]
+ },
+ "131-costume-2020": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Scarf Lapras: raids in Water Festival 2025 and 2026 (and earlier), worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/water-festival-2025/",
+   "https://leekduck.com/events/water-festival-2026/"
+  ]
+ },
+ "131-spring-2023-mystic": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Lapras with Blanche accessory: GO Pass in Blanche’s Quest for Knowledge, May–Jun 2026",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/blanches-quest-for-knowledge/"
+  ]
+ },
+ "132-spring-2026-a": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Ditto wearing a cap: Pokémon Pokopia celebration event 2026, worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/pokemon-pokopia-celebration-event-2026/"
+  ]
+ },
+ "132-spring-2026-b": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Ditto wearing a hat: Pokémon Pokopia celebration event 2026, worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/pokemon-pokopia-celebration-event-2026/"
+  ]
+ },
+ "133-gofest-2024-mtiara": {
+  "verdict": "yes",
+  "group": "event",
+  "how": "Moon tiara Eevee: in-person GO Fest 2024 only, Madrid included (she went); not in the Global event",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/pokemon-go-fest-2024-madrid-spain/"
+  ]
+ },
+ "133-gofest-2024-stiara": {
+  "verdict": "yes",
+  "group": "event",
+  "how": "Sun tiara Eevee: in-person GO Fest 2024 only, Madrid included (she went); not in the Global event",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/pokemon-go-fest-2024-madrid-spain/"
+  ]
+ },
+ "133-holiday-2022": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Holiday 2022 worldwide (holiday-hat Eevee and its evolutions)",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "133-jan-2020-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Party hat events worldwide (anniversaries, Pokémon Day, New Year); evolved forms from the 2022, 2023 and 2025 anniversary parties",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "133-may-2023": {
+  "verdict": "no",
+  "group": "event",
+  "how": "Odd-case code for Eevee; explorer-hat Eevee from City Safari is the only Eevee with this hat",
+  "why_not": "City Safari in person only (she went to none); may just be an unused picture",
+  "sources": [
+   "https://leekduck.com/events/pokemon-go-city-safari-lisbon-2026/"
+  ]
+ },
+ "133-november-2018": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Spring events worldwide (2019 onward); Pikachu also in the July 2026 Pikachu celebration",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "133-spring-2023": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Spring into Spring 2023 worldwide (cherry blossoms); Pikachu also in the July 2026 Pikachu celebration",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "134-holiday-2022": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Holiday 2022 worldwide (holiday-hat Eevee and its evolutions)",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "134-may-2023": {
+  "verdict": "no",
+  "group": "event",
+  "how": "Explorer-hat Eeveelutions: only by evolving explorer-hat Eevee from ticketed City Safari events",
+  "why_not": "City Safari in person only (she went to none)",
+  "sources": [
+   "https://leekduck.com/events/pokemon-go-city-safari-lisbon-2026/",
+   "https://pokemongo.com/events/citysafari-singapore"
+  ]
+ },
+ "134-november-2018": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Spring events worldwide (2019 onward); Pikachu also in the July 2026 Pikachu celebration",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "134-spring-2023": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Spring into Spring 2023 worldwide (cherry blossoms); Pikachu also in the July 2026 Pikachu celebration",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "135-holiday-2022": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Holiday 2022 worldwide (holiday-hat Eevee and its evolutions)",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "135-may-2023": {
+  "verdict": "no",
+  "group": "event",
+  "how": "Explorer-hat Eeveelutions: only by evolving explorer-hat Eevee from ticketed City Safari events",
+  "why_not": "City Safari in person only (she went to none)",
+  "sources": [
+   "https://leekduck.com/events/pokemon-go-city-safari-lisbon-2026/",
+   "https://pokemongo.com/events/citysafari-singapore"
+  ]
+ },
+ "135-november-2018": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Spring events worldwide (2019 onward); Pikachu also in the July 2026 Pikachu celebration",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "135-spring-2023": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Spring into Spring 2023 worldwide (cherry blossoms); Pikachu also in the July 2026 Pikachu celebration",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "136-may-2023": {
+  "verdict": "no",
+  "group": "event",
+  "how": "Explorer-hat Eeveelutions: only by evolving explorer-hat Eevee from ticketed City Safari events",
+  "why_not": "City Safari in person only (she went to none)",
+  "sources": [
+   "https://leekduck.com/events/pokemon-go-city-safari-lisbon-2026/",
+   "https://pokemongo.com/events/citysafari-singapore"
+  ]
+ },
+ "136-spring-2023": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Spring into Spring 2023 worldwide (cherry blossoms); Pikachu also in the July 2026 Pikachu celebration",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "142-summer-2023": {
+  "verdict": "yes",
+  "group": "event",
+  "how": "Satchel Aerodactyl: debuted at GO Fest 2023 in person, London included (she went)",
+  "why_not": null,
+  "sources": [
+   "https://serebii.net/pokemongo/reallifeevents/pokemongofest2023london.shtml",
+   "https://www.dittobase.com/pokemon-go/pokedex/aerodactyl-summer-2023"
+  ]
+ },
+ "143-gofest-2022-noevolve": {
+  "verdict": "no",
+  "group": "event",
+  "how": "Cowboy hat Snorlax: in-person GO Fest 2022 (Berlin, Seattle, Sapporo) only; left out of the Global finale",
+  "why_not": "In-person GO Fest 2022 only (she wasn’t there)",
+  "sources": [
+   "https://leekduck.com/events/pokemon-go-fest-berlin-2022",
+   "https://mein-mmo.de/en/trainers-in-pokemon-go-are-sad-niantic-brings-the-wrong-costume-pokemon-to-the-finale,863840"
+  ]
+ },
+ "143-nightcap": {
+  "verdict": "unsure",
+  "group": "local",
+  "how": "Nightcap Snorlax: Special Research for a Pokémon GO Plus + paired with Pokémon Sleep (sleep tracking), from Jul 2023",
+  "why_not": "Needs a Pokémon GO Plus + and Pokémon Sleep; no other way found",
+  "sources": [
+   "https://pokemongo.com/news/pokemon-sleep-pokemon-go-plus-plus-event"
+  ]
+ },
+ "143-wildarea-2024": {
+  "verdict": "yes",
+  "group": "event",
+  "how": "Studded jacket Snorlax: debuted in GO Wild Area 2024: Global (hers)",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/pokemon-go-wild-area-2024-global/"
+  ]
+ },
+ "149-fall-2023": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Día de Muertos 2023 (Cubone line) and Fashion Week 2023 (Dragonite, Wooper line), worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "163-jan-2022-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "New Year 2022 and 2023 worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "164-jan-2022-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "New Year 2022 and 2023 worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "169-halloween-2026-01": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Zubat wearing a top hat: Halloween 2026 worldwide (evolve for Golbat, Crobat)",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/halloween-2026-part-1/"
+  ]
+ },
+ "172-anniversary": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Anniversary and Pokémon Day party hats, worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "172-costume-2": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "New Year events worldwide (from New Year 2021)",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "172-halloween-2017": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Halloween 2017 onward, worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "172-holiday-2016": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Holiday events from Dec 2016, worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "172-november-2018": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Spring events worldwide (2019 onward); Pikachu also in the July 2026 Pikachu celebration",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "172-one-year-anniversary": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Original (Ash) cap: 1st anniversary 2017 and later events, worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "172-spring-2023": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Spring into Spring 2023 worldwide (cherry blossoms); Pikachu also in the July 2026 Pikachu celebration",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "172-summer-2018": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Summer 2018 events worldwide (Squirtle Squad sunglasses; Summer Style Pikachu)",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "172-winter-2018": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Holiday 2019 worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "175-april-2020-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Spring/Easter events worldwide (2018–2022); Flower Hat Pikachu also in the July 2026 Pikachu celebration",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "176-april-2020-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Spring/Easter events worldwide (2018–2022); Flower Hat Pikachu also in the July 2026 Pikachu celebration",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "185-winter-2025": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Holiday 2025 worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "194-fall-2023": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Día de Muertos 2023 (Cubone line) and Fashion Week 2023 (Dragonite, Wooper line), worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "195-fall-2023": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Día de Muertos 2023 (Cubone line) and Fashion Week 2023 (Dragonite, Wooper line), worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "196-gofest-2024-sscarf": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Espeon with sun scarf: GO Fest 2024: Global (hers); back in Twilight Wishes 2026 worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/pokemon-go-fest-2024-global",
+   "https://leekduck.com/events/twilight-wishes-2026/"
+  ]
+ },
+ "196-holiday-2022": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Holiday 2022 worldwide (holiday-hat Eevee and its evolutions)",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "196-may-2023": {
+  "verdict": "no",
+  "group": "event",
+  "how": "Explorer-hat Eeveelutions: only by evolving explorer-hat Eevee from ticketed City Safari events",
+  "why_not": "City Safari in person only (she went to none)",
+  "sources": [
+   "https://leekduck.com/events/pokemon-go-city-safari-lisbon-2026/",
+   "https://pokemongo.com/events/citysafari-singapore"
+  ]
+ },
+ "196-november-2018": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Spring events worldwide (2019 onward); Pikachu also in the July 2026 Pikachu celebration",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "196-spring-2023": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Spring into Spring 2023 worldwide (cherry blossoms); Pikachu also in the July 2026 Pikachu celebration",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "197-gofest-2024-mscarf": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Umbreon with moon scarf: GO Fest 2024: Global (hers); back in Twilight Wishes 2026 worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/pokemon-go-fest-2024-global",
+   "https://leekduck.com/events/twilight-wishes-2026/"
+  ]
+ },
+ "197-holiday-2022": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Holiday 2022 worldwide (holiday-hat Eevee and its evolutions)",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "197-may-2023": {
+  "verdict": "no",
+  "group": "event",
+  "how": "Explorer-hat Eeveelutions: only by evolving explorer-hat Eevee from ticketed City Safari events",
+  "why_not": "City Safari in person only (she went to none)",
+  "sources": [
+   "https://leekduck.com/events/pokemon-go-city-safari-lisbon-2026/",
+   "https://pokemongo.com/events/citysafari-singapore"
+  ]
+ },
+ "197-november-2018": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Spring events worldwide (2019 onward); Pikachu also in the July 2026 Pikachu celebration",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "197-spring-2023": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Spring into Spring 2023 worldwide (cherry blossoms); Pikachu also in the July 2026 Pikachu celebration",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "199-2022": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Slowking with 2022 glasses: New Year 2022 worldwide (evolve the 2020-glasses Slowpoke)",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/new-year-event-2022"
+  ]
+ },
+ "202-jan-2020-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Party hat events worldwide (anniversaries, Pokémon Day, New Year); evolved forms from the 2022, 2023 and 2025 anniversary parties",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "215-fashion-2021-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Fashion Week events worldwide (from 2021)",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "216-halloween-2025": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Halloween 2025 worldwide (Ursaluna by evolving)",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "217-halloween-2025": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Halloween 2025 worldwide (Ursaluna by evolving)",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "222-spring-2026": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Galarian Corsola with pink sunglasses: Sustainability Week 2026 (Routes, 7 km Eggs, research), worldwide",
+  "why_not": null,
+  "sources": [
+   "https://pokemongo.com/news/sustainability-week-2026"
+  ]
+ },
+ "225-winter-2020": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Holiday 2020 worldwide (Beartic by evolving Cubchoo)",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "234-winter-2018": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Holiday 2019 worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "238-fall-2020-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Fashion and seasonal events worldwide (2018–2022)",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "239-spring-2023-instinct": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Elekid with Spark accessory: free GO Pass in Spark’s Caretaking Quest, Jun 2026 (evolve for Electabuzz, Electivire)",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/sparks-caretaking-quest/"
+  ]
+ },
+ "242-november-2018": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Spring events worldwide (2019 onward); Pikachu also in the July 2026 Pikachu celebration",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "265-jan-2020-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Party hat events worldwide (anniversaries, Pokémon Day, New Year); evolved forms from the 2022, 2023 and 2025 anniversary parties",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "281-fall-2020-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Fashion and seasonal events worldwide (2018–2022)",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "282-gofest-2021-noevolve": {
+  "verdict": "no",
+  "group": "unreleased",
+  "how": "Picture in the game files only",
+  "why_not": "Never released (no shiny, no Leek Duck name, no event found)",
+  "sources": [
+   "https://leekduck.com/shiny/"
+  ]
+ },
+ "287-summer-2024": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Summer 2024 event worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "288-summer-2024": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Summer 2024 event worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "289-summer-2024": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Summer 2024 event worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "302-costume-2020": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Litwick-hat Sableye: Halloween 2020 worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "330-gofest-2021-noevolve": {
+  "verdict": "no",
+  "group": "unreleased",
+  "how": "Picture in the game files only",
+  "why_not": "Never released (no shiny, no Leek Duck name, no event found)",
+  "sources": [
+   "https://leekduck.com/shiny/"
+  ]
+ },
+ "355-fall-2022-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Halloween 2022 (Gengar), Día de Muertos 2022 (Duskull line) and Fashion Week 2022 (Absol), worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "356-fall-2022-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Halloween 2022 (Gengar), Día de Muertos 2022 (Duskull line) and Fashion Week 2022 (Absol), worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "359-fall-2022-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Halloween 2022 (Gengar), Día de Muertos 2022 (Duskull line) and Fashion Week 2022 (Absol), worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "363-holiday-2021-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Holiday 2021 worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "387-gems-1-2021-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Sinnoh first partners with Lucas’s hat: Brilliant Diamond & Shining Pearl celebration, Nov 2021, worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "387-gems-2-2021-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Sinnoh first partners with Dawn’s hat: Brilliant Diamond & Shining Pearl celebration, Nov 2021, worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "390-gems-1-2021-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Sinnoh first partners with Lucas’s hat: Brilliant Diamond & Shining Pearl celebration, Nov 2021, worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "390-gems-2-2021-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Sinnoh first partners with Dawn’s hat: Brilliant Diamond & Shining Pearl celebration, Nov 2021, worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "393-gems-1-2021-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Sinnoh first partners with Lucas’s hat: Brilliant Diamond & Shining Pearl celebration, Nov 2021, worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "393-gems-2-2021-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Sinnoh first partners with Dawn’s hat: Brilliant Diamond & Shining Pearl celebration, Nov 2021, worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "393-halloween-2021-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Halloween 2021 worldwide (Piplup and Drifblim back in Halloween 2026)",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "403-fall-2020-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Fashion and seasonal events worldwide (2018–2022)",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "426-halloween-2021-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Halloween 2021 worldwide (Piplup and Drifblim back in Halloween 2026)",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "427-april-2020-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Spring/Easter events worldwide (2018–2022); Flower Hat Pikachu also in the July 2026 Pikachu celebration",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "428-april-2020-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Spring/Easter events worldwide (2018–2022); Flower Hat Pikachu also in the July 2026 Pikachu celebration",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "440-november-2018": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Spring events worldwide (2019 onward); Pikachu also in the July 2026 Pikachu celebration",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "453-fall-2020-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Fashion and seasonal events worldwide (2018–2022)",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "454-fall-2020-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Fashion and seasonal events worldwide (2018–2022)",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "466-spring-2023-instinct": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Elekid with Spark accessory: free GO Pass in Spark’s Caretaking Quest, Jun 2026 (evolve for Electabuzz, Electivire)",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/sparks-caretaking-quest/"
+  ]
+ },
+ "468-april-2020-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Spring/Easter events worldwide (2018–2022); Flower Hat Pikachu also in the July 2026 Pikachu celebration",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "470-holiday-2022": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Holiday 2022 worldwide (holiday-hat Eevee and its evolutions)",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "470-may-2023": {
+  "verdict": "no",
+  "group": "event",
+  "how": "Explorer-hat Eeveelutions: only by evolving explorer-hat Eevee from ticketed City Safari events",
+  "why_not": "City Safari in person only (she went to none)",
+  "sources": [
+   "https://leekduck.com/events/pokemon-go-city-safari-lisbon-2026/",
+   "https://pokemongo.com/events/citysafari-singapore"
+  ]
+ },
+ "470-november-2018": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Spring events worldwide (2019 onward); Pikachu also in the July 2026 Pikachu celebration",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "470-spring-2023": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Spring into Spring 2023 worldwide (cherry blossoms); Pikachu also in the July 2026 Pikachu celebration",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "471-holiday-2021-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Holiday 2021 worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "471-holiday-2022": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Holiday 2022 worldwide (holiday-hat Eevee and its evolutions)",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "471-may-2023": {
+  "verdict": "no",
+  "group": "event",
+  "how": "Explorer-hat Eeveelutions: only by evolving explorer-hat Eevee from ticketed City Safari events",
+  "why_not": "City Safari in person only (she went to none)",
+  "sources": [
+   "https://leekduck.com/events/pokemon-go-city-safari-lisbon-2026/",
+   "https://pokemongo.com/events/citysafari-singapore"
+  ]
+ },
+ "471-november-2018": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Spring events worldwide (2019 onward); Pikachu also in the July 2026 Pikachu celebration",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "471-spring-2023": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Spring into Spring 2023 worldwide (cherry blossoms); Pikachu also in the July 2026 Pikachu celebration",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "477-fall-2022-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Halloween 2022 (Gengar), Día de Muertos 2022 (Duskull line) and Fashion Week 2022 (Absol), worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "522-fashion-2021-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Fashion Week events worldwide (from 2021)",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "546-spring-2024": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Flower crown Cottonee: Spring 2024 and Harvest Festival 2026, worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/harvest-festival-2026/"
+  ]
+ },
+ "547-spring-2024": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Flower crown Cottonee: Spring 2024 and Harvest Festival 2026, worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/harvest-festival-2026/"
+  ]
+ },
+ "572-fashion-2025": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Fashion Week 2025 worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "573-fashion-2025": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Fashion Week 2025 worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "613-winter-2020": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Holiday 2020 worldwide (Beartic by evolving Cubchoo)",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "614-winter-2020": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Holiday 2020 worldwide (Beartic by evolving Cubchoo)",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "656-fall-2024": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Halloween 2024 worldwide; back in Halloween 2026",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/halloween-2026-part-2/"
+  ]
+ },
+ "657-fall-2024": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Halloween 2024 worldwide; back in Halloween 2026",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/halloween-2026-part-2/"
+  ]
+ },
+ "658-fall-2024": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Halloween 2024 worldwide; back in Halloween 2026",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/halloween-2026-part-2/"
+  ]
+ },
+ "700-holiday-2022": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Holiday 2022 worldwide (holiday-hat Eevee and its evolutions)",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "700-may-2023": {
+  "verdict": "no",
+  "group": "event",
+  "how": "Explorer-hat Eeveelutions: only by evolving explorer-hat Eevee from ticketed City Safari events",
+  "why_not": "City Safari in person only (she went to none)",
+  "sources": [
+   "https://leekduck.com/events/pokemon-go-city-safari-lisbon-2026/",
+   "https://pokemongo.com/events/citysafari-singapore"
+  ]
+ },
+ "700-november-2018": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Spring events worldwide (2019 onward); Pikachu also in the July 2026 Pikachu celebration",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "700-spring-2023": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Spring into Spring 2023 worldwide (cherry blossoms); Pikachu also in the July 2026 Pikachu celebration",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "702-winter-2024": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Holiday 2024 worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "714-halloween-2025": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Halloween 2025 worldwide (Ursaluna by evolving)",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "715-halloween-2025": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Halloween 2025 worldwide (Ursaluna by evolving)",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "722-fall-2024": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Halloween 2024 worldwide; back in Halloween 2026",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/halloween-2026-part-2/"
+  ]
+ },
+ "723-fall-2024": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Halloween 2024 worldwide; back in Halloween 2026",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/halloween-2026-part-2/"
+  ]
+ },
+ "724-fall-2024": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Halloween 2024 worldwide; back in Halloween 2026",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/halloween-2026-part-2/"
+  ]
+ },
+ "737-winter-2025": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Holiday 2025 worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "738-winter-2025": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Holiday 2025 worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "760-wildarea-2025": {
+  "verdict": "yes",
+  "group": "event",
+  "how": "Wilderness cape Bewear: three-star raids in GO Wild Area 2025: Global (hers)",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/pokemon-go-wild-area-2025-global/"
+  ]
+ },
+ "831-winter-2024": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Holiday 2024 worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "832-winter-2024": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Holiday 2024 worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "854-a-halloween-2026-01": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Sinistea (Antique Form) wearing a bow: Halloween 2026 worldwide (Antique Form is the rare one)",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/halloween-2026-part-1/"
+  ]
+ },
+ "854-p-halloween-2026-01": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Sinistea (Phony Form) wearing a bow: Halloween 2026 worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/halloween-2026-part-1/"
+  ]
+ },
+ "855-a-halloween-2026-01": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Sinistea (Antique Form) wearing a bow: Halloween 2026 worldwide (Antique Form is the rare one)",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/halloween-2026-part-1/"
+  ]
+ },
+ "855-p-halloween-2026-01": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Sinistea (Phony Form) wearing a bow: Halloween 2026 worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/halloween-2026-part-1/"
+  ]
+ },
+ "870-gofest-2025-train-conductor": {
+  "verdict": "yes",
+  "group": "event",
+  "how": "Train conductor Falinks: GO Fest 2025 in person (Paris, hers) and three-star raids in GO Fest 2025: Global (hers)",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/pokemon-go-fest-2025-global/",
+   "https://www.sportskeeda.com/pokemon/how-get-train-conductor-falinks-pokemon-go-can-shiny"
+  ]
+ },
+ "901-halloween-2025": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Halloween 2025 worldwide (Ursaluna by evolving)",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "907-horizons-2025-noevolve": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Floragato with Liko’s hat: Pokémon Horizons celebration, Apr 2025, wild and three-star raids worldwide",
+  "why_not": null,
+  "sources": [
+   "https://pokemongo.com/news/pokemon-horizons-anime-celebration-2025"
+  ]
+ },
+ "999-coin-a1": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Roaming Gimmighoul variant: 9th anniversary party, Jul 2025 (Golden Lures, Coin Bags), worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/pokemon-go-9th-anniversary-party/"
+  ]
+ },
+ "999-coin-a2-2026": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Roaming Gimmighoul variant: 10th anniversary party, Jul 2026 (Golden Lures, Coin Bags), worldwide",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/events/10th-anniversary-party/"
+  ]
+ },
+ "26-november-2018": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Spring events worldwide (2019 onward); Pikachu also in the July 2026 Pikachu celebration [No longer in costumes.json since the 10 Nov tidy: a form or a placeholder copy of the plain picture]",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "136-holiday-2022": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Holiday 2022 worldwide (holiday-hat Eevee and its evolutions) [No longer in costumes.json since the 10 Nov tidy: a form or a placeholder copy of the plain picture]",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "136-november-2018": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Spring events worldwide (2019 onward); Pikachu also in the July 2026 Pikachu celebration [No longer in costumes.json since the 10 Nov tidy: a form or a placeholder copy of the plain picture]",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/",
+   "https://www.serebii.net/pokemongo/shiny.shtml"
+  ]
+ },
+ "150-a": {
+  "verdict": "yes",
+  "group": "local",
+  "how": "Armored Mewtwo: five-star raids worldwide in 2019 (Mewtwo Strikes Back Evolution) and later returns; no shiny [No longer in costumes.json since the 10 Nov tidy: a form or a placeholder copy of the plain picture]",
+  "why_not": null,
+  "sources": [
+   "https://leekduck.com/shiny/"
+  ]
+ },
+ "150-one-year-anniversary": {
+  "verdict": "no",
+  "group": "unreleased",
+  "how": "Picture in the game files only [No longer in costumes.json since the 10 Nov tidy: a form or a placeholder copy of the plain picture]",
+  "why_not": "Never released (no shiny, no Leek Duck name, no event found)",
+  "sources": [
+   "https://leekduck.com/shiny/"
+  ]
+ },
+ "172-fall-2018": {
+  "verdict": "no",
+  "group": "unreleased",
+  "how": "Picture in the game files only [No longer in costumes.json since the 10 Nov tidy: a form or a placeholder copy of the plain picture]",
+  "why_not": "Never released (no shiny, no Leek Duck name, no event found)",
+  "sources": [
+   "https://leekduck.com/shiny/"
+  ]
+ },
+ "249-one-year-anniversary": {
+  "verdict": "no",
+  "group": "unreleased",
+  "how": "Picture in the game files only [No longer in costumes.json since the 10 Nov tidy: a form or a placeholder copy of the plain picture]",
+  "why_not": "Never released (no shiny, no Leek Duck name, no event found)",
+  "sources": [
+   "https://leekduck.com/shiny/"
+  ]
+ },
+ "716-neutral": {
+  "verdict": "no",
+  "group": "unreleased",
+  "how": "Neutral Mode Xerneas: picture in the game files only [No longer in costumes.json since the 10 Nov tidy: a form or a placeholder copy of the plain picture]",
+  "why_not": "Never released (no shiny, no Leek Duck name, no event found)",
+  "sources": [
+   "https://leekduck.com/shiny/"
+  ]
+ }
+}
