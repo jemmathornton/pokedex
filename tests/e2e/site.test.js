@@ -195,6 +195,25 @@
     click(view().querySelector('[data-shotg="8"][data-shot="1"]')); await wait(30);
   });
 
+  // ---------- Quick add (trial) ----------
+  test("Quick add reads numbers, ranges, names and forms, and knows what can't be", async () => {
+    const {rows, problems} = quickParse("25 shiny\n1-3\nalolan vulpix lucky, female\nmew lucky\ncharizard mega\nnotapokemon");
+    const got = rows.map(r => `${r.e.id}:${r.t}${r.cant ? "!" : ""}`);
+    for (const want of ["25:s", "1:c", "2:c", "3:c", "37-alolan:l", "37-alolan:cf", "151:l!", "6:mx", "6:my"]) ok(got.includes(want), `missing ${want} in ${got}`);
+    eq(problems.length, 1, "one line it doesn't know");
+  });
+
+  test("Quick add ticks them all (and caught with them)", async () => {
+    for (const k of ["d:132", "d:133"]) { for (const t of ["c", "s"]) await save({list: "have", key: k, tick: t, on: false}); delete COL.have[k]; }
+    await go("#quick");
+    quickText = "132, 133 shiny"; quickPage();
+    click(view().querySelector("[data-quickgo]"));
+    await until(() => (COL.have["d:133"] || []).includes("s"));
+    const s = await server();
+    ok(["d:132", "d:133"].every(k => s.have[k] && s.have[k].includes("s") && s.have[k].includes("c")), "saved shiny and caught");
+    for (const k of ["d:132", "d:133"]) { for (const t of ["c", "s"]) await save({list: "have", key: k, tick: t, on: false}); delete COL.have[k]; }
+  });
+
   // ---------- run ----------
   addEventListener("load", async () => {
     await wait(500);
