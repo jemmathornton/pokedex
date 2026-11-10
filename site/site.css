@@ -557,3 +557,6 @@ a.formsbtn{text-decoration:none}
 .pc-gx .pcpic{background:radial-gradient(circle at 50% 60%, color-mix(in srgb,var(--gmax) 55%,#fff), color-mix(in srgb,var(--gmax) 20%,var(--surface)))}
 .pc-s .pcpic{background:radial-gradient(circle at 50% 55%, #fff, color-mix(in srgb,var(--shiny) 22%,#fff))}
 .pc-h .pcpic{background:radial-gradient(circle at 50% 55%, #fff, color-mix(in srgb,var(--hundo) 25%,#fff))}
+.boxhead{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.trybox{display:inline-flex;align-items:center;gap:10px}
+.trybox .label{margin:0}

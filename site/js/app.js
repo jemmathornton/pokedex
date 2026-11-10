@@ -371,7 +371,8 @@ function evoFamily(sel){
   return `<div class="evo">${roots.map(r => tree(r, new Set([r.id]))).join("")}</div>`;
 }
 // TRIAL (10 Nov, options for her): ?boxes=cards or ?boxes=strip shows the boxes as pictures of the Pokémon that way
-const BOXLOOK = new URLSearchParams(location.search).get("boxes") || "now";
+// her trial switch on the page sets prefs.boxLook; ?boxes= overrides it for screenshots
+const boxLook = () => new URLSearchParams(location.search).get("boxes") || prefs.boxLook || "now";
 const DEMO = new Set((new URLSearchParams(location.search).get("demo") || "").split(",").filter(Boolean));   // pictures only: shows these boxes ticked, saves nothing
 function boxPic(e, t){   // the picture for one box: the game's own pictures and looks (G-Max picture, Lucky sparkles, Shadow flames)
   const fem = e.femaleImg && BIG.has(e.femaleImg) ? e.femaleImg : e.img;
@@ -385,15 +386,15 @@ function bigBoxes(e){
   const B = (t, col, icon, label, applies, why) => {
     const on = has(k, t) || DEMO.has(t);
     if (!applies && !on && !why) return "";
-    if (BOXLOOK !== "now") {
+    if (boxLook() !== "now") {
       const src = boxPic(e, t);
-      return `<button class="pc pc-${t}${BOXLOOK === "strip" ? " small" : ""}" type="button" data-tick="${t}" aria-pressed="${on}" style="--bc:var(${col})"${!applies && !on ? " disabled" : ""}>` +
+      return `<button class="pc pc-${t}${boxLook() === "strip" ? " small" : ""}" type="button" data-tick="${t}" aria-pressed="${on}" style="--bc:var(${col})"${!applies && !on ? " disabled" : ""}>` +
         `<span class="pcpic">${src ? `<img src="${src}" alt="" loading="lazy">` : ""}${on ? `<span class="pcok">${ic("check")}</span>` : ""}</span>` +
-        `<span class="pclab">${ic(icon)}<b>${esc(BOXLOOK === "strip" && label === "Gigantamax" ? "G-Max" : label)}</b></span>${BOXLOOK === "strip" ? "" : `<small>${esc(on ? "Got it" : applies ? "Not yet" : why)}</small>`}</button>`;
+        `<span class="pclab">${ic(icon)}<b>${esc(boxLook() === "strip" && label === "Gigantamax" ? "G-Max" : label)}</b></span>${boxLook() === "strip" ? "" : `<small>${esc(on ? "Got it" : applies ? "Not yet" : why)}</small>`}</button>`;
     }
     return `<button class="bb" type="button" data-tick="${t}" aria-pressed="${on}" style="--bc:var(${col})"${!applies && !on ? " disabled" : ""}>${ic(icon)}<span><b>${esc(label)}</b><small>${esc(on ? "Got it" : applies ? "Not yet" : why)}</small></span></button>`;
   };
-  return `<div class="bigboxes${BOXLOOK !== "now" ? " pcs pcs-" + BOXLOOK : ""}" data-id="${attr(e.id)}">` +
+  return `<div class="bigboxes${boxLook() !== "now" ? " pcs pcs-" + boxLook() : ""}" data-id="${attr(e.id)}">` +
     B("c", "--caught", "poke-ball", "Caught", true) +
     B("cf", "--female", "venus", "Female", !!femaleTick(e)) +   // a gender it can't be isn't shown (genderless, male only…)
     B("cm", "--male", "mars", "Male", !!maleTick(e)) +
@@ -463,7 +464,8 @@ function pokemonPage(n){
       <div class="chips">${sel.types.map(t => `<span class="type">${esc(t)}</span>`).join("")}${{both: ["Female", "Male"], male: ["Male"], female: ["Female"], none: ["Genderless"]}[sel.gender].map(g => `<span class="type">${g}</span>`).join("")}${kind ? `<span class="type">${esc(kind)}</span>` : ""}${sel.released ? "" : `<span class="type">Unavailable in GO</span>`}</div></div></div></header>${readOnlyNote()}
     <div class="mondetail"><div class="monpic">${pic(sel, dk(sel), true)}${picker}</div>
       <div>${desc}${facts}</div></div>
-    <section class="section"><h2>Your <em>boxes</em>${ordered.length > 1 ? ` <span class="muted">for ${esc(sel.form || "the usual form")}</span>` : ""}</h2>${bigBoxes(sel)}</section>
+    <section class="section"><div class="boxhead"><h2>Your <em>boxes</em>${ordered.length > 1 ? ` <span class="muted">for ${esc(sel.form || "the usual form")}</span>` : ""}</h2>` +
+      `<span class="trybox"><span class="label">Try a look</span><span class="opts">${[["now", "1 · Boxes"], ["cards", "2 · Cards"], ["strip", "3 · Strip"]].map(([v, l]) => `<button type="button" data-boxlook="${v}" aria-pressed="${boxLook() === v}">${l}</button>`).join("")}</span></span></div>${bigBoxes(sel)}</section>
     ${family ? `<section class="section"><h2>Evolution <em>family</em></h2>${family}</section>` : ""}
     ${sel.shadowShiny || has("d:" + sel.id, "ss") ? `<section class="section"><h2>Shiny <em>Shadow</em></h2><p class="muted" style="margin:-6px 0 14px;font-size:13.5px">A bonus, not counted.</p><div class="grid">${shinyShadowCard(sel)}</div></section>` : ""}
     ${formCards ? `<section class="section"><h2>Every <em>form</em> <span class="muted">${all.filter(caught).length} of ${all.length} caught</span></h2><div class="grid">${formCards}</div></section>` : ""}
@@ -617,6 +619,7 @@ document.addEventListener("click", ev => {
   if (b.hasAttribute("data-clear")) { Object.assign(prefs, {work: "all", workShow: "all"}); keepPrefs(); return rerender(); }
   if (b.hasAttribute("data-showall")) { prefs.workShow = prefs.workShow === "all" ? "need" : "all"; keepPrefs(); return rerender(); }
   if (b.dataset.work) { prefs.work = prefs.work === b.dataset.work ? "all" : b.dataset.work; prefs.workShow = prefs.work === "all" ? "all" : "need"; keepPrefs(); return rerender(); }   // click again: back to all
+  if (b.dataset.boxlook) { prefs.boxLook = b.dataset.boxlook; keepPrefs(); return rerender(); }   // trial, 10 Nov
   if (b.dataset.notout) { prefs.unreleased = b.dataset.notout === "yes"; keepPrefs(); return rerender(); }
   if (b.dataset.workshow) { prefs.workShow = b.dataset.workshow; keepPrefs(); return rerender(); }
   if (b.dataset.cmode) { prefs.costumes = b.dataset.cmode; keepPrefs(); return rerender(); }
