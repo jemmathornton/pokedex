@@ -308,7 +308,7 @@ function home(){
     <section class="section"><h2>By generation</h2><div class="gens">${gens}</div></section>
     <section class="section"><h2>Costumes and backgrounds</h2><div class="gens">
       <a class="gen" href="#costumes"><span class="genart" aria-hidden="true">${(COL.costumes.length ? COSTUMES.filter(c => COL.costumes.includes(c.id)) : COSTUMES.filter(c => c.shiny).slice(-3)).slice(0, 3).map(c => sprite(c.img) ? `<img src="${sprite(c.img)}" alt="" loading="lazy">` : "").join("")}</span><span class="label">Costumes</span><h3>${num(COL.costumes.length)} collecting</h3><p class="muted" style="margin:6px 0 0;font-size:13.5px">of ${num(COSTUMES.length)} in the game</p></a>
-      <a class="gen" href="#events"><span class="genart" aria-hidden="true">${(EVENTS[0].backgroundPokemon || []).slice(0, 3).map(name => baseOf[DATA.dexByName[name.toLowerCase()]]).filter(Boolean).map(e => `<img src="${sprite(e.img)}" alt="" loading="lazy">`).join("")}</span><span class="label">European events</span><h3>${num(went)} been to</h3><p class="muted" style="margin:6px 0 0;font-size:13.5px">of ${num(EVENTS.length)} listed</p></a>
+      <a class="gen" href="#events"><span class="genart" aria-hidden="true">${(EVENTS[0].backgroundPokemon || []).slice(0, 3).map(name => baseOf[DATA.dexByName[name.toLowerCase()]]).filter(Boolean).map(e => `<img src="${sprite(e.img)}" alt="" loading="lazy">`).join("")}</span><span class="label">Events</span><h3>${num(went)} been to</h3><p class="muted" style="margin:6px 0 0;font-size:13.5px">of ${num(EVENTS.length)} listed</p></a>
     </div></section>
     <p class="muted" style="margin-top:40px;font-size:12.5px">Pokémon data from the game, checked ${dates(DATA.updated)}.</p>`;
 }
@@ -516,7 +516,7 @@ function eventsPage(){
   const bgs = EVENTS.filter(e => COL.went.includes(e.id) && e.background).length;
   setRegion(null);
   const bgMons = EVENTS.flatMap(ev => (ev.backgroundPokemon || []).map(name => baseOf[DATA.dexByName[name.toLowerCase()]]));
-  view.innerHTML = `<header class="hero">${heroArt(bgMons)}<span class="label">In-person events in Europe</span><h1>Events and <em>backgrounds</em></h1>
+  view.innerHTML = `<header class="hero">${heroArt(bgMons)}<span class="label">Pokémon GO</span><h1>Events and <em>backgrounds</em></h1>
     <div class="stats">${statTile("--deep-2", "ticket", "Been to", COL.went.length, EVENTS.length)}
     ${COL.went.length ? statTile("--purified", "image", "With a background", bgs, COL.went.length) : ""}</div></header>${readOnlyNote()}
     <div class="toolbar filters"><div class="frow"><span class="label flabel">Show</span><div class="worktabs">${[["all", "Every event", EVENTS.length], ["went", "Ones I went to", COL.went.length], ["bg", "With a background", EVENTS.filter(e => e.background).length]]
