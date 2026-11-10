@@ -72,8 +72,8 @@ const hasForms = e => (outBySpecies[e.dex] || []).length > 1;
 
 // the extra boxes, only on the Pokémon they can apply to (Serebii's lists, tools/import_go.py)
 const EXTRAS = [
-  {t: "sd", label: "Shadow", icon: "flame", flag: "shadow", title: "Shadow"},
-  {t: "pu", label: "Purified", icon: "sun", flag: "shadow", title: "Purified"},
+  {t: "sd", label: "Shadow", icon: "shadow", flag: "shadow", title: "Shadow"},
+  {t: "pu", label: "Purified", icon: "purified", flag: "shadow", title: "Purified"},
   {t: "dx", label: "Dynamax", icon: "expand", flag: "dynamax", title: "Dynamax"},
   {t: "gx", label: "Gigantamax", icon: "expand", flag: "gmax", title: "Gigantamax"},
 ];
@@ -147,7 +147,7 @@ function boxes(e){
     [btn("c", "c", "poke-ball", "Caught", "Caught"), btn("s", "s", "sparkles", "Shiny", e.shiny ? "Shiny" : "No shiny in GO yet", !e.shiny)],
     [femaleTick(e) ? btn("cf", "f", "venus", "Female", e.gender === "female" ? "Female (female only)" : "Female") : "",
      maleTick(e) ? btn("cm", "m", "mars", "Male", e.gender === "male" ? "Male (male only)" : "Male") : ""],   // female first (her call)
-    [btn("l", "l", "clover", "Lucky", e.class === "mythical" ? "Mythical: can’t be traded, so never lucky" : "Lucky", !canLucky(e)),
+    [btn("l", "l", "lucky", "Lucky", e.class === "mythical" ? "Mythical: can’t be traded, so never lucky" : "Lucky", !canLucky(e)),
      btn("h", "h", "star", "4★", "4★ (perfect IVs)", !e.released)],
     [extra("sd"), extra("pu")],
   ];
@@ -280,10 +280,10 @@ function statsHtml(c){
     t("--female", "venus", "Female", c.female, c.femaleOut) +
     t("--male", "mars", "Male", c.male, c.maleOut) +
     t("--shiny", "sparkles", "Shiny", c.shiny, c.shinyOut) +
-    t("--lucky", "clover", "Lucky", c.lucky, c.luckyOut) +
+    t("--lucky", "lucky", "Lucky", c.lucky, c.luckyOut) +
     t("--hundo", "star", "4★", c.hundo, c.out) +
-    t("--shadow", "flame", "Shadow", c.sd, c.shadowOut) +
-    t("--purified", "sun", "Purified", c.pu, c.shadowOut) +
+    t("--shadow", "shadow", "Shadow", c.sd, c.shadowOut) +
+    t("--purified", "purified", "Purified", c.pu, c.shadowOut) +
     t("--dynamax", "expand", "Dynamax", c.dx, c.dynamaxOut) +
     t("--gmax", "expand", "Gigantamax", c.gx, c.gmaxOut) + `</div>`;
 }
@@ -299,7 +299,7 @@ function home(){
     gens += `<a class="gen" href="#gen-${g}" style="--rc:${REGION_COLOURS[g]}"><span class="genart" aria-hidden="true">${three.map(e => sprite(e.img) ? `<img src="${sprite(e.img)}" alt="" loading="lazy">` : "").join("")}</span>` +
       `<span class="label">${esc(small)}</span><h3>${esc(region)}</h3><div class="rows">` +
       row("Pokémon", "poke-ball", k.species, k.speciesOut, "var(--caught)") + row("Shiny", "sparkles", k.shiny, k.shinyOut, "var(--shiny)") +
-      row("Lucky", "clover", k.lucky, k.luckyOut, "var(--lucky)") + row("4★", "star", k.hundo, k.out, "var(--hundo)") + `</div></a>`;
+      row("Lucky", "lucky", k.lucky, k.luckyOut, "var(--lucky)") + row("4★", "star", k.hundo, k.out, "var(--hundo)") + `</div></a>`;
   }
   const went = EVENTS.filter(e => COL.went.includes(e.id)).length;
   setRegion(null);
@@ -390,10 +390,10 @@ function bigBoxes(e){
     B("cf", "--female", "venus", "Female", !!femaleTick(e)) +   // a gender it can't be isn't shown (genderless, male only…)
     B("cm", "--male", "mars", "Male", !!maleTick(e)) +
     B("s", "--shiny", "sparkles", "Shiny", !!e.shiny, "No shiny yet") +
-    B("l", "--lucky", "clover", "Lucky", canLucky(e), e.class === "mythical" ? "Can’t be traded" : "Not out yet") +
+    B("l", "--lucky", "lucky", "Lucky", canLucky(e), e.class === "mythical" ? "Can’t be traded" : "Not out yet") +
     B("h", "--hundo", "star", "4★", e.released, "Not out yet") +
-    B("sd", "--shadow", "flame", "Shadow", !!e.shadow) +
-    B("pu", "--purified", "sun", "Purified", !!e.shadow) +
+    B("sd", "--shadow", "shadow", "Shadow", !!e.shadow) +
+    B("pu", "--purified", "purified", "Purified", !!e.shadow) +
     B("dx", "--dynamax", "expand", "Dynamax", !!e.dynamax) +
     B("gx", "--gmax", "expand", "Gigantamax", !!e.gmax) + `</div>`;
 }

@@ -20,7 +20,7 @@ Everything waiting on you. **Do** = just do it; **Decide** = your call. Tell Cla
 
   10 Nov, her ask: a fifth, **Colours + parade** (region colours with the parade along the bottom), now shown first (`look-5-mix-*.png`).
   Pictures of each are in `for-jemma/looks/` (`looks-alola.png`, `looks-garchomp.png`, `looks-home.png`). Pick a number and the switch goes. The region colours are Claude’s suggestion, after each region’s games; say if any should change.
-- **Decide: icons for Shadow, Purified and Lucky.** See `for-jemma/icon-options-shadow-purified-lucky.png`, 12 options each from open icon sets, with no logos and nothing drawn by Claude. Pick a number for each, or say none.
+- **Done (10 Nov): icons for Shadow, Purified and Lucky are 3, 1 and 12, now in the app.** Was: See `for-jemma/icon-options-shadow-purified-lucky.png`, 12 options each from open icon sets, with no logos and nothing drawn by Claude. Pick a number for each, or say none.
 - **Worth knowing:**
   - Four Pokémon have no Pokédex entry in the game’s text yet: Dipplin, Poltchageist, Sinistcha and Hydrapple. Their pages say so.
   - The big pictures add about 20 MB to the folder, and they’re in the backups.

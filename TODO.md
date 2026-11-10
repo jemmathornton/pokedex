@@ -48,7 +48,7 @@ Claude’s jobs, and the record of what was decided. Everything waiting on Jemma
   - Looks: `prefs.look`, with `?look=` for pictures; the switch is `lookswitch()` in app.js and the CSS is under “trial looks”. Once she picks, delete the other looks and the switch.
   - Icon options: research/icon-options-9-nov.json has each option’s SVG and licence (number → icon). Game-icons.net is CC BY 3.0, so it needs a credit line in LICENSE-lucide.txt if used. Solar is CC BY 4.0, likewise.
 - [ ] When she picks a look: keep only that one, remove the switch, and update CLAUDE.md (colours, sidebar).
-- [ ] When she picks icons: put them in icons.js (with licence notes), then update EXTRAS, bigBoxes, statsHtml and BOXF users.
+- [x] Icons, her picks (10 Nov): Shadow 3 (MingCute fire-line), Purified 1 (Solar heart-shine), Lucky 12 (Phosphor clover). They’re in icons.js as `shadow`, `purified` and `lucky`, with licences in LICENSE-lucide.txt. The old flame, sun and clover are still in icons.js, unused.
 - Dynamax and Gigantamax icons settled (her pick, 9 Nov, after six rounds of pictures in for-jemma/icon-options*.png): both Lucide “expand” (growing giant), told apart by colour.
 - Done 9 Nov late: “Not caught” and “Not in GO” toggles stacked at the right end of the tabs line (same level, her ask; “yet” dropped); with Not in GO on, the Shiny tab also lists Pokémon whose shiny isn’t out (dashed box).
 
