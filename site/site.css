@@ -348,10 +348,8 @@ main{margin-left:var(--side);min-height:100vh;container-type:inline-size}
 .formsbtn:hover{border-color:var(--muted)}
 /* a Pokémon's page */
 .card .nm{color:inherit;text-decoration:none;font-weight:700;font-size:14.5px;margin-top:10px;line-height:1.25}
-/* the name opens the Pokémon's page: shown as a link (10 Nov: she couldn't tell, so clicks ticked Caught instead) */
-.card a.nm{display:inline-flex;align-items:center;gap:1px;color:var(--deep-2);text-decoration:underline;text-decoration-thickness:1px;text-decoration-color:color-mix(in srgb,var(--deep-2) 40%,transparent);text-underline-offset:3px;border-radius:6px;padding:1px 2px 1px 6px}
-.card a.nm .i{width:15px;height:15px;flex:none}
-.card a.nm:hover{text-decoration-color:currentColor;background:color-mix(in srgb,var(--deep-2) 8%,transparent)}
+.card a.nm,.card a.nm:hover{text-decoration:none}   /* plain name, no underline (her call, 10 Nov); the whole card opens the page */
+.card[data-costume]{cursor:pointer}
 a.formsbtn{text-decoration:none}
 .hero.mon{padding-top:26px;padding-bottom:30px}
 .montop{display:flex;align-items:center;gap:12px;position:relative;z-index:1}
@@ -532,6 +530,3 @@ a.formsbtn{text-decoration:none}
 :root[data-theme="dark"] .bb:not([aria-pressed="true"]):not(:disabled) > .i{color:color-mix(in srgb,var(--bc) 55%,#fff);background:color-mix(in srgb,var(--bc) 32%,var(--surface))}
 
 :root[data-look="mix"] .side{overflow:hidden}
-/* dark mode: card names as links stay readable */
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .card a.nm{color:color-mix(in srgb,var(--deep-2) 35%,#fff)}}
-:root[data-theme="dark"] .card a.nm{color:color-mix(in srgb,var(--deep-2) 35%,#fff)}

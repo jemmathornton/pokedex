@@ -229,7 +229,7 @@ function card(e, more = "", inForms = false){
   return `<div class="card${e.released ? "" : " out-not"}${got ? " got" : ""}${inForms ? " informs" : ""}" data-id="${attr(e.id)}"${got ? ` style="--hl:var(${HL[tab ? tab.k : "caught"]})"` : ""}>` +
     `<span class="no">#${pad(e.dex)}</span>` + (flags.length ? `<span class="flags">${flags.map(f => `<span>${esc(f)}</span>`).join("")}</span>` : "") +
     pic(e, dk(e)) +
-    `<a class="nm" href="#p-${e.dex}" title="Open ${attr(e.name)}’s page">${esc(e.name)}${ic("chevron-right")}</a><small class="fm">${esc(e.form || "")}${e.form && gw ? " · " : ""}${gw ? `<span class="gd">${esc(gw)}</span>` : ""}</small>` +
+    `<a class="nm" href="#p-${e.dex}" title="Open ${attr(e.name)}’s page">${esc(e.name)}</a><small class="fm">${esc(e.form || "")}${e.form && gw ? " · " : ""}${gw ? `<span class="gd">${esc(gw)}</span>` : ""}</small>` +
     boxes(e) + more + `</div>`;
 }
 
@@ -459,7 +459,7 @@ function pokemonPage(n){
 function costumeCard(c){
   const on = COL.costumes.includes(c.id), key = "c:" + c.id;
   return `<div class="card${on ? "" : " not-collecting"}" data-costume="${attr(c.id)}"><span class="no">#${pad(c.dex)}</span>` +
-    pic(c, key) + `<a class="nm" href="#p-${c.dex}" title="Open ${attr(c.name)}’s page">${esc(c.name)}${ic("chevron-right")}</a><small class="fm">${esc(c.costume)}</small>` +
+    pic(c, key) + `<a class="nm" href="#p-${c.dex}" title="Open ${attr(c.name)}’s page">${esc(c.name)}</a><small class="fm">${esc(c.costume)}</small>` +
     (on ? `<div class="boxgrid"><button class="tk c" type="button" data-tick="c" aria-pressed="${has(key, "c")}" title="Caught">${ic("poke-ball")}<span>Caught</span></button>` +
       `<button class="tk s" type="button" data-tick="s" aria-pressed="${has(key, "s")}" title="${c.shiny ? "Shiny" : "No shiny in GO yet"}"${!c.shiny && !has(key, "s") ? " disabled" : ""}>${ic("sparkles")}<span>Shiny</span></button></div>` : "") +
     `<button class="chip collect" type="button" data-collect aria-pressed="${on}">${on ? ic("check") + "Collecting" : "Collect this"}</button></div>`;
@@ -587,12 +587,15 @@ document.addEventListener("click", ev => {
   const go = ev.target.closest("a[data-goform]");
   if (go) { const e = byId[go.dataset.goform]; pageForm[e.dex] = e.id; if (location.hash === "#p-" + e.dex) { ev.preventDefault(); rerender(); } return; }
   const b = ev.target.closest("button");
-  if (!b) {   // anywhere else on a Pokémon's card: tick Caught, or the selected tab's box (her ask, 9 Nov)
-    const c = ev.target.closest(".card[data-id]"), e = c && byId[c.dataset.id];
-    if (!e || ev.target.closest("a")) return;
-    const t = formTick(e);
-    if (!t || (t !== "c" && t === "s" && !e.shiny && !has(dk(e), "s"))) return;
-    return tick(dk(e), t, !has(dk(e), t));
+  if (!b) {   // anywhere else on a card opens that Pokémon's page, at that form (her ask, 10 Nov; ticking is on the boxes)
+    const c = ev.target.closest(".card[data-id],.card[data-costume]");
+    if (!c || ev.target.closest("a")) return;
+    const e = byId[c.dataset.id] || costumeById[c.dataset.costume];
+    if (!e) return;
+    if (c.dataset.id) pageForm[e.dex] = e.id;
+    if (location.hash === "#p-" + e.dex) { rerender(); return scrollTo({top: 0, behavior: "smooth"}); }
+    location.hash = "#p-" + e.dex;
+    return;
   }
   if (b.dataset.look) { setLook(b.dataset.look); keepPrefs(); lookSwitch(); return; }
   if (b.dataset.pickform) { const e = byId[b.dataset.pickform]; pageForm[e.dex] = e.id; return rerender(); }
