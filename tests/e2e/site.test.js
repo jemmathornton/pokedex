@@ -208,7 +208,7 @@
     await go("#quick");
     quickText = "132, 133 shiny"; quickPage();
     click(view().querySelector("[data-quickgo]"));
-    await until(() => (COL.have["d:133"] || []).includes("s"));
+    await until(() => quickText === "", 8000);   // emptied once every tick is saved
     const s = await server();
     ok(["d:132", "d:133"].every(k => s.have[k] && s.have[k].includes("s") && s.have[k].includes("c")), "saved shiny and caught");
     for (const k of ["d:132", "d:133"]) { for (const t of ["c", "s"]) await save({list: "have", key: k, tick: t, on: false}); delete COL.have[k]; }
