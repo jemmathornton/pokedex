@@ -550,21 +550,23 @@ a.formsbtn{text-decoration:none}
 .pc-sd .pcpic::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 55%,rgba(255,255,255,.18),transparent 70%)}
 .pc-sd .pcpic img{filter:grayscale(1) opacity(.45) drop-shadow(0 0 8px #b16cff)}
 .pc-sd[aria-pressed="true"] .pcpic img{filter:drop-shadow(0 0 8px #b16cff)}
-/* the game's own effect pictures (fetch_sprites.py --extras): Shiny sparkles, 4★ appraisal stars, Purified swirl, Max rays (her notes, 10 Nov) */
-.pc-l .pcpic{background:url(variants/lucky.png) center/112% no-repeat, radial-gradient(circle at 50% 55%, #fff6cf, #f3cf62)}
-.pc-s .pcpic{background:url(variants/sparkle.png) 12% 14%/24% no-repeat,url(variants/sparkle.png) 88% 18%/18% no-repeat,url(variants/sparkle.png) 80% 84%/14% no-repeat,url(variants/sparkle.png) 18% 80%/12% no-repeat,url(variants/sparkle.png) 50% 8%/11% no-repeat,url(variants/sparkle.png) 94% 56%/10% no-repeat,url(variants/sparkle.png) 6% 48%/13% no-repeat,url(variants/sparkle.png) 64% 40%/8% no-repeat,url(variants/sparkle.png) 34% 92%/9% no-repeat,url(variants/sparkle.png) 70% 62%/7% no-repeat,
+/* the game's own effect pictures (fetch_sprites.py --extras), after her notes (10 Nov) */
+.pc-l .pcpic{background:radial-gradient(circle at 12% 30%,rgba(255,236,150,0.7) 0 7%,transparent 7.5%),radial-gradient(circle at 84% 14%,rgba(255,236,150,0.6) 0 9%,transparent 9.5%),radial-gradient(circle at 78% 74%,rgba(255,236,150,0.7) 0 6%,transparent 6.5%),radial-gradient(circle at 24% 86%,rgba(255,236,150,0.55) 0 8%,transparent 8.5%),radial-gradient(circle at 58% 92%,rgba(255,236,150,0.6) 0 5%,transparent 5.5%),radial-gradient(circle at 92% 48%,rgba(255,236,150,0.6) 0 5%,transparent 5.5%),radial-gradient(circle at 40% 10%,rgba(255,236,150,0.55) 0 5%,transparent 5.5%),url(variants/lucky.png) center/80% repeat,radial-gradient(circle at 50% 55%,#fff6cf,#f3cf62)}   /* more circles, fewer sparkles */
+.pc-s .pcpic{background:url(variants/sparkle.png) 14% 16%/20% no-repeat,url(variants/sparkle.png) 86% 22%/15% no-repeat,url(variants/sparkle.png) 80% 82%/12% no-repeat,url(variants/sparkle.png) 18% 78%/10% no-repeat,url(variants/sparkle.png) 52% 8%/8% no-repeat,
   radial-gradient(circle at 50% 55%,color-mix(in srgb,var(--shiny) 35%,#fff),color-mix(in srgb,var(--shiny) 75%,#223))}
-.pc-h .pcpic{background:url(variants/star.png) 10% 12%/9% no-repeat,url(variants/star.png) 86% 16%/7% no-repeat,url(variants/star.png) 78% 86%/8% no-repeat,url(variants/star.png) 16% 84%/6% no-repeat,url(variants/star.png) 52% 6%/5% no-repeat,url(variants/star.png) 94% 52%/6% no-repeat,url(variants/star.png) 6% 50%/5% no-repeat,url(variants/star.png) 36% 94%/5% no-repeat,url(variants/star.png) 68% 30%/4% no-repeat,url(variants/star.png) 28% 36%/4% no-repeat,radial-gradient(circle at 50% 55%,#fff,color-mix(in srgb,var(--hundo) 30%,#fff))}
-.pc-h .pcpic > img{opacity:1}
-.pc-pu .pcpic{background:radial-gradient(circle at 50% 55%,color-mix(in srgb,var(--purified) 45%,#fff),color-mix(in srgb,var(--purified) 85%,#012))}
-.pc-pu .pcpic::before{content:"";position:absolute;inset:-25%;background:url(variants/swirl.png) center/contain no-repeat;mix-blend-mode:screen;filter:blur(5px);opacity:.75;transform:rotate(18deg) scale(1.1,.85)}   /* soft, not an exact circle (her note) */
+.pc-h .pcpic{background:radial-gradient(circle at 50% 55%,#fff,color-mix(in srgb,var(--hundo) 30%,#fff))}
+.pc-h .pcpic::before{content:"";position:absolute;inset:0;background:url(variants/star.png) 10% 12%/9% no-repeat,url(variants/star.png) 86% 16%/7% no-repeat,url(variants/star.png) 78% 86%/8% no-repeat,url(variants/star.png) 16% 84%/6% no-repeat,url(variants/star.png) 52% 6%/5% no-repeat,url(variants/star.png) 94% 52%/6% no-repeat,url(variants/star.png) 6% 50%/5% no-repeat,url(variants/star.png) 36% 94%/5% no-repeat,url(variants/star.png) 68% 30%/4% no-repeat,url(variants/star.png) 28% 36%/4% no-repeat;filter:brightness(0) invert(1);opacity:.9}   /* the stars in white, like the other looks */
+/* Purified: the light bursting out (her pick from the old Max look) */
+.pc-pu .pcpic{background:url(variants/rays.png) center/120% no-repeat,radial-gradient(circle at 50% 55%,#e6f6ff,color-mix(in srgb,var(--purified) 70%,#fff) 70%);background-blend-mode:screen,normal}
 .pc-pu .pcpic img{filter:grayscale(1) opacity(.5) drop-shadow(0 0 8px #fff)}
-.pc-pu[aria-pressed="true"] .pcpic img{filter:drop-shadow(0 0 8px #fff)}
-/* Dynamax and G-Max: bright, the Max energy bursting out (not dark like Shadow: her note) */
-.pc-dx .pcpic{background:url(variants/rays.png) center/120% no-repeat,radial-gradient(circle at 50% 55%,#ffd3e2,color-mix(in srgb,var(--dynamax) 75%,#fff) 70%);background-blend-mode:screen,normal}
-.pc-gx .pcpic{background:url(variants/rays.png) center/120% no-repeat,radial-gradient(circle at 50% 55%,#ffc2cf,color-mix(in srgb,var(--gmax) 80%,#fff) 72%);background-blend-mode:screen,normal}
-.pc-dx .pcpic img,.pc-gx .pcpic img{filter:grayscale(1) opacity(.5) drop-shadow(0 0 8px #fff)}
-.pc-dx[aria-pressed="true"] .pcpic img,.pc-gx[aria-pressed="true"] .pcpic img{filter:drop-shadow(0 0 10px rgba(255,255,255,.9))}
+.pc-pu[aria-pressed="true"] .pcpic img{filter:drop-shadow(0 0 10px rgba(255,255,255,.9))}
+/* Dynamax and G-Max: red Max energy streaks, light (not dark like Shadow) */
+.pc-dx .pcpic{background:radial-gradient(circle at 50% 55%,#ffe3ec,color-mix(in srgb,var(--dynamax) 45%,#fff) 75%)}
+.pc-gx .pcpic{background:radial-gradient(circle at 50% 55%,#ffd9e2,color-mix(in srgb,var(--gmax) 50%,#fff) 75%)}
+.pc-dx .pcpic::before,.pc-gx .pcpic::before{content:"";position:absolute;inset:0;background:url(variants/energy.png) center/cover;filter:hue-rotate(75deg) saturate(1.3);mix-blend-mode:multiply;opacity:.0}
+.pc-dx .pcpic::after,.pc-gx .pcpic::after{content:"";position:absolute;inset:0;background:url(variants/energy.png) center/cover;filter:hue-rotate(75deg) saturate(1.2) brightness(1.4);mix-blend-mode:screen;opacity:.85}
+.pc-dx .pcpic img,.pc-gx .pcpic img{filter:grayscale(1) opacity(.5) drop-shadow(0 0 6px #ff5c8a)}
+.pc-dx[aria-pressed="true"] .pcpic img,.pc-gx[aria-pressed="true"] .pcpic img{filter:drop-shadow(0 0 6px #ff5c8a)}
 .boxhead{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .trybox{display:inline-flex;align-items:center;gap:10px}
 .trybox .label{margin:0}
@@ -578,8 +580,11 @@ a.formsbtn{text-decoration:none}
 .shotsw .label{margin:0;text-shadow:0 1px 3px rgba(0,0,0,.6);color:#fff}
 .shotsw .opts{background:rgba(255,255,255,.92)}
 .shotsw .opts button[aria-pressed="true"]{background:var(--rc);color:#fff}
-/* Mega: the Mega picture on a soft rainbow, after the Mega Evolution orb's colours (a suggestion) */
-.pc-mg .pcpic{background:radial-gradient(circle at 50% 55%,#fff 0 30%,transparent 70%),conic-gradient(from 30deg,#ffd6e8,#d8e6ff,#d6fff1,#fff6c9,#ffd6e8)}
+/* Mega: white, with the game's Mega symbol (its shape, from the raid egg) in rainbow colours behind the Mega picture (her idea, 10 Nov) */
+.pc-mg .pcpic{background:#fff}
+.pc-mg .pcpic::before{content:"";position:absolute;inset:-14% 30%;   /* one symbol of the three, at its own shape: black on white, so "screen" leaves the rainbow only in the symbol */
+  background:url(variants/mega-symbol.png) 0 0/300% 100% no-repeat,linear-gradient(170deg,#ff5f6d,#ffb347 22%,#ffe66d 40%,#5fe39a 58%,#4fb6ff 76%,#a66bff);
+  background-blend-mode:screen;opacity:.8}
 .pc-mg .pcpic img{filter:grayscale(1) opacity(.45)}
-.pc-mg[aria-pressed="true"] .pcpic img{filter:drop-shadow(0 0 6px rgba(31,122,140,.5))}
+.pc-mg[aria-pressed="true"] .pcpic img{filter:drop-shadow(0 0 6px rgba(0,0,0,.18))}
 .pc.small .pclab{white-space:nowrap;font-size:11.5px}

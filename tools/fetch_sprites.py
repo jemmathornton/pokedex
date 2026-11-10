@@ -39,8 +39,9 @@ def one(item, big=False):
 
 # the game's own looks for the Pokémon page's picture cards (--extras): the Lucky sparkles and the Shadow flames, as they are in the game
 EXTRAS = {'lucky': 'Images/Friends/ui_bg_lucky_pokemon.png', 'shadow-flame': 'Images/Effects/tx_shadow_cloud_02.png',
-          'sparkle': 'Images/Effects/flare_6_point.png', 'star': 'Images/Appraisal/AppraisalStar.png',
-          'swirl': 'Images/Effects/swirls.png', 'rays': 'Images/Effects/CircleRaysHeavy.png'}
+          'sparkle': 'Images/Effects/contest_rank_sparkle.png', 'energy': 'Images/Effects/tx_energy_tile_purple.png', 'star': 'Images/Appraisal/AppraisalStar.png',
+          'swirl': 'Images/Effects/swirls.png', 'rays': 'Images/Effects/CircleRaysHeavy.png',
+          'mega-symbol': '3D Assets/Objects & Misc/Egg_5/raid_egg_mega_legendary_symbol_alpha.png'}   # the Mega symbol's shape (three in a row)
 
 
 def extras():
