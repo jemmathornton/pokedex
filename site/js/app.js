@@ -147,7 +147,7 @@ function boxes(e){
     [btn("c", "c", "poke-ball", "Caught", "Caught"), btn("s", "s", "sparkles", "Shiny", e.shiny ? "Shiny" : "No shiny in GO yet", !e.shiny)],
     [femaleTick(e) ? btn("cf", "f", "venus", "Female", e.gender === "female" ? "Female (female only)" : "Female") : "",
      maleTick(e) ? btn("cm", "m", "mars", "Male", e.gender === "male" ? "Male (male only)" : "Male") : ""],   // female first (her call)
-    [btn("l", "l", "lucky", "Lucky", e.class === "mythical" ? "Mythical: can’t be traded, so never lucky" : "Lucky", !canLucky(e)),
+    [e.class === "mythical" && !has(k, "l") ? "" : btn("l", "l", "lucky", "Lucky", "Lucky", !canLucky(e)),   // a box that can never be (a mythical’s Lucky) isn’t shown (her call, 10 Nov)
      btn("h", "h", "star", "4★", "4★ (perfect IVs)", !e.released)],
     [extra("sd"), extra("pu")],
   ];
@@ -390,7 +390,7 @@ function bigBoxes(e){
     B("cf", "--female", "venus", "Female", !!femaleTick(e)) +   // a gender it can't be isn't shown (genderless, male only…)
     B("cm", "--male", "mars", "Male", !!maleTick(e)) +
     B("s", "--shiny", "sparkles", "Shiny", !!e.shiny, "Unavailable") +
-    B("l", "--lucky", "lucky", "Lucky", canLucky(e), e.class === "mythical" ? "Not possible" : "Unavailable") +
+    B("l", "--lucky", "lucky", "Lucky", canLucky(e), e.class === "mythical" ? null : "Unavailable") +
     B("h", "--hundo", "star", "4★", e.released, "Unavailable") +
     B("sd", "--shadow", "shadow", "Shadow", !!e.shadow) +
     B("pu", "--purified", "purified", "Purified", !!e.shadow) +
