@@ -247,7 +247,7 @@ document.documentElement.dataset.look = "mix";
 const setRegion = g => document.documentElement.style.setProperty("--rc", REGION_COLOURS[g] || "#7E2530");
 // TRIAL (10 Nov, her idea): a real in-game screenshot of the region behind its banner; she flicks between them with the
 // switch on the banner (0 = plain colour). Official press screenshots, sources in research/data/region-screenshots.json
-const REGION_SHOTS = {"1": ["kanto-1.jpg", "kanto-2.jpg", "kanto-3.jpg"], "2": ["johto-1.png", "johto-2.jpg", "johto-3.jpg"], "3": ["hoenn-1.jpg", "hoenn-2.jpg", "hoenn-3.jpg"], "4": ["sinnoh-1.jpg", "sinnoh-2.jpg", "sinnoh-3.jpg"], "5": ["unova-1.jpg", "unova-2.jpg", "unova-3.jpg"], "6": ["kalos-1.jpg", "kalos-2.jpg", "kalos-3.jpg", "kalos-4.jpg"], "7": ["alola-1.jpg", "alola-2.jpg", "alola-3.jpg"], "8": ["galar-1.jpg", "galar-2.jpg", "galar-3.jpg", "galar-4.jpg"], "hisui": ["hisui-1.jpg", "hisui-2.jpg", "hisui-3.jpg", "hisui-4.jpg"], "9": ["paldea-1.jpg", "paldea-2.jpg", "paldea-3.jpg", "paldea-4.jpg"]};
+const REGION_SHOTS = {"1": ["kanto-1.jpg", "kanto-2.jpg", "kanto-3.jpg", "kanto-4.jpg", "kanto-5.jpg", "kanto-6.jpg", "kanto-7.jpg", "kanto-8.jpg"], "2": ["johto-1.png", "johto-2.jpg", "johto-3.jpg"], "3": ["hoenn-1.jpg", "hoenn-2.jpg", "hoenn-3.jpg", "hoenn-4.jpg", "hoenn-5.jpg", "hoenn-6.jpg", "hoenn-7.jpg", "hoenn-8.jpg"], "4": ["sinnoh-1.jpg", "sinnoh-2.jpg", "sinnoh-3.jpg", "sinnoh-4.jpg", "sinnoh-5.jpg", "sinnoh-6.jpg", "sinnoh-7.jpg"], "5": ["unova-1.jpg", "unova-2.jpg", "unova-3.jpg", "unova-4.png", "unova-5.png", "unova-6.png", "unova-7.jpg", "unova-8.jpg"], "6": ["kalos-1.jpg", "kalos-2.jpg", "kalos-3.jpg", "kalos-4.jpg", "kalos-5.jpg", "kalos-6.jpg", "kalos-7.jpg", "kalos-8.jpg"], "7": ["alola-1.jpg", "alola-2.jpg", "alola-3.jpg", "alola-4.jpg", "alola-5.jpg", "alola-6.jpg", "alola-7.jpg", "alola-8.jpg"], "8": ["galar-1.jpg", "galar-2.jpg", "galar-3.jpg", "galar-4.jpg", "galar-5.jpg", "galar-6.jpg", "galar-7.jpg", "galar-8.jpg", "galar-9.jpg", "galar-10.jpg"], "hisui": ["hisui-1.jpg", "hisui-2.jpg", "hisui-3.jpg", "hisui-4.jpg", "hisui-5.jpg", "hisui-6.jpg", "hisui-7.jpg", "hisui-8.jpg", "hisui-9.jpg", "hisui-10.jpg"], "9": ["paldea-1.jpg", "paldea-2.jpg", "paldea-3.jpg", "paldea-4.jpg", "paldea-5.jpg", "paldea-6.jpg", "paldea-7.jpg", "paldea-8.jpg", "paldea-9.jpg"]};
 const shotPick = g => Math.min((prefs.regionShot || {})[g] ?? 1, (REGION_SHOTS[g] || []).length);
 function regionShot(g){   // style and switch for a region page's banner
   const shots = REGION_SHOTS[g] || [], k = shotPick(g);
@@ -626,9 +626,15 @@ document.addEventListener("click", ev => {
   const b = ev.target.closest("button");
   if (!b) {   // anywhere else on a card opens that Pokémon's page, at that form (her ask, 10 Nov; ticking is on the boxes)
     const c = ev.target.closest(".card[data-id],.card[data-costume],.card[data-bgdex]");
-    if (!c || ev.target.closest("a")) return;
+    const link = ev.target.closest("a");
+    if (!c || (link && link.getAttribute("href") !== location.hash)) return;   // a link to this same page (a name on its own page) counts as the card
+    if (link) ev.preventDefault();
     const e = byId[c.dataset.id] || costumeById[c.dataset.costume] || baseOf[c.dataset.bgdex];
     if (!e) return;
+    if (location.hash === "#p-" + e.dex && !c.dataset.id) {   // a costume or background on its own Pokémon's page: the card ticks its Caught box (her note, 10 Nov)
+      const key = c.dataset.costume ? "c:" + c.dataset.costume : c.dataset.bg;
+      if (key) return tick(key, "c", !has(key, "c"));
+    }
     if (c.dataset.id) pageForm[e.dex] = e.id;
     if (location.hash === "#p-" + e.dex) { rerender(); return scrollTo({top: 0, behavior: "smooth"}); }
     location.hash = "#p-" + e.dex;
