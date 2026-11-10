@@ -58,9 +58,12 @@ def main():
     os.makedirs(OUT, exist_ok=True)
     events = json.load(open(os.path.join(ROOT, 'data', 'events.json'), encoding='utf-8'))
     events = events['events'] if isinstance(events, dict) else events
-    with_bg = {e['id'] for e in events if e.get('background')}
+    # special backgrounds (data/special-backgrounds.json): their own card from the game files, where there is one
+    special = json.load(open(os.path.join(ROOT, 'data', 'special-backgrounds.json'), encoding='utf-8'))['special']
+    CARDS.update({x['id']: [x['card']] for x in special if x.get('card')})
+    with_bg = {e['id'] for e in events if e.get('background')} | {x['id'] for x in special if x.get('card')}
     print('events with a background but no card here:', sorted(with_bg - set(CARDS)) or 'none')
-    print('cards for events not in events.json:', sorted(set(CARDS) - {e['id'] for e in events}) or 'none')
+    print('cards for events not in events.json:', sorted(set(CARDS) - {e['id'] for e in events} - {x['id'] for x in special}) or 'none')
     failed = []
     for eid, cards in CARDS.items():
         for i, card in enumerate(cards):

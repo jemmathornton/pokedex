@@ -1,0 +1,1391 @@
+[
+ {
+  "card": null,
+  "name": "GO Wild Area 2026 (Into the Wild / GO Wild Area: Global)",
+  "event": "Into the Wild 2026 and Pokémon GO Wild Area 2026: Global",
+  "start": "2026-11-09",
+  "end": "2026-11-15",
+  "scope": "global",
+  "pokemon": [
+   "Zacian",
+   "Zamazenta",
+   "Registeel",
+   "Regidrago",
+   "Latias",
+   "Latios",
+   "Duraludon",
+   "Dialga",
+   "Palkia",
+   "Zekrom",
+   "Reshiram",
+   "Kyurem",
+   "Machamp"
+  ],
+  "forms": "Caught from raids and Max Battles. Into the Wild (9-13 Nov): Zacian and Zamazenta from 5-star raids, Dynamax Registeel, Regidrago, Latias and Latios from 5-star Max Battles. Weekend (14-15 Nov): Gigantamax Duraludon (6-star Max Battles; guaranteed with the background at the end of the ticketed Special Research), Dynamax Dialga and Palkia, Zekrom, Reshiram and Kyurem (from White and Black Kyurem raids), Machamp (Modern Jacket) from 3-star raids. Shiny: not stated.",
+  "sources": [
+   "https://leekduck.com/pokemon-go-wild-area/special-backgrounds/",
+   "https://leekduck.com/events/pokemon-go-wild-area-2026-global/",
+   "https://leekduck.com/events/into-the-wild-2026/",
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-wild-area-global-2026",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ],
+  "unsure": "No picture file in the game files yet (newest). The weekend has not happened yet (today is 10 Nov). Leek Duck says Crowned Sword Zacian and Crowned Shield Zamazenta; Dittobase says Hero of Many Battles. Serebii lists Registeel twice and no forms."
+ },
+ {
+  "card": null,
+  "name": "Festival of Lights",
+  "event": "Festival of Lights 2026 (India only)",
+  "start": "2026-11-06",
+  "end": "2026-11-08",
+  "scope": "in-person",
+  "pokemon": [
+   "Pikachu"
+  ],
+  "forms": "Pikachu (Saree) and Pikachu (Kurta) from raids, Sparkle O'Clock wild spawns, and the branched Timed Research encounter (Timed Research from 1 Nov). Shiny possible.",
+  "sources": [
+   "https://pokemongo.com/en/news/festival-of-lights-2026",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ],
+  "unsure": "Not an in-person venue: playable only in India (regional). No picture file in the game files yet; Serebii shows its own picture, different from Festival of Colors. Serebii gives no dates."
+ },
+ {
+  "card": "sb_DiaDeMuertos_2026",
+  "name": "Dia de Muertos 2026",
+  "event": "Día de Muertos 2026 (Mexico only)",
+  "start": "2026-10-27",
+  "end": "2026-11-05",
+  "scope": "in-person",
+  "pokemon": [
+   "Cubone"
+  ],
+  "forms": "Cubone (Cempasúchil Crown); keeps it when evolved to Marowak (Cempasúchil Crown) per Dittobase. Shiny: not stated.",
+  "sources": [
+   "https://pokemongo.com/en/news/dia-de-muertos-2026",
+   "https://www.serebii.net/pokemongo/reallifeevents/diademuertos2026.shtml",
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-dia-de-muertos-2026",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ],
+  "unsure": "Not a venue: playable only in Mexico (regional). Serebii's list also has Duskull (Cempasúchil Crown) and Pokémon GO Hub mentions Duskull; the official post and Dittobase name only Cubone."
+ },
+ {
+  "card": "sb_PatternWild",
+  "name": "Patterns of the Wild",
+  "event": "Patterns of the Wild (Indonesia only)",
+  "start": "2026-10-02",
+  "end": "2026-10-02",
+  "scope": "in-person",
+  "pokemon": [
+   "Pikachu"
+  ],
+  "forms": "Pikachu (Batik Shirt): wild spawns, surprise snapshot encounters and Timed Research (28 Sep-10 Oct). Shiny possible.",
+  "sources": [
+   "https://leekduck.com/events/patterns-of-the-wild-2026/",
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-patternwild",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ],
+  "unsure": "Not a venue: playable only in Indonesia (regional; first announced as if global). Serebii's dates for it are muddled."
+ },
+ {
+  "card": "sb_MidAutumn",
+  "name": "Moonlight (Dittobase: Moonlight 2026)",
+  "event": "Dancing in the Moonlight 2026 (Asian markets only)",
+  "start": "2026-09-23",
+  "end": "2026-09-27",
+  "scope": "in-person",
+  "pokemon": [
+   "Clefairy"
+  ],
+  "forms": "Clefairy from the event's second Timed Research and the Moonlight O'Clock spawn bursts; keeps it when evolved to Clefable. Shiny possible.",
+  "sources": [
+   "https://serebii.net/pokemongo/events/dancinginthemoonlight2026.shtml",
+   "https://pokemongo.com/en/news/dancing-in-the-moonlight-2026",
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-moonlight-2026",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ],
+  "unsure": "Card matched by picture (the game file is the plain sky layer of Serebii's \"Moonlight\" picture) and by the Mid-Autumn timing; no source names the file. Regional, not a venue: Japan, Korea, Taiwan, Hong Kong, Indonesia, Singapore (and Malaysia per the official post). Dittobase ends it 28 Sep."
+ },
+ {
+  "card": "sb_s24_sep_2026",
+  "name": "Pokémon Horizons 2026",
+  "event": "Pokémon Horizons: The Series Celebration Event 2026",
+  "start": "2026-09-16",
+  "end": "2026-09-22",
+  "scope": "global",
+  "pokemon": [
+   "Charmander",
+   "Charizard",
+   "Pikachu",
+   "Meowscarada",
+   "Skeledirge",
+   "Quaquaval"
+  ],
+  "forms": "Charmander (Friede's Goggles) from the wild (Charmeleon/Charizard by evolving), Pikachu (Captain's Cap) from 1-star raids, Charizard (Friede's Goggles), Meowscarada, Skeledirge and Quaquaval from 3-star raids and snapshot encounters. Shiny possible.",
+  "sources": [
+   "https://leekduck.com/events/pokemon-horizons-the-series-celebration-event-2026/",
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-s24-sep-2026",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ],
+  "unsure": "The file name reads as a Season 24 (Twilight Trails, Sep-Dec 2026) background, so it may be reused later this season. Serebii lists Pikachu as \"Captain Pikachu\"."
+ },
+ {
+  "card": "sb_WorldSpecial_Blue",
+  "name": "Pokémon World Championships 2026",
+  "event": "Pokémon World Championships 2026 Twitch Drop",
+  "start": "2026-08-28",
+  "end": "2026-08-30",
+  "scope": "global",
+  "pokemon": [
+   "Tinkaton"
+  ],
+  "forms": "Tinkaton (with the 2025 World Champion's stats) from Twitch Drop Timed Research for watching the GO championship stream; research claimable until 11 Sep 2026.",
+  "sources": [
+   "https://leekduck.com/events/pokemon-world-championships-2026-timed-research-twitch-drops/",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ],
+  "unsure": "Card matched by picture only (the game file is the blue base of Serebii's picture); Dittobase has no entry for it. Shiny not stated (probably not)."
+ },
+ {
+  "card": null,
+  "name": "10th Anniversary Celebration (Mewtwo)",
+  "event": "10th Anniversary Celebration - Perfect Mewtwo Timed Research",
+  "start": "2026-08-12",
+  "end": "2026-09-06",
+  "scope": "global",
+  "pokemon": [
+   "Mewtwo"
+  ],
+  "forms": "One Mewtwo with maxed stats from free Timed Research. Shiny: not stated.",
+  "sources": [
+   "https://leekduck.com/events/10th-anniversary-celebration/",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ],
+  "unsure": "No picture file in the game files. Serebii lists it as \"10th Anniversary Celebration\" (an Earth picture), dated 13 Aug-4 Sep. Those at the in-person Times Square event (9 Jul) got a Mewtwo with a Times Square background instead."
+ },
+ {
+  "card": "sb_GoFest2026_global",
+  "name": "GO Fest 2026 Global (Serebii: Road of Legends)",
+  "event": "Road of Legends and Pokémon GO Fest 2026: Global",
+  "start": "2026-07-06",
+  "end": "2026-07-26",
+  "scope": "global",
+  "pokemon": [
+   "Articuno",
+   "Zapdos",
+   "Moltres",
+   "Raikou",
+   "Entei",
+   "Suicune",
+   "Lugia",
+   "Ho-Oh",
+   "Regirock",
+   "Regice",
+   "Registeel",
+   "Latias",
+   "Latios",
+   "Kyogre",
+   "Groudon",
+   "Rayquaza",
+   "Deoxys",
+   "Uxie",
+   "Mesprit",
+   "Azelf",
+   "Dialga",
+   "Palkia",
+   "Heatran",
+   "Regigigas",
+   "Giratina",
+   "Cresselia",
+   "Darkrai",
+   "Cobalion",
+   "Terrakion",
+   "Virizion",
+   "Tornadus",
+   "Thundurus",
+   "Reshiram",
+   "Zekrom",
+   "Landorus",
+   "Kyurem",
+   "Genesect",
+   "Xerneas",
+   "Yveltal",
+   "Tapu Koko",
+   "Tapu Lele",
+   "Tapu Bulu",
+   "Tapu Fini",
+   "Solgaleo",
+   "Lunala",
+   "Nihilego",
+   "Buzzwole",
+   "Pheromosa",
+   "Xurkitree",
+   "Celesteela",
+   "Kartana",
+   "Guzzlord",
+   "Necrozma",
+   "Stakataka",
+   "Blacephalon",
+   "Zacian",
+   "Zamazenta",
+   "Regieleki",
+   "Regidrago",
+   "Enamorus",
+   "Beedrill",
+   "Pidgeot",
+   "Alakazam",
+   "Gengar",
+   "Pinsir",
+   "Aerodactyl",
+   "Ampharos",
+   "Tyranitar",
+   "Sceptile",
+   "Blaziken",
+   "Swampert",
+   "Gardevoir",
+   "Salamence",
+   "Metagross",
+   "Garchomp",
+   "Lucario",
+   "Abomasnow",
+   "Audino"
+  ],
+  "forms": "Anything caught from 5-star raids, Primal Raids and Mega Raids, 6-12 Jul 2026 and at the Sunday Raid Makeup (26 Jul): every form raided, incl. Origin Dialga, Palkia and Giratina, Altered Giratina, Incarnate and Therian Tornadus, Thundurus, Landorus and Enamorus, all four Deoxys formes, Genesect with each Drive, Hero Zacian and Zamazenta; Mega raids give the base species (Beedrill to Audino), Primal raids Kyogre and Groudon. Shiny possible except Solgaleo, Lunala and Enamorus (Dittobase).",
+  "sources": [
+   "https://leekduck.com/gofest-2026/special-backgrounds/",
+   "https://leekduck.com/events/road-of-legends-2026/",
+   "https://leekduck.com/events/pokemon-go-fest-2026-global-sunday-raid-makeup/",
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-gofest2026-global",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ],
+  "unsure": "Serebii lists the plain base as \"GO Fest 2026 Global\" (no Pokémon) and the finished picture as \"Road of Legends\" (dated 2025 by mistake). Leek Duck's page lists only the 5-star bosses; the Mega species come from Dittobase and Serebii."
+ },
+ {
+  "card": "sb_GoFest2026_mewtwo",
+  "name": "GO Fest 2026 Mewtwo (Serebii: Mewtwo / Mega Mewtwo)",
+  "event": "Pokémon GO Fest 2026: Global",
+  "start": "2026-07-06",
+  "end": "2026-07-26",
+  "scope": "global",
+  "pokemon": [
+   "Mewtwo"
+  ],
+  "forms": "Mewtwo caught from Mega Mewtwo X and Y Super Mega Raids during GO Fest: Global (11-12 Jul) and the Sunday Raid Makeup (26 Jul); also a Mewtwo at GO Pass Deluxe rank 90 (Road of Legends, from 6 Jul). When Mega Evolved the background gets an extra effect (Serebii's \"Mega Mewtwo\" picture).",
+  "sources": [
+   "https://leekduck.com/gofest-2026/special-backgrounds/",
+   "https://leekduck.com/events/road-of-legends-2026/",
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-gofest2026-mewtwo",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ],
+  "unsure": "Leek Duck says Mewtwo from Mega Mewtwo X/Y Super Mega Raids at the Mega Finale (Sep 2026) \"may also have a Special Background\" without saying which one. Serebii dates its Mewtwo entries 2025 by mistake. Shiny: not stated."
+ },
+ {
+  "card": null,
+  "name": "10th Anniversary (Gimmighoul coin)",
+  "event": "10th Anniversary Party",
+  "start": "2026-07-04",
+  "end": "2026-07-31",
+  "scope": "global",
+  "pokemon": [
+   "Gimmighoul"
+  ],
+  "forms": "Gimmighoul (Roaming Form) holding a 10th anniversary coin, from Golden Lure Modules and Coin Bags; guaranteed with the background from the paid Timed Research. Shiny possible.",
+  "sources": [
+   "https://leekduck.com/events/10th-anniversary-party/",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ],
+  "unsure": "No picture file of its own; Serebii's picture looks like the 9th Anniversary one with a 10th anniversary coin, so it may reuse sb_9thAnniversary as its base. Dittobase has no entry."
+ },
+ {
+  "card": "sb_arraia_2026",
+  "name": "Arraiá 2026 (Festa Junina)",
+  "event": "Arraiá do Pokémon GO 2026 (Brazil only)",
+  "start": "2026-06-23",
+  "end": "2026-06-29",
+  "scope": "in-person",
+  "pokemon": [
+   "Tauros"
+  ],
+  "forms": "Paldean Tauros (Aqua Breed) from the event's Party Challenges and Field Research. Shiny: not stated.",
+  "sources": [
+   "https://pokemongo.com/pt-BR/news/festa-junina-2026",
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-arraia-2026",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ],
+  "unsure": "Not a venue: playable only in Brazil (regional). Serebii dates it 23-30 Jun."
+ },
+ {
+  "card": "sb_lego_2026",
+  "name": "LEGO (Serebii: LEGO Pokémon)",
+  "event": "LEGO stamp rally at GO Fest 2026: Copenhagen, then LEGO Stores and Pokémon GO",
+  "start": "2026-06-11",
+  "end": "2026-09-30",
+  "scope": "in-person",
+  "pokemon": [
+   "Pikachu"
+  ],
+  "forms": "Pikachu (no costume) from the LEGO stamp rally encounters and from 1-star raids at participating LEGO Stores (Australia, France, Germany, Great Britain, Poland, USA; 3 Aug-30 Sep 2026); keeps it when evolved to Raichu per Dittobase. First given at the Copenhagen LEGO stamp rally during GO Fest Copenhagen. Shiny possible.",
+  "sources": [
+   "https://leekduck.com/events/lego-pokemon-go-2026/",
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-lego-2026",
+   "https://www.serebii.net/pokemongo/reallifeevents/pokemongoandlegocollaborationevent.shtml",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ],
+  "unsure": "Copenhagen dates: Dittobase 11-14 Jun 2026, Serebii 12-14 Jun 2026."
+ },
+ {
+  "card": null,
+  "name": "Pokopia",
+  "event": "Pokémon Pokopia Celebration Event",
+  "start": "2026-03-10",
+  "end": "2026-03-16",
+  "scope": "global",
+  "pokemon": [
+   "Ditto",
+   "Lapras",
+   "Snorlax",
+   "Dragonite"
+  ],
+  "forms": "Costumed Ditto (Pokopia hat and Pokopia cap) from the wild (chance) and guaranteed from Timed Research and Collection Challenges; Lapras, Snorlax and Dragonite from 3-star raids and the \"Win 3 raids\" Field Research (that one guaranteed). Shiny possible.",
+  "sources": [
+   "https://leekduck.com/events/pokemon-pokopia-celebration-event-2026/",
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-pokopia-2026",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ],
+  "unsure": "No sb_ file: its picture is probably lc_pokopia2026 in the same folder (same artwork as Serebii's \"Pokemon Pokopia\"), so it is filed as a location card."
+ },
+ {
+  "card": "sb_FestivalofColors_2026",
+  "name": "Festival of Colors",
+  "event": "Festival of Colors 2026 (India only)",
+  "start": "2026-03-04",
+  "end": "2026-03-08",
+  "scope": "in-person",
+  "pokemon": [
+   "Pikachu"
+  ],
+  "forms": "Pikachu (Saree) and Pikachu (Kurta) from raids and Colorful O'Clock, plus one from the branched Timed Research. Shiny possible.",
+  "sources": [
+   "https://pokemongo.com/en/news/festival-of-colors-2026",
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-festivalofcolors-2026",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ],
+  "unsure": "Not a venue: playable only in India (regional). Serebii says Saree and \"Batik Shirt\" Pikachu and dates it 2025; the official post says Saree and Kurta, 2026."
+ },
+ {
+  "card": "sb_GoTour2026_mega",
+  "name": "GO Tour 2026 Mega (Mega Evolution-themed)",
+  "event": "Pokémon GO Tour: Kalos - Global; later Mega Ascension and GO Fest 2026: Mega Finale",
+  "start": "2026-02-28",
+  "end": "2026-09-06",
+  "scope": "global",
+  "pokemon": [
+   "Venusaur",
+   "Charizard",
+   "Blastoise",
+   "Pidgeot",
+   "Victreebel",
+   "Kangaskhan",
+   "Scizor",
+   "Heracross",
+   "Tyranitar",
+   "Sceptile",
+   "Blaziken",
+   "Swampert",
+   "Gardevoir",
+   "Absol",
+   "Salamence",
+   "Metagross",
+   "Latias",
+   "Latios",
+   "Garchomp",
+   "Lucario",
+   "Gallade",
+   "Malamar",
+   "Dragonite",
+   "Beedrill",
+   "Pinsir",
+   "Abomasnow",
+   "Alakazam",
+   "Slowbro",
+   "Starmie",
+   "Medicham",
+   "Gengar",
+   "Houndoom",
+   "Banette",
+   "Raichu",
+   "Ampharos",
+   "Manectric",
+   "Steelix",
+   "Skarmory",
+   "Aggron",
+   "Glalie",
+   "Sharpedo",
+   "Camerupt",
+   "Lopunny",
+   "Falinks",
+   "Gyarados",
+   "Aerodactyl",
+   "Altaria",
+   "Sableye",
+   "Mawile",
+   "Audino",
+   "Chespin",
+   "Fennekin",
+   "Froakie",
+   "Mewtwo"
+  ],
+  "forms": "Anything caught from Mega and Super Mega Raids: at GO Tour Kalos Global (28 Feb-1 Mar 2026: Venusaur to Dragonite in this list), then Mega Ascension (31 Aug-4 Sep) and the Mega Finale weekend (5-6 Sep 2026); Chespin, Fennekin and Froakie from GO Pass: Mega Finale. The background gets extra effects while the Pokémon is Mega Evolved. Shiny possible.",
+  "sources": [
+   "https://leekduck.com/events/pokemon-go-tour-kalos-global-2026/",
+   "https://leekduck.com/events/mega-ascension/",
+   "https://leekduck.com/gofest/special-backgrounds/",
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-go-tour-2026-mega",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ],
+  "unsure": "Serebii lists only the Kalos Global 22 (no Dragonite, no Mega Finale). That Mega Ascension/Mega Finale use this same card is from Dittobase; Leek Duck calls it a \"Mega Evolution-themed Special Background\" and \"new\". Mewtwo at the Mega Finale may have the GO Fest 2026 Mewtwo one instead."
+ },
+ {
+  "card": "sb_GoTour2026_x",
+  "name": "GO Tour 2026 X (inspired by Pokémon X)",
+  "event": "Pokémon GO Tour: Kalos - Global",
+  "start": "2026-02-27",
+  "end": "2026-03-08",
+  "scope": "global",
+  "pokemon": [
+   "Pikachu",
+   "Honedge",
+   "Xerneas",
+   "Chespin",
+   "Fennekin",
+   "Froakie"
+  ],
+  "forms": "Pikachu (Calem's Hat), Pikachu (Serena's Hat) and Honedge from raids, Xerneas from 5-star raids and guaranteed from the X Version path of the ticketed Special Research (28 Feb-1 Mar 2026). Dittobase adds Chespin, Fennekin and Froakie from the Kalos starters promo code research (27 Feb-8 Mar). Shiny possible.",
+  "sources": [
+   "https://leekduck.com/events/pokemon-go-tour-kalos-global-2026/",
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-go-tour-2026-x",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ],
+  "unsure": "The Kalos starters (promo code) are from Dittobase only; Serebii and Leek Duck don't list them."
+ },
+ {
+  "card": "sb_GoTour2026_y",
+  "name": "GO Tour 2026 Y (inspired by Pokémon Y)",
+  "event": "Pokémon GO Tour: Kalos - Global",
+  "start": "2026-02-27",
+  "end": "2026-03-08",
+  "scope": "global",
+  "pokemon": [
+   "Pikachu",
+   "Honedge",
+   "Yveltal",
+   "Chespin",
+   "Fennekin",
+   "Froakie"
+  ],
+  "forms": "Pikachu (Calem's Hat), Pikachu (Serena's Hat) and Honedge from raids, Yveltal from 5-star raids and guaranteed from the Y Version path of the ticketed Special Research (28 Feb-1 Mar 2026). Dittobase adds Chespin, Fennekin and Froakie from the Kalos starters promo code research (27 Feb-8 Mar). Shiny possible.",
+  "sources": [
+   "https://leekduck.com/events/pokemon-go-tour-kalos-global-2026/",
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-go-tour-2026-y",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ],
+  "unsure": "The Kalos starters (promo code) are from Dittobase only; Serebii and Leek Duck don't list them."
+ },
+ {
+  "card": "sb_GoTour2026_diamond",
+  "name": "GO Tour 2026 Diamond (inspired by Pokémon Diamond Version)",
+  "event": "Road to Kalos (Sinnoh day)",
+  "start": "2026-02-26",
+  "end": "2026-02-26",
+  "scope": "global",
+  "pokemon": [
+   "Pikachu",
+   "Dialga"
+  ],
+  "forms": "Caught from raids: Pikachu (Lucas's Hat), (Dawn's Hat), (Rei's Cap) and (Akari's Kerchief) can have Diamond or Pearl; Dialga and Origin Forme Dialga have Diamond. Field and Timed Research encounters don't get it. Shiny possible.",
+  "sources": [
+   "https://leekduck.com/events/road-to-kalos/",
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-go-tour-2026-diamond",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ],
+  "unsure": null
+ },
+ {
+  "card": "sb_GoTour2026_pearl",
+  "name": "GO Tour 2026 Pearl (inspired by Pokémon Pearl Version)",
+  "event": "Road to Kalos (Sinnoh day)",
+  "start": "2026-02-26",
+  "end": "2026-02-26",
+  "scope": "global",
+  "pokemon": [
+   "Pikachu",
+   "Palkia"
+  ],
+  "forms": "Caught from raids: Pikachu (Lucas's Hat), (Dawn's Hat), (Rei's Cap) and (Akari's Kerchief) can have Diamond or Pearl; Palkia and Origin Forme Palkia have Pearl. Field and Timed Research encounters don't get it. Shiny possible.",
+  "sources": [
+   "https://leekduck.com/events/road-to-kalos/",
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-go-tour-2026-pearl",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ],
+  "unsure": null
+ },
+ {
+  "card": "sb_GoTour2026_ruby",
+  "name": "GO Tour 2026 Ruby (inspired by Pokémon Ruby Version)",
+  "event": "Road to Kalos (Hoenn day)",
+  "start": "2026-02-25",
+  "end": "2026-02-25",
+  "scope": "global",
+  "pokemon": [
+   "Pikachu",
+   "Groudon"
+  ],
+  "forms": "Caught from raids: Pikachu (Brendan's Hat) and (May's Bow) can have Ruby or Sapphire; Groudon has Ruby. Shiny possible.",
+  "sources": [
+   "https://leekduck.com/events/road-to-kalos/",
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-go-tour-2026-ruby",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ],
+  "unsure": null
+ },
+ {
+  "card": "sb_GoTour2026_sapphire",
+  "name": "GO Tour 2026 Sapphire (inspired by Pokémon Sapphire Version)",
+  "event": "Road to Kalos (Hoenn day)",
+  "start": "2026-02-25",
+  "end": "2026-02-25",
+  "scope": "global",
+  "pokemon": [
+   "Pikachu",
+   "Kyogre"
+  ],
+  "forms": "Caught from raids: Pikachu (Brendan's Hat) and (May's Bow) can have Ruby or Sapphire; Kyogre has Sapphire. Shiny possible.",
+  "sources": [
+   "https://leekduck.com/events/road-to-kalos/",
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-sapphire",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ],
+  "unsure": null
+ },
+ {
+  "card": "sb_GoTour2026_gold",
+  "name": "GO Tour 2026 Gold (inspired by Pokémon Gold Version)",
+  "event": "Road to Kalos (Johto day)",
+  "start": "2026-02-24",
+  "end": "2026-02-24",
+  "scope": "global",
+  "pokemon": [
+   "Pikachu",
+   "Ho-Oh"
+  ],
+  "forms": "Caught from raids: Pikachu (Ethan's Hat) and (Lyra's Hat) can have Gold or Silver; Shadow Ho-Oh (Shadow Raids) has Gold. Shiny possible.",
+  "sources": [
+   "https://leekduck.com/events/road-to-kalos/",
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-go-tour-2026-gold",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ],
+  "unsure": "Serebii lists plain Ho-Oh; Leek Duck and Dittobase say Shadow Ho-Oh."
+ },
+ {
+  "card": "sb_GoTour2026_silver",
+  "name": "GO Tour 2026 Silver (inspired by Pokémon Silver Version)",
+  "event": "Road to Kalos (Johto day)",
+  "start": "2026-02-24",
+  "end": "2026-02-24",
+  "scope": "global",
+  "pokemon": [
+   "Pikachu",
+   "Lugia"
+  ],
+  "forms": "Caught from raids: Pikachu (Ethan's Hat) and (Lyra's Hat) can have Gold or Silver; Shadow Lugia (Shadow Raids) has Silver. Shiny possible.",
+  "sources": [
+   "https://leekduck.com/events/road-to-kalos/",
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-go-tour-2026-silver",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ],
+  "unsure": "Serebii lists plain Lugia; Leek Duck and Dittobase say Shadow Lugia."
+ },
+ {
+  "card": "sb_Community_2026",
+  "name": "Community Days 2026",
+  "event": "Every 2026 Community Day and Community Day Classic",
+  "start": "2026-01-04",
+  "end": "2026-12-31",
+  "scope": "global",
+  "pokemon": [
+   "Piplup",
+   "Grookey",
+   "Vulpix",
+   "Scorbunny",
+   "Tinkatink",
+   "Lechonk",
+   "Deino",
+   "Frigibax",
+   "Sobble",
+   "Nickit",
+   "Gible",
+   "Zorua",
+   "Pawniard"
+  ],
+  "forms": "The featured Pokémon caught on each 2026 Community Day (Vulpix and Alolan Vulpix in February); keeps it when evolved (e.g. Empoleon, Alolan Ninetales, Kingambit). Shiny possible. Ongoing for the rest of 2026.",
+  "sources": [
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-community-days-2026",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ],
+  "unsure": "Pawniard (21 Nov 2026) is upcoming, from Dittobase only; Serebii stops at Zorua (Oct). The December 2026 Community Day is not yet known. Leek Duck not checked month by month."
+ },
+ {
+  "card": "sb_GOWA2025_Global",
+  "name": "GO Wild Area 2025 Global",
+  "event": "Into the Wild 2025 and Pokémon GO Wild Area 2025: Global",
+  "start": "2025-11-10",
+  "end": "2025-11-16",
+  "scope": "global",
+  "pokemon": [
+   "Lugia",
+   "Ho-Oh",
+   "Tapu Koko",
+   "Tapu Lele",
+   "Tapu Bulu",
+   "Tapu Fini",
+   "Necrozma",
+   "Cresselia",
+   "Darkrai",
+   "Bewear",
+   "Grimmsnarl"
+  ],
+  "forms": "Into the Wild (10-14 Nov): 5-star raids - Shadow Lugia, Shadow Ho-Oh, the four Tapus, and Necrozma (caught after Dusk Mane / Dawn Wings raids; fusing keeps it). GO Wild Area: Global (15-16 Nov): Shadow Cresselia, Shadow Darkrai, Bewear (Wilderness Cape) and Gigantamax Grimmsnarl from raids and Max Battles. Shiny possible.",
+  "sources": [
+   "https://leekduck.com/events/into-the-wild-2025/",
+   "https://leekduck.com/events/pokemon-go-wild-area-2025-global/",
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-gowildarea-2025-global",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ],
+  "unsure": "Serebii lists only the weekend four (Cresselia, Darkrai, Bewear, Grimmsnarl); the Into the Wild raids are from Leek Duck and Dittobase."
+ },
+ {
+  "card": "sb_ObservatoryExhibitionTour",
+  "name": "Observatory Exhibition Tour (Serebii: Pokemon Astronomical Observatory)",
+  "event": "Pokémon Astronomical Observatory travelling exhibition (Japan)",
+  "start": "2025-11-01",
+  "end": "2026-01-12",
+  "scope": "in-person",
+  "pokemon": [
+   "Clefairy"
+  ],
+  "forms": "Clefairy caught at the exhibition (first venue: Sagamihara City Museum, Kanagawa); keeps it when evolved to Clefable.",
+  "sources": [
+   "https://www.serebii.net/pokemongo/reallifeevents/pokemonastronomicalobservatory.shtml",
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-observatory-exhibition-tour",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ],
+  "unsure": "End date is the first venue's (Dittobase); the exhibition tours Japan and Serebii gives no end date, so later venues may also give it. Serebii's event page calls it a Location Background. How Clefairy is obtained and whether shiny is possible: not confirmed."
+ },
+ {
+  "card": "sb_Concierge2025",
+  "name": "Concierge",
+  "event": "Pokémon Concierge Celebration Event",
+  "start": "2025-09-09",
+  "end": "2025-09-14",
+  "scope": "global",
+  "pokemon": [
+   "Psyduck"
+  ],
+  "forms": "Psyduck (Swim Ring) from the wild (chance), and guaranteed from the event's research encounter. Shiny possible.",
+  "sources": [
+   "https://pokemongo.com/en/news/pokemon-concierge-2025",
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-concierge",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ],
+  "unsure": "Guides differ on which research encounter is guaranteed (a raid task, the final Timed Research step, or the PokemonConcierge code research)."
+ },
+ {
+  "card": "sb_Season20_TalesOfTransformation",
+  "name": "Tales of Transformation (seasonal)",
+  "event": "Season 20: Tales of Transformation",
+  "start": "2025-09-02",
+  "end": "2025-12-02",
+  "scope": "global",
+  "pokemon": [
+   "Cobalion",
+   "Terrakion",
+   "Virizion",
+   "Flabébé",
+   "Solosis",
+   "Chikorita",
+   "Totodile",
+   "Tepig",
+   "Pikipek"
+  ],
+  "forms": "GO Pass rewards: Cobalion (Sep), Terrakion (Oct), Virizion (Nov). Community Days: Flabébé (all five flowers, 14 Sep), Solosis (12 Oct), Pikipek (30 Nov). Pokémon Legends: Z-A Celebration (16-20 Oct): Chikorita, Totodile, Tepig. Evolutions keep it. Shiny possible.",
+  "sources": [
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-season-20-tales-of-transformation",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ],
+  "unsure": "Serebii lists only Cobalion, Flabébé, Solosis, Chikorita, Tepig and Totodile; Terrakion, Virizion and Pikipek are Dittobase only."
+ },
+ {
+  "card": "sb_GoFest2025_Eternatus",
+  "name": "GO Fest 2025 Dark Skies (Serebii: Dark Skies)",
+  "event": "Dark Skies and Pokémon GO Fest 2025: Max Finale",
+  "start": "2025-08-18",
+  "end": "2025-08-24",
+  "scope": "global",
+  "pokemon": [
+   "Bulbasaur",
+   "Charmander",
+   "Squirtle",
+   "Caterpie",
+   "Machop",
+   "Gastly",
+   "Krabby",
+   "Chansey",
+   "Omanyte",
+   "Kabuto",
+   "Articuno",
+   "Zapdos",
+   "Moltres",
+   "Shuckle",
+   "Raikou",
+   "Entei",
+   "Suicune",
+   "Sableye",
+   "Wailmer",
+   "Beldum",
+   "Latias",
+   "Latios",
+   "Pidove",
+   "Drilbur",
+   "Darumaka",
+   "Trubbish",
+   "Cryogonal",
+   "Passimian",
+   "Grookey",
+   "Scorbunny",
+   "Sobble",
+   "Skwovet",
+   "Rookidee",
+   "Wooloo",
+   "Toxtricity",
+   "Hatenna",
+   "Falinks",
+   "Venusaur",
+   "Charizard",
+   "Blastoise",
+   "Butterfree",
+   "Machamp",
+   "Gengar",
+   "Kingler",
+   "Lapras",
+   "Snorlax",
+   "Rillaboom",
+   "Cinderace",
+   "Inteleon"
+  ],
+  "forms": "Caught from Max Battles: Dynamax Pokémon during Dark Skies (18-23 Aug 2025) and Gigantamax Pokémon at the Max Finale weekend (23-24 Aug). Evolving a Dynamax one keeps it. Shiny possible except Grookey, Scorbunny, Sobble, Hatenna and the G-Max Galar starters (Dittobase).",
+  "sources": [
+   "https://leekduck.com/events/dark-skies/",
+   "https://leekduck.com/events/pokemon-go-fest-2025-max-finale/",
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-go-fest-2025-dark-skies",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ],
+  "unsure": "Card matched by picture (identical to Serebii's \"Dark Skies\"); the file name says Eternatus but no source says Eternatus itself could get it. Serebii also lists Abra, Bounsweet, Combee, Deino, Drampa, Duraludon, Eevee, Electabuzz, Growlithe, Hitmonchan, Hitmonlee, Hitmontop, Hoothoot, Inkay, Magmar, Pikachu, Ralts, Rhyhorn, Roggenrola, Sizzlipede, Toxel, Trapinch and Woobat (left out here: Dittobase doesn't)."
+ },
+ {
+  "card": "sb_9thAnniversary",
+  "name": "9th Anniversary",
+  "event": "Pokémon GO's 9th Anniversary Party",
+  "start": "2025-07-01",
+  "end": "2025-07-06",
+  "scope": "global",
+  "pokemon": [
+   "Gimmighoul"
+  ],
+  "forms": "Gimmighoul (Roaming Form) holding a 9th anniversary coin always had the background (from Golden Lure Modules and Coin Bags). Shiny possible.",
+  "sources": [
+   "https://leekduck.com/events/pokemon-go-9th-anniversary-party/",
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-9th-anniversary",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ],
+  "unsure": null
+ },
+ {
+  "card": null,
+  "name": "GO Fest 2025 Zacian",
+  "event": "Pokémon GO Fest 2025: Global (Day 2)",
+  "start": "2025-06-29",
+  "end": "2025-06-29",
+  "scope": "global",
+  "pokemon": [
+   "Zacian"
+  ],
+  "forms": "Zacian (Hero of Many Battles) caught after Crowned Sword Zacian raids. Shiny: not stated.",
+  "sources": [
+   "https://leekduck.com/events/pokemon-go-fest-2025-global/",
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-zacian-go-fest-2025",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ],
+  "unsure": "No picture file in the game files for this one or the Zamazenta one. Serebii dates them 29 Jun (Zacian) and 28 Jul 2025 (Zamazenta, a slip for 28 Jun)."
+ },
+ {
+  "card": null,
+  "name": "GO Fest 2025 Zamazenta",
+  "event": "Pokémon GO Fest 2025: Global (Day 1)",
+  "start": "2025-06-28",
+  "end": "2025-06-28",
+  "scope": "global",
+  "pokemon": [
+   "Zamazenta"
+  ],
+  "forms": "Zamazenta (Hero of Many Battles) caught after Crowned Shield Zamazenta raids. Shiny: not stated.",
+  "sources": [
+   "https://leekduck.com/events/pokemon-go-fest-2025-global/",
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-zamazenta-go-fest-2025",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ],
+  "unsure": "No picture file in the game files."
+ },
+ {
+  "card": "sb_GoFest2025",
+  "name": "GO Fest 2025 (Serebii: Ancients Recovered Regirock/Regice/…)",
+  "event": "Ancients Recovered (lead-up to GO Fest 2025)",
+  "start": "2025-06-23",
+  "end": "2025-06-29",
+  "scope": "global",
+  "pokemon": [
+   "Regirock",
+   "Regice",
+   "Registeel",
+   "Regigigas",
+   "Regieleki",
+   "Regidrago"
+  ],
+  "forms": "Caught from raids during Ancients Recovered (23-27 Jun 2025), and the chosen Regi from the repeatable Timed Research (up to six) and GO Pass: Ancients Recovered (to 29 Jun). Serebii shows a slightly different picture per Regi (its own dot pattern) on one shared base. Shiny: not stated.",
+  "sources": [
+   "https://leekduck.com/events/ancients-recovered/",
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-go-fest-2025",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ],
+  "unsure": "Dittobase's GO Pass list leaves out Regigigas. Whether each Regi's picture is a separate background in the game is not clear (one file here)."
+ },
+ {
+  "card": "sb_Season19_DelightfulDays",
+  "name": "Delightful Days (seasonal)",
+  "event": "Season 19: Delightful Days",
+  "start": "2025-06-03",
+  "end": "2025-09-02",
+  "scope": "global",
+  "pokemon": [
+   "Articuno",
+   "Zapdos",
+   "Moltres",
+   "Jangmo-o",
+   "Eevee",
+   "Lapras",
+   "Quaxly",
+   "Rillaboom",
+   "Cinderace",
+   "Inteleon",
+   "Rookidee"
+  ],
+  "forms": "GO Pass rewards: Articuno (Jun), Zapdos (Jul), Moltres (Aug). Community Days: Jangmo-o (21 Jun), Eevee (Classic, 5-6 Jul; Eeveelutions by evolving), Quaxly (20 Jul), Rookidee (30 Aug). Lapras (Scarf) from raids at Water Festival 2025 (15-20 Jul). Gigantamax Rillaboom, Cinderace or Inteleon from the GOFESTMAX code Timed Research (no shiny). Evolutions keep it.",
+  "sources": [
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-season-19-delightful-days",
+   "https://leekduck.com/events/water-festival-2025/",
+   "https://leekduck.com/events/dark-skies/",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ],
+  "unsure": "Moltres (GO Pass August) is from Dittobase only; Serebii's list omits it."
+ },
+ {
+  "card": "sb_Season18_MightAndMastery",
+  "name": "Might and Mastery (seasonal)",
+  "event": "Season 18: Might and Mastery",
+  "start": "2025-03-08",
+  "end": "2025-05-27",
+  "scope": "global",
+  "pokemon": [
+   "Fuecoco",
+   "Totodile",
+   "Vanillite",
+   "Pawmi",
+   "Machop",
+   "Meditite",
+   "Stunky",
+   "Mareanie",
+   "Charcadet"
+  ],
+  "forms": "Community Days: Fuecoco (8 Mar), Totodile (Classic, 22 Mar), Vanillite (27 Apr), Pawmi (11 May), Machop (Classic, 24 May). Final Strike: GO Battle Week (21-27 May): Meditite, Stunky, Mareanie from Timed Research and Charcadet from the seasonal Special Research. Evolutions keep it. Shiny possible.",
+  "sources": [
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-season-18-might-and-mastery",
+   "https://leekduck.com/events/final-strike-go-battle-week/",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ],
+  "unsure": null
+ },
+ {
+  "card": "sb_GoTour2025_black_white",
+  "name": "GO Tour 2025 Black White (fusion variant)",
+  "event": "GO Tour: Unova - Global; Road to Kalos (Unova day)",
+  "start": "2025-03-01",
+  "end": "2026-02-27",
+  "scope": "global",
+  "pokemon": [
+   "Kyurem"
+  ],
+  "forms": "Not caught: made by fusing a Zekrom or Reshiram that has a Special Background with a Kyurem that has the opposite colour one, giving Black Kyurem or White Kyurem this variant.",
+  "sources": [
+   "https://leekduck.com/events/road-to-unova/",
+   "https://leekduck.com/events/road-to-kalos/",
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-go-tour-2025-black-white",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ],
+  "unsure": null
+ },
+ {
+  "card": "sb_GoTour2025_black",
+  "name": "GO Tour 2025 Black (inspired by Pokémon Black Version)",
+  "event": "Road to Unova, Pokémon Day 2025 and GO Tour: Unova - Global; reused at Road to Kalos (Unova day)",
+  "start": "2025-02-24",
+  "end": "2026-02-27",
+  "scope": "global",
+  "pokemon": [
+   "Cobalion",
+   "Terrakion",
+   "Virizion",
+   "Tornadus",
+   "Landorus",
+   "Genesect",
+   "Reshiram",
+   "Kyurem",
+   "Snivy",
+   "Tepig",
+   "Oshawott",
+   "Pikachu"
+  ],
+  "forms": "From 5-star raids. Road to Unova (24 Feb-1 Mar 2025): Cobalion, Terrakion, Virizion, Therian Landorus and Genesect (any Drive) can have Black or White; Therian Tornadus and Reshiram have Black. GO Tour Unova Global (1-2 Mar 2025): Reshiram has Black; Kyurem (unfused, after Black/White Kyurem raids) either. Pokémon Day (27 Feb 2025): Snivy, Tepig, Oshawott. Road to Kalos Unova day (27 Feb 2026): Pikachu (Hilbert's Hat), (Hilda's Hat), (Nate's Visor), (Rosa's Visor) and Kyurem either; Reshiram Black. Shiny possible.",
+  "sources": [
+   "https://leekduck.com/events/road-to-unova/",
+   "https://leekduck.com/events/pokemon-go-tour-unova-global-2025/",
+   "https://leekduck.com/events/road-to-kalos/",
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-go-tour-2025-black",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ],
+  "unsure": "Serebii gives both Reshiram and Zekrom on both Black and White; Leek Duck and Dittobase give Reshiram Black only. Pokémon Day starters: Serebii and Dittobase, not checked on Leek Duck."
+ },
+ {
+  "card": "sb_GoTour2025_white",
+  "name": "GO Tour 2025 White (inspired by Pokémon White Version)",
+  "event": "Road to Unova, Pokémon Day 2025 and GO Tour: Unova - Global; reused at Road to Kalos (Unova day)",
+  "start": "2025-02-24",
+  "end": "2026-02-27",
+  "scope": "global",
+  "pokemon": [
+   "Cobalion",
+   "Terrakion",
+   "Virizion",
+   "Thundurus",
+   "Landorus",
+   "Genesect",
+   "Zekrom",
+   "Kyurem",
+   "Snivy",
+   "Tepig",
+   "Oshawott",
+   "Pikachu"
+  ],
+  "forms": "As Black, but Therian Thundurus and Zekrom have White. Road to Kalos (27 Feb 2026): the four Unova-hat Pikachu and Kyurem either; Zekrom White. Shiny possible.",
+  "sources": [
+   "https://leekduck.com/events/road-to-unova/",
+   "https://leekduck.com/events/pokemon-go-tour-unova-global-2025/",
+   "https://leekduck.com/events/road-to-kalos/",
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-go-tour-2025-white",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ],
+  "unsure": "Serebii gives both Reshiram and Zekrom on both; Leek Duck and Dittobase give Zekrom White only."
+ },
+ {
+  "card": "sb_GoTour2025_enigma",
+  "name": "GO Tour 2025 Enigma",
+  "event": "Pokémon GO Tour: Unova (Los Angeles, New Taipei City and Global)",
+  "start": "2025-02-21",
+  "end": "2025-03-02",
+  "scope": "both",
+  "pokemon": [
+   "Purrloin",
+   "Pidove",
+   "Boldore",
+   "Woobat",
+   "Timburr",
+   "Tympole",
+   "Sandile",
+   "Darumaka",
+   "Scraggy",
+   "Sigilyph",
+   "Zorua",
+   "Joltik",
+   "Ferroseed",
+   "Klink",
+   "Darmanitan"
+  ],
+  "forms": "Guaranteed from \"enigma\" Field Research encounters (in person in Los Angeles and New Taipei City 21-23 Feb 2025, and globally 1-2 Mar 2025); Tour Pass encounters with Woobat, Darmanitan and Zorua also have it. Evolutions keep it. Boldore can't be shiny.",
+  "sources": [
+   "https://leekduck.com/events/pokemon-go-tour-unova-global-2025/",
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-go-tour-2025-enigma",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ],
+  "unsure": "Serebii leaves out Zorua; Dittobase leaves out Darmanitan as a direct catch (Leek Duck's Tour Pass note has both)."
+ },
+ {
+  "card": "sb_Season17_DuelDestiny",
+  "name": "Dual Destiny (seasonal; file: DuelDestiny)",
+  "event": "Season 17: Dual Destiny",
+  "start": "2025-01-05",
+  "end": "2025-02-09",
+  "scope": "global",
+  "pokemon": [
+   "Sprigatito",
+   "Ralts",
+   "Karrablast",
+   "Shelmet"
+  ],
+  "forms": "Community Days: Sprigatito (5 Jan 2025), Ralts (Classic, 25 Jan), Karrablast and Shelmet (9 Feb). Evolutions keep it (Gallade included). Shiny possible.",
+  "sources": [
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-season-17-duel-destiny",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ],
+  "unsure": null
+ },
+ {
+  "card": "sb_2024_decemberCdRecap",
+  "name": "December 2024 Recap Community Day (Serebii: Community Day 2024)",
+  "event": "December Community Day 2024",
+  "start": "2024-12-21",
+  "end": "2024-12-22",
+  "scope": "global",
+  "pokemon": [
+   "Mankey",
+   "Bellsprout",
+   "Ponyta",
+   "Chansey",
+   "Porygon",
+   "Cyndaquil",
+   "Bagon",
+   "Beldum",
+   "Sewaddle",
+   "Tynamo",
+   "Goomy",
+   "Rowlet",
+   "Litten",
+   "Popplio",
+   "Bounsweet"
+  ],
+  "forms": "The 2024 Community Day Pokémon caught that weekend, Galarian Ponyta included; evolutions keep it. Shiny possible.",
+  "sources": [
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-2024-december-cd-recap",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ],
+  "unsure": null
+ },
+ {
+  "card": "sb_GOWA_fukuoka",
+  "name": "GO Wild Area 2024 Global",
+  "event": "Pokémon GO Wild Area: Global",
+  "start": "2024-11-23",
+  "end": "2024-11-24",
+  "scope": "global",
+  "pokemon": [
+   "Toxtricity",
+   "Dialga",
+   "Palkia",
+   "Kyogre",
+   "Groudon"
+  ],
+  "forms": "Caught from 4-star raids (Toxtricity, Amped and Low Key), 5-star raids (Origin Forme Dialga and Palkia) and Primal Raids (Kyogre, Groudon). Shiny possible.",
+  "sources": [
+   "https://leekduck.com/events/pokemon-go-wild-area-2024-global/",
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-gowildarea-2024-global",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ],
+  "unsure": "Despite the file name it is the Global special background (picture matches Serebii's \"GO Wild Area 2024\"); in-person Fukuoka (16-17 Nov) had its own location card lc_GOWA_fukuoka. Dittobase also lists Gigantamax Toxtricity (Max Battles); Leek Duck says only raids. Serebii lists plain Dialga and Palkia."
+ },
+ {
+  "card": "sb_TeamLeader_red",
+  "name": "Team Leader Red (Serebii: Team Valor)",
+  "event": "Triumph Together; Road to Kalos (Kanto day); Candela's Quest for Victory; Ultra Unlock: 10th Anniversary Edition",
+  "start": "2024-08-23",
+  "end": "2026-07-27",
+  "scope": "global",
+  "pokemon": [
+   "Ponyta",
+   "Pikachu",
+   "Moltres",
+   "Bulbasaur",
+   "Charmander",
+   "Squirtle",
+   "Chikorita",
+   "Cyndaquil",
+   "Totodile",
+   "Treecko",
+   "Torchic",
+   "Mudkip",
+   "Turtwig",
+   "Chimchar",
+   "Piplup",
+   "Snivy",
+   "Tepig",
+   "Oshawott",
+   "Chespin",
+   "Fennekin",
+   "Froakie",
+   "Rowlet",
+   "Litten",
+   "Popplio",
+   "Grookey",
+   "Scorbunny",
+   "Sobble",
+   "Sprigatito",
+   "Fuecoco",
+   "Quaxly",
+   "Raticate",
+   "Nidorino",
+   "Grimer",
+   "Gengar",
+   "Wobbuffet"
+  ],
+  "forms": "Ponyta (Candela accessory) from Triumph Together Timed Research (Aug 2024) and the GO Pass of Candela's Quest for Victory (9-15 Jun 2026); evolutions keep it. Road to Kalos (23 Feb 2026, raids): Pikachu (Red's Hat) and (Leaf's Hat) can get any team's one, Moltres gets this one. Ultra Unlock: 10th Anniversary Edition (21-27 Jul 2026): every first partner Pokémon (Bulbasaur to Quaxly, from the wild and Field Research), Professor Willow's assistant Pikachu, and Party Hat Grimer, Raticate, Nidorino, Gengar and Wobbuffet from raids; the colour follows the team you are on when the encounter starts (no team, no background). Dittobase also lists Party Hat Bulbasaur, Charmander and Squirtle. Shiny possible.",
+  "sources": [
+   "https://www.serebii.net/pokemongo/backgrounds.shtml",
+   "https://serebii.net/pokemongo/events/triumphtogether.shtml",
+   "https://leekduck.com/events/triumph-together/",
+   "https://leekduck.com/events/road-to-kalos/",
+   "https://leekduck.com/events/ultra-unlock-10th-anniversary-edition/",
+   "https://leekduck.com/events/candelas-quest-for-victory/",
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-team-leader-red"
+  ],
+  "unsure": "Dittobase dates Triumph Together 23-30 Jul 2024; Leek Duck has 23-30 Aug 2024 (used here). Serebii's Triumph Together list also shows \"Sandslash ()\" with no costume named: not confirmed anywhere else. Serebii doesn't list the Road to Kalos Pikachu or legendary birds."
+ },
+ {
+  "card": "sb_TeamLeader_blue",
+  "name": "Team Leader Blue (Serebii: Team Mystic)",
+  "event": "Triumph Together; Road to Kalos (Kanto day); Blanche's Quest for Knowledge; Ultra Unlock: 10th Anniversary Edition",
+  "start": "2024-08-23",
+  "end": "2026-07-27",
+  "scope": "global",
+  "pokemon": [
+   "Lapras",
+   "Pikachu",
+   "Articuno",
+   "Bulbasaur",
+   "Charmander",
+   "Squirtle",
+   "Chikorita",
+   "Cyndaquil",
+   "Totodile",
+   "Treecko",
+   "Torchic",
+   "Mudkip",
+   "Turtwig",
+   "Chimchar",
+   "Piplup",
+   "Snivy",
+   "Tepig",
+   "Oshawott",
+   "Chespin",
+   "Fennekin",
+   "Froakie",
+   "Rowlet",
+   "Litten",
+   "Popplio",
+   "Grookey",
+   "Scorbunny",
+   "Sobble",
+   "Sprigatito",
+   "Fuecoco",
+   "Quaxly",
+   "Raticate",
+   "Nidorino",
+   "Grimer",
+   "Gengar",
+   "Wobbuffet"
+  ],
+  "forms": "Lapras (Blanche accessory) from Triumph Together Timed Research (Aug 2024) and the GO Pass of Blanche's Quest for Knowledge (26 May-1 Jun 2026); evolutions keep it. Road to Kalos (23 Feb 2026, raids): Pikachu (Red's Hat) and (Leaf's Hat) can get any team's one, Articuno gets this one. Ultra Unlock: 10th Anniversary Edition (21-27 Jul 2026): every first partner Pokémon (Bulbasaur to Quaxly, from the wild and Field Research), Professor Willow's assistant Pikachu, and Party Hat Grimer, Raticate, Nidorino, Gengar and Wobbuffet from raids; the colour follows the team you are on when the encounter starts (no team, no background). Dittobase also lists Party Hat Bulbasaur, Charmander and Squirtle. Shiny possible.",
+  "sources": [
+   "https://www.serebii.net/pokemongo/backgrounds.shtml",
+   "https://serebii.net/pokemongo/events/triumphtogether.shtml",
+   "https://leekduck.com/events/triumph-together/",
+   "https://leekduck.com/events/road-to-kalos/",
+   "https://leekduck.com/events/ultra-unlock-10th-anniversary-edition/",
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-team-leader-blue"
+  ],
+  "unsure": "Dittobase dates Triumph Together 23-30 Jul 2024; Leek Duck has 23-30 Aug 2024 (used here). Serebii's Triumph Together list also shows \"Sandslash ()\" with no costume named: not confirmed anywhere else. Serebii doesn't list the Road to Kalos Pikachu or legendary birds. Blanche's Quest is from Dittobase only (no Leek Duck page fetched)."
+ },
+ {
+  "card": "sb_TeamLeader_yellow",
+  "name": "Team Leader Yellow (Serebii: Team Instinct)",
+  "event": "Triumph Together; Road to Kalos (Kanto day); Spark's Caretaking Quest; Ultra Unlock: 10th Anniversary Edition",
+  "start": "2024-08-23",
+  "end": "2026-07-27",
+  "scope": "global",
+  "pokemon": [
+   "Elekid",
+   "Pikachu",
+   "Zapdos",
+   "Bulbasaur",
+   "Charmander",
+   "Squirtle",
+   "Chikorita",
+   "Cyndaquil",
+   "Totodile",
+   "Treecko",
+   "Torchic",
+   "Mudkip",
+   "Turtwig",
+   "Chimchar",
+   "Piplup",
+   "Snivy",
+   "Tepig",
+   "Oshawott",
+   "Chespin",
+   "Fennekin",
+   "Froakie",
+   "Rowlet",
+   "Litten",
+   "Popplio",
+   "Grookey",
+   "Scorbunny",
+   "Sobble",
+   "Sprigatito",
+   "Fuecoco",
+   "Quaxly",
+   "Raticate",
+   "Nidorino",
+   "Grimer",
+   "Gengar",
+   "Wobbuffet"
+  ],
+  "forms": "Elekid (Spark accessory) from Triumph Together Timed Research (Aug 2024) and the GO Pass of Spark's Caretaking Quest (2-8 Jun 2026); evolutions keep it. Road to Kalos (23 Feb 2026, raids): Pikachu (Red's Hat) and (Leaf's Hat) can get any team's one, Zapdos gets this one. Ultra Unlock: 10th Anniversary Edition (21-27 Jul 2026): every first partner Pokémon (Bulbasaur to Quaxly, from the wild and Field Research), Professor Willow's assistant Pikachu, and Party Hat Grimer, Raticate, Nidorino, Gengar and Wobbuffet from raids; the colour follows the team you are on when the encounter starts (no team, no background). Dittobase also lists Party Hat Bulbasaur, Charmander and Squirtle. Shiny possible.",
+  "sources": [
+   "https://www.serebii.net/pokemongo/backgrounds.shtml",
+   "https://serebii.net/pokemongo/events/triumphtogether.shtml",
+   "https://leekduck.com/events/triumph-together/",
+   "https://leekduck.com/events/road-to-kalos/",
+   "https://leekduck.com/events/ultra-unlock-10th-anniversary-edition/",
+   "https://leekduck.com/events/sparks-caretaking-quest/",
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-team-leader-yellow"
+  ],
+  "unsure": "Dittobase dates Triumph Together 23-30 Jul 2024; Leek Duck has 23-30 Aug 2024 (used here). Serebii's Triumph Together list also shows \"Sandslash ()\" with no costume named: not confirmed anywhere else. Serebii doesn't list the Road to Kalos Pikachu or legendary birds."
+ },
+ {
+  "card": "sb_GoFest2024_radiance",
+  "name": "GO Fest 2024 Radiance",
+  "event": "Pokémon GO Fest 2024: Global (Sunday)",
+  "start": "2024-07-14",
+  "end": "2024-07-14",
+  "scope": "global",
+  "pokemon": [
+   "Solgaleo"
+  ],
+  "forms": "Solgaleo from the ticketed Special Research (ticket holders who picked Solgaleo). Not shiny then.",
+  "sources": [
+   "https://leekduck.com/events/inbound-from-ultra-space/",
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-go-fest-2024-radiance",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ],
+  "unsure": "Leek Duck says \"a Solgaleo or Lunala\" from the ticketed research; Dittobase dates it 13-14 Jul."
+ },
+ {
+  "card": "sb_GoFest2024_umbra",
+  "name": "GO Fest 2024 Umbra",
+  "event": "Pokémon GO Fest 2024: Global (Sunday)",
+  "start": "2024-07-14",
+  "end": "2024-07-14",
+  "scope": "global",
+  "pokemon": [
+   "Lunala"
+  ],
+  "forms": "Lunala from the ticketed Special Research (ticket holders who picked Lunala). Not shiny then.",
+  "sources": [
+   "https://leekduck.com/events/inbound-from-ultra-space/",
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-go-fest-2024-umbra",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ],
+  "unsure": "As Radiance."
+ },
+ {
+  "card": "sb_GoFest2024_wormhole_sun",
+  "name": "GO Fest 2024 Wormhole Sun (Serebii: Wormhole Radiance)",
+  "event": "Pokémon GO Fest 2024: Global (Sunday)",
+  "start": "2024-07-14",
+  "end": "2024-07-14",
+  "scope": "global",
+  "pokemon": [
+   "Necrozma"
+  ],
+  "forms": "Not caught: Dusk Mane Necrozma made by fusing a Necrozma with the Wormhole background and a Solgaleo with the Radiance background.",
+  "sources": [
+   "https://leekduck.com/events/inbound-from-ultra-space/",
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-go-fest-2024-wormhole-sun",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ],
+  "unsure": null
+ },
+ {
+  "card": "sb_GoFest2024_wormhole_moon",
+  "name": "GO Fest 2024 Wormhole Moon (Serebii: Wormhole Umbra)",
+  "event": "Pokémon GO Fest 2024: Global (Sunday)",
+  "start": "2024-07-14",
+  "end": "2024-07-14",
+  "scope": "global",
+  "pokemon": [
+   "Necrozma"
+  ],
+  "forms": "Not caught: Dawn Wings Necrozma made by fusing a Necrozma with the Wormhole background and a Lunala with the Umbra background.",
+  "sources": [
+   "https://leekduck.com/events/inbound-from-ultra-space/",
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-go-fest-2024-wormhole-moon",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ],
+  "unsure": null
+ },
+ {
+  "card": "sb_GoFest2024_wormhole",
+  "name": "GO Fest 2024 Wormhole",
+  "event": "Inbound from Ultra Space and Pokémon GO Fest 2024: Global",
+  "start": "2024-07-08",
+  "end": "2024-07-14",
+  "scope": "global",
+  "pokemon": [
+   "Nihilego",
+   "Buzzwole",
+   "Pheromosa",
+   "Xurkitree",
+   "Celesteela",
+   "Kartana",
+   "Guzzlord",
+   "Stakataka",
+   "Blacephalon",
+   "Necrozma"
+  ],
+  "forms": "Caught from 5-star raids: Ultra Beasts during Inbound from Ultra Space (8-13 Jul 2024) and GO Fest Global Saturday (13 Jul), Necrozma on 13-14 Jul. Ultra Beasts from the free Timed Research don't get it. Shiny possible except Stakataka and Blacephalon (Dittobase).",
+  "sources": [
+   "https://leekduck.com/events/inbound-from-ultra-space/",
+   "https://leekduck.com/events/pokemon-go-fest-2024-global/",
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-go-fest-2024-wormhole",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ],
+  "unsure": null
+ },
+ {
+  "card": "sb_black",
+  "name": "(not a background)",
+  "event": "-",
+  "start": null,
+  "end": null,
+  "scope": null,
+  "pokemon": [],
+  "forms": "A 32x32 plain black picture, not an event background.",
+  "sources": [
+   "https://github.com/PokeMiners/pogo_assets/tree/master/Images/LocationCards"
+  ],
+  "unsure": "Probably a placeholder or a layer the game uses behind other cards; no source lists it."
+ }
+]

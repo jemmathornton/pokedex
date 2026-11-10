@@ -24,6 +24,8 @@ def main():
     dex = load('go', 'dex.json')
     costumes = load('go', 'costumes.json')
     events = load('events.json', default=[])
+    # special backgrounds (global, not tied to a place), with their notes; sources and doubts stay in the data file
+    special = [{k: v for k, v in x.items() if k not in ('sources', 'unsure')} for x in (load('special-backgrounds.json', default={}) or {}).get('special', [])]
     collection = load('collection', 'go.json', default={})
     sprites = os.path.join(SITE, 'sprites')
     have = {f[:-5] for f in os.listdir(sprites) if f.endswith('.webp')} if os.path.isdir(sprites) else set()
@@ -35,14 +37,14 @@ def main():
     for e in dex['entries']:
         names.setdefault(e['name'].lower(), e['dex'])
     problems = []
-    for ev in events:   # background Pokémon by name -> dex number (so the page can show their pictures)
+    for ev in events + special:   # background Pokémon by name -> dex number (so the page can show their pictures)
         for p in ev.get('backgroundPokemon') or []:
             if p.lower() not in names:
                 problems.append(f'{ev["id"]}: no Pokémon called {p}')
     pics = [k for e in dex['entries'] + costumes['costumes'] for k in (e['img'], e['img'] + '.s')]
     missing = sum(1 for k in pics if k not in have)
     out = {'game': 'go', 'updated': dex['updated'], 'entries': dex['entries'], 'costumes': costumes['costumes'],
-           'events': events, 'dexByName': names, 'sprites': sorted(have), 'bigSprites': sorted(big), 'backgrounds': sorted(bgs), 'collection': collection}
+           'events': events, 'special': special, 'dexByName': names, 'sprites': sorted(have), 'bigSprites': sorted(big), 'backgrounds': sorted(bgs), 'collection': collection}
     js = 'const DATA = ' + json.dumps(out, ensure_ascii=False, separators=(',', ':')) + ';\n'
     write(os.path.join(SITE, 'js', 'data.js'), js)
     stamp()

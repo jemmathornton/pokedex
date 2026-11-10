@@ -411,7 +411,8 @@ function pokemonPage(n){
   const grouped = groupByNumber(all)[0], ordered = [grouped.lead, ...grouped.others];
   const sel = byId[pageForm[n]] && all.includes(byId[pageForm[n]]) ? byId[pageForm[n]] : grouped.lead;
   const costumes = COSTUMES.filter(c => c.dex === n);
-  const evs = EVENTS.filter(ev => (ev.backgroundPokemon || []).some(name => DATA.dexByName[name.toLowerCase()] === n));
+  const evs = [...EVENTS, ...SPECIAL].filter(ev => (ev.backgroundPokemon || []).some(name => DATA.dexByName[name.toLowerCase()] === n))
+    .sort((a, b) => b.start.localeCompare(a.start));
   const gw = {both: "Male and female", male: "Male only", female: "Female only", none: "Genderless"}[sel.gender];
   const kind = {legendary: "Legendary", mythical: "Mythical", "ultra-beast": "Ultra Beast"}[sel.class];
   const gen = genById[sel.gen] || ["", REGION_OF[sel.gen] || "", ""];
@@ -458,8 +459,10 @@ function pokemonPage(n){
 }
 
 const BGS = new Set(DATA.backgrounds || []);   // site/backgrounds/<event id>.webp: the game's location cards
+const SPECIAL = DATA.special || [];   // special backgrounds: global, so no “I went” (10 Nov)
+const isSpecial = ev => ev.id.startsWith("sb-");
 function bgCard(ev, e, wentButton){
-  const went = COL.went.includes(ev.id), key = `b:${ev.id}:${e.dex}`;
+  const went = isSpecial(ev) || COL.went.includes(ev.id), key = `b:${ev.id}:${e.dex}`;
   const src = bigSprite(has(key, "s") && sprite(e.img + ".s") ? e.img + ".s" : e.img);
   const bg = BGS.has(ev.id) ? `backgrounds/${ev.id}.webp` : null;
   return `<div class="card bgcard${went ? "" : " not-went"}" data-bg="${attr(key)}" data-event="${attr(ev.id)}" data-bgdex="${e.dex}">` +
@@ -502,15 +505,16 @@ function eventsPage(){
   let list = EVENTS;
   if (mode === "went") list = list.filter(e => COL.went.includes(e.id));
   if (mode === "bg") list = list.filter(e => e.background);
+  if (mode === "special") list = SPECIAL;
   let html = "", year = "";
   for (const ev of list) {
     const y = ev.start.slice(0, 4), went = COL.went.includes(ev.id);
     if (y !== year) { html += `<h2 class="yearhead">${y}</h2>`; year = y; }
     const mons = (ev.backgroundPokemon || []).map(name => baseOf[DATA.dexByName[name.toLowerCase()]]).filter(Boolean).map(e => bgCard(ev, e, false)).join("");
     html += `<div class="event${went ? " went" : ""}" data-event="${attr(ev.id)}"><div class="top"><div>
-      <h3>${esc(ev.name)}</h3><div class="meta">${ic("map-pin")} ${esc(ev.city)}, ${esc(ev.country)} · ${esc(dates(ev.start, ev.end))}</div>
-      <div class="bg">${ev.background ? `${ic("image")} Background: <b>${esc(ev.background)}</b>` : `<span class="muted">No location background</span>`}</div></div>
-      <button class="chip" type="button" data-went aria-pressed="${went}">${went ? ic("check") + "I went" : "I went"}</button></div>
+      <h3>${esc(ev.name)}</h3><div class="meta">${isSpecial(ev) ? `${ic("sparkles")} Special background${ev.scope === "both" ? " (global and in person)" : " (global)"}` : `${ic("map-pin")} ${esc(ev.city)}, ${esc(ev.country)}`} · ${esc(dates(ev.start, ev.end))}</div>
+      ${isSpecial(ev) ? (ev.note ? `<div class="bg muted">${esc(ev.note)}</div>` : "") : `<div class="bg">${ev.background ? `${ic("image")} Background: <b>${esc(ev.background)}</b>` : `<span class="muted">No location background</span>`}</div>`}</div>
+      ${isSpecial(ev) ? "" : `<button class="chip" type="button" data-went aria-pressed="${went}">${went ? ic("check") + "I went" : "I went"}</button>`}</div>
       ${mons ? `<div class="grid bggrid">${mons}</div>` : ""}</div>`;
   }
   const bgs = EVENTS.filter(e => COL.went.includes(e.id) && e.background).length;
@@ -519,7 +523,7 @@ function eventsPage(){
   view.innerHTML = `<header class="hero">${heroArt(bgMons)}<span class="label">Pokémon GO</span><h1>Events and <em>backgrounds</em></h1>
     <div class="stats">${statTile("--deep-2", "ticket", "Been to", COL.went.length, EVENTS.length)}
     ${COL.went.length ? statTile("--purified", "image", "With a background", bgs, COL.went.length) : ""}</div></header>${readOnlyNote()}
-    <div class="toolbar filters"><div class="frow"><span class="label flabel">Show</span><div class="worktabs">${[["all", "Every event", EVENTS.length], ["went", "Ones I went to", COL.went.length], ["bg", "With a background", EVENTS.filter(e => e.background).length]]
+    <div class="toolbar filters"><div class="frow"><span class="label flabel">Show</span><div class="worktabs">${[["all", "In person", EVENTS.length], ["went", "Ones I went to", COL.went.length], ["bg", "In person with a background", EVENTS.filter(e => e.background).length], ["special", "Special backgrounds", SPECIAL.length]]
       .map(([k, l, n]) => `<button class="worktab" type="button" data-emode="${k}" aria-pressed="${mode === k}">${l} <span class="n">${num(n)}</span></button>`).join("")}</div></div></div>
     <div class="events">${html || `<p class="empty">None yet: tick “I went” on the events you’ve been to.</p>`}</div>`;
 }
