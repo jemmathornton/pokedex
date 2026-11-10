@@ -38,7 +38,9 @@ def one(item, big=False):
 
 
 # the game's own looks for the Pokémon page's picture cards (--extras): the Lucky sparkles and the Shadow flames, as they are in the game
-EXTRAS = {'lucky': 'Images/Friends/ui_bg_lucky_pokemon.png', 'shadow-flame': 'Images/Effects/tx_shadow_cloud_02.png'}
+EXTRAS = {'lucky': 'Images/Friends/ui_bg_lucky_pokemon.png', 'shadow-flame': 'Images/Effects/tx_shadow_cloud_02.png',
+          'sparkle': 'Images/Effects/flare_6_point.png', 'star': 'Images/Appraisal/AppraisalStar.png',
+          'swirl': 'Images/Effects/swirls.png', 'energy': 'Images/Effects/tx_energy_tile_purple.png'}
 
 
 def extras():

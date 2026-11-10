@@ -550,13 +550,19 @@ a.formsbtn{text-decoration:none}
 .pc-sd .pcpic::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 55%,rgba(255,255,255,.18),transparent 70%)}
 .pc-sd .pcpic img{filter:grayscale(1) opacity(.45) drop-shadow(0 0 8px #b16cff)}
 .pc-sd[aria-pressed="true"] .pcpic img{filter:drop-shadow(0 0 8px #b16cff)}
-.pc-pu .pcpic{background:radial-gradient(circle at 50% 55%, #ffffff, color-mix(in srgb,var(--purified) 30%,#fff))}
-.pc-pu .pcpic img{filter:grayscale(1) opacity(.45) drop-shadow(0 0 10px #fff)}
-.pc-pu[aria-pressed="true"] .pcpic img{filter:drop-shadow(0 0 10px #fff)}
-.pc-dx .pcpic{background:radial-gradient(circle at 50% 60%, color-mix(in srgb,var(--dynamax) 55%,#fff), color-mix(in srgb,var(--dynamax) 20%,var(--surface)))}
-.pc-gx .pcpic{background:radial-gradient(circle at 50% 60%, color-mix(in srgb,var(--gmax) 55%,#fff), color-mix(in srgb,var(--gmax) 20%,var(--surface)))}
-.pc-s .pcpic{background:radial-gradient(circle at 50% 55%, #fff, color-mix(in srgb,var(--shiny) 22%,#fff))}
-.pc-h .pcpic{background:radial-gradient(circle at 50% 55%, #fff, color-mix(in srgb,var(--hundo) 25%,#fff))}
+/* the game's own effect pictures (fetch_sprites.py --extras): Shiny sparkles, 4★ appraisal stars, Purified swirl, Max energy */
+.pc-s .pcpic{background:url(variants/sparkle.png) 16% 20%/26% no-repeat,url(variants/sparkle.png) 86% 26%/18% no-repeat,url(variants/sparkle.png) 78% 82%/14% no-repeat,url(variants/sparkle.png) 22% 78%/10% no-repeat,
+  radial-gradient(circle at 50% 55%,color-mix(in srgb,var(--shiny) 35%,#fff),color-mix(in srgb,var(--shiny) 75%,#223))}
+.pc-h .pcpic{background:url(variants/star.png) 26% 92%/19% no-repeat,url(variants/star.png) 50% 95%/19% no-repeat,url(variants/star.png) 74% 92%/19% no-repeat,
+  radial-gradient(circle at 50% 45%,#fff,color-mix(in srgb,var(--hundo) 28%,#fff))}
+.pc-h .pcpic img{height:72%;margin-bottom:14%}
+.pc-pu .pcpic{background:url(variants/swirl.png) center/105% no-repeat,radial-gradient(circle at 50% 55%,color-mix(in srgb,var(--purified) 55%,#fff),color-mix(in srgb,var(--purified) 85%,#012));background-blend-mode:screen,normal}
+.pc-pu .pcpic img{filter:grayscale(1) opacity(.5) drop-shadow(0 0 8px #fff)}
+.pc-pu[aria-pressed="true"] .pcpic img{filter:drop-shadow(0 0 8px #fff)}
+.pc-dx .pcpic,.pc-gx .pcpic{background:#3a0716}
+.pc-dx .pcpic::before,.pc-gx .pcpic::before{content:"";position:absolute;inset:0;background:url(variants/energy.png) center/cover;filter:hue-rotate(70deg) saturate(1.3) brightness(1.05);opacity:.9}
+.pc-dx .pcpic img,.pc-gx .pcpic img{filter:grayscale(1) opacity(.5) drop-shadow(0 0 8px #ff3d7f)}
+.pc-dx[aria-pressed="true"] .pcpic img,.pc-gx[aria-pressed="true"] .pcpic img{filter:drop-shadow(0 0 8px #ff3d7f)}
 .boxhead{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .trybox{display:inline-flex;align-items:center;gap:10px}
 .trybox .label{margin:0}
