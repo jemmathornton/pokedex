@@ -132,7 +132,7 @@
   --paper:#FAF5EE; --surface:#FFFDF9; --ink:#2B1A1C; --muted:#7A6563; --line:#EADFD3; --soft:#F2E8DD;
   --nav:#5A1820; --deep:#5A1820; --deep-2:#7E2530; --on-deep:#FFF4EE; --on-deep-mute:color-mix(in srgb,#fff 62%,var(--deep));
   --accent:#F2C14E;
-  --caught:#315686; --male:#078E5A; --female:#6A5DCF; --shiny:#7C8795; --lucky:#D09B00; --hundo:#D14186; --shadow:#4D2D5F; --purified:#0082C5; --dynamax:#B6285A; --gmax:#80183B; --mega:#1F7A8C;   /* Mega: a suggestion (10 Nov), teal, free in the palette */
+  --caught:#315686; --male:#078E5A; --female:#6A5DCF; --shiny:#7C8795; --lucky:#D09B00; --hundo:#D14186; --shadow:#4D2D5F; --purified:#0082C5; --dynamax:#B6285A; --gmax:#80183B; --mega:#C2571A;   /* Mega: burnt orange (her pick, 10 Nov) */
   /* box colours: her picks after several rounds (9 Nov), balanced to one palette; white text on every box (her rule) */
   --focus:var(--deep-2);
   --display:"Instrument Serif","Iowan Old Style","Palatino Linotype",Georgia,serif;

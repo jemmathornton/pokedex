@@ -35,3 +35,4 @@ Three box icons picked by Jemma on 10 Nov 2026 come from other open icon sets:
 - Purified: "heart-shine" (outline) from Solar (https://www.figma.com/community/file/1166831539721848736), CC BY 4.0
   (https://creativecommons.org/licenses/by/4.0/), by 480 Design. Used unchanged.
 - Lucky: "clover" from Phosphor Icons (https://github.com/phosphor-icons/core), MIT licence, by Phosphor Icons.
+- Mega: "dna-bold" from Phosphor Icons (https://github.com/phosphor-icons/core), MIT licence, by Phosphor Icons.
