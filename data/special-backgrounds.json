@@ -33,7 +33,22 @@
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
    "unsure": "No picture file in the game files yet (newest). The weekend has not happened yet (today is 10 Nov). Leek Duck says Crowned Sword Zacian and Crowned Shield Zamazenta; Dittobase says Hero of Many Battles. Serebii lists Registeel twice and no forms.",
-   "picture": "gowildarea2026"
+   "picture": "gowildarea2026",
+   "cards": [
+    "888",
+    "889",
+    "379",
+    "895",
+    "380",
+    "381",
+    "884",
+    "483",
+    "484",
+    "644",
+    "643",
+    "646",
+    "68-wildarea-2026-01"
+   ]
   },
   {
    "id": "sb-s24-sep-2026",
@@ -58,7 +73,15 @@
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
    "unsure": "The file name reads as a Season 24 (Twilight Trails, Sep-Dec 2026) background, so it may be reused later this season. Serebii lists Pikachu as \"Captain Pikachu\".",
-   "picture": "pokemonhorizons"
+   "picture": "pokemonhorizons",
+   "cards": [
+    "4-goggles-2026",
+    "6-goggles-2026",
+    "25-horizons",
+    "908",
+    "911",
+    "914"
+   ]
   },
   {
    "id": "sb-worldspecial-blue",
@@ -195,7 +218,101 @@
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
    "unsure": "Serebii lists the plain base as \"GO Fest 2026 Global\" (no Pokémon) and the finished picture as \"Road of Legends\" (dated 2025 by mistake). Leek Duck's page lists only the 5-star bosses; the Mega species come from Dittobase and Serebii.",
-   "picture": "gofest2026global"
+   "picture": "gofest2026global",
+   "cards": [
+    "144",
+    "145",
+    "146",
+    "243",
+    "244",
+    "245",
+    "249",
+    "250",
+    "377",
+    "378",
+    "379",
+    "380",
+    "381",
+    "382",
+    "383",
+    "384",
+    "386",
+    "480",
+    "481",
+    "482",
+    "483",
+    "484",
+    "485",
+    "486",
+    "487-altered",
+    "488",
+    "491",
+    "638",
+    "639",
+    "640",
+    "641-incarnate",
+    "642-incarnate",
+    "643",
+    "644",
+    "645-incarnate",
+    "646",
+    "649",
+    "716",
+    "717",
+    "785",
+    "786",
+    "787",
+    "788",
+    "791",
+    "792",
+    "793",
+    "794",
+    "795",
+    "796",
+    "797",
+    "798",
+    "799",
+    "800",
+    "805",
+    "806",
+    "888",
+    "889",
+    "894",
+    "895",
+    "905-incarnate",
+    "15",
+    "18",
+    "65",
+    "94",
+    "127",
+    "142",
+    "181",
+    "248",
+    "254",
+    "257",
+    "260",
+    "282",
+    "373",
+    "376",
+    "445",
+    "448",
+    "460",
+    "531",
+    "483-origin",
+    "484-origin",
+    "487-origin",
+    "641-therian",
+    "642-therian",
+    "645-therian",
+    "905-therian",
+    "386-attack",
+    "386-defense",
+    "386-speed",
+    "649-burn",
+    "649-chill",
+    "649-douse",
+    "649-shock"
+   ]
   },
   {
    "id": "sb-gofest2026-mewtwo",
@@ -258,7 +375,14 @@
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
    "unsure": "No sb_ file: its picture is probably lc_pokopia2026 in the same folder (same artwork as Serebii's \"Pokemon Pokopia\"), so it is filed as a location card.",
-   "picture": "pokemonpokopia"
+   "picture": "pokemonpokopia",
+   "cards": [
+    "132-spring-2026-a",
+    "132-spring-2026-b",
+    "131",
+    "143",
+    "149"
+   ]
   },
   {
    "id": "sb-gotour2026-mega",
@@ -587,7 +711,23 @@
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
    "unsure": "Pawniard (21 Nov 2026) is upcoming, from Dittobase only; Serebii stops at Zorua (Oct). The December 2026 Community Day is not yet known. Leek Duck not checked month by month.",
-   "picture": "communityday2026"
+   "picture": "communityday2026",
+   "cards": [
+    "393",
+    "810",
+    "37",
+    "813",
+    "957",
+    "915",
+    "633",
+    "996",
+    "816",
+    "827",
+    "443",
+    "570",
+    "624",
+    "37-alolan"
+   ]
   },
   {
    "id": "sb-gowa2025-global",
@@ -618,7 +758,20 @@
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
    "unsure": "Serebii lists only the weekend four (Cresselia, Darkrai, Bewear, Grimmsnarl); the Into the Wild raids are from Leek Duck and Dittobase.",
-   "picture": "gowildarea2025"
+   "picture": "gowildarea2025",
+   "cards": [
+    "249",
+    "250",
+    "785",
+    "786",
+    "787",
+    "788",
+    "800",
+    "488",
+    "491",
+    "760-wildarea-2025",
+    "861"
+   ]
   },
   {
    "id": "sb-concierge2025",
@@ -638,7 +791,10 @@
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
    "unsure": "Guides differ on which research encounter is guaranteed (a raid task, the final Timed Research step, or the PokemonConcierge code research).",
-   "picture": "pokemonconcierge"
+   "picture": "pokemonconcierge",
+   "cards": [
+    "54-swim-2025"
+   ]
   },
   {
    "id": "sb-season20-talesoftransformation",
@@ -665,7 +821,22 @@
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
    "unsure": "Serebii lists only Cobalion, Flabébé, Solosis, Chikorita, Tepig and Totodile; Terrakion, Virizion and Pikipek are Dittobase only.",
-   "picture": "talesoftransformation"
+   "picture": "talesoftransformation",
+   "cards": [
+    "638",
+    "639",
+    "640",
+    "669-blue",
+    "577",
+    "152",
+    "158",
+    "498",
+    "731",
+    "669-red",
+    "669-yellow",
+    "669-orange",
+    "669-white"
+   ]
   },
   {
    "id": "sb-gofest2025-eternatus",
@@ -757,7 +928,82 @@
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
    "unsure": "Card matched by picture (identical to Serebii's \"Dark Skies\"); the file name says Eternatus but no source says Eternatus itself could get it. Serebii also lists Abra, Bounsweet, Combee, Deino, Drampa, Duraludon, Eevee, Electabuzz, Growlithe, Hitmonchan, Hitmonlee, Hitmontop, Hoothoot, Inkay, Magmar, Pikachu, Ralts, Rhyhorn, Roggenrola, Sizzlipede, Toxel, Trapinch and Woobat (left out here: Dittobase doesn't). The 23 Power Spot extras (Pikachu to Duraludon) are from Serebii only; Dittobase lists just the first 49. Jemma asked for them all (10 Nov).",
-   "picture": "darkskies"
+   "picture": "darkskies",
+   "cards": [
+    "1",
+    "4",
+    "7",
+    "10",
+    "66",
+    "92",
+    "98",
+    "113",
+    "138",
+    "140",
+    "144",
+    "145",
+    "146",
+    "213",
+    "243",
+    "244",
+    "245",
+    "302",
+    "320",
+    "374",
+    "380",
+    "381",
+    "519",
+    "529",
+    "554",
+    "568",
+    "615",
+    "766",
+    "810",
+    "813",
+    "816",
+    "819",
+    "821",
+    "831",
+    "849-amped",
+    "856",
+    "870",
+    "3",
+    "6",
+    "9",
+    "12",
+    "68",
+    "94",
+    "99",
+    "131",
+    "143",
+    "812",
+    "815",
+    "818",
+    "25",
+    "58",
+    "63",
+    "106",
+    "107",
+    "111",
+    "125",
+    "126",
+    "133",
+    "163",
+    "237",
+    "280",
+    "328",
+    "415",
+    "524",
+    "527",
+    "633",
+    "686",
+    "761",
+    "780",
+    "848",
+    "850",
+    "884",
+    "849-low-key"
+   ]
   },
   {
    "id": "sb-9thanniversary",
@@ -841,7 +1087,7 @@
     "https://www.dittobase.com/pokemon-go/backgrounds/sb-go-fest-2025",
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
-   "unsure": "Dittobase's GO Pass list leaves out Regigigas. Whether each Regi's picture is a separate background in the game is not clear (one file here)."
+   "unsure": "Dittobase now lists Regigigas too (10 Nov). Whether each Regi's picture is a separate background in the game is not clear (one file here)."
   },
   {
    "id": "sb-season19-delightfuldays",
@@ -872,7 +1118,20 @@
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
    "unsure": "Moltres (GO Pass August) is from Dittobase only; Serebii's list omits it.",
-   "picture": "delightfuldays"
+   "picture": "delightfuldays",
+   "cards": [
+    "144",
+    "145",
+    "146",
+    "782",
+    "133",
+    "131-costume-2020",
+    "912",
+    "812",
+    "815",
+    "818",
+    "821"
+   ]
   },
   {
    "id": "sb-season18-mightandmastery",
@@ -1122,7 +1381,25 @@
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
    "unsure": null,
-   "picture": "communityday2024"
+   "picture": "communityday2024",
+   "cards": [
+    "56",
+    "69",
+    "77",
+    "113",
+    "137",
+    "155",
+    "371",
+    "374",
+    "540",
+    "602",
+    "704",
+    "722",
+    "725",
+    "728",
+    "761",
+    "77-galarian"
+   ]
   },
   {
    "id": "sb-gowa-fukuoka",
@@ -1146,7 +1423,15 @@
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
    "unsure": "Despite the file name it is the Global special background (picture matches Serebii's \"GO Wild Area 2024\"); in-person Fukuoka (16-17 Nov) had its own location card lc_GOWA_fukuoka. Dittobase also lists Gigantamax Toxtricity (Max Battles); Leek Duck says only raids. Serebii lists plain Dialga and Palkia.",
-   "picture": "gowildarea2024"
+   "picture": "gowildarea2024",
+   "cards": [
+    "849-amped",
+    "483-origin",
+    "484-origin",
+    "382",
+    "383",
+    "849-low-key"
+   ]
   },
   {
    "id": "sb-teamleader-red",
@@ -1307,7 +1592,10 @@
     "33-jan-2020-noevolve",
     "88-anniversary-2024",
     "94-jan-2020-noevolve",
-    "202-jan-2020-noevolve"
+    "202-jan-2020-noevolve",
+    "1-jan-2020-noevolve",
+    "4-jan-2020-noevolve",
+    "7-jan-2020-noevolve"
    ]
   },
   {
@@ -1368,7 +1656,10 @@
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
    "unsure": null,
-   "picture": "gofest2024wormholeradiance"
+   "picture": "gofest2024wormholeradiance",
+   "cards": [
+    "800-dusk-mane"
+   ]
   },
   {
    "id": "sb-gofest2024-wormhole-moon",
