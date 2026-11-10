@@ -446,8 +446,8 @@ function pokemonPage(n){
     <section class="section"><h2>Your <em>boxes</em>${ordered.length > 1 ? ` <span class="muted">for ${esc(sel.form || "the usual form")}</span>` : ""}</h2>${bigBoxes(sel)}</section>
     ${family ? `<section class="section"><h2>Evolution <em>family</em></h2>${family}</section>` : ""}
     ${formCards ? `<section class="section"><h2>Every <em>form</em> <span class="muted">${all.filter(caught).length} of ${all.length} caught</span></h2><div class="grid">${formCards}</div></section>` : ""}
-    ${costumeCards ? `<section class="section"><h2>Costumes <span class="muted">${costumes.length}</span></h2><p class="muted" style="margin:-6px 0 14px;font-size:13.5px">A costume’s Shiny is a bonus, not counted.</p><div class="grid">${costumeCards}</div></section>` : ""}
-    ${evs.length ? `<section class="section"><h2>Event <em>backgrounds</em> <span class="muted">${evs.length}</span></h2><div class="grid">${bgCards}</div></section>` : ""}`;
+    ${costumeCards ? `<section class="section"><h2>Costumes</h2><p class="muted" style="margin:-6px 0 14px;font-size:13.5px">A costume’s Shiny is a bonus, not counted.</p><div class="grid">${costumeCards}</div></section>` : ""}
+    ${evs.length ? `<section class="section"><h2>Event <em>backgrounds</em></h2><div class="grid">${bgCards}</div></section>` : ""}`;
 }
 
 const BGS = new Set(DATA.backgrounds || []);   // site/backgrounds/<event id>.webp: the game's location cards

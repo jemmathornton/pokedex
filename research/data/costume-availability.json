@@ -21,7 +21,7 @@
  },
  "1-spring-2020-noevolve": {
   "verdict": "yes",
-  "group": "event",
+  "group": "local",
   "how": "Debuted at GO Fest 2020; back in 2026 in 5 km Eggs during Road of Legends, at GO Fest 2026 Copenhagen and in GO Fest 2026: Global (free), where they could evolve with the visor",
   "why_not": null,
   "sources": [
@@ -42,7 +42,7 @@
  },
  "2-spring-2020-noevolve": {
   "verdict": "yes",
-  "group": "event",
+  "group": "local",
   "how": "Debuted at GO Fest 2020; back in 2026 in 5 km Eggs during Road of Legends, at GO Fest 2026 Copenhagen and in GO Fest 2026: Global (free), where they could evolve with the visor",
   "why_not": null,
   "sources": [
@@ -52,12 +52,15 @@
   ]
  },
  "3-copy-2019": {
-  "verdict": "no",
-  "group": "unreleased",
-  "how": "Clone (“Copy 2019”) Pokémon from the Mewtwo Strikes Back Evolution promotion: picture only",
-  "why_not": "Never released (no shiny, no Leek Duck name, no event found)",
+  "verdict": "yes",
+  "group": "local",
+  "how": "Clone Venusaur, Charizard and Blastoise were real catches: four-star raids worldwide in the Pokémon Day 2020 event (25 Feb – 2 Mar 2020, Mewtwo Strikes Back Evolution tie-in). Local four-star raids in the UK were enough. No shiny; not back since.",
+  "why_not": null,
   "sources": [
-   "https://leekduck.com/shiny/"
+   "https://leekduck.com/shiny/",
+   "https://pokemongo.com/news/pokemonday2020",
+   "https://www.gamespot.com/articles/last-chance-pokemon-go-clone-guide-all-the-clone-p/1100-6474138/",
+   "https://primagames.com/tips/pokemon-go-clone-pokemon-everything-you-need-know"
   ]
  },
  "3-jan-2020-noevolve": {
@@ -72,7 +75,7 @@
  },
  "3-spring-2020-noevolve": {
   "verdict": "yes",
-  "group": "event",
+  "group": "local",
   "how": "Debuted at GO Fest 2020; back in 2026 in 5 km Eggs during Road of Legends, at GO Fest 2026 Copenhagen and in GO Fest 2026: Global (free), where they could evolve with the visor",
   "why_not": null,
   "sources": [
@@ -112,7 +115,7 @@
  },
  "4-spring-2020-noevolve": {
   "verdict": "yes",
-  "group": "event",
+  "group": "local",
   "how": "Debuted at GO Fest 2020; back in 2026 in 5 km Eggs during Road of Legends, at GO Fest 2026 Copenhagen and in GO Fest 2026: Global (free), where they could evolve with the visor",
   "why_not": null,
   "sources": [
@@ -142,7 +145,7 @@
  },
  "5-spring-2020-noevolve": {
   "verdict": "yes",
-  "group": "event",
+  "group": "local",
   "how": "Debuted at GO Fest 2020; back in 2026 in 5 km Eggs during Road of Legends, at GO Fest 2026 Copenhagen and in GO Fest 2026: Global (free), where they could evolve with the visor",
   "why_not": null,
   "sources": [
@@ -152,12 +155,15 @@
   ]
  },
  "6-copy-2019": {
-  "verdict": "no",
-  "group": "unreleased",
-  "how": "Clone (“Copy 2019”) Pokémon from the Mewtwo Strikes Back Evolution promotion: picture only",
-  "why_not": "Never released (no shiny, no Leek Duck name, no event found)",
+  "verdict": "yes",
+  "group": "local",
+  "how": "Clone Venusaur, Charizard and Blastoise were real catches: four-star raids worldwide in the Pokémon Day 2020 event (25 Feb – 2 Mar 2020, Mewtwo Strikes Back Evolution tie-in). Local four-star raids in the UK were enough. No shiny; not back since.",
+  "why_not": null,
   "sources": [
-   "https://leekduck.com/shiny/"
+   "https://leekduck.com/shiny/",
+   "https://pokemongo.com/news/pokemonday2020",
+   "https://www.gamespot.com/articles/last-chance-pokemon-go-clone-guide-all-the-clone-p/1100-6474138/",
+   "https://primagames.com/tips/pokemon-go-clone-pokemon-everything-you-need-know"
   ]
  },
  "6-goggles-2026": {
@@ -181,7 +187,7 @@
  },
  "6-spring-2020-noevolve": {
   "verdict": "yes",
-  "group": "event",
+  "group": "local",
   "how": "Debuted at GO Fest 2020; back in 2026 in 5 km Eggs during Road of Legends, at GO Fest 2026 Copenhagen and in GO Fest 2026: Global (free), where they could evolve with the visor",
   "why_not": null,
   "sources": [
@@ -212,7 +218,7 @@
  },
  "7-spring-2020-noevolve": {
   "verdict": "yes",
-  "group": "event",
+  "group": "local",
   "how": "Debuted at GO Fest 2020; back in 2026 in 5 km Eggs during Road of Legends, at GO Fest 2026 Copenhagen and in GO Fest 2026: Global (free), where they could evolve with the visor",
   "why_not": null,
   "sources": [
@@ -243,7 +249,7 @@
  },
  "8-spring-2020-noevolve": {
   "verdict": "yes",
-  "group": "event",
+  "group": "local",
   "how": "Debuted at GO Fest 2020; back in 2026 in 5 km Eggs during Road of Legends, at GO Fest 2026 Copenhagen and in GO Fest 2026: Global (free), where they could evolve with the visor",
   "why_not": null,
   "sources": [
@@ -263,12 +269,15 @@
   ]
  },
  "9-copy-2019": {
-  "verdict": "no",
-  "group": "unreleased",
-  "how": "Clone (“Copy 2019”) Pokémon from the Mewtwo Strikes Back Evolution promotion: picture only",
-  "why_not": "Never released (no shiny, no Leek Duck name, no event found)",
+  "verdict": "yes",
+  "group": "local",
+  "how": "Clone Venusaur, Charizard and Blastoise were real catches: four-star raids worldwide in the Pokémon Day 2020 event (25 Feb – 2 Mar 2020, Mewtwo Strikes Back Evolution tie-in). Local four-star raids in the UK were enough. No shiny; not back since.",
+  "why_not": null,
   "sources": [
-   "https://leekduck.com/shiny/"
+   "https://leekduck.com/shiny/",
+   "https://pokemongo.com/news/pokemonday2020",
+   "https://www.gamespot.com/articles/last-chance-pokemon-go-clone-guide-all-the-clone-p/1100-6474138/",
+   "https://primagames.com/tips/pokemon-go-clone-pokemon-everything-you-need-know"
   ]
  },
  "9-jan-2020-noevolve": {
@@ -283,7 +292,7 @@
  },
  "9-spring-2020-noevolve": {
   "verdict": "yes",
-  "group": "event",
+  "group": "local",
   "how": "Debuted at GO Fest 2020; back in 2026 in 5 km Eggs during Road of Legends, at GO Fest 2026 Copenhagen and in GO Fest 2026: Global (free), where they could evolve with the visor",
   "why_not": null,
   "sources": [
@@ -437,12 +446,15 @@
   ]
  },
  "25-copy-2019": {
-  "verdict": "no",
-  "group": "unreleased",
-  "how": "Clone (“Copy 2019”) Pokémon from the Mewtwo Strikes Back Evolution promotion: picture only",
-  "why_not": "Never released (no shiny, no Leek Duck name, no event found)",
+  "verdict": "yes",
+  "group": "local",
+  "how": "Clone Pikachu: GO Snapshot photobomb, worldwide, Pokémon Day 2020 (25 Feb – 2 Mar 2020). No shiny. Dittobase lists it as “Clone Pikachu”.",
+  "why_not": null,
   "sources": [
-   "https://leekduck.com/shiny/"
+   "https://leekduck.com/shiny/",
+   "https://pokemongo.com/news/pokemonday2020",
+   "https://www.gamespot.com/articles/last-chance-pokemon-go-clone-guide-all-the-clone-p/1100-6474138/",
+   "https://www.dittobase.com/pokemon-go/pokedex/pikachu"
   ]
  },
  "25-costume-1": {
@@ -484,12 +496,13 @@
   ]
  },
  "25-doctor": {
-  "verdict": "yes",
+  "verdict": "unsure",
   "group": "local",
-  "how": "Pikachu, Ph.D. (game code PIKACHU_DOCTOR): encounter from the Platinum PokéStop Showcase medal (100 wins), worldwide since Feb 2024; no shiny",
+  "how": "Pikachu, Ph.D. only comes from the Platinum PokéStop Showcase medal: 100 first-place Showcase finishes (Bronze 10, Silver 25, Gold 50). No other way, no shiny. Yes only if her Showcase medal is Platinum.",
   "why_not": null,
   "sources": [
-   "https://pokemongo.com/news/pokestop-showcase-updates-pikachu-2024"
+   "https://pokemongo.com/news/pokestop-showcase-updates-pikachu-2024",
+   "https://ggrecon.com/guides/pokemon-go-how-to-get-pikachu-phd-costume"
   ]
  },
  "25-fall-2018": {
@@ -523,12 +536,16 @@
   ]
  },
  "25-feb-2019": {
-  "verdict": "no",
-  "group": "unreleased",
-  "how": "Picture in the game files only",
-  "why_not": "Never released (no shiny, no Leek Duck name, no event found)",
+  "verdict": "yes",
+  "group": "local",
+  "how": "FEB_2019 is the 2019 detective-hat Pikachu (Dittobase: “Detective Hat Pikachu”, slug pikachu-feb-2019; a different picture from the 2023 one, code PI). Caught worldwide from GO Snapshot photobombs (and wild, per Serebii) in the Detective Pikachu event, 7–17 May 2019, and again in the wild on 11–12 Aug 2019 (daily Pikachu-hat rotation). No shiny, so Leek Duck’s shiny list never named it.",
+  "why_not": null,
   "sources": [
-   "https://leekduck.com/shiny/"
+   "https://leekduck.com/shiny/",
+   "https://pokemongo.com/news/pikapika2019",
+   "https://serebii.net/pokemongo/events/detectivepikachu.shtml",
+   "https://www.dittobase.com/pokemon-go/pokedex/pikachu-feb-2019",
+   "https://www.dexerto.com/pokemon/pokemon-go-pikachu-hat-event-schedule-883404"
   ]
  },
  "25-flying-01": {
@@ -711,7 +728,7 @@
  },
  "25-gofest-2026-cap-blue": {
   "verdict": "yes",
-  "group": "event",
+  "group": "local",
   "how": "Team Mystic hat Pikachu: GO Fest 2026 Tokyo in person; all three hats in GO Fest 2026: Global (free) raids and research, and the Road of Legends GO Pass",
   "why_not": null,
   "sources": [
@@ -721,7 +738,7 @@
  },
  "25-gofest-2026-cap-red": {
   "verdict": "yes",
-  "group": "event",
+  "group": "local",
   "how": "Team Valor hat Pikachu: GO Fest 2026 Copenhagen (hers), GO Fest 2026: Global (free) raids and research, Road of Legends GO Pass",
   "why_not": null,
   "sources": [
@@ -731,7 +748,7 @@
  },
  "25-gofest-2026-cap-yellow": {
   "verdict": "yes",
-  "group": "event",
+  "group": "local",
   "how": "Team Instinct hat Pikachu: GO Fest 2026 Chicago in person; all three hats in GO Fest 2026: Global (free) raids and research, and the Road of Legends GO Pass",
   "why_not": null,
   "sources": [
@@ -1104,7 +1121,7 @@
  },
  "25-pop-star": {
   "verdict": "yes",
-  "group": "event",
+  "group": "local",
   "how": "Pop Star Pikachu: GO Tour Kanto 2021; returned in GO Wild Area 2024: Global (ticket holders; hers)",
   "why_not": null,
   "sources": [
@@ -1122,7 +1139,7 @@
  },
  "25-rock-star": {
   "verdict": "yes",
-  "group": "event",
+  "group": "local",
   "how": "Rock Star Pikachu: GO Tour Kanto 2021; returned in GO Wild Area 2024: Global (ticket holders; hers)",
   "why_not": null,
   "sources": [
@@ -1377,12 +1394,14 @@
   ]
  },
  "26-feb-2019": {
-  "verdict": "no",
-  "group": "unreleased",
-  "how": "Picture in the game files only",
-  "why_not": "Never released (no shiny, no Leek Duck name, no event found)",
+  "verdict": "yes",
+  "group": "local",
+  "how": "Detective-hat Raichu (2019): by evolving the May/Aug 2019 detective-hat Pikachu (the code has no NOEVOLVE). Serebii lists “Raichu (Detective)” as new in the May 2019 Detective Pikachu event; Dittobase names it “Detective Hat Raichu”. Only if she caught that Pikachu in 2019 and evolved it.",
+  "why_not": null,
   "sources": [
-   "https://leekduck.com/shiny/"
+   "https://leekduck.com/shiny/",
+   "https://serebii.net/pokemongo/events/detectivepikachu.shtml",
+   "https://www.dittobase.com/pokemon-go/pokedex/raichu-feb-2019"
   ]
  },
  "26-halloween-2017": {
@@ -1993,7 +2012,7 @@
  },
  "143-wildarea-2024": {
   "verdict": "yes",
-  "group": "event",
+  "group": "local",
   "how": "Studded jacket Snorlax: debuted in GO Wild Area 2024: Global (hers)",
   "why_not": null,
   "sources": [
@@ -2407,12 +2426,16 @@
   ]
  },
  "282-gofest-2021-noevolve": {
-  "verdict": "no",
-  "group": "unreleased",
-  "how": "Picture in the game files only",
-  "why_not": "Never released (no shiny, no Leek Duck name, no event found)",
+  "verdict": "yes",
+  "group": "event",
+  "how": "Meloetta-hat Gardevoir and Flygon were released at GO Fest 2021 (17–18 Jul 2021, a global ticketed event, the kind she plays). The ticket Special Research “The Melody Pokémon” step 6 made you pick Flygon OR Gardevoir; the hatted one you picked came from step 7 and the Sunday snapshot. So only ONE of the two was possible for her (whichever she picked). No shiny.",
+  "why_not": null,
   "sources": [
-   "https://leekduck.com/shiny/"
+   "https://leekduck.com/shiny/",
+   "https://serebii.net/pokemongo/specialresearch/themelodypokemon.shtml",
+   "https://www.dittobase.com/pokemon-go/pokedex/gardevoir-gofest-2021",
+   "https://bleedingcool.com/games/pokemon-go-fest-costumes-for-ponyta-gardevoir-more-revealed",
+   "https://pokemongo.com/news/pokemongofest2021-ultraunlock"
   ]
  },
  "287-summer-2024": {
@@ -2456,12 +2479,16 @@
   ]
  },
  "330-gofest-2021-noevolve": {
-  "verdict": "no",
-  "group": "unreleased",
-  "how": "Picture in the game files only",
-  "why_not": "Never released (no shiny, no Leek Duck name, no event found)",
+  "verdict": "yes",
+  "group": "event",
+  "how": "Meloetta-hat Gardevoir and Flygon were released at GO Fest 2021 (17–18 Jul 2021, a global ticketed event, the kind she plays). The ticket Special Research “The Melody Pokémon” step 6 made you pick Flygon OR Gardevoir; the hatted one you picked came from step 7 and the Sunday snapshot. So only ONE of the two was possible for her (whichever she picked). No shiny.",
+  "why_not": null,
   "sources": [
-   "https://leekduck.com/shiny/"
+   "https://leekduck.com/shiny/",
+   "https://serebii.net/pokemongo/specialresearch/themelodypokemon.shtml",
+   "https://www.dittobase.com/pokemon-go/pokedex/gardevoir-gofest-2021",
+   "https://bleedingcool.com/games/pokemon-go-fest-costumes-for-ponyta-gardevoir-more-revealed",
+   "https://pokemongo.com/news/pokemongofest2021-ultraunlock"
   ]
  },
  "355-fall-2022-noevolve": {

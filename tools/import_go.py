@@ -89,7 +89,7 @@ NOT_COSTUMES = {'pm26.cNOVEMBER_2018', 'pm136.cHOLIDAY_2022', 'pm136.cNOVEMBER_2
 # a picture the game files keep with the costumes that is really a form in the game's Pokédex: Armored Mewtwo (her call, 10 Nov)
 PICTURE_FORMS = {'pm150.fA': ('MEWTWO_A', 'Armored')}
 # names for costumes the sources call by code only
-COSTUME_NAMES = {'COPY_2019': 'Clone'}
+COSTUME_NAMES = {'COPY_2019': 'Clone', 'FEB_2019': 'Detective Hat'}   # Detective Hat: Dittobase's name (Leek Duck has none, no shiny)
 
 
 def serebii_rows(html, start=None, end=None):
@@ -262,12 +262,13 @@ def main():
                 entries.append(e)
                 used.add(key)
                 continue
-            label = COSTUME_NAMES.get(code) or shiny_label.get(key) or tidy(code)
+            ld = f'pm{n}.{m.group(1)}{code.upper()}'   # Leek Duck writes the code in capitals (the game has pm133.cMay_2023)
+            label = COSTUME_NAMES.get(code.upper()) or shiny_label.get(key) or shiny_label.get(ld) or tidy(code)
             c = {'id': f'{n}-{slug(code)}', 'dex': n, 'name': name, 'costume': label, 'code': code, 'img': key}
             if key + '.g2' in files:
                 c['femaleImg'] = key + '.g2'
-            if key in shiny_out:
-                c['shiny'] = shiny_out[key] or True
+            if key in shiny_out or ld in shiny_out:
+                c['shiny'] = shiny_out.get(key, shiny_out.get(ld)) or True
             costumes.append(c)
 
     # GO's own Pokédex page for each (her ask, 9 Nov): description and category word for word from the game's text file
