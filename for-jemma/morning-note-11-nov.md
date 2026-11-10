@@ -31,5 +31,17 @@ No single route gives everything, so the plan is to combine them. Each turns int
   3. **Evolving:** a background stays when a Pokémon evolves (I added Candela Rapidash that way). Should the backgrounds also list the Pokémon you'd get by evolving (Raichu on LEGO, the Kalos starters' evolutions, Community Day evolutions…)? There are a lot.
 - **Tesseract** (a text reader) needs administrator permission, and Windows' prompt was cancelled while you were away. It isn't needed: Windows' own built-in text reading works. So nothing to do unless you'd like it.
 
-## Coming up
-See `research/coming-up.md` (still being written when this note was made).
+## Coming up (worth playing, UK, local raids)
+Full list with sources: `research/coming-up.md`.
+- **Until 13 Nov:** Zacian and Zamazenta raids and 5★ Max Battles, for the GO Wild Area background.
+- **Until 15 Nov:** Modern Jacket Machamp, at GO Pass rank 75 and in 3★ raids on the 14th and 15th.
+- **14–15 Nov, GO Wild Area: Global:** Gigantamax Duraludon, Dynamax Dialga (Sat) and Palkia (Sun) debut. The background is on those, Machamp, Reshiram, Zekrom and Kyurem. All already in the app.
+- **16–23 Nov, Dynamax Trails:** a new special background from Max Battles (which Pokémon isn't announced yet). I'll add it once it's out.
+- **21 Nov:** Pawniard Community Day (the 2026 Community Day background; already in).
+- **23 Nov:** Dynamax Espurr looks like a debut. Re-running the import afterwards adds it.
+- **24–30 Nov:** Twilight Wishes: a second chance at its six costumes (all on your list).
+- **28 Nov:** Mega Clefable debuts (its Mega box is already there). Super Mega Raids need a group.
+- **Dec–Feb:** the Holiday and New Year events and the January Super Mega Raid days (not announced yet), a rumoured Clone raid day (19 Dec), and **GO Tour: Alola Global** on 27–28 Feb (ticket), which will need new backgrounds adding.
+- **Any time until 30 Apr 2027:** the ESA Science Museum exhibition in London (Astronaut Pikachu and its own background), if you go.
+
+**One for you to check:** sources disagree on Minior. Dittobase counts all seven core colours as out in GO, but our release check found only Green so far (the Orionids in October). The app currently counts all seven. If your game's Pokédex shows only some colours, tell me and I'll mark the rest as not out yet.
