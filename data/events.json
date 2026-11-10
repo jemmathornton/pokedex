@@ -263,10 +263,10 @@
  },
  {
   "id": "lego-collab-2026-uk-poland",
-  "name": "Pokémon GO x LEGO collaboration (select LEGO stores)",
-  "city": "Various (UK and Poland)",
-  "country": "United Kingdom / Poland",
-  "start": "2026-08-03",
+  "name": "Pokémon GO x LEGO (GO Fest Copenhagen and LEGO stores)",
+  "city": "GO Fest Copenhagen, then LEGO stores",
+  "country": "Denmark, United Kingdom, Poland",
+  "start": "2026-06-12",
   "end": "2026-09-30",
   "background": "LEGO Pokémon",
   "backgroundPokemon": [
@@ -278,8 +278,7 @@
    "https://www.serebii.net/pokemongo/backgrounds.shtml"
   ],
   "unsure": [
-   "'LEGO Pokémon' is a special (non-location) background; same one first given at GO Fest Copenhagen",
-   "Exact participating stores not listed; also ran in USA and Australia"
+   "First given at the LEGO stamp rally at GO Fest Copenhagen (12–14 Jun 2026; Jemma was there), then at LEGO stores 3 Aug–30 Sep 2026"
   ]
  },
  {

@@ -307,7 +307,7 @@ function home(){
     <h1>Jemma’s <em>Pokédex</em></h1>${statsHtml(c)}</header>${readOnlyNote()}
     <section class="section"><h2>By generation</h2><div class="gens">${gens}</div></section>
     <section class="section"><h2>Costumes and backgrounds</h2><div class="gens">
-      <a class="gen" href="#costumes"><span class="genart" aria-hidden="true">${(COL.costumes.length ? COSTUMES.filter(c => COL.costumes.includes(c.id)) : COSTUMES.filter(c => c.shiny).slice(-3)).slice(0, 3).map(c => sprite(c.img) ? `<img src="${sprite(c.img)}" alt="" loading="lazy">` : "").join("")}</span><span class="label">Costumes</span><h3>${num(COL.costumes.length)} collecting</h3><p class="muted" style="margin:6px 0 0;font-size:13.5px">of ${num(COSTUMES.length)} in the game</p></a>
+      <a class="gen" href="#costumes"><span class="genart" aria-hidden="true">${myCostumes().slice(0, 3).map(c => sprite(c.img) ? `<img src="${sprite(c.img)}" alt="" loading="lazy">` : "").join("")}</span><span class="label">Costumes</span><h3>${num(myCostumes().length)} collecting</h3><p class="muted" style="margin:6px 0 0;font-size:13.5px">the ones you collect</p></a>
       <a class="gen" href="#events"><span class="genart" aria-hidden="true">${myEvents().flatMap(bgMonsOf).slice(0, 3).map(e => sprite(e.img) ? `<img src="${sprite(e.img)}" alt="" loading="lazy">` : "").join("")}</span><span class="label">Events</span><h3>${num(myEvents().length)} with backgrounds</h3><p class="muted" style="margin:6px 0 0;font-size:13.5px">the ones you went to or took part in</p></a>
     </div></section>
     <p class="muted" style="margin-top:40px;font-size:12.5px">Pokémon data from the game, checked ${dates(DATA.updated)}.</p>`;
@@ -410,7 +410,7 @@ function pokemonPage(n){
   if (!all.length) return home();
   const grouped = groupByNumber(all)[0], ordered = [grouped.lead, ...grouped.others];
   const sel = byId[pageForm[n]] && all.includes(byId[pageForm[n]]) ? byId[pageForm[n]] : grouped.lead;
-  const costumes = COSTUMES.filter(c => c.dex === n);
+  const costumes = myCostumes().filter(c => c.dex === n);
   const evs = myEvents().filter(ev => (ev.backgroundPokemon || []).some(name => DATA.dexByName[name.toLowerCase()] === n));
   const gw = {both: "Male and female", male: "Male only", female: "Female only", none: "Genderless"}[sel.gender];
   const kind = {legendary: "Legendary", mythical: "Mythical", "ultra-beast": "Ultra Beast"}[sel.class];
@@ -472,31 +472,26 @@ function bgCard(ev, e, wentButton){
       : wentButton ? `<button class="chip collect" type="button" data-went aria-pressed="false">I went</button>` : "") + `</div>`;
 }
 
+// only the costumes she collects exist in the app (her call, 10 Nov), like events: she tells Claude which, and Claude adds
+// them to `costumes` through the server; the rest stay in data/ but are never shown
+const myCostumes = () => COSTUMES.filter(c => COL.costumes.includes(c.id));
 function costumeCard(c){
-  const on = COL.costumes.includes(c.id), key = "c:" + c.id;
-  return `<div class="card${on ? "" : " not-collecting"}" data-costume="${attr(c.id)}"><span class="no">#${pad(c.dex)}</span>` +
+  const key = "c:" + c.id;
+  return `<div class="card" data-costume="${attr(c.id)}"><span class="no">#${pad(c.dex)}</span>` +
     pic(c, key) + `<a class="nm" href="#p-${c.dex}" title="Open ${attr(c.name)}’s page">${esc(c.name)}</a><small class="fm">${esc(c.costume)}</small>` +
-    (on ? `<div class="boxgrid"><button class="tk c" type="button" data-tick="c" aria-pressed="${has(key, "c")}" title="Caught">${ic("poke-ball")}<span>Caught</span></button>` +
-      `<button class="tk s" type="button" data-tick="s" aria-pressed="${has(key, "s")}" title="${c.shiny ? "Shiny" : "No shiny in GO yet"}"${!c.shiny && !has(key, "s") ? " disabled" : ""}>${ic("sparkles")}<span>Shiny</span></button></div>` : "") +
-    `<button class="chip collect" type="button" data-collect aria-pressed="${on}">${on ? ic("check") + "Collecting" : "Collect this"}</button></div>`;
+    `<div class="boxgrid"><button class="tk c" type="button" data-tick="c" aria-pressed="${has(key, "c")}" title="Caught">${ic("poke-ball")}<span>Caught</span></button>` +
+    `<button class="tk s" type="button" data-tick="s" aria-pressed="${has(key, "s")}" title="${c.shiny ? "Shiny" : "No shiny in GO yet"}"${!c.shiny && !has(key, "s") ? " disabled" : ""}>${ic("sparkles")}<span>Shiny</span></button></div></div>`;
 }
 function costumesPage(){
-  const mode = prefs.costumes === "auto" ? (COL.costumes.length ? "collecting" : "all") : prefs.costumes;
   const term = q.value.trim().toLowerCase();
-  let items = mode === "collecting" ? COSTUMES.filter(c => COL.costumes.includes(c.id)) : COSTUMES;
+  let items = myCostumes();
   if (term) items = items.filter(c => (c.name + " " + c.costume).toLowerCase().includes(term) || String(c.dex) === term);
-  const ck = c => "c:" + c.id;
-  const haveShiny = COSTUMES.filter(c => COL.costumes.includes(c.id) && has(ck(c), "s")).length;
-  const haveAny = COSTUMES.filter(c => COL.costumes.includes(c.id) && hasAny(ck(c), ["c", "s"])).length;
+  const ck = c => "c:" + c.id, mine = myCostumes();
   setRegion(null);
-  view.innerHTML = `<header class="hero">${heroArt([...COSTUMES.filter(c => COL.costumes.includes(c.id)), ...COSTUMES.filter(c => c.shiny).reverse()])}<span class="label">Pokémon GO</span><h1>Costumes</h1>
-    <div class="stats">${statTile("--deep-2", "shirt", "Collecting", COL.costumes.length, COSTUMES.length)}
-    ${COL.costumes.length ? statTile("--caught", "poke-ball", "Caught", haveAny, COL.costumes.length) + statTile("--shiny", "sparkles", "Shiny", haveShiny, COL.costumes.length) : ""}</div></header>${readOnlyNote()}
-    <div class="toolbar filters"><div class="frow"><span class="label flabel">Show</span><div class="worktabs">
-      <button class="worktab" type="button" data-cmode="collecting" aria-pressed="${mode === "collecting"}">Ones I’m collecting <span class="n">${num(COL.costumes.length)}</span></button>
-      <button class="worktab" type="button" data-cmode="all" aria-pressed="${mode === "all"}">Every costume <span class="n">${num(COSTUMES.length)}</span></button>
-      ${term ? `<span class="muted" style="font-size:13.5px;margin-left:8px">Matching “${esc(q.value.trim())}”</span>` : ""}</div></div></div>
-    ${items.length ? `<div class="grid">${items.map(costumeCard).join("")}</div>` : `<p class="empty">${mode === "collecting" ? "No costumes chosen yet: pick them from Every costume." : "Nothing matches."}</p>`}`;
+  view.innerHTML = `<header class="hero">${heroArt(mine)}<span class="label">Pokémon GO</span><h1>Costumes</h1>
+    ${mine.length ? `<div class="stats">${statTile("--caught", "poke-ball", "Caught", mine.filter(c => hasAny(ck(c), ["c", "s"])).length, mine.length)}${statTile("--shiny", "sparkles", "Shiny", mine.filter(c => has(ck(c), "s")).length, mine.length)}</div>` : ""}</header>${readOnlyNote()}
+    ${term ? `<p class="muted" style="font-size:13.5px">Matching “${esc(q.value.trim())}”</p>` : ""}
+    ${items.length ? `<div class="grid" style="margin-top:22px">${items.map(costumeCard).join("")}</div>` : `<p class="empty">${term ? "Nothing matches." : "No costumes yet."}</p>`}`;
 }
 
 // only the events she went to (or took part in, for special backgrounds) exist in the app (her call, 10 Nov); the rest stay

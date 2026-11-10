@@ -29,7 +29,7 @@ Everything waiting on you. **Do** = just do it; **Decide** = your call. Tell Cla
 - **Do:** Set up the weekly backup. Windows wouldn’t let Claude do it, because it runs by itself. In PowerShell, run
   `powershell -ExecutionPolicy Bypass -File "C:\Users\Jemma\Documents\Pokedex\tools\make_backup_task.ps1"` for a backup every Sunday at 9:40.
 - **Do:** Tick the events you’ve been to on the **Events and backgrounds** page (“I went”). The list has 79 European in-person events from 2017 on; 56 had a location background. Anything missing, tell Claude. (Full list with sources: research/european-events.md.)
-- **Do:** Pick the costumes you want to collect on the **Costumes** page (“Collect this”). All 326 costume pictures in the game are there.
+- **Do:** Tell Claude which costumes you collect (Claude will show you the list). Only those appear in the app.
 - **Do:** Start ticking your shinies and luckies.
 
 ## Decide
