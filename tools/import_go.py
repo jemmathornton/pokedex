@@ -357,6 +357,8 @@ def main():
         for i in got:
             byid[i][DITTO_FLAGS[flag][0]] = True
             from_ditto[DITTO_FLAGS[flag][0]].add(i)
+            if flag == 'isShadow' and r.get('isShinyReleased'):
+                byid[i]['shadowShiny'] = True   # a bonus box (her ask, 10 Nov), like a costume: not counted
     for flag, got in from_ditto.items():
         print(f'{flag}: {len(got)} entries (Dittobase)')
     if unmatched:
@@ -403,6 +405,10 @@ def main():
                     t['shadow'] = True
                     added.append(t['id'])
                     changed = True
+                if t and t.get('shadow') and e.get('shadowShiny') and t.get('shiny') and not t.get('shadowShiny'):
+                    t['shadowShiny'] = True   # a shiny shadow evolves into one too
+                    changed = True
+    print(f'shiny shadow: {sum(1 for e in entries if e.get("shadowShiny"))} entries')
     if added:
         print(f'shadow by evolving: {len(added)} more ({", ".join(sorted(added, key=lambda i: (int(i.split("-")[0]), i)))})')
 

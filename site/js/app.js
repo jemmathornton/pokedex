@@ -395,7 +395,10 @@ function bigBoxes(e){
     B("sd", "--shadow", "shadow", "Shadow", !!e.shadow) +
     B("pu", "--purified", "purified", "Purified", !!e.shadow) +
     B("dx", "--dynamax", "expand", "Dynamax", !!e.dynamax) +
-    B("gx", "--gmax", "expand", "Gigantamax", !!e.gmax) + `</div>`;
+    B("gx", "--gmax", "expand", "Gigantamax", !!e.gmax) + `</div>` +
+    // a bonus, like a costume (her ask, 10 Nov): not counted anywhere and not on the list cards
+    (e.shadowShiny || has(k, "ss") ? `<h3 class="bonus-h">Bonus <span class="muted">not counted</span></h3><div class="bigboxes" data-id="${attr(e.id)}">` +
+      B("ss", "--shadow", "shadow", "Shiny Shadow", !!e.shadowShiny, "Not out yet") + `</div>` : "");
 }
 function pokemonPage(n){
   const every = ENTRIES.filter(e => e.dex === n);
@@ -418,7 +421,7 @@ function pokemonPage(n){
     row("Usual height", sel.height ? esc(metres(sel.height)) : "") + row("Usual weight", sel.weight ? esc(kilos(sel.weight)) : "") +   // the species' Pokédex size; each one caught varies
     row("Buddy distance", sel.buddyKm ? esc(`${num(sel.buddyKm)} km`) : "") +
     row("In Pokémon GO", yesNo(sel.released, "Out", "Not out yet")) +
-    row("Shiny", yesNo(!!sel.shiny, typeof sel.shiny === "string" ? `Out since ${dates(sel.shiny)}` : "Out", "Not out yet")) +
+    row("Shiny", yesNo(!!sel.shiny, "Out", "Not out yet")) +
     row("Lucky", yesNo(canLucky(sel), "Can be lucky", sel.class === "mythical" ? "Never (can’t be traded)" : "Not out yet")) +
     row("Shadow and Purified", yesNo(!!sel.shadow, "Out", "Not yet")) +
     row("Dynamax", yesNo(!!sel.dynamax, "Out", "Not yet")) + row("Gigantamax", yesNo(!!sel.gmax, "Out", "Not yet")) + `</dl>`;
@@ -427,14 +430,7 @@ function pokemonPage(n){
   const picker = ordered.length > 1 ? `<div class="formpick" role="group" aria-label="Which form to show">${ordered.map(e =>
     `<button type="button" data-pickform="${attr(e.id)}" aria-pressed="${e === sel}" title="${attr(e.form || e.name)}">${sprite(e.img) ? `<img src="${sprite(e.img)}" alt="" loading="lazy">` : `<span class="blank">?</span>`}<small>${esc(e.form || "Usual")}</small></button>`).join("")}</div>` : "";
   const family = evoFamily(sel);
-  const bgRows = evs.map(ev => {
-    const went = COL.went.includes(ev.id), key = `b:${ev.id}:${n}`;
-    return `<div class="bgrow${went ? " went" : ""}" data-bg="${attr(key)}" data-event="${attr(ev.id)}"><div><b>${esc(ev.name)}</b><span class="muted"> · ${esc(ev.city)} · ${esc(dates(ev.start, ev.end))}</span>
-      <div class="muted" style="font-size:13px">${ic("image")} ${esc(ev.background)}</div></div>
-      ${went ? `<div class="ticks"><button class="tk c" type="button" data-tick="c" aria-pressed="${has(key, "c")}" title="Have it with this background">${ic("poke-ball")}Have it</button>
-        <button class="tk s" type="button" data-tick="s" aria-pressed="${has(key, "s")}"${!sel.shiny && !has(key, "s") ? " disabled" : ""} title="Shiny with this background">${ic("sparkles")}Shiny</button></div>`
-        : `<button class="chip" type="button" data-went aria-pressed="false">I went</button>`}</div>`;
-  }).join("");
+  const bgCards = evs.map(ev => bgCard(ev, baseOf[n] || grouped.lead, true)).join("");
   const first = esc(sel.name);
   showAllBoxes = true;
   const formCards = all.length > 1 ? all.map(e => card(e)).join("") : "";
@@ -446,14 +442,27 @@ function pokemonPage(n){
       (gen[0] ? `<a href="#gen-${gen[0]}">${ic("layers")}${esc(gen[1])}</a>` : "") + `</div>
       <nav class="prevnext" aria-label="Previous and next Pokémon">${step(prev, "prev")}${step(next, "next")}</nav></div>
     <div class="monhead"><div><span class="label">#${pad(n)}${sel.category ? " · " + esc(sel.category) : ""}</span><h1>${esc(sel.name)}${sel.form ? ` <em>${esc(sel.form)}</em>` : ""}</h1>
-      <div class="chips">${sel.types.map(t => `<span class="type">${esc(t)}</span>`).join("")}<span class="type">${esc(gw)}</span>${kind ? `<span class="type">${esc(kind)}</span>` : ""}${sel.released ? "" : `<span class="type">Not out in GO yet</span>`}</div></div></div></header>${readOnlyNote()}
+      <div class="chips">${sel.types.map(t => `<span class="type">${esc(t)}</span>`).join("")}${{both: ["Female", "Male"], male: ["Male"], female: ["Female"], none: ["Genderless"]}[sel.gender].map(g => `<span class="type">${g}</span>`).join("")}${kind ? `<span class="type">${esc(kind)}</span>` : ""}${sel.released ? "" : `<span class="type">Not out in GO yet</span>`}</div></div></div></header>${readOnlyNote()}
     <div class="mondetail"><div class="monpic">${pic(sel, dk(sel), true)}${picker}</div>
       <div>${desc}${facts}</div></div>
     <section class="section"><h2>Your <em>boxes</em>${ordered.length > 1 ? ` <span class="muted">for ${esc(sel.form || "the usual form")}</span>` : ""}</h2>${bigBoxes(sel)}</section>
     ${family ? `<section class="section"><h2>Evolution <em>family</em></h2>${family}</section>` : ""}
     ${formCards ? `<section class="section"><h2>Every <em>form</em> <span class="muted">${all.filter(caught).length} of ${all.length} caught</span></h2><div class="grid">${formCards}</div></section>` : ""}
     ${costumeCards ? `<section class="section"><h2>Costumes <span class="muted">${costumes.length}</span></h2><div class="grid">${costumeCards}</div></section>` : ""}
-    ${evs.length ? `<section class="section"><h2>Event <em>backgrounds</em> <span class="muted">${evs.length}</span></h2><div class="bgrows">${bgRows}</div></section>` : ""}`;
+    ${evs.length ? `<section class="section"><h2>Event <em>backgrounds</em> <span class="muted">${evs.length}</span></h2><div class="grid">${bgCards}</div></section>` : ""}`;
+}
+
+const BGS = new Set(DATA.backgrounds || []);   // site/backgrounds/<event id>.webp: the game's location cards
+function bgCard(ev, e, wentButton){
+  const went = COL.went.includes(ev.id), key = `b:${ev.id}:${e.dex}`;
+  const src = bigSprite(has(key, "s") && sprite(e.img + ".s") ? e.img + ".s" : e.img);
+  const bg = BGS.has(ev.id) ? `backgrounds/${ev.id}.webp` : null;
+  return `<div class="card bgcard${went ? "" : " not-went"}" data-bg="${attr(key)}" data-event="${attr(ev.id)}" data-bgdex="${e.dex}">` +
+    `<div class="bgpic"${bg ? ` style="background-image:url('${bg}')"` : ""}>${src ? `<img src="${src}" alt="" loading="lazy">` : ""}</div>` +
+    `<a class="nm" href="#p-${e.dex}">${esc(e.name)}</a><small class="fm">${esc(ev.background || ev.name)}</small>` +
+    (went ? `<div class="boxgrid"><button class="tk c" type="button" data-tick="c" aria-pressed="${has(key, "c")}" title="Have it with this background">${ic("poke-ball")}<span>Caught</span></button>` +
+      `<button class="tk s" type="button" data-tick="s" aria-pressed="${has(key, "s")}" title="${e.shiny ? "Shiny with this background" : "No shiny in GO yet"}"${!e.shiny && !has(key, "s") ? " disabled" : ""}>${ic("sparkles")}<span>Shiny</span></button></div>`
+      : wentButton ? `<button class="chip collect" type="button" data-went aria-pressed="false">I went</button>` : "") + `</div>`;
 }
 
 function costumeCard(c){
@@ -492,19 +501,12 @@ function eventsPage(){
   for (const ev of list) {
     const y = ev.start.slice(0, 4), went = COL.went.includes(ev.id);
     if (y !== year) { html += `<h2 class="yearhead">${y}</h2>`; year = y; }
-    const mons = (ev.backgroundPokemon || []).map(name => {
-      const e = baseOf[DATA.dexByName[name.toLowerCase()]];
-      if (!e) return "";
-      const key = `b:${ev.id}:${e.dex}`, src = sprite(has(key, "s") && sprite(e.img + ".s") ? e.img + ".s" : e.img);
-      return `<div class="bgmon" data-bg="${attr(key)}">${src ? `<img src="${src}" alt="" loading="lazy">` : ""}<div class="t"><a href="#p-${e.dex}">${esc(e.name)}</a>` +
-        (went ? `<div class="ticks"><button class="tk c" type="button" data-tick="c" aria-pressed="${has(key, "c")}" title="Have it with this background">${ic("check")}</button>` +
-          `<button class="tk s" type="button" data-tick="s" aria-pressed="${has(key, "s")}" title="${e.shiny ? "Shiny with this background" : "No shiny in GO yet"}"${!e.shiny && !has(key, "s") ? " disabled" : ""}>${ic("sparkles")}</button></div>` : "") + `</div></div>`;
-    }).join("");
+    const mons = (ev.backgroundPokemon || []).map(name => baseOf[DATA.dexByName[name.toLowerCase()]]).filter(Boolean).map(e => bgCard(ev, e, false)).join("");
     html += `<div class="event${went ? " went" : ""}" data-event="${attr(ev.id)}"><div class="top"><div>
       <h3>${esc(ev.name)}</h3><div class="meta">${ic("map-pin")} ${esc(ev.city)}, ${esc(ev.country)} · ${esc(dates(ev.start, ev.end))}</div>
       <div class="bg">${ev.background ? `${ic("image")} Background: <b>${esc(ev.background)}</b>` : `<span class="muted">No location background</span>`}</div></div>
       <button class="chip" type="button" data-went aria-pressed="${went}">${went ? ic("check") + "I went" : "I went"}</button></div>
-      ${mons ? `<div class="bgmons"${went ? "" : ' style="opacity:.55"'}>${mons}</div>` : ""}</div>`;
+      ${mons ? `<div class="grid bggrid">${mons}</div>` : ""}</div>`;
   }
   const bgs = EVENTS.filter(e => COL.went.includes(e.id) && e.background).length;
   setRegion(null);
@@ -588,9 +590,9 @@ document.addEventListener("click", ev => {
   if (go) { const e = byId[go.dataset.goform]; pageForm[e.dex] = e.id; if (location.hash === "#p-" + e.dex) { ev.preventDefault(); rerender(); } return; }
   const b = ev.target.closest("button");
   if (!b) {   // anywhere else on a card opens that Pokémon's page, at that form (her ask, 10 Nov; ticking is on the boxes)
-    const c = ev.target.closest(".card[data-id],.card[data-costume]");
+    const c = ev.target.closest(".card[data-id],.card[data-costume],.card[data-bgdex]");
     if (!c || ev.target.closest("a")) return;
-    const e = byId[c.dataset.id] || costumeById[c.dataset.costume];
+    const e = byId[c.dataset.id] || costumeById[c.dataset.costume] || baseOf[c.dataset.bgdex];
     if (!e) return;
     if (c.dataset.id) pageForm[e.dex] = e.id;
     if (location.hash === "#p-" + e.dex) { rerender(); return scrollTo({top: 0, behavior: "smooth"}); }

@@ -29,6 +29,8 @@ def main():
     have = {f[:-5] for f in os.listdir(sprites) if f.endswith('.webp')} if os.path.isdir(sprites) else set()
     bigdir = os.path.join(sprites, 'big')
     big = {f[:-5] for f in os.listdir(bigdir) if f.endswith('.webp')} if os.path.isdir(bigdir) else set()   # for the Pokémon pages
+    bgdir = os.path.join(SITE, 'backgrounds')   # the game's location cards, by event id (tools/fetch_backgrounds.py)
+    bgs = {f[:-5] for f in os.listdir(bgdir) if f.endswith('.webp')} if os.path.isdir(bgdir) else set()
     names = {}
     for e in dex['entries']:
         names.setdefault(e['name'].lower(), e['dex'])
@@ -40,7 +42,7 @@ def main():
     pics = [k for e in dex['entries'] + costumes['costumes'] for k in (e['img'], e['img'] + '.s')]
     missing = sum(1 for k in pics if k not in have)
     out = {'game': 'go', 'updated': dex['updated'], 'entries': dex['entries'], 'costumes': costumes['costumes'],
-           'events': events, 'dexByName': names, 'sprites': sorted(have), 'bigSprites': sorted(big), 'collection': collection}
+           'events': events, 'dexByName': names, 'sprites': sorted(have), 'bigSprites': sorted(big), 'backgrounds': sorted(bgs), 'collection': collection}
     js = 'const DATA = ' + json.dumps(out, ensure_ascii=False, separators=(',', ':')) + ';\n'
     write(os.path.join(SITE, 'js', 'data.js'), js)
     stamp()

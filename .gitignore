@@ -7,3 +7,5 @@ logs/
 imports/
 # the game's pictures (about 20 MB), fetched again by tools/fetch_sprites.py; the weekly backup zips them
 site/sprites/
+# the game's location cards for the event backgrounds (about 3 MB), fetched again by tools/fetch_backgrounds.py
+site/backgrounds/

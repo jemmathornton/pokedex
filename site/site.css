@@ -530,3 +530,15 @@ a.formsbtn{text-decoration:none}
 :root[data-theme="dark"] .bb:not([aria-pressed="true"]):not(:disabled) > .i{color:color-mix(in srgb,var(--bc) 55%,#fff);background:color-mix(in srgb,var(--bc) 32%,var(--surface))}
 
 :root[data-look="mix"] .side{overflow:hidden}
+
+/* the bonus boxes on a Pokémon's page (Shiny Shadow): not counted */
+.bonus-h{font:700 13px var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:18px 0 8px}
+.bonus-h .muted{font-weight:600;letter-spacing:.02em;text-transform:none;margin-left:4px}
+
+/* background cards: the game's location card behind the Pokémon, like a costume card (10 Nov) */
+.card.bgcard{cursor:pointer;padding-top:6px}
+.bgpic{width:100%;aspect-ratio:1;border-radius:10px;background:var(--soft) center top / cover no-repeat;display:grid;place-items:end center;overflow:hidden}
+.bgpic img{width:72%;height:72%;object-fit:contain;object-position:bottom;margin-bottom:4%;filter:drop-shadow(0 3px 6px rgba(0,0,0,.18))}
+.card.bgcard .nm{margin-top:8px}
+.card.bgcard.not-went .bgpic{opacity:.75}
+.bggrid{margin-top:12px}
