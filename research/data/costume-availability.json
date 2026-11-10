@@ -1981,10 +1981,10 @@
   ]
  },
  "143-nightcap": {
-  "verdict": "unsure",
+  "verdict": "yes",
   "group": "local",
-  "how": "Nightcap Snorlax: Special Research for a Pokémon GO Plus + paired with Pokémon Sleep (sleep tracking), from Jul 2023",
-  "why_not": "Needs a Pokémon GO Plus + and Pokémon Sleep; no other way found",
+  "how": "Nightcap Snorlax: Special Research for a Pokémon GO Plus + paired with Pokémon Sleep (sleep tracking), from Jul 2023 She got it (her word, 10 Nov).",
+  "why_not": null,
   "sources": [
    "https://pokemongo.com/news/pokemon-sleep-pokemon-go-plus-plus-event"
   ]
