@@ -252,11 +252,9 @@ const shotPick = g => Math.min(+(new URLSearchParams(location.search).get("shot"
 function regionShot(g){   // style and switch for a region page's banner
   const shots = REGION_SHOTS[g] || [], k = shotPick(g);
   if (!shots.length) return {style: "", sw: ""};
-  const whole = (new URLSearchParams(location.search).get("fit") || (prefs.regionFit || {})[g]) === "whole";   // the whole picture, not cropped (her ask: zoomed out)
-  return {style: k ? ` style="--shot:url('regions/${shots[k - 1]}')"` : "", cls: k ? " withshot" + (whole ? " whole" : "") : "",
+  return {style: k ? ` style="--shot:url('regions/${shots[k - 1]}')"` : "", cls: k ? " withshot" : "",   // the picture always fills the banner (10 Nov: the uncropped and blurred tries confused; wide shots instead)
     sw: `<span class="shotsw"><span class="label">Try a picture</span><span class="opts">${["Colour", ...shots.map((_, i) => String(i + 1))].map((l, i) =>
-      `<button type="button" data-shot="${i}" data-shotg="${g}" aria-pressed="${i === k}">${l}</button>`).join("")}</span>` +
-      (k ? `<span class="opts"><button type="button" data-fitg="${g}" data-fit="fill" aria-pressed="${!whole}">Fill</button><button type="button" data-fitg="${g}" data-fit="whole" aria-pressed="${whole}">Whole picture</button></span>` : "") + `</span>`};
+      `<button type="button" data-shot="${i}" data-shotg="${g}" aria-pressed="${i === k}">${l}</button>`).join("")}</span></span>`};
 }
 const STARTERS = [1, 4, 7, 152, 155, 158, 252, 255, 258, 387, 390, 393, 495, 498, 501, 650, 653, 656, 722, 725, 728, 810, 813, 816, 906, 909, 912];
 function heroArt(list){   // a few of the page's Pokémon, for the looks that show them (big ones first, then a parade)
@@ -645,7 +643,6 @@ document.addEventListener("click", ev => {
   if (b.hasAttribute("data-clear")) { Object.assign(prefs, {work: "all", workShow: "all"}); keepPrefs(); return rerender(); }
   if (b.hasAttribute("data-showall")) { prefs.workShow = prefs.workShow === "all" ? "need" : "all"; keepPrefs(); return rerender(); }
   if (b.dataset.work) { prefs.work = prefs.work === b.dataset.work ? "all" : b.dataset.work; prefs.workShow = prefs.work === "all" ? "all" : "need"; keepPrefs(); return rerender(); }   // click again: back to all
-  if (b.dataset.fitg) { prefs.regionFit = {...(prefs.regionFit || {}), [b.dataset.fitg]: b.dataset.fit}; keepPrefs(); return rerender(); }   // trial, 10 Nov
   if (b.dataset.shotg) { prefs.regionShot = {...(prefs.regionShot || {}), [b.dataset.shotg]: +b.dataset.shot}; keepPrefs(); return rerender(); }   // trial, 10 Nov
   if (b.dataset.notout) { prefs.unreleased = b.dataset.notout === "yes"; keepPrefs(); return rerender(); }
   if (b.dataset.workshow) { prefs.workShow = b.dataset.workshow; keepPrefs(); return rerender(); }
