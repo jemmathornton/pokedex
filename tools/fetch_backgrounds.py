@@ -6,7 +6,7 @@ The pictures are the game's files in PokeMiners' pogo_assets (Images/LocationCar
 card belongs to which event in data/events.json (matched by hand, 10 Nov 2026); an event with two cards (Mega Evolution
 Paris) lists both. Each is shrunk to 480 px wide, nothing else changed. Then run tools/build.py.
 """
-import io, json, os, sys, urllib.parse, urllib.request
+import io, json, os, sys, urllib.error, urllib.parse, urllib.request
 from PIL import Image
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -60,8 +60,33 @@ def main():
     events = events['events'] if isinstance(events, dict) else events
     # special backgrounds (data/special-backgrounds.json): their own card from the game files, where there is one
     special = json.load(open(os.path.join(ROOT, 'data', 'special-backgrounds.json'), encoding='utf-8'))['special']
-    CARDS.update({x['id']: [x['card']] for x in special if x.get('card')})
-    with_bg = {e['id'] for e in events if e.get('background')} | {x['id'] for x in special if x.get('card')}
+    CARDS.update({x['id']: [x['card']] for x in special if x.get('card') and not x.get('picture')})
+    # special backgrounds: Serebii's full picture (the game files only have the base layer of some, e.g. no Mega logo,
+    # and nothing for others; 10 Nov). Fetched again whenever the picture name changes (kept in a small note file).
+    for x in special:
+        if x.get('picture'):
+            dest = os.path.join(OUT, x['id'] + '.webp'); note = dest + '.src'
+            if os.path.exists(dest) and os.path.exists(note) and open(note).read() == x['picture']:
+                continue
+            try:
+                im = None
+                for size in ('', 'th/'):   # the full picture, or Serebii's smaller one where there's no full one (GO Fest 2025 Zacian)
+                    try:
+                        url = 'https://www.serebii.net/pokemongo/locationcard/' + size + x['picture'] + '.jpg'
+                        with urllib.request.urlopen(urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0 (private Pokedex)'}), timeout=60) as r:
+                            im = Image.open(io.BytesIO(r.read())).convert('RGB')
+                        break
+                    except urllib.error.HTTPError:
+                        continue
+                if im is None:
+                    raise RuntimeError('no picture on Serebii')
+                if im.width > WIDTH:
+                    im = im.resize((WIDTH, round(im.height * WIDTH / im.width)), Image.LANCZOS)
+                im.save(dest, 'WEBP', quality=86, method=6)
+                open(note, 'w').write(x['picture'])
+            except Exception as e:
+                print('failed', x['id'], e)
+    with_bg = {e['id'] for e in events if e.get('background')} | {x['id'] for x in special if x.get('card') and not x.get('picture')}
     print('events with a background but no card here:', sorted(with_bg - set(CARDS)) or 'none')
     print('cards for events not in events.json:', sorted(set(CARDS) - {e['id'] for e in events} - {x['id'] for x in special}) or 'none')
     failed = []
@@ -78,7 +103,7 @@ def main():
                 im.save(dest, 'WEBP', quality=86, method=6)
             except Exception as e:
                 failed.append(f'{eid} {card}: {e}')
-    print(len(os.listdir(OUT)), 'pictures;', len(failed), 'failed', failed[:5])
+    print(len([f for f in os.listdir(OUT) if f.endswith('.webp')]), 'pictures;', len(failed), 'failed', failed[:5])
     sys.exit(1 if failed else 0)
 
 

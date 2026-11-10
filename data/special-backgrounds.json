@@ -1,5 +1,5 @@
 {
- "_about": "Special backgrounds (global ones; the in-person ones abroad left out, as she has only been to European events). From research/data/special-backgrounds.json (10 Nov 2026). `unsure` stays off the site. Team leader backgrounds: she is Team Instinct (10 Nov), so the Valor and Mystic ones keep only the Road to Kalos raid Pikachu and that team’s bird.",
+ "_about": "Special backgrounds (global ones; the in-person ones abroad left out, as she has only been to European events). From research/data/special-backgrounds.json (10 Nov 2026). `unsure` stays off the site. Team leader backgrounds: she is Team Instinct (10 Nov), so the Valor and Mystic ones keep only the Road to Kalos raid Pikachu and that team’s bird. `picture`: Serebii’s full picture of the background (serebii.net/pokemongo/locationcard/<picture>.jpg), used because the game files only have the base layer for some (the Mega logo, 10 Nov) and none for others; `card` is the game’s own file.",
  "special": [
   {
    "id": "sb-go-wild-area-2026-into-the-wild-go-wild-area-global",
@@ -32,7 +32,8 @@
     "https://www.dittobase.com/pokemon-go/backgrounds/sb-wild-area-global-2026",
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
-   "unsure": "No picture file in the game files yet (newest). The weekend has not happened yet (today is 10 Nov). Leek Duck says Crowned Sword Zacian and Crowned Shield Zamazenta; Dittobase says Hero of Many Battles. Serebii lists Registeel twice and no forms."
+   "unsure": "No picture file in the game files yet (newest). The weekend has not happened yet (today is 10 Nov). Leek Duck says Crowned Sword Zacian and Crowned Shield Zamazenta; Dittobase says Hero of Many Battles. Serebii lists Registeel twice and no forms.",
+   "picture": "gowildarea2026"
   },
   {
    "id": "sb-s24-sep-2026",
@@ -56,7 +57,8 @@
     "https://www.dittobase.com/pokemon-go/backgrounds/sb-s24-sep-2026",
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
-   "unsure": "The file name reads as a Season 24 (Twilight Trails, Sep-Dec 2026) background, so it may be reused later this season. Serebii lists Pikachu as \"Captain Pikachu\"."
+   "unsure": "The file name reads as a Season 24 (Twilight Trails, Sep-Dec 2026) background, so it may be reused later this season. Serebii lists Pikachu as \"Captain Pikachu\".",
+   "picture": "pokemonhorizons"
   },
   {
    "id": "sb-worldspecial-blue",
@@ -74,7 +76,8 @@
     "https://leekduck.com/events/pokemon-world-championships-2026-timed-research-twitch-drops/",
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
-   "unsure": "Card matched by picture only (the game file is the blue base of Serebii's picture); Dittobase has no entry for it. Shiny not stated (probably not)."
+   "unsure": "Card matched by picture only (the game file is the blue base of Serebii's picture); Dittobase has no entry for it. Shiny not stated (probably not).",
+   "picture": "pokemonworldchampionships2026"
   },
   {
    "id": "sb-10th-anniversary-celebration-mewtwo",
@@ -92,7 +95,8 @@
     "https://leekduck.com/events/10th-anniversary-celebration/",
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
-   "unsure": "No picture file in the game files. Serebii lists it as \"10th Anniversary Celebration\" (an Earth picture), dated 13 Aug-4 Sep. Those at the in-person Times Square event (9 Jul) got a Mewtwo with a Times Square background instead."
+   "unsure": "No picture file in the game files. Serebii lists it as \"10th Anniversary Celebration\" (an Earth picture), dated 13 Aug-4 Sep. Those at the in-person Times Square event (9 Jul) got a Mewtwo with a Times Square background instead.",
+   "picture": "10thanniversarycelebration"
   },
   {
    "id": "sb-gofest2026-global",
@@ -190,7 +194,8 @@
     "https://www.dittobase.com/pokemon-go/backgrounds/sb-gofest2026-global",
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
-   "unsure": "Serebii lists the plain base as \"GO Fest 2026 Global\" (no Pokémon) and the finished picture as \"Road of Legends\" (dated 2025 by mistake). Leek Duck's page lists only the 5-star bosses; the Mega species come from Dittobase and Serebii."
+   "unsure": "Serebii lists the plain base as \"GO Fest 2026 Global\" (no Pokémon) and the finished picture as \"Road of Legends\" (dated 2025 by mistake). Leek Duck's page lists only the 5-star bosses; the Mega species come from Dittobase and Serebii.",
+   "picture": "gofest2026global"
   },
   {
    "id": "sb-gofest2026-mewtwo",
@@ -210,7 +215,8 @@
     "https://www.dittobase.com/pokemon-go/backgrounds/sb-gofest2026-mewtwo",
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
-   "unsure": "Leek Duck says Mewtwo from Mega Mewtwo X/Y Super Mega Raids at the Mega Finale (Sep 2026) \"may also have a Special Background\" without saying which one. Serebii dates its Mewtwo entries 2025 by mistake. Shiny: not stated."
+   "unsure": "Leek Duck says Mewtwo from Mega Mewtwo X/Y Super Mega Raids at the Mega Finale (Sep 2026) \"may also have a Special Background\" without saying which one. Serebii dates its Mewtwo entries 2025 by mistake. Shiny: not stated.",
+   "picture": "gofest2026mewtwo"
   },
   {
    "id": "sb-10th-anniversary-gimmighoul-coin",
@@ -228,7 +234,8 @@
     "https://leekduck.com/events/10th-anniversary-party/",
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
-   "unsure": "No picture file of its own; Serebii's picture looks like the 9th Anniversary one with a 10th anniversary coin, so it may reuse sb_9thAnniversary as its base. Dittobase has no entry."
+   "unsure": "No picture file of its own; Serebii's picture looks like the 9th Anniversary one with a 10th anniversary coin, so it may reuse sb_9thAnniversary as its base. Dittobase has no entry.",
+   "picture": "10thanniversary"
   },
   {
    "id": "sb-pokopia",
@@ -250,7 +257,8 @@
     "https://www.dittobase.com/pokemon-go/backgrounds/sb-pokopia-2026",
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
-   "unsure": "No sb_ file: its picture is probably lc_pokopia2026 in the same folder (same artwork as Serebii's \"Pokemon Pokopia\"), so it is filed as a location card."
+   "unsure": "No sb_ file: its picture is probably lc_pokopia2026 in the same folder (same artwork as Serebii's \"Pokemon Pokopia\"), so it is filed as a location card.",
+   "picture": "pokemonpokopia"
   },
   {
    "id": "sb-gotour2026-mega",
@@ -324,7 +332,8 @@
     "https://www.dittobase.com/pokemon-go/backgrounds/sb-go-tour-2026-mega",
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
-   "unsure": "Serebii lists only the Kalos Global 22 (no Dragonite, no Mega Finale). That Mega Ascension/Mega Finale use this same card is from Dittobase; Leek Duck calls it a \"Mega Evolution-themed Special Background\" and \"new\". Mewtwo at the Mega Finale may have the GO Fest 2026 Mewtwo one instead."
+   "unsure": "Serebii lists only the Kalos Global 22 (no Dragonite, no Mega Finale). That Mega Ascension/Mega Finale use this same card is from Dittobase; Leek Duck calls it a \"Mega Evolution-themed Special Background\" and \"new\". Mewtwo at the Mega Finale may have the GO Fest 2026 Mewtwo one instead.",
+   "picture": "gotour2026mega"
   },
   {
    "id": "sb-gotour2026-x",
@@ -348,7 +357,8 @@
     "https://www.dittobase.com/pokemon-go/backgrounds/sb-go-tour-2026-x",
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
-   "unsure": "The Kalos starters (promo code) are from Dittobase only; Serebii and Leek Duck don't list them."
+   "unsure": "The Kalos starters (promo code) are from Dittobase only; Serebii and Leek Duck don't list them.",
+   "picture": "gotour2026x"
   },
   {
    "id": "sb-gotour2026-y",
@@ -372,7 +382,8 @@
     "https://www.dittobase.com/pokemon-go/backgrounds/sb-go-tour-2026-y",
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
-   "unsure": "The Kalos starters (promo code) are from Dittobase only; Serebii and Leek Duck don't list them."
+   "unsure": "The Kalos starters (promo code) are from Dittobase only; Serebii and Leek Duck don't list them.",
+   "picture": "gotour2026y"
   },
   {
    "id": "sb-gotour2026-diamond",
@@ -392,7 +403,8 @@
     "https://www.dittobase.com/pokemon-go/backgrounds/sb-go-tour-2026-diamond",
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
-   "unsure": null
+   "unsure": null,
+   "picture": "gotour2026diamond"
   },
   {
    "id": "sb-gotour2026-pearl",
@@ -412,7 +424,8 @@
     "https://www.dittobase.com/pokemon-go/backgrounds/sb-go-tour-2026-pearl",
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
-   "unsure": null
+   "unsure": null,
+   "picture": "gotour2026pearl"
   },
   {
    "id": "sb-gotour2026-ruby",
@@ -432,7 +445,8 @@
     "https://www.dittobase.com/pokemon-go/backgrounds/sb-go-tour-2026-ruby",
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
-   "unsure": null
+   "unsure": null,
+   "picture": "gotour2026ruby"
   },
   {
    "id": "sb-gotour2026-sapphire",
@@ -452,7 +466,8 @@
     "https://www.dittobase.com/pokemon-go/backgrounds/sb-sapphire",
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
-   "unsure": null
+   "unsure": null,
+   "picture": "gotour2026sapphire"
   },
   {
    "id": "sb-gotour2026-gold",
@@ -472,7 +487,8 @@
     "https://www.dittobase.com/pokemon-go/backgrounds/sb-go-tour-2026-gold",
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
-   "unsure": "Serebii lists plain Ho-Oh; Leek Duck and Dittobase say Shadow Ho-Oh."
+   "unsure": "Serebii lists plain Ho-Oh; Leek Duck and Dittobase say Shadow Ho-Oh.",
+   "picture": "gotour2026gold"
   },
   {
    "id": "sb-gotour2026-silver",
@@ -492,7 +508,8 @@
     "https://www.dittobase.com/pokemon-go/backgrounds/sb-go-tour-2026-silver",
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
-   "unsure": "Serebii lists plain Lugia; Leek Duck and Dittobase say Shadow Lugia."
+   "unsure": "Serebii lists plain Lugia; Leek Duck and Dittobase say Shadow Lugia.",
+   "picture": "gotour2026silver"
   },
   {
    "id": "sb-community-2026",
@@ -522,7 +539,8 @@
     "https://www.dittobase.com/pokemon-go/backgrounds/sb-community-days-2026",
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
-   "unsure": "Pawniard (21 Nov 2026) is upcoming, from Dittobase only; Serebii stops at Zorua (Oct). The December 2026 Community Day is not yet known. Leek Duck not checked month by month."
+   "unsure": "Pawniard (21 Nov 2026) is upcoming, from Dittobase only; Serebii stops at Zorua (Oct). The December 2026 Community Day is not yet known. Leek Duck not checked month by month.",
+   "picture": "communityday2026"
   },
   {
    "id": "sb-gowa2025-global",
@@ -552,7 +570,8 @@
     "https://www.dittobase.com/pokemon-go/backgrounds/sb-gowildarea-2025-global",
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
-   "unsure": "Serebii lists only the weekend four (Cresselia, Darkrai, Bewear, Grimmsnarl); the Into the Wild raids are from Leek Duck and Dittobase."
+   "unsure": "Serebii lists only the weekend four (Cresselia, Darkrai, Bewear, Grimmsnarl); the Into the Wild raids are from Leek Duck and Dittobase.",
+   "picture": "gowildarea2025"
   },
   {
    "id": "sb-concierge2025",
@@ -571,7 +590,8 @@
     "https://www.dittobase.com/pokemon-go/backgrounds/sb-concierge",
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
-   "unsure": "Guides differ on which research encounter is guaranteed (a raid task, the final Timed Research step, or the PokemonConcierge code research)."
+   "unsure": "Guides differ on which research encounter is guaranteed (a raid task, the final Timed Research step, or the PokemonConcierge code research).",
+   "picture": "pokemonconcierge"
   },
   {
    "id": "sb-season20-talesoftransformation",
@@ -597,7 +617,8 @@
     "https://www.dittobase.com/pokemon-go/backgrounds/sb-season-20-tales-of-transformation",
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
-   "unsure": "Serebii lists only Cobalion, Flabébé, Solosis, Chikorita, Tepig and Totodile; Terrakion, Virizion and Pikipek are Dittobase only."
+   "unsure": "Serebii lists only Cobalion, Flabébé, Solosis, Chikorita, Tepig and Totodile; Terrakion, Virizion and Pikipek are Dittobase only.",
+   "picture": "talesoftransformation"
   },
   {
    "id": "sb-gofest2025-eternatus",
@@ -665,7 +686,8 @@
     "https://www.dittobase.com/pokemon-go/backgrounds/sb-go-fest-2025-dark-skies",
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
-   "unsure": "Card matched by picture (identical to Serebii's \"Dark Skies\"); the file name says Eternatus but no source says Eternatus itself could get it. Serebii also lists Abra, Bounsweet, Combee, Deino, Drampa, Duraludon, Eevee, Electabuzz, Growlithe, Hitmonchan, Hitmonlee, Hitmontop, Hoothoot, Inkay, Magmar, Pikachu, Ralts, Rhyhorn, Roggenrola, Sizzlipede, Toxel, Trapinch and Woobat (left out here: Dittobase doesn't)."
+   "unsure": "Card matched by picture (identical to Serebii's \"Dark Skies\"); the file name says Eternatus but no source says Eternatus itself could get it. Serebii also lists Abra, Bounsweet, Combee, Deino, Drampa, Duraludon, Eevee, Electabuzz, Growlithe, Hitmonchan, Hitmonlee, Hitmontop, Hoothoot, Inkay, Magmar, Pikachu, Ralts, Rhyhorn, Roggenrola, Sizzlipede, Toxel, Trapinch and Woobat (left out here: Dittobase doesn't).",
+   "picture": "darkskies"
   },
   {
    "id": "sb-9thanniversary",
@@ -684,7 +706,8 @@
     "https://www.dittobase.com/pokemon-go/backgrounds/sb-9th-anniversary",
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
-   "unsure": null
+   "unsure": null,
+   "picture": "9thanniversary"
   },
   {
    "id": "sb-go-fest-2025-zacian",
@@ -703,7 +726,8 @@
     "https://www.dittobase.com/pokemon-go/backgrounds/sb-zacian-go-fest-2025",
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
-   "unsure": "No picture file in the game files for this one or the Zamazenta one. Serebii dates them 29 Jun (Zacian) and 28 Jul 2025 (Zamazenta, a slip for 28 Jun)."
+   "unsure": "No picture file in the game files for this one or the Zamazenta one. Serebii dates them 29 Jun (Zacian) and 28 Jul 2025 (Zamazenta, a slip for 28 Jun).",
+   "picture": "gofest2025zacian"
   },
   {
    "id": "sb-go-fest-2025-zamazenta",
@@ -722,7 +746,8 @@
     "https://www.dittobase.com/pokemon-go/backgrounds/sb-zamazenta-go-fest-2025",
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
-   "unsure": "No picture file in the game files."
+   "unsure": "No picture file in the game files.",
+   "picture": "gofest2025zamazenta"
   },
   {
    "id": "sb-gofest2025",
@@ -776,7 +801,8 @@
     "https://leekduck.com/events/dark-skies/",
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
-   "unsure": "Moltres (GO Pass August) is from Dittobase only; Serebii's list omits it."
+   "unsure": "Moltres (GO Pass August) is from Dittobase only; Serebii's list omits it.",
+   "picture": "delightfuldays"
   },
   {
    "id": "sb-season18-mightandmastery",
@@ -803,7 +829,8 @@
     "https://leekduck.com/events/final-strike-go-battle-week/",
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
-   "unsure": null
+   "unsure": null,
+   "picture": "mightandmastery"
   },
   {
    "id": "sb-gotour2025-black-white",
@@ -823,7 +850,8 @@
     "https://www.dittobase.com/pokemon-go/backgrounds/sb-go-tour-2025-black-white",
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
-   "unsure": null
+   "unsure": null,
+   "picture": "gotourunovablackwhite"
   },
   {
    "id": "sb-gotour2025-black",
@@ -855,7 +883,8 @@
     "https://www.dittobase.com/pokemon-go/backgrounds/sb-go-tour-2025-black",
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
-   "unsure": "Serebii gives both Reshiram and Zekrom on both Black and White; Leek Duck and Dittobase give Reshiram Black only. Pokémon Day starters: Serebii and Dittobase, not checked on Leek Duck."
+   "unsure": "Serebii gives both Reshiram and Zekrom on both Black and White; Leek Duck and Dittobase give Reshiram Black only. Pokémon Day starters: Serebii and Dittobase, not checked on Leek Duck.",
+   "picture": "gotourunovablack"
   },
   {
    "id": "sb-gotour2025-white",
@@ -887,7 +916,8 @@
     "https://www.dittobase.com/pokemon-go/backgrounds/sb-go-tour-2025-white",
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
-   "unsure": "Serebii gives both Reshiram and Zekrom on both; Leek Duck and Dittobase give Zekrom White only."
+   "unsure": "Serebii gives both Reshiram and Zekrom on both; Leek Duck and Dittobase give Zekrom White only.",
+   "picture": "gotourunovawhite"
   },
   {
    "id": "sb-gotour2025-enigma",
@@ -920,7 +950,8 @@
     "https://www.dittobase.com/pokemon-go/backgrounds/sb-go-tour-2025-enigma",
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
-   "unsure": "Serebii leaves out Zorua; Dittobase leaves out Darmanitan as a direct catch (Leek Duck's Tour Pass note has both)."
+   "unsure": "Serebii leaves out Zorua; Dittobase leaves out Darmanitan as a direct catch (Leek Duck's Tour Pass note has both).",
+   "picture": "gotourenigma"
   },
   {
    "id": "sb-season17-dueldestiny",
@@ -941,7 +972,8 @@
     "https://www.dittobase.com/pokemon-go/backgrounds/sb-season-17-duel-destiny",
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
-   "unsure": null
+   "unsure": null,
+   "picture": "dualdestiny"
   },
   {
    "id": "sb-2024-decembercdrecap",
@@ -973,7 +1005,8 @@
     "https://www.dittobase.com/pokemon-go/backgrounds/sb-2024-december-cd-recap",
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
-   "unsure": null
+   "unsure": null,
+   "picture": "communityday2024"
   },
   {
    "id": "sb-gowa-fukuoka",
@@ -996,7 +1029,8 @@
     "https://www.dittobase.com/pokemon-go/backgrounds/sb-gowildarea-2024-global",
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
-   "unsure": "Despite the file name it is the Global special background (picture matches Serebii's \"GO Wild Area 2024\"); in-person Fukuoka (16-17 Nov) had its own location card lc_GOWA_fukuoka. Dittobase also lists Gigantamax Toxtricity (Max Battles); Leek Duck says only raids. Serebii lists plain Dialga and Palkia."
+   "unsure": "Despite the file name it is the Global special background (picture matches Serebii's \"GO Wild Area 2024\"); in-person Fukuoka (16-17 Nov) had its own location card lc_GOWA_fukuoka. Dittobase also lists Gigantamax Toxtricity (Max Battles); Leek Duck says only raids. Serebii lists plain Dialga and Palkia.",
+   "picture": "gowildarea2024"
   },
   {
    "id": "sb-teamleader-red",
@@ -1020,7 +1054,8 @@
     "https://leekduck.com/events/candelas-quest-for-victory/",
     "https://www.dittobase.com/pokemon-go/backgrounds/sb-team-leader-red"
    ],
-   "unsure": "Dittobase dates Triumph Together 23-30 Jul 2024; Leek Duck has 23-30 Aug 2024 (used here). Serebii's Triumph Together list also shows \"Sandslash ()\" with no costume named: not confirmed anywhere else. Serebii doesn't list the Road to Kalos Pikachu or legendary birds."
+   "unsure": "Dittobase dates Triumph Together 23-30 Jul 2024; Leek Duck has 23-30 Aug 2024 (used here). Serebii's Triumph Together list also shows \"Sandslash ()\" with no costume named: not confirmed anywhere else. Serebii doesn't list the Road to Kalos Pikachu or legendary birds.",
+   "picture": "teamvalor"
   },
   {
    "id": "sb-teamleader-blue",
@@ -1043,7 +1078,8 @@
     "https://leekduck.com/events/ultra-unlock-10th-anniversary-edition/",
     "https://www.dittobase.com/pokemon-go/backgrounds/sb-team-leader-blue"
    ],
-   "unsure": "Dittobase dates Triumph Together 23-30 Jul 2024; Leek Duck has 23-30 Aug 2024 (used here). Serebii's Triumph Together list also shows \"Sandslash ()\" with no costume named: not confirmed anywhere else. Serebii doesn't list the Road to Kalos Pikachu or legendary birds. Blanche's Quest is from Dittobase only (no Leek Duck page fetched)."
+   "unsure": "Dittobase dates Triumph Together 23-30 Jul 2024; Leek Duck has 23-30 Aug 2024 (used here). Serebii's Triumph Together list also shows \"Sandslash ()\" with no costume named: not confirmed anywhere else. Serebii doesn't list the Road to Kalos Pikachu or legendary birds. Blanche's Quest is from Dittobase only (no Leek Duck page fetched).",
+   "picture": "teammystic"
   },
   {
    "id": "sb-teamleader-yellow",
@@ -1100,7 +1136,8 @@
     "https://leekduck.com/events/sparks-caretaking-quest/",
     "https://www.dittobase.com/pokemon-go/backgrounds/sb-team-leader-yellow"
    ],
-   "unsure": "Dittobase dates Triumph Together 23-30 Jul 2024; Leek Duck has 23-30 Aug 2024 (used here). Serebii's Triumph Together list also shows \"Sandslash ()\" with no costume named: not confirmed anywhere else. Serebii doesn't list the Road to Kalos Pikachu or legendary birds."
+   "unsure": "Dittobase dates Triumph Together 23-30 Jul 2024; Leek Duck has 23-30 Aug 2024 (used here). Serebii's Triumph Together list also shows \"Sandslash ()\" with no costume named: not confirmed anywhere else. Serebii doesn't list the Road to Kalos Pikachu or legendary birds.",
+   "picture": "teaminstinct"
   },
   {
    "id": "sb-gofest2024-radiance",
@@ -1119,7 +1156,8 @@
     "https://www.dittobase.com/pokemon-go/backgrounds/sb-go-fest-2024-radiance",
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
-   "unsure": "Leek Duck says \"a Solgaleo or Lunala\" from the ticketed research; Dittobase dates it 13-14 Jul."
+   "unsure": "Leek Duck says \"a Solgaleo or Lunala\" from the ticketed research; Dittobase dates it 13-14 Jul.",
+   "picture": "gofest2024radiance"
   },
   {
    "id": "sb-gofest2024-umbra",
@@ -1138,7 +1176,8 @@
     "https://www.dittobase.com/pokemon-go/backgrounds/sb-go-fest-2024-umbra",
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
-   "unsure": "As Radiance."
+   "unsure": "As Radiance.",
+   "picture": "gofest2024umbra"
   },
   {
    "id": "sb-gofest2024-wormhole-sun",
@@ -1157,7 +1196,8 @@
     "https://www.dittobase.com/pokemon-go/backgrounds/sb-go-fest-2024-wormhole-sun",
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
-   "unsure": null
+   "unsure": null,
+   "picture": "gofest2024wormholeradiance"
   },
   {
    "id": "sb-gofest2024-wormhole-moon",
@@ -1176,7 +1216,8 @@
     "https://www.dittobase.com/pokemon-go/backgrounds/sb-go-fest-2024-wormhole-moon",
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
-   "unsure": null
+   "unsure": null,
+   "picture": "gofest2024wormholeumbra"
   },
   {
    "id": "sb-gofest2024-wormhole",
@@ -1205,7 +1246,8 @@
     "https://www.dittobase.com/pokemon-go/backgrounds/sb-go-fest-2024-wormhole",
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
-   "unsure": null
+   "unsure": null,
+   "picture": "gofest2024wormhole"
   }
  ]
 }
