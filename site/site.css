@@ -546,8 +546,10 @@ a.formsbtn{text-decoration:none}
 .pc.small .pclab{font-size:12px;gap:4px;justify-content:center}
 .pc.small .pclab .i{width:13px;height:13px}
 /* each look, from the game's own pictures where it has one */
-.pc-sd .pcpic{background:url(variants/shadow-flame.png) center/cover, #2a1840}
-.pc-sd .pcpic::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 55%,rgba(255,255,255,.18),transparent 70%)}
+.pc-sd .pcpic{background:radial-gradient(circle at 50% 55%,#f6f0fb,color-mix(in srgb,var(--shadow) 30%,#fff) 85%)}   /* light like the others (her note), the game's Shadow flames in purples */
+.pc-sd .pcpic::before,.pc-sd .pcpic::after{content:"";position:absolute;inset:0}
+.pc-sd .pcpic::before{background:#6a3a9a;-webkit-mask:url(variants/shadow-flame.png) center/cover;mask:url(variants/shadow-flame.png) center/cover;opacity:.7}
+.pc-sd .pcpic::after{background:#a77fd6;-webkit-mask:url(variants/shadow-flame.png) 30% 70%/140%;mask:url(variants/shadow-flame.png) 30% 70%/140%;opacity:.45;transform:scaleX(-1)}
 .pc-sd .pcpic img{filter:grayscale(1) brightness(1.12) contrast(.7) drop-shadow(0 0 8px #b16cff)}
 .pc-sd[aria-pressed="true"] .pcpic img{filter:drop-shadow(0 0 8px #b16cff)}
 /* the game's own effect pictures (fetch_sprites.py --extras), after her notes (10 Nov) */
