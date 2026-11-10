@@ -29,7 +29,7 @@ Nothing here is made up: a costume Leek Duck doesn't name gets its game code tid
 import csv, io, json, os, re, sys, urllib.request
 from datetime import date
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ROOT = os.environ.get('POKEDEX_ROOT') or os.path.dirname(os.path.dirname(os.path.abspath(__file__)))   # POKEDEX_ROOT: the tests' throwaway copy
 DATA = os.path.join(ROOT, 'data', 'go')
 UA = {'User-Agent': "Mozilla/5.0 (Jemma's Pokedex, private)"}
 SOURCES = {

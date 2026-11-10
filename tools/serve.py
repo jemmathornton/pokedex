@@ -16,7 +16,7 @@ The weekly backup (tools/backup.py) saves it to git and zips it.
 import functools, http.server, json, os, re, sys, threading, time
 
 PORT = int(sys.argv[sys.argv.index('--port') + 1]) if '--port' in sys.argv else 8030
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ROOT = os.environ.get('POKEDEX_ROOT') or os.path.dirname(os.path.dirname(os.path.abspath(__file__)))   # POKEDEX_ROOT: the tests' throwaway copy
 SITE = os.path.join(ROOT, 'site')
 FILE = os.path.join(ROOT, 'data', 'collection', 'go.json')
 LOCK = threading.Lock()

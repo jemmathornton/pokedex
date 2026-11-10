@@ -9,7 +9,7 @@ page still shows them (read only) if it's opened straight from the folder.
 """
 import hashlib, json, os, re, sys
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ROOT = os.environ.get('POKEDEX_ROOT') or os.path.dirname(os.path.dirname(os.path.abspath(__file__)))   # POKEDEX_ROOT: the tests' throwaway copy
 DATA, SITE = os.path.join(ROOT, 'data'), os.path.join(ROOT, 'site')
 
 
