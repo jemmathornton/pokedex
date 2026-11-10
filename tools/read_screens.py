@@ -10,7 +10,7 @@ found as blobs that stand out from the light background, cut out, and compared w
 a small size, by colour and shape, using the picture's own transparency. The closest picture names the Pokémon and tells
 shiny from normal. Each Pokémon is reported once, with how sure the match was. Needs: opencv-python, numpy, ffmpeg.
 
-Not done yet (needs a real recording from her phone to tune): the exact layout of GO's Pokédex and storage screens,
+Self-test (10 Nov): 86% named right on made-up screens (most misses: costumes that look alike). Not done yet (needs a real recording from her phone to tune): the exact layout of GO's Pokédex and storage screens,
 reading the numbers and names with OCR (Windows' built-in OCR works here), costumes, and the Lucky/Shadow marks.
 """
 import glob, json, os, shutil, subprocess, sys, tempfile
@@ -18,20 +18,22 @@ import numpy as np, cv2
 
 ROOT = os.environ.get('POKEDEX_ROOT') or os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SPRITES = os.path.join(ROOT, 'site', 'sprites')
-SIZE = 32   # compare at 32×32
+SIZE = 32   # compare at 32×32 first
+FINE = 64   # then the closest 40 again at 64×64
 
 
-def _norm(img_bgra):
+def _norm(img_bgra, size=None):
     """A picture -> (colour vector, mask vector) at SIZE×SIZE, cropped to what isn't see-through."""
+    SIZE_ = size or SIZE
     a = img_bgra[:, :, 3]
     ys, xs = np.where(a > 40)
     if len(xs) == 0:
         return None
     crop = img_bgra[ys.min():ys.max() + 1, xs.min():xs.max() + 1]
-    h, w = crop.shape[:2]; s = SIZE / max(h, w)
+    h, w = crop.shape[:2]; s = SIZE_ / max(h, w)
     small = cv2.resize(crop, (max(1, round(w * s)), max(1, round(h * s))), interpolation=cv2.INTER_AREA)
-    canvas = np.zeros((SIZE, SIZE, 4), np.uint8)
-    y0, x0 = (SIZE - small.shape[0]) // 2, (SIZE - small.shape[1]) // 2
+    canvas = np.zeros((SIZE_, SIZE_, 4), np.uint8)
+    y0, x0 = (SIZE_ - small.shape[0]) // 2, (SIZE_ - small.shape[1]) // 2
     canvas[y0:y0 + small.shape[0], x0:x0 + small.shape[1]] = small
     lab = cv2.cvtColor(canvas[:, :, :3], cv2.COLOR_BGR2LAB).astype(np.float32)
     mask = (canvas[:, :, 3] > 40).astype(np.float32)
@@ -52,7 +54,7 @@ class Library:
                     owner[k] = ('d:' + e['id'], False); owner[k + '.s'] = ('d:' + e['id'], True)
         for c in cos:
             owner[c['img']] = ('c:' + c['id'], False); owner[c['img'] + '.s'] = ('c:' + c['id'], True)
-        self.keys, labs, masks = [], [], []
+        self.keys, labs, masks, self.fine = [], [], [], []
         for k, who in owner.items():
             p = os.path.join(SPRITES, k + '.webp')
             if not os.path.exists(p):
@@ -63,16 +65,28 @@ class Library:
             n = _norm(im)
             if n is None:
                 continue
-            self.keys.append((k, who[0], who[1])); labs.append(n[0]); masks.append(n[1])
+            self.keys.append((k, who[0], who[1])); labs.append(n[0]); masks.append(n[1]); self.fine.append(_norm(im, FINE))
         self.lab = np.stack(labs); self.mask = np.stack(masks)
 
-    def match(self, lab, mask, top=3):
-        """The closest pictures to one cut-out: colour difference where both have picture, plus shape difference."""
+    def match(self, lab, mask, top=3, cut=None):
+        """The closest pictures to one cut-out: colour difference where both have picture, plus shape difference;
+        then the closest 40 looked at again at 64 px (when the cut-out itself is given)."""
         both = self.mask * mask[None]
         col = (np.abs(self.lab - lab[None]).sum(-1) * both).sum((1, 2)) / np.maximum(both.sum((1, 2)), 1)
         shape = np.abs(self.mask - mask[None]).sum((1, 2)) / (SIZE * SIZE)
         score = col / 60 + shape * 3
-        order = np.argsort(score)[:top]
+        order = np.argsort(score)[:40 if cut is not None else top]
+        if cut is not None:
+            fl, fm = _norm(cut, FINE)
+            fine = []
+            for i in order:
+                L, M = self.fine[i]
+                b = M * fm
+                c = (np.abs(L - fl).sum(-1) * b).sum() / max(b.sum(), 1)
+                sh = np.abs(M - fm).sum() / (FINE * FINE)
+                fine.append(c / 60 + sh * 3)
+            order = [order[j] for j in np.argsort(fine)[:top]]
+            return [(self.keys[i], float(sorted(fine)[n])) for n, i in enumerate(order)]
         return [(self.keys[i], float(score[i])) for i in order]
 
 
@@ -81,7 +95,7 @@ def blobs(frame_bgr):
     g = cv2.cvtColor(frame_bgr, cv2.COLOR_BGR2LAB)
     bg = cv2.medianBlur(g, 51)
     diff = np.abs(g.astype(np.int16) - bg.astype(np.int16)).sum(-1)
-    m = (diff > 28).astype(np.uint8) * 255
+    m = (diff > 14).astype(np.uint8) * 255
     m = cv2.morphologyEx(m, cv2.MORPH_CLOSE, np.ones((5, 5), np.uint8))
     n, lab, stats, _ = cv2.connectedComponentsWithStats(m)
     H, W = m.shape
@@ -106,7 +120,7 @@ def read(frames, lib, sure=0.9):
             n = _norm(cut)
             if n is None:
                 continue
-            (key, who, shiny), score = lib.match(*n, top=1)[0]
+            (key, who, shiny), score = lib.match(*n, top=1, cut=cut)[0]
             if score > sure:
                 continue
             k = (who, shiny)
@@ -151,7 +165,7 @@ def selftest(n_screens=6, per=12, seed=4):
         for x, y, w, h, cut in blobs(img):
             nn = _norm(cut)
             if nn is not None:
-                found.append(lib.match(*nn, top=1)[0][0])
+                found.append(lib.match(*nn, top=1, cut=cut)[0][0])
         want = [k for t, k in truth if t == s]
         for k in want:
             if any(f[1] == k[1] for f in found): right += 1
