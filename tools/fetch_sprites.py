@@ -58,6 +58,19 @@ def extras():
         if not os.path.exists(dest):
             with urllib.request.urlopen(urllib.request.Request(RAW + urllib.parse.quote(path), headers=UA), timeout=60) as r:
                 open(dest, 'wb').write(r.read())
+    # Mega: the GO Tour 2026 Mega background (site/backgrounds, tools/fetch_backgrounds.py) with white instead of black (her ask,
+    # 10 Nov): black is taken as see-through (each pixel's brightness becomes its opacity), then laid on white
+    src = os.path.join(ROOT, 'site', 'backgrounds', 'sb-gotour2026-mega.webp')
+    if os.path.exists(src):
+        im = Image.open(src).convert('RGB')
+        px = []
+        for r_, g_, b_ in im.getdata():
+            a_ = max(r_, g_, b_)
+            k = 255 / a_ if a_ else 0
+            fr, fg, fb = r_ * k, g_ * k, b_ * k   # the full colour, at opacity a_
+            px.append(tuple(round(c * a_ / 255 + 255 * (1 - a_ / 255)) for c in (fr, fg, fb)))
+        out = Image.new('RGB', im.size); out.putdata(px)
+        out.save(os.path.join(ROOT, 'site', 'variants', 'mega-light.webp'), 'WEBP', quality=90)
     print(f'Gigantamax pictures: {res.count("new")} new, {res.count("kept")} kept, {len(res) - res.count("new") - res.count("kept")} failed; looks in site/variants/')
 
 
