@@ -578,8 +578,8 @@ a.formsbtn{text-decoration:none}
 .pc-dx[aria-pressed="true"] .pcpic img,.pc-gx[aria-pressed="true"] .pcpic img{filter:drop-shadow(0 0 6px rgba(232,51,107,.45))}
 .boxhead{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap}
 /* TRIAL (10 Nov): a region screenshot behind the banner, with the region colour over its left side so the title stays readable */
-:root[data-look] .hero.withshot{background:linear-gradient(90deg,color-mix(in srgb,var(--rc) 92%,#000) 0%,color-mix(in srgb,var(--rc) 70%,transparent) 38%,transparent 75%),
-  linear-gradient(transparent 55%,rgba(0,0,0,.45)),var(--shot) center 40%/cover no-repeat}
+:root[data-look] .hero.withshot{background:linear-gradient(90deg,color-mix(in srgb,var(--rc) 92%,#000) 0%,color-mix(in srgb,var(--rc) 80%,#000) 18%,color-mix(in srgb,var(--rc) 45%,transparent) 34%,transparent 55%),
+  linear-gradient(transparent 55%,rgba(0,0,0,.45)),var(--shot) right 40%/auto 125% no-repeat,color-mix(in srgb,var(--rc) 85%,#000)}   /* a bit of crop and a little region colour at the left (her pick, 10 Nov) */
 .hero.withshot::after{display:none}
 .hero > .shotsw{position:absolute;left:auto;right:24px;top:18px;z-index:3;display:inline-flex;align-items:center;gap:8px}
 .withshot .stat{background:color-mix(in srgb,var(--rc) 55%,rgba(0,0,0,.55));border-color:rgba(255,255,255,.18);backdrop-filter:blur(6px)}
