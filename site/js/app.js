@@ -389,16 +389,16 @@ function bigBoxes(e){
     B("c", "--caught", "poke-ball", "Caught", true) +
     B("cf", "--female", "venus", "Female", !!femaleTick(e)) +   // a gender it can't be isn't shown (genderless, male only…)
     B("cm", "--male", "mars", "Male", !!maleTick(e)) +
-    B("s", "--shiny", "sparkles", "Shiny", !!e.shiny, "No shiny yet") +
-    B("l", "--lucky", "lucky", "Lucky", canLucky(e), e.class === "mythical" ? "Can’t be traded" : "Not out yet") +
-    B("h", "--hundo", "star", "4★", e.released, "Not out yet") +
+    B("s", "--shiny", "sparkles", "Shiny", !!e.shiny, "Unavailable") +
+    B("l", "--lucky", "lucky", "Lucky", canLucky(e), e.class === "mythical" ? "Not possible" : "Unavailable") +
+    B("h", "--hundo", "star", "4★", e.released, "Unavailable") +
     B("sd", "--shadow", "shadow", "Shadow", !!e.shadow) +
     B("pu", "--purified", "purified", "Purified", !!e.shadow) +
     B("dx", "--dynamax", "expand", "Dynamax", !!e.dynamax) +
     B("gx", "--gmax", "expand", "Gigantamax", !!e.gmax) + `</div>` +
     // a bonus, like a costume (her ask, 10 Nov): not counted anywhere and not on the list cards
     (e.shadowShiny || has(k, "ss") ? `<h3 class="bonus-h">Bonus <span class="muted">not counted</span></h3><div class="bigboxes" data-id="${attr(e.id)}">` +
-      B("ss", "--shadow", "shadow", "Shiny Shadow", !!e.shadowShiny, "Not out yet") + `</div>` : "");
+      B("ss", "--shadow", "shadow", "Shiny Shadow", !!e.shadowShiny, "Unavailable") + `</div>` : "");
 }
 function pokemonPage(n){
   const every = ENTRIES.filter(e => e.dex === n);
@@ -418,19 +418,19 @@ function pokemonPage(n){
   const row = (t, v) => v ? `<div><dt>${esc(t)}</dt><dd>${v}</dd></div>` : "";
   const facts = `<dl class="dfacts">` +
     row("Category", esc(sel.category || "")) + row("Type", esc(sel.types.join(" · "))) + row("Gender", esc(gw)) +
-    row("Usual height", sel.height ? esc(metres(sel.height)) : "") + row("Usual weight", sel.weight ? esc(kilos(sel.weight)) : "") +   // the species' Pokédex size; each one caught varies
+    row("Average height", sel.height ? esc(metres(sel.height)) : "") + row("Average weight", sel.weight ? esc(kilos(sel.weight)) : "") +   // the species' Pokédex size; each one caught varies
     row("Buddy distance", sel.buddyKm ? esc(`${num(sel.buddyKm)} km`) : "") +
-    row("In Pokémon GO", yesNo(sel.released, "Out", "Not out yet")) +
-    row("Shiny", yesNo(!!sel.shiny, "Out", "Not out yet")) +
-    row("Lucky", yesNo(canLucky(sel), "Can be lucky", sel.class === "mythical" ? "Never (can’t be traded)" : "Not out yet")) +
-    row("Shadow and Purified", yesNo(!!sel.shadow, "Out", "Not yet")) +
-    row("Dynamax", yesNo(!!sel.dynamax, "Out", "Not yet")) + row("Gigantamax", yesNo(!!sel.gmax, "Out", "Not yet")) + `</dl>`;
+    row("In Pokémon GO", yesNo(sel.released, "Available", "Unavailable")) +
+    row("Shiny", yesNo(!!sel.shiny, "Available", "Unavailable")) +
+    row("Lucky", yesNo(canLucky(sel), "Available", sel.class === "mythical" ? "Not possible" : "Unavailable")) +
+    row("Shadow and Purified", yesNo(!!sel.shadow, "Available", "Unavailable")) +
+    row("Dynamax", yesNo(!!sel.dynamax, "Available", "Unavailable")) + row("Gigantamax", yesNo(!!sel.gmax, "Available", "Unavailable")) + `</dl>`;
   const desc = sel.desc ? (sel.femaleDesc ? `<p class="dex-entry"><span class="label">Male</span>${esc(sel.desc)}</p><p class="dex-entry"><span class="label">Female</span>${esc(sel.femaleDesc)}</p>`
       : `<p class="dex-entry">${esc(sel.desc)}</p>`) : `<p class="dex-entry muted">No Pokédex entry for it in the game’s text yet.</p>`;
   const picker = ordered.length > 1 ? `<div class="formpick" role="group" aria-label="Which form to show">${ordered.map(e =>
     `<button type="button" data-pickform="${attr(e.id)}" aria-pressed="${e === sel}" title="${attr(e.form || e.name)}">${sprite(e.img) ? `<img src="${sprite(e.img)}" alt="" loading="lazy">` : `<span class="blank">?</span>`}<small>${esc(e.form || "Usual")}</small></button>`).join("")}</div>` : "";
   const family = evoFamily(sel);
-  const bgCards = evs.map(ev => bgCard(ev, baseOf[n] || grouped.lead, true)).join("");
+  const bgCards = evs.map(ev => bgCard(ev, baseOf[n] || grouped.lead, false)).join("");
   const first = esc(sel.name);
   showAllBoxes = true;
   const formCards = all.length > 1 ? all.map(e => card(e)).join("") : "";
@@ -442,7 +442,7 @@ function pokemonPage(n){
       (gen[0] ? `<a href="#gen-${gen[0]}">${ic("layers")}${esc(gen[1])}</a>` : "") + `</div>
       <nav class="prevnext" aria-label="Previous and next Pokémon">${step(prev, "prev")}${step(next, "next")}</nav></div>
     <div class="monhead"><div><span class="label">#${pad(n)}${sel.category ? " · " + esc(sel.category) : ""}</span><h1>${esc(sel.name)}${sel.form ? ` <em>${esc(sel.form)}</em>` : ""}</h1>
-      <div class="chips">${sel.types.map(t => `<span class="type">${esc(t)}</span>`).join("")}${{both: ["Female", "Male"], male: ["Male"], female: ["Female"], none: ["Genderless"]}[sel.gender].map(g => `<span class="type">${g}</span>`).join("")}${kind ? `<span class="type">${esc(kind)}</span>` : ""}${sel.released ? "" : `<span class="type">Not out in GO yet</span>`}</div></div></div></header>${readOnlyNote()}
+      <div class="chips">${sel.types.map(t => `<span class="type">${esc(t)}</span>`).join("")}${{both: ["Female", "Male"], male: ["Male"], female: ["Female"], none: ["Genderless"]}[sel.gender].map(g => `<span class="type">${g}</span>`).join("")}${kind ? `<span class="type">${esc(kind)}</span>` : ""}${sel.released ? "" : `<span class="type">Unavailable in GO</span>`}</div></div></div></header>${readOnlyNote()}
     <div class="mondetail"><div class="monpic">${pic(sel, dk(sel), true)}${picker}</div>
       <div>${desc}${facts}</div></div>
     <section class="section"><h2>Your <em>boxes</em>${ordered.length > 1 ? ` <span class="muted">for ${esc(sel.form || "the usual form")}</span>` : ""}</h2>${bigBoxes(sel)}</section>
