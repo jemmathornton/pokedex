@@ -308,7 +308,7 @@ function home(){
     <section class="section"><h2>By generation</h2><div class="gens">${gens}</div></section>
     <section class="section"><h2>Costumes and backgrounds</h2><div class="gens">
       <a class="gen" href="#costumes"><span class="genart" aria-hidden="true">${(COL.costumes.length ? COSTUMES.filter(c => COL.costumes.includes(c.id)) : COSTUMES.filter(c => c.shiny).slice(-3)).slice(0, 3).map(c => sprite(c.img) ? `<img src="${sprite(c.img)}" alt="" loading="lazy">` : "").join("")}</span><span class="label">Costumes</span><h3>${num(COL.costumes.length)} collecting</h3><p class="muted" style="margin:6px 0 0;font-size:13.5px">of ${num(COSTUMES.length)} in the game</p></a>
-      <a class="gen" href="#events"><span class="genart" aria-hidden="true">${(EVENTS[0].backgroundPokemon || []).slice(0, 3).map(name => baseOf[DATA.dexByName[name.toLowerCase()]]).filter(Boolean).map(e => `<img src="${sprite(e.img)}" alt="" loading="lazy">`).join("")}</span><span class="label">Events</span><h3>${num(went)} been to</h3><p class="muted" style="margin:6px 0 0;font-size:13.5px">of ${num(EVENTS.length)} listed</p></a>
+      <a class="gen" href="#events"><span class="genart" aria-hidden="true">${myEvents().flatMap(bgMonsOf).slice(0, 3).map(e => sprite(e.img) ? `<img src="${sprite(e.img)}" alt="" loading="lazy">` : "").join("")}</span><span class="label">Events</span><h3>${num(myEvents().length)} with backgrounds</h3><p class="muted" style="margin:6px 0 0;font-size:13.5px">the ones you went to or took part in</p></a>
     </div></section>
     <p class="muted" style="margin-top:40px;font-size:12.5px">Pokémon data from the game, checked ${dates(DATA.updated)}.</p>`;
 }
@@ -411,8 +411,7 @@ function pokemonPage(n){
   const grouped = groupByNumber(all)[0], ordered = [grouped.lead, ...grouped.others];
   const sel = byId[pageForm[n]] && all.includes(byId[pageForm[n]]) ? byId[pageForm[n]] : grouped.lead;
   const costumes = COSTUMES.filter(c => c.dex === n);
-  const evs = [...EVENTS, ...SPECIAL].filter(ev => (ev.backgroundPokemon || []).some(name => DATA.dexByName[name.toLowerCase()] === n))
-    .sort((a, b) => b.start.localeCompare(a.start));
+  const evs = myEvents().filter(ev => (ev.backgroundPokemon || []).some(name => DATA.dexByName[name.toLowerCase()] === n));
   const gw = {both: "Male and female", male: "Male only", female: "Female only", none: "Genderless"}[sel.gender];
   const kind = {legendary: "Legendary", mythical: "Mythical", "ultra-beast": "Ultra Beast"}[sel.class];
   const gen = genById[sel.gen] || ["", REGION_OF[sel.gen] || "", ""];
@@ -459,10 +458,10 @@ function pokemonPage(n){
 }
 
 const BGS = new Set(DATA.backgrounds || []);   // site/backgrounds/<event id>.webp: the game's location cards
-const SPECIAL = DATA.special || [];   // special backgrounds: global, so no “I went” (10 Nov)
+const SPECIAL = DATA.special || [];   // special backgrounds: ticked “I took part”, like “I went” for the in-person ones (her call, 10 Nov)
 const isSpecial = ev => ev.id.startsWith("sb-");
 function bgCard(ev, e, wentButton){
-  const went = isSpecial(ev) || COL.went.includes(ev.id), key = `b:${ev.id}:${e.dex}`;
+  const went = COL.went.includes(ev.id), key = `b:${ev.id}:${e.dex}`;
   const src = bigSprite(has(key, "s") && sprite(e.img + ".s") ? e.img + ".s" : e.img);
   const bg = BGS.has(ev.id) ? `backgrounds/${ev.id}.webp` : null;
   return `<div class="card bgcard${went ? "" : " not-went"}" data-bg="${attr(key)}" data-event="${attr(ev.id)}" data-bgdex="${e.dex}">` +
@@ -500,32 +499,28 @@ function costumesPage(){
     ${items.length ? `<div class="grid">${items.map(costumeCard).join("")}</div>` : `<p class="empty">${mode === "collecting" ? "No costumes chosen yet: pick them from Every costume." : "Nothing matches."}</p>`}`;
 }
 
+// only the events she went to (or took part in, for special backgrounds) exist in the app (her call, 10 Nov); the rest stay
+// in data/ so one can be added back by ticking it there
+const myEvents = () => [...EVENTS, ...SPECIAL].filter(ev => COL.went.includes(ev.id) && (ev.backgroundPokemon || []).length)
+  .sort((a, b) => b.start.localeCompare(a.start));
+const bgMonsOf = ev => (ev.backgroundPokemon || []).map(name => baseOf[DATA.dexByName[name.toLowerCase()]]).filter(Boolean);
 function eventsPage(){
-  const mode = prefs.events;
-  let list = EVENTS;
-  if (mode === "went") list = list.filter(e => COL.went.includes(e.id));
-  if (mode === "bg") list = list.filter(e => e.background);
-  if (mode === "special") list = SPECIAL;
+  const list = myEvents();
   let html = "", year = "";
   for (const ev of list) {
-    const y = ev.start.slice(0, 4), went = COL.went.includes(ev.id);
+    const y = ev.start.slice(0, 4);
     if (y !== year) { html += `<h2 class="yearhead">${y}</h2>`; year = y; }
-    const mons = (ev.backgroundPokemon || []).map(name => baseOf[DATA.dexByName[name.toLowerCase()]]).filter(Boolean).map(e => bgCard(ev, e, false)).join("");
-    html += `<div class="event${went ? " went" : ""}" data-event="${attr(ev.id)}"><div class="top"><div>
-      <h3>${esc(ev.name)}</h3><div class="meta">${isSpecial(ev) ? `${ic("sparkles")} Special background${ev.scope === "both" ? " (global and in person)" : " (global)"}` : `${ic("map-pin")} ${esc(ev.city)}, ${esc(ev.country)}`} · ${esc(dates(ev.start, ev.end))}</div>
-      ${isSpecial(ev) ? (ev.note ? `<div class="bg muted">${esc(ev.note)}</div>` : "") : `<div class="bg">${ev.background ? `${ic("image")} Background: <b>${esc(ev.background)}</b>` : `<span class="muted">No location background</span>`}</div>`}</div>
-      ${isSpecial(ev) ? "" : `<button class="chip" type="button" data-went aria-pressed="${went}">${went ? ic("check") + "I went" : "I went"}</button>`}</div>
-      ${mons ? `<div class="grid bggrid">${mons}</div>` : ""}</div>`;
+    html += `<div class="event went" data-event="${attr(ev.id)}"><div class="top"><div>
+      <h3>${esc(ev.name)}</h3><div class="meta">${isSpecial(ev) ? `${ic("sparkles")} Special background` : `${ic("map-pin")} ${esc(ev.city)}, ${esc(ev.country)}`} · ${esc(dates(ev.start, ev.end))}</div>
+      ${isSpecial(ev) && ev.note ? `<div class="bg muted">${esc(ev.note)}</div>` : ""}</div></div>
+      <div class="grid bggrid">${bgMonsOf(ev).map(e => bgCard(ev, e, false)).join("")}</div></div>`;
   }
-  const bgs = EVENTS.filter(e => COL.went.includes(e.id) && e.background).length;
+  const keys = list.flatMap(ev => bgMonsOf(ev).map(e => `b:${ev.id}:${e.dex}`));
   setRegion(null);
-  const bgMons = EVENTS.flatMap(ev => (ev.backgroundPokemon || []).map(name => baseOf[DATA.dexByName[name.toLowerCase()]]));
-  view.innerHTML = `<header class="hero">${heroArt(bgMons)}<span class="label">Pokémon GO</span><h1>Events and <em>backgrounds</em></h1>
-    <div class="stats">${statTile("--deep-2", "ticket", "Been to", COL.went.length, EVENTS.length)}
-    ${COL.went.length ? statTile("--purified", "image", "With a background", bgs, COL.went.length) : ""}</div></header>${readOnlyNote()}
-    <div class="toolbar filters"><div class="frow"><span class="label flabel">Show</span><div class="worktabs">${[["all", "In person", EVENTS.length], ["went", "Ones I went to", COL.went.length], ["bg", "In person with a background", EVENTS.filter(e => e.background).length], ["special", "Special backgrounds", SPECIAL.length]]
-      .map(([k, l, n]) => `<button class="worktab" type="button" data-emode="${k}" aria-pressed="${mode === k}">${l} <span class="n">${num(n)}</span></button>`).join("")}</div></div></div>
-    <div class="events">${html || `<p class="empty">None yet: tick “I went” on the events you’ve been to.</p>`}</div>`;
+  view.innerHTML = `<header class="hero">${heroArt(list.flatMap(bgMonsOf))}<span class="label">Pokémon GO</span><h1>Events and <em>backgrounds</em></h1>
+    <div class="stats">${statTile("--deep-2", "ticket", "Events", list.length, list.length)}
+    ${keys.length ? statTile("--caught", "poke-ball", "Backgrounds caught", keys.filter(k => has(k, "c")).length, keys.length) + statTile("--shiny", "sparkles", "Shiny", keys.filter(k => has(k, "s")).length, keys.length) : ""}</div></header>${readOnlyNote()}
+    <div class="events">${html || `<p class="empty">No events yet.</p>`}</div>`;
 }
 
 function navHtml(route){
@@ -533,7 +528,7 @@ function navHtml(route){
   const out = ENTRIES.filter(e => e.released);
   nav.innerHTML = `<div class="nav-group">${link("#home", "house", "Home")}${link("#dex", "layout-grid", "Every Pokémon", groupByNumber(out).length)}</div>
     <div class="nav-group"><span class="label">Generations</span>${GENS.map(([g, n]) => link("#gen-" + g, "layers", g === "hisui" ? n : `${g} · ${n}`, groupByNumber(out.filter(e => e.gen === g)).length)).join("")}</div>
-    <div class="nav-group"><span class="label">More</span>${link("#costumes", "shirt", "Costumes", COL.costumes.length)}${link("#events", "ticket", "Events and backgrounds", COL.went.length)}</div>`;
+    <div class="nav-group"><span class="label">More</span>${link("#costumes", "shirt", "Costumes", COL.costumes.length)}${link("#events", "ticket", "Events and backgrounds", myEvents().length)}</div>`;
 }
 
 function route(){
