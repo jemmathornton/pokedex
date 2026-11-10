@@ -278,7 +278,8 @@
     }
    ],
    "dynamax": true,
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "11",
@@ -306,7 +307,8 @@
     }
    ],
    "dynamax": true,
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "12",
@@ -331,7 +333,8 @@
    "family": "CATERPIE",
    "dynamax": true,
    "gmax": true,
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "13",
@@ -521,7 +524,8 @@
      "to": "20"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "19-alolan",
@@ -572,7 +576,8 @@
    "weight": 18.5,
    "buddyKm": 1.0,
    "family": "RATTATA",
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "20-alolan",
@@ -1495,7 +1500,8 @@
      "to": "51"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "50-alolan",
@@ -1523,7 +1529,8 @@
      "to": "51-alolan"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "51",
@@ -1544,7 +1551,8 @@
    "weight": 33.3,
    "buddyKm": 3.0,
    "family": "DIGLETT",
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "51-alolan",
@@ -1566,7 +1574,8 @@
    "weight": 66.6,
    "buddyKm": 3.0,
    "family": "DIGLETT",
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "52",
@@ -1622,7 +1631,8 @@
      "to": "53-alolan"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "52-galarian",
@@ -1691,7 +1701,8 @@
    "weight": 33.0,
    "buddyKm": 3.0,
    "family": "MEOWTH",
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "54",
@@ -1718,7 +1729,8 @@
      "to": "55"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "55",
@@ -1739,7 +1751,8 @@
    "weight": 76.6,
    "buddyKm": 3.0,
    "family": "PSYDUCK",
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "56",
@@ -2008,7 +2021,8 @@
     }
    ],
    "dynamax": true,
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "64",
@@ -2038,7 +2052,8 @@
     }
    ],
    "dynamax": true,
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "65",
@@ -2061,7 +2076,8 @@
    "buddyKm": 3.0,
    "family": "ABRA",
    "dynamax": true,
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "66",
@@ -2985,7 +3001,8 @@
      "to": "91"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "91",
@@ -3007,7 +3024,8 @@
    "weight": 132.5,
    "buddyKm": 3.0,
    "family": "SHELLDER",
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "92",
@@ -3890,7 +3908,8 @@
      "to": "121"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "121",
@@ -3912,7 +3931,8 @@
    "weight": 80.0,
    "buddyKm": 3.0,
    "family": "STARYU",
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "122",
@@ -5237,7 +5257,8 @@
      "to": "166"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "166",
@@ -5260,7 +5281,8 @@
    "weight": 35.6,
    "buddyKm": 1.0,
    "family": "LEDYBA",
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "167",
@@ -5540,7 +5562,8 @@
      "to": "178"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "178",
@@ -5563,7 +5586,8 @@
    "weight": 15.0,
    "buddyKm": 3.0,
    "family": "NATU",
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "179",
@@ -5590,7 +5614,8 @@
      "to": "180"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "180",
@@ -5617,7 +5642,8 @@
      "to": "181"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "181",
@@ -5638,7 +5664,8 @@
    "weight": 61.5,
    "buddyKm": 5.0,
    "family": "MAREEP",
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "182",
@@ -5730,7 +5757,8 @@
    "weight": 38.0,
    "buddyKm": 5.0,
    "family": "SUDOWOODO",
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "186",
@@ -5968,7 +5996,8 @@
      "to": "195"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "194-paldean",
@@ -6164,7 +6193,8 @@
      "to": "429"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "201-exclamation",
@@ -6771,7 +6801,8 @@
    "weight": 41.5,
    "buddyKm": 3.0,
    "family": "GIRAFARIG",
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "204",
@@ -7141,7 +7172,8 @@
      "to": "903"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "216",
@@ -7466,7 +7498,8 @@
    "weight": 50.5,
    "buddyKm": 5.0,
    "family": "SKARMORY",
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "228",
@@ -8384,7 +8417,8 @@
      "to": "264"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "263-galarian",
@@ -8434,7 +8468,8 @@
    "weight": 32.5,
    "buddyKm": 1.0,
    "family": "ZIGZAGOON",
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "264-galarian",
@@ -9059,7 +9094,8 @@
      "to": "288"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "288",
@@ -9086,7 +9122,8 @@
      "to": "289"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "289",
@@ -9107,7 +9144,8 @@
    "weight": 130.5,
    "buddyKm": 5.0,
    "family": "SLAKOTH",
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "290",
@@ -9203,7 +9241,8 @@
      "to": "294"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "294",
@@ -9280,7 +9319,8 @@
      "to": "297"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "297",
@@ -9301,7 +9341,8 @@
    "weight": 253.8,
    "buddyKm": 3.0,
    "family": "MAKUHITA",
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "298",
@@ -9356,7 +9397,8 @@
      "to": "476"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "300",
@@ -9449,8 +9491,8 @@
    "buddyKm": 5.0,
    "family": "MAWILE",
    "shadow": true,
-   "shadowShiny": true,
-   "dynamax": true
+   "dynamax": true,
+   "shadowShiny": true
   },
   {
    "id": "304",
@@ -9608,7 +9650,8 @@
      "to": "310"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "310",
@@ -9629,7 +9672,8 @@
    "weight": 40.2,
    "buddyKm": 3.0,
    "family": "ELECTRIKE",
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "311",
@@ -9866,7 +9910,8 @@
     }
    ],
    "dynamax": true,
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "321",
@@ -9888,7 +9933,8 @@
    "buddyKm": 1.0,
    "family": "WAILMER",
    "dynamax": true,
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "322",
@@ -9989,7 +10035,8 @@
      "to": "326"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "326",
@@ -10010,7 +10057,8 @@
    "weight": 71.5,
    "buddyKm": 1.0,
    "family": "SPOINK",
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "327-1",
@@ -10488,7 +10536,8 @@
      "to": "340"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "340",
@@ -10510,7 +10559,8 @@
    "weight": 23.6,
    "buddyKm": 1.0,
    "family": "BARBOACH",
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "341",
@@ -10537,7 +10587,8 @@
      "to": "342"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "342",
@@ -10559,7 +10610,8 @@
    "weight": 32.8,
    "buddyKm": 3.0,
    "family": "CORPHISH",
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "343",
@@ -10587,7 +10639,8 @@
      "to": "344"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "344",
@@ -10896,7 +10949,8 @@
      "to": "354"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "354",
@@ -10917,7 +10971,8 @@
    "weight": 12.5,
    "buddyKm": 3.0,
    "family": "SHUPPET",
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "355",
@@ -11096,7 +11151,8 @@
      "to": "362"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "362",
@@ -11117,7 +11173,8 @@
    "weight": 256.5,
    "buddyKm": 3.0,
    "family": "SNORUNT",
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "363",
@@ -11799,7 +11856,8 @@
      "to": "388"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "388",
@@ -11826,7 +11884,8 @@
      "to": "389"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "389",
@@ -11848,7 +11907,8 @@
    "weight": 310.0,
    "buddyKm": 3.0,
    "family": "TURTWIG",
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "390",
@@ -11875,7 +11935,8 @@
      "to": "391"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "391",
@@ -11903,7 +11964,8 @@
      "to": "392"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "392",
@@ -11925,7 +11987,8 @@
    "weight": 55.0,
    "buddyKm": 3.0,
    "family": "CHIMCHAR",
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "393",
@@ -11952,7 +12015,8 @@
      "to": "394"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "394",
@@ -12115,7 +12179,8 @@
      "to": "400"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "400",
@@ -12138,7 +12203,8 @@
    "weight": 31.5,
    "buddyKm": 1.0,
    "family": "BIDOOF",
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "401",
@@ -12937,7 +13003,8 @@
      "to": "426"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "426",
@@ -12959,7 +13026,8 @@
    "weight": 15.0,
    "buddyKm": 5.0,
    "family": "DRIFLOON",
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "427",
@@ -13026,7 +13094,8 @@
    "weight": 4.4,
    "buddyKm": 3.0,
    "family": "MISDREAVUS",
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "430",
@@ -13076,7 +13145,8 @@
      "to": "432"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "432",
@@ -13097,7 +13167,8 @@
    "weight": 43.8,
    "buddyKm": 3.0,
    "family": "GLAMEOW",
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "433",
@@ -13151,7 +13222,8 @@
      "to": "435"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "435",
@@ -13173,7 +13245,8 @@
    "weight": 38.0,
    "buddyKm": 3.0,
    "family": "STUNKY",
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "436",
@@ -13533,7 +13606,8 @@
      "to": "450"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "450",
@@ -13555,7 +13629,8 @@
    "weight": 300.0,
    "buddyKm": 3.0,
    "family": "HIPPOPOTAS",
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "451",
@@ -13785,7 +13860,8 @@
      "to": "460"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "460",
@@ -13808,7 +13884,8 @@
    "weight": 135.5,
    "buddyKm": 3.0,
    "family": "SNOVER",
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "461",
@@ -14169,7 +14246,8 @@
    "weight": 340.0,
    "buddyKm": 3.0,
    "family": "NOSEPASS",
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "477",
@@ -14213,7 +14291,8 @@
    "weight": 26.6,
    "buddyKm": 3.0,
    "family": "SNORUNT",
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "479",
@@ -14425,7 +14504,8 @@
    "buddyKm": 20.0,
    "family": "DIALGA",
    "dynamax": true,
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "483-origin",
@@ -15126,7 +15206,8 @@
      "to": "496"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "496",
@@ -15153,7 +15234,8 @@
      "to": "497"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "497",
@@ -15174,7 +15256,8 @@
    "weight": 63.0,
    "buddyKm": 3.0,
    "family": "SNIVY",
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "498",
@@ -15201,7 +15284,8 @@
      "to": "499"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "499",
@@ -15229,7 +15313,8 @@
      "to": "500"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "500",
@@ -15251,7 +15336,8 @@
    "weight": 150.0,
    "buddyKm": 3.0,
    "family": "TEPIG",
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "501",
@@ -15278,7 +15364,8 @@
      "to": "502"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "502",
@@ -15305,7 +15392,8 @@
      "to": "503"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "503",
@@ -15326,7 +15414,8 @@
    "weight": 94.6,
    "buddyKm": 3.0,
    "family": "OSHAWOTT",
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "503-hisuian",
@@ -15374,7 +15463,8 @@
      "to": "505"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "505",
@@ -15395,7 +15485,8 @@
    "weight": 27.0,
    "buddyKm": 1.0,
    "family": "PATRAT",
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "506",
@@ -15494,7 +15585,8 @@
      "to": "510"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "510",
@@ -15515,7 +15607,8 @@
    "weight": 37.5,
    "buddyKm": 1.0,
    "family": "PURRLOIN",
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "511",
@@ -15732,7 +15825,8 @@
     }
    ],
    "dynamax": true,
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "520",
@@ -15761,7 +15855,8 @@
     }
    ],
    "dynamax": true,
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "521",
@@ -15785,7 +15880,8 @@
    "buddyKm": 1.0,
    "family": "PIDOVE",
    "dynamax": true,
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "522",
@@ -15812,7 +15908,8 @@
      "to": "523"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "523",
@@ -15833,7 +15930,8 @@
    "weight": 79.5,
    "buddyKm": 3.0,
    "family": "BLITZLE",
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "524",
@@ -15861,7 +15959,8 @@
     }
    ],
    "dynamax": true,
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "525",
@@ -15890,7 +15989,8 @@
     }
    ],
    "dynamax": true,
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "526",
@@ -15912,7 +16012,8 @@
    "buddyKm": 3.0,
    "family": "ROGGENROLA",
    "dynamax": true,
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "527",
@@ -15992,7 +16093,8 @@
     }
    ],
    "dynamax": true,
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "530",
@@ -16015,7 +16117,8 @@
    "buddyKm": 3.0,
    "family": "DRILBUR",
    "dynamax": true,
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "531",
@@ -16209,7 +16312,8 @@
    "weight": 55.5,
    "buddyKm": 5.0,
    "family": "THROH",
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "539",
@@ -16230,7 +16334,8 @@
    "weight": 51.0,
    "buddyKm": 5.0,
    "family": "SAWK",
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "540",
@@ -16333,7 +16438,8 @@
      "to": "544"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "544",
@@ -16361,7 +16467,8 @@
      "to": "545"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "545",
@@ -16383,7 +16490,8 @@
    "weight": 200.5,
    "buddyKm": 1.0,
    "family": "VENIPEDE",
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "546",
@@ -16785,7 +16893,8 @@
      "to": "558"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "558",
@@ -16807,7 +16916,8 @@
    "weight": 200.0,
    "buddyKm": 1.0,
    "family": "DWEBBLE",
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "559",
@@ -16982,7 +17092,8 @@
      "to": "565"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "565",
@@ -17004,7 +17115,8 @@
    "weight": 81.0,
    "buddyKm": 5.0,
    "family": "TIRTOUGA",
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "566",
@@ -17032,7 +17144,8 @@
      "to": "567"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "567",
@@ -17054,7 +17167,8 @@
    "weight": 32.0,
    "buddyKm": 5.0,
    "family": "ARCHEN",
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "568",
@@ -17082,7 +17196,8 @@
     }
    ],
    "dynamax": true,
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "569",
@@ -17105,7 +17220,8 @@
    "family": "TRUBBISH",
    "dynamax": true,
    "gmax": true,
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "570",
@@ -17271,7 +17387,8 @@
      "to": "575"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "575",
@@ -17298,7 +17415,8 @@
      "to": "576"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "576",
@@ -17319,7 +17437,8 @@
    "weight": 44.0,
    "buddyKm": 3.0,
    "family": "GOTHITA",
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "577",
@@ -17346,7 +17465,8 @@
      "to": "578"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "578",
@@ -17424,7 +17544,8 @@
      "to": "581"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "581",
@@ -17446,7 +17567,8 @@
    "weight": 24.2,
    "buddyKm": 3.0,
    "family": "DUCKLETT",
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "582",
@@ -17813,7 +17935,8 @@
      "to": "591"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "591",
@@ -17835,7 +17958,8 @@
    "weight": 10.5,
    "buddyKm": 3.0,
    "family": "FOONGUS",
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "592",
@@ -17985,7 +18109,8 @@
      "to": "598"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "598",
@@ -18007,7 +18132,8 @@
    "weight": 110.0,
    "buddyKm": 3.0,
    "family": "FERROSEED",
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "599",
@@ -19090,7 +19216,8 @@
    "weight": 63.0,
    "buddyKm": 20.0,
    "family": "TORNADUS",
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "641-therian",
@@ -19761,7 +19888,8 @@
      "to": "660"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "660",
@@ -19783,7 +19911,8 @@
    "weight": 42.4,
    "buddyKm": 1.0,
    "family": "BUNNELBY",
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "661",
@@ -19811,7 +19940,8 @@
      "to": "662"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "662",
@@ -19839,7 +19969,8 @@
      "to": "663"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "663",
@@ -19861,7 +19992,8 @@
    "weight": 24.5,
    "buddyKm": 1.0,
    "family": "FLETCHLING",
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "664-archipelago",
@@ -21857,7 +21989,8 @@
      "to": "675"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "675",
@@ -21879,7 +22012,8 @@
    "weight": 136.0,
    "buddyKm": 3.0,
    "family": "PANCHAM",
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "676-dandy",
@@ -23705,7 +23839,8 @@
      "to": "732"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "732",
@@ -23733,7 +23868,8 @@
      "to": "733"
     }
    ],
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "733",
@@ -23755,7 +23891,8 @@
    "weight": 26.0,
    "buddyKm": 1.0,
    "family": "PIKIPEK",
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "734",
@@ -28101,7 +28238,8 @@
    "weight": 43.0,
    "buddyKm": 5.0,
    "family": "SNEASEL",
-   "shadow": true
+   "shadow": true,
+   "shadowShiny": true
   },
   {
    "id": "904",

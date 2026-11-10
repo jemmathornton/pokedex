@@ -357,8 +357,6 @@ def main():
         for i in got:
             byid[i][DITTO_FLAGS[flag][0]] = True
             from_ditto[DITTO_FLAGS[flag][0]].add(i)
-            if flag == 'isShadow' and r.get('isShinyReleased'):
-                byid[i]['shadowShiny'] = True   # a bonus box (her ask, 10 Nov), like a costume: not counted
     for flag, got in from_ditto.items():
         print(f'{flag}: {len(got)} entries (Dittobase)')
     if unmatched:
@@ -405,10 +403,6 @@ def main():
                     t['shadow'] = True
                     added.append(t['id'])
                     changed = True
-                if t and t.get('shadow') and e.get('shadowShiny') and t.get('shiny') and not t.get('shadowShiny'):
-                    t['shadowShiny'] = True   # a shiny shadow evolves into one too
-                    changed = True
-    print(f'shiny shadow: {sum(1 for e in entries if e.get("shadowShiny"))} entries')
     if added:
         print(f'shadow by evolving: {len(added)} more ({", ".join(sorted(added, key=lambda i: (int(i.split("-")[0]), i)))})')
 
@@ -431,6 +425,13 @@ def main():
     if shiny_diff:
         print(f'Shiny out, Dittobase disagrees ({len(shiny_diff)}):', ', '.join(f'{i} (Dittobase: {"yes" if plain[i]["isShinyReleased"] else "no"})' for i in shiny_diff))
 
+    # Shiny Shadow, a bonus box (her ask, 10 Nov), like a costume: not counted. Since 3 March 2026 (season Memories in
+    # Motion) every Shadow Pokémon whose shiny is out can be shiny (Serebii 24 Feb 2026, Bulbapedia), so it's simply both.
+    # (Dittobase's own shiny-shadow flags were older and left out about 140.)
+    for e in entries:
+        if e.get('shadow') and e.get('shiny'):
+            e['shadowShiny'] = True
+    print(f'shiny shadow: {sum(1 for e in entries if e.get("shadowShiny"))} entries')
     # a gender the game files keep as a form (Meowstic, Indeedee, Pyroar, Frillish, Jellicent, Oinkologne) is a gender
     # difference like Pikachu's (her point, 9 Nov): one entry with both genders and a female picture
     merged = {}
