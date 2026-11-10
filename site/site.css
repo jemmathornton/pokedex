@@ -560,3 +560,13 @@ a.formsbtn{text-decoration:none}
 .boxhead{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .trybox{display:inline-flex;align-items:center;gap:10px}
 .trybox .label{margin:0}
+/* TRIAL (10 Nov): a region screenshot behind the banner, with the region colour over its left side so the title stays readable */
+:root[data-look] .hero.withshot{background:linear-gradient(90deg,color-mix(in srgb,var(--rc) 92%,#000) 0%,color-mix(in srgb,var(--rc) 70%,transparent) 38%,transparent 75%),
+  linear-gradient(transparent 55%,rgba(0,0,0,.45)),var(--shot) center 40%/cover no-repeat}
+.hero.withshot::after{display:none}
+.hero > .shotsw{position:absolute;left:auto;right:24px;top:18px;z-index:3;display:inline-flex;align-items:center;gap:8px}
+.withshot .stat{background:color-mix(in srgb,var(--rc) 55%,rgba(0,0,0,.55));border-color:rgba(255,255,255,.18);backdrop-filter:blur(6px)}
+.withshot .stat .sl,.withshot .stat b small,.withshot .stat .sx{color:rgba(255,255,255,.85)}
+.shotsw .label{margin:0;text-shadow:0 1px 3px rgba(0,0,0,.6);color:#fff}
+.shotsw .opts{background:rgba(255,255,255,.92)}
+.shotsw .opts button[aria-pressed="true"]{background:var(--rc);color:#fff}

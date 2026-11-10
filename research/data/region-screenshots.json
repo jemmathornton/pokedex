@@ -1,0 +1,376 @@
+{
+ "kanto-1.jpg": {
+  "region": "kanto",
+  "game": "Pokémon: Let's Go, Pikachu! / Let's Go, Eevee!",
+  "place": "town street with a Pokémon Center (town not named by the source)",
+  "page": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-games/Pokemon-Let-s-Go-Pikachu--1382836.html",
+  "image": "https://www.nintendo.com/eu/media/images/08_content_images/games_6/nintendo_switch_7/nswitch_pokemonletsgopikachupokemonletsgoeevee/ci_nswitch_pokemonletsgopikachupokemonletsgoeevee_kanto_05.jpg",
+  "size": [
+   1920,
+   1080
+  ]
+ },
+ "kanto-2.jpg": {
+  "region": "kanto",
+  "game": "Pokémon: Let's Go, Pikachu! / Let's Go, Eevee!",
+  "place": "harbour (probably Vermilion City)",
+  "page": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-games/Pokemon-Let-s-Go-Pikachu--1382836.html",
+  "image": "https://www.nintendo.com/eu/media/images/08_content_images/games_6/nintendo_switch_7/nswitch_pokemonletsgopikachupokemonletsgoeevee/CI_NSwitch_PokemonLetsGoPikachuPokemonLetsGoEevee_Kanto_07.jpg",
+  "size": [
+   1920,
+   1080
+  ]
+ },
+ "kanto-3.jpg": {
+  "region": "kanto",
+  "game": "Pokémon: Let's Go, Pikachu! / Let's Go, Eevee!",
+  "place": "flower garden path with statues (place not named by the source)",
+  "page": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-games/Pokemon-Let-s-Go-Pikachu--1382836.html",
+  "image": "https://www.nintendo.com/eu/media/images/08_content_images/games_6/nintendo_switch_7/nswitch_pokemonletsgopikachupokemonletsgoeevee/ci_nswitch_pokemonletsgopikachupokemonletsgoeevee_kanto_03.jpg",
+  "size": [
+   1920,
+   1080
+  ]
+ },
+ "johto-1.png": {
+  "region": "johto",
+  "game": "Pokémon HeartGold / SoulSilver",
+  "place": "Ho-Oh over the Bell Tower, Ecruteak City (cutscene)",
+  "page": "https://www.serebii.net/heartgoldsoulsilver/pics.shtml",
+  "image": "https://www.serebii.net/heartgoldsoulsilver/hoohtintower.png",
+  "size": [
+   256,
+   191
+  ]
+ },
+ "johto-2.jpg": {
+  "region": "johto",
+  "game": "Pokémon HeartGold / SoulSilver",
+  "place": "autumn trees beside a building (place not named by the source)",
+  "page": "https://www.serebii.net/heartgoldsoulsilver/pics.shtml",
+  "image": "https://www.serebii.net/heartgoldsoulsilver/ecruteak3.jpg",
+  "size": [
+   256,
+   194
+  ]
+ },
+ "johto-3.jpg": {
+  "region": "johto",
+  "game": "Pokémon HeartGold / SoulSilver",
+  "place": "Magnet Train passing between trees",
+  "page": "https://www.serebii.net/heartgoldsoulsilver/pics.shtml",
+  "image": "https://www.serebii.net/heartgoldsoulsilver/magnettravel.jpg",
+  "size": [
+   326,
+   247
+  ]
+ },
+ "hoenn-1.jpg": {
+  "region": "hoenn",
+  "game": "Pokémon Omega Ruby / Alpha Sapphire",
+  "place": "soaring over Hoenn, Mt. Chimney in view",
+  "page": "https://www.nintendo.com/en-gb/Games/Nintendo-3DS-games/Pokemon-Omega-Ruby-893014.html",
+  "image": "https://www.nintendo.com/eu/media/images/06_screenshots/games_5/nintendo_3ds_7/3ds_pokemonoras/3DS_PokemonORAS_14.jpg",
+  "size": [
+   400,
+   240
+  ]
+ },
+ "hoenn-2.jpg": {
+  "region": "hoenn",
+  "game": "Pokémon Omega Ruby / Alpha Sapphire",
+  "place": "boat at sea with a Wingull",
+  "page": "https://www.nintendo.com/en-gb/Games/Nintendo-3DS-games/Pokemon-Omega-Ruby-893014.html",
+  "image": "https://www.nintendo.com/eu/media/images/06_screenshots/games_5/nintendo_3ds_7/3ds_pokemonoras/3DS_PokemonORAS_23.jpg",
+  "size": [
+   400,
+   240
+  ]
+ },
+ "hoenn-3.jpg": {
+  "region": "hoenn",
+  "game": "Pokémon Omega Ruby / Alpha Sapphire",
+  "place": "forest route (place not named by the source)",
+  "page": "https://www.nintendo.com/en-gb/Games/Nintendo-3DS-games/Pokemon-Omega-Ruby-893014.html",
+  "image": "https://www.nintendo.com/eu/media/images/06_screenshots/games_5/nintendo_3ds_7/3ds_pokemonoras/3DS_PokemonORAS_22.jpg",
+  "size": [
+   400,
+   240
+  ]
+ },
+ "sinnoh-1.jpg": {
+  "region": "sinnoh",
+  "game": "Pokémon Brilliant Diamond / Shining Pearl",
+  "place": "Valley Windworks",
+  "page": "https://diamondpearl.pokemon.com/en-gb/features",
+  "image": "https://diamondpearl.pokemon.com/en-us/assets/screens/928_p06_07.jpg",
+  "size": [
+   1600,
+   900
+  ]
+ },
+ "sinnoh-2.jpg": {
+  "region": "sinnoh",
+  "game": "Pokémon Brilliant Diamond / Shining Pearl",
+  "place": "town path with a Pokémon Center (place not named by the source)",
+  "page": "https://diamondpearl.pokemon.com/en-gb/features",
+  "image": "https://diamondpearl.pokemon.com/en-us/assets/screens/p22_03.jpg",
+  "size": [
+   1600,
+   900
+  ]
+ },
+ "sinnoh-3.jpg": {
+  "region": "sinnoh",
+  "game": "Pokémon Brilliant Diamond / Shining Pearl",
+  "place": "sandy beach route (place not named by the source)",
+  "page": "https://diamondpearl.pokemon.com/en-gb/features",
+  "image": "https://diamondpearl.pokemon.com/en-us/assets/screens/p22_04.jpg",
+  "size": [
+   1600,
+   900
+  ]
+ },
+ "unova-1.jpg": {
+  "region": "unova",
+  "game": "Pokémon Black 2 / White 2",
+  "place": "Aspertia City lookout (file named AspertiaViewPark)",
+  "page": "https://www.nintendo.com/en-gb/Games/Nintendo-DS/Pokemon-Black-Version-2-523591.html",
+  "image": "https://www.nintendo.com/eu/media/images/migration/games_7/screenshots/nintendo_ds_13/pokemonblackandwhite2/AspertiaViewPark02.jpg",
+  "size": [
+   349,
+   262
+  ]
+ },
+ "unova-2.jpg": {
+  "region": "unova",
+  "game": "Pokémon Black 2 / White 2",
+  "place": "viewpoint by the Skyarrow Bridge (probably)",
+  "page": "https://www.nintendo.com/en-gb/Games/Nintendo-DS/Pokemon-Black-Version-272332.html",
+  "image": "https://www.nintendo.com/eu/media/images/migration/games_7/screenshots/nintendo_ds_13/pokemon_black_white_engb/BW2_11.jpg",
+  "size": [
+   349,
+   262
+  ]
+ },
+ "unova-3.jpg": {
+  "region": "unova",
+  "game": "Pokémon Black 2 / White 2",
+  "place": "Castelia City skyline",
+  "page": "https://www.nintendo.com/en-gb/Games/Nintendo-DS/Pokemon-Black-Version-272332.html",
+  "image": "https://www.nintendo.com/eu/media/images/migration/games_7/screenshots/nintendo_ds_13/pokemon_black_white_engb/BW2_08.jpg",
+  "size": [
+   343,
+   262
+  ]
+ },
+ "kalos-1.jpg": {
+  "region": "kalos",
+  "game": "Pokémon Legends: Z-A",
+  "place": "Lumiose City skyline with Prism Tower",
+  "page": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-games/Pokemon-Legends-Z-A-2533423.html",
+  "image": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/pokemonlegendsza/nswitch_pokemonlegendsza/PokemonLegendsZA_01.jpg",
+  "size": [
+   1920,
+   1080
+  ]
+ },
+ "kalos-2.jpg": {
+  "region": "kalos",
+  "game": "Pokémon Legends: Z-A",
+  "place": "Lumiose City street with Prism Tower",
+  "page": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-games/Pokemon-Legends-Z-A-2533423.html",
+  "image": "https://www.nintendo.com/eu/media/images/08_content_images/games_6/nintendo_switch_7/nswitch_pokemonlegendsza_1/CI_NSwitch_Pokemon_Legends_ZA_NS1_Bienvenue_bg.jpg",
+  "size": [
+   1500,
+   844
+  ]
+ },
+ "kalos-3.jpg": {
+  "region": "kalos",
+  "game": "Pokémon Legends: Z-A",
+  "place": "Lumiose City café street",
+  "page": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-games/Pokemon-Legends-Z-A-2533423.html",
+  "image": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/pokemonlegendsza/nswitch_pokemonlegendsza/PokemonLegendsZA_04.jpg",
+  "size": [
+   1920,
+   1080
+  ]
+ },
+ "kalos-4.jpg": {
+  "region": "kalos",
+  "game": "Pokémon X / Y",
+  "place": "Lumiose City boulevard with Prism Tower",
+  "page": "https://www.nintendo.com/en-gb/Games/Nintendo-3DS-games/Pokemon-X-766699.html",
+  "image": "https://www.nintendo.com/eu/media/images/06_screenshots/games_5/nintendo_3ds_7/3ds_pokemonx_y/3DS_PokemonXY_17.jpg",
+  "size": [
+   400,
+   240
+  ]
+ },
+ "alola-1.jpg": {
+  "region": "alola",
+  "game": "Pokémon Sun / Moon",
+  "place": "Hau'oli City seafront road",
+  "page": "https://www.serebii.net/sunmoon/pics.shtml",
+  "image": "https://www.serebii.net/sunmoon/beach.jpg",
+  "size": [
+   400,
+   240
+  ]
+ },
+ "alola-2.jpg": {
+  "region": "alola",
+  "game": "Pokémon Ultra Sun / Ultra Moon",
+  "place": "city street at sunset (place not named by the source)",
+  "page": "https://www.serebii.net/ultrasunultramoon/pics.shtml",
+  "image": "https://www.serebii.net/ultrasunultramoon/144.jpg",
+  "size": [
+   520,
+   312
+  ]
+ },
+ "alola-3.jpg": {
+  "region": "alola",
+  "game": "Pokémon Ultra Sun / Ultra Moon",
+  "place": "sunset view of a volcano, two characters in front (place not named by the source)",
+  "page": "https://www.serebii.net/ultrasunultramoon/pics.shtml",
+  "image": "https://www.serebii.net/ultrasunultramoon/146.jpg",
+  "size": [
+   520,
+   312
+  ]
+ },
+ "galar-1.jpg": {
+  "region": "galar",
+  "game": "Pokémon Sword / Shield",
+  "place": "Route 1 (route sign 01)",
+  "page": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-games/Pokemon-Sword-1522111.html",
+  "image": "https://www.nintendo.com/eu/media/images/06_screenshots/games_5/nintendo_switch_6/nswitch_pok_monswordshield/NSwitch_PokemonSwordShield_01.jpg",
+  "size": [
+   1920,
+   1080
+  ]
+ },
+ "galar-2.jpg": {
+  "region": "galar",
+  "game": "Pokémon Sword / Shield",
+  "place": "Wild Area, Motostoke in view",
+  "page": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-games/Pokemon-Sword-1522111.html",
+  "image": "https://www.nintendo.com/eu/media/images/08_content_images/games_6/nintendo_switch_7/nswitch_pok_monswordshield/CI_NSwitch_PokemonSwordShield_WildAreas_01.jpg",
+  "size": [
+   1920,
+   1080
+  ]
+ },
+ "galar-3.jpg": {
+  "region": "galar",
+  "game": "Pokémon Sword / Shield",
+  "place": "Motostoke",
+  "page": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-games/Pokemon-Sword-1522111.html",
+  "image": "https://www.nintendo.com/eu/media/images/06_screenshots/games_5/nintendo_switch_6/nswitch_pok_monswordshield/NSwitch_PokemonSwordShield_08.jpg",
+  "size": [
+   1920,
+   1080
+  ]
+ },
+ "galar-4.jpg": {
+  "region": "galar",
+  "game": "Pokémon Sword / Shield",
+  "place": "Wild Area lake, Hammerlocke in view",
+  "page": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-games/Pokemon-Sword-1522111.html",
+  "image": "https://www.nintendo.com/eu/media/images/08_content_images/games_6/nintendo_switch_7/nswitch_pok_monswordshield/CI_NSwitch_PokemonSwordShield_WildAreas_03.jpg",
+  "size": [
+   1920,
+   1080
+  ]
+ },
+ "hisui-1.jpg": {
+  "region": "hisui",
+  "game": "Pokémon Legends: Arceus",
+  "place": "grassy hills (probably Obsidian Fieldlands)",
+  "page": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-games/Pokemon-Legends-Arceus-1930510.html",
+  "image": "https://www.nintendo.com/eu/media/images/06_screenshots/games_5/nintendo_switch_6/nswitch_pok_monlegendsarceus/NSwitch_PokmonLegendsArceus_01.jpg",
+  "size": [
+   1920,
+   1080
+  ]
+ },
+ "hisui-2.jpg": {
+  "region": "hisui",
+  "game": "Pokémon Legends: Arceus",
+  "place": "lake between red cliffs (probably Crimson Mirelands)",
+  "page": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-games/Pokemon-Legends-Arceus-1930510.html",
+  "image": "https://www.nintendo.com/eu/media/images/06_screenshots/games_5/nintendo_switch_6/nswitch_pok_monlegendsarceus/NSwitch_PokmonLegendsArceus_14.jpg",
+  "size": [
+   1920,
+   1080
+  ]
+ },
+ "hisui-3.jpg": {
+  "region": "hisui",
+  "game": "Pokémon Legends: Arceus",
+  "place": "Jubilife Village",
+  "page": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-games/Pokemon-Legends-Arceus-1930510.html",
+  "image": "https://www.nintendo.com/eu/media/images/06_screenshots/games_5/nintendo_switch_6/nswitch_pok_monlegendsarceus/NSwitch_PokmonLegendsArceus_08.jpg",
+  "size": [
+   1920,
+   1080
+  ]
+ },
+ "hisui-4.jpg": {
+  "region": "hisui",
+  "game": "Pokémon Legends: Arceus",
+  "place": "Mount Coronet seen from a meadow",
+  "page": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-games/Pokemon-Legends-Arceus-1930510.html",
+  "image": "https://www.nintendo.com/eu/media/images/06_screenshots/games_5/nintendo_switch_6/nswitch_pok_monlegendsarceus/NSwitch_PokmonLegendsArceus_11.jpg",
+  "size": [
+   1920,
+   1080
+  ]
+ },
+ "paldea-1.jpg": {
+  "region": "paldea",
+  "game": "Pokémon Scarlet / Violet",
+  "place": "Paldea panorama with Mesagoza",
+  "page": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-games/Pokemon-Scarlet-2179556.html",
+  "image": "https://www.nintendo.com/eu/media/images/08_content_images/games_6/nintendo_switch_7/nswitch_pokemonscarletviolet/CI_NSwitch_PokmonScarletViolet_Discover_BG.jpg",
+  "size": [
+   1515,
+   974
+  ]
+ },
+ "paldea-2.jpg": {
+  "region": "paldea",
+  "game": "Pokémon Scarlet / Violet",
+  "place": "Artazon",
+  "page": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-games/Pokemon-Scarlet-2179556.html",
+  "image": "https://www.nintendo.com/eu/media/images/08_content_images/games_6/nintendo_switch_7/nswitch_pokemonscarletviolet/CI_NSwitch_PokmonScarletViolet_Paldea_Region_3.jpg",
+  "size": [
+   1200,
+   675
+  ]
+ },
+ "paldea-3.jpg": {
+  "region": "paldea",
+  "game": "Pokémon Scarlet / Violet",
+  "place": "Mesagoza, academy steps and plaza",
+  "page": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-games/Pokemon-Scarlet-2179556.html",
+  "image": "https://www.nintendo.com/eu/media/images/08_content_images/games_6/nintendo_switch_7/nswitch_pokemonscarletviolet/CI_NSwitch_PokmonScarletViolet_Paldea_Region_9.jpg",
+  "size": [
+   1200,
+   675
+  ]
+ },
+ "paldea-4.jpg": {
+  "region": "paldea",
+  "game": "Pokémon Scarlet / Violet",
+  "place": "grassland with a Venonat (place not named by the source)",
+  "page": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-games/Pokemon-Scarlet-2179556.html",
+  "image": "https://www.nintendo.com/eu/media/images/06_screenshots/games_5/nintendo_switch_6/nswitch_pok_monscarletviolet/NSwitch_PokmonScarletViolet_25.jpg",
+  "size": [
+   1920,
+   1080
+  ]
+ }
+}

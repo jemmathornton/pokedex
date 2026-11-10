@@ -242,6 +242,17 @@ const REGION_COLOURS = {"1": "#A3302A", "2": "#8E6A0E", "3": "#16618A", "4": "#5
   "7": "#B5531C", "8": "#6E2D82", "hisui": "#3C6150", "9": "#952F57"};
 document.documentElement.dataset.look = "mix";
 const setRegion = g => document.documentElement.style.setProperty("--rc", REGION_COLOURS[g] || "#7E2530");
+// TRIAL (10 Nov, her idea): a real in-game screenshot of the region behind its banner; she flicks between them with the
+// switch on the banner (0 = plain colour). Official press screenshots, sources in research/data/region-screenshots.json
+const REGION_SHOTS = {"1": ["kanto-1.jpg", "kanto-2.jpg", "kanto-3.jpg"], "2": ["johto-1.png", "johto-2.jpg", "johto-3.jpg"], "3": ["hoenn-1.jpg", "hoenn-2.jpg", "hoenn-3.jpg"], "4": ["sinnoh-1.jpg", "sinnoh-2.jpg", "sinnoh-3.jpg"], "5": ["unova-1.jpg", "unova-2.jpg", "unova-3.jpg"], "6": ["kalos-1.jpg", "kalos-2.jpg", "kalos-3.jpg", "kalos-4.jpg"], "7": ["alola-1.jpg", "alola-2.jpg", "alola-3.jpg"], "8": ["galar-1.jpg", "galar-2.jpg", "galar-3.jpg", "galar-4.jpg"], "hisui": ["hisui-1.jpg", "hisui-2.jpg", "hisui-3.jpg", "hisui-4.jpg"], "9": ["paldea-1.jpg", "paldea-2.jpg", "paldea-3.jpg", "paldea-4.jpg"]};
+const shotPick = g => Math.min((prefs.regionShot || {})[g] ?? 1, (REGION_SHOTS[g] || []).length);
+function regionShot(g){   // style and switch for a region page's banner
+  const shots = REGION_SHOTS[g] || [], k = shotPick(g);
+  if (!shots.length) return {style: "", sw: ""};
+  return {style: k ? ` style="--shot:url('regions/${shots[k - 1]}')"` : "", cls: k ? " withshot" : "",
+    sw: `<span class="shotsw"><span class="label">Try a picture</span><span class="opts">${["Colour", ...shots.map((_, i) => String(i + 1))].map((l, i) =>
+      `<button type="button" data-shot="${i}" data-shotg="${g}" aria-pressed="${i === k}">${l}</button>`).join("")}</span></span>`};
+}
 const STARTERS = [1, 4, 7, 152, 155, 158, 252, 255, 258, 387, 390, 393, 495, 498, 501, 650, 653, 656, 722, 725, 728, 810, 813, 816, 906, 909, 912];
 function heroArt(list){   // a few of the page's Pokémon, for the looks that show them (big ones first, then a parade)
   const seen = new Set(), keys = [];
@@ -315,7 +326,8 @@ function dexPage(title, label, list, region){
   // one line: the tabs, Clear, and on the far right a "Not caught" toggle, always there (no tab: not caught at all; a tab: missing that box), on when a tab is picked (untick it to
   // see the ones she has too, lit up; her wording and place, 9 Nov); the not-out switch under it where there are some; how many are shown sits by the title (her layout, 9 Nov)
   setRegion(region);
-  view.innerHTML = `<header class="hero">${heroArt(region ? firstStages(list) : STARTERS.map(d => baseOf[d]))}<span class="label">${esc(label)} · ${num(groups.length)} shown</span><h1>${title}</h1>${statsHtml(counts(list))}</header>${readOnlyNote()}
+  const shot = region ? regionShot(region) : {style: "", sw: ""};
+  view.innerHTML = `<header class="hero${shot.cls || ""}"${shot.style}>${shot.sw}${heroArt(region ? firstStages(list) : STARTERS.map(d => baseOf[d]))}<span class="label">${esc(label)} · ${num(groups.length)} shown</span><h1>${title}</h1>${statsHtml(counts(list))}</header>${readOnlyNote()}
     <div class="toolbar filters" id="toolbar">
       <div class="frow"><span class="label flabel">Filter</span><div class="worktabs">` +
       BOXF.map(b => `<button type="button" class="worktab" data-work="${b.k}" aria-pressed="${prefs.work === b.k}">${esc(b.label)}</button>`).join("") +
@@ -619,6 +631,7 @@ document.addEventListener("click", ev => {
   if (b.hasAttribute("data-clear")) { Object.assign(prefs, {work: "all", workShow: "all"}); keepPrefs(); return rerender(); }
   if (b.hasAttribute("data-showall")) { prefs.workShow = prefs.workShow === "all" ? "need" : "all"; keepPrefs(); return rerender(); }
   if (b.dataset.work) { prefs.work = prefs.work === b.dataset.work ? "all" : b.dataset.work; prefs.workShow = prefs.work === "all" ? "all" : "need"; keepPrefs(); return rerender(); }   // click again: back to all
+  if (b.dataset.shotg) { prefs.regionShot = {...(prefs.regionShot || {}), [b.dataset.shotg]: +b.dataset.shot}; keepPrefs(); return rerender(); }   // trial, 10 Nov
   if (b.dataset.boxlook) { prefs.boxLook = b.dataset.boxlook; keepPrefs(); return rerender(); }   // trial, 10 Nov
   if (b.dataset.notout) { prefs.unreleased = b.dataset.notout === "yes"; keepPrefs(); return rerender(); }
   if (b.dataset.workshow) { prefs.workShow = b.dataset.workshow; keepPrefs(); return rerender(); }

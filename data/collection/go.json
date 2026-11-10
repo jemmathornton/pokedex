@@ -286,7 +286,11 @@
   "999-coin-a1",
   "999-coin-a2-2026"
  ],
- "have": {},
+ "have": {
+  "d:3": [
+   "c"
+  ]
+ },
  "went": [
   "go-fest-2023-london",
   "go-fest-2024-madrid",

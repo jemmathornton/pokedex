@@ -11,3 +11,5 @@ site/sprites/
 site/backgrounds/
 # the game's Gigantamax pictures and the Lucky/Shadow looks for the Pokémon page, fetched again by tools/fetch_sprites.py --extras
 site/variants/
+# the region screenshots (official press screenshots; where each came from: research/data/region-screenshots.json)
+site/regions/
