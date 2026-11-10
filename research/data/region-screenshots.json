@@ -867,5 +867,335 @@
    1920,
    1080
   ]
+ },
+ "kanto-9.jpg": {
+  "region": "kanto",
+  "game": "Pokémon: Let's Go, Pikachu! / Let's Go, Eevee!",
+  "place": "meadow with trees and a Pidgey (place not named by the source)",
+  "page": "https://www.serebii.net/letsgopikachueevee/pics.shtml",
+  "image": "https://www.serebii.net/letsgopikachueevee/4.jpg",
+  "size": [
+   1920,
+   1080
+  ]
+ },
+ "kanto-10.jpg": {
+  "region": "kanto",
+  "game": "Pokémon: Let's Go, Pikachu! / Let's Go, Eevee!",
+  "place": "route with ledges and a pond (place not named by the source)",
+  "page": "https://www.serebii.net/letsgopikachueevee/pics.shtml",
+  "image": "https://www.serebii.net/letsgopikachueevee/235.jpg",
+  "size": [
+   1669,
+   939
+  ]
+ },
+ "kanto-11.jpg": {
+  "region": "kanto",
+  "game": "Pokémon: Let's Go, Pikachu! / Let's Go, Eevee!",
+  "place": "steps up to a gate among trees (probably the Pokémon League gate)",
+  "page": "https://www.serebii.net/letsgopikachueevee/pics.shtml",
+  "image": "https://www.serebii.net/letsgopikachueevee/261.jpg",
+  "size": [
+   690,
+   388
+  ]
+ },
+ "hoenn-9.png": {
+  "region": "hoenn",
+  "game": "Pokémon Omega Ruby / Alpha Sapphire",
+  "place": "soaring over Hoenn, volcano and coast (probably Mt. Chimney)",
+  "page": "https://www.pokemon.co.jp/ex/oras/feature/21.html",
+  "image": "https://www.pokemon.co.jp/ex/oras/feature/img/page21/slider_03/cap_03.png",
+  "size": [
+   400,
+   240
+  ]
+ },
+ "hoenn-10.png": {
+  "region": "hoenn",
+  "game": "Pokémon Omega Ruby / Alpha Sapphire",
+  "place": "soaring over Hoenn at sunset, volcano in view (probably Mt. Chimney)",
+  "page": "https://www.pokemon.co.jp/ex/oras/feature/21.html",
+  "image": "https://www.pokemon.co.jp/ex/oras/feature/img/page21/slider_04/cap_02.png",
+  "size": [
+   400,
+   240
+  ]
+ },
+ "hoenn-11.png": {
+  "region": "hoenn",
+  "game": "Pokémon Omega Ruby / Alpha Sapphire",
+  "place": "soaring over the sea and islands (place not named by the source)",
+  "page": "https://www.pokemon.co.jp/ex/oras/feature/21.html",
+  "image": "https://www.pokemon.co.jp/ex/oras/feature/img/page21/slider_01/cap_10.png",
+  "size": [
+   400,
+   240
+  ]
+ },
+ "hoenn-12.png": {
+  "region": "hoenn",
+  "game": "Pokémon Omega Ruby / Alpha Sapphire",
+  "place": "soaring over a coast with a beach and town (place not named by the source)",
+  "page": "https://www.pokemon.co.jp/ex/oras/feature/21.html",
+  "image": "https://www.pokemon.co.jp/ex/oras/feature/img/page21/slider_01/cap_04.png",
+  "size": [
+   400,
+   240
+  ]
+ },
+ "hoenn-13.png": {
+  "region": "hoenn",
+  "game": "Pokémon Omega Ruby / Alpha Sapphire",
+  "place": "town roofs and pine trees under a big sky, Beautifly flying (place not named by the source)",
+  "page": "https://www.pokemon.co.jp/ex/oras/feature/02.html",
+  "image": "https://www.pokemon.co.jp/ex/oras/feature/img/page02_cap_02.png",
+  "size": [
+   400,
+   240
+  ]
+ },
+ "alola-9.jpg": {
+  "region": "alola",
+  "game": "Pokémon Ultra Sun / Ultra Moon",
+  "place": "city seafront at sunset (probably Hau'oli City; the page is about sunset viewpoints)",
+  "page": "https://www.pokemon.co.jp/ex/usum/50keywords/19.html",
+  "image": "https://www.pokemon.co.jp/ex/usum/common/images/50keywords/19/img02.jpg",
+  "size": [
+   520,
+   312
+  ]
+ },
+ "kalos-9.png": {
+  "region": "kalos",
+  "game": "Pokémon X / Y",
+  "place": "Kalos Pokémon League at night (shown on the Sun/Moon site as “the Pokémon League in X and Y”)",
+  "page": "https://www.pokemon.co.jp/ex/sun_moon/story/161027_01.html",
+  "image": "https://www.pokemon.co.jp/ex/sun_moon/common/images/story/161027_01/img_03.png",
+  "size": [
+   670,
+   402
+  ]
+ },
+ "johto-4.jpg": {
+  "region": "johto",
+  "game": "Pokémon HeartGold / SoulSilver",
+  "place": "route between trees, top-down (file named bikeride; place not named by the source)",
+  "page": "https://www.serebii.net/heartgoldsoulsilver/pics.shtml",
+  "image": "https://www.serebii.net/heartgoldsoulsilver/bikeride.jpg",
+  "size": [
+   299,
+   233
+  ]
+ },
+ "johto-5.jpg": {
+  "region": "johto",
+  "game": "Pokémon HeartGold / SoulSilver",
+  "place": "Violet City rooftops, top-down (file named violetcity)",
+  "page": "https://www.serebii.net/heartgoldsoulsilver/pics.shtml",
+  "image": "https://www.serebii.net/heartgoldsoulsilver/violetcity.jpg",
+  "size": [
+   256,
+   194
+  ]
+ },
+ "sinnoh-8.jpg": {
+  "region": "sinnoh",
+  "game": "Pokémon Brilliant Diamond / Shining Pearl",
+  "place": "flowers, ledges, a cave and a river from above (place not named by the source)",
+  "page": "https://diamondpearl.pokemon.com/en-gb/features",
+  "image": "https://diamondpearl.pokemon.com/en-us/assets/screens/1110_p03_02.jpg",
+  "size": [
+   1600,
+   900
+  ]
+ },
+ "sinnoh-9.jpg": {
+  "region": "sinnoh",
+  "game": "Pokémon Brilliant Diamond / Shining Pearl",
+  "place": "pine forest beside a cliff, from above (place not named by the source)",
+  "page": "https://diamondpearl.pokemon.com/en-gb/features",
+  "image": "https://diamondpearl.pokemon.com/en-us/assets/screens/928_p08_01.jpg",
+  "size": [
+   1600,
+   900
+  ]
+ },
+ "sinnoh-10.jpg": {
+  "region": "sinnoh",
+  "game": "Pokémon Brilliant Diamond / Shining Pearl",
+  "place": "pine forest and tall grass from above (place not named by the source)",
+  "page": "https://diamondpearl.pokemon.com/en-gb/story",
+  "image": "https://diamondpearl.pokemon.com/assets/story/story_loop.jpg",
+  "size": [
+   1920,
+   1080
+  ]
+ },
+ "unova-9.jpg": {
+  "region": "unova",
+  "game": "Pokémon Black / White",
+  "place": "city skyscrapers by the water (probably Castelia City; file named sunday1)",
+  "page": "https://www.serebii.net/blackwhite/pics.shtml",
+  "image": "https://www.serebii.net/blackwhite/sunday1.jpg",
+  "size": [
+   461,
+   335
+  ]
+ },
+ "unova-10.png": {
+  "region": "unova",
+  "game": "Pokémon Black 2 / White 2",
+  "place": "Black City towers from above (file named blackcity)",
+  "page": "https://www.serebii.net/black2white2/pics.shtml",
+  "image": "https://www.serebii.net/black2white2/blackcity.png",
+  "size": [
+   254,
+   190
+  ]
+ },
+ "unova-11.png": {
+  "region": "unova",
+  "game": "Pokémon Black / White",
+  "place": "N's Castle rising from the ground (probably; file named building)",
+  "page": "https://www.serebii.net/blackwhite/pics.shtml",
+  "image": "https://www.serebii.net/blackwhite/building.png",
+  "size": [
+   256,
+   192
+  ]
+ },
+ "kalos-10.jpg": {
+  "region": "kalos",
+  "game": "Pokémon X / Y",
+  "place": "palace bridge and gardens, mountains behind (probably Parfum Palace; file named castle)",
+  "page": "https://www.serebii.net/xy/pics.shtml",
+  "image": "https://www.serebii.net/xy/castle.jpg",
+  "size": [
+   400,
+   240
+  ]
+ },
+ "kalos-11.jpg": {
+  "region": "kalos",
+  "game": "Pokémon X / Y",
+  "place": "Tower of Mastery by the sea",
+  "page": "https://www.serebii.net/xy/pics.shtml",
+  "image": "https://www.serebii.net/xy/towerofmastery.jpg",
+  "size": [
+   400,
+   240
+  ]
+ },
+ "kalos-12.jpg": {
+  "region": "kalos",
+  "game": "Pokémon X / Y",
+  "place": "route towards a town with sign 3 (probably Route 3; file named route)",
+  "page": "https://www.serebii.net/xy/pics.shtml",
+  "image": "https://www.serebii.net/xy/route.jpg",
+  "size": [
+   400,
+   240
+  ]
+ },
+ "kalos-13.jpg": {
+  "region": "kalos",
+  "game": "Pokémon X / Y",
+  "place": "red-rock desert with domed buildings (probably Route 13, the Lumiose Badlands; file named desert)",
+  "page": "https://www.serebii.net/xy/pics.shtml",
+  "image": "https://www.serebii.net/xy/desert.jpg",
+  "size": [
+   400,
+   240
+  ]
+ },
+ "hisui-11.jpg": {
+  "region": "hisui",
+  "game": "Pokémon Legends: Arceus",
+  "place": "grassland with trees and a river, mountains behind (place not named by the source)",
+  "page": "https://legends.arceus.pokemon.com/en-gb/gameplay",
+  "image": "https://legends.arceus.pokemon.com/en-us/assets/screens/928_p12_01.jpg",
+  "size": [
+   1600,
+   900
+  ]
+ },
+ "hisui-12.jpg": {
+  "region": "hisui",
+  "game": "Pokémon Legends: Arceus",
+  "place": "pink flower meadow with birch trees and hills (place not named by the source)",
+  "page": "https://legends.arceus.pokemon.com/en-gb/pokemon",
+  "image": "https://legends.arceus.pokemon.com/assets/pokemon/banner.jpg",
+  "size": [
+   1920,
+   1080
+  ]
+ },
+ "hisui-13.jpg": {
+  "region": "hisui",
+  "game": "Pokémon Legends: Arceus",
+  "place": "night sky over cliffs, flying on Braviary (place not named by the source)",
+  "page": "https://legends.arceus.pokemon.com/en-gb/gameplay",
+  "image": "https://legends.arceus.pokemon.com/assets/gameplay/banner.jpg",
+  "size": [
+   1920,
+   1080
+  ]
+ },
+ "galar-11.jpg": {
+  "region": "galar",
+  "game": "Pokémon Sword / Shield (The Crown Tundra)",
+  "place": "Crown Tundra, snowy pine forest",
+  "page": "https://swordshield.pokemon.com/en-gb/expansionpass/the-crown-tundra/",
+  "image": "https://swordshield.pokemon.com/assets/img/screenshots/9_29_p03_01_2x.jpg",
+  "size": [
+   1094,
+   615
+  ]
+ },
+ "galar-12.jpg": {
+  "region": "galar",
+  "game": "Pokémon Sword / Shield",
+  "place": "stadium on the harbour wall (probably Hulbury Stadium; on the page about Nessa)",
+  "page": "https://swordshield.pokemon.com/en-gb/people-galar-region/water-gym-leader-nessa/",
+  "image": "https://swordshield.pokemon.com/assets/img/screenshots/6_11_nessa_1_2x.jpg",
+  "size": [
+   1094,
+   615
+  ]
+ },
+ "galar-13.jpg": {
+  "region": "galar",
+  "game": "Pokémon Sword / Shield",
+  "place": "stadium set into red cliffs with steps (probably Stow-on-Side; version-exclusive gyms page)",
+  "page": "https://swordshield.pokemon.com/en-gb/gameplay/version-exclusives/",
+  "image": "https://swordshield.pokemon.com/assets/img/screenshots/7_8_version_1_2x.jpg",
+  "size": [
+   1094,
+   616
+  ]
+ },
+ "galar-14.jpg": {
+  "region": "galar",
+  "game": "Pokémon Sword / Shield",
+  "place": "snowy stadium among fir trees (probably Circhester; version-exclusive gyms page)",
+  "page": "https://swordshield.pokemon.com/en-gb/gameplay/version-exclusives/",
+  "image": "https://swordshield.pokemon.com/assets/img/screenshots/12_11_p20_02_2x.jpg",
+  "size": [
+   1094,
+   615
+  ]
+ },
+ "paldea-10.jpg": {
+  "region": "paldea",
+  "game": "Pokémon Scarlet / Violet",
+  "place": "picnic table on a grassy clifftop above the sea (place not named by the source)",
+  "page": "https://www.serebii.net/scarletviolet/pics.shtml",
+  "image": "https://www.serebii.net/scarletviolet/219.jpg",
+  "size": [
+   1920,
+   1080
+  ]
  }
 }
