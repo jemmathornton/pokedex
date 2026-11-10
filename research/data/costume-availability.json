@@ -1971,13 +1971,15 @@
   ]
  },
  "143-gofest-2022-noevolve": {
-  "verdict": "no",
-  "group": "event",
-  "how": "Cowboy hat Snorlax: in-person GO Fest 2022 (Berlin, Seattle, Sapporo) only; left out of the Global finale",
-  "why_not": "In-person GO Fest 2022 only (she wasn’t there)",
+  "verdict": "yes",
+  "group": "local",
+  "how": "Cowboy hat Snorlax: in-person GO Fest 2022 (Berlin, Seattle, Sapporo), then 3-star raids at GO Fest 2023 Global (26–27 Aug 2023, free) — Jemma spotted the 2023 return, 10 Nov",
+  "why_not": null,
   "sources": [
    "https://leekduck.com/events/pokemon-go-fest-berlin-2022",
-   "https://mein-mmo.de/en/trainers-in-pokemon-go-are-sad-niantic-brings-the-wrong-costume-pokemon-to-the-finale,863840"
+   "https://mein-mmo.de/en/trainers-in-pokemon-go-are-sad-niantic-brings-the-wrong-costume-pokemon-to-the-finale,863840",
+   "https://sportskeeda.com/pokemon/how-get-cowboy-hat-snorlax-pokemon-go-fest-2023-global",
+   "https://bleedingcool.com/games/cowboy-hat-snorlax-raid-guide-for-pokemon-go-fest-2023-global"
   ]
  },
  "143-nightcap": {
