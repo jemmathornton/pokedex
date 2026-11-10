@@ -46,6 +46,7 @@ class Sandbox:
         os.makedirs(os.path.join(self.root, 'logs'))
         if self.imports and os.path.isdir(os.path.join(REAL, 'imports')):
             _link_tree(os.path.join(REAL, 'imports'), os.path.join(self.root, 'imports'))
+            _link_tree(os.path.join(REAL, 'research'), os.path.join(self.root, 'research'))   # the import reads the release check
         else:
             os.makedirs(os.path.join(self.root, 'imports'))
         site = os.path.join(self.root, 'site')

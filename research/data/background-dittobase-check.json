@@ -1,0 +1,4145 @@
+{
+ "_about": "Check of the backgrounds Jemma has against Dittobase’s per-background pages (fetched 10 Nov 2026; their page data includes caught and “evolved” ones). our_id is the dex.json entry id or costumes.json costume id that would show it. how: caught = obtainable with the background; evolved = by evolving, changing form or fusing. Shadow, Dynamax and Gigantamax are boxes on an entry, not separate ids. Nothing here has been applied to data/.",
+ "go-fest-2023-london": {
+  "dittobase": "lc-go-fest-2023-london",
+  "dittobase_events": [
+   "Pokémon GO Fest 2023: London (2023-08-04 to 2023-08-06)"
+  ],
+  "missing": [],
+  "extra": [],
+  "evolved_only": [],
+  "shadow_dynamax_gmax": [],
+  "sources": [
+   "https://www.dittobase.com/pokemon-go/backgrounds/lc-go-fest-2023-london"
+  ],
+  "notes": "Matches Dittobase exactly (Rayquaza, Cresselia, Xerneas, Yveltal). Nothing to change."
+ },
+ "go-fest-2024-madrid": {
+  "dittobase": "lc-go-fest-2024-madrid",
+  "dittobase_events": [
+   "Pokémon GO Fest 2024: Madrid (2024-06-14 to 2024-06-16)"
+  ],
+  "missing": [
+   {
+    "name": "Pheromosa",
+    "form_or_costume": null,
+    "our_id": "795",
+    "how": "caught"
+   }
+  ],
+  "extra": [
+   {
+    "name": "Stakataka",
+    "form_or_costume": null,
+    "our_id": "805",
+    "support": "Serebii only (its background list); Stakataka was not a Madrid raid boss per Leek Duck and Serebii’s own raid list, while Pheromosa was (and debuted shiny there). Likely a Serebii slip: suggest removing."
+   }
+  ],
+  "evolved_only": [
+   {
+    "name": "Necrozma",
+    "form_or_costume": "Dawn Wings",
+    "our_id": "800-dawn-wings",
+    "how": "evolved",
+    "note": "Fusion; Dittobase only, doubtful"
+   },
+   {
+    "name": "Necrozma",
+    "form_or_costume": "Dusk Mane",
+    "our_id": "800-dusk-mane",
+    "how": "evolved",
+    "note": "Fusion; Dittobase only, doubtful"
+   }
+  ],
+  "shadow_dynamax_gmax": [],
+  "sources": [
+   "https://www.dittobase.com/pokemon-go/backgrounds/lc-go-fest-2024-madrid",
+   "https://leekduck.com/events/pokemon-go-fest-2024-madrid-spain/",
+   "https://www.serebii.net/pokemongo/reallifeevents/pokemongofest2024madrid.shtml",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ],
+  "notes": "Dittobase: Solgaleo, Lunala, Nihilego, Pheromosa, Kartana, Guzzlord, Necrozma, Blacephalon caught; Dawn Wings and Dusk Mane Necrozma by fusing (shown as “evolved”). Leek Duck’s raid list (Nihilego, Pheromosa, Kartana, Guzzlord, Necrozma, Blacephalon) backs Pheromosa, not Stakataka. Fused Necrozma keeping this card is Dittobase only; for GO Fest 2024 Global, Leek Duck says a fused Necrozma gets its own variant of the background, so the fusions are unsure."
+ },
+ "go-fest-2025-paris": {
+  "dittobase": "lc-go-fest-2025-paris",
+  "dittobase_events": [
+   "Pokémon GO Fest 2025: Paris (2025-06-13 to 2025-06-15)",
+   "Pokémon Méga Évolution Paris Event (2025-09-13 to 2025-09-14)"
+  ],
+  "missing": [
+   {
+    "name": "Charmander",
+    "form_or_costume": null,
+    "our_id": "4",
+    "how": "caught — Pokémon Méga Évolution Paris Event",
+    "note": "Separate Sep 2025 event on the same card; only if she went"
+   }
+  ],
+  "extra": [],
+  "evolved_only": [
+   {
+    "name": "Charmeleon",
+    "form_or_costume": null,
+    "our_id": "5",
+    "how": "evolved — Pokémon Méga Évolution Paris Event",
+    "note": "Separate Sep 2025 event on the same card; only if she went"
+   },
+   {
+    "name": "Charizard",
+    "form_or_costume": null,
+    "our_id": "6",
+    "how": "evolved — Pokémon Méga Évolution Paris Event",
+    "note": "Separate Sep 2025 event on the same card; only if she went"
+   }
+  ],
+  "shadow_dynamax_gmax": [
+   "Inteleon: gmax"
+  ],
+  "sources": [
+   "https://www.dittobase.com/pokemon-go/backgrounds/lc-go-fest-2025-paris",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ],
+  "notes": "Dittobase has two events on this card: GO Fest Paris (13–15 Jun 2025: Gigantamax Inteleon, Zacian and Zamazenta (Hero), with Crowned Sword Zacian and Crowned Shield Zamazenta by changing form, which have no entries of their own in our dex) and the separate “Pokémon Méga Évolution Paris Event” (13–14 Sep 2025: Charmander caught, Charmeleon and Charizard by evolving). Serebii lists Charmander too. Add Charmander’s line only if Jemma went to the September event (Decide)."
+ },
+ "go-fest-2026-copenhagen": {
+  "dittobase": "lc-go-fest-2026-copenhagen",
+  "dittobase_events": [
+   "Pokémon GO Fest 2026: Copenhagen (2026-06-11 to 2026-06-14)"
+  ],
+  "missing": [],
+  "extra": [],
+  "evolved_only": [],
+  "shadow_dynamax_gmax": [
+   "Moltres: plain, shadow",
+   "Entei: plain, shadow",
+   "Groudon: plain, shadow",
+   "Kyogre: plain, shadow"
+  ],
+  "sources": [
+   "https://www.dittobase.com/pokemon-go/backgrounds/lc-go-fest-2026-copenhagen"
+  ],
+  "notes": "Re-confirmed: matches Dittobase exactly (9 cards). Moltres, Entei, Kyogre and Groudon also as Shadow (a box, not an entry); Rapidash (Candela accessory) evolved only. No team-hat Pikachu or Rockruff."
+ },
+ "lego-collab-2026-uk-poland": {
+  "dittobase": "sb-lego-2026",
+  "dittobase_events": [
+   "Copenhagen LEGO Stamp Rally (2026-06-11 to 2026-06-14)"
+  ],
+  "missing": [],
+  "extra": [],
+  "evolved_only": [
+   {
+    "name": "Raichu",
+    "form_or_costume": null,
+    "our_id": "26",
+    "how": "evolved"
+   }
+  ],
+  "shadow_dynamax_gmax": [],
+  "sources": [
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-lego-2026",
+   "https://www.serebii.net/pokemongo/reallifeevents/pokemongoandlegocollaborationevent.shtml"
+  ],
+  "notes": "Dittobase ties it to the Copenhagen LEGO Stamp Rally (11–14 Jun 2026) only; Serebii’s LEGO page lists only Pikachu. Raichu by evolving is Dittobase only."
+ },
+ "sb-go-wild-area-2026-into-the-wild-go-wild-area-global": {
+  "dittobase": "sb-wild-area-global-2026",
+  "dittobase_events": [
+   "Into the Wild (2026-11-09 to 2026-11-14)",
+   "Pokémon GO Wild Area: Global (2026-11-14 to 2026-11-15)"
+  ],
+  "missing": [
+   {
+    "name": "Machamp",
+    "form_or_costume": "Modern Jacket",
+    "our_id": "68-wildarea-2026-01",
+    "how": "caught — Pokémon GO Wild Area: Global"
+   }
+  ],
+  "extra": [
+   {
+    "name": "Machamp",
+    "form_or_costume": null,
+    "our_id": "68",
+    "support": "Wrong look: Dittobase and Serebii both say Machamp in its Modern Jacket (68-wildarea-2026-01). Suggest swapping."
+   }
+  ],
+  "evolved_only": [],
+  "shadow_dynamax_gmax": [
+   "Registeel: dmax",
+   "Regidrago: dmax",
+   "Latias: dmax",
+   "Latios: dmax",
+   "Duraludon: gmax",
+   "Palkia: dmax",
+   "Dialga: dmax"
+  ],
+  "sources": [
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-wild-area-global-2026",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ],
+  "notes": "Matches apart from Machamp’s jacket. Registeel, Regidrago, Latias, Latios, Dialga, Palkia are Dynamax; Duraludon Gigantamax. Zacian and Zamazenta are Hero of Many Battles on Dittobase (Leek Duck says Crowned)."
+ },
+ "sb-s24-sep-2026": {
+  "dittobase": "sb-s24-sep-2026",
+  "dittobase_events": [
+   "Pokémon Horizons: The Series Celebration Event (2026-09-16 to 2026-09-23)"
+  ],
+  "missing": [
+   {
+    "name": "Charmander",
+    "form_or_costume": "Goggles",
+    "our_id": "4-goggles-2026",
+    "how": "caught"
+   },
+   {
+    "name": "Pikachu",
+    "form_or_costume": "Captains Hat",
+    "our_id": "25-horizons",
+    "how": "caught"
+   },
+   {
+    "name": "Charizard",
+    "form_or_costume": "Goggles",
+    "our_id": "6-goggles-2026",
+    "how": "caught"
+   }
+  ],
+  "extra": [
+   {
+    "name": "Charmander",
+    "form_or_costume": null,
+    "our_id": "4",
+    "support": "Should be the Goggles costume (4-goggles-2026): Dittobase and Serebii (“Friede’s Goggles”)."
+   },
+   {
+    "name": "Charizard",
+    "form_or_costume": null,
+    "our_id": "6",
+    "support": "Should be the Goggles costume (6-goggles-2026): Dittobase and Serebii."
+   },
+   {
+    "name": "Pikachu",
+    "form_or_costume": null,
+    "our_id": "25",
+    "support": "Should be Captain Pikachu (25-horizons, “Captains Hat”): Dittobase, Serebii, Leek Duck."
+   }
+  ],
+  "evolved_only": [
+   {
+    "name": "Charmeleon",
+    "form_or_costume": "Goggles",
+    "our_id": "5-goggles-2026",
+    "how": "evolved"
+   }
+  ],
+  "shadow_dynamax_gmax": [],
+  "sources": [
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-s24-sep-2026",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ],
+  "notes": "Costumes: Charmander and Charizard in Friede’s Goggles, Pikachu in the Captain’s Hat (Dittobase and Serebii). Charmeleon (Goggles) by evolving."
+ },
+ "sb-gofest2026-global": {
+  "dittobase": "sb-gofest2026-global",
+  "dittobase_events": [
+   "Pokémon GO Fest 2026: Global (2026-07-11 to 2026-07-12)",
+   "GO Fest 2026 Day 2 Raid Makeup (2026-07-26 to 2026-07-26)"
+  ],
+  "missing": [
+   {
+    "name": "Dialga",
+    "form_or_costume": "Origin",
+    "our_id": "483-origin",
+    "how": "caught — GO Fest 2026 Day 2 Raid Makeup; Pokémon GO Fest 2026: Global",
+    "note": "Needs a cards list (the species is already listed)"
+   },
+   {
+    "name": "Palkia",
+    "form_or_costume": "Origin",
+    "our_id": "484-origin",
+    "how": "caught — GO Fest 2026 Day 2 Raid Makeup; Pokémon GO Fest 2026: Global",
+    "note": "Needs a cards list (the species is already listed)"
+   },
+   {
+    "name": "Giratina",
+    "form_or_costume": "Origin",
+    "our_id": "487-origin",
+    "how": "caught — GO Fest 2026 Day 2 Raid Makeup; Pokémon GO Fest 2026: Global",
+    "note": "Needs a cards list (the species is already listed)"
+   },
+   {
+    "name": "Genesect",
+    "form_or_costume": "Douse",
+    "our_id": "649-douse",
+    "how": "caught — GO Fest 2026 Day 2 Raid Makeup; Pokémon GO Fest 2026: Global",
+    "note": "Needs a cards list (the species is already listed)"
+   },
+   {
+    "name": "Genesect",
+    "form_or_costume": "Burn",
+    "our_id": "649-burn",
+    "how": "caught — GO Fest 2026 Day 2 Raid Makeup; Pokémon GO Fest 2026: Global",
+    "note": "Needs a cards list (the species is already listed)"
+   },
+   {
+    "name": "Genesect",
+    "form_or_costume": "Chill",
+    "our_id": "649-chill",
+    "how": "caught — GO Fest 2026 Day 2 Raid Makeup; Pokémon GO Fest 2026: Global",
+    "note": "Needs a cards list (the species is already listed)"
+   },
+   {
+    "name": "Tornadus",
+    "form_or_costume": "Therian",
+    "our_id": "641-therian",
+    "how": "caught — GO Fest 2026 Day 2 Raid Makeup; Pokémon GO Fest 2026: Global",
+    "note": "Needs a cards list (the species is already listed)"
+   },
+   {
+    "name": "Thundurus",
+    "form_or_costume": "Therian",
+    "our_id": "642-therian",
+    "how": "caught — GO Fest 2026 Day 2 Raid Makeup; Pokémon GO Fest 2026: Global",
+    "note": "Needs a cards list (the species is already listed)"
+   },
+   {
+    "name": "Landorus",
+    "form_or_costume": "Therian",
+    "our_id": "645-therian",
+    "how": "caught — GO Fest 2026 Day 2 Raid Makeup; Pokémon GO Fest 2026: Global",
+    "note": "Needs a cards list (the species is already listed)"
+   },
+   {
+    "name": "Enamorus",
+    "form_or_costume": "Therian",
+    "our_id": "905-therian",
+    "how": "caught — GO Fest 2026 Day 2 Raid Makeup; Pokémon GO Fest 2026: Global",
+    "note": "Needs a cards list (the species is already listed)"
+   },
+   {
+    "name": "Deoxys",
+    "form_or_costume": "Attack",
+    "our_id": "386-attack",
+    "how": "caught — GO Fest 2026 Day 2 Raid Makeup; Pokémon GO Fest 2026: Global",
+    "note": "Needs a cards list (the species is already listed)"
+   },
+   {
+    "name": "Deoxys",
+    "form_or_costume": "Defense",
+    "our_id": "386-defense",
+    "how": "caught — GO Fest 2026 Day 2 Raid Makeup; Pokémon GO Fest 2026: Global",
+    "note": "Needs a cards list (the species is already listed)"
+   },
+   {
+    "name": "Deoxys",
+    "form_or_costume": "Speed",
+    "our_id": "386-speed",
+    "how": "caught — GO Fest 2026 Day 2 Raid Makeup; Pokémon GO Fest 2026: Global",
+    "note": "Needs a cards list (the species is already listed)"
+   },
+   {
+    "name": "Genesect",
+    "form_or_costume": "Shock",
+    "our_id": "649-shock",
+    "how": "caught — Verdant Anomaly raids (Leek Duck; not on Dittobase)",
+    "note": "Needs a cards list"
+   }
+  ],
+  "extra": [],
+  "evolved_only": [],
+  "shadow_dynamax_gmax": [],
+  "sources": [
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-gofest2026-global",
+   "https://leekduck.com/events/pokemon-go-fest-2026-global/"
+  ],
+  "notes": "Species all match; our entry has no `cards`, so the app shows only each species’ plain form. Dittobase also lists the raid forms: Origin Dialga, Palkia, Giratina; Therian Tornadus, Thundurus, Landorus, Enamorus; Deoxys Attack, Defense, Speed; Genesect Burn, Chill, Douse. Leek Duck’s raid list also has Genesect Shock (649-shock), which Dittobase leaves out. Showing them needs a `cards` list."
+ },
+ "sb-gofest2026-mewtwo": {
+  "dittobase": "sb-gofest2026-mewtwo",
+  "dittobase_events": [
+   "Pokémon GO Fest 2026: Global (2026-07-11 to 2026-07-12)",
+   "GO Fest 2026 Day 2 Raid Makeup (2026-07-26 to 2026-07-26)"
+  ],
+  "missing": [],
+  "extra": [],
+  "evolved_only": [],
+  "shadow_dynamax_gmax": [],
+  "sources": [
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-gofest2026-mewtwo"
+  ],
+  "notes": "Matches (Mewtwo)."
+ },
+ "sb-pokopia": {
+  "dittobase": "sb-pokopia-2026",
+  "dittobase_events": [
+   "Pokémon Pokopia Celebration Event (2026-03-10 to 2026-03-16)"
+  ],
+  "missing": [
+   {
+    "name": "Ditto",
+    "form_or_costume": "w Cap",
+    "our_id": "132-spring-2026-a",
+    "how": "caught"
+   },
+   {
+    "name": "Ditto",
+    "form_or_costume": "w Hat",
+    "our_id": "132-spring-2026-b",
+    "how": "caught"
+   }
+  ],
+  "extra": [
+   {
+    "name": "Ditto",
+    "form_or_costume": null,
+    "our_id": "132",
+    "support": "Should be the two costumed Dittos (132-spring-2026-a cap, 132-spring-2026-b hat): Dittobase and Serebii."
+   }
+  ],
+  "evolved_only": [],
+  "shadow_dynamax_gmax": [],
+  "sources": [
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-pokopia-2026",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ],
+  "notes": "Ditto is the two Pokopia costumes; Lapras, Snorlax, Dragonite match."
+ },
+ "sb-gotour2026-mega": {
+  "dittobase": "sb-go-tour-2026-mega",
+  "dittobase_events": [
+   "Pokémon GO Tour: Kalos – Global (2026-02-28 to 2026-03-01)",
+   "Pokémon GO Fest 2026: Mega Finale (2026-09-05 to 2026-09-07)"
+  ],
+  "missing": [],
+  "extra": [],
+  "evolved_only": [
+   {
+    "name": "Braixen",
+    "form_or_costume": null,
+    "our_id": "654",
+    "how": "evolved — Pokémon GO Fest 2026: Mega Finale"
+   },
+   {
+    "name": "Delphox",
+    "form_or_costume": null,
+    "our_id": "655",
+    "how": "evolved — Pokémon GO Fest 2026: Mega Finale"
+   },
+   {
+    "name": "Frogadier",
+    "form_or_costume": null,
+    "our_id": "657",
+    "how": "evolved — Pokémon GO Fest 2026: Mega Finale"
+   },
+   {
+    "name": "Greninja",
+    "form_or_costume": null,
+    "our_id": "658",
+    "how": "evolved — Pokémon GO Fest 2026: Mega Finale"
+   },
+   {
+    "name": "Quilladin",
+    "form_or_costume": null,
+    "our_id": "651",
+    "how": "evolved — Pokémon GO Fest 2026: Mega Finale"
+   },
+   {
+    "name": "Chesnaught",
+    "form_or_costume": null,
+    "our_id": "652",
+    "how": "evolved — Pokémon GO Fest 2026: Mega Finale"
+   }
+  ],
+  "shadow_dynamax_gmax": [],
+  "sources": [
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-go-tour-2026-mega"
+  ],
+  "notes": "All 54 match. Missing only the Kalos starters’ evolutions (Mega Finale starters, evolved)."
+ },
+ "sb-gotour2026-x": {
+  "dittobase": "sb-go-tour-2026-x",
+  "dittobase_events": [
+   "Kalos Starters Promo Code (2026-02-27 to 2026-03-08)",
+   "Pokémon GO Tour: Kalos - Global (2026-02-28 to 2026-03-01)"
+  ],
+  "missing": [
+   {
+    "name": "Xerneas",
+    "form_or_costume": null,
+    "our_id": "716",
+    "how": "caught — Pokémon GO Tour: Kalos - Global"
+   },
+   {
+    "name": "Honedge",
+    "form_or_costume": null,
+    "our_id": "679",
+    "how": "caught — Pokémon GO Tour: Kalos - Global"
+   },
+   {
+    "name": "Pikachu",
+    "form_or_costume": "Calem's Hat",
+    "our_id": "25-gotour-2026-c",
+    "how": "caught — Pokémon GO Tour: Kalos - Global"
+   },
+   {
+    "name": "Pikachu",
+    "form_or_costume": "Serena's Hat",
+    "our_id": "25-gotour-2026-c-02",
+    "how": "caught — Pokémon GO Tour: Kalos - Global"
+   }
+  ],
+  "extra": [],
+  "evolved_only": [
+   {
+    "name": "Quilladin",
+    "form_or_costume": null,
+    "our_id": "651",
+    "how": "evolved — Kalos Starters Promo Code"
+   },
+   {
+    "name": "Chesnaught",
+    "form_or_costume": null,
+    "our_id": "652",
+    "how": "evolved — Kalos Starters Promo Code"
+   },
+   {
+    "name": "Braixen",
+    "form_or_costume": null,
+    "our_id": "654",
+    "how": "evolved — Kalos Starters Promo Code"
+   },
+   {
+    "name": "Delphox",
+    "form_or_costume": null,
+    "our_id": "655",
+    "how": "evolved — Kalos Starters Promo Code"
+   },
+   {
+    "name": "Frogadier",
+    "form_or_costume": null,
+    "our_id": "657",
+    "how": "evolved — Kalos Starters Promo Code"
+   },
+   {
+    "name": "Greninja",
+    "form_or_costume": null,
+    "our_id": "658",
+    "how": "evolved — Kalos Starters Promo Code"
+   },
+   {
+    "name": "Doublade",
+    "form_or_costume": null,
+    "our_id": "680",
+    "how": "evolved — Pokémon GO Tour: Kalos - Global"
+   },
+   {
+    "name": "Aegislash",
+    "form_or_costume": "Shield",
+    "our_id": "681-shield",
+    "how": "evolved — Pokémon GO Tour: Kalos - Global"
+   }
+  ],
+  "shadow_dynamax_gmax": [],
+  "sources": [
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-go-tour-2026-x",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ],
+  "notes": "Our list has only the Kalos starters. Dittobase and Serebii both also list Xerneas, Honedge, and Calem’s and Serena’s Hat Pikachu for X (as for Y, with Xerneas in place of Yveltal). Doublade, Aegislash and the starters’ evolutions by evolving."
+ },
+ "sb-gotour2026-y": {
+  "dittobase": "sb-go-tour-2026-y",
+  "dittobase_events": [
+   "Kalos Starters Promo Code (2026-02-27 to 2026-03-08)",
+   "Pokémon GO Tour: Kalos - Global (2026-02-28 to 2026-03-01)"
+  ],
+  "missing": [],
+  "extra": [],
+  "evolved_only": [
+   {
+    "name": "Quilladin",
+    "form_or_costume": null,
+    "our_id": "651",
+    "how": "evolved — Kalos Starters Promo Code"
+   },
+   {
+    "name": "Chesnaught",
+    "form_or_costume": null,
+    "our_id": "652",
+    "how": "evolved — Kalos Starters Promo Code"
+   },
+   {
+    "name": "Braixen",
+    "form_or_costume": null,
+    "our_id": "654",
+    "how": "evolved — Kalos Starters Promo Code"
+   },
+   {
+    "name": "Delphox",
+    "form_or_costume": null,
+    "our_id": "655",
+    "how": "evolved — Kalos Starters Promo Code"
+   },
+   {
+    "name": "Frogadier",
+    "form_or_costume": null,
+    "our_id": "657",
+    "how": "evolved — Kalos Starters Promo Code"
+   },
+   {
+    "name": "Greninja",
+    "form_or_costume": null,
+    "our_id": "658",
+    "how": "evolved — Kalos Starters Promo Code"
+   },
+   {
+    "name": "Doublade",
+    "form_or_costume": null,
+    "our_id": "680",
+    "how": "evolved — Pokémon GO Tour: Kalos - Global"
+   },
+   {
+    "name": "Aegislash",
+    "form_or_costume": "Shield",
+    "our_id": "681-shield",
+    "how": "evolved — Pokémon GO Tour: Kalos - Global"
+   }
+  ],
+  "shadow_dynamax_gmax": [],
+  "sources": [
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-go-tour-2026-y"
+  ],
+  "notes": "All caught ones match. Missing only evolved: starters’ evolutions, Doublade, Aegislash."
+ },
+ "sb-gotour2026-diamond": {
+  "dittobase": "sb-go-tour-2026-diamond",
+  "dittobase_events": [
+   "Road to Kalos (2026-02-26 to 2026-02-26)"
+  ],
+  "missing": [],
+  "extra": [],
+  "evolved_only": [],
+  "shadow_dynamax_gmax": [],
+  "sources": [
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-go-tour-2026-diamond"
+  ],
+  "notes": "Matches."
+ },
+ "sb-gotour2026-pearl": {
+  "dittobase": "sb-go-tour-2026-pearl",
+  "dittobase_events": [
+   "Road to Kalos (2026-02-26 to 2026-02-26)"
+  ],
+  "missing": [],
+  "extra": [],
+  "evolved_only": [],
+  "shadow_dynamax_gmax": [],
+  "sources": [
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-go-tour-2026-pearl"
+  ],
+  "notes": "Matches."
+ },
+ "sb-gotour2026-ruby": {
+  "dittobase": "sb-go-tour-2026-ruby",
+  "dittobase_events": [
+   "Road to Kalos (2026-02-25 to 2026-02-25)"
+  ],
+  "missing": [],
+  "extra": [],
+  "evolved_only": [],
+  "shadow_dynamax_gmax": [],
+  "sources": [
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-go-tour-2026-ruby"
+  ],
+  "notes": "Matches (Brendan’s Hat and May’s Bow Pikachu, Groudon)."
+ },
+ "sb-gotour2026-sapphire": {
+  "dittobase": "sb-sapphire",
+  "dittobase_events": [
+   "Road to Kalos (2026-02-25 to 2026-02-25)"
+  ],
+  "missing": [],
+  "extra": [],
+  "evolved_only": [],
+  "shadow_dynamax_gmax": [],
+  "sources": [
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-sapphire"
+  ],
+  "notes": "Matches."
+ },
+ "sb-gotour2026-gold": {
+  "dittobase": "sb-go-tour-2026-gold",
+  "dittobase_events": [
+   "Road to Kalos (2026-02-24 to 2026-02-24)"
+  ],
+  "missing": [],
+  "extra": [],
+  "evolved_only": [],
+  "shadow_dynamax_gmax": [
+   "Ho-Oh: shadow"
+  ],
+  "sources": [
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-go-tour-2026-gold"
+  ],
+  "notes": "Matches; Ho-Oh is Shadow only on Dittobase."
+ },
+ "sb-gotour2026-silver": {
+  "dittobase": "sb-go-tour-2026-silver",
+  "dittobase_events": [
+   "Road to Kalos (2026-02-24 to 2026-02-24)"
+  ],
+  "missing": [],
+  "extra": [],
+  "evolved_only": [],
+  "shadow_dynamax_gmax": [
+   "Lugia: shadow"
+  ],
+  "sources": [
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-go-tour-2026-silver"
+  ],
+  "notes": "Matches; Lugia is Shadow only on Dittobase."
+ },
+ "sb-community-2026": {
+  "dittobase": "sb-community-days-2026",
+  "dittobase_events": [
+   "January 2026 Community Day Classic (2026-01-04 to 2026-01-04)",
+   "January 2026 Community Day (2026-01-18 to 2026-01-18)",
+   "February 2026 Community Day: Vulpix and Alolan Vulpix (2026-02-01 to 2026-02-01)",
+   "March 2026 Community Day: Scorbunny (2026-03-14 to 2026-03-14)",
+   "April 2026 Community Day: Tinkatink (2026-04-11 to 2026-04-11)",
+   "May 2026 Community Day: Lechonk (2026-05-09 to 2026-05-09)",
+   "May 2026 Community Day Classic: Deino (2026-05-16 to 2026-05-16)",
+   "June 2026 Community Day: Frigibax (2026-06-20 to 2026-06-20)",
+   "July 2026 Community Day: Sobble (2026-07-04 to 2026-07-04)",
+   "August 2026 Community Day: Nickit (2026-08-16 to 2026-08-16)",
+   "September 2026 Community Day Classic: Gible (2026-09-12 to 2026-09-12)",
+   "October 2026 Community Day: Zorua (2026-10-10 to 2026-10-10)",
+   "November 2026 Community Day: Pawniard (2026-11-21 to 2026-11-21)"
+  ],
+  "missing": [
+   {
+    "name": "Vulpix",
+    "form_or_costume": "Alolan",
+    "our_id": "37-alolan",
+    "how": "caught — February 2026 Community Day: Vulpix and Alolan Vulpix"
+   }
+  ],
+  "extra": [],
+  "evolved_only": [
+   {
+    "name": "Prinplup",
+    "form_or_costume": null,
+    "our_id": "394",
+    "how": "evolved — January 2026 Community Day Classic"
+   },
+   {
+    "name": "Empoleon",
+    "form_or_costume": null,
+    "our_id": "395",
+    "how": "evolved — January 2026 Community Day Classic"
+   },
+   {
+    "name": "Thwackey",
+    "form_or_costume": null,
+    "our_id": "811",
+    "how": "evolved — January 2026 Community Day"
+   },
+   {
+    "name": "Rillaboom",
+    "form_or_costume": null,
+    "our_id": "812",
+    "how": "evolved — January 2026 Community Day"
+   },
+   {
+    "name": "Ninetales",
+    "form_or_costume": null,
+    "our_id": "38",
+    "how": "evolved — February 2026 Community Day: Vulpix and Alolan Vulpix"
+   },
+   {
+    "name": "Ninetales",
+    "form_or_costume": "Alolan",
+    "our_id": "38-alolan",
+    "how": "evolved — February 2026 Community Day: Vulpix and Alolan Vulpix"
+   },
+   {
+    "name": "Raboot",
+    "form_or_costume": null,
+    "our_id": "814",
+    "how": "evolved — March 2026 Community Day: Scorbunny"
+   },
+   {
+    "name": "Cinderace",
+    "form_or_costume": null,
+    "our_id": "815",
+    "how": "evolved — March 2026 Community Day: Scorbunny"
+   },
+   {
+    "name": "Tinkatuff",
+    "form_or_costume": null,
+    "our_id": "958",
+    "how": "evolved — April 2026 Community Day: Tinkatink"
+   },
+   {
+    "name": "Tinkaton",
+    "form_or_costume": null,
+    "our_id": "959",
+    "how": "evolved — April 2026 Community Day: Tinkatink"
+   },
+   {
+    "name": "Oinkologne",
+    "form_or_costume": null,
+    "our_id": "916",
+    "how": "evolved — May 2026 Community Day: Lechonk"
+   },
+   {
+    "name": "Zweilous",
+    "form_or_costume": null,
+    "our_id": "634",
+    "how": "evolved — May 2026 Community Day Classic: Deino"
+   },
+   {
+    "name": "Hydreigon",
+    "form_or_costume": null,
+    "our_id": "635",
+    "how": "evolved — May 2026 Community Day Classic: Deino"
+   },
+   {
+    "name": "Arctibax",
+    "form_or_costume": null,
+    "our_id": "997",
+    "how": "evolved — June 2026 Community Day: Frigibax"
+   },
+   {
+    "name": "Baxcalibur",
+    "form_or_costume": null,
+    "our_id": "998",
+    "how": "evolved — June 2026 Community Day: Frigibax"
+   },
+   {
+    "name": "Drizzile",
+    "form_or_costume": null,
+    "our_id": "817",
+    "how": "evolved — July 2026 Community Day: Sobble"
+   },
+   {
+    "name": "Inteleon",
+    "form_or_costume": null,
+    "our_id": "818",
+    "how": "evolved — July 2026 Community Day: Sobble"
+   },
+   {
+    "name": "Thievul",
+    "form_or_costume": null,
+    "our_id": "828",
+    "how": "evolved — August 2026 Community Day: Nickit"
+   },
+   {
+    "name": "Gabite",
+    "form_or_costume": null,
+    "our_id": "444",
+    "how": "evolved — September 2026 Community Day Classic: Gible"
+   },
+   {
+    "name": "Garchomp",
+    "form_or_costume": null,
+    "our_id": "445",
+    "how": "evolved — September 2026 Community Day Classic: Gible"
+   },
+   {
+    "name": "Zoroark",
+    "form_or_costume": null,
+    "our_id": "571",
+    "how": "evolved — October 2026 Community Day: Zorua"
+   },
+   {
+    "name": "Bisharp",
+    "form_or_costume": null,
+    "our_id": "625",
+    "how": "evolved — November 2026 Community Day: Pawniard"
+   },
+   {
+    "name": "Kingambit",
+    "form_or_costume": null,
+    "our_id": "983",
+    "how": "evolved — November 2026 Community Day: Pawniard"
+   }
+  ],
+  "shadow_dynamax_gmax": [],
+  "sources": [
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-community-days-2026",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ],
+  "notes": "Caught ones match except Alolan Vulpix (Serebii lists it too). The rest missing are evolutions. Pawniard (21 Nov 2026) is upcoming."
+ },
+ "sb-gowa2025-global": {
+  "dittobase": "sb-gowildarea-2025-global",
+  "dittobase_events": [
+   "Into the Wild 2025 (2025-11-10 to 2025-11-14)",
+   "Pokémon GO Wild Area 2025: Global (2025-11-15 to 2025-11-16)"
+  ],
+  "missing": [
+   {
+    "name": "Bewear",
+    "form_or_costume": "Wilderness Cape",
+    "our_id": "760-wildarea-2025",
+    "how": "caught — Pokémon GO Wild Area 2025: Global"
+   }
+  ],
+  "extra": [
+   {
+    "name": "Bewear",
+    "form_or_costume": null,
+    "our_id": "760",
+    "support": "Should be Wilderness Cape Bewear (760-wildarea-2025): Dittobase and Serebii."
+   }
+  ],
+  "evolved_only": [
+   {
+    "name": "Necrozma",
+    "form_or_costume": "Dawn Wings",
+    "our_id": "800-dawn-wings",
+    "how": "evolved — Into the Wild 2025",
+    "note": "Fusion; Dittobase only, doubtful"
+   },
+   {
+    "name": "Necrozma",
+    "form_or_costume": "Dusk Mane",
+    "our_id": "800-dusk-mane",
+    "how": "evolved — Into the Wild 2025",
+    "note": "Fusion; Dittobase only, doubtful"
+   }
+  ],
+  "shadow_dynamax_gmax": [
+   "Lugia: shadow",
+   "Ho-Oh: shadow",
+   "Cresselia: shadow",
+   "Darkrai: shadow",
+   "Grimmsnarl: gmax"
+  ],
+  "sources": [
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-gowildarea-2025-global",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ],
+  "notes": "Lugia, Ho-Oh, Cresselia, Darkrai are Shadow only on Dittobase; Grimmsnarl Gigantamax. Bewear is the Wilderness Cape costume. Necrozma fusions are Dittobase only."
+ },
+ "sb-concierge2025": {
+  "dittobase": "sb-concierge",
+  "dittobase_events": [
+   "Pokémon Concierge Celebration Event (2025-09-09 to 2025-09-14)"
+  ],
+  "missing": [
+   {
+    "name": "Psyduck",
+    "form_or_costume": "Swim Ring",
+    "our_id": "54-swim-2025",
+    "how": "caught"
+   }
+  ],
+  "extra": [
+   {
+    "name": "Psyduck",
+    "form_or_costume": null,
+    "our_id": "54",
+    "support": "Should be Swim Ring Psyduck (54-swim-2025): Dittobase and Serebii."
+   }
+  ],
+  "evolved_only": [],
+  "shadow_dynamax_gmax": [],
+  "sources": [
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-concierge",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ],
+  "notes": "Psyduck is the Swim Ring costume."
+ },
+ "sb-season20-talesoftransformation": {
+  "dittobase": "sb-season-20-tales-of-transformation",
+  "dittobase_events": [
+   "GO Pass: September 2025 (2025-09-02 to 2025-10-07)",
+   "September 2025 Community Day (2025-09-14 to 2025-09-14)",
+   "GO Pass: October 2025 (2025-10-07 to 2025-11-04)",
+   "October 2025 Community Day (2025-10-12 to 2025-10-12)",
+   "Pokémon Legends: Z-A Celebration Event (2025-10-16 to 2025-10-20)",
+   "GO Pass: November 2025 (2025-11-04 to 2025-12-02)",
+   "November 2025 Community Day (2025-11-30 to 2025-11-30)"
+  ],
+  "missing": [
+   {
+    "name": "Flabébé",
+    "form_or_costume": "Red",
+    "our_id": "669-red",
+    "how": "caught — September 2025 Community Day"
+   },
+   {
+    "name": "Flabébé",
+    "form_or_costume": "Yellow",
+    "our_id": "669-yellow",
+    "how": "caught — September 2025 Community Day"
+   },
+   {
+    "name": "Flabébé",
+    "form_or_costume": "Orange",
+    "our_id": "669-orange",
+    "how": "caught — September 2025 Community Day"
+   },
+   {
+    "name": "Flabébé",
+    "form_or_costume": "White",
+    "our_id": "669-white",
+    "how": "caught — September 2025 Community Day"
+   }
+  ],
+  "extra": [],
+  "evolved_only": [
+   {
+    "name": "Floette",
+    "form_or_costume": "Red",
+    "our_id": "670-red",
+    "how": "evolved — September 2025 Community Day"
+   },
+   {
+    "name": "Floette",
+    "form_or_costume": "Blue",
+    "our_id": "670-blue",
+    "how": "evolved — September 2025 Community Day"
+   },
+   {
+    "name": "Floette",
+    "form_or_costume": "Yellow",
+    "our_id": "670-yellow",
+    "how": "evolved — September 2025 Community Day"
+   },
+   {
+    "name": "Floette",
+    "form_or_costume": "Orange",
+    "our_id": "670-orange",
+    "how": "evolved — September 2025 Community Day"
+   },
+   {
+    "name": "Floette",
+    "form_or_costume": "White",
+    "our_id": "670-white",
+    "how": "evolved — September 2025 Community Day"
+   },
+   {
+    "name": "Florges",
+    "form_or_costume": "Red",
+    "our_id": "671-red",
+    "how": "evolved — September 2025 Community Day"
+   },
+   {
+    "name": "Florges",
+    "form_or_costume": "Blue",
+    "our_id": "671-blue",
+    "how": "evolved — September 2025 Community Day"
+   },
+   {
+    "name": "Florges",
+    "form_or_costume": "Yellow",
+    "our_id": "671-yellow",
+    "how": "evolved — September 2025 Community Day"
+   },
+   {
+    "name": "Florges",
+    "form_or_costume": "Orange",
+    "our_id": "671-orange",
+    "how": "evolved — September 2025 Community Day"
+   },
+   {
+    "name": "Florges",
+    "form_or_costume": "White",
+    "our_id": "671-white",
+    "how": "evolved — September 2025 Community Day"
+   },
+   {
+    "name": "Duosion",
+    "form_or_costume": null,
+    "our_id": "578",
+    "how": "evolved — October 2025 Community Day"
+   },
+   {
+    "name": "Reuniclus",
+    "form_or_costume": null,
+    "our_id": "579",
+    "how": "evolved — October 2025 Community Day"
+   },
+   {
+    "name": "Bayleef",
+    "form_or_costume": null,
+    "our_id": "153",
+    "how": "evolved — Pokémon Legends: Z-A Celebration Event"
+   },
+   {
+    "name": "Meganium",
+    "form_or_costume": null,
+    "our_id": "154",
+    "how": "evolved — Pokémon Legends: Z-A Celebration Event"
+   },
+   {
+    "name": "Croconaw",
+    "form_or_costume": null,
+    "our_id": "159",
+    "how": "evolved — Pokémon Legends: Z-A Celebration Event"
+   },
+   {
+    "name": "Feraligatr",
+    "form_or_costume": null,
+    "our_id": "160",
+    "how": "evolved — Pokémon Legends: Z-A Celebration Event"
+   },
+   {
+    "name": "Pignite",
+    "form_or_costume": null,
+    "our_id": "499",
+    "how": "evolved — Pokémon Legends: Z-A Celebration Event"
+   },
+   {
+    "name": "Emboar",
+    "form_or_costume": null,
+    "our_id": "500",
+    "how": "evolved — Pokémon Legends: Z-A Celebration Event"
+   },
+   {
+    "name": "Trumbeak",
+    "form_or_costume": null,
+    "our_id": "732",
+    "how": "evolved — November 2025 Community Day"
+   },
+   {
+    "name": "Toucannon",
+    "form_or_costume": null,
+    "our_id": "733",
+    "how": "evolved — November 2025 Community Day"
+   }
+  ],
+  "shadow_dynamax_gmax": [],
+  "sources": [
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-season-20-tales-of-transformation"
+  ],
+  "notes": "All species match. Missing Flabébé’s other colours (Red, Yellow, Orange, White; our plain card is Blue) and evolutions."
+ },
+ "sb-gofest2025-eternatus": {
+  "dittobase": "sb-go-fest-2025-dark-skies",
+  "dittobase_events": [
+   "Dark Skies (2025-08-18 to 2025-08-23)",
+   "Max Finale (2025-08-23 to 2025-08-26)"
+  ],
+  "missing": [
+   {
+    "name": "Toxtricity",
+    "form_or_costume": "Low Key",
+    "our_id": "849-low-key",
+    "how": "caught (Dynamax) — Dark Skies"
+   }
+  ],
+  "extra": [
+   {
+    "name": "Pikachu",
+    "form_or_costume": null,
+    "our_id": "25",
+    "support": "One of the 23 Power Spot extras: Serebii only (kept at Jemma’s request, 10 Nov); not on Dittobase."
+   },
+   {
+    "name": "Growlithe",
+    "form_or_costume": null,
+    "our_id": "58",
+    "support": "One of the 23 Power Spot extras: Serebii only (kept at Jemma’s request, 10 Nov); not on Dittobase."
+   },
+   {
+    "name": "Abra",
+    "form_or_costume": null,
+    "our_id": "63",
+    "support": "One of the 23 Power Spot extras: Serebii only (kept at Jemma’s request, 10 Nov); not on Dittobase."
+   },
+   {
+    "name": "Hitmonlee",
+    "form_or_costume": null,
+    "our_id": "106",
+    "support": "One of the 23 Power Spot extras: Serebii only (kept at Jemma’s request, 10 Nov); not on Dittobase."
+   },
+   {
+    "name": "Hitmonchan",
+    "form_or_costume": null,
+    "our_id": "107",
+    "support": "One of the 23 Power Spot extras: Serebii only (kept at Jemma’s request, 10 Nov); not on Dittobase."
+   },
+   {
+    "name": "Rhyhorn",
+    "form_or_costume": null,
+    "our_id": "111",
+    "support": "One of the 23 Power Spot extras: Serebii only (kept at Jemma’s request, 10 Nov); not on Dittobase."
+   },
+   {
+    "name": "Electabuzz",
+    "form_or_costume": null,
+    "our_id": "125",
+    "support": "One of the 23 Power Spot extras: Serebii only (kept at Jemma’s request, 10 Nov); not on Dittobase."
+   },
+   {
+    "name": "Magmar",
+    "form_or_costume": null,
+    "our_id": "126",
+    "support": "One of the 23 Power Spot extras: Serebii only (kept at Jemma’s request, 10 Nov); not on Dittobase."
+   },
+   {
+    "name": "Eevee",
+    "form_or_costume": null,
+    "our_id": "133",
+    "support": "One of the 23 Power Spot extras: Serebii only (kept at Jemma’s request, 10 Nov); not on Dittobase."
+   },
+   {
+    "name": "Hoothoot",
+    "form_or_costume": null,
+    "our_id": "163",
+    "support": "One of the 23 Power Spot extras: Serebii only (kept at Jemma’s request, 10 Nov); not on Dittobase."
+   },
+   {
+    "name": "Hitmontop",
+    "form_or_costume": null,
+    "our_id": "237",
+    "support": "One of the 23 Power Spot extras: Serebii only (kept at Jemma’s request, 10 Nov); not on Dittobase."
+   },
+   {
+    "name": "Ralts",
+    "form_or_costume": null,
+    "our_id": "280",
+    "support": "One of the 23 Power Spot extras: Serebii only (kept at Jemma’s request, 10 Nov); not on Dittobase."
+   },
+   {
+    "name": "Trapinch",
+    "form_or_costume": null,
+    "our_id": "328",
+    "support": "One of the 23 Power Spot extras: Serebii only (kept at Jemma’s request, 10 Nov); not on Dittobase."
+   },
+   {
+    "name": "Combee",
+    "form_or_costume": null,
+    "our_id": "415",
+    "support": "One of the 23 Power Spot extras: Serebii only (kept at Jemma’s request, 10 Nov); not on Dittobase."
+   },
+   {
+    "name": "Roggenrola",
+    "form_or_costume": null,
+    "our_id": "524",
+    "support": "One of the 23 Power Spot extras: Serebii only (kept at Jemma’s request, 10 Nov); not on Dittobase."
+   },
+   {
+    "name": "Woobat",
+    "form_or_costume": null,
+    "our_id": "527",
+    "support": "One of the 23 Power Spot extras: Serebii only (kept at Jemma’s request, 10 Nov); not on Dittobase."
+   },
+   {
+    "name": "Deino",
+    "form_or_costume": null,
+    "our_id": "633",
+    "support": "One of the 23 Power Spot extras: Serebii only (kept at Jemma’s request, 10 Nov); not on Dittobase."
+   },
+   {
+    "name": "Inkay",
+    "form_or_costume": null,
+    "our_id": "686",
+    "support": "One of the 23 Power Spot extras: Serebii only (kept at Jemma’s request, 10 Nov); not on Dittobase."
+   },
+   {
+    "name": "Bounsweet",
+    "form_or_costume": null,
+    "our_id": "761",
+    "support": "One of the 23 Power Spot extras: Serebii only (kept at Jemma’s request, 10 Nov); not on Dittobase."
+   },
+   {
+    "name": "Drampa",
+    "form_or_costume": null,
+    "our_id": "780",
+    "support": "One of the 23 Power Spot extras: Serebii only (kept at Jemma’s request, 10 Nov); not on Dittobase."
+   },
+   {
+    "name": "Toxel",
+    "form_or_costume": null,
+    "our_id": "848",
+    "support": "One of the 23 Power Spot extras: Serebii only (kept at Jemma’s request, 10 Nov); not on Dittobase."
+   },
+   {
+    "name": "Sizzlipede",
+    "form_or_costume": null,
+    "our_id": "850",
+    "support": "One of the 23 Power Spot extras: Serebii only (kept at Jemma’s request, 10 Nov); not on Dittobase."
+   },
+   {
+    "name": "Duraludon",
+    "form_or_costume": null,
+    "our_id": "884",
+    "support": "One of the 23 Power Spot extras: Serebii only (kept at Jemma’s request, 10 Nov); not on Dittobase."
+   }
+  ],
+  "evolved_only": [
+   {
+    "name": "Ivysaur",
+    "form_or_costume": null,
+    "our_id": "2",
+    "how": "evolved (Dynamax) — Dark Skies"
+   },
+   {
+    "name": "Charmeleon",
+    "form_or_costume": null,
+    "our_id": "5",
+    "how": "evolved (Dynamax) — Dark Skies"
+   },
+   {
+    "name": "Wartortle",
+    "form_or_costume": null,
+    "our_id": "8",
+    "how": "evolved (Dynamax) — Dark Skies"
+   },
+   {
+    "name": "Metapod",
+    "form_or_costume": null,
+    "our_id": "11",
+    "how": "evolved (Dynamax) — Dark Skies"
+   },
+   {
+    "name": "Machoke",
+    "form_or_costume": null,
+    "our_id": "67",
+    "how": "evolved (Dynamax) — Dark Skies"
+   },
+   {
+    "name": "Haunter",
+    "form_or_costume": null,
+    "our_id": "93",
+    "how": "evolved (Dynamax) — Dark Skies"
+   },
+   {
+    "name": "Blissey",
+    "form_or_costume": null,
+    "our_id": "242",
+    "how": "evolved (Dynamax) — Dark Skies"
+   },
+   {
+    "name": "Omastar",
+    "form_or_costume": null,
+    "our_id": "139",
+    "how": "evolved (Dynamax) — Dark Skies"
+   },
+   {
+    "name": "Kabutops",
+    "form_or_costume": null,
+    "our_id": "141",
+    "how": "evolved (Dynamax) — Dark Skies"
+   },
+   {
+    "name": "Wailord",
+    "form_or_costume": null,
+    "our_id": "321",
+    "how": "evolved (Dynamax) — Dark Skies"
+   },
+   {
+    "name": "Metang",
+    "form_or_costume": null,
+    "our_id": "375",
+    "how": "evolved (Dynamax) — Dark Skies"
+   },
+   {
+    "name": "Metagross",
+    "form_or_costume": null,
+    "our_id": "376",
+    "how": "evolved (Dynamax) — Dark Skies"
+   },
+   {
+    "name": "Tranquill",
+    "form_or_costume": null,
+    "our_id": "520",
+    "how": "evolved (Dynamax) — Dark Skies"
+   },
+   {
+    "name": "Unfezant",
+    "form_or_costume": null,
+    "our_id": "521",
+    "how": "evolved (Dynamax) — Dark Skies"
+   },
+   {
+    "name": "Excadrill",
+    "form_or_costume": null,
+    "our_id": "530",
+    "how": "evolved (Dynamax) — Dark Skies"
+   },
+   {
+    "name": "Darmanitan",
+    "form_or_costume": "Standard",
+    "our_id": "555-standard",
+    "how": "evolved (Dynamax) — Dark Skies"
+   },
+   {
+    "name": "Garbodor",
+    "form_or_costume": null,
+    "our_id": "569",
+    "how": "evolved (Dynamax) — Dark Skies"
+   },
+   {
+    "name": "Thwackey",
+    "form_or_costume": null,
+    "our_id": "811",
+    "how": "evolved (Dynamax) — Dark Skies"
+   },
+   {
+    "name": "Raboot",
+    "form_or_costume": null,
+    "our_id": "814",
+    "how": "evolved (Dynamax) — Dark Skies"
+   },
+   {
+    "name": "Drizzile",
+    "form_or_costume": null,
+    "our_id": "817",
+    "how": "evolved (Dynamax) — Dark Skies"
+   },
+   {
+    "name": "Greedent",
+    "form_or_costume": null,
+    "our_id": "820",
+    "how": "evolved (Dynamax) — Dark Skies"
+   },
+   {
+    "name": "Corvisquire",
+    "form_or_costume": null,
+    "our_id": "822",
+    "how": "evolved (Dynamax) — Dark Skies"
+   },
+   {
+    "name": "Corviknight",
+    "form_or_costume": null,
+    "our_id": "823",
+    "how": "evolved (Dynamax) — Dark Skies"
+   },
+   {
+    "name": "Dubwool",
+    "form_or_costume": null,
+    "our_id": "832",
+    "how": "evolved (Dynamax) — Dark Skies"
+   },
+   {
+    "name": "Hattrem",
+    "form_or_costume": null,
+    "our_id": "857",
+    "how": "evolved (Dynamax) — Dark Skies"
+   },
+   {
+    "name": "Hatterene",
+    "form_or_costume": null,
+    "our_id": "858",
+    "how": "evolved (Dynamax) — Dark Skies"
+   }
+  ],
+  "shadow_dynamax_gmax": [
+   "Bulbasaur: dmax",
+   "Ivysaur: dmax",
+   "Venusaur: dmax, gmax",
+   "Charmander: dmax",
+   "Charmeleon: dmax",
+   "Charizard: dmax, gmax",
+   "Squirtle: dmax",
+   "Wartortle: dmax",
+   "Blastoise: dmax, gmax",
+   "Caterpie: dmax",
+   "Metapod: dmax",
+   "Butterfree: dmax, gmax",
+   "Machop: dmax",
+   "Machoke: dmax",
+   "Machamp: dmax, gmax",
+   "Gastly: dmax",
+   "Haunter: dmax",
+   "Gengar: dmax, gmax",
+   "Krabby: dmax",
+   "Kingler: dmax, gmax",
+   "Chansey: dmax",
+   "Blissey: dmax",
+   "Omanyte: dmax",
+   "Omastar: dmax",
+   "Kabuto: dmax",
+   "Kabutops: dmax",
+   "Articuno: dmax",
+   "Zapdos: dmax",
+   "Moltres: dmax",
+   "Shuckle: dmax",
+   "Raikou: dmax",
+   "Entei: dmax",
+   "Suicune: dmax",
+   "Sableye: dmax",
+   "Wailmer: dmax",
+   "Wailord: dmax",
+   "Beldum: dmax",
+   "Metang: dmax",
+   "Metagross: dmax",
+   "Latias: dmax",
+   "Latios: dmax",
+   "Pidove: dmax",
+   "Tranquill: dmax",
+   "Unfezant: dmax",
+   "Drilbur: dmax",
+   "Excadrill: dmax",
+   "Darumaka: dmax",
+   "Darmanitan (Standard): dmax",
+   "Trubbish: dmax",
+   "Garbodor: dmax",
+   "Cryogonal: dmax",
+   "Passimian: dmax",
+   "Grookey: dmax",
+   "Thwackey: dmax",
+   "Rillaboom: dmax, gmax",
+   "Scorbunny: dmax",
+   "Raboot: dmax",
+   "Cinderace: dmax, gmax",
+   "Sobble: dmax",
+   "Drizzile: dmax",
+   "Inteleon: dmax, gmax",
+   "Skwovet: dmax",
+   "Greedent: dmax",
+   "Rookidee: dmax",
+   "Corvisquire: dmax",
+   "Corviknight: dmax",
+   "Wooloo: dmax",
+   "Dubwool: dmax",
+   "Toxtricity (Amped): dmax, gmax",
+   "Toxtricity (Low Key): dmax",
+   "Hatenna: dmax",
+   "Hattrem: dmax",
+   "Hatterene: dmax",
+   "Falinks: dmax",
+   "Lapras: gmax",
+   "Snorlax: gmax"
+  ],
+  "sources": [
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-go-fest-2025-dark-skies"
+  ],
+  "notes": "Dittobase now lists 76 (Dark Skies Dynamax incl. evolved, plus Max Finale 13 Gigantamax). Missing: Toxtricity Low Key (caught) and the evolved Dynamax ones. Our 23 Power Spot extras are Serebii only."
+ },
+ "sb-9thanniversary": {
+  "dittobase": "sb-9th-anniversary",
+  "dittobase_events": [
+   "Pokémon GO’s 9th Anniversary Party (2025-07-01 to 2025-07-06)"
+  ],
+  "missing": [],
+  "extra": [],
+  "evolved_only": [],
+  "shadow_dynamax_gmax": [],
+  "sources": [
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-9th-anniversary"
+  ],
+  "notes": "Matches."
+ },
+ "sb-go-fest-2025-zacian": {
+  "dittobase": "sb-zacian-go-fest-2025",
+  "dittobase_events": [
+   "GO Fest 2025 (Day 2) (2025-06-29 to 2025-06-30)"
+  ],
+  "missing": [],
+  "extra": [],
+  "evolved_only": [],
+  "shadow_dynamax_gmax": [],
+  "sources": [
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-zacian-go-fest-2025"
+  ],
+  "notes": "Matches (Hero of Many Battles)."
+ },
+ "sb-go-fest-2025-zamazenta": {
+  "dittobase": "sb-zamazenta-go-fest-2025",
+  "dittobase_events": [
+   "GO Fest 2025 (Day 1) (2025-06-28 to 2025-06-29)"
+  ],
+  "missing": [],
+  "extra": [],
+  "evolved_only": [],
+  "shadow_dynamax_gmax": [],
+  "sources": [
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-zamazenta-go-fest-2025"
+  ],
+  "notes": "Matches (Hero of Many Battles)."
+ },
+ "sb-gofest2025": {
+  "dittobase": "sb-go-fest-2025",
+  "dittobase_events": [
+   "GO Pass: Ancients Recovered (2025-06-23 to 2025-06-29)",
+   "Ancients Recovered (2025-06-23 to 2025-06-27)"
+  ],
+  "missing": [],
+  "extra": [],
+  "evolved_only": [],
+  "shadow_dynamax_gmax": [],
+  "sources": [
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-go-fest-2025"
+  ],
+  "notes": "Matches all six Regis (Dittobase now includes Regigigas, so the old unsure note is out of date)."
+ },
+ "sb-season19-delightfuldays": {
+  "dittobase": "sb-season-19-delightful-days",
+  "dittobase_events": [
+   "GO Pass: June (2025-06-03 to 2025-07-01)",
+   "June 2025 Community Day: Jangmo-o (2025-06-21 to 2025-06-21)",
+   "GO Pass: July (2025-07-01 to 2025-08-05)",
+   "July Community Day Classic: Eevee (2025-07-05 to 2025-07-06)",
+   "Water Festival (2025-07-15 to 2025-07-20)",
+   "July 2025 Community Day: Quaxly (2025-07-20 to 2025-07-20)",
+   "Gigantamax Journey Timed Research (2025-07-22 to 2025-08-24)",
+   "GO Pass: August (2025-08-05 to 2025-09-02)",
+   "August 2025 Community Day: Rookidee (2025-08-30 to 2025-08-30)"
+  ],
+  "missing": [
+   {
+    "name": "Lapras",
+    "form_or_costume": "w Scarf",
+    "our_id": "131-costume-2020",
+    "how": "caught — Water Festival"
+   }
+  ],
+  "extra": [
+   {
+    "name": "Lapras",
+    "form_or_costume": null,
+    "our_id": "131",
+    "support": "Should be Lapras in its scarf (131-costume-2020) from the Water Festival: Dittobase and Serebii (“Lapras (Scarf)”)."
+   }
+  ],
+  "evolved_only": [
+   {
+    "name": "Hakamo-o",
+    "form_or_costume": null,
+    "our_id": "783",
+    "how": "evolved — June 2025 Community Day: Jangmo-o"
+   },
+   {
+    "name": "Kommo-o",
+    "form_or_costume": null,
+    "our_id": "784",
+    "how": "evolved — June 2025 Community Day: Jangmo-o"
+   },
+   {
+    "name": "Vaporeon",
+    "form_or_costume": null,
+    "our_id": "134",
+    "how": "evolved — July Community Day Classic: Eevee"
+   },
+   {
+    "name": "Jolteon",
+    "form_or_costume": null,
+    "our_id": "135",
+    "how": "evolved — July Community Day Classic: Eevee"
+   },
+   {
+    "name": "Flareon",
+    "form_or_costume": null,
+    "our_id": "136",
+    "how": "evolved — July Community Day Classic: Eevee"
+   },
+   {
+    "name": "Espeon",
+    "form_or_costume": null,
+    "our_id": "196",
+    "how": "evolved — July Community Day Classic: Eevee"
+   },
+   {
+    "name": "Umbreon",
+    "form_or_costume": null,
+    "our_id": "197",
+    "how": "evolved — July Community Day Classic: Eevee"
+   },
+   {
+    "name": "Leafeon",
+    "form_or_costume": null,
+    "our_id": "470",
+    "how": "evolved — July Community Day Classic: Eevee"
+   },
+   {
+    "name": "Glaceon",
+    "form_or_costume": null,
+    "our_id": "471",
+    "how": "evolved — July Community Day Classic: Eevee"
+   },
+   {
+    "name": "Sylveon",
+    "form_or_costume": null,
+    "our_id": "700",
+    "how": "evolved — July Community Day Classic: Eevee"
+   },
+   {
+    "name": "Quaxwell",
+    "form_or_costume": null,
+    "our_id": "913",
+    "how": "evolved — July 2025 Community Day: Quaxly"
+   },
+   {
+    "name": "Quaquaval",
+    "form_or_costume": null,
+    "our_id": "914",
+    "how": "evolved — July 2025 Community Day: Quaxly"
+   },
+   {
+    "name": "Corvisquire",
+    "form_or_costume": null,
+    "our_id": "822",
+    "how": "evolved — August 2025 Community Day: Rookidee"
+   },
+   {
+    "name": "Corviknight",
+    "form_or_costume": null,
+    "our_id": "823",
+    "how": "evolved — August 2025 Community Day: Rookidee"
+   }
+  ],
+  "shadow_dynamax_gmax": [
+   "Rillaboom: gmax",
+   "Cinderace: gmax",
+   "Inteleon: gmax"
+  ],
+  "sources": [
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-season-19-delightful-days",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ],
+  "notes": "Missing evolutions; Lapras should be the scarf costume. Rillaboom, Cinderace, Inteleon are Gigantamax."
+ },
+ "sb-season18-mightandmastery": {
+  "dittobase": "sb-season-18-might-and-mastery",
+  "dittobase_events": [
+   "March 2025 Community Day: Fuecoco (2025-03-08 to 2025-03-08)",
+   "March 2025 Community Day Classic: Totodile (2025-03-22 to 2025-03-22)",
+   "April 2025 Community Day: Vanillite (2025-04-27 to 2025-04-27)",
+   "May 2025 Community Day: Pawmi (2025-05-11 to 2025-05-11)",
+   "Final Strike: GO Battle Week (2025-05-21 to 2025-05-27)",
+   "May 2025 Community Day Classic: Machop (2025-05-24 to 2025-05-24)"
+  ],
+  "missing": [],
+  "extra": [],
+  "evolved_only": [
+   {
+    "name": "Crocalor",
+    "form_or_costume": null,
+    "our_id": "910",
+    "how": "evolved — March 2025 Community Day: Fuecoco"
+   },
+   {
+    "name": "Skeledirge",
+    "form_or_costume": null,
+    "our_id": "911",
+    "how": "evolved — March 2025 Community Day: Fuecoco"
+   },
+   {
+    "name": "Croconaw",
+    "form_or_costume": null,
+    "our_id": "159",
+    "how": "evolved — March 2025 Community Day Classic: Totodile"
+   },
+   {
+    "name": "Feraligatr",
+    "form_or_costume": null,
+    "our_id": "160",
+    "how": "evolved — March 2025 Community Day Classic: Totodile"
+   },
+   {
+    "name": "Vanillish",
+    "form_or_costume": null,
+    "our_id": "583",
+    "how": "evolved — April 2025 Community Day: Vanillite"
+   },
+   {
+    "name": "Vanilluxe",
+    "form_or_costume": null,
+    "our_id": "584",
+    "how": "evolved — April 2025 Community Day: Vanillite"
+   },
+   {
+    "name": "Pawmo",
+    "form_or_costume": null,
+    "our_id": "922",
+    "how": "evolved — May 2025 Community Day: Pawmi"
+   },
+   {
+    "name": "Pawmot",
+    "form_or_costume": null,
+    "our_id": "923",
+    "how": "evolved — May 2025 Community Day: Pawmi"
+   },
+   {
+    "name": "Medicham",
+    "form_or_costume": null,
+    "our_id": "308",
+    "how": "evolved — Final Strike: GO Battle Week"
+   },
+   {
+    "name": "Skuntank",
+    "form_or_costume": null,
+    "our_id": "435",
+    "how": "evolved — Final Strike: GO Battle Week"
+   },
+   {
+    "name": "Toxapex",
+    "form_or_costume": null,
+    "our_id": "748",
+    "how": "evolved — Final Strike: GO Battle Week"
+   },
+   {
+    "name": "Armarouge",
+    "form_or_costume": null,
+    "our_id": "936",
+    "how": "evolved — Final Strike: GO Battle Week"
+   },
+   {
+    "name": "Ceruledge",
+    "form_or_costume": null,
+    "our_id": "937",
+    "how": "evolved — Final Strike: GO Battle Week"
+   },
+   {
+    "name": "Machoke",
+    "form_or_costume": null,
+    "our_id": "67",
+    "how": "evolved — May 2025 Community Day Classic: Machop"
+   },
+   {
+    "name": "Machamp",
+    "form_or_costume": null,
+    "our_id": "68",
+    "how": "evolved — May 2025 Community Day Classic: Machop"
+   }
+  ],
+  "shadow_dynamax_gmax": [],
+  "sources": [
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-season-18-might-and-mastery"
+  ],
+  "notes": "All caught ones match; missing only evolutions."
+ },
+ "sb-gotour2025-black-white": {
+  "dittobase": "sb-go-tour-2025-black-white",
+  "dittobase_events": [
+   "Pokemon GO Tour: Unova - Global (2025-03-01 to 2025-03-02)",
+   "Road to Kalos (2026-02-27 to 2026-02-27)"
+  ],
+  "missing": [],
+  "extra": [],
+  "evolved_only": [],
+  "shadow_dynamax_gmax": [],
+  "sources": [
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-go-tour-2025-black-white"
+  ],
+  "notes": "Matches."
+ },
+ "sb-gotour2025-black": {
+  "dittobase": "sb-go-tour-2025-black",
+  "dittobase_events": [
+   "Road to Unova (2025-02-24 to 2025-03-01)",
+   "Pokémon Day 2025 (2025-02-27 to 2025-02-27)",
+   "Pokemon GO Tour: Unova - Global (2025-03-01 to 2025-03-02)",
+   "Road to Kalos (2026-02-27 to 2026-02-27)"
+  ],
+  "missing": [],
+  "extra": [],
+  "evolved_only": [
+   {
+    "name": "Servine",
+    "form_or_costume": null,
+    "our_id": "496",
+    "how": "evolved — Pokémon Day 2025"
+   },
+   {
+    "name": "Serperior",
+    "form_or_costume": null,
+    "our_id": "497",
+    "how": "evolved — Pokémon Day 2025"
+   },
+   {
+    "name": "Pignite",
+    "form_or_costume": null,
+    "our_id": "499",
+    "how": "evolved — Pokémon Day 2025"
+   },
+   {
+    "name": "Emboar",
+    "form_or_costume": null,
+    "our_id": "500",
+    "how": "evolved — Pokémon Day 2025"
+   },
+   {
+    "name": "Dewott",
+    "form_or_costume": null,
+    "our_id": "502",
+    "how": "evolved — Pokémon Day 2025"
+   },
+   {
+    "name": "Samurott",
+    "form_or_costume": null,
+    "our_id": "503",
+    "how": "evolved — Pokémon Day 2025"
+   },
+   {
+    "name": "Kyurem",
+    "form_or_costume": "Black",
+    "our_id": "646-black",
+    "how": "evolved — Pokemon GO Tour: Unova - Global; Road to Kalos"
+   },
+   {
+    "name": "Kyurem",
+    "form_or_costume": "White",
+    "our_id": "646-white",
+    "how": "evolved — Pokemon GO Tour: Unova - Global; Road to Kalos"
+   }
+  ],
+  "shadow_dynamax_gmax": [],
+  "sources": [
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-go-tour-2025-black"
+  ],
+  "notes": "All caught ones match; missing evolutions of the Pokémon Day starters and Black/White Kyurem by fusing."
+ },
+ "sb-gotour2025-white": {
+  "dittobase": "sb-go-tour-2025-white",
+  "dittobase_events": [
+   "Road to Unova (2025-02-24 to 2025-03-01)",
+   "Pokémon Day 2025 (2025-02-27 to 2025-02-27)",
+   "Pokemon GO Tour: Unova - Global (2025-03-01 to 2025-03-02)",
+   "Road to Kalos (2026-02-27 to 2026-02-27)"
+  ],
+  "missing": [],
+  "extra": [],
+  "evolved_only": [
+   {
+    "name": "Servine",
+    "form_or_costume": null,
+    "our_id": "496",
+    "how": "evolved — Pokémon Day 2025"
+   },
+   {
+    "name": "Serperior",
+    "form_or_costume": null,
+    "our_id": "497",
+    "how": "evolved — Pokémon Day 2025"
+   },
+   {
+    "name": "Pignite",
+    "form_or_costume": null,
+    "our_id": "499",
+    "how": "evolved — Pokémon Day 2025"
+   },
+   {
+    "name": "Emboar",
+    "form_or_costume": null,
+    "our_id": "500",
+    "how": "evolved — Pokémon Day 2025"
+   },
+   {
+    "name": "Dewott",
+    "form_or_costume": null,
+    "our_id": "502",
+    "how": "evolved — Pokémon Day 2025"
+   },
+   {
+    "name": "Samurott",
+    "form_or_costume": null,
+    "our_id": "503",
+    "how": "evolved — Pokémon Day 2025"
+   },
+   {
+    "name": "Kyurem",
+    "form_or_costume": "Black",
+    "our_id": "646-black",
+    "how": "evolved — Pokemon GO Tour: Unova - Global; Road to Kalos"
+   },
+   {
+    "name": "Kyurem",
+    "form_or_costume": "White",
+    "our_id": "646-white",
+    "how": "evolved — Pokemon GO Tour: Unova - Global; Road to Kalos"
+   }
+  ],
+  "shadow_dynamax_gmax": [],
+  "sources": [
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-go-tour-2025-white"
+  ],
+  "notes": "All caught ones match; missing evolutions of the Pokémon Day starters and Black/White Kyurem by fusing."
+ },
+ "sb-season17-dueldestiny": {
+  "dittobase": "sb-season-17-duel-destiny",
+  "dittobase_events": [
+   "January 2025 Community Day: Sprigatito (2025-01-05 to 2025-01-05)",
+   "January 2025 Community Day Classic: Ralts (2025-01-25 to 2025-01-25)",
+   "February 2025 Community Day: Karrablast and Shelmet (2025-02-09 to 2025-02-09)"
+  ],
+  "missing": [],
+  "extra": [],
+  "evolved_only": [
+   {
+    "name": "Floragato",
+    "form_or_costume": null,
+    "our_id": "907",
+    "how": "evolved — January 2025 Community Day: Sprigatito"
+   },
+   {
+    "name": "Meowscarada",
+    "form_or_costume": null,
+    "our_id": "908",
+    "how": "evolved — January 2025 Community Day: Sprigatito"
+   },
+   {
+    "name": "Kirlia",
+    "form_or_costume": null,
+    "our_id": "281",
+    "how": "evolved — January 2025 Community Day Classic: Ralts"
+   },
+   {
+    "name": "Gardevoir",
+    "form_or_costume": null,
+    "our_id": "282",
+    "how": "evolved — January 2025 Community Day Classic: Ralts"
+   },
+   {
+    "name": "Gallade",
+    "form_or_costume": null,
+    "our_id": "475",
+    "how": "evolved — January 2025 Community Day Classic: Ralts"
+   },
+   {
+    "name": "Escavalier",
+    "form_or_costume": null,
+    "our_id": "589",
+    "how": "evolved — February 2025 Community Day: Karrablast and Shelmet"
+   },
+   {
+    "name": "Accelgor",
+    "form_or_costume": null,
+    "our_id": "617",
+    "how": "evolved — February 2025 Community Day: Karrablast and Shelmet"
+   }
+  ],
+  "shadow_dynamax_gmax": [],
+  "sources": [
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-season-17-duel-destiny"
+  ],
+  "notes": "All caught ones match; missing only evolutions."
+ },
+ "sb-2024-decembercdrecap": {
+  "dittobase": "sb-2024-december-cd-recap",
+  "dittobase_events": [
+   "December Community Day 2024 (2024-12-21 to 2024-12-22)"
+  ],
+  "missing": [
+   {
+    "name": "Ponyta",
+    "form_or_costume": "Galarian",
+    "our_id": "77-galarian",
+    "how": "caught"
+   }
+  ],
+  "extra": [],
+  "evolved_only": [
+   {
+    "name": "Primeape",
+    "form_or_costume": null,
+    "our_id": "57",
+    "how": "evolved"
+   },
+   {
+    "name": "Annihilape",
+    "form_or_costume": null,
+    "our_id": "979",
+    "how": "evolved"
+   },
+   {
+    "name": "Weepinbell",
+    "form_or_costume": null,
+    "our_id": "70",
+    "how": "evolved"
+   },
+   {
+    "name": "Victreebel",
+    "form_or_costume": null,
+    "our_id": "71",
+    "how": "evolved"
+   },
+   {
+    "name": "Rapidash",
+    "form_or_costume": null,
+    "our_id": "78",
+    "how": "evolved"
+   },
+   {
+    "name": "Rapidash",
+    "form_or_costume": "Galarian",
+    "our_id": "78-galarian",
+    "how": "evolved"
+   },
+   {
+    "name": "Blissey",
+    "form_or_costume": null,
+    "our_id": "242",
+    "how": "evolved"
+   },
+   {
+    "name": "Porygon2",
+    "form_or_costume": null,
+    "our_id": "233",
+    "how": "evolved"
+   },
+   {
+    "name": "Porygon-Z",
+    "form_or_costume": null,
+    "our_id": "474",
+    "how": "evolved"
+   },
+   {
+    "name": "Quilava",
+    "form_or_costume": null,
+    "our_id": "156",
+    "how": "evolved"
+   },
+   {
+    "name": "Typhlosion",
+    "form_or_costume": null,
+    "our_id": "157",
+    "how": "evolved"
+   },
+   {
+    "name": "Shelgon",
+    "form_or_costume": null,
+    "our_id": "372",
+    "how": "evolved"
+   },
+   {
+    "name": "Salamence",
+    "form_or_costume": null,
+    "our_id": "373",
+    "how": "evolved"
+   },
+   {
+    "name": "Metang",
+    "form_or_costume": null,
+    "our_id": "375",
+    "how": "evolved"
+   },
+   {
+    "name": "Metagross",
+    "form_or_costume": null,
+    "our_id": "376",
+    "how": "evolved"
+   },
+   {
+    "name": "Swadloon",
+    "form_or_costume": null,
+    "our_id": "541",
+    "how": "evolved"
+   },
+   {
+    "name": "Leavanny",
+    "form_or_costume": null,
+    "our_id": "542",
+    "how": "evolved"
+   },
+   {
+    "name": "Eelektrik",
+    "form_or_costume": null,
+    "our_id": "603",
+    "how": "evolved"
+   },
+   {
+    "name": "Eelektross",
+    "form_or_costume": null,
+    "our_id": "604",
+    "how": "evolved"
+   },
+   {
+    "name": "Sliggoo",
+    "form_or_costume": null,
+    "our_id": "705",
+    "how": "evolved"
+   },
+   {
+    "name": "Goodra",
+    "form_or_costume": null,
+    "our_id": "706",
+    "how": "evolved"
+   },
+   {
+    "name": "Dartrix",
+    "form_or_costume": null,
+    "our_id": "723",
+    "how": "evolved"
+   },
+   {
+    "name": "Decidueye",
+    "form_or_costume": null,
+    "our_id": "724",
+    "how": "evolved"
+   },
+   {
+    "name": "Torracat",
+    "form_or_costume": null,
+    "our_id": "726",
+    "how": "evolved"
+   },
+   {
+    "name": "Incineroar",
+    "form_or_costume": null,
+    "our_id": "727",
+    "how": "evolved"
+   },
+   {
+    "name": "Brionne",
+    "form_or_costume": null,
+    "our_id": "729",
+    "how": "evolved"
+   },
+   {
+    "name": "Primarina",
+    "form_or_costume": null,
+    "our_id": "730",
+    "how": "evolved"
+   },
+   {
+    "name": "Steenee",
+    "form_or_costume": null,
+    "our_id": "762",
+    "how": "evolved"
+   },
+   {
+    "name": "Tsareena",
+    "form_or_costume": null,
+    "our_id": "763",
+    "how": "evolved"
+   }
+  ],
+  "shadow_dynamax_gmax": [],
+  "sources": [
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-2024-december-cd-recap",
+   "https://leekduck.com/events/december-communityday2024/"
+  ],
+  "notes": "Missing Galarian Ponyta (caught; Leek Duck and Serebii back it) and evolutions."
+ },
+ "sb-gowa-fukuoka": {
+  "dittobase": "sb-gowildarea-2024-global",
+  "dittobase_events": [
+   "Pokémon GO Wild Area 2024: Global (2024-11-23 to 2024-11-24)"
+  ],
+  "missing": [
+   {
+    "name": "Dialga",
+    "form_or_costume": "Origin",
+    "our_id": "483-origin",
+    "how": "caught"
+   },
+   {
+    "name": "Palkia",
+    "form_or_costume": "Origin",
+    "our_id": "484-origin",
+    "how": "caught"
+   },
+   {
+    "name": "Toxtricity",
+    "form_or_costume": "Low Key",
+    "our_id": "849-low-key",
+    "how": "caught"
+   }
+  ],
+  "extra": [
+   {
+    "name": "Dialga",
+    "form_or_costume": null,
+    "our_id": "483",
+    "support": "Should be Origin Forme Dialga (483-origin): Dittobase and Leek Duck."
+   },
+   {
+    "name": "Palkia",
+    "form_or_costume": null,
+    "our_id": "484",
+    "support": "Should be Origin Forme Palkia (484-origin): Dittobase and Leek Duck."
+   }
+  ],
+  "evolved_only": [],
+  "shadow_dynamax_gmax": [
+   "Toxtricity (Amped): plain, gmax"
+  ],
+  "sources": [
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-gowildarea-2024-global",
+   "https://leekduck.com/events/pokemon-go-wild-area-2024-global/"
+  ],
+  "notes": "Dialga and Palkia were Origin Forme (Leek Duck and Dittobase); Toxtricity in both forms (Amped also Gigantamax on Dittobase)."
+ },
+ "sb-teamleader-red": {
+  "dittobase": "sb-team-leader-red",
+  "dittobase_events": [
+   "Triumph Together (2024-07-23 to 2024-07-30)",
+   "Road to Kalos (2026-02-23 to 2026-02-23)",
+   "Candela’s Quest for Victory (2026-06-09 to 2026-06-15)",
+   "Ultra Unlock: 10th Anniversary Edition (2026-07-21 to 2026-07-28)"
+  ],
+  "missing": [
+   {
+    "name": "Bulbasaur",
+    "form_or_costume": null,
+    "our_id": "1",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Charmander",
+    "form_or_costume": null,
+    "our_id": "4",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Squirtle",
+    "form_or_costume": null,
+    "our_id": "7",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Chikorita",
+    "form_or_costume": null,
+    "our_id": "152",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Cyndaquil",
+    "form_or_costume": null,
+    "our_id": "155",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Totodile",
+    "form_or_costume": null,
+    "our_id": "158",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Treecko",
+    "form_or_costume": null,
+    "our_id": "252",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Torchic",
+    "form_or_costume": null,
+    "our_id": "255",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Mudkip",
+    "form_or_costume": null,
+    "our_id": "258",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Turtwig",
+    "form_or_costume": null,
+    "our_id": "387",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Chimchar",
+    "form_or_costume": null,
+    "our_id": "390",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Piplup",
+    "form_or_costume": null,
+    "our_id": "393",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Snivy",
+    "form_or_costume": null,
+    "our_id": "495",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Tepig",
+    "form_or_costume": null,
+    "our_id": "498",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Oshawott",
+    "form_or_costume": null,
+    "our_id": "501",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Chespin",
+    "form_or_costume": null,
+    "our_id": "650",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Fennekin",
+    "form_or_costume": null,
+    "our_id": "653",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Froakie",
+    "form_or_costume": null,
+    "our_id": "656",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Rowlet",
+    "form_or_costume": null,
+    "our_id": "722",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Litten",
+    "form_or_costume": null,
+    "our_id": "725",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Popplio",
+    "form_or_costume": null,
+    "our_id": "728",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Grookey",
+    "form_or_costume": null,
+    "our_id": "810",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Scorbunny",
+    "form_or_costume": null,
+    "our_id": "813",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Sobble",
+    "form_or_costume": null,
+    "our_id": "816",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Sprigatito",
+    "form_or_costume": null,
+    "our_id": "906",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Fuecoco",
+    "form_or_costume": null,
+    "our_id": "909",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Quaxly",
+    "form_or_costume": null,
+    "our_id": "912",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Grimer",
+    "form_or_costume": "Party Hat",
+    "our_id": "88-anniversary-2024",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Raticate",
+    "form_or_costume": "Party Hat",
+    "our_id": "20-jan-2020-noevolve",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Nidorino",
+    "form_or_costume": "Party Hat",
+    "our_id": "33-jan-2020-noevolve",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Gengar",
+    "form_or_costume": "Party Hat",
+    "our_id": "94-jan-2020-noevolve",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Wobbuffet",
+    "form_or_costume": "(♂) Party Hat",
+    "our_id": "202-jan-2020-noevolve",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Bulbasaur",
+    "form_or_costume": "Party Hat",
+    "our_id": "1-jan-2020-noevolve",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Charmander",
+    "form_or_costume": "Party Hat",
+    "our_id": "4-jan-2020-noevolve",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Squirtle",
+    "form_or_costume": "Party Hat",
+    "our_id": "7-jan-2020-noevolve",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Pikachu",
+    "form_or_costume": "Professor Willow’s assistant",
+    "our_id": "25-anniversary-2026",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   }
+  ],
+  "extra": [],
+  "evolved_only": [
+   {
+    "name": "Ivysaur",
+    "form_or_costume": null,
+    "our_id": "2",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Venusaur",
+    "form_or_costume": null,
+    "our_id": "3",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Charmeleon",
+    "form_or_costume": null,
+    "our_id": "5",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Charizard",
+    "form_or_costume": null,
+    "our_id": "6",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Wartortle",
+    "form_or_costume": null,
+    "our_id": "8",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Blastoise",
+    "form_or_costume": null,
+    "our_id": "9",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Bayleef",
+    "form_or_costume": null,
+    "our_id": "153",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Meganium",
+    "form_or_costume": null,
+    "our_id": "154",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Quilava",
+    "form_or_costume": null,
+    "our_id": "156",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Typhlosion",
+    "form_or_costume": null,
+    "our_id": "157",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Croconaw",
+    "form_or_costume": null,
+    "our_id": "159",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Feraligatr",
+    "form_or_costume": null,
+    "our_id": "160",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Grovyle",
+    "form_or_costume": null,
+    "our_id": "253",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Sceptile",
+    "form_or_costume": null,
+    "our_id": "254",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Combusken",
+    "form_or_costume": null,
+    "our_id": "256",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Blaziken",
+    "form_or_costume": null,
+    "our_id": "257",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Marshtomp",
+    "form_or_costume": null,
+    "our_id": "259",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Swampert",
+    "form_or_costume": null,
+    "our_id": "260",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Grotle",
+    "form_or_costume": null,
+    "our_id": "388",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Torterra",
+    "form_or_costume": null,
+    "our_id": "389",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Monferno",
+    "form_or_costume": null,
+    "our_id": "391",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Infernape",
+    "form_or_costume": null,
+    "our_id": "392",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Prinplup",
+    "form_or_costume": null,
+    "our_id": "394",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Empoleon",
+    "form_or_costume": null,
+    "our_id": "395",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Servine",
+    "form_or_costume": null,
+    "our_id": "496",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Serperior",
+    "form_or_costume": null,
+    "our_id": "497",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Pignite",
+    "form_or_costume": null,
+    "our_id": "499",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Emboar",
+    "form_or_costume": null,
+    "our_id": "500",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Dewott",
+    "form_or_costume": null,
+    "our_id": "502",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Samurott",
+    "form_or_costume": null,
+    "our_id": "503",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Quilladin",
+    "form_or_costume": null,
+    "our_id": "651",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Chesnaught",
+    "form_or_costume": null,
+    "our_id": "652",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Braixen",
+    "form_or_costume": null,
+    "our_id": "654",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Delphox",
+    "form_or_costume": null,
+    "our_id": "655",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Frogadier",
+    "form_or_costume": null,
+    "our_id": "657",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Greninja",
+    "form_or_costume": null,
+    "our_id": "658",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Dartrix",
+    "form_or_costume": null,
+    "our_id": "723",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Decidueye",
+    "form_or_costume": null,
+    "our_id": "724",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Torracat",
+    "form_or_costume": null,
+    "our_id": "726",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Incineroar",
+    "form_or_costume": null,
+    "our_id": "727",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Brionne",
+    "form_or_costume": null,
+    "our_id": "729",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Primarina",
+    "form_or_costume": null,
+    "our_id": "730",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Thwackey",
+    "form_or_costume": null,
+    "our_id": "811",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Rillaboom",
+    "form_or_costume": null,
+    "our_id": "812",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Raboot",
+    "form_or_costume": null,
+    "our_id": "814",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Cinderace",
+    "form_or_costume": null,
+    "our_id": "815",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Drizzile",
+    "form_or_costume": null,
+    "our_id": "817",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Inteleon",
+    "form_or_costume": null,
+    "our_id": "818",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Floragato",
+    "form_or_costume": null,
+    "our_id": "907",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Meowscarada",
+    "form_or_costume": null,
+    "our_id": "908",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Crocalor",
+    "form_or_costume": null,
+    "our_id": "910",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Skeledirge",
+    "form_or_costume": null,
+    "our_id": "911",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Quaxwell",
+    "form_or_costume": null,
+    "our_id": "913",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Quaquaval",
+    "form_or_costume": null,
+    "our_id": "914",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Muk",
+    "form_or_costume": "Party Hat",
+    "our_id": "89-anniversary-2024",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Ivysaur",
+    "form_or_costume": "Party Hat",
+    "our_id": "2-jan-2020-noevolve",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Venusaur",
+    "form_or_costume": "Party Hat",
+    "our_id": "3-jan-2020-noevolve",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Charmeleon",
+    "form_or_costume": "Party Hat",
+    "our_id": "5-jan-2020-noevolve",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Charizard",
+    "form_or_costume": "Party Hat",
+    "our_id": "6-jan-2020-noevolve",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Wartortle",
+    "form_or_costume": "Party Hat",
+    "our_id": "8-jan-2020-noevolve",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Blastoise",
+    "form_or_costume": "Party Hat",
+    "our_id": "9-jan-2020-noevolve",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   }
+  ],
+  "shadow_dynamax_gmax": [],
+  "sources": [
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-team-leader-red"
+  ],
+  "notes": "Dittobase lists Triumph Together and Candela’s Quest (Candela Ponyta, Rapidash by evolving), Road to Kalos (Red’s and Leaf’s Hat Pikachu, Moltres) and Ultra Unlock: 10th Anniversary Edition (21–28 Jul 2026: 27 starters, party-hat Pokémon, Willow’s assistant Pikachu, plus evolutions) under all three leaders. Team-based rewards follow her team (Instinct), so the Ultra Unlock items are listed for completeness only, not suggested."
+ },
+ "sb-teamleader-blue": {
+  "dittobase": "sb-team-leader-blue",
+  "dittobase_events": [
+   "Triumph Together (2024-07-23 to 2024-07-30)",
+   "Road to Kalos (2026-02-23 to 2026-02-23)",
+   "Blanche's Quest for Knowledge (2026-05-26 to 2026-06-01)",
+   "Ultra Unlock: 10th Anniversary Edition (2026-07-21 to 2026-07-28)"
+  ],
+  "missing": [
+   {
+    "name": "Bulbasaur",
+    "form_or_costume": null,
+    "our_id": "1",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Bulbasaur",
+    "form_or_costume": "Party Hat",
+    "our_id": "1-jan-2020-noevolve",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Charmander",
+    "form_or_costume": null,
+    "our_id": "4",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Charmander",
+    "form_or_costume": "Party Hat",
+    "our_id": "4-jan-2020-noevolve",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Squirtle",
+    "form_or_costume": null,
+    "our_id": "7",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Squirtle",
+    "form_or_costume": "Party Hat",
+    "our_id": "7-jan-2020-noevolve",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Raticate",
+    "form_or_costume": "Party Hat",
+    "our_id": "20-jan-2020-noevolve",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Pikachu",
+    "form_or_costume": "Professor Willow’s assistant",
+    "our_id": "25-anniversary-2026",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Nidorino",
+    "form_or_costume": "Party Hat",
+    "our_id": "33-jan-2020-noevolve",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Grimer",
+    "form_or_costume": "Party Hat",
+    "our_id": "88-anniversary-2024",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Gengar",
+    "form_or_costume": "Party Hat",
+    "our_id": "94-jan-2020-noevolve",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Chikorita",
+    "form_or_costume": null,
+    "our_id": "152",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Cyndaquil",
+    "form_or_costume": null,
+    "our_id": "155",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Totodile",
+    "form_or_costume": null,
+    "our_id": "158",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Wobbuffet",
+    "form_or_costume": "(♂) Party Hat",
+    "our_id": "202-jan-2020-noevolve",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Treecko",
+    "form_or_costume": null,
+    "our_id": "252",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Torchic",
+    "form_or_costume": null,
+    "our_id": "255",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Mudkip",
+    "form_or_costume": null,
+    "our_id": "258",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Turtwig",
+    "form_or_costume": null,
+    "our_id": "387",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Chimchar",
+    "form_or_costume": null,
+    "our_id": "390",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Piplup",
+    "form_or_costume": null,
+    "our_id": "393",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Snivy",
+    "form_or_costume": null,
+    "our_id": "495",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Tepig",
+    "form_or_costume": null,
+    "our_id": "498",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Oshawott",
+    "form_or_costume": null,
+    "our_id": "501",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Chespin",
+    "form_or_costume": null,
+    "our_id": "650",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Fennekin",
+    "form_or_costume": null,
+    "our_id": "653",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Froakie",
+    "form_or_costume": null,
+    "our_id": "656",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Rowlet",
+    "form_or_costume": null,
+    "our_id": "722",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Litten",
+    "form_or_costume": null,
+    "our_id": "725",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Popplio",
+    "form_or_costume": null,
+    "our_id": "728",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Grookey",
+    "form_or_costume": null,
+    "our_id": "810",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Scorbunny",
+    "form_or_costume": null,
+    "our_id": "813",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Sobble",
+    "form_or_costume": null,
+    "our_id": "816",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Sprigatito",
+    "form_or_costume": null,
+    "our_id": "906",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Fuecoco",
+    "form_or_costume": null,
+    "our_id": "909",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Quaxly",
+    "form_or_costume": null,
+    "our_id": "912",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   }
+  ],
+  "extra": [],
+  "evolved_only": [
+   {
+    "name": "Ivysaur",
+    "form_or_costume": null,
+    "our_id": "2",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Ivysaur",
+    "form_or_costume": "Party Hat",
+    "our_id": "2-jan-2020-noevolve",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Venusaur",
+    "form_or_costume": null,
+    "our_id": "3",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Venusaur",
+    "form_or_costume": "Party Hat",
+    "our_id": "3-jan-2020-noevolve",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Charmeleon",
+    "form_or_costume": null,
+    "our_id": "5",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Charmeleon",
+    "form_or_costume": "Party Hat",
+    "our_id": "5-jan-2020-noevolve",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Charizard",
+    "form_or_costume": null,
+    "our_id": "6",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Charizard",
+    "form_or_costume": "Party Hat",
+    "our_id": "6-jan-2020-noevolve",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Wartortle",
+    "form_or_costume": null,
+    "our_id": "8",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Wartortle",
+    "form_or_costume": "Party Hat",
+    "our_id": "8-jan-2020-noevolve",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Blastoise",
+    "form_or_costume": null,
+    "our_id": "9",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Blastoise",
+    "form_or_costume": "Party Hat",
+    "our_id": "9-jan-2020-noevolve",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Muk",
+    "form_or_costume": "Party Hat",
+    "our_id": "89-anniversary-2024",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Bayleef",
+    "form_or_costume": null,
+    "our_id": "153",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Meganium",
+    "form_or_costume": null,
+    "our_id": "154",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Quilava",
+    "form_or_costume": null,
+    "our_id": "156",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Typhlosion",
+    "form_or_costume": null,
+    "our_id": "157",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Croconaw",
+    "form_or_costume": null,
+    "our_id": "159",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Feraligatr",
+    "form_or_costume": null,
+    "our_id": "160",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Grovyle",
+    "form_or_costume": null,
+    "our_id": "253",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Sceptile",
+    "form_or_costume": null,
+    "our_id": "254",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Combusken",
+    "form_or_costume": null,
+    "our_id": "256",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Blaziken",
+    "form_or_costume": null,
+    "our_id": "257",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Marshtomp",
+    "form_or_costume": null,
+    "our_id": "259",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Swampert",
+    "form_or_costume": null,
+    "our_id": "260",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Grotle",
+    "form_or_costume": null,
+    "our_id": "388",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Torterra",
+    "form_or_costume": null,
+    "our_id": "389",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Monferno",
+    "form_or_costume": null,
+    "our_id": "391",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Infernape",
+    "form_or_costume": null,
+    "our_id": "392",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Prinplup",
+    "form_or_costume": null,
+    "our_id": "394",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Empoleon",
+    "form_or_costume": null,
+    "our_id": "395",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Servine",
+    "form_or_costume": null,
+    "our_id": "496",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Serperior",
+    "form_or_costume": null,
+    "our_id": "497",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Pignite",
+    "form_or_costume": null,
+    "our_id": "499",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Emboar",
+    "form_or_costume": null,
+    "our_id": "500",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Dewott",
+    "form_or_costume": null,
+    "our_id": "502",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Samurott",
+    "form_or_costume": null,
+    "our_id": "503",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Quilladin",
+    "form_or_costume": null,
+    "our_id": "651",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Chesnaught",
+    "form_or_costume": null,
+    "our_id": "652",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Braixen",
+    "form_or_costume": null,
+    "our_id": "654",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Delphox",
+    "form_or_costume": null,
+    "our_id": "655",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Frogadier",
+    "form_or_costume": null,
+    "our_id": "657",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Greninja",
+    "form_or_costume": null,
+    "our_id": "658",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Dartrix",
+    "form_or_costume": null,
+    "our_id": "723",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Decidueye",
+    "form_or_costume": null,
+    "our_id": "724",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Torracat",
+    "form_or_costume": null,
+    "our_id": "726",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Incineroar",
+    "form_or_costume": null,
+    "our_id": "727",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Brionne",
+    "form_or_costume": null,
+    "our_id": "729",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Primarina",
+    "form_or_costume": null,
+    "our_id": "730",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Thwackey",
+    "form_or_costume": null,
+    "our_id": "811",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Rillaboom",
+    "form_or_costume": null,
+    "our_id": "812",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Raboot",
+    "form_or_costume": null,
+    "our_id": "814",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Cinderace",
+    "form_or_costume": null,
+    "our_id": "815",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Drizzile",
+    "form_or_costume": null,
+    "our_id": "817",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Inteleon",
+    "form_or_costume": null,
+    "our_id": "818",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Floragato",
+    "form_or_costume": null,
+    "our_id": "907",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Meowscarada",
+    "form_or_costume": null,
+    "our_id": "908",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Crocalor",
+    "form_or_costume": null,
+    "our_id": "910",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Skeledirge",
+    "form_or_costume": null,
+    "our_id": "911",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Quaxwell",
+    "form_or_costume": null,
+    "our_id": "913",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   },
+   {
+    "name": "Quaquaval",
+    "form_or_costume": null,
+    "our_id": "914",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition",
+    "note": "Ultra Unlock 10th Anniversary (team-based); not suggested for a leader other than Spark"
+   }
+  ],
+  "shadow_dynamax_gmax": [],
+  "sources": [
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-team-leader-blue"
+  ],
+  "notes": "As Red: Lapras (Blanche accessory), Road to Kalos Pikachu and Articuno match; Ultra Unlock items not suggested (team-based)."
+ },
+ "sb-teamleader-yellow": {
+  "dittobase": "sb-team-leader-yellow",
+  "dittobase_events": [
+   "Triumph Together (2024-07-23 to 2024-07-30)",
+   "Road to Kalos (2026-02-23 to 2026-02-23)",
+   "Spark’s Caretaking Quest (2026-06-02 to 2026-06-08)",
+   "Ultra Unlock: 10th Anniversary Edition (2026-07-21 to 2026-07-28)"
+  ],
+  "missing": [
+   {
+    "name": "Bulbasaur",
+    "form_or_costume": "Party Hat",
+    "our_id": "1-jan-2020-noevolve",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Charmander",
+    "form_or_costume": "Party Hat",
+    "our_id": "4-jan-2020-noevolve",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Squirtle",
+    "form_or_costume": "Party Hat",
+    "our_id": "7-jan-2020-noevolve",
+    "how": "caught — Ultra Unlock: 10th Anniversary Edition"
+   }
+  ],
+  "extra": [],
+  "evolved_only": [
+   {
+    "name": "Electabuzz",
+    "form_or_costume": "Spark accessory",
+    "our_id": "125-spring-2023-instinct",
+    "how": "evolved — Spark’s Caretaking Quest; Triumph Together"
+   },
+   {
+    "name": "Electivire",
+    "form_or_costume": "Spark accessory",
+    "our_id": "466-spring-2023-instinct",
+    "how": "evolved — Spark’s Caretaking Quest; Triumph Together"
+   },
+   {
+    "name": "Ivysaur",
+    "form_or_costume": null,
+    "our_id": "2",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Ivysaur",
+    "form_or_costume": "Party Hat",
+    "our_id": "2-jan-2020-noevolve",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Venusaur",
+    "form_or_costume": null,
+    "our_id": "3",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Venusaur",
+    "form_or_costume": "Party Hat",
+    "our_id": "3-jan-2020-noevolve",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Charmeleon",
+    "form_or_costume": null,
+    "our_id": "5",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Charmeleon",
+    "form_or_costume": "Party Hat",
+    "our_id": "5-jan-2020-noevolve",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Charizard",
+    "form_or_costume": null,
+    "our_id": "6",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Charizard",
+    "form_or_costume": "Party Hat",
+    "our_id": "6-jan-2020-noevolve",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Wartortle",
+    "form_or_costume": null,
+    "our_id": "8",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Wartortle",
+    "form_or_costume": "Party Hat",
+    "our_id": "8-jan-2020-noevolve",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Blastoise",
+    "form_or_costume": null,
+    "our_id": "9",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Blastoise",
+    "form_or_costume": "Party Hat",
+    "our_id": "9-jan-2020-noevolve",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Muk",
+    "form_or_costume": "Party Hat",
+    "our_id": "89-anniversary-2024",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Bayleef",
+    "form_or_costume": null,
+    "our_id": "153",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Meganium",
+    "form_or_costume": null,
+    "our_id": "154",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Quilava",
+    "form_or_costume": null,
+    "our_id": "156",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Typhlosion",
+    "form_or_costume": null,
+    "our_id": "157",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Croconaw",
+    "form_or_costume": null,
+    "our_id": "159",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Feraligatr",
+    "form_or_costume": null,
+    "our_id": "160",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Grovyle",
+    "form_or_costume": null,
+    "our_id": "253",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Sceptile",
+    "form_or_costume": null,
+    "our_id": "254",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Combusken",
+    "form_or_costume": null,
+    "our_id": "256",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Blaziken",
+    "form_or_costume": null,
+    "our_id": "257",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Marshtomp",
+    "form_or_costume": null,
+    "our_id": "259",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Swampert",
+    "form_or_costume": null,
+    "our_id": "260",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Grotle",
+    "form_or_costume": null,
+    "our_id": "388",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Torterra",
+    "form_or_costume": null,
+    "our_id": "389",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Monferno",
+    "form_or_costume": null,
+    "our_id": "391",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Infernape",
+    "form_or_costume": null,
+    "our_id": "392",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Prinplup",
+    "form_or_costume": null,
+    "our_id": "394",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Empoleon",
+    "form_or_costume": null,
+    "our_id": "395",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Servine",
+    "form_or_costume": null,
+    "our_id": "496",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Serperior",
+    "form_or_costume": null,
+    "our_id": "497",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Pignite",
+    "form_or_costume": null,
+    "our_id": "499",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Emboar",
+    "form_or_costume": null,
+    "our_id": "500",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Dewott",
+    "form_or_costume": null,
+    "our_id": "502",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Samurott",
+    "form_or_costume": null,
+    "our_id": "503",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Quilladin",
+    "form_or_costume": null,
+    "our_id": "651",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Chesnaught",
+    "form_or_costume": null,
+    "our_id": "652",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Braixen",
+    "form_or_costume": null,
+    "our_id": "654",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Delphox",
+    "form_or_costume": null,
+    "our_id": "655",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Frogadier",
+    "form_or_costume": null,
+    "our_id": "657",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Greninja",
+    "form_or_costume": null,
+    "our_id": "658",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Dartrix",
+    "form_or_costume": null,
+    "our_id": "723",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Decidueye",
+    "form_or_costume": null,
+    "our_id": "724",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Torracat",
+    "form_or_costume": null,
+    "our_id": "726",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Incineroar",
+    "form_or_costume": null,
+    "our_id": "727",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Brionne",
+    "form_or_costume": null,
+    "our_id": "729",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Primarina",
+    "form_or_costume": null,
+    "our_id": "730",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Thwackey",
+    "form_or_costume": null,
+    "our_id": "811",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Rillaboom",
+    "form_or_costume": null,
+    "our_id": "812",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Raboot",
+    "form_or_costume": null,
+    "our_id": "814",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Cinderace",
+    "form_or_costume": null,
+    "our_id": "815",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Drizzile",
+    "form_or_costume": null,
+    "our_id": "817",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Inteleon",
+    "form_or_costume": null,
+    "our_id": "818",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Floragato",
+    "form_or_costume": null,
+    "our_id": "907",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Meowscarada",
+    "form_or_costume": null,
+    "our_id": "908",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Crocalor",
+    "form_or_costume": null,
+    "our_id": "910",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Skeledirge",
+    "form_or_costume": null,
+    "our_id": "911",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Quaxwell",
+    "form_or_costume": null,
+    "our_id": "913",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   },
+   {
+    "name": "Quaquaval",
+    "form_or_costume": null,
+    "our_id": "914",
+    "how": "evolved — Ultra Unlock: 10th Anniversary Edition"
+   }
+  ],
+  "shadow_dynamax_gmax": [],
+  "sources": [
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-team-leader-yellow"
+  ],
+  "notes": "Missing (caught): party-hat Bulbasaur, Charmander, Squirtle from Ultra Unlock. Evolved: Electabuzz and Electivire (Spark accessory), Muk (party hat), starters’ evolutions, party-hat evolutions."
+ },
+ "sb-gofest2024-radiance": {
+  "dittobase": "sb-go-fest-2024-radiance",
+  "dittobase_events": [
+   "Pokémon GO Fest 2024: Global (2024-07-13 to 2024-07-14)"
+  ],
+  "missing": [],
+  "extra": [],
+  "evolved_only": [],
+  "shadow_dynamax_gmax": [],
+  "sources": [
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-go-fest-2024-radiance"
+  ],
+  "notes": "Matches (Solgaleo)."
+ },
+ "sb-gofest2024-wormhole-sun": {
+  "dittobase": "sb-go-fest-2024-wormhole-sun",
+  "dittobase_events": [
+   "Pokémon GO Fest 2024: Global (2024-07-13 to 2024-07-14)"
+  ],
+  "missing": [
+   {
+    "name": "Necrozma",
+    "form_or_costume": "Dusk Mane",
+    "our_id": "800-dusk-mane",
+    "how": "caught"
+   }
+  ],
+  "extra": [
+   {
+    "name": "Necrozma",
+    "form_or_costume": null,
+    "our_id": "800",
+    "support": "Should be Dusk Mane Necrozma (800-dusk-mane): Dittobase; our own note already says Dusk Mane."
+   }
+  ],
+  "evolved_only": [],
+  "shadow_dynamax_gmax": [],
+  "sources": [
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-go-fest-2024-wormhole-sun"
+  ],
+  "notes": "The Pokémon is Dusk Mane Necrozma."
+ },
+ "sb-gofest2024-wormhole": {
+  "dittobase": "sb-go-fest-2024-wormhole",
+  "dittobase_events": [
+   "Inbound from Ultra Space (2024-07-08 to 2024-07-13)",
+   "Pokémon GO Fest 2024: Global (2024-07-13 to 2024-07-14)"
+  ],
+  "missing": [],
+  "extra": [],
+  "evolved_only": [
+   {
+    "name": "Necrozma",
+    "form_or_costume": "Dawn Wings",
+    "our_id": "800-dawn-wings",
+    "how": "evolved — Pokémon GO Fest 2024: Global",
+    "note": "Fusion; Dittobase only, doubtful"
+   },
+   {
+    "name": "Necrozma",
+    "form_or_costume": "Dusk Mane",
+    "our_id": "800-dusk-mane",
+    "how": "evolved — Pokémon GO Fest 2024: Global",
+    "note": "Fusion; Dittobase only, doubtful"
+   }
+  ],
+  "shadow_dynamax_gmax": [],
+  "sources": [
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-go-fest-2024-wormhole",
+   "https://leekduck.com/events/pokemon-go-fest-2024-global-sunday"
+  ],
+  "notes": "All caught ones match. Dittobase also lists Dawn Wings and Dusk Mane by fusing, but Leek Duck says a fused Necrozma with this background gets its own variant (Wormhole Sun/Moon), so these are doubtful."
+ }
+}
