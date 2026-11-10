@@ -348,7 +348,10 @@ main{margin-left:var(--side);min-height:100vh;container-type:inline-size}
 .formsbtn:hover{border-color:var(--muted)}
 /* a Pokémon's page */
 .card .nm{color:inherit;text-decoration:none;font-weight:700;font-size:14.5px;margin-top:10px;line-height:1.25}
-.card a.nm:hover{text-decoration:underline;text-underline-offset:3px}
+/* the name opens the Pokémon's page: shown as a link (10 Nov: she couldn't tell, so clicks ticked Caught instead) */
+.card a.nm{display:inline-flex;align-items:center;gap:1px;color:var(--deep-2);text-decoration:underline;text-decoration-thickness:1px;text-decoration-color:color-mix(in srgb,var(--deep-2) 40%,transparent);text-underline-offset:3px;border-radius:6px;padding:1px 2px 1px 6px}
+.card a.nm .i{width:15px;height:15px;flex:none}
+.card a.nm:hover{text-decoration-color:currentColor;background:color-mix(in srgb,var(--deep-2) 8%,transparent)}
 a.formsbtn{text-decoration:none}
 .hero.mon{padding-top:26px;padding-bottom:30px}
 .montop{display:flex;align-items:center;gap:12px;position:relative;z-index:1}
@@ -472,13 +475,13 @@ a.formsbtn{text-decoration:none}
 
 /* Region colours: each region's own colour in the banner with its starters in it; a dark sidebar that takes the region's colour for the page you're on */
 :root{--rc:#7E2530}
-:root[data-look="region"] .hero{background:radial-gradient(110% 150% at 88% -20%,color-mix(in srgb,var(--rc) 78%,#fff),var(--rc) 46%,color-mix(in srgb,var(--rc) 72%,#000) 100%)}
-:root[data-look="region"] .side{background:#1E1A21}
-:root[data-look="region"] .nav a.on{background:color-mix(in srgb,var(--rc) 75%,#1E1A21);box-shadow:inset 3px 0 0 color-mix(in srgb,var(--rc) 55%,#fff)}
+:root[data-look="region"] .hero,:root[data-look="mix"] .hero{background:radial-gradient(110% 150% at 88% -20%,color-mix(in srgb,var(--rc) 78%,#fff),var(--rc) 46%,color-mix(in srgb,var(--rc) 72%,#000) 100%)}
+:root[data-look="region"] .side,:root[data-look="mix"] .side{background:#1E1A21}
+:root[data-look="region"] .nav a.on,:root[data-look="mix"] .nav a.on{background:color-mix(in srgb,var(--rc) 75%,#1E1A21);box-shadow:inset 3px 0 0 color-mix(in srgb,var(--rc) 55%,#fff)}
 :root[data-look="region"] .heroart{display:block}
 :root[data-look="region"] .heroart img{width:150px;height:150px;top:18px;right:calc(36px + (2 - var(--i)) * 128px);filter:drop-shadow(0 8px 16px rgba(0,0,0,.28))}
 :root[data-look="region"] .heroart img:nth-child(n+4){display:none}
-:root[data-look="region"] .hero::after{opacity:.6}
+:root[data-look="region"] .hero::after,:root[data-look="mix"] .hero::after{opacity:.6}
 :root[data-look="region"] .hero.mon .heroart,:root[data-look="cream"] .hero.mon .heroart{display:none}   /* the page has its own big picture */
 
 /* Cream: a light page like paper, the sidebar and banner in cream with the red as a thin edge and the titles */
@@ -503,13 +506,13 @@ a.formsbtn{text-decoration:none}
 :root[data-look="cream"] .heroart img:nth-child(n+4){display:none}
 
 /* Parade: the red kept, with the page's Pokémon walking along the bottom of the banner; a Poké Ball ring low in the sidebar */
-:root[data-look="parade"] .hero{padding-bottom:92px}
-:root[data-look="parade"] .hero.mon{padding-bottom:88px}
-:root[data-look="parade"] .heroart{display:block}
-:root[data-look="parade"] .heroart img{width:70px;height:70px;bottom:6px;left:calc(max(clamp(16px,3vw,40px),(100cqw - 100%) / 2) + var(--i) * 76px);opacity:calc(1 - var(--i) * .055)}
-:root[data-look="parade"] .heroart::after{content:"";position:absolute;left:0;right:0;bottom:0;height:22px;background:linear-gradient(transparent,rgba(0,0,0,.18))}
+:root[data-look="parade"] .hero,:root[data-look="mix"] .hero{padding-bottom:92px}
+:root[data-look="parade"] .hero.mon,:root[data-look="mix"] .hero.mon{padding-bottom:88px}
+:root[data-look="parade"] .heroart,:root[data-look="mix"] .heroart{display:block}
+:root[data-look="parade"] .heroart img,:root[data-look="mix"] .heroart img{width:70px;height:70px;bottom:6px;left:calc(max(clamp(16px,3vw,40px),(100cqw - 100%) / 2) + var(--i) * 76px);opacity:calc(1 - var(--i) * .055)}
+:root[data-look="parade"] .heroart::after,:root[data-look="mix"] .heroart::after{content:"";position:absolute;left:0;right:0;bottom:0;height:22px;background:linear-gradient(transparent,rgba(0,0,0,.18))}
 :root[data-look="parade"] .side{background:linear-gradient(180deg,var(--deep) 0%,color-mix(in srgb,var(--deep) 82%,#000) 100%);overflow:hidden}
-:root[data-look="parade"] .side::after{content:"";position:absolute;left:-90px;bottom:-90px;width:260px;height:260px;border-radius:50%;border:26px solid rgba(255,255,255,.05);
+:root[data-look="parade"] .side::after,:root[data-look="mix"] .side::after{content:"";position:absolute;left:-90px;bottom:-90px;width:260px;height:260px;border-radius:50%;border:26px solid rgba(255,255,255,.05);
   background:linear-gradient(transparent calc(50% - 13px),rgba(255,255,255,.05) calc(50% - 13px) calc(50% + 13px),transparent calc(50% + 13px));pointer-events:none}
 
 /* ---------- toast ---------- */
@@ -527,3 +530,8 @@ a.formsbtn{text-decoration:none}
 /* dark mode: the box icons on a Pokémon's page lighter, so the dark ones (Shadow, Gigantamax) still show */
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .bb:not([aria-pressed="true"]):not(:disabled) > .i{color:color-mix(in srgb,var(--bc) 55%,#fff);background:color-mix(in srgb,var(--bc) 32%,var(--surface))}}
 :root[data-theme="dark"] .bb:not([aria-pressed="true"]):not(:disabled) > .i{color:color-mix(in srgb,var(--bc) 55%,#fff);background:color-mix(in srgb,var(--bc) 32%,var(--surface))}
+
+:root[data-look="mix"] .side{overflow:hidden}
+/* dark mode: card names as links stay readable */
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .card a.nm{color:color-mix(in srgb,var(--deep-2) 35%,#fff)}}
+:root[data-theme="dark"] .card a.nm{color:color-mix(in srgb,var(--deep-2) 35%,#fff)}

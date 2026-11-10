@@ -229,18 +229,18 @@ function card(e, more = "", inForms = false){
   return `<div class="card${e.released ? "" : " out-not"}${got ? " got" : ""}${inForms ? " informs" : ""}" data-id="${attr(e.id)}"${got ? ` style="--hl:var(${HL[tab ? tab.k : "caught"]})"` : ""}>` +
     `<span class="no">#${pad(e.dex)}</span>` + (flags.length ? `<span class="flags">${flags.map(f => `<span>${esc(f)}</span>`).join("")}</span>` : "") +
     pic(e, dk(e)) +
-    `<a class="nm" href="#p-${e.dex}" title="Everything about ${attr(e.name)}">${esc(e.name)}</a><small class="fm">${esc(e.form || "")}${e.form && gw ? " · " : ""}${gw ? `<span class="gd">${esc(gw)}</span>` : ""}</small>` +
+    `<a class="nm" href="#p-${e.dex}" title="Open ${attr(e.name)}’s page">${esc(e.name)}${ic("chevron-right")}</a><small class="fm">${esc(e.form || "")}${e.form && gw ? " · " : ""}${gw ? `<span class="gd">${esc(gw)}</span>` : ""}</small>` +
     boxes(e) + more + `</div>`;
 }
 
 // ---------- trial looks for the banner and sidebar (her ask, 9 Nov: the plain red banner and sidebar aren't the
 // nicest). A switch at the bottom right flips between them; the one she picks stays and the switch goes.
-const LOOKS = [["red", "Now: red"], ["region", "Region colours"], ["cream", "Cream"], ["parade", "Parade"]];
+const LOOKS = [["mix", "Colours + parade"], ["red", "Now: red"], ["region", "Region colours"], ["cream", "Cream"], ["parade", "Parade"]];
 // each region's colour for the Region colours look (a suggestion, after its games' colours): Kanto red, Johto gold,
 // Hoenn sapphire, Sinnoh pearl-violet, Unova black, Kalos blue, Alola sunset orange, Galar purple, Hisui forest, Paldea scarlet-violet
 const REGION_COLOURS = {"1": "#A3302A", "2": "#8E6A0E", "3": "#16618A", "4": "#5B4B94", "5": "#36353D", "6": "#2B55A3",
   "7": "#B5531C", "8": "#6E2D82", "hisui": "#3C6150", "9": "#952F57"};
-if (!LOOKS.some(l => l[0] === prefs.look)) prefs.look = "red";
+if (!LOOKS.some(l => l[0] === prefs.look) || !prefs.lookMix) { prefs.look = "mix"; prefs.lookMix = true; }   // 10 Nov, her ask: region colours with the parade, shown first
 const setLook = v => { prefs.look = v; document.documentElement.dataset.look = v; };
 setLook(new URLSearchParams(location.search).get("look") || prefs.look);   // ?look=cream shows a look without keeping it (for the pictures)
 const setRegion = g => document.documentElement.style.setProperty("--rc", REGION_COLOURS[g] || "#7E2530");
@@ -459,7 +459,7 @@ function pokemonPage(n){
 function costumeCard(c){
   const on = COL.costumes.includes(c.id), key = "c:" + c.id;
   return `<div class="card${on ? "" : " not-collecting"}" data-costume="${attr(c.id)}"><span class="no">#${pad(c.dex)}</span>` +
-    pic(c, key) + `<a class="nm" href="#p-${c.dex}" title="Everything about ${attr(c.name)}">${esc(c.name)}</a><small class="fm">${esc(c.costume)}</small>` +
+    pic(c, key) + `<a class="nm" href="#p-${c.dex}" title="Open ${attr(c.name)}’s page">${esc(c.name)}${ic("chevron-right")}</a><small class="fm">${esc(c.costume)}</small>` +
     (on ? `<div class="boxgrid"><button class="tk c" type="button" data-tick="c" aria-pressed="${has(key, "c")}" title="Caught">${ic("poke-ball")}<span>Caught</span></button>` +
       `<button class="tk s" type="button" data-tick="s" aria-pressed="${has(key, "s")}" title="${c.shiny ? "Shiny" : "No shiny in GO yet"}"${!c.shiny && !has(key, "s") ? " disabled" : ""}>${ic("sparkles")}<span>Shiny</span></button></div>` : "") +
     `<button class="chip collect" type="button" data-collect aria-pressed="${on}">${on ? ic("check") + "Collecting" : "Collect this"}</button></div>`;

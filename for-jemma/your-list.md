@@ -18,6 +18,7 @@ Everything waiting on you. **Do** = just do it; **Decide** = your call. Tell Cla
   3. Cream (light)
   4. Parade (the page’s Pokémon walking along the banner)
 
+  10 Nov, her ask: a fifth, **Colours + parade** (region colours with the parade along the bottom), now shown first (`look-5-mix-*.png`).
   Pictures of each are in `for-jemma/looks/` (`looks-alola.png`, `looks-garchomp.png`, `looks-home.png`). Pick a number and the switch goes. The region colours are Claude’s suggestion, after each region’s games; say if any should change.
 - **Decide: icons for Shadow, Purified and Lucky.** See `for-jemma/icon-options-shadow-purified-lucky.png`, 12 options each from open icon sets, with no logos and nothing drawn by Claude. Pick a number for each, or say none.
 - **Worth knowing:**
