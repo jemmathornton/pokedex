@@ -82,6 +82,14 @@ SEREBII_FORMS = {(849, ''): ['849-amped'], (849, 'l'): ['849-low-key'], (849, 'g
 SEREBII_REGION = {'a': 'alolan', 'g': 'galarian', 'h': 'hisuian', 'p': 'paldean'}
 # the form the game's Pokédex shows first, where the API's own default picture isn't it (her word, 9 Nov: Unown is F)
 DEFAULT_FORM = {201: 'pm201.fUNOWN_F'}
+# pictures in the costume slots that aren't costumes (10 Nov, her questions): exact copies of the plain picture, which the game
+# keeps as placeholders (never released as costumes), and Xerneas's normal look
+NOT_COSTUMES = {'pm26.cNOVEMBER_2018', 'pm136.cHOLIDAY_2022', 'pm136.cNOVEMBER_2018', 'pm150.cONE_YEAR_ANNIVERSARY', 'pm172.cFALL_2018',
+                'pm249.cONE_YEAR_ANNIVERSARY', 'pm716.fNEUTRAL'}
+# a picture the game files keep with the costumes that is really a form in the game's Pokédex: Armored Mewtwo (her call, 10 Nov)
+PICTURE_FORMS = {'pm150.fA': ('MEWTWO_A', 'Armored')}
+# names for costumes the sources call by code only
+COSTUME_NAMES = {'COPY_2019': 'Clone'}
 
 
 def serebii_rows(html, start=None, end=None):
@@ -242,7 +250,19 @@ def main():
                 continue
             if m.group(1) == 'f' and f'{sid}_{code}' in {f['formId'] for f in forms}:
                 continue   # a real form left out above (battle form)
-            label = shiny_label.get(key) or tidy(code)
+            if key in NOT_COSTUMES:
+                continue
+            if key in PICTURE_FORMS:   # a form after all: an entry like the others, from the plain one
+                fid, fname = PICTURE_FORMS[key]
+                base = next(e for e in entries if e['dex'] == n and e['form'] is None)
+                e = {k: v for k, v in base.items() if k not in ('femaleImg', 'shiny', 'shadow', 'dynamax', 'gmax', 'default')}
+                e.update(id=f'{n}-{slug(fname)}', form=fname, img=key, _fid=fid, _evos=[])
+                if key in shiny_out:
+                    e['shiny'] = shiny_out[key] or True
+                entries.append(e)
+                used.add(key)
+                continue
+            label = COSTUME_NAMES.get(code) or shiny_label.get(key) or tidy(code)
             c = {'id': f'{n}-{slug(code)}', 'dex': n, 'name': name, 'costume': label, 'code': code, 'img': key}
             if key + '.g2' in files:
                 c['femaleImg'] = key + '.g2'

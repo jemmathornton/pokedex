@@ -50,7 +50,7 @@
    "id": "3-copy-2019",
    "dex": 3,
    "name": "Venusaur",
-   "costume": "Copy 2019",
+   "costume": "Clone",
    "code": "COPY_2019",
    "img": "pm3.fCOPY_2019",
    "femaleImg": "pm3.fCOPY_2019.g2"
@@ -142,7 +142,7 @@
    "id": "6-copy-2019",
    "dex": 6,
    "name": "Charizard",
-   "costume": "Copy 2019",
+   "costume": "Clone",
    "code": "COPY_2019",
    "img": "pm6.fCOPY_2019"
   },
@@ -240,7 +240,7 @@
    "id": "9-copy-2019",
    "dex": 9,
    "name": "Blastoise",
-   "costume": "Copy 2019",
+   "costume": "Clone",
    "code": "COPY_2019",
    "img": "pm9.fCOPY_2019"
   },
@@ -414,7 +414,7 @@
    "id": "25-copy-2019",
    "dex": 25,
    "name": "Pikachu",
-   "costume": "Copy 2019",
+   "costume": "Clone",
    "code": "COPY_2019",
    "img": "pm25.fCOPY_2019",
    "femaleImg": "pm25.fCOPY_2019.g2"
@@ -1425,16 +1425,6 @@
    "shiny": "2023-12-18"
   },
   {
-   "id": "26-november-2018",
-   "dex": 26,
-   "name": "Raichu",
-   "costume": "Flower Crown",
-   "code": "NOVEMBER_2018",
-   "img": "pm26.cNOVEMBER_2018",
-   "femaleImg": "pm26.cNOVEMBER_2018.g2",
-   "shiny": "2019-02-26"
-  },
-  {
    "id": "26-one-year-anniversary",
    "dex": 26,
    "name": "Raichu",
@@ -1933,15 +1923,6 @@
    "shiny": "2023-04-04"
   },
   {
-   "id": "136-holiday-2022",
-   "dex": 136,
-   "name": "Flareon",
-   "costume": "Holiday Hat",
-   "code": "HOLIDAY_2022",
-   "img": "pm136.cHOLIDAY_2022",
-   "shiny": "2022-12-31"
-  },
-  {
    "id": "136-may-2023",
    "dex": 136,
    "name": "Flareon",
@@ -1949,15 +1930,6 @@
    "code": "MAY_2023",
    "img": "pm136.cMAY_2023",
    "shiny": "2023-10-07"
-  },
-  {
-   "id": "136-november-2018",
-   "dex": 136,
-   "name": "Flareon",
-   "costume": "Flower Crown",
-   "code": "NOVEMBER_2018",
-   "img": "pm136.cNOVEMBER_2018",
-   "shiny": "2019-02-26"
   },
   {
    "id": "136-spring-2023",
@@ -2014,22 +1986,6 @@
    "shiny": "2023-11-15"
   },
   {
-   "id": "150-a",
-   "dex": 150,
-   "name": "Mewtwo",
-   "costume": "A",
-   "code": "A",
-   "img": "pm150.fA"
-  },
-  {
-   "id": "150-one-year-anniversary",
-   "dex": 150,
-   "name": "Mewtwo",
-   "costume": "One Year Anniversary",
-   "code": "ONE_YEAR_ANNIVERSARY",
-   "img": "pm150.cONE_YEAR_ANNIVERSARY"
-  },
-  {
    "id": "163-jan-2022-noevolve",
    "dex": 163,
    "name": "Hoothoot",
@@ -2073,14 +2029,6 @@
    "code": "COSTUME_2",
    "img": "pm172.cCOSTUME_2",
    "shiny": "2020-12-29"
-  },
-  {
-   "id": "172-fall-2018",
-   "dex": 172,
-   "name": "Pichu",
-   "costume": "Fall 2018",
-   "code": "FALL_2018",
-   "img": "pm172.cFALL_2018"
   },
   {
    "id": "172-halloween-2017",
@@ -2384,14 +2332,6 @@
    "code": "NOVEMBER_2018",
    "img": "pm242.cNOVEMBER_2018",
    "shiny": "2021-04-04"
-  },
-  {
-   "id": "249-one-year-anniversary",
-   "dex": 249,
-   "name": "Lugia",
-   "costume": "One Year Anniversary",
-   "code": "ONE_YEAR_ANNIVERSARY",
-   "img": "pm249.cONE_YEAR_ANNIVERSARY"
   },
   {
    "id": "265-jan-2020-noevolve",
@@ -2888,14 +2828,6 @@
    "code": "HALLOWEEN_2025",
    "img": "pm715.cHALLOWEEN_2025",
    "shiny": "2025-10-27"
-  },
-  {
-   "id": "716-neutral",
-   "dex": 716,
-   "name": "Xerneas",
-   "costume": "Neutral",
-   "code": "NEUTRAL",
-   "img": "pm716.fNEUTRAL"
   },
   {
    "id": "722-fall-2024",

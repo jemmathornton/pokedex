@@ -4854,6 +4854,26 @@
    "shadowShiny": true
   },
   {
+   "id": "150-armored",
+   "dex": 150,
+   "gen": 1,
+   "name": "Mewtwo",
+   "form": "Armored",
+   "types": [
+    "Psychic"
+   ],
+   "img": "pm150.fA",
+   "gender": "none",
+   "released": true,
+   "class": "legendary",
+   "desc": "Mewtwo is a Pokémon that was created by genetic manipulation. However, even though the scientific power of humans created this Pokémon’s body, they failed to endow Mewtwo with a compassionate heart.",
+   "category": "Genetic Pokémon",
+   "height": 2.0,
+   "weight": 122.0,
+   "buddyKm": 20.0,
+   "family": "MEWTWO"
+  },
+  {
    "id": "151",
    "dex": 151,
    "gen": 1,
