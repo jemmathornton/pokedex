@@ -61,3 +61,9 @@ Claude’s jobs, and the record of what was decided. Everything waiting on Jemma
 - [ ] Refresh the GO data after each new season or shiny release (tools/import_go.py, fetch_sprites.py, build.py).
 - [ ] Later: other games (her call which).
 - [ ] 9 Nov evening: the server (started by the Desktop shortcut) had stopped once by itself; reopening the shortcut starts it again. Watch for it; if it keeps happening, look in logs/ or ask her about the Startup server (make_shortcuts.ps1 -Startup).
+
+## 10 Nov: where things stand (before a context compact)
+- Events: her ticks are in collection `went` (5 in-person with backgrounds + special backgrounds she took part in). Team Instinct; GO Fest 2024 Solgaleo; GO Tour Kalos Y (Fennekin with both X and Y; X keeps only the Kalos starters). Enigma removed.
+- [ ] A fact-check of every special background's Pokémon list is running (research/data/special-backgrounds-check.json + .md when done): apply its corrections to data/special-backgrounds.json and tell her.
+- [ ] Costumes: research done (research/data/costume-availability.json, group local/event/remote/unreleased; Nightcap Snorlax she has). Next: show her the costumes by group (local pre-ticked, event, remote) to confirm, then save to collection `costumes` through the server. Costume shinies are a bonus.
+- [ ] Then: the in-game Pokédex screen-recording test for her ticks (needs ffmpeg: ask before installing).

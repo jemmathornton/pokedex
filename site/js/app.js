@@ -428,7 +428,7 @@ function pokemonPage(n){
   const picker = ordered.length > 1 ? `<div class="formpick" role="group" aria-label="Which form to show">${ordered.map(e =>
     `<button type="button" data-pickform="${attr(e.id)}" aria-pressed="${e === sel}" title="${attr(e.form || e.name)}">${sprite(e.img) ? `<img src="${sprite(e.img)}" alt="" loading="lazy">` : `<span class="blank">?</span>`}<small>${esc(e.form || "Usual")}</small></button>`).join("")}</div>` : "";
   const family = evoFamily(sel);
-  const bgCards = evs.map(ev => bgCard(ev, baseOf[n] || grouped.lead, false)).join("");
+  const bgCards = evs.map(ev => bgCard(ev, bgMonsOf(ev).find(e => e.dex === n) || baseOf[n] || grouped.lead, false)).join("");
   const first = esc(sel.name);
   showAllBoxes = true;
   const formCards = all.length > 1 ? all.map(e => card(e)).join("") : "";
@@ -491,7 +491,7 @@ function costumesPage(){
 // in data/ so one can be added back by ticking it there
 const myEvents = () => [...EVENTS, ...SPECIAL].filter(ev => COL.went.includes(ev.id) && (ev.backgroundPokemon || []).length)
   .sort((a, b) => b.start.localeCompare(a.start));
-const bgMonsOf = ev => (ev.backgroundPokemon || []).map(name => baseOf[DATA.dexByName[name.toLowerCase()]]).filter(Boolean);
+const bgMonsOf = ev => (ev.backgroundPokemon || []).map(name => (ev.show && costumeById[ev.show[name]]) || baseOf[DATA.dexByName[name.toLowerCase()]]).filter(Boolean);   // in its costume where the background came with one
 function eventsPage(){
   const list = myEvents();
   let html = "", year = "";

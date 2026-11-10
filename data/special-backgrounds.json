@@ -1,5 +1,5 @@
 {
- "_about": "Special backgrounds (global ones; the in-person ones abroad left out, as she has only been to European events). From research/data/special-backgrounds.json (10 Nov 2026). `unsure` stays off the site. Team leader backgrounds: she is Team Instinct (10 Nov), so the Valor and Mystic ones keep only the Road to Kalos raid Pikachu and that team’s bird. `picture`: Serebii’s full picture of the background (serebii.net/pokemongo/locationcard/<picture>.jpg), used because the game files only have the base layer for some (the Mega logo, 10 Nov) and none for others; `card` is the game’s own file.",
+ "_about": "Special backgrounds (global ones; the in-person ones abroad left out, as she has only been to European events). From research/data/special-backgrounds.json (10 Nov 2026). `unsure` stays off the site. Team leader backgrounds: she is Team Instinct (10 Nov), so the Valor and Mystic ones keep only the Road to Kalos raid Pikachu and that team’s bird. `picture`: Serebii’s full picture of the background (serebii.net/pokemongo/locationcard/<picture>.jpg), used because the game files only have the base layer for some (the Mega logo, 10 Nov) and none for others; `card` is the game’s own file. `show`: {species: costume id} to picture a background Pokémon in the costume it had (the team Pikachu).",
  "special": [
   {
    "id": "sb-go-wild-area-2026-into-the-wild-go-wild-area-global",
@@ -1052,7 +1052,10 @@
     "https://www.dittobase.com/pokemon-go/backgrounds/sb-team-leader-red"
    ],
    "unsure": "Dittobase dates Triumph Together 23-30 Jul 2024; Leek Duck has 23-30 Aug 2024 (used here). Serebii's Triumph Together list also shows \"Sandslash ()\" with no costume named: not confirmed anywhere else. Serebii doesn't list the Road to Kalos Pikachu or legendary birds.",
-   "picture": "teamvalor"
+   "picture": "teamvalor",
+   "show": {
+    "Pikachu": "25-gotour-2026-a"
+   }
   },
   {
    "id": "sb-teamleader-blue",
@@ -1076,7 +1079,10 @@
     "https://www.dittobase.com/pokemon-go/backgrounds/sb-team-leader-blue"
    ],
    "unsure": "Dittobase dates Triumph Together 23-30 Jul 2024; Leek Duck has 23-30 Aug 2024 (used here). Serebii's Triumph Together list also shows \"Sandslash ()\" with no costume named: not confirmed anywhere else. Serebii doesn't list the Road to Kalos Pikachu or legendary birds. Blanche's Quest is from Dittobase only (no Leek Duck page fetched).",
-   "picture": "teammystic"
+   "picture": "teammystic",
+   "show": {
+    "Pikachu": "25-gotour-2026-a"
+   }
   },
   {
    "id": "sb-teamleader-yellow",
