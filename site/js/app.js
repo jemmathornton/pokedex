@@ -400,6 +400,10 @@ function bigBoxes(e){
     (e.shadowShiny || has(k, "ss") ? `<h3 class="bonus-h">Bonus <span class="muted">not counted</span></h3><div class="bigboxes" data-id="${attr(e.id)}">` +
       B("ss", "--shadow", "shadow", "Shiny Shadow", !!e.shadowShiny, "Unavailable") + `</div>` : "");
 }
+// what can never be, from the main games (her call, 10 Nov: “Not possible” rather than “Unavailable”): only these species
+// have a Gigantamax form at all (regional forms of them don't), and Zacian, Zamazenta and Eternatus can't Dynamax
+const GMAX_SPECIES = new Set([3, 6, 9, 12, 25, 52, 68, 94, 99, 131, 133, 143, 569, 809, 812, 815, 818, 823, 826, 834, 839, 841, 842, 844, 849, 851, 858, 861, 869, 879, 884, 892]);
+const NO_DYNAMAX = new Set([888, 889, 890]);
 function pokemonPage(n){
   const every = ENTRIES.filter(e => e.dex === n);
   const all = every.filter(e => prefs.unreleased || e.released || every.every(x => !x.released));
@@ -424,7 +428,8 @@ function pokemonPage(n){
     row("Shiny", yesNo(!!sel.shiny, "Available", "Unavailable")) +
     row("Lucky", yesNo(canLucky(sel), "Available", sel.class === "mythical" ? "Not possible" : "Unavailable")) +
     row("Shadow and Purified", yesNo(!!sel.shadow, "Available", "Unavailable")) +
-    row("Dynamax", yesNo(!!sel.dynamax, "Available", "Unavailable")) + row("Gigantamax", yesNo(!!sel.gmax, "Available", "Unavailable")) + `</dl>`;
+    row("Dynamax", yesNo(!!sel.dynamax, "Available", NO_DYNAMAX.has(sel.dex) ? "Not possible" : "Unavailable")) +
+    row("Gigantamax", yesNo(!!sel.gmax, "Available", GMAX_SPECIES.has(sel.dex) && !isRegional(sel) ? "Unavailable" : "Not possible")) + `</dl>`;
   const desc = sel.desc ? (sel.femaleDesc ? `<p class="dex-entry"><span class="label">Male</span>${esc(sel.desc)}</p><p class="dex-entry"><span class="label">Female</span>${esc(sel.femaleDesc)}</p>`
       : `<p class="dex-entry">${esc(sel.desc)}</p>`) : `<p class="dex-entry muted">No Pokédex entry for it in the game’s text yet.</p>`;
   const picker = ordered.length > 1 ? `<div class="formpick" role="group" aria-label="Which form to show">${ordered.map(e =>
