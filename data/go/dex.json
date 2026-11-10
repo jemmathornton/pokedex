@@ -85,6 +85,13 @@
    "dynamax": true,
    "gmax": true,
    "shadow": true,
+   "mega": [
+    {
+     "t": "mg",
+     "label": "Mega",
+     "img": "pm3.fMEGA"
+    }
+   ],
    "shadowShiny": true
   },
   {
@@ -168,6 +175,18 @@
    "dynamax": true,
    "gmax": true,
    "shadow": true,
+   "mega": [
+    {
+     "t": "mx",
+     "label": "Mega X",
+     "img": "pm6.fMEGA_X"
+    },
+    {
+     "t": "my",
+     "label": "Mega Y",
+     "img": "pm6.fMEGA_Y"
+    }
+   ],
    "shadowShiny": true
   },
   {
@@ -250,6 +269,13 @@
    "dynamax": true,
    "gmax": true,
    "shadow": true,
+   "mega": [
+    {
+     "t": "mg",
+     "label": "Mega",
+     "img": "pm9.fMEGA"
+    }
+   ],
    "shadowShiny": true
   },
   {
@@ -415,6 +441,13 @@
    "buddyKm": 1.0,
    "family": "WEEDLE",
    "shadow": true,
+   "mega": [
+    {
+     "t": "mg",
+     "label": "Mega",
+     "img": "pm15.fMEGA"
+    }
+   ],
    "shadowShiny": true
   },
   {
@@ -496,6 +529,13 @@
    "buddyKm": 1.0,
    "family": "PIDGEY",
    "shadow": true,
+   "mega": [
+    {
+     "t": "mg",
+     "label": "Mega",
+     "img": "pm18.fMEGA"
+    }
+   ],
    "shadowShiny": true
   },
   {
@@ -749,7 +789,19 @@
    "weight": 30.0,
    "buddyKm": 1.0,
    "family": "PIKACHU",
-   "dynamax": true
+   "dynamax": true,
+   "mega": [
+    {
+     "t": "mx",
+     "label": "Mega X",
+     "img": "pm26.fMEGA_X"
+    },
+    {
+     "t": "my",
+     "label": "Mega Y",
+     "img": "pm26.fMEGA_Y"
+    }
+   ]
   },
   {
    "id": "26-alolan",
@@ -1076,7 +1128,14 @@
    "height": 1.3,
    "weight": 40.0,
    "buddyKm": 1.0,
-   "family": "CLEFAIRY"
+   "family": "CLEFAIRY",
+   "mega": [
+    {
+     "t": "mg",
+     "label": "Mega",
+     "img": "pm36.fMEGA"
+    }
+   ]
   },
   {
    "id": "37",
@@ -2077,6 +2136,13 @@
    "family": "ABRA",
    "dynamax": true,
    "shadow": true,
+   "mega": [
+    {
+     "t": "mg",
+     "label": "Mega",
+     "img": "pm65.fMEGA"
+    }
+   ],
    "shadowShiny": true
   },
   {
@@ -2241,6 +2307,13 @@
    "buddyKm": 3.0,
    "family": "BELLSPROUT",
    "shadow": true,
+   "mega": [
+    {
+     "t": "mg",
+     "label": "Mega",
+     "img": "pm71.fMEGA"
+    }
+   ],
    "shadowShiny": true
   },
   {
@@ -2643,6 +2716,13 @@
    "buddyKm": 3.0,
    "family": "SLOWPOKE",
    "shadow": true,
+   "mega": [
+    {
+     "t": "mg",
+     "label": "Mega",
+     "img": "pm80.fMEGA"
+    }
+   ],
    "shadowShiny": true
   },
   {
@@ -3111,6 +3191,13 @@
    "dynamax": true,
    "gmax": true,
    "shadow": true,
+   "mega": [
+    {
+     "t": "mg",
+     "label": "Mega",
+     "img": "pm94.fMEGA"
+    }
+   ],
    "shadowShiny": true
   },
   {
@@ -3776,7 +3863,14 @@
    "height": 2.2,
    "weight": 80.0,
    "buddyKm": 3.0,
-   "family": "KANGASKHAN"
+   "family": "KANGASKHAN",
+   "mega": [
+    {
+     "t": "mg",
+     "label": "Mega",
+     "img": "pm115.fMEGA"
+    }
+   ]
   },
   {
    "id": "116",
@@ -3932,6 +4026,13 @@
    "buddyKm": 3.0,
    "family": "STARYU",
    "shadow": true,
+   "mega": [
+    {
+     "t": "mg",
+     "label": "Mega",
+     "img": "pm121.fMEGA"
+    }
+   ],
    "shadowShiny": true
   },
   {
@@ -4114,6 +4215,13 @@
    "buddyKm": 5.0,
    "family": "PINSIR",
    "shadow": true,
+   "mega": [
+    {
+     "t": "mg",
+     "label": "Mega",
+     "img": "pm127.fMEGA"
+    }
+   ],
    "shadowShiny": true
   },
   {
@@ -4251,6 +4359,13 @@
    "family": "MAGIKARP",
    "dynamax": true,
    "shadow": true,
+   "mega": [
+    {
+     "t": "mg",
+     "label": "Mega",
+     "img": "pm130.fMEGA"
+    }
+   ],
    "shadowShiny": true
   },
   {
@@ -4585,6 +4700,13 @@
    "buddyKm": 5.0,
    "family": "AERODACTYL",
    "shadow": true,
+   "mega": [
+    {
+     "t": "mg",
+     "label": "Mega",
+     "img": "pm142.fMEGA"
+    }
+   ],
    "shadowShiny": true
   },
   {
@@ -4828,6 +4950,13 @@
    "buddyKm": 5.0,
    "family": "DRATINI",
    "shadow": true,
+   "mega": [
+    {
+     "t": "mg",
+     "label": "Mega",
+     "img": "pm149.fMEGA"
+    }
+   ],
    "shadowShiny": true
   },
   {
@@ -4851,6 +4980,18 @@
    "buddyKm": 20.0,
    "family": "MEWTWO",
    "shadow": true,
+   "mega": [
+    {
+     "t": "mx",
+     "label": "Mega X",
+     "img": "pm150.fMEGA_X"
+    },
+    {
+     "t": "my",
+     "label": "Mega Y",
+     "img": "pm150.fMEGA_Y"
+    }
+   ],
    "shadowShiny": true
   },
   {
@@ -4971,6 +5112,7 @@
    "buddyKm": 3.0,
    "family": "CHIKORITA",
    "shadow": true,
+   "megaLater": true,
    "shadowShiny": true
   },
   {
@@ -5148,6 +5290,7 @@
    "buddyKm": 3.0,
    "family": "TOTODILE",
    "shadow": true,
+   "megaLater": true,
    "shadowShiny": true
   },
   {
@@ -5685,6 +5828,13 @@
    "buddyKm": 5.0,
    "family": "MAREEP",
    "shadow": true,
+   "mega": [
+    {
+     "t": "mg",
+     "label": "Mega",
+     "img": "pm181.fMEGA"
+    }
+   ],
    "shadowShiny": true
   },
   {
@@ -6958,6 +7108,13 @@
    "buddyKm": 5.0,
    "family": "ONIX",
    "shadow": true,
+   "mega": [
+    {
+     "t": "mg",
+     "label": "Mega",
+     "img": "pm208.fMEGA"
+    }
+   ],
    "shadowShiny": true
   },
   {
@@ -7083,6 +7240,13 @@
    "buddyKm": 5.0,
    "family": "SCYTHER",
    "shadow": true,
+   "mega": [
+    {
+     "t": "mg",
+     "label": "Mega",
+     "img": "pm212.fMEGA"
+    }
+   ],
    "shadowShiny": true
   },
   {
@@ -7129,7 +7293,14 @@
    "height": 1.5,
    "weight": 54.0,
    "buddyKm": 3.0,
-   "family": "HERACROSS"
+   "family": "HERACROSS",
+   "mega": [
+    {
+     "t": "mg",
+     "label": "Mega",
+     "img": "pm214.fMEGA"
+    }
+   ]
   },
   {
    "id": "215",
@@ -7519,6 +7690,13 @@
    "buddyKm": 5.0,
    "family": "SKARMORY",
    "shadow": true,
+   "mega": [
+    {
+     "t": "mg",
+     "label": "Mega",
+     "img": "pm227.fMEGA"
+    }
+   ],
    "shadowShiny": true
   },
   {
@@ -7572,6 +7750,13 @@
    "buddyKm": 3.0,
    "family": "HOUNDOUR",
    "shadow": true,
+   "mega": [
+    {
+     "t": "mg",
+     "label": "Mega",
+     "img": "pm229.fMEGA"
+    }
+   ],
    "shadowShiny": true
   },
   {
@@ -8047,6 +8232,13 @@
    "buddyKm": 5.0,
    "family": "LARVITAR",
    "shadow": true,
+   "mega": [
+    {
+     "t": "mg",
+     "label": "Mega",
+     "img": "pm248.fMEGA"
+    }
+   ],
    "shadowShiny": true
   },
   {
@@ -8197,6 +8389,13 @@
    "buddyKm": 3.0,
    "family": "TREECKO",
    "shadow": true,
+   "mega": [
+    {
+     "t": "mg",
+     "label": "Mega",
+     "img": "pm254.fMEGA"
+    }
+   ],
    "shadowShiny": true
   },
   {
@@ -8280,6 +8479,13 @@
    "buddyKm": 3.0,
    "family": "TORCHIC",
    "shadow": true,
+   "mega": [
+    {
+     "t": "mg",
+     "label": "Mega",
+     "img": "pm257.fMEGA"
+    }
+   ],
    "shadowShiny": true
   },
   {
@@ -8360,6 +8566,13 @@
    "buddyKm": 3.0,
    "family": "MUDKIP",
    "shadow": true,
+   "mega": [
+    {
+     "t": "mg",
+     "label": "Mega",
+     "img": "pm260.fMEGA"
+    }
+   ],
    "shadowShiny": true
   },
   {
@@ -8992,6 +9205,13 @@
    "family": "RALTS",
    "dynamax": true,
    "shadow": true,
+   "mega": [
+    {
+     "t": "mg",
+     "label": "Mega",
+     "img": "pm282.fMEGA"
+    }
+   ],
    "shadowShiny": true
   },
   {
@@ -9488,6 +9708,13 @@
    "family": "SABLEYE",
    "dynamax": true,
    "shadow": true,
+   "mega": [
+    {
+     "t": "mg",
+     "label": "Mega",
+     "img": "pm302.fMEGA"
+    }
+   ],
    "shadowShiny": true
   },
   {
@@ -9511,6 +9738,13 @@
    "buddyKm": 5.0,
    "family": "MAWILE",
    "shadow": true,
+   "mega": [
+    {
+     "t": "mg",
+     "label": "Mega",
+     "img": "pm303.fMEGA"
+    }
+   ],
    "dynamax": true,
    "shadowShiny": true
   },
@@ -9593,6 +9827,13 @@
    "buddyKm": 1.0,
    "family": "ARON",
    "shadow": true,
+   "mega": [
+    {
+     "t": "mg",
+     "label": "Mega",
+     "img": "pm306.fMEGA"
+    }
+   ],
    "shadowShiny": true
   },
   {
@@ -9643,7 +9884,14 @@
    "height": 1.3,
    "weight": 31.5,
    "buddyKm": 3.0,
-   "family": "MEDITITE"
+   "family": "MEDITITE",
+   "mega": [
+    {
+     "t": "mg",
+     "label": "Mega",
+     "img": "pm308.fMEGA"
+    }
+   ]
   },
   {
    "id": "309",
@@ -9693,6 +9941,13 @@
    "buddyKm": 3.0,
    "family": "ELECTRIKE",
    "shadow": true,
+   "mega": [
+    {
+     "t": "mg",
+     "label": "Mega",
+     "img": "pm310.fMEGA"
+    }
+   ],
    "shadowShiny": true
   },
   {
@@ -9902,6 +10157,13 @@
    "buddyKm": 3.0,
    "family": "CARVANHA",
    "shadow": true,
+   "mega": [
+    {
+     "t": "mg",
+     "label": "Mega",
+     "img": "pm319.fMEGA"
+    }
+   ],
    "shadowShiny": true
   },
   {
@@ -10008,6 +10270,13 @@
    "buddyKm": 3.0,
    "family": "NUMEL",
    "shadow": true,
+   "mega": [
+    {
+     "t": "mg",
+     "label": "Mega",
+     "img": "pm323.fMEGA"
+    }
+   ],
    "shadowShiny": true
   },
   {
@@ -10446,6 +10715,13 @@
    "buddyKm": 1.0,
    "family": "SWABLU",
    "shadow": true,
+   "mega": [
+    {
+     "t": "mg",
+     "label": "Mega",
+     "img": "pm334.fMEGA"
+    }
+   ],
    "shadowShiny": true
   },
   {
@@ -10992,6 +11268,13 @@
    "buddyKm": 3.0,
    "family": "SHUPPET",
    "shadow": true,
+   "mega": [
+    {
+     "t": "mg",
+     "label": "Mega",
+     "img": "pm354.fMEGA"
+    }
+   ],
    "shadowShiny": true
   },
   {
@@ -11090,7 +11373,8 @@
    "height": 0.61,
    "weight": 1.0,
    "buddyKm": 5.0,
-   "family": "CHIMECHO"
+   "family": "CHIMECHO",
+   "megaLater": true
   },
   {
    "id": "359",
@@ -11112,6 +11396,13 @@
    "buddyKm": 5.0,
    "family": "ABSOL",
    "shadow": true,
+   "mega": [
+    {
+     "t": "mg",
+     "label": "Mega",
+     "img": "pm359.fMEGA"
+    }
+   ],
    "shadowShiny": true
   },
   {
@@ -11194,6 +11485,13 @@
    "buddyKm": 3.0,
    "family": "SNORUNT",
    "shadow": true,
+   "mega": [
+    {
+     "t": "mg",
+     "label": "Mega",
+     "img": "pm362.fMEGA"
+    }
+   ],
    "shadowShiny": true
   },
   {
@@ -11469,6 +11767,13 @@
    "buddyKm": 5.0,
    "family": "BAGON",
    "shadow": true,
+   "mega": [
+    {
+     "t": "mg",
+     "label": "Mega",
+     "img": "pm373.fMEGA"
+    }
+   ],
    "shadowShiny": true
   },
   {
@@ -11553,6 +11858,13 @@
    "family": "BELDUM",
    "dynamax": true,
    "shadow": true,
+   "mega": [
+    {
+     "t": "mg",
+     "label": "Mega",
+     "img": "pm376.fMEGA"
+    }
+   ],
    "shadowShiny": true
   },
   {
@@ -11650,6 +11962,13 @@
    "family": "LATIAS",
    "dynamax": true,
    "shadow": true,
+   "mega": [
+    {
+     "t": "mg",
+     "label": "Mega",
+     "img": "pm380.fMEGA"
+    }
+   ],
    "shadowShiny": true
   },
   {
@@ -11675,6 +11994,13 @@
    "family": "LATIOS",
    "dynamax": true,
    "shadow": true,
+   "mega": [
+    {
+     "t": "mg",
+     "label": "Mega",
+     "img": "pm381.fMEGA"
+    }
+   ],
    "shadowShiny": true
   },
   {
@@ -11698,6 +12024,13 @@
    "buddyKm": 20.0,
    "family": "KYOGRE",
    "shadow": true,
+   "mega": [
+    {
+     "t": "mg",
+     "label": "Primal",
+     "img": "pm382.fPRIMAL"
+    }
+   ],
    "shadowShiny": true
   },
   {
@@ -11721,6 +12054,13 @@
    "buddyKm": 20.0,
    "family": "GROUDON",
    "shadow": true,
+   "mega": [
+    {
+     "t": "mg",
+     "label": "Primal",
+     "img": "pm383.fPRIMAL"
+    }
+   ],
    "shadowShiny": true
   },
   {
@@ -11743,7 +12083,14 @@
    "height": 7.01,
    "weight": 206.5,
    "buddyKm": 20.0,
-   "family": "RAYQUAZA"
+   "family": "RAYQUAZA",
+   "mega": [
+    {
+     "t": "mg",
+     "label": "Mega",
+     "img": "pm384.fMEGA"
+    }
+   ]
   },
   {
    "id": "385",
@@ -12171,6 +12518,13 @@
    "buddyKm": 1.0,
    "family": "STARLY",
    "shadow": true,
+   "mega": [
+    {
+     "t": "mg",
+     "label": "Mega",
+     "img": "pm398.fMEGA"
+    }
+   ],
    "shadowShiny": true
   },
   {
@@ -13093,7 +13447,14 @@
    "height": 1.2,
    "weight": 33.3,
    "buddyKm": 3.0,
-   "family": "BUNEARY"
+   "family": "BUNEARY",
+   "mega": [
+    {
+     "t": "mg",
+     "label": "Mega",
+     "img": "pm428.fMEGA"
+    }
+   ]
   },
   {
    "id": "429",
@@ -13525,6 +13886,13 @@
    "buddyKm": 5.0,
    "family": "GIBLE",
    "shadow": true,
+   "mega": [
+    {
+     "t": "mg",
+     "label": "Mega",
+     "img": "pm445.fMEGA"
+    }
+   ],
    "shadowShiny": true
   },
   {
@@ -13598,7 +13966,14 @@
    "height": 1.2,
    "weight": 54.0,
    "buddyKm": 5.0,
-   "family": "LUCARIO"
+   "family": "LUCARIO",
+   "mega": [
+    {
+     "t": "mg",
+     "label": "Mega",
+     "img": "pm448.fMEGA"
+    }
+   ]
   },
   {
    "id": "449",
@@ -13905,6 +14280,13 @@
    "buddyKm": 3.0,
    "family": "SNOVER",
    "shadow": true,
+   "mega": [
+    {
+     "t": "mg",
+     "label": "Mega",
+     "img": "pm460.fMEGA"
+    }
+   ],
    "shadowShiny": true
   },
   {
@@ -14244,6 +14626,13 @@
    "family": "RALTS",
    "dynamax": true,
    "shadow": true,
+   "mega": [
+    {
+     "t": "mg",
+     "label": "Mega",
+     "img": "pm475.fMEGA"
+    }
+   ],
    "shadowShiny": true
   },
   {
@@ -14312,6 +14701,7 @@
    "buddyKm": 3.0,
    "family": "SNORUNT",
    "shadow": true,
+   "megaLater": true,
    "shadowShiny": true
   },
   {
@@ -14618,6 +15008,7 @@
    "buddyKm": 20.0,
    "family": "HEATRAN",
    "shadow": true,
+   "megaLater": true,
    "shadowShiny": true
   },
   {
@@ -14774,6 +15165,7 @@
    "buddyKm": 20.0,
    "family": "DARKRAI",
    "shadow": true,
+   "megaLater": true,
    "shadowShiny": true
   },
   {
@@ -15357,6 +15749,7 @@
    "buddyKm": 3.0,
    "family": "TEPIG",
    "shadow": true,
+   "megaLater": true,
    "shadowShiny": true
   },
   {
@@ -16138,6 +16531,7 @@
    "family": "DRILBUR",
    "dynamax": true,
    "shadow": true,
+   "megaLater": true,
    "shadowShiny": true
   },
   {
@@ -16158,7 +16552,14 @@
    "height": 1.1,
    "weight": 31.0,
    "buddyKm": 3.0,
-   "family": "AUDINO"
+   "family": "AUDINO",
+   "mega": [
+    {
+     "t": "mg",
+     "label": "Mega",
+     "img": "pm531.fMEGA"
+    }
+   ]
   },
   {
    "id": "532",
@@ -16511,6 +16912,7 @@
    "buddyKm": 1.0,
    "family": "VENIPEDE",
    "shadow": true,
+   "megaLater": true,
    "shadowShiny": true
   },
   {
@@ -16985,7 +17387,8 @@
    "height": 1.1,
    "weight": 30.0,
    "buddyKm": 3.0,
-   "family": "SCRAGGY"
+   "family": "SCRAGGY",
+   "megaLater": true
   },
   {
    "id": "561",
@@ -18298,7 +18701,8 @@
    "height": 2.1,
    "weight": 80.5,
    "buddyKm": 1.0,
-   "family": "TYNAMO"
+   "family": "TYNAMO",
+   "megaLater": true
   },
   {
    "id": "605",
@@ -18426,6 +18830,13 @@
    "buddyKm": 5.0,
    "family": "LITWICK",
    "shadow": true,
+   "mega": [
+    {
+     "t": "mg",
+     "label": "Mega",
+     "img": "pm609.fMEGA"
+    }
+   ],
    "shadowShiny": true
   },
   {
@@ -18782,6 +19193,7 @@
    "buddyKm": 5.0,
    "family": "GOLETT",
    "shadow": true,
+   "megaLater": true,
    "shadowShiny": true
   },
   {
@@ -19723,6 +20135,13 @@
    "buddyKm": 3.0,
    "family": "CHESPIN",
    "shadow": true,
+   "mega": [
+    {
+     "t": "mg",
+     "label": "Mega",
+     "img": "pm652.fMEGA"
+    }
+   ],
    "shadowShiny": true
   },
   {
@@ -19802,6 +20221,13 @@
    "buddyKm": 3.0,
    "family": "FENNEKIN",
    "shadow": true,
+   "mega": [
+    {
+     "t": "mg",
+     "label": "Mega",
+     "img": "pm655.fMEGA"
+    }
+   ],
    "shadowShiny": true
   },
   {
@@ -19881,6 +20307,13 @@
    "buddyKm": 3.0,
    "family": "FROAKIE",
    "shadow": true,
+   "mega": [
+    {
+     "t": "mg",
+     "label": "Mega",
+     "img": "pm658.fMEGA"
+    }
+   ],
    "shadowShiny": true
   },
   {
@@ -21567,6 +22000,7 @@
    "weight": 81.5,
    "buddyKm": 3.0,
    "family": "LITLEO",
+   "megaLater": true,
    "femaleImg": "pm668.fFEMALE"
   },
   {
@@ -22287,6 +22721,7 @@
    "weight": 8.5,
    "buddyKm": 3.0,
    "family": "ESPURR",
+   "megaLater": true,
    "femaleImg": "pm678.fFEMALE"
   },
   {
@@ -22512,6 +22947,13 @@
    "family": "INKAY",
    "dynamax": true,
    "shadow": true,
+   "mega": [
+    {
+     "t": "mg",
+     "label": "Mega",
+     "img": "pm687.fMEGA"
+    }
+   ],
    "shadowShiny": true
   },
   {
@@ -22560,7 +23002,8 @@
    "height": 1.3,
    "weight": 96.0,
    "buddyKm": 3.0,
-   "family": "BINACLE"
+   "family": "BINACLE",
+   "megaLater": true
   },
   {
    "id": "690",
@@ -22608,7 +23051,8 @@
    "height": 1.8,
    "weight": 81.5,
    "buddyKm": 3.0,
-   "family": "SKRELP"
+   "family": "SKRELP",
+   "megaLater": true
   },
   {
    "id": "692",
@@ -22855,7 +23299,8 @@
    "height": 0.8,
    "weight": 21.5,
    "buddyKm": 5.0,
-   "family": "HAWLUCHA"
+   "family": "HAWLUCHA",
+   "megaLater": true
   },
   {
    "id": "702",
@@ -23525,7 +23970,14 @@
    "height": 0.7,
    "weight": 8.8,
    "buddyKm": 20.0,
-   "family": "DIANCIE"
+   "family": "DIANCIE",
+   "mega": [
+    {
+     "t": "mg",
+     "label": "Mega",
+     "img": "pm719.fMEGA"
+    }
+   ]
   },
   {
    "id": "720-confined",
@@ -24088,7 +24540,8 @@
    "height": 1.7,
    "weight": 180.0,
    "buddyKm": 3.0,
-   "family": "CRABRAWLER"
+   "family": "CRABRAWLER",
+   "megaLater": true
   },
   {
    "id": "741-baile",
@@ -24898,6 +25351,7 @@
    "buddyKm": 1.0,
    "family": "WIMPOD",
    "shadow": true,
+   "megaLater": true,
    "shadowShiny": true
   },
   {
@@ -25301,6 +25755,7 @@
    "weight": 185.0,
    "buddyKm": 5.0,
    "family": "DRAMPA",
+   "megaLater": true,
    "dynamax": true
   },
   {
@@ -25825,7 +26280,8 @@
    "height": 1.0,
    "weight": 80.5,
    "buddyKm": 20.0,
-   "family": "MAGEARNA"
+   "family": "MAGEARNA",
+   "megaLater": true
   },
   {
    "id": "802",
@@ -25958,7 +26414,8 @@
    "height": 1.5,
    "weight": 44.5,
    "buddyKm": 20.0,
-   "family": "ZERAORA"
+   "family": "ZERAORA",
+   "megaLater": true
   },
   {
    "id": "808",
@@ -27532,7 +27989,14 @@
    "weight": 62.0,
    "buddyKm": 5.0,
    "family": "FALINKS",
-   "dynamax": true
+   "dynamax": true,
+   "mega": [
+    {
+     "t": "mg",
+     "label": "Mega",
+     "img": "pm870.fMEGA"
+    }
+   ]
   },
   {
    "id": "871",
@@ -29520,7 +29984,8 @@
    "height": 0.9,
    "weight": 15.0,
    "buddyKm": 3.0,
-   "family": "CAPSAKID"
+   "family": "CAPSAKID",
+   "megaLater": true
   },
   {
    "id": "953",
@@ -29927,7 +30392,8 @@
    "height": 1.5,
    "weight": 45.0,
    "buddyKm": 3.0,
-   "family": "GLIMMET"
+   "family": "GLIMMET",
+   "megaLater": true
   },
   {
    "id": "971",
@@ -30582,7 +31048,8 @@
    "height": 2.1,
    "weight": 210.0,
    "buddyKm": 5.0,
-   "family": "FRIGIBAX"
+   "family": "FRIGIBAX",
+   "megaLater": true
   },
   {
    "id": "999",

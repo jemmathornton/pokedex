@@ -40,7 +40,7 @@ def one(item, big=False):
 # the game's own looks for the Pokémon page's picture cards (--extras): the Lucky sparkles and the Shadow flames, as they are in the game
 EXTRAS = {'lucky': 'Images/Friends/ui_bg_lucky_pokemon.png', 'shadow-flame': 'Images/Effects/tx_shadow_cloud_02.png',
           'sparkle': 'Images/Effects/flare_6_point.png', 'star': 'Images/Appraisal/AppraisalStar.png',
-          'swirl': 'Images/Effects/swirls.png', 'energy': 'Images/Effects/tx_energy_tile_purple.png'}
+          'swirl': 'Images/Effects/swirls.png', 'rays': 'Images/Effects/CircleRaysHeavy.png'}
 
 
 def extras():
@@ -69,6 +69,7 @@ def main():
     if big:   # entries only (not costumes): their picture, shiny, and female look
         dex = json.load(open(os.path.join(ROOT, 'data', 'go', 'dex.json'), encoding='utf-8'))['entries']
         want = {k for e in dex for k in (e['img'], e['img'] + '.s', e.get('femaleImg'), e.get('femaleImg') and e['femaleImg'] + '.s') if k}
+        want |= {k for e in dex for m in e.get('mega') or [] for k in (m['img'], m['img'] + '.s')}   # the Mega pictures
         pics = {k: v for k, v in pics.items() if k in want}
     counts, failed = {'new': 0, 'kept': 0}, []
     with ThreadPoolExecutor(8) as pool:

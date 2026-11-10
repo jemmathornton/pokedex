@@ -383,6 +383,40 @@ def main():
     if unmatched:
         print('Dittobase records not matched (check):', ', '.join(unmatched))
 
+    # Mega Evolution and Primal Reversion (her ask, 10 Nov: a box like Dynamax; X and Y a box each): the Game Master's megas
+    # (pokemon-go-api), out in GO when Dittobase says released or Leek Duck lists its shiny; on the species' plain entry
+    MEGA_TICK = {'MEGA': ('mg', 'Mega'), 'MEGA_X': ('mx', 'Mega X'), 'MEGA_Y': ('my', 'Mega Y'), 'PRIMAL': ('mg', 'Primal')}
+    mega_n = 0
+    for sp in dex:
+        n = sp['dexNr']
+        base = byid.get(str(n)) or next((e for e in entries if e['dex'] == n and e.get('default')), None)
+        if not base or not base['released']:
+            continue
+        for key in sp.get('megaEvolutions') or {}:
+            suf = key[len(sp['id']) + 1:]
+            if suf not in MEGA_TICK:
+                continue
+            sslug = (by_slug.get(sp['id'].lower().replace('_', '-')) or {}).get('speciesSlug') or sp['id'].lower().replace('_', '-')
+            d = by_slug.get(f'{sslug}-{suf.lower().replace("_", "-")}') or {}
+            pic = f'pm{n}.f{suf}'
+            if not (d.get('isReleased') or pic in shiny_out):
+                continue
+            t, label = MEGA_TICK[suf]
+            base.setdefault('mega', []).append({'t': t, 'label': label, 'img': pic})
+            mega_n += 1
+    for pic in sorted(shiny_out):   # Leek Duck lists a Mega the Game Master copy doesn't have yet (Mega Clefable, 10 Nov)
+        m = re.fullmatch(r'pm(\d+)\.f(MEGA|MEGA_X|MEGA_Y|PRIMAL)', pic)
+        base = m and (byid.get(m.group(1)) or next((e for e in entries if e['dex'] == int(m.group(1)) and e.get('default')), None))
+        if base and base['released'] and not any(x['img'] == pic for x in base.get('mega') or []):
+            t, label = MEGA_TICK[m.group(2)]
+            base.setdefault('mega', []).append({'t': t, 'label': label, 'img': pic})
+            mega_n += 1
+    for r in ditto:   # a Mega not out yet (Dittobase lists the main games' Megas): "Unavailable" rather than "Not possible"
+        base = byid.get(str(r.get('speciesId')))
+        if r.get('isMega') and not r.get('isReleased') and base and not base.get('mega'):
+            base['megaLater'] = True
+    print(f'Mega and Primal: {mega_n} out, on {sum(1 for e in entries if e.get("mega"))} entries')
+
     def targets(n, suf):
         if (n, suf) in SEREBII_FORMS:
             return [byid[i] for i in SEREBII_FORMS[(n, suf)] if i in byid]
@@ -502,6 +536,7 @@ def main():
     if lost:
         print(f'{len(lost)} evolutions to something with no entry:', ', '.join(lost[:20]))
     pics = {k: files.get(k) for e in entries + costumes for k in (e['img'], e['img'] + '.s', e.get('femaleImg'), (e.get('femaleImg') or '') + '.s') if k and k != '.s'}
+    pics.update({k: files.get(k) for e in entries for m in e.get('mega') or [] for k in (m['img'], m['img'] + '.s')})   # the Mega pictures
     missing = sorted(k for k, v in pics.items() if not v)
 
     out_n = sum(e['released'] for e in entries)

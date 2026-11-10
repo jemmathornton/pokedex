@@ -80,7 +80,7 @@ const EXTRAS = [
 
 function counts(list){
   const r = {species: 0, speciesOut: 0, forms: 0, formsOut: 0, male: 0, maleOut: 0, female: 0, femaleOut: 0, shiny: 0, shinyOut: 0,
-             lucky: 0, luckyOut: 0, hundo: 0, out: 0, sd: 0, pu: 0, shadowOut: 0, dx: 0, dynamaxOut: 0, gx: 0, gmaxOut: 0};
+             lucky: 0, luckyOut: 0, hundo: 0, out: 0, sd: 0, pu: 0, shadowOut: 0, dx: 0, dynamaxOut: 0, gx: 0, gmaxOut: 0, mega: 0, megaOut: 0};
   const species = {};
   for (const e of list) {
     if (!e.released) continue;
@@ -96,6 +96,7 @@ function counts(list){
     if (e.shadow) { r.shadowOut++; if (has(k, "sd")) r.sd++; if (has(k, "pu")) r.pu++; }
     if (e.dynamax) { r.dynamaxOut++; if (has(k, "dx")) r.dx++; }
     if (e.gmax) { r.gmaxOut++; if (has(k, "gx")) r.gx++; }
+    for (const m of e.mega || []) { r.megaOut++; if (has(k, m.t)) r.mega++; }   // Mega X and Y count one each
   }
   r.speciesOut = Object.keys(species).length;
   r.species = Object.values(species).filter(Boolean).length;
@@ -114,7 +115,9 @@ const BOXF = [   // each box as a filter: which Pokémon it applies to, and whet
   {k: "shadow", label: "Shadow", applies: e => !!e.shadow, have: e => has(dk(e), "sd"), ticks: ["sd"]},
   {k: "purified", label: "Purified", applies: e => !!e.shadow, have: e => has(dk(e), "pu"), ticks: ["pu"]},
   {k: "dynamax", label: "Dynamax", applies: e => !!e.dynamax, have: e => has(dk(e), "dx"), ticks: ["dx"]},
-  {k: "gmax", label: "Gigantamax", applies: e => !!e.gmax, have: e => has(dk(e), "gx"), ticks: ["gx"]},
+  {k: "gmax", label: "G-Max", applies: e => !!e.gmax, have: e => has(dk(e), "gx"), ticks: ["gx"]},
+  // Mega Evolution and Primal (her ask, 10 Nov: a full box like Dynamax; Mega X and Y a box each, so "have" means all of them)
+  {k: "mega", label: "Mega", applies: e => !!(e.mega || []).length, have: e => (e.mega || []).every(m => has(dk(e), m.t)), ticks: e => (e.mega || []).map(m => m.t)},
 ];
 const boxPass = (b, val, e) => val === "have" ? b.applies(e) && b.have(e) : val === "need" ? b.applies(e) && !b.have(e) : true;
 function boxFilter(e){
@@ -151,7 +154,7 @@ function boxes(e){
      btn("h", "h", "star", "4★", "4★ (perfect IVs)", !e.released)],
     [extra("sd"), extra("pu")],
   ];
-  const wide = [extra("dx"), extra("gx")].filter(Boolean);   // Dynamax and Gigantamax get a full row each, so the words fit
+  const wide = [extra("dx"), extra("gx"), ...(e.mega || []).map(m => btn(m.t, "mg", "mega", m.label, m.label))].filter(Boolean);   // Dynamax, Gigantamax and Mega get a full row each, so the words fit
   if (only) {   // working on one box: just that one, bigger
     const one = pairs.flat().concat(wide).filter(Boolean).join("");
     return one ? `<div class="ticks big">${one}</div>` : "";
@@ -289,7 +292,8 @@ function statsHtml(c){
     t("--shadow", "shadow", "Shadow", c.sd, c.shadowOut) +
     t("--purified", "purified", "Purified", c.pu, c.shadowOut) +
     t("--dynamax", "expand", "Dynamax", c.dx, c.dynamaxOut) +
-    t("--gmax", "expand", "Gigantamax", c.gx, c.gmaxOut) + `</div>`;
+    t("--gmax", "expand", "Gigantamax", c.gx, c.gmaxOut) +
+    t("--mega", "mega", "Mega", c.mega, c.megaOut) + `</div>`;
 }
 const readOnlyNote = () => readOnly ? `<div class="notice">${ic("info")} Opened from the folder, so ticks can’t be saved here. Open it with the Jemma’s Pokédex shortcut.</div>` : "";
 
@@ -389,7 +393,8 @@ const DEMO = new Set((new URLSearchParams(location.search).get("demo") || "").sp
 function boxPic(e, t){   // the picture for one box: the game's own pictures and looks (G-Max picture, Lucky sparkles, Shadow flames)
   const fem = e.femaleImg && BIG.has(e.femaleImg) ? e.femaleImg : e.img;
   const gmax = `pm${e.dex}.fGIGANTAMAX`;
-  const k = t === "s" ? e.img + ".s" : t === "cf" ? fem : t === "gx" && BIG.has(gmax) ? gmax : e.img;
+  const mega = (e.mega || []).find(m => m.t === t);
+  const k = mega ? mega.img : t === "s" ? e.img + ".s" : t === "cf" ? fem : t === "gx" && BIG.has(gmax) ? gmax : e.img;
   return bigSprite(k) || bigSprite(e.img);
 }
 function bigBoxes(e){
@@ -400,7 +405,7 @@ function bigBoxes(e){
     if (!applies && !on && !why) return "";
     if (boxLook() !== "now") {
       const src = boxPic(e, t);
-      return `<button class="pc pc-${t}${boxLook() === "strip" ? " small" : ""}" type="button" data-tick="${t}" aria-pressed="${on}" style="--bc:var(${col})"${!applies && !on ? " disabled" : ""}>` +
+      return `<button class="pc pc-${["mg", "mx", "my"].includes(t) ? "mg" : t}${boxLook() === "strip" ? " small" : ""}" type="button" data-tick="${t}" aria-pressed="${on}" style="--bc:var(${col})"${!applies && !on ? " disabled" : ""}>` +
         `<span class="pcpic">${src ? `<img src="${src}" alt="" loading="lazy">` : ""}${on ? `<span class="pcok">${ic("check")}</span>` : ""}</span>` +
         `<span class="pclab">${ic(icon)}<b>${esc(boxLook() === "strip" && label === "Gigantamax" ? "G-Max" : label)}</b></span>${boxLook() === "strip" ? "" : `<small>${esc(on ? "Got it" : applies ? "Not yet" : why)}</small>`}</button>`;
     }
@@ -416,7 +421,8 @@ function bigBoxes(e){
     B("sd", "--shadow", "shadow", "Shadow", !!e.shadow) +
     B("pu", "--purified", "purified", "Purified", !!e.shadow) +
     B("dx", "--dynamax", "expand", "Dynamax", !!e.dynamax) +
-    B("gx", "--gmax", "expand", "Gigantamax", !!e.gmax) + `</div>`;
+    B("gx", "--gmax", "expand", "Gigantamax", !!e.gmax) +
+    (e.mega || []).map(m => B(m.t, "--mega", "mega", m.label, true)).join("") + `</div>`;
 }
 // Shiny Shadow: a bonus, like a costume (her ask, 10 Nov): not counted anywhere and not on the list cards; its own card with
 // the shiny picture, under the evolution family (her call)
@@ -438,7 +444,7 @@ function pokemonPage(n){
   const sel = byId[pageForm[n]] && all.includes(byId[pageForm[n]]) ? byId[pageForm[n]] : grouped.lead;
   const costumes = myCostumes().filter(c => c.dex === n);
   const evs = myEvents().filter(ev => (ev.backgroundPokemon || []).some(name => DATA.dexByName[name.toLowerCase()] === n));
-  const gw = {both: "Male and female", male: "Male only", female: "Female only", none: "Genderless"}[sel.gender];
+  const gw = {both: "Female · Male", male: "Male", female: "Female", none: "Genderless"}[sel.gender];   // like Type (her call, 10 Nov)
   const kind = {legendary: "Legendary", mythical: "Mythical", "ultra-beast": "Ultra Beast"}[sel.class];
   const gen = genById[sel.gen] || ["", REGION_OF[sel.gen] || "", ""];
   const at = DEX_NUMBERS.indexOf(n), prev = DEX_NUMBERS[at - 1], next = DEX_NUMBERS[at + 1];
@@ -455,7 +461,8 @@ function pokemonPage(n){
     row("Lucky", yesNo(canLucky(sel), "Available", sel.class === "mythical" ? "Not possible" : "Unavailable")) +
     row("Shadow and Purified", yesNo(!!sel.shadow, "Available", "Unavailable")) +
     row("Dynamax", yesNo(!!sel.dynamax, "Available", NO_DYNAMAX.has(sel.dex) ? "Not possible" : "Unavailable")) +
-    row("Gigantamax", yesNo(!!sel.gmax, "Available", GMAX_SPECIES.has(sel.dex) && !isRegional(sel) ? "Unavailable" : "Not possible")) + `</dl>`;
+    row("Gigantamax", yesNo(!!sel.gmax, "Available", GMAX_SPECIES.has(sel.dex) && !isRegional(sel) ? "Unavailable" : "Not possible")) +
+    row("Mega", yesNo(!!(sel.mega || []).length, "Available", sel.megaLater ? "Unavailable" : "Not possible")) + `</dl>`;
   const desc = sel.desc ? (sel.femaleDesc ? `<p class="dex-entry"><span class="label">Male</span>${esc(sel.desc)}</p><p class="dex-entry"><span class="label">Female</span>${esc(sel.femaleDesc)}</p>`
       : `<p class="dex-entry">${esc(sel.desc)}</p>`) : `<p class="dex-entry muted">No Pokédex entry for it in the game’s text yet.</p>`;
   const picker = ordered.length > 1 ? `<div class="formpick" role="group" aria-label="Which form to show">${ordered.map(e =>
