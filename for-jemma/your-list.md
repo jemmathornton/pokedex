@@ -4,7 +4,7 @@ Everything waiting on you. **Do** = just do it; **Decide** = your call. Tell Cla
 
 ## Decide
 - **Region banner pictures:** a number (or Colour) for each region. More landscape shots without people are being found first; then `for-jemma/region-banner-options.png` is redone with them.
-- **Mega icon and colour:** the Mega box uses a stand-in icon (chevrons) and a suggested teal for now. Claude will show you icon options from the open sets and a colour picture.
+
 - **Any more boxes?** You have ♂, ♀ (or Caught), Shiny, Lucky, 4★, Shadow, Purified, Dynamax, G-Max and Mega, plus Shiny Shadow and costume shinies as bonuses. Others you could have: shiny lucky, shiny 4★ (shundo).
 - **Which game to add after GO**, when you want it.
 
