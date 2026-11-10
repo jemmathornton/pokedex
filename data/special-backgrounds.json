@@ -348,14 +348,19 @@
     "Fennekin",
     "Froakie"
    ],
-   "note": "She played Y (she has Yveltal with the Y background), so only the Kalos starters count here: they could come with either X or Y (she has Fennekin with both, 10 Nov).",
+   "note": "She played Y (she has Yveltal with the Y background), so only the Kalos starters count here: they could come with either X or Y (she has Fennekin with both, 10 Nov). GOTOURKALOS code research (to 8 Mar 2026): you picked one of Chespin, Fennekin or Froakie and got six encounters, X, Y, X, Y, X, Y.",
    "sources": [
     "https://leekduck.com/events/pokemon-go-tour-kalos-global-2026/",
     "https://www.dittobase.com/pokemon-go/backgrounds/sb-go-tour-2026-x",
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
    "unsure": "The Kalos starters (promo code) are from Dittobase only; Serebii and Leek Duck don't list them.",
-   "picture": "gotour2026x"
+   "picture": "gotour2026x",
+   "cards": [
+    "650",
+    "653",
+    "656"
+   ]
   },
   {
    "id": "sb-gotour2026-y",
@@ -373,14 +378,23 @@
     "Fennekin",
     "Froakie"
    ],
-   "note": "Pikachu (Calem's Hat), Pikachu (Serena's Hat) and Honedge from raids, Yveltal from 5-star raids and guaranteed from the Y Version path of the ticketed Special Research (28 Feb-1 Mar 2026). Dittobase adds Chespin, Fennekin and Froakie from the Kalos starters promo code research (27 Feb-8 Mar). Shiny possible.",
+   "note": "Pikachu (Calem's Hat), Pikachu (Serena's Hat) and Honedge from raids, Yveltal from 5-star raids and guaranteed from the Y Version path of the ticketed Special Research (28 Feb-1 Mar 2026). Dittobase adds Chespin, Fennekin and Froakie from the Kalos starters promo code research (27 Feb-8 Mar). Shiny possible. GOTOURKALOS code research (to 8 Mar 2026): you picked one of Chespin, Fennekin or Froakie and got six encounters, X, Y, X, Y, X, Y.",
    "sources": [
     "https://leekduck.com/events/pokemon-go-tour-kalos-global-2026/",
     "https://www.dittobase.com/pokemon-go/backgrounds/sb-go-tour-2026-y",
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
    "unsure": "The Kalos starters (promo code) are from Dittobase only; Serebii and Leek Duck don't list them.",
-   "picture": "gotour2026y"
+   "picture": "gotour2026y",
+   "cards": [
+    "25-gotour-2026-c",
+    "25-gotour-2026-c-02",
+    "679",
+    "717",
+    "650",
+    "653",
+    "656"
+   ]
   },
   {
    "id": "sb-gotour2026-diamond",
@@ -401,7 +415,15 @@
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
    "unsure": null,
-   "picture": "gotour2026diamond"
+   "picture": "gotour2026diamond",
+   "cards": [
+    "25-gotour-2024-a",
+    "25-gotour-2024-a-02",
+    "25-gotour-2024-b",
+    "25-gotour-2024-b-02",
+    "483",
+    "483-origin"
+   ]
   },
   {
    "id": "sb-gotour2026-pearl",
@@ -422,7 +444,15 @@
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
    "unsure": null,
-   "picture": "gotour2026pearl"
+   "picture": "gotour2026pearl",
+   "cards": [
+    "25-gotour-2024-a",
+    "25-gotour-2024-a-02",
+    "25-gotour-2024-b",
+    "25-gotour-2024-b-02",
+    "484",
+    "484-origin"
+   ]
   },
   {
    "id": "sb-gotour2026-ruby",
@@ -443,7 +473,12 @@
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
    "unsure": null,
-   "picture": "gotour2026ruby"
+   "picture": "gotour2026ruby",
+   "cards": [
+    "25-gotour-2023-hat-noevolve",
+    "25-gotour-2023-bandana-noevolve",
+    "383"
+   ]
   },
   {
    "id": "sb-gotour2026-sapphire",
@@ -464,7 +499,12 @@
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
    "unsure": null,
-   "picture": "gotour2026sapphire"
+   "picture": "gotour2026sapphire",
+   "cards": [
+    "25-gotour-2023-hat-noevolve",
+    "25-gotour-2023-bandana-noevolve",
+    "382"
+   ]
   },
   {
    "id": "sb-gotour2026-gold",
@@ -485,7 +525,12 @@
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
    "unsure": "Serebii lists plain Ho-Oh; Leek Duck and Dittobase say Shadow Ho-Oh.",
-   "picture": "gotour2026gold"
+   "picture": "gotour2026gold",
+   "cards": [
+    "25-gotour-2026-b",
+    "25-gotour-2026-b-02",
+    "250"
+   ]
   },
   {
    "id": "sb-gotour2026-silver",
@@ -506,7 +551,12 @@
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
    "unsure": "Serebii lists plain Lugia; Leek Duck and Dittobase say Shadow Lugia.",
-   "picture": "gotour2026silver"
+   "picture": "gotour2026silver",
+   "cards": [
+    "25-gotour-2026-b",
+    "25-gotour-2026-b-02",
+    "249"
+   ]
   },
   {
    "id": "sb-community-2026",
@@ -848,7 +898,11 @@
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
    "unsure": null,
-   "picture": "gotourunovablackwhite"
+   "picture": "gotourunovablackwhite",
+   "cards": [
+    "646-black",
+    "646-white"
+   ]
   },
   {
    "id": "sb-gotour2025-black",
@@ -872,7 +926,7 @@
     "Oshawott",
     "Pikachu"
    ],
-   "note": "From 5-star raids. Road to Unova (24 Feb-1 Mar 2025): Cobalion, Terrakion, Virizion, Therian Landorus and Genesect (any Drive) can have Black or White; Therian Tornadus and Reshiram have Black. GO Tour Unova Global (1-2 Mar 2025): Reshiram has Black; Kyurem (unfused, after Black/White Kyurem raids) either. Pokémon Day (27 Feb 2025): Snivy, Tepig, Oshawott. Road to Kalos Unova day (27 Feb 2026): Pikachu (Hilbert's Hat), (Hilda's Hat), (Nate's Visor), (Rosa's Visor) and Kyurem either; Reshiram Black. Shiny possible.",
+   "note": "From 5-star raids. Road to Unova (24 Feb-1 Mar 2025): Cobalion, Terrakion, Virizion, Therian Landorus and Genesect (any Drive) can have Black or White; Therian Tornadus and Reshiram have Black. GO Tour Unova Global (1-2 Mar 2025): Reshiram has Black; Kyurem (unfused, after Black/White Kyurem raids) either. GOTOURUNOVA code research (27 Feb–9 Mar 2025): you picked one of Snivy, Tepig or Oshawott, and its encounters came Black, then White. Road to Kalos Unova day (27 Feb 2026): Pikachu (Hilbert's Hat), (Hilda's Hat), (Nate's Visor), (Rosa's Visor) and Kyurem either; Reshiram Black. Shiny possible.",
    "sources": [
     "https://leekduck.com/events/road-to-unova/",
     "https://leekduck.com/events/pokemon-go-tour-unova-global-2025/",
@@ -881,7 +935,28 @@
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
    "unsure": "Serebii gives both Reshiram and Zekrom on both Black and White; Leek Duck and Dittobase give Reshiram Black only. Pokémon Day starters: Serebii and Dittobase, not checked on Leek Duck.",
-   "picture": "gotourunovablack"
+   "picture": "gotourunovablack",
+   "cards": [
+    "638",
+    "639",
+    "640",
+    "641-therian",
+    "645-therian",
+    "649",
+    "649-burn",
+    "649-chill",
+    "649-douse",
+    "649-shock",
+    "643",
+    "646",
+    "495",
+    "498",
+    "501",
+    "25-gotour-2025-a",
+    "25-gotour-2025-a-02",
+    "25-gotour-2025-b",
+    "25-gotour-2025-b-02"
+   ]
   },
   {
    "id": "sb-gotour2025-white",
@@ -914,7 +989,28 @@
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
    "unsure": "Serebii gives both Reshiram and Zekrom on both; Leek Duck and Dittobase give Zekrom White only.",
-   "picture": "gotourunovawhite"
+   "picture": "gotourunovawhite",
+   "cards": [
+    "638",
+    "639",
+    "640",
+    "642-therian",
+    "645-therian",
+    "649",
+    "649-burn",
+    "649-chill",
+    "649-douse",
+    "649-shock",
+    "644",
+    "646",
+    "495",
+    "498",
+    "501",
+    "25-gotour-2025-a",
+    "25-gotour-2025-a-02",
+    "25-gotour-2025-b",
+    "25-gotour-2025-b-02"
+   ]
   },
   {
    "id": "sb-gotour2025-enigma",
@@ -1039,9 +1135,10 @@
    "card": "sb_TeamLeader_red",
    "backgroundPokemon": [
     "Pikachu",
-    "Moltres"
+    "Moltres",
+    "Ponyta"
    ],
-   "note": "She is Team Instinct, so only the Road to Kalos raids (23 Feb 2026) count here: Pikachu (Red’s Hat or Leaf’s Hat) could get any team’s background, and Moltres always got this one.",
+   "note": "Road to Kalos, Kanto day (23 Feb 2026, raids): Pikachu (Red’s Hat or Leaf’s Hat) could get any team’s background, and Moltres always got this one. Ponyta (Candela accessory) from the Triumph Together research (Aug 2024) and the Candela’s Quest GO Pass (Jun 2026), open to every team.",
    "sources": [
     "https://www.serebii.net/pokemongo/backgrounds.shtml",
     "https://serebii.net/pokemongo/events/triumphtogether.shtml",
@@ -1053,9 +1150,12 @@
    ],
    "unsure": "Dittobase dates Triumph Together 23-30 Jul 2024; Leek Duck has 23-30 Aug 2024 (used here). Serebii's Triumph Together list also shows \"Sandslash ()\" with no costume named: not confirmed anywhere else. Serebii doesn't list the Road to Kalos Pikachu or legendary birds.",
    "picture": "teamvalor",
-   "show": {
-    "Pikachu": "25-gotour-2026-a"
-   }
+   "cards": [
+    "25-gotour-2026-a",
+    "25-gotour-2026-a-02",
+    "146",
+    "77-spring-2023-valor"
+   ]
   },
   {
    "id": "sb-teamleader-blue",
@@ -1067,9 +1167,10 @@
    "card": "sb_TeamLeader_blue",
    "backgroundPokemon": [
     "Pikachu",
-    "Articuno"
+    "Articuno",
+    "Lapras"
    ],
-   "note": "She is Team Instinct, so only the Road to Kalos raids (23 Feb 2026) count here: Pikachu (Red’s Hat or Leaf’s Hat) could get any team’s background, and Articuno always got this one.",
+   "note": "Road to Kalos, Kanto day (23 Feb 2026, raids): Pikachu (Red’s Hat or Leaf’s Hat) could get any team’s background, and Articuno always got this one. Lapras (Blanche accessory) from the Triumph Together research (Aug 2024) and the Blanche’s Quest for Knowledge GO Pass (May–Jun 2026), open to every team.",
    "sources": [
     "https://www.serebii.net/pokemongo/backgrounds.shtml",
     "https://serebii.net/pokemongo/events/triumphtogether.shtml",
@@ -1080,9 +1181,12 @@
    ],
    "unsure": "Dittobase dates Triumph Together 23-30 Jul 2024; Leek Duck has 23-30 Aug 2024 (used here). Serebii's Triumph Together list also shows \"Sandslash ()\" with no costume named: not confirmed anywhere else. Serebii doesn't list the Road to Kalos Pikachu or legendary birds. Blanche's Quest is from Dittobase only (no Leek Duck page fetched).",
    "picture": "teammystic",
-   "show": {
-    "Pikachu": "25-gotour-2026-a"
-   }
+   "cards": [
+    "25-gotour-2026-a",
+    "25-gotour-2026-a-02",
+    "144",
+    "131-spring-2023-mystic"
+   ]
   },
   {
    "id": "sb-teamleader-yellow",
@@ -1140,7 +1244,46 @@
     "https://www.dittobase.com/pokemon-go/backgrounds/sb-team-leader-yellow"
    ],
    "unsure": "Dittobase dates Triumph Together 23-30 Jul 2024; Leek Duck has 23-30 Aug 2024 (used here). Serebii's Triumph Together list also shows \"Sandslash ()\" with no costume named: not confirmed anywhere else. Serebii doesn't list the Road to Kalos Pikachu or legendary birds.",
-   "picture": "teaminstinct"
+   "picture": "teaminstinct",
+   "cards": [
+    "239-spring-2023-instinct",
+    "25-gotour-2026-a",
+    "25-gotour-2026-a-02",
+    "145",
+    "25-anniversary-2026",
+    "1",
+    "4",
+    "7",
+    "152",
+    "155",
+    "158",
+    "252",
+    "255",
+    "258",
+    "387",
+    "390",
+    "393",
+    "495",
+    "498",
+    "501",
+    "650",
+    "653",
+    "656",
+    "722",
+    "725",
+    "728",
+    "810",
+    "813",
+    "816",
+    "906",
+    "909",
+    "912",
+    "20-jan-2020-noevolve",
+    "33-jan-2020-noevolve",
+    "88-anniversary-2024",
+    "94-jan-2020-noevolve",
+    "202-jan-2020-noevolve"
+   ]
   },
   {
    "id": "sb-gofest2024-radiance",

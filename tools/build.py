@@ -41,6 +41,10 @@ def main():
         for p in ev.get('backgroundPokemon') or []:
             if p.lower() not in names:
                 problems.append(f'{ev["id"]}: no Pokémon called {p}')
+        ids = {e['id'] for e in dex['entries']} | {c['id'] for c in costumes['costumes']}
+        for c in ev.get('cards') or []:   # the exact forms/costumes the background's cards show
+            if c not in ids:
+                problems.append(f'{ev["id"]}: no entry or costume {c}')
     pics = [k for e in dex['entries'] + costumes['costumes'] for k in (e['img'], e['img'] + '.s')]
     missing = sum(1 for k in pics if k not in have)
     out = {'game': 'go', 'updated': dex['updated'], 'entries': dex['entries'], 'costumes': costumes['costumes'],

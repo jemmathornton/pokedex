@@ -1,0 +1,493 @@
+{
+ "sb-gotour2025-black": {
+  "ok": true,
+  "choice": "Partly: Snivy/Tepig/Oshawott came from the GOTOURUNOVA promo-code Timed Research, where you picked ONE starter (encounters alternate Black then White). The Black/White version choice at GO Tour Unova Global did not decide raid backgrounds.",
+  "global_ok": true,
+  "notes": "Species right. Correction to the note: the starters weren't a 'Pokémon Day' event but the 'Pokémon Presents '25 x GO Tour' Timed Research (code GOTOURUNOVA, 27 Feb-9 Mar 2025). Road to Unova (24 Feb-1 Mar 2025) 5-star raids: Cobalion, Terrakion, Virizion, Therian Landorus, Genesect either; Therian Tornadus and Reshiram Black. Tour Unova Global (1-2 Mar 2025): Reshiram Black, unfused Kyurem after Black/White Kyurem raids either. Road to Kalos Unova day (27 Feb 2026): four Unova-hat Pikachu and Kyurem either, Reshiram Black. Serebii's 'Reshiram and Zekrom on both' is wrong per the official post and Leek Duck.",
+  "sources": [
+   "https://leekduck.com/events/road-to-unova/",
+   "https://leekduck.com/events/pokemon-go-tour-unova-global-2025/",
+   "https://leekduck.com/events/pokemon-presents-25-x-go-tour-timed-research",
+   "https://serebii.net/pokemongo/todaysviewresearch/pokemonpresents25xgotourtimedresearch.shtml",
+   "https://leekduck.com/events/road-to-kalos/",
+   "https://pokemongo.com/en/news/road-to-kalos-event"
+  ]
+ },
+ "sb-gotour2025-white": {
+  "ok": true,
+  "choice": "Partly: the starters came from the GOTOURUNOVA promo research with ONE starter chosen (Black then White encounters). Version choice didn't decide raid backgrounds.",
+  "global_ok": true,
+  "notes": "Species right (as Black but Therian Thundurus and Zekrom). Same starter correction as Black: promo-code research, not Pokémon Day.",
+  "sources": [
+   "https://leekduck.com/events/road-to-unova/",
+   "https://leekduck.com/events/pokemon-go-tour-unova-global-2025/",
+   "https://leekduck.com/events/pokemon-presents-25-x-go-tour-timed-research",
+   "https://leekduck.com/events/road-to-kalos/",
+   "https://pokemongo.com/en/news/road-to-kalos-event"
+  ]
+ },
+ "sb-gotour2025-black-white": {
+  "ok": true,
+  "choice": "none (needs a background Zekrom or Reshiram plus a Kyurem with the opposite colour)",
+  "global_ok": true,
+  "notes": "Confirmed: a fused Black/White Kyurem gets 'its own variant background' (official Road to Kalos post; Leek Duck Road to Unova and Tour Unova pages). Possible from Tour Unova Global (Mar 2025) or Road to Kalos (Feb 2026) Pokémon.",
+  "sources": [
+   "https://leekduck.com/events/pokemon-go-tour-unova-global-2025/",
+   "https://leekduck.com/events/road-to-unova/",
+   "https://leekduck.com/events/road-to-kalos/",
+   "https://pokemongo.com/en/news/road-to-kalos-event"
+  ]
+ },
+ "sb-gotour2026-gold": {
+  "ok": true,
+  "choice": "none (the Pikachu's Gold/Silver isn't chosen by the player)",
+  "global_ok": true,
+  "notes": "Johto day, Tue 24 Feb 2026. Ethan's Hat and Lyra's Hat Pikachu (1-star) Gold or Silver; Shadow Ho-Oh (5-star Shadow raids) Gold. Ho-Oh is only the Shadow one (Purified later keeps it); Serebii's plain Ho-Oh is wrong. How it worked (official post): raid bosses 'will have a chance of receiving new Special Backgrounds after making a successful catch in all raids'; Timed and Field Research Pokémon don't get them. One region per day (Mon 23 Kanto, Tue 24 Johto, Wed 25 Hoenn, Thu 26 Sinnoh, Fri 27 Feb 2026 Unova), from the 1-star costume-Pikachu raids and the 5-star / Shadow / Primal legendary raids. The legendary always gets its fixed version; the costume Pikachu can get either, and no source says how that is picked (presumably random per catch; not by player choice). Remote raids aren't excluded anywhere.",
+  "sources": [
+   "https://leekduck.com/events/road-to-kalos/",
+   "https://pokemongo.com/en/news/road-to-kalos-event",
+   "https://pokemongohub.net/post/event/road-to-kalos/"
+  ]
+ },
+ "sb-gotour2026-silver": {
+  "ok": true,
+  "choice": "none",
+  "global_ok": true,
+  "notes": "Johto day, 24 Feb 2026. Ethan's/Lyra's Hat Pikachu Gold or Silver; Shadow Lugia Silver (Shadow only). How it worked (official post): raid bosses 'will have a chance of receiving new Special Backgrounds after making a successful catch in all raids'; Timed and Field Research Pokémon don't get them. One region per day (Mon 23 Kanto, Tue 24 Johto, Wed 25 Hoenn, Thu 26 Sinnoh, Fri 27 Feb 2026 Unova), from the 1-star costume-Pikachu raids and the 5-star / Shadow / Primal legendary raids. The legendary always gets its fixed version; the costume Pikachu can get either, and no source says how that is picked (presumably random per catch; not by player choice). Remote raids aren't excluded anywhere.",
+  "sources": [
+   "https://leekduck.com/events/road-to-kalos/",
+   "https://pokemongo.com/en/news/road-to-kalos-event",
+   "https://pokemongohub.net/post/event/road-to-kalos/"
+  ]
+ },
+ "sb-gotour2026-ruby": {
+  "ok": true,
+  "choice": "none",
+  "global_ok": true,
+  "notes": "Hoenn day, Wed 25 Feb 2026. Brendan's Hat and May's Bow Pikachu Ruby or Sapphire; Groudon (from Primal Groudon raids) Ruby. How it worked (official post): raid bosses 'will have a chance of receiving new Special Backgrounds after making a successful catch in all raids'; Timed and Field Research Pokémon don't get them. One region per day (Mon 23 Kanto, Tue 24 Johto, Wed 25 Hoenn, Thu 26 Sinnoh, Fri 27 Feb 2026 Unova), from the 1-star costume-Pikachu raids and the 5-star / Shadow / Primal legendary raids. The legendary always gets its fixed version; the costume Pikachu can get either, and no source says how that is picked (presumably random per catch; not by player choice). Remote raids aren't excluded anywhere.",
+  "sources": [
+   "https://leekduck.com/events/road-to-kalos/",
+   "https://pokemongo.com/en/news/road-to-kalos-event",
+   "https://pokemongohub.net/post/event/road-to-kalos/"
+  ]
+ },
+ "sb-gotour2026-sapphire": {
+  "ok": true,
+  "choice": "none",
+  "global_ok": true,
+  "notes": "Hoenn day, 25 Feb 2026. Same Pikachu; Kyogre (from Primal Kyogre raids) Sapphire. How it worked (official post): raid bosses 'will have a chance of receiving new Special Backgrounds after making a successful catch in all raids'; Timed and Field Research Pokémon don't get them. One region per day (Mon 23 Kanto, Tue 24 Johto, Wed 25 Hoenn, Thu 26 Sinnoh, Fri 27 Feb 2026 Unova), from the 1-star costume-Pikachu raids and the 5-star / Shadow / Primal legendary raids. The legendary always gets its fixed version; the costume Pikachu can get either, and no source says how that is picked (presumably random per catch; not by player choice). Remote raids aren't excluded anywhere.",
+  "sources": [
+   "https://leekduck.com/events/road-to-kalos/",
+   "https://pokemongo.com/en/news/road-to-kalos-event",
+   "https://pokemongohub.net/post/event/road-to-kalos/"
+  ]
+ },
+ "sb-gotour2026-diamond": {
+  "ok": true,
+  "choice": "none",
+  "global_ok": true,
+  "notes": "Sinnoh day, Thu 26 Feb 2026. Lucas's Hat and Dawn's Hat Pikachu (1-star) plus Rei's Cap and Akari's Kerchief Pikachu (Space-Time Anomaly 1-star) Diamond or Pearl; Dialga and Origin Forme Dialga Diamond. Bosses alternated hourly. How it worked (official post): raid bosses 'will have a chance of receiving new Special Backgrounds after making a successful catch in all raids'; Timed and Field Research Pokémon don't get them. One region per day (Mon 23 Kanto, Tue 24 Johto, Wed 25 Hoenn, Thu 26 Sinnoh, Fri 27 Feb 2026 Unova), from the 1-star costume-Pikachu raids and the 5-star / Shadow / Primal legendary raids. The legendary always gets its fixed version; the costume Pikachu can get either, and no source says how that is picked (presumably random per catch; not by player choice). Remote raids aren't excluded anywhere.",
+  "sources": [
+   "https://leekduck.com/events/road-to-kalos/",
+   "https://pokemongo.com/en/news/road-to-kalos-event",
+   "https://pokemongohub.net/post/event/road-to-kalos/"
+  ]
+ },
+ "sb-gotour2026-pearl": {
+  "ok": true,
+  "choice": "none",
+  "global_ok": true,
+  "notes": "Sinnoh day, 26 Feb 2026. Same four Pikachu; Palkia and Origin Forme Palkia Pearl. How it worked (official post): raid bosses 'will have a chance of receiving new Special Backgrounds after making a successful catch in all raids'; Timed and Field Research Pokémon don't get them. One region per day (Mon 23 Kanto, Tue 24 Johto, Wed 25 Hoenn, Thu 26 Sinnoh, Fri 27 Feb 2026 Unova), from the 1-star costume-Pikachu raids and the 5-star / Shadow / Primal legendary raids. The legendary always gets its fixed version; the costume Pikachu can get either, and no source says how that is picked (presumably random per catch; not by player choice). Remote raids aren't excluded anywhere.",
+  "sources": [
+   "https://leekduck.com/events/road-to-kalos/",
+   "https://pokemongo.com/en/news/road-to-kalos-event",
+   "https://pokemongohub.net/post/event/road-to-kalos/"
+  ]
+ },
+ "sb-gotour2026-x": {
+  "ok": true,
+  "choice": "Yes, two ways: the Kalos starter was the player's pick (one of Chespin/Fennekin/Froakie, getting both X and Y); the guaranteed Xerneas came only on the X path of the ticketed research. Raid Pikachu, Honedge and Xerneas weren't path-locked as far as sources say.",
+  "global_ok": true,
+  "notes": "List confirmed by Leek Duck, GO Hub and Serebii (Pikachu in Calem's/Serena's Hat and Honedge from 1-star raids, Xerneas/Yveltal from 5-star raids, 28 Feb-1 Mar 2026). Kalos starters: promo code GOTOURKALOS (redeem by 2 Mar 2026, research open to 8 Mar) gave Timed Research where you chose ONE of Chespin, Fennekin or Froakie and got six encounters alternating X, Y, X, Y, X, Y (Nintendo Wire), three of each background; that is why she has Fennekin with both. Pikachu and Honedge: every source lists them under both X and Y and none says the X/Y path decides it, so not version-locked as far as anyone says (probably random per catch; not confirmed). Xerneas and Yveltal raids were open to both paths. For her (Y path, Fennekin): X possible on raid Pikachu, Honedge, raid Xerneas and Fennekin; not on Chespin or Froakie.",
+  "sources": [
+   "https://leekduck.com/events/pokemon-go-tour-kalos-global-2026/",
+   "https://pokemongohub.net/post/event/pokemon-go-tour-kalos-2026-global/",
+   "https://serebii.net/pokemongo/events/gotourkalosglobal.shtml",
+   "https://nintendowire.com/guides/pokemon-go/season-of-precious-paths/a-beautiful-day-to-celebrate-timed-research/",
+   "https://www.dittobase.com/pokemon-go/events/kalos-starters-promo-code-2026"
+  ]
+ },
+ "sb-gotour2026-y": {
+  "ok": true,
+  "choice": "Yes: starter pick as for X; the guaranteed Yveltal came only on the Y path (her path: she has the Y Yveltal).",
+  "global_ok": true,
+  "notes": "List confirmed by Leek Duck, GO Hub and Serebii (Pikachu in Calem's/Serena's Hat and Honedge from 1-star raids, Xerneas/Yveltal from 5-star raids, 28 Feb-1 Mar 2026). Kalos starters: promo code GOTOURKALOS (redeem by 2 Mar 2026, research open to 8 Mar) gave Timed Research where you chose ONE of Chespin, Fennekin or Froakie and got six encounters alternating X, Y, X, Y, X, Y (Nintendo Wire), three of each background; that is why she has Fennekin with both. Pikachu and Honedge: every source lists them under both X and Y and none says the X/Y path decides it, so not version-locked as far as anyone says (probably random per catch; not confirmed). Xerneas and Yveltal raids were open to both paths. For her: Y on Yveltal (research or raids), raid Pikachu, Honedge and Fennekin; not on Chespin or Froakie.",
+  "sources": [
+   "https://leekduck.com/events/pokemon-go-tour-kalos-global-2026/",
+   "https://pokemongohub.net/post/event/pokemon-go-tour-kalos-2026-global/",
+   "https://serebii.net/pokemongo/events/gotourkalosglobal.shtml",
+   "https://nintendowire.com/guides/pokemon-go/season-of-precious-paths/a-beautiful-day-to-celebrate-timed-research/",
+   "https://www.dittobase.com/pokemon-go/events/kalos-starters-promo-code-2026"
+  ]
+ },
+ "sb-gotour2026-mega": {
+  "ok": true,
+  "choice": "none",
+  "global_ok": true,
+  "notes": "Kalos Global (28 Feb-1 Mar 2026) Mega and Super Mega raid list matches Leek Duck (Dragonite was a Super Mega Raid both days; Serebii simply leaves it out). Mega Ascension (31 Aug-4 Sep) and Mega Finale (5-6 Sep 2026) confirmed by pokemongo.com and Leek Duck ('Pokémon caught from Mega Raids ... may have a Mega Evolution-themed Special Background'). Serebii's Mega Finale page shows Mewtwo with this same Mega background, so Mega Finale Mewtwo belongs here. Leek Duck lists Chespin/Fennekin/Froakie as 'Kalos first partners from GO Pass' on that page, but Serebii shows them as GO Pass rewards with no background: doubtful. Serebii also lists Gligar, which can't come from a Mega Raid: ignore. The evening return of the Road to Kalos raids at Kalos Global (6-8:30 pm) isn't said to give any background.",
+  "sources": [
+   "https://leekduck.com/events/pokemon-go-tour-kalos-global-2026/",
+   "https://leekduck.com/gofest/special-backgrounds/",
+   "https://pokemongo.com/gofest/megafinale",
+   "https://www.serebii.net/pokemongo/events/gofest2026megafinale.shtml",
+   "https://pokemongohub.net/post/event/pokemon-go-tour-kalos-2026-global/"
+  ]
+ },
+ "sb-gofest2024-radiance": {
+  "ok": true,
+  "choice": "Yes: the ticketed GO Fest 2024 Global Sunday research ('The Dusk Settles') branched into a Solgaleo or a Lunala path; the Solgaleo path gave Solgaleo with this background. She picked Solgaleo, so she can have it.",
+  "global_ok": true,
+  "notes": "Ticket holders only (14 Jul 2024). One of Solgaleo or Lunala, not both.",
+  "sources": [
+   "https://leekduck.com/events/inbound-from-ultra-space/",
+   "https://pokemongohub.net/post/guide/go-fest-2024-global-sunday-day-2/",
+   "https://sportskeeda.com/pokemon/solgaleo-lunala-which-pick-pokemon-go-fest-2024-new-york-city-skies-research"
+  ]
+ },
+ "sb-gofest2024-umbra": {
+  "ok": true,
+  "choice": "Yes: only on the Lunala path. She picked Solgaleo, so she could not get it.",
+  "global_ok": true,
+  "notes": "Ticket holders only, Lunala path. Not obtainable for her.",
+  "sources": [
+   "https://leekduck.com/events/inbound-from-ultra-space/",
+   "https://sportskeeda.com/pokemon/solgaleo-lunala-which-pick-pokemon-go-fest-2024-new-york-city-skies-research"
+  ]
+ },
+ "sb-gofest2024-wormhole-sun": {
+  "ok": true,
+  "choice": "Yes: needs a Radiance Solgaleo (Solgaleo path) fused with a Wormhole Necrozma. Possible for her.",
+  "global_ok": true,
+  "notes": "Leek Duck: fusing a background Necrozma gives Dusk Mane/Dawn Wings 'its own variant of the background'; GO Hub: orange variant with the Sun Solgaleo, blue with the Moon Lunala.",
+  "sources": [
+   "https://leekduck.com/events/inbound-from-ultra-space/",
+   "https://pokemongohub.net/post/guide/go-fest-2024-global-sunday-day-2/"
+  ]
+ },
+ "sb-gofest2024-wormhole-moon": {
+  "ok": true,
+  "choice": "Yes: needs an Umbra Lunala (Lunala path). Not possible for her (she picked Solgaleo).",
+  "global_ok": true,
+  "notes": "As Wormhole Sun, Dawn Wings side.",
+  "sources": [
+   "https://leekduck.com/events/inbound-from-ultra-space/",
+   "https://pokemongohub.net/post/guide/go-fest-2024-global-sunday-day-2/"
+  ]
+ },
+ "sb-gofest2024-wormhole": {
+  "ok": true,
+  "choice": "none",
+  "global_ok": true,
+  "notes": "Confirmed: Ultra Beasts from 5-star raids 8-13 Jul 2024 (Inbound from Ultra Space) and GO Fest Global Saturday 13 Jul; Necrozma 13-14 Jul. UBs from the free Timed Research don't have it.",
+  "sources": [
+   "https://leekduck.com/events/inbound-from-ultra-space/",
+   "https://leekduck.com/events/pokemon-go-fest-2024-global/"
+  ]
+ },
+ "sb-gofest2025-eternatus": {
+  "ok": false,
+  "pokemon_possibly_missing": [
+   "Pikachu",
+   "Growlithe",
+   "Abra",
+   "Hitmonlee",
+   "Hitmonchan",
+   "Rhyhorn",
+   "Electabuzz",
+   "Magmar",
+   "Eevee",
+   "Hoothoot",
+   "Hitmontop",
+   "Ralts",
+   "Trapinch",
+   "Combee",
+   "Roggenrola",
+   "Woobat",
+   "Deino",
+   "Inkay",
+   "Bounsweet",
+   "Drampa",
+   "Toxel",
+   "Sizzlipede",
+   "Duraludon"
+  ],
+  "choice": "none",
+  "global_ok": true,
+  "notes": "All 37 Dark Skies Dynamax bosses (18-22 Aug 2025) and the 13 Max Finale G-Max bosses (23-24 Aug) on pokemongo.com are in the list. But pokemongo.com also says any Gigantamax Pokémon seen in GO, and (less likely) Dynamax Pokémon, could appear at Power Spots during Max Finale, and Serebii's Dark Skies list has the extra Dynamax species in 'pokemon_possibly_missing' (plus evolutions such as Hattrem). Suggestion: add them, as chance Power Spot finds.",
+  "sources": [
+   "https://pokemongo.com/en/news/gofestmaxfinale",
+   "https://leekduck.com/events/pokemon-go-fest-2025-max-finale/",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ]
+ },
+ "sb-community-2026": {
+  "ok": false,
+  "pokemon_should_be": [
+   "Piplup",
+   "Grookey",
+   "Vulpix",
+   "Scorbunny",
+   "Tinkatink",
+   "Lechonk",
+   "Deino",
+   "Frigibax",
+   "Sobble",
+   "Nickit",
+   "Gible",
+   "Zorua",
+   "Pawniard (only from 21 Nov 2026)"
+  ],
+  "choice": "none",
+  "global_ok": true,
+  "notes": "Pawniard's Community Day is Sat 21 Nov 2026 (pokemongo.com), still to come, so not obtainable yet. The rest match Serebii and the 2026 schedule (Jan Piplup Classic and Grookey, Feb Vulpix and Alolan Vulpix, Mar Scorbunny, Apr Tinkatink, May Lechonk and Deino Classic, Jun Frigibax, Jul Sobble, Aug Nickit, Sep Gible Classic, Oct Zorua). From Jan 2026 each Community Day's featured Pokémon can have the yearly background.",
+  "sources": [
+   "https://pokemongo.com/news/communityday-november-2026-pawniard",
+   "https://pokemongo.com/news/202601_communityday-february-2026-vulpix",
+   "https://pokemongo.com/news/communityday-june-2026-frigibax",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ]
+ },
+ "sb-season17-dueldestiny": {
+  "ok": true,
+  "choice": "none",
+  "global_ok": true,
+  "notes": "Serebii gives the same four (Sprigatito, Ralts, Karrablast, Shelmet). No third source checked.",
+  "sources": [
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ]
+ },
+ "sb-season18-mightandmastery": {
+  "ok": true,
+  "choice": "none",
+  "global_ok": true,
+  "notes": "Serebii gives the same nine. No third source checked.",
+  "sources": [
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ]
+ },
+ "sb-season19-delightfuldays": {
+  "ok": true,
+  "choice": "Partly: the G-Max Rillaboom/Cinderace/Inteleon was one of your choice from the GOFESTMAX code research (code expired 3 Aug 2025).",
+  "global_ok": true,
+  "notes": "Matches Serebii (which also shows Corviknight, Rookidee's evolution: fine, evolutions keep it). pokemongo.com confirms the GOFESTMAX G-Max starter came with a 'Seasonal Special Background'.",
+  "sources": [
+   "https://www.serebii.net/pokemongo/backgrounds.shtml",
+   "https://pokemongo.com/en/news/gofestmaxfinale"
+  ]
+ },
+ "sb-season20-talesoftransformation": {
+  "ok": true,
+  "choice": "none known",
+  "global_ok": true,
+  "notes": "Official GO Pass October 2025 post confirms Terrakion with the Tales of Transformation background; Serebii confirms Cobalion, Flabébé, Solosis, Chikorita, Tepig, Totodile. Virizion (Nov GO Pass) and Pikipek (30 Nov CD) aren't on Serebii's list: not confirmed by a second source.",
+  "sources": [
+   "https://pokemongo.com/en/news/go-pass-october-2025",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml",
+   "https://leekduck.com/events/season-20-tales-of-transformation"
+  ]
+ },
+ "sb-teamleader-yellow": {
+  "ok": true,
+  "choice": "Yes: at Ultra Unlock 10th Anniversary (21-27 Jul 2026) the colour followed the team you were on when the encounter began (no team, no background); she is Instinct so got Yellow there. Road to Kalos Pikachu could get any team's (how it was picked isn't stated).",
+  "global_ok": true,
+  "notes": "Ultra Unlock confirmed by Leek Duck: first partners, Willow's assistant Pikachu, Party Hat Grimer/Raticate/Nidorino/Gengar/Wobbuffet (raids). Party Hat Bulbasaur/Charmander/Squirtle were GO Pass rewards with no background mentioned (Dittobase only): doubtful. Elekid (Spark) from Triumph Together (23-30 Aug 2024 per Leek Duck and Serebii; Dittobase's July date is wrong) and the Spark's Caretaking Quest GO Pass. Serebii's Sandslash with no costume is unconfirmed.",
+  "sources": [
+   "https://leekduck.com/events/ultra-unlock-10th-anniversary-edition/",
+   "https://leekduck.com/events/triumph-together/",
+   "https://serebii.net/pokemongo/events/triumphtogether.shtml",
+   "https://leekduck.com/events/road-to-kalos/",
+   "https://pokemongo.com/en/news/road-to-kalos-event"
+  ]
+ },
+ "sb-teamleader-red": {
+  "ok": false,
+  "pokemon_should_be": [
+   "Pikachu",
+   "Moltres",
+   "Ponyta"
+  ],
+  "choice": "none for Ponyta (free research and GO Pass, any team). Ultra Unlock first partners followed your own team, so not for her.",
+  "global_ok": true,
+  "notes": "Missing Ponyta (Candela accessory) with the Team Valor background: Triumph Together Timed Research (Aug 2024; free once the Global Challenge was done, also in the paid research) and Candela's Quest for Victory GO Pass, free track rank 30 (9-15 Jun 2026). Neither is team-locked as far as sources say, so an Instinct player could have it.",
+  "sources": [
+   "https://leekduck.com/events/candelas-quest-for-victory/",
+   "https://serebii.net/pokemongo/events/triumphtogether.shtml",
+   "https://www.dittobase.com/pokemon-go/backgrounds/sb-team-leader-red"
+  ]
+ },
+ "sb-teamleader-blue": {
+  "ok": false,
+  "pokemon_should_be": [
+   "Pikachu",
+   "Articuno",
+   "Lapras"
+  ],
+  "choice": "none for Lapras (free research and GO Pass, any team).",
+  "global_ok": true,
+  "notes": "Missing Lapras (Blanche accessory) with the Team Mystic background: Triumph Together research (Aug 2024) and Blanche's Quest for Knowledge GO Pass, free track rank 30 (26 May-1 Jun 2026).",
+  "sources": [
+   "https://leekduck.com/events/blanches-quest-for-knowledge/",
+   "https://serebii.net/pokemongo/events/triumphtogether.shtml"
+  ]
+ },
+ "sb-go-wild-area-2026-into-the-wild-go-wild-area-global": {
+  "ok": true,
+  "choice": "none (Duraludon guaranteed for ticket holders)",
+  "global_ok": true,
+  "notes": "Matches Leek Duck. The weekend part (14-15 Nov 2026) hasn't happened yet. Machamp (Modern Jacket) from 3-star raids isn't explicitly said to get it (Leek Duck names 5-star raids and Max Battles): doubtful.",
+  "sources": [
+   "https://leekduck.com/pokemon-go-wild-area/special-backgrounds/"
+  ]
+ },
+ "sb-gofest2026-global": {
+  "ok": true,
+  "choice": "none",
+  "global_ok": true,
+  "notes": "5-star raid list matches Leek Duck's habitat lists (6-12 Jul 2026). Mega Raid species and the 26 Jul makeup day not checked.",
+  "sources": [
+   "https://leekduck.com/gofest-2026/special-backgrounds/"
+  ]
+ },
+ "sb-gofest2026-mewtwo": {
+  "ok": true,
+  "choice": "none",
+  "global_ok": true,
+  "notes": "Leek Duck confirms Super Mega Raids 11-12 Jul 2026. Makeup day and GO Pass rank 90 not checked. Mewtwo from the September Mega Finale has the GO Tour 2026 Mega background instead (Serebii).",
+  "sources": [
+   "https://leekduck.com/gofest-2026/special-backgrounds/",
+   "https://www.serebii.net/pokemongo/events/gofest2026megafinale.shtml"
+  ]
+ },
+ "sb-gowa2025-global": {
+  "ok": true,
+  "choice": "none",
+  "global_ok": true,
+  "notes": "Weekend part (Shadow Cresselia, Shadow Darkrai, Bewear, G-Max Grimmsnarl) confirmed by Leek Duck and Serebii. Into the Wild (10-14 Nov 2025) 5-star raids (Shadow Lugia, Shadow Ho-Oh, the Tapus, Dusk Mane/Dawn Wings Necrozma) gave 'a new Special Background' per pokemongo.com, but Leek Duck lists it separately and Serebii's GO Wild Area 2025 list leaves them out, so it may be a different background: unsure.",
+  "sources": [
+   "https://pokemongo.com/en/news/into-the-wild-2025",
+   "https://leekduck.com/events/into-the-wild-2025/",
+   "https://leekduck.com/events/pokemon-go-wild-area-2025-global/",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ]
+ },
+ "sb-go-fest-2025-zamazenta": {
+  "ok": true,
+  "choice": "none",
+  "global_ok": true,
+  "notes": "Serebii dates it 28 Jul 2025, a typo for 28 Jun (GO Fest Global Saturday). Species right.",
+  "sources": [
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ]
+ },
+ "sb-go-fest-2025-zacian": {
+  "ok": true,
+  "choice": "none",
+  "global_ok": true,
+  "notes": "Serebii agrees.",
+  "sources": [
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ]
+ },
+ "sb-gofest2025": {
+  "ok": true,
+  "choice": "Partly: the Timed Research Regi was your choice.",
+  "global_ok": true,
+  "notes": "Serebii agrees on the six Regis.",
+  "sources": [
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ]
+ },
+ "sb-2024-decembercdrecap": {
+  "ok": true,
+  "choice": "none",
+  "global_ok": true,
+  "notes": "Official and Leek Duck day lists (Sat: Rowlet, Chansey, Litten, Bellsprout, Bounsweet, Goomy; Sun: Mankey, Ponyta, Galarian Ponyta, Sewaddle, Tynamo, Popplio) plus Serebii's Porygon, Cyndaquil, Bagon, Beldum match.",
+  "sources": [
+   "https://pokemongo.com/en/news/community-day-december-2024",
+   "https://leekduck.com/events/december-communityday2024/",
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ]
+ },
+ "sb-gowa-fukuoka": {
+  "ok": true,
+  "choice": "none",
+  "global_ok": true,
+  "notes": "Serebii agrees (Kyogre, Groudon, Dialga, Palkia, Toxtricity both forms).",
+  "sources": [
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ]
+ },
+ "sb-gotour2025-enigma": {
+  "ok": true,
+  "choice": "none",
+  "global_ok": true,
+  "notes": "Matches Leek Duck (enigma Field Research list plus Tour Pass Woobat, Darmanitan, Zorua).",
+  "sources": [
+   "https://leekduck.com/events/pokemon-go-tour-unova-global-2025/",
+   "https://leekduck.com/events/road-to-unova/"
+  ]
+ },
+ "sb-concierge2025": {
+  "ok": true,
+  "choice": "none",
+  "global_ok": true,
+  "notes": "Serebii agrees; not checked further (low priority).",
+  "sources": [
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ]
+ },
+ "sb-9thanniversary": {
+  "ok": true,
+  "choice": "none",
+  "global_ok": true,
+  "notes": "Serebii agrees; not checked further (low priority).",
+  "sources": [
+   "https://www.serebii.net/pokemongo/backgrounds.shtml"
+  ]
+ },
+ "sb-s24-sep-2026": {
+  "ok": true,
+  "choice": "none",
+  "global_ok": true,
+  "notes": "Not re-checked (low priority).",
+  "sources": []
+ },
+ "sb-worldspecial-blue": {
+  "ok": true,
+  "choice": "none",
+  "global_ok": true,
+  "notes": "Not re-checked (low priority).",
+  "sources": []
+ },
+ "sb-10th-anniversary-celebration-mewtwo": {
+  "ok": true,
+  "choice": "none",
+  "global_ok": true,
+  "notes": "Not re-checked (low priority).",
+  "sources": []
+ },
+ "sb-10th-anniversary-gimmighoul-coin": {
+  "ok": true,
+  "choice": "none",
+  "global_ok": true,
+  "notes": "Not re-checked (low priority).",
+  "sources": []
+ },
+ "sb-pokopia": {
+  "ok": true,
+  "choice": "none",
+  "global_ok": true,
+  "notes": "Not re-checked (low priority).",
+  "sources": []
+ }
+}

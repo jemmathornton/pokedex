@@ -428,7 +428,7 @@ function pokemonPage(n){
   const picker = ordered.length > 1 ? `<div class="formpick" role="group" aria-label="Which form to show">${ordered.map(e =>
     `<button type="button" data-pickform="${attr(e.id)}" aria-pressed="${e === sel}" title="${attr(e.form || e.name)}">${sprite(e.img) ? `<img src="${sprite(e.img)}" alt="" loading="lazy">` : `<span class="blank">?</span>`}<small>${esc(e.form || "Usual")}</small></button>`).join("")}</div>` : "";
   const family = evoFamily(sel);
-  const bgCards = evs.map(ev => bgCard(ev, bgMonsOf(ev).find(e => e.dex === n) || baseOf[n] || grouped.lead, false)).join("");
+  const bgCards = evs.flatMap(ev => { const ms = bgMonsOf(ev).filter(e => e.dex === n); return (ms.length ? ms : [baseOf[n] || grouped.lead]).map(e => bgCard(ev, e, false)); }).join("");
   const first = esc(sel.name);
   showAllBoxes = true;
   const formCards = all.length > 1 ? all.map(e => card(e)).join("") : "";
@@ -453,13 +453,14 @@ function pokemonPage(n){
 const BGS = new Set(DATA.backgrounds || []);   // site/backgrounds/<event id>.webp: the game's location cards
 const SPECIAL = DATA.special || [];   // special backgrounds: ticked “I took part”, like “I went” for the in-person ones (her call, 10 Nov)
 const isSpecial = ev => ev.id.startsWith("sb-");
+const bgKey = (ev, e) => `b:${ev.id}:${e.id}`;
 function bgCard(ev, e, wentButton){
-  const went = COL.went.includes(ev.id), key = `b:${ev.id}:${e.dex}`;
+  const went = COL.went.includes(ev.id), key = bgKey(ev, e);
   const src = bigSprite(has(key, "s") && sprite(e.img + ".s") ? e.img + ".s" : e.img);
   const bg = BGS.has(ev.id) ? `backgrounds/${ev.id}.webp` : null;
   return `<div class="card bgcard${went ? "" : " not-went"}" data-bg="${attr(key)}" data-event="${attr(ev.id)}" data-bgdex="${e.dex}">` +
     `<div class="bgpic${bg ? "" : " nobg"}"${bg ? ` style="background-image:url('${bg}')"` : ""}>${bg ? "" : `<span class="nobg-note">No picture in the game files yet</span>`}${src ? `<img src="${src}" alt="" loading="lazy">` : ""}</div>` +
-    `<a class="nm" href="#p-${e.dex}">${esc(e.name)}</a><small class="fm">${esc(ev.background || ev.name)}</small>` +
+    `<a class="nm" href="#p-${e.dex}">${esc(e.name)}</a><small class="fm">${e.costume || e.form ? esc(e.costume || e.form) + " · " : ""}${esc(ev.background || ev.name)}</small>` +
     (went ? `<div class="boxgrid"><button class="tk c" type="button" data-tick="c" aria-pressed="${has(key, "c")}" title="Have it with this background">${ic("poke-ball")}<span>Caught</span></button>` +
       `<button class="tk s" type="button" data-tick="s" aria-pressed="${has(key, "s")}" title="${e.shiny ? "Shiny with this background" : "No shiny in GO yet"}"${!e.shiny && !has(key, "s") ? " disabled" : ""}>${ic("sparkles")}<span>Shiny</span></button></div>`
       : wentButton ? `<button class="chip collect" type="button" data-went aria-pressed="false">I went</button>` : "") + `</div>`;
@@ -491,7 +492,7 @@ function costumesPage(){
 // in data/ so one can be added back by ticking it there
 const myEvents = () => [...EVENTS, ...SPECIAL].filter(ev => COL.went.includes(ev.id) && (ev.backgroundPokemon || []).length)
   .sort((a, b) => b.start.localeCompare(a.start));
-const bgMonsOf = ev => (ev.backgroundPokemon || []).map(name => (ev.show && costumeById[ev.show[name]]) || baseOf[DATA.dexByName[name.toLowerCase()]]).filter(Boolean);   // in its costume where the background came with one
+const bgMonsOf = ev => (ev.cards ? ev.cards.map(id => byId[id] || costumeById[id]) : (ev.backgroundPokemon || []).map(name => baseOf[DATA.dexByName[name.toLowerCase()]])).filter(Boolean);   // in its costume where the background came with one
 function eventsPage(){
   const list = myEvents();
   let html = "", year = "";
@@ -503,7 +504,7 @@ function eventsPage(){
       ${isSpecial(ev) && ev.note ? `<div class="bg muted">${esc(ev.note)}</div>` : ""}</div></div>
       <div class="grid bggrid">${bgMonsOf(ev).map(e => bgCard(ev, e, false)).join("")}</div></div>`;
   }
-  const keys = list.flatMap(ev => bgMonsOf(ev).map(e => `b:${ev.id}:${e.dex}`));
+  const keys = list.flatMap(ev => bgMonsOf(ev).map(e => bgKey(ev, e)));
   setRegion(null);
   view.innerHTML = `<header class="hero">${heroArt(list.flatMap(bgMonsOf))}<span class="label">Pokémon GO</span><h1>Events and <em>backgrounds</em></h1>
     <div class="stats">${statTile("--deep-2", "ticket", "Events", list.length, list.length)}
