@@ -508,8 +508,7 @@ a.formsbtn{text-decoration:none}
 :root[data-look="mix"] .side{overflow:hidden}
 
 /* the bonus boxes on a Pokémon's page (Shiny Shadow): not counted */
-.bonus-h{font:700 13px var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:18px 0 8px}
-.bonus-h .muted{font-weight:600;letter-spacing:.02em;text-transform:none;margin-left:4px}
+.ssc .pic img{filter:drop-shadow(0 0 7px color-mix(in srgb,var(--shadow) 70%,transparent))}   /* a hint of the Shadow aura on the shiny picture */
 
 /* background cards: the game's location card behind the Pokémon, like a costume card (10 Nov) */
 .card.bgcard{cursor:pointer;padding-top:6px}
