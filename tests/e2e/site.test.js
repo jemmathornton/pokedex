@@ -7,7 +7,16 @@
   const eq = (a, b, msg) => { if (JSON.stringify(a) !== JSON.stringify(b)) throw new Error(`${msg || ""} expected ${JSON.stringify(b)}, got ${JSON.stringify(a)}`); };
   const ok = (v, msg) => { if (!v) throw new Error(msg || "not true"); };
   const view = () => document.getElementById("view");
-  const go = async h => { history.replaceState(null, "", h); route(); await wait(0); };
+  // the browser stops changing the address if it's changed too often too fast, so wait until it has really changed
+  const go = async h => {
+    for (let t = 0; t < 15000; t += 250) {
+      history.replaceState(null, "", h);
+      if (location.hash === h) { route(); await wait(0); return; }
+      await wait(250);
+    }
+    throw new Error(`the browser wouldn’t change the address to ${h}`);
+  };
+  const show = async h => { route(h.slice(1)); await wait(0); };   // for the sweeps: drawn without touching the address
   const click = el => { ok(el, "nothing to click"); el.dispatchEvent(new MouseEvent("click", {bubbles: true})); };
   const until = async (cond, ms = 3000) => { for (let t = 0; t < ms && !cond(); t += 20) await wait(20); ok(cond(), "timed out waiting"); };
   const strip = () => [...view().querySelectorAll(".bigboxes:not(.ssbox) .pc")].map(b => b.querySelector(".pclab b").textContent);
@@ -30,7 +39,7 @@
       for (const h of routes) {
         if (seen.has(h)) continue; seen.add(h);
         const before = errs.length;
-        try { await go(h); } catch (e) { problems.push(`${h}: ${e.message}`); continue; }
+        try { await show(h); } catch (e) { problems.push(`${h}: ${e.message}`); continue; }
         const text = view().innerText;
         if (errs.length > before) problems.push(`${h}: ${errs.slice(before).join(" / ")}`);
         if (text.trim().length < 20) problems.push(`${h}: empty`);
@@ -40,7 +49,7 @@
       }
       for (const h of links) {
         if (seen.has(h) || h === "#") continue; seen.add(h);
-        await go(h);
+        await show(h);
         const r = h.slice(1);
         if (!/^(home|dex|costumes|events|gen-\w+|p-\d+)$/.test(r)) problems.push(`a link to ${h}, which isn’t a page`);
         if (/^p-\d+$/.test(r) && !view().querySelector(".mondetail")) problems.push(`link to ${h}: no Pokémon page`);
@@ -185,14 +194,22 @@
   });
 
   // ---------- region banners ----------
+  test("her picked region pictures show with no switch", async () => {
+    for (const [g, f] of Object.entries(REGION_CHOSEN)) {
+      await go("#gen-" + g);
+      ok((view().querySelector(".hero").getAttribute("style") || "").includes("regions/" + f), `${g} shows ${f}`);
+      ok(!view().querySelector(".shotsw"), `${g} has no switch`);
+    }
+  });
+
   test("the region picture switch changes the banner", async () => {
-    await go("#gen-8");
-    const two = view().querySelector('[data-shotg="8"][data-shot="2"]'); ok(two, "picture 2 on Galar");
+    await go("#gen-1");
+    const two = view().querySelector('[data-shotg="1"][data-shot="2"]'); ok(two, "picture 2 on Kanto");
     click(two); await wait(30);
-    ok((view().querySelector(".hero").getAttribute("style") || "").includes("regions/" + REGION_SHOTS["8"][1]), "Galar shows picture 2");
-    click(view().querySelector('[data-shotg="8"][data-shot="0"]')); await wait(30);
+    ok((view().querySelector(".hero").getAttribute("style") || "").includes("regions/" + REGION_SHOTS["1"][1]), "Kanto shows picture 2");
+    click(view().querySelector('[data-shotg="1"][data-shot="0"]')); await wait(30);
     ok(!view().querySelector(".hero").classList.contains("withshot"), "Colour: no picture");
-    click(view().querySelector('[data-shotg="8"][data-shot="1"]')); await wait(30);
+    click(view().querySelector('[data-shotg="1"][data-shot="1"]')); await wait(30);
   });
 
   // ---------- Quick add (trial) ----------

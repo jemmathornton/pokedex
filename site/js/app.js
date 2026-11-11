@@ -249,7 +249,10 @@ const setRegion = g => document.documentElement.style.setProperty("--rc", REGION
 // switch on the banner (0 = plain colour). Official press screenshots, sources in research/data/region-screenshots.json
 const REGION_SHOTS = {"1": ["kanto-4.jpg", "kanto-9.jpg", "kanto-12.jpg", "kanto-13.jpg", "kanto-14.jpg"], "2": ["johto-1.png", "johto-3.jpg", "johto-6.png"], "3": ["hoenn-13.png", "hoenn-14.png", "hoenn-15.png"], "4": ["sinnoh-5.jpg", "sinnoh-8.jpg", "sinnoh-11.jpg", "sinnoh-12.jpg", "sinnoh-13.jpg"], "5": ["unova-4.png", "unova-8.jpg", "unova-11.png"], "6": ["kalos-1.jpg", "kalos-5.jpg", "kalos-7.jpg"], "7": ["alola-10.jpg", "alola-11.jpg", "alola-12.png"], "8": ["galar-1.jpg", "galar-3.jpg", "galar-8.jpg", "galar-11.jpg", "galar-12.jpg", "galar-13.jpg", "galar-14.jpg"], "hisui": ["hisui-5.jpg", "hisui-6.jpg", "hisui-7.jpg", "hisui-8.jpg", "hisui-11.jpg", "hisui-12.jpg"], "9": ["paldea-1.jpg", "paldea-5.jpg", "paldea-6.jpg", "paldea-8.jpg", "paldea-10.jpg"]};   // only pictures with no people in them (her ask, 11 Nov)
 const shotPick = g => Math.min(+(new URLSearchParams(location.search).get("shot") ?? (prefs.regionShot || {})[g] ?? 1), (REGION_SHOTS[g] || []).length);   // ?shot= for pictures only
+// her picks (11 Nov): these regions keep their picture and lose the switch; the rest still have one while she chooses
+const REGION_CHOSEN = {"2": "johto-1.png", "6": "kalos-1.jpg", "8": "galar-1.jpg", "hisui": "hisui-8.jpg", "9": "paldea-1.jpg"};
 function regionShot(g){   // style and switch for a region page's banner
+  if (REGION_CHOSEN[g]) return {style: ` style="--shot:url('regions/${REGION_CHOSEN[g]}')"`, cls: " withshot", sw: ""};
   const shots = REGION_SHOTS[g] || [], k = shotPick(g);
   if (!shots.length) return {style: "", sw: ""};
   return {style: k ? ` style="--shot:url('regions/${shots[k - 1]}')"` : "", cls: k ? " withshot" : "",   // the picture always fills the banner (10 Nov: the uncropped and blurred tries confused; wide shots instead)
@@ -647,8 +650,8 @@ function navHtml(route){
     <div class="nav-group"><span class="label">More</span>${link("#costumes", "shirt", "Costumes", COL.costumes.length)}${link("#events", "ticket", "Events and backgrounds", myEvents().length)}${link("#quick", "list-checks", "Quick add (trial)")}</div>`;
 }
 
-function route(){
-  const r = (location.hash || "#home").slice(1);
+function route(to){   // to: draw that page without changing the address (the tests' sweep over every page)
+  const r = to || (location.hash || "#home").slice(1);
   const term = q.value.trim().toLowerCase();
   const pn = /^p-(\d+)$/.exec(r), lead = pn && groupByNumber(ENTRIES.filter(e => e.dex === +pn[1]))[0];
   navHtml(lead ? "gen-" + lead.lead.gen : r);   // a Pokémon's page lights up its region in the sidebar
