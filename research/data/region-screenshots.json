@@ -1197,5 +1197,149 @@
    1920,
    1080
   ]
+ },
+ "johto-6.png": {
+  "region": "johto",
+  "game": "Pokémon HeartGold / SoulSilver",
+  "place": "Lugia rising from the water in the Whirl Islands (cutscene; file named lugiawhirlislands)",
+  "page": "https://www.serebii.net/heartgoldsoulsilver/pics.shtml",
+  "image": "https://www.serebii.net/heartgoldsoulsilver/lugiawhirlislands.png",
+  "size": [
+   256,
+   191
+  ],
+  "people": "none"
+ },
+ "alola-10.jpg": {
+  "region": "alola",
+  "game": "Pokémon Ultra Sun / Ultra Moon",
+  "place": "Dusk Form Lycanroc on dry grassland at sunset, palm trees behind (place not named by the source)",
+  "page": "https://www.serebii.net/ultrasunultramoon/pics.shtml",
+  "image": "https://www.serebii.net/ultrasunultramoon/duskform2.jpg",
+  "size": [
+   600,
+   338
+  ],
+  "people": "none"
+ },
+ "alola-11.jpg": {
+  "region": "alola",
+  "game": "Pokémon Ultra Sun / Ultra Moon",
+  "place": "Cosmog floating by a wooded hill above the sea (place not named by the source)",
+  "page": "https://www.pokemon.co.jp/ex/usum/50keywords/25.html",
+  "image": "https://www.pokemon.co.jp/ex/usum/common/images/50keywords/25/img01.jpg",
+  "size": [
+   520,
+   312
+  ],
+  "people": "none"
+ },
+ "hoenn-14.png": {
+  "region": "hoenn",
+  "game": "Pokémon Omega Ruby / Alpha Sapphire",
+  "place": "Wingull gliding over the sea past rocks (place not named by the source)",
+  "page": "https://www.pokemon.co.jp/ex/oras/feature/18.html",
+  "image": "https://www.pokemon.co.jp/ex/oras/feature/img/page18/poke04/cap_02.png",
+  "size": [
+   400,
+   240
+  ],
+  "people": "none"
+ },
+ "hoenn-15.png": {
+  "region": "hoenn",
+  "game": "Pokémon Omega Ruby / Alpha Sapphire",
+  "place": "Milotic in a pond below trees (place not named by the source)",
+  "page": "https://www.pokemon.co.jp/ex/oras/feature/14.html",
+  "image": "https://www.pokemon.co.jp/ex/oras/feature/img/page14/slider_02/cap_02.png",
+  "size": [
+   400,
+   240
+  ],
+  "people": "none"
+ },
+ "sinnoh-11.jpg": {
+  "region": "sinnoh",
+  "game": "Pokémon Brilliant Diamond / Shining Pearl",
+  "place": "Manaphy in the sea, rocks behind (place not named by the source)",
+  "page": "https://diamondpearl.pokemon.com/en-us/features",
+  "image": "https://diamondpearl.pokemon.com/assets/features/loop_6.jpg",
+  "size": [
+   1600,
+   900
+  ],
+  "people": "none"
+ },
+ "sinnoh-12.jpg": {
+  "region": "sinnoh",
+  "game": "Pokémon Brilliant Diamond / Shining Pearl",
+  "place": "Hoothoot in a forest clearing at night (place not named by the source)",
+  "page": "https://diamondpearl.pokemon.com/en-us/features",
+  "image": "https://diamondpearl.pokemon.com/en-us/assets/screens/928_p06_04.jpg",
+  "size": [
+   1600,
+   900
+  ],
+  "people": "none"
+ },
+ "sinnoh-13.jpg": {
+  "region": "sinnoh",
+  "game": "Pokémon Brilliant Diamond / Shining Pearl",
+  "place": "Garchomp in a rocky cave (probably the Grand Underground)",
+  "page": "https://diamondpearl.pokemon.com/en-us/features",
+  "image": "https://diamondpearl.pokemon.com/assets/features/loop_8.jpg",
+  "size": [
+   1600,
+   900
+  ],
+  "people": "none"
+ },
+ "kanto-12.jpg": {
+  "region": "kanto",
+  "game": "Pokémon: Let's Go, Pikachu! / Let's Go, Eevee!",
+  "place": "Mega Blastoise in a lake with rocks, hills and sky behind (place not named by the source; large Pokémon in front)",
+  "page": "https://www.serebii.net/letsgopikachueevee/pics.shtml",
+  "image": "https://www.serebii.net/letsgopikachueevee/148.jpg",
+  "size": [
+   753,
+   424
+  ],
+  "people": "none"
+ },
+ "kanto-13.jpg": {
+  "region": "kanto",
+  "game": "Pokémon: Let's Go, Pikachu! / Let's Go, Eevee!",
+  "place": "Mega Gyarados rising from a lake, hills and sky behind (place not named by the source; large Pokémon in front)",
+  "page": "https://www.serebii.net/letsgopikachueevee/pics.shtml",
+  "image": "https://www.serebii.net/letsgopikachueevee/162.jpg",
+  "size": [
+   753,
+   423
+  ],
+  "people": "none"
+ },
+ "kanto-14.jpg": {
+  "region": "kanto",
+  "game": "Pokémon: Let's Go, Pikachu! / Let's Go, Eevee!",
+  "place": "Articuno over a grassy route with pine trees and hills (place not named by the source; large Pokémon in front)",
+  "page": "https://www.serebii.net/letsgopikachueevee/pics.shtml",
+  "image": "https://www.serebii.net/letsgopikachueevee/200.jpg",
+  "size": [
+   753,
+   424
+  ],
+  "people": "none"
+ },
+ "alola-12.png": {
+  "region": "alola",
+  "game": "Pokémon Sun / Moon",
+  "place": "Ultra Wormhole opening in a stormy night sky above a wooden structure (place not named by the source; probably the Altar of the Sunne/Moone)",
+  "page": "https://www.pokemon.co.jp/ex/sun_moon/story/160914_01.html",
+  "image": "https://www.pokemon.co.jp/ex/sun_moon/common/images/story/160914_01/img_03.png",
+  "size": [
+   670,
+   402
+  ],
+  "people": "none"
  }
 }
