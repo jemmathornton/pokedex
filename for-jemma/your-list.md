@@ -3,7 +3,7 @@
 Everything waiting on you. **Do** = just do it; **Decide** = your call. Tell Claude when one’s done or decided and it comes off.
 
 ## Decide
-- **Region pictures for Kanto, Hoenn, Sinnoh, Unova and Alola:** scenery-only options are being found; Claude will send one picture per region.
+- **Region pictures for Kanto, Hoenn, Sinnoh, Unova and Alola:** scenery options for every region (no plain colours anywhere, your call 11 Nov, so they all match); Claude sends one picture per region.
 - **Which game to add after GO**, when you want it.
 
 ## Do
