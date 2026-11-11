@@ -34,7 +34,7 @@
     const problems = [], errs = [], seen = new Set(), links = new Set();
     const onErr = e => errs.push(e.message || String(e.reason)); addEventListener("error", onErr);
     const nums = [...new Set(ENTRIES.map(e => e.dex))];
-    const routes = ["#home", "#dex", "#costumes", "#events", ...Object.keys(genById).map(g => "#gen-" + g), ...nums.map(n => "#p-" + n)];
+    const routes = ["#home", "#dex", "#costumes", "#events", "#fast", ...Object.keys(genById).map(g => "#gen-" + g), ...nums.map(n => "#p-" + n)];
     try {
       for (const h of routes) {
         if (seen.has(h)) continue; seen.add(h);
@@ -66,7 +66,9 @@
     }
     const list = [...srcs];
     for (let i = 0; i < list.length; i += 25)
-      await Promise.all(list.slice(i, i + 25).map(s => realFetch(s, {method: "HEAD"}).then(r => { if (!r.ok) missing.push(s); })));
+      await Promise.all(list.slice(i, i + 25).map(async s => {   // a busy computer can drop a request: try each up to three times
+        for (let n = 0; n < 3; n++) { try { if (!(await realFetch(s, {method: "HEAD"})).ok) missing.push(s); return; } catch (e) { if (n === 2) throw e; await wait(300); } }
+      }));
     ok(list.length > 100, `only ${list.length} pictures found`);
     eq(missing.slice(0, 20), [], `${missing.length} pictures missing:`);
   });
@@ -234,6 +236,36 @@
     const s = await server();
     ok(["d:132", "d:133"].every(k => s.have[k] && s.have[k].includes("s") && s.have[k].includes("c")), "saved shiny and caught");
     for (const k of ["d:132", "d:133"]) { for (const t of ["c", "s"]) await save({list: "have", key: k, tick: t, on: false}); delete COL.have[k]; }
+  });
+
+  // ---------- Fast tick (trial) ----------
+  test("Fast tick shows a whole region in number order, with Mega X and Y apart", async () => {
+    prefs.fastGen = "1"; prefs.fastBox = "c"; await go("#fast");
+    const cells = [...view().querySelectorAll(".fastgrid .fc")];
+    eq(cells.length, 151, "Kanto has 151");
+    eq(cells[0].dataset.fast, "1", "Bulbasaur first"); eq(cells[150].dataset.fast, "151", "Mew last");
+    prefs.fastBox = "mega"; fastPage();
+    const zard = [...view().querySelectorAll('.fc[data-fast="6"]')].map(c => c.dataset.t);
+    eq(zard, ["mx", "my"], "Charizard has X and Y");
+    prefs.fastGen = "hisui"; prefs.fastBox = "c"; fastPage();
+    ok([...view().querySelectorAll(".fc")].every(c => +byId[c.dataset.fast].dex >= 899), "Hisui is #899 on");
+  });
+
+  test("Fast tick ticks and unticks, and a form counts for its Pokémon", async () => {
+    const clear = async k => { for (const t of ["c", "s"]) await save({list: "have", key: k, tick: t, on: false}); delete COL.have[k]; };
+    for (const k of ["d:52", "d:52-alolan", "d:27"]) await clear(k);
+    prefs.fastGen = "1"; prefs.fastBox = "s"; await go("#fast");
+    click(view().querySelector('.fc[data-fast="27"]'));
+    await wait(300);
+    let s = await server();
+    ok(s.have["d:27"] && s.have["d:27"].includes("s") && s.have["d:27"].includes("c"), "Sandshrew shiny and caught saved");
+    ok(view().querySelector('.fc[data-fast="27"]').getAttribute("aria-pressed") === "true", "lit up");
+    click(view().querySelector('.fc[data-fast="27"]')); await wait(300);
+    s = await server(); ok(!(s.have["d:27"] || []).includes("s"), "unticked");
+    await save({list: "have", key: "d:52-alolan", tick: "s", on: true}); setTick("d:52-alolan", "s", true); fastPage();
+    ok(view().querySelector('.fc[data-fast="52"]').getAttribute("aria-pressed") === "true", "Alolan Meowth's shiny lights Meowth");
+    for (const k of ["d:52", "d:52-alolan", "d:27"]) await clear(k);
+    prefs.fastGen = "1"; prefs.fastBox = "c";
   });
 
   // ---------- run ----------

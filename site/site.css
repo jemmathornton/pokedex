@@ -617,3 +617,15 @@ a.formsbtn{text-decoration:none}
 .hero.withshot .stat b{font-size:19px;white-space:nowrap}
 .hero.withshot .stat b small{font-size:11px}
 .hero.withshot .stat .sx{display:none}
+
+/* Fast tick (trial, 11 Nov): a whole region like the game's Pokédex tab; silhouettes for the ones she hasn't got */
+.fasthead{display:flex;align-items:center;gap:10px;margin:22px 0 12px;font-size:17px}
+.fasthead .i{color:var(--bc)}
+.fastn{font-variant-numeric:tabular-nums;font-weight:800;padding:3px 10px;border-radius:999px;background:var(--bc);color:#fff}
+.fasthead .linkbtn{margin-left:auto}
+.fastgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(74px,1fr));gap:6px}
+.fc{display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 2px 4px;border:1px solid var(--line);border-radius:12px;background:var(--surface);cursor:pointer;color:var(--muted);font:700 11px/1 var(--body);font-variant-numeric:tabular-nums}
+.fc img{width:56px;height:56px;object-fit:contain;filter:brightness(0) opacity(.22)}
+.fc:hover{border-color:var(--muted)}
+.fc[aria-pressed="true"]{border-color:var(--bc);background:color-mix(in srgb,var(--bc) 12%,var(--surface));color:inherit}
+.fc[aria-pressed="true"] img{filter:none}

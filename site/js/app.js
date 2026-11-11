@@ -645,12 +645,83 @@ async function quickGo(){
   toast(`Ticked ${done}.`); quickText = ""; quickPage();
 }
 
+// ---------- Fast tick (TRIAL, 11 Nov overnight: her ask for a better way to put her whole collection in) ----------
+// A whole region at once, laid out like the game's own Pokédex tabs (Pokémon, Shiny, Lucky, 100%, Shadow, Purified,
+// G-Max, Mega): every Pokémon in number order, in colour when she has it and a silhouette when she hasn't. With the
+// game's tab open on her phone, she clicks the ones that are in colour there, and the count at the top should end up
+// the same as the game's. One click ticks the Pokémon's plain form (the game's Pokédex counts the species too).
+const FAST = [["c", "Caught", "poke-ball"], ["s", "Shiny", "sparkles"], ["l", "Lucky", "lucky"], ["h", "4★", "star"], ["sd", "Shadow", "shadow"],
+  ["pu", "Purified", "purified"], ["dx", "Dynamax", "expand"], ["gx", "G-Max", "expand"], ["mega", "Mega", "mega"], ["cm", "Male", "mars"], ["cf", "Female", "venus"]];
+const FAST_GAME = {c: "Pokémon", s: "Shiny", l: "Lucky", h: "100%", sd: "Shadow", pu: "Purified", gx: "G-Max", mega: "Mega"};   // the game's own tab names
+const FAST_COL = {c: "--caught", s: "--shiny", l: "--lucky", h: "--hundo", sd: "--shadow", pu: "--purified", dx: "--dynamax", gx: "--gmax", mega: "--mega", cm: "--male", cf: "--female"};
+const fastTicks = (e, b) => b === "mega" ? (e.mega || []).map(m => m.t) : canTick(e, b) ? [b] : [];
+function fastSpecies(g){   // the region's Pokémon in number order, each with its entries that are out (regional forms count with their species, as in the game)
+  const dexes = [...new Set(ENTRIES.filter(e => e.released && e.gen === g && !isRegional(e)).map(e => e.dex))].sort((a, b) => a - b);
+  return dexes.map(d => ({dex: d, es: ENTRIES.filter(e => e.dex === d && e.released)}));
+}
+function fastPic(e, t){
+  const gmax = `pm${e.dex}.fGIGANTAMAX`, mega = (e.mega || []).find(m => m.t === t);
+  const k = mega ? mega.img : t === "s" ? e.img + ".s" : t === "cf" && e.femaleImg ? e.femaleImg : t === "gx" && SPRITES.has(gmax) ? gmax : e.img;
+  return sprite(k) || sprite(e.img) || "";
+}
+function fastCell(e, t, on, n, other){
+  return `<button class="fc" type="button" data-fast="${attr(e.id)}" data-t="${t}" aria-pressed="${on}"${other ? ` data-other="${attr(other)}"` : ""} title="${esc(e.name)}${t === "mx" ? " Mega X" : t === "my" ? " Mega Y" : ""}">` +
+    `<img src="${fastPic(e, t)}" alt="" loading="lazy"><span>${pad(n)}${t === "mx" ? " X" : t === "my" ? " Y" : ""}</span></button>`;
+}
+function fastPage(){
+  const g = genById[prefs.fastGen] ? prefs.fastGen : "1", b = FAST.some(x => x[0] === prefs.fastBox) ? prefs.fastBox : "c";
+  const [, label, icon] = FAST.find(x => x[0] === b);
+  const rows = fastSpecies(g).filter(sp => sp.es.some(e => fastTicks(e, b).length));
+  let got = 0, all = 0;
+  const cells = rows.map(sp => {
+    const lead = sp.es.find(e => !e.form) || sp.es.find(e => e.default) || sp.es[0];
+    const main = fastTicks(lead, b).length ? lead : sp.es.find(e => fastTicks(e, b).length);
+    const ts = fastTicks(main, b);
+    if (ts.length > 1) {   // Charizard and Mewtwo: Mega X and Mega Y side by side
+      return ts.map(t => { const on = has(dk(main), t); all++; if (on) got++; return fastCell(main, t, on, sp.dex); }).join("");
+    }
+    const t = ts[0];
+    const elsewhere = sp.es.find(e => e !== main && fastTicks(e, b).some(x => has(dk(e), x)));   // got on another form (Alolan Vulpix…)
+    const mine = has(dk(main), t), on = mine || !!elsewhere;
+    all++; if (on) got++;
+    return fastCell(main, t, on, sp.dex, !mine && elsewhere ? (elsewhere.form || elsewhere.name) : "");
+  }).join("");
+  setRegion(g);
+  view.innerHTML = `<header class="hero"><span class="label">Trial</span><h1>Fast <em>tick</em></h1>
+    <p>A whole region at once, laid out like the game’s Pokédex. Open the same tab on your phone (${b in FAST_GAME ? `the game calls it <b>${esc(FAST_GAME[b])}</b>` : "the game’s Pokédex has no tab for this one, so use the storage search instead"}) and click every Pokémon that’s in colour there. Your number should end up matching the game’s.</p></header>${readOnlyNote()}
+    <div class="toolbar filters"><div class="frow"><span class="label flabel">Region</span><div class="worktabs">${GENS.map(([id, n]) => `<button type="button" class="worktab" data-fastgen="${id}" aria-pressed="${id === g}">${esc(n)}</button>`).join("")}</div></div>
+    <div class="frow"><span class="label flabel">Box</span><div class="worktabs">${FAST.map(([t, l]) => `<button type="button" class="worktab" data-fastbox="${t}" aria-pressed="${t === b}">${esc(l)}</button>`).join("")}</div></div></div>
+    <div class="fasthead" style="--bc:var(${FAST_COL[b]})">${ic(icon)}<b>${esc(genById[g][1])} · ${esc(label)}</b><span class="fastn">${num(got)} / ${num(all)}</span>
+      ${got < all ? `<button class="linkbtn" type="button" data-fastall>${ic("check")}Tick all ${num(all - got)} left</button>` : ""}</div>
+    <div class="fastgrid" style="--bc:var(${FAST_COL[b]})">${cells || `<p class="empty">None in this region.</p>`}</div>`;
+}
+function fastClick(btn){
+  const e = byId[btn.dataset.fast], t = btn.dataset.t, on = btn.getAttribute("aria-pressed") !== "true";
+  if (!on && btn.dataset.other) return toast(`Ticked on its ${curly(btn.dataset.other)} form: untick it on its page.`);
+  return tick(dk(e), t, on);
+}
+async function fastAll(){
+  const left = [...document.querySelectorAll('.fastgrid .fc[aria-pressed="false"]')];
+  if (!left.length || !confirm(`Tick all ${left.length} left on this page? You can untick any afterwards.`)) return;
+  let done = 0;
+  for (const btn of left) {
+    const key = dk(byId[btn.dataset.fast]), t = btn.dataset.t;
+    for (const x of t === "c" ? ["c"] : [t, "c"]) {
+      if (has(key, x)) continue;
+      setTick(key, x, true);
+      if (!await save({list: "have", key, tick: x, on: true})) { setTick(key, x, false); toast(`Stopped after ${done}: not saved.`); return fastPage(); }
+    }
+    done++;
+  }
+  toast(`Ticked ${done}.`); fastPage();
+}
+
 function navHtml(route){
   const link = (href, icon, text, n) => `<a href="${href}" class="${route === href.slice(1) ? "on" : ""}">${ic(icon)}${esc(text)}${n !== undefined ? `<span class="n">${num(n)}</span>` : ""}</a>`;
   const out = ENTRIES.filter(e => e.released);
   nav.innerHTML = `<div class="nav-group">${link("#home", "house", "Home")}${link("#dex", "layout-grid", "Every Pokémon", groupByNumber(out).length)}</div>
     <div class="nav-group"><span class="label">Generations</span>${GENS.map(([g, n]) => link("#gen-" + g, "layers", g === "hisui" ? n : `${g} · ${n}`, groupByNumber(out.filter(e => e.gen === g)).length)).join("")}</div>
-    <div class="nav-group"><span class="label">More</span>${link("#costumes", "shirt", "Costumes", COL.costumes.length)}${link("#events", "ticket", "Events and backgrounds", myEvents().length)}${link("#quick", "list-checks", "Quick add (trial)")}</div>`;
+    <div class="nav-group"><span class="label">More</span>${link("#costumes", "shirt", "Costumes", COL.costumes.length)}${link("#events", "ticket", "Events and backgrounds", myEvents().length)}${link("#fast", "layout-grid", "Fast tick (trial)")}${link("#quick", "list-checks", "Quick add (trial)")}</div>`;
 }
 
 function route(to){   // to: draw that page without changing the address (the tests' sweep over every page)
@@ -661,6 +732,7 @@ function route(to){   // to: draw that page without changing the address (the te
   if (r === "costumes") return costumesPage();
   if (r === "events") return eventsPage();
   if (r === "quick") return quickPage();
+  if (r === "fast") return fastPage();
   const pm = /^p-(\d+)$/.exec(r);
   if (pm) return pokemonPage(+pm[1]);
   if (term && r !== "costumes") {
@@ -737,6 +809,10 @@ document.addEventListener("click", ev => {
   if (b.hasAttribute("data-showall")) { prefs.workShow = prefs.workShow === "all" ? "need" : "all"; keepPrefs(); return rerender(); }
   if (b.dataset.work) { prefs.work = prefs.work === b.dataset.work ? "all" : b.dataset.work; prefs.workShow = prefs.work === "all" ? "all" : "need"; keepPrefs(); return rerender(); }   // click again: back to all
   if (b.hasAttribute("data-quickgo")) return quickGo();
+  if (b.dataset.fast) return fastClick(b);
+  if (b.hasAttribute("data-fastall")) return fastAll();
+  if (b.dataset.fastgen) { prefs.fastGen = b.dataset.fastgen; keepPrefs(); return rerender(); }
+  if (b.dataset.fastbox) { prefs.fastBox = b.dataset.fastbox; keepPrefs(); return rerender(); }
   if (b.dataset.shotg) { prefs.regionShot = {...(prefs.regionShot || {}), [b.dataset.shotg]: +b.dataset.shot}; keepPrefs(); return rerender(); }   // trial, 10 Nov
   if (b.dataset.notout) { prefs.unreleased = b.dataset.notout === "yes"; keepPrefs(); return rerender(); }
   if (b.dataset.workshow) { prefs.workShow = b.dataset.workshow; keepPrefs(); return rerender(); }
