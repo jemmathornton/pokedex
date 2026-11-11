@@ -67,3 +67,10 @@ Claude’s jobs, and the record of what was decided. Everything waiting on Jemma
 - [ ] A fact-check of every special background's Pokémon list is running (research/data/special-backgrounds-check.json + .md when done): apply its corrections to data/special-backgrounds.json and tell her.
 - [ ] Costumes: research done (research/data/costume-availability.json, group local/event/remote/unreleased; Nightcap Snorlax she has). Next: show her the costumes by group (local pre-ticked, event, remote) to confirm, then save to collection `costumes` through the server. Costume shinies are a bonus.
 - [ ] Then: the in-game Pokédex screen-recording test for her ticks (needs ffmpeg: ask before installing).
+
+## 11 Nov: where things stand (before a context compact)
+- Region banners: her picks Johto 1 (sharp pixels), Kalos 1, Galar 1, Hisui (hisui-8, Mount Coronet), Paldea 1 (app.js `REGION_CHOSEN`). Her rules for pictures: no people at all, no big Pokémon filling the frame, scenery only; every picture the same size (right 68%), blended into the region colour; no parade and a slim row of totals on scenery banners.
+- [ ] A helper is taking still frames from official Pokémon/Nintendo trailers (yt-dlp + ffmpeg, her OK) for Kanto, Hoenn, Sinnoh, Unova, Alola first, then the picked regions (show her anything better than her picks side by side). Results go to the old scratchpad's region-shots folders + sources.json: check each frame by eye (no people, no big Pokémon, no logos), copy into site/regions, update `REGION_SHOTS`, send one picture per region (for-jemma/region-pictures/).
+- Totals count each Pokémon once, ignoring forms (her call, 11 Nov).
+- Backgrounds list evolutions too (her call); GO Tour X has the raid Pokémon (she has a hat Pikachu with X).
+- Next on her list: try getting her collection in (Pokédex recording / Calcy export), which game after GO.
