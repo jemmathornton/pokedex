@@ -79,27 +79,27 @@ const EXTRAS = [
 ];
 
 function counts(list){
-  const r = {species: 0, speciesOut: 0, forms: 0, formsOut: 0, male: 0, maleOut: 0, female: 0, femaleOut: 0, shiny: 0, shinyOut: 0,
+  // the totals at the top of a page count each Pokémon once, ignoring forms (her call, 11 Nov: forms are counted on each
+  // Pokémon's own page, not in these totals): a box counts as out if any of its forms can have it, and as got if any has it
+  const r = {species: 0, speciesOut: 0, male: 0, maleOut: 0, female: 0, femaleOut: 0, shiny: 0, shinyOut: 0,
              lucky: 0, luckyOut: 0, hundo: 0, out: 0, sd: 0, pu: 0, shadowOut: 0, dx: 0, dynamaxOut: 0, gx: 0, gmaxOut: 0, mega: 0, megaOut: 0};
-  const species = {};
-  for (const e of list) {
-    if (!e.released) continue;
-    const k = dk(e);
-    r.out++;
-    species[e.dex] = species[e.dex] || caught(e);
-    if (hasForms(e)) { r.formsOut++; if (caught(e)) r.forms++; }
-    if (maleTick(e)) { r.maleOut++; if (gotMale(e)) r.male++; }
-    if (femaleTick(e)) { r.femaleOut++; if (gotFemale(e)) r.female++; }
-    if (e.shiny) { r.shinyOut++; if (has(k, "s")) r.shiny++; }
-    if (canLucky(e)) { r.luckyOut++; if (has(k, "l")) r.lucky++; }
-    if (has(k, "h")) r.hundo++;
-    if (e.shadow) { r.shadowOut++; if (has(k, "sd")) r.sd++; if (has(k, "pu")) r.pu++; }
-    if (e.dynamax) { r.dynamaxOut++; if (has(k, "dx")) r.dx++; }
-    if (e.gmax) { r.gmaxOut++; if (has(k, "gx")) r.gx++; }
-    for (const m of e.mega || []) { r.megaOut++; if (has(k, m.t)) r.mega++; }   // Mega X and Y count one each
+  const by = {};
+  for (const e of list) if (e.released) (by[e.dex] = by[e.dex] || []).push(e);
+  const tally = (es, can, got, out, have) => { if (es.some(can)) { r[out]++; if (es.some(e => can(e) && got(e))) r[have]++; } };
+  for (const es of Object.values(by)) {
+    r.speciesOut++; r.out++;
+    if (es.some(caught)) r.species++;
+    tally(es, e => !!maleTick(e), gotMale, "maleOut", "male");
+    tally(es, e => !!femaleTick(e), gotFemale, "femaleOut", "female");
+    tally(es, e => !!e.shiny, e => has(dk(e), "s"), "shinyOut", "shiny");
+    tally(es, canLucky, e => has(dk(e), "l"), "luckyOut", "lucky");
+    if (es.some(e => has(dk(e), "h"))) r.hundo++;
+    tally(es, e => !!e.shadow, e => has(dk(e), "sd"), "shadowOut", "sd");
+    if (es.some(e => e.shadow && has(dk(e), "pu"))) r.pu++;
+    tally(es, e => !!e.dynamax, e => has(dk(e), "dx"), "dynamaxOut", "dx");
+    tally(es, e => !!e.gmax, e => has(dk(e), "gx"), "gmaxOut", "gx");
+    tally(es, e => !!(e.mega || []).length, e => (e.mega || []).some(m => has(dk(e), m.t)), "megaOut", "mega");
   }
-  r.speciesOut = Object.keys(species).length;
-  r.species = Object.values(species).filter(Boolean).length;
   return r;
 }
 
@@ -289,7 +289,7 @@ function statsHtml(c){
   // the old row of uneven tiles looked bad). Forms sit inside the Pokémon tile.
   const t = (colour, icon, label, have, of, extra = "") => of ? statTile(colour, icon, label, have, of, extra) : "";
   return `<div class="stats">` +
-    t("--caught", "poke-ball", "Pokémon", c.species, c.speciesOut, c.formsOut ? `<span class="sx">Forms ${num(c.forms)} of ${num(c.formsOut)}</span>` : "") +
+    t("--caught", "poke-ball", "Pokémon", c.species, c.speciesOut) +
     t("--female", "venus", "Female", c.female, c.femaleOut) +
     t("--male", "mars", "Male", c.male, c.maleOut) +
     t("--shiny", "sparkles", "Shiny", c.shiny, c.shinyOut) +

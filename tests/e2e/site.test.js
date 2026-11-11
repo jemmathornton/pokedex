@@ -188,9 +188,14 @@
     ok(shown.every(id => COL.went.includes(id)), "an event she didn't go to is showing");
   });
 
-  test("the totals count Mega X and Y as one each", async () => {
-    const c = counts(ENTRIES.filter(e => e.dex === 6));
-    eq(c.megaOut, 2);
+  test("the totals count each Pokémon once, whatever its forms (her rule, 11 Nov)", async () => {
+    eq(counts(ENTRIES.filter(e => e.dex === 6)).megaOut, 1, "Charizard's Mega X and Y:");
+    eq(counts(ENTRIES.filter(e => e.dex === 479)).shinyOut, 1, "all the Rotom:");
+    for (const g of Object.keys(genById)) {
+      const c = counts(ENTRIES.filter(e => e.gen === g || e.gen === +g));
+      for (const k of ["maleOut", "femaleOut", "shinyOut", "luckyOut", "shadowOut", "dynamaxOut", "gmaxOut", "megaOut"])
+        ok(c[k] <= c.speciesOut, `${g}: ${k} ${c[k]} is more than ${c.speciesOut} Pokémon`);
+    }
   });
 
   // ---------- region banners ----------
