@@ -603,3 +603,4 @@ a.formsbtn{text-decoration:none}
 .qlist li a{color:inherit;text-decoration:none;font-weight:700}
 .qlist li.have{opacity:.55}.qlist li.cant{opacity:.55;border-style:dashed}
 .qprob{margin:6px 0;color:#b3261e;font-weight:600;font-size:14px}
+.hero.withshot.pixel{image-rendering:pixelated}   /* a tiny DS picture enlarged as sharp pixels instead of a blur */

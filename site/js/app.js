@@ -252,7 +252,8 @@ const shotPick = g => Math.min(+(new URLSearchParams(location.search).get("shot"
 // her picks (11 Nov): these regions keep their picture and lose the switch; the rest still have one while she chooses
 const REGION_CHOSEN = {"2": "johto-1.png", "6": "kalos-1.jpg", "8": "galar-1.jpg", "hisui": "hisui-8.jpg", "9": "paldea-1.jpg"};
 function regionShot(g){   // style and switch for a region page's banner
-  if (REGION_CHOSEN[g]) return {style: ` style="--shot:url('regions/${REGION_CHOSEN[g]}')"`, cls: " withshot", sw: ""};
+  const pixel = new URLSearchParams(location.search).get("pixel") === "1" ? " pixel" : "";   // trial: tiny DS pictures as sharp pixels
+  if (REGION_CHOSEN[g]) return {style: ` style="--shot:url('regions/${REGION_CHOSEN[g]}')"`, cls: " withshot" + pixel, sw: ""};
   const shots = REGION_SHOTS[g] || [], k = shotPick(g);
   if (!shots.length) return {style: "", sw: ""};
   return {style: k ? ` style="--shot:url('regions/${shots[k - 1]}')"` : "", cls: k ? " withshot" : "",   // the picture always fills the banner (10 Nov: the uncropped and blurred tries confused; wide shots instead)
