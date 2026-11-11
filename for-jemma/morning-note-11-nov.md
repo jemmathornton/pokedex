@@ -44,4 +44,4 @@ Full list with sources: `research/coming-up.md`.
 - **Dec–Feb:** the Holiday and New Year events and the January Super Mega Raid days (not announced yet), a rumoured Clone raid day (19 Dec), and **GO Tour: Alola Global** on 27–28 Feb (ticket), which will need new backgrounds adding.
 - **Any time until 30 Apr 2027:** the ESA Science Museum exhibition in London (Astronaut Pikachu and its own background), if you go.
 
-**One for you to check:** sources disagree on Minior. Dittobase counts all seven core colours as out in GO, but our release check found only Green so far (the Orionids in October). The app currently counts all seven. If your game's Pokédex shows only some colours, tell me and I'll mark the rest as not out yet.
+**Minior:** all seven core colours stay (your call, 11 Nov).
