@@ -1,26 +1,28 @@
-# Your list (10 Nov 2026)
+# Your list (11 Nov 2026)
 
 Everything waiting on you. **Do** = just do it; **Decide** = your call. Tell Claude when one’s done or decided and it comes off.
 
 ## Decide
-- **Region banner pictures:** a number (or Colour) for each region, from `for-jemma/region-banner-options.png` (green border = landscapes without people, added overnight).
-- **Backgrounds (from the overnight Dittobase check):** add raid Xerneas, Honedge and the Kalos-hat Pikachu to GO Tour X? Did you go to the Méga Évolution Paris event (13–14 Sep 2025)? Should backgrounds list Pokémon you get by evolving?
-
+- **Three background questions (from the Dittobase check):**
+  1. GO Tour Kalos X: raid Xerneas, Honedge and the Calem’s and Serena’s Hat Pikachu could have the X background whichever version you played. Add them to X?
+  2. Did you go to the Méga Évolution Paris event (13–14 Sep 2025)? If so, Charmander gets the Paris background too.
+  3. Should backgrounds also list the Pokémon you’d get by evolving (Raichu on LEGO, the Kalos starters’ evolutions, Community Day evolutions…)? There are a lot.
+- **Region pictures for Kanto, Hoenn, Sinnoh, Unova and Alola:** scenery-only options are being found; Claude will send one picture per region.
 - **Which game to add after GO**, when you want it.
 
 ## Do
-- **Try getting your collection in:** one short screen recording of the Pokédex’s Lucky tab (Kanto only) and, if you have one, a Calcy IV export, into the `imports` folder. See `for-jemma/morning-note-11-nov.md`.
-- **Tick your backgrounds** on the Events page (or on each Pokémon’s page): every Pokémon you could have got with each background is in, including each hat Pikachu.
-- **Machamp in the Modern Jacket** counts once you do the GO Wild Area raids (14–15 Nov).
+- **Try getting your collection in:** one short screen recording of the Pokédex’s Lucky tab (Kanto only) and, if you have one, a Calcy IV export, into the Pokédex folder’s `imports` folder. Then Claude checks the reader works on your phone’s screens.
+- **Tick your backgrounds** on the Events page (or on each Pokémon’s page).
+- **This weekend (14–15 Nov), GO Wild Area:** last chance for Modern Jacket Machamp.
 
-## Later
-- **Filling in your collection without ticking by hand:** test reading a screen recording of your in-game Pokédex. It needs a free tool called ffmpeg; Claude will ask before installing it.
-
-## Done (10 Nov)
-- Weekly backup: set up and tested (every Sunday 09:40, zips to Documents\PokedexBackups, keeps 8; first one made 10 Nov).
+## Done
+- Weekly backup (every Sunday 09:40; first one made 10 Nov).
+- Test suite (36 tests, all pass; run after any change).
+- Region pictures: Johto 1, Kalos 1, Galar 1, Hisui 4, Paldea 1 (11 Nov).
+- Minior keeps all seven core colours (11 Nov).
 - Look: region colours with the parade; Pokémon pages: the picture strip, with the game’s own looks for each box.
-- Icons: Shadow 3, Purified 1, Lucky 12.
-- Events: only the ones you went to or took part in, with every Pokémon you could have got on each background (Road to Kalos, Tours, Copenhagen with Candela Ponyta and Rapidash, Dark Skies with the Max Finale extras).
+- Icons: Shadow 3, Purified 1, Lucky 12, Mega 3 (DNA, burnt orange).
+- Events: only the ones you went to or took part in, every Pokémon you could have got on each background (checked against Dittobase 11 Nov).
 - Costumes: the 285 you could get in the UK or at your events.
-- Megas: a full box (Mega X and Y each), 64 out in GO; icon 3 (DNA), burnt orange.
-- No more boxes for now (her call, 10 Nov: shiny lucky, shundo and shiny purified not wanted).
+- Megas: a full box (Mega X and Y each), 64 out in GO.
+- No more boxes for now (shiny lucky, shundo and shiny purified not wanted).
