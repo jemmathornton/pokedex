@@ -298,7 +298,7 @@ function statsHtml(c){
     t("--shadow", "shadow", "Shadow", c.sd, c.shadowOut) +
     t("--purified", "purified", "Purified", c.pu, c.shadowOut) +
     t("--dynamax", "expand", "Dynamax", c.dx, c.dynamaxOut) +
-    t("--gmax", "expand", "Gigantamax", c.gx, c.gmaxOut) +
+    t("--gmax", "expand", "G-Max", c.gx, c.gmaxOut) +
     t("--mega", "mega", "Mega", c.mega, c.megaOut) + `</div>`;
 }
 const readOnlyNote = () => readOnly ? `<div class="notice">${ic("info")} Opened from the folder, so ticks can’t be saved here. Open it with the Jemma’s Pokédex shortcut.</div>` : "";

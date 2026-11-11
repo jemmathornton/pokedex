@@ -606,3 +606,14 @@ a.formsbtn{text-decoration:none}
 .qlist li.have{opacity:.55}.qlist li.cant{opacity:.55;border-style:dashed}
 .qprob{margin:6px 0;color:#b3261e;font-weight:600;font-size:14px}
 .hero.withshot.pixel::after{image-rendering:pixelated}   /* a tiny DS picture enlarged as sharp pixels instead of a blur */
+/* banners with a scenery picture (her ask, 11 Nov): no Pokémon parade, and the totals as one row of small tiles along the
+   bottom, so the picture shows */
+:root[data-look] .hero.withshot{min-height:330px;display:flex;flex-direction:column;padding-bottom:22px}
+:root[data-look] .hero.withshot .heroart{display:none}
+.hero.withshot .stats{margin-top:auto;grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:minmax(max-content,1fr);gap:6px}
+.hero.withshot .stat{padding:6px 8px 7px;border-radius:10px;gap:2px}
+.hero.withshot .stat .sl{font-size:11px;gap:4px;white-space:nowrap}
+.hero.withshot .stat .sl .i{width:16px;height:16px;padding:3px;flex:none}
+.hero.withshot .stat b{font-size:19px;white-space:nowrap}
+.hero.withshot .stat b small{font-size:11px}
+.hero.withshot .stat .sx{display:none}
