@@ -3,7 +3,6 @@
 Everything waiting on you. **Do** = just do it; **Decide** = your call. Tell Claude when one’s done or decided and it comes off.
 
 ## Decide
-- **GO Tour Kalos X:** add the raid Xerneas, Honedge and Calem’s/Serena’s Hat Pikachu? (Check any caught 28 Feb – 1 Mar 2026 for the X background.)
 - **Region pictures for Kanto, Hoenn, Sinnoh, Unova and Alola:** scenery-only options are being found; Claude will send one picture per region.
 - **Which game to add after GO**, when you want it.
 
@@ -13,6 +12,7 @@ Everything waiting on you. **Do** = just do it; **Decide** = your call. Tell Cla
 - **This weekend (14–15 Nov), GO Wild Area:** last chance for Modern Jacket Machamp.
 
 ## Done
+- GO Tour Kalos X: the raid Pokémon (Calem’s and Serena’s Hat Pikachu, Honedge, Xerneas) added; you have a hat Pikachu with X (11 Nov).
 - Backgrounds list the Pokémon you’d get by evolving too (11 Nov, your call); no Méga Évolution Paris (you didn’t go).
 - Weekly backup (every Sunday 09:40; first one made 10 Nov).
 - Test suite (36 tests, all pass; run after any change).

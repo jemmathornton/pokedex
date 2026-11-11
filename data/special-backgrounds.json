@@ -538,6 +538,9 @@
    "scope": "global",
    "card": "sb_GoTour2026_x",
    "backgroundPokemon": [
+    "Xerneas",
+    "Honedge",
+    "Pikachu",
     "Chespin",
     "Fennekin",
     "Froakie",
@@ -550,7 +553,7 @@
     "Doublade",
     "Aegislash"
    ],
-   "note": "She played Y (she has Yveltal with the Y background), so only the Kalos starters count here: they could come with either X or Y (she has Fennekin with both, 10 Nov). GOTOURKALOS code research (to 8 Mar 2026): you picked one of Chespin, Fennekin or Froakie and got six encounters, X, Y, X, Y, X, Y. Evolving one keeps the background, so its evolutions are listed too.",
+   "note": "Caught from GO Tour Kalos Global raids (28 Feb – 1 Mar 2026): Pikachu (Calem’s Hat) and (Serena’s Hat), Honedge and Xerneas could get X whichever version you played (she has a hat Pikachu with X, 11 Nov). GOTOURKALOS code research (to 8 Mar 2026): you picked one of Chespin, Fennekin or Froakie and got six encounters, X, Y, X, Y, X, Y. Evolving one keeps the background, so its evolutions are listed too.",
    "sources": [
     "https://leekduck.com/events/pokemon-go-tour-kalos-global-2026/",
     "https://www.dittobase.com/pokemon-go/backgrounds/sb-go-tour-2026-x",
@@ -559,6 +562,10 @@
    "unsure": "The Kalos starters (promo code) are from Dittobase only; Serebii and Leek Duck don't list them.",
    "picture": "gotour2026x",
    "cards": [
+    "716",
+    "679",
+    "25-gotour-2026-c-02",
+    "25-gotour-2026-c",
     "650",
     "653",
     "656",
