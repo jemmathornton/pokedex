@@ -9,6 +9,7 @@ class Server(unittest.TestCase):
     def setUp(self):
         self.before = fingerprint()
         self.box = Sandbox().__enter__()
+        col = self.box.read('collection', 'go.json'); col['have'] = {}; self.box.write(col, 'collection', 'go.json')   # start with no ticks (the copy only)
         self.serve = load('serve')
         self.assertTrue(self.serve.FILE.startswith(self.box.root), 'the server would write her real file')
         self.httpd = self.serve.Server(('127.0.0.1', 0), functools.partial(self.serve.Handler, directory=self.serve.SITE))
