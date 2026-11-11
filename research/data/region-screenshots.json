@@ -1341,5 +1341,18 @@
    402
   ],
   "people": "none"
+ },
+ "sinnoh-14.jpg": {
+  "region": "sinnoh",
+  "game": "Pokémon Brilliant Diamond / Shining Pearl",
+  "place": "pine trees and grassy hills under a blue sky (a scenery strip Nintendo Australia's game page uses as a background; place not named)",
+  "page": "https://www.nintendo.com.au/games/nintendo-switch/pokemon-brilliant-diamond",
+  "image": "https://assets.nintendo.eu/image/upload/f_auto,q_auto/NAL/Software%20Nintendo%20Switch/Pok%C3%A9mon%20Brilliant%20Diamond%20and%20Pok%C3%A9mon%20Shining%20Pearl/bdsp_scenery.jpg",
+  "size": [
+   1920,
+   501
+  ],
+  "people": "none",
+  "bigPokemon": "none"
  }
 }
