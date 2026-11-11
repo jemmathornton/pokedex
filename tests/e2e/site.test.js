@@ -189,7 +189,7 @@
     await go("#gen-8");
     const two = view().querySelector('[data-shotg="8"][data-shot="2"]'); ok(two, "picture 2 on Galar");
     click(two); await wait(30);
-    ok(/regions\/galar-2\./.test(view().querySelector(".hero").getAttribute("style") || ""), "Galar shows picture 2");
+    ok((view().querySelector(".hero").getAttribute("style") || "").includes("regions/" + REGION_SHOTS["8"][1]), "Galar shows picture 2");
     click(view().querySelector('[data-shotg="8"][data-shot="0"]')); await wait(30);
     ok(!view().querySelector(".hero").classList.contains("withshot"), "Colour: no picture");
     click(view().querySelector('[data-shotg="8"][data-shot="1"]')); await wait(30);
