@@ -3,10 +3,7 @@
 Everything waiting on you. **Do** = just do it; **Decide** = your call. Tell Claude when one’s done or decided and it comes off.
 
 ## Decide
-- **Three background questions (from the Dittobase check):**
-  1. GO Tour Kalos X: raid Xerneas, Honedge and the Calem’s and Serena’s Hat Pikachu could have the X background whichever version you played. Add them to X?
-  2. Did you go to the Méga Évolution Paris event (13–14 Sep 2025)? If so, Charmander gets the Paris background too.
-  3. Should backgrounds also list the Pokémon you’d get by evolving (Raichu on LEGO, the Kalos starters’ evolutions, Community Day evolutions…)? There are a lot.
+- **GO Tour Kalos X:** add the raid Xerneas, Honedge and Calem’s/Serena’s Hat Pikachu? (Check any caught 28 Feb – 1 Mar 2026 for the X background.)
 - **Region pictures for Kanto, Hoenn, Sinnoh, Unova and Alola:** scenery-only options are being found; Claude will send one picture per region.
 - **Which game to add after GO**, when you want it.
 
@@ -16,6 +13,7 @@ Everything waiting on you. **Do** = just do it; **Decide** = your call. Tell Cla
 - **This weekend (14–15 Nov), GO Wild Area:** last chance for Modern Jacket Machamp.
 
 ## Done
+- Backgrounds list the Pokémon you’d get by evolving too (11 Nov, your call); no Méga Évolution Paris (you didn’t go).
 - Weekly backup (every Sunday 09:40; first one made 10 Nov).
 - Test suite (36 tests, all pass; run after any change).
 - Region pictures: Johto 1, Kalos 1, Galar 1, Hisui 4, Paldea 1 (11 Nov).
