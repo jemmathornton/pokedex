@@ -250,13 +250,15 @@ const setRegion = g => document.documentElement.style.setProperty("--rc", REGION
 const REGION_SHOTS = {"1": ["kanto-4.jpg", "kanto-9.jpg", "kanto-12.jpg", "kanto-13.jpg", "kanto-14.jpg"], "2": ["johto-1.png", "johto-3.jpg", "johto-6.png"], "3": ["hoenn-13.png", "hoenn-14.png", "hoenn-15.png"], "4": ["sinnoh-5.jpg", "sinnoh-8.jpg", "sinnoh-11.jpg", "sinnoh-12.jpg", "sinnoh-13.jpg"], "5": ["unova-4.png", "unova-8.jpg", "unova-11.png"], "6": ["kalos-1.jpg", "kalos-5.jpg", "kalos-7.jpg"], "7": ["alola-10.jpg", "alola-11.jpg", "alola-12.png"], "8": ["galar-1.jpg", "galar-3.jpg", "galar-8.jpg", "galar-11.jpg", "galar-12.jpg", "galar-13.jpg", "galar-14.jpg"], "hisui": ["hisui-5.jpg", "hisui-6.jpg", "hisui-7.jpg", "hisui-8.jpg", "hisui-11.jpg", "hisui-12.jpg"], "9": ["paldea-1.jpg", "paldea-5.jpg", "paldea-6.jpg", "paldea-8.jpg", "paldea-10.jpg"]};   // only pictures with no people in them (her ask, 11 Nov)
 const shotPick = g => Math.min(+(new URLSearchParams(location.search).get("shot") ?? (prefs.regionShot || {})[g] ?? 1), (REGION_SHOTS[g] || []).length);   // ?shot= for pictures only
 // her picks (11 Nov): these regions keep their picture and lose the switch; the rest still have one while she chooses
+const PIXEL_SHOTS = new Set(["alola-1.jpg", "alola-7.jpg", "alola-8.jpg", "hoenn-1.jpg", "hoenn-10.png", "hoenn-11.png", "hoenn-12.png", "hoenn-13.png", "hoenn-14.png", "hoenn-15.png", "hoenn-2.jpg", "hoenn-3.jpg", "hoenn-4.jpg", "hoenn-5.jpg", "hoenn-6.jpg", "hoenn-7.jpg", "hoenn-8.jpg", "hoenn-9.png", "johto-1.png", "johto-2.jpg", "johto-3.jpg", "johto-4.jpg", "johto-5.jpg", "johto-6.png", "kalos-10.jpg", "kalos-11.jpg", "kalos-12.jpg", "kalos-13.jpg", "kalos-4.jpg", "unova-1.jpg", "unova-10.png", "unova-11.png", "unova-2.jpg", "unova-3.jpg", "unova-4.png", "unova-5.png", "unova-6.png", "unova-7.jpg", "unova-8.jpg", "unova-9.jpg"]);
 const REGION_CHOSEN = {"2": "johto-1.png", "6": "kalos-1.jpg", "8": "galar-1.jpg", "hisui": "hisui-8.jpg", "9": "paldea-1.jpg"};
 function regionShot(g){   // style and switch for a region page's banner
-  const pixel = new URLSearchParams(location.search).get("pixel") === "1" ? " pixel" : "";   // trial: tiny DS pictures as sharp pixels
-  if (REGION_CHOSEN[g]) return {style: ` style="--shot:url('regions/${REGION_CHOSEN[g]}')"`, cls: " withshot" + pixel, sw: ""};
+  // tiny DS/3DS pictures (under 500 px wide) are enlarged as sharp pixels, not a blur (her pick, 11 Nov, for Johto)
+  const pixel = f => PIXEL_SHOTS.has(f) ? " pixel" : "";
+  if (REGION_CHOSEN[g]) return {style: ` style="--shot:url('regions/${REGION_CHOSEN[g]}')"`, cls: " withshot" + pixel(REGION_CHOSEN[g]), sw: ""};
   const shots = REGION_SHOTS[g] || [], k = shotPick(g);
   if (!shots.length) return {style: "", sw: ""};
-  return {style: k ? ` style="--shot:url('regions/${shots[k - 1]}')"` : "", cls: k ? " withshot" : "",   // the picture always fills the banner (10 Nov: the uncropped and blurred tries confused; wide shots instead)
+  return {style: k ? ` style="--shot:url('regions/${shots[k - 1]}')"` : "", cls: k ? " withshot" + pixel(shots[k - 1]) : "",   // the picture always fills the banner (10 Nov: the uncropped and blurred tries confused; wide shots instead)
     sw: `<span class="shotsw"><span class="label">Try a picture</span><span class="opts">${["Colour", ...shots.map((_, i) => String(i + 1))].map((l, i) =>
       `<button type="button" data-shot="${i}" data-shotg="${g}" aria-pressed="${i === k}">${l}</button>`).join("")}</span></span>`};
 }
