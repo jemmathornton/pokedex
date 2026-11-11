@@ -87,6 +87,39 @@ What it shows (official help page, now under Scopely, which bought GO in 2025; P
 - **Effort (estimate):** 10 tabs × 9 regions of scrolling with Android’s screen recorder (Quick Settings → Screen record), perhaps 20–30 minutes, then copy the videos to the laptop.
 - **Risks:** species-level only (Alolan Vulpix and Vulpix share a cell); a frame with a pop-up or a half-loaded row could be misread (the totals catch this); silhouettes on dark backgrounds need testing. **Suggestion:** first send one short recording (e.g. the Lucky tab, Kanto) so Claude can check it works before doing them all.
 
+### Reading the game’s Pokédex: `tools/read_pokedex.py` (prototype, 11 Nov 2026)
+
+What it does: it watches a screen recording (or screenshots) of one Pokédex tab, reads the number on each cell with Windows’ own text reader, and decides for each cell whether the Pokémon is in colour (registered), a silhouette or blank (not). It then checks the picture against the game’s own picture for that number, compares its total with the count the game shows next to the region’s name, and writes a proposal to `imports/pokedex-<tab>-<region>.json` with a line ready for the Quick add page (for example `1-3, 6, 25 shiny`). **It never ticks anything**: she pastes the line into Quick add, looks at the preview, and only then presses the button. It also says how many of them aren’t ticked in the app yet.
+
+**How she’d use it (Android):**
+
+1. Open the screen recorder: swipe down twice from the top of the screen and tap **Screen record** (Samsung: **Screen recorder**). Choose no sound.
+2. In GO open the Pokédex, choose the tab along the bottom (start with **Shiny** or **Lucky**), then **Regions** and one region (start with Kanto).
+3. Hold still for a second at the top so the region’s name and count are in the video.
+4. Scroll down **slowly and steadily with one finger, about two rows a second**, right to the end, so the last row comes up above the round buttons. No flicks: a fast flick blurs the numbers and those cells are missed (missed, not misread). Pausing is fine. Don’t tap a cell (it opens that Pokémon’s page).
+5. Stop the recording. One tab and one region per video for now.
+6. Copy the video to the laptop (USB cable or Google Drive) into the Pokédex folder’s `imports` folder, and tell Claude which video it is. Claude runs `tools/read_pokedex.py` and shows her what it found.
+
+The printout says how many it found against the game’s own count, and lists any numbers it never saw clearly (“scroll over them again”). If the two counts match, the proposal is complete.
+
+**Footage it was built and measured on:** no video could be downloaded (YouTube asked for a sign-in for every video; Bilibili and Reddit refused too), so it was built on **4 real screenshots of the new Pokédex** from Pokémon GO Hub and Dittobase’s articles about the redesign (Android: Kanto XXS, XXL and G-Max tabs; iPhone: Kanto Pokémon tab), and on a **made-up screen recording** built from the game’s own pictures in the game’s layout (the self-test).
+
+**Accuracy measured:**
+
+- **Real screenshots:** 45 cells read, **45 right**, checked by eye (30 in colour, 12 silhouettes, 3 blank). 10 more cells were skipped on purpose because a round button or the tab bar was over them; in a recording they come into view as the list scrolls. The difference between a silhouette and a real picture is very clear: in every silhouette 0% of the pixels were off its one flat colour, against at least 47% for real pictures, Squirtle on the blue background included. The picture check named the right Pokémon first for all 39 cells it could check (not G-Max: the app has no G-Max pictures). The region (Kanto), the count (“94”, “107”, “151 / 151”) and the tab were read on all of them, except the G-Max count “2” (a single digit wasn’t read).
+- **Made-up recording** (15 seconds of the Kanto Shiny tab at 720p with pauses, steady scrolling, fast flicks and a pop-up): 110 of 151 cells read, **all 110 right**. The 41 missed were all during the fast flicks (blurred frames) or under the pop-up, and the printout listed them and said the count didn’t add up yet.
+- Not yet tried on a real recording. **Suggestion:** first one short recording (one tab, one region) so the settings can be checked against her phone.
+
+**Where it struggles:**
+
+- **Fast scrolling:** blurred frames can’t be read; those cells are skipped and listed. Slow scrolling fixes it.
+- **The round buttons and tab bar** at the bottom cover the last rows on screen; cells there are skipped. The very last row of a region is only read if the list scrolls up far enough (not checked on a real phone yet).
+- **Pop-ups** (messages, a page starting to open): a cell with something lying over it is skipped (it checks the background strips either side of each tile).
+- **The same Pokémon in many frames:** each number gets one answer, the one most frames agree on; disagreements are listed as unsure.
+- **Dark or faint silhouettes:** fine so far (see-through wings, like Beedrill’s, still count as a silhouette), but only seen on light backgrounds.
+- **G-Max and Mega:** these tabs only list some Pokémon, so it can’t say which are missing; no picture check for G-Max; whether Mega X and Y are two cells with the same number is untested.
+- **Forms:** the grid is one cell per species, so Alolan Vulpix and Vulpix are one answer, as in the game.
+
 ## 3. Storage search strings
 
 Official list (Scopely help centre, “Searching and filtering your Pokémon inventory”), with extras from Pokémon GO Hub’s search-strings page:

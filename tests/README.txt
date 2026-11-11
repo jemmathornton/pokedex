@@ -16,6 +16,9 @@ unit/test_server.py  the server on a spare port: saves, unticks, every box, cost
 unit/test_build.py   the build: everything the page reads is in data.js, fingerprints stamped, stops on bad data.
 unit/test_import.py  (slow) re-running the import from the saved downloads gives the same data.
 unit/test_calcy.py   the Calcy IV importer: the right boxes from a row, ancestor rows skipped, never an impossible box.
+unit/test_pokedex_reader.py  the game's-Pokédex reader on real screenshots (fixtures/pokedex/): every cell it reads is
+                     right, covered cells skipped, region/count/tab read, misread numbers dropped, the Quick add line,
+                     never writes her ticks; with "slow" also its self-test (a made-up screen recording).
 e2e/site.test.js     in Chrome: every page (all ~1,000 Pokémon pages too) opens with no errors or "undefined", every
                      link goes to a page, pictures load, the box strip (Charizard's Mega X/Y, Mew's missing Lucky,
                      Kyogre's Primal), ticking saves, Shiny Shadow and costume cards tick, ← →, card clicks, the filter
