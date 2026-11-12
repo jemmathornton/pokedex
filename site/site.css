@@ -133,6 +133,7 @@
   --nav:#5A1820; --deep:#5A1820; --deep-2:#7E2530; --on-deep:#FFF4EE; --on-deep-mute:color-mix(in srgb,#fff 62%,var(--deep));
   --accent:#F2C14E;
   --caught:#315686; --male:#078E5A; --female:#6A5DCF; --shiny:#7C8795; --lucky:#D09B00; --hundo:#D14186; --shadow:#4D2D5F; --purified:#0082C5; --dynamax:#B6285A; --gmax:#80183B; --mega:#C2571A;   /* Mega: burnt orange (her pick, 10 Nov) */
+  --xxl:#0E8A84; --xxs:#D24C3F;   /* XXL teal, XXS coral (12 Nov: shown as option A, waiting on her pick) */
   /* box colours: her picks after several rounds (9 Nov), balanced to one palette; white text on every box (her rule) */
   --focus:var(--deep-2);
   --display:"Instrument Serif","Iowan Old Style","Palatino Linotype",Georgia,serif;
@@ -247,6 +248,8 @@ main{margin-left:var(--side);min-height:100vh;container-type:inline-size}
 .tk.dx[aria-pressed="true"]{background:var(--dynamax)}
 .tk.gx[aria-pressed="true"]{background:var(--gmax)}
 .tk.mg[aria-pressed="true"]{background:var(--mega)}
+.tk.xl[aria-pressed="true"]{background:var(--xxl)}
+.tk.xs[aria-pressed="true"]{background:var(--xxs)}
 .card .ticks + .ticks{margin-top:4px}
 .card .gd{font-weight:700;color:var(--ink);opacity:.75}
 .tk:disabled{opacity:.45;cursor:default;background:transparent;border:1px dashed var(--line)}
@@ -632,3 +635,30 @@ a.formsbtn{text-decoration:none}
 .fc.none:hover{border-color:var(--line)}
 .fc[aria-pressed="true"]{border-color:var(--bc);background:color-mix(in srgb,var(--bc) 12%,var(--surface));color:inherit}
 .fc[aria-pressed="true"] img{filter:none}
+
+/* XXL and XXS picture boxes (12 Nov): the game's own picture shown bigger or smaller, on a soft background in the box's colour */
+.pc-xl .pcpic{background:radial-gradient(circle at 50% 55%,#fff,color-mix(in srgb,var(--xxl) 28%,#fff))}
+.pc-xs .pcpic{background:radial-gradient(circle at 50% 55%,#fff,color-mix(in srgb,var(--xxs) 24%,#fff))}
+.pc-xl .pcpic img{transform:scale(1.3)}
+.pc-xs .pcpic img{transform:scale(.55)}
+/* narrower windows (under 1450 px): XXL and XXS made the filter line and the totals row too wide at 1280, so a little tighter there */
+@media (max-width:1450px){
+  .worktab{padding:5px 5px;font-size:12px}
+  .worktabs{gap:4px}
+  .frow{gap:10px 10px}
+  .switches .switchbtn{font-size:12px;gap:6px}
+  .hero.withshot .stats{grid-auto-columns:minmax(0,1fr);gap:5px}
+  .hero.withshot .stat{padding:5px 6px 6px}
+  .hero.withshot .stat .sl{font-size:10px;gap:3px}
+  .hero.withshot .stat .sl .i{width:14px;height:14px;padding:2px}
+  .hero.withshot .stat b{font-size:16px}
+  .hero.withshot .stat b small{font-size:10px}
+}
+
+/* Fast tick: Charizard and Mewtwo's Mega X and Y, one square with two small boxes (12 Nov) */
+.fc.two{cursor:default}
+.fc.two.lit{border-color:var(--bc);background:color-mix(in srgb,var(--bc) 12%,var(--surface));color:inherit}
+.fc.two.lit img{filter:none}
+.fc .xy{display:flex;gap:4px;margin-top:2px}
+.fc .xy button{font:800 11px/1 var(--body);padding:3px 7px;border-radius:6px;border:1px solid var(--line);background:var(--surface);color:var(--muted);cursor:pointer}
+.fc .xy button[aria-pressed="true"]{background:var(--bc);border-color:transparent;color:#fff}

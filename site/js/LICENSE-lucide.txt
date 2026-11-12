@@ -36,3 +36,5 @@ Three box icons picked by Jemma on 10 Nov 2026 come from other open icon sets:
   (https://creativecommons.org/licenses/by/4.0/), by 480 Design. Used unchanged.
 - Lucky: "clover" from Phosphor Icons (https://github.com/phosphor-icons/core), MIT licence, by Phosphor Icons.
 - Mega: "dna-bold" from Phosphor Icons (https://github.com/phosphor-icons/core), MIT licence, by Phosphor Icons.
+- Dynamax and G-Max (her pick, 12 Nov): "arrow-big-up-line" and "arrow-big-up-lines" from Tabler Icons
+  (https://github.com/tabler/tabler-icons), MIT licence, by Paweł Kuna. Used unchanged. XXL and XXS use Lucide's "expand" and "shrink".

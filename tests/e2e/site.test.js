@@ -85,7 +85,7 @@
   // ---------- a Pokémon's page ----------
   test("Charizard's boxes: everything, with Mega X and Mega Y and the G-Max picture", async () => {
     await go("#p-6");
-    eq(strip(), ["Caught", "Female", "Male", "Shiny", "Lucky", "4★", "Shadow", "Purified", "Dynamax", "G-Max", "Mega X", "Mega Y"]);
+    eq(strip(), ["Caught", "Female", "Male", "Shiny", "Lucky", "4★", "XXL", "XXS", "Shadow", "Purified", "Dynamax", "G-Max", "Mega X", "Mega Y"]);
     ok(box("G-Max").querySelector("img").src.includes("GIGANTAMAX"), "G-Max shows the Gigantamax picture");
     ok(box("Mega X").querySelector("img").src.includes("MEGA_X"), "Mega X shows the Mega X picture");
     eq(fact("Mega"), "Available"); eq(fact("Gigantamax"), "Available");
@@ -151,7 +151,7 @@
   test("the filter line: tabs, Hide ones I have, all on one line", async () => {
     await go("#gen-1");
     const tabs = [...view().querySelectorAll(".worktab")].map(b => b.textContent);
-    eq(tabs, ["Female", "Male", "Shiny", "Lucky", "4★", "Shadow", "Purified", "Dynamax", "G-Max", "Mega"]);
+    eq(tabs, ["Female", "Male", "Shiny", "Lucky", "4★", "XXL", "XXS", "Shadow", "Purified", "Dynamax", "G-Max", "Mega"]);
     const row = view().querySelector(".frow"), top = [...row.querySelectorAll(".worktab")].map(b => b.getBoundingClientRect().top);
     ok(Math.max(...top) - Math.min(...top) < 4, "the tabs wrapped onto a second line");
     const sw = view().querySelector("[data-showall]"); ok(sw, "the Hide ones I have switch"); ok(/Hide ones I have/.test(sw.textContent));
@@ -196,7 +196,8 @@
     for (const g of Object.keys(genById)) {
       const c = counts(ENTRIES.filter(e => e.gen === g || e.gen === +g));
       for (const k of ["maleOut", "femaleOut", "shinyOut", "luckyOut", "shadowOut", "dynamaxOut", "gmaxOut", "megaOut"])
-        ok(c[k] <= c.speciesOut, `${g}: ${k} ${c[k]} is more than ${c.speciesOut} Pokémon`);
+        ok(c[k] <= c.speciesAll, `${g}: ${k} ${c[k]} is more than ${c.speciesAll} Pokémon`);   // out of every Pokémon that could have it, out in GO or not (12 Nov)
+      eq(c.shinyOut, c.speciesAll, `${g}: every Pokémon can be shiny`);
     }
   });
 
@@ -248,7 +249,11 @@
     eq(cells.length, 151, "Kanto has 151");
     eq(cells[0].dataset.fast, "1", "Bulbasaur first"); eq(cells[150].dataset.fast, "151", "Mew last");
     prefs.fastBox = "mega"; fastPage();
-    const zard = [...view().querySelectorAll('.fc[data-fast="6"]')].map(c => c.dataset.t);
+    const zard = [...view().querySelectorAll('[data-fast="6"]')].map(c => c.dataset.t);
+    ok(view().querySelectorAll(".fastgrid .fc").length < 151, "Mega lists only the ones that have a Mega");
+    prefs.fastBox = "s"; fastPage(); eq(view().querySelectorAll(".fastgrid .fc").length, 151, "Shiny lists all 151, out or not");
+    prefs.fastBox = "l"; fastPage(); eq(view().querySelectorAll(".fastgrid .fc").length, 150, "Lucky leaves out Mew (can't be traded)");
+    prefs.fastBox = "mega"; fastPage();
     eq(zard, ["mx", "my"], "Charizard has X and Y");
     prefs.fastGen = "hisui"; prefs.fastBox = "c"; fastPage();
     ok([...view().querySelectorAll("button.fc")].every(c => +byId[c.dataset.fast].dex >= 899), "Hisui is #899 on");
@@ -290,6 +295,19 @@
   test("Meltan and Melmetal can be Lucky (the one mythical that can be traded); Mew can't", async () => {
     ok(canLucky(byId["808"]) && canLucky(byId["809"]), "Meltan and Melmetal");
     ok(!canLucky(byId["151"]), "Mew");
+  });
+
+  test("XXL and XXS: boxes on cards and the page, a filter tab, Fast tick tabs and Quick add words", async () => {
+    await go("#p-25");
+    ok(strip().includes("XXL") && strip().includes("XXS"), "on Pikachu's page");
+    prefs.work = "all"; prefs.workShow = "all"; await go("#gen-1");
+    ok(view().querySelector('.card[data-id="25"] [data-tick="xl"]') && view().querySelector('.card[data-id="25"] [data-tick="xs"]'), "on the card");
+    ok(view().querySelector('[data-work="xxl"]') && view().querySelector('[data-work="xxs"]'), "filter tabs");
+    prefs.fastGen = "1"; prefs.fastBox = "xl"; await go("#fast");
+    eq(view().querySelectorAll(".fastgrid button.fc").length, 151, "Fast tick XXL: all 151");
+    prefs.fastBox = "c";
+    const got = quickParse("25 xxl\n26 xxs").rows.map(r => `${r.e.id}:${r.t}`);
+    ok(got.includes("25:xl") && got.includes("26:xs"), "Quick add");
   });
 
   // ---------- run ----------

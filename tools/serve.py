@@ -21,7 +21,7 @@ SITE = os.path.join(ROOT, 'site')
 FILE = os.path.join(ROOT, 'data', 'collection', 'go.json')
 LOCK = threading.Lock()
 KEY = re.compile(r'^[a-z]:[\w:.!?#\'’-]{1,120}$', re.I)   # d:<entry> c:<costume> b:<event>:<pokemon>
-TICKS = {'c', 'cm', 'cf', 's', 'l', 'h', 'sd', 'pu', 'dx', 'gx', 'ss', 'mg', 'mx', 'my'}   # caught, male, female, shiny, lucky, 4★, shadow, purified, Dynamax, Gigantamax, shiny shadow (a bonus), Mega (or Primal), Mega X, Mega Y
+TICKS = {'c', 'cm', 'cf', 's', 'l', 'h', 'sd', 'pu', 'dx', 'gx', 'ss', 'mg', 'mx', 'my', 'xl', 'xs'}   # caught, male, female, shiny, lucky, 4★, shadow, purified, Dynamax, Gigantamax, shiny shadow (a bonus), Mega (or Primal), Mega X, Mega Y, XXL, XXS
 
 
 def read():

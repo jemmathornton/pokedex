@@ -60,9 +60,12 @@ class Site(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        before = fingerprint()
+        cls.before = fingerprint()
         cls.results = run_page_tests()
-        assert fingerprint() == before, 'her real ticks file changed during the page tests'
+        cls.after = fingerprint()
+
+    def test_her_ticks_file_untouched(self):   # its own result, so the page results still show if it fails
+        self.assertEqual(self.after, self.before, 'her real ticks file changed during the page tests (if she was ticking in the app at the time, that explains it: run again)')
 
     def test_pages(self):
         for r in self.results:

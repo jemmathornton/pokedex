@@ -74,32 +74,47 @@ const hasForms = e => (outBySpecies[e.dex] || []).length > 1;
 const EXTRAS = [
   {t: "sd", label: "Shadow", icon: "shadow", flag: "shadow", title: "Shadow"},
   {t: "pu", label: "Purified", icon: "purified", flag: "shadow", title: "Purified"},
-  {t: "dx", label: "Dynamax", icon: "expand", flag: "dynamax", title: "Dynamax"},
-  {t: "gx", label: "Gigantamax", icon: "expand", flag: "gmax", title: "Gigantamax"},
+  {t: "dx", label: "Dynamax", icon: "dynamax", flag: "dynamax", title: "Dynamax"},
+  {t: "gx", label: "Gigantamax", icon: "gigantamax", flag: "gmax", title: "Gigantamax"},
 ];
 
+// which boxes a Pokémon could ever have (her rule, 12 Nov: only what's impossible is left out; ones not in GO yet still
+// count, as in the game's Pokédex), from all its entries, out or not
+const POSSIBLE = {
+  c: () => true, s: () => true, h: () => true, xl: () => true, xs: () => true,
+  l: es => es.some(e => e.class !== "mythical") || es[0].dex === 808 || es[0].dex === 809,   // mythicals can't be traded, Meltan and Melmetal aside
+  sd: es => es.some(e => e.class !== "mythical"), pu: es => es.some(e => e.class !== "mythical"),   // no Shadow mythicals (a suggestion: not a stated rule)
+  dx: es => !NO_DYNAMAX.has(es[0].dex), gx: es => GMAX_SPECIES.has(es[0].dex),
+  mega: es => es.some(e => (e.mega || []).length || e.megaLater),
+  cm: es => es.some(e => e.gender === "both" || e.gender === "male"), cf: es => es.some(e => e.gender === "both" || e.gender === "female"),
+};
 function counts(list){
   // the totals at the top of a page count each Pokémon once, ignoring forms (her call, 11 Nov: forms are counted on each
-  // Pokémon's own page, not in these totals): a box counts as out if any of its forms can have it, and as got if any has it
+  // Pokémon's own page, not in these totals), and out of every Pokémon that could ever have that box, out in GO yet or
+  // not (12 Nov, as the game's Pokédex counts): got if any of its forms has it
   const r = {species: 0, speciesOut: 0, male: 0, maleOut: 0, female: 0, femaleOut: 0, shiny: 0, shinyOut: 0,
-             lucky: 0, luckyOut: 0, hundo: 0, out: 0, sd: 0, pu: 0, shadowOut: 0, dx: 0, dynamaxOut: 0, gx: 0, gmaxOut: 0, mega: 0, megaOut: 0};
+             lucky: 0, luckyOut: 0, hundo: 0, out: 0, sd: 0, pu: 0, shadowOut: 0, dx: 0, dynamaxOut: 0, gx: 0, gmaxOut: 0, mega: 0, megaOut: 0, xl: 0, xs: 0};
   const by = {};
-  for (const e of list) if (e.released) (by[e.dex] = by[e.dex] || []).push(e);
-  r.speciesAll = new Set(list.map(e => e.dex)).size;   // every Pokémon on the page, out in GO or not, as GO's Pokédex counts (her call, 12 Nov)
-  const tally = (es, can, got, out, have) => { if (es.some(can)) { r[out]++; if (es.some(e => can(e) && got(e))) r[have]++; } };
+  for (const e of list) (by[e.dex] = by[e.dex] || []).push(e);
+  r.speciesAll = Object.keys(by).length;
+  const tally = (es, b, got, out, have) => { if (POSSIBLE[b](es)) { r[out]++; if (es.some(e => e.released && got(e))) r[have]++; } };
+  const ticked = t => e => has(dk(e), t);
   for (const es of Object.values(by)) {
-    r.speciesOut++; r.out++;
+    r.out++;
+    if (es.some(e => e.released)) r.speciesOut++;
     if (es.some(caught)) r.species++;
-    tally(es, e => !!maleTick(e), gotMale, "maleOut", "male");
-    tally(es, e => !!femaleTick(e), gotFemale, "femaleOut", "female");
-    tally(es, e => !!e.shiny, e => has(dk(e), "s"), "shinyOut", "shiny");
-    tally(es, canLucky, e => has(dk(e), "l"), "luckyOut", "lucky");
-    if (es.some(e => has(dk(e), "h"))) r.hundo++;
-    tally(es, e => !!e.shadow, e => has(dk(e), "sd"), "shadowOut", "sd");
-    if (es.some(e => e.shadow && has(dk(e), "pu"))) r.pu++;
-    tally(es, e => !!e.dynamax, e => has(dk(e), "dx"), "dynamaxOut", "dx");
-    tally(es, e => !!e.gmax, e => has(dk(e), "gx"), "gmaxOut", "gx");
-    tally(es, e => !!(e.mega || []).length, e => (e.mega || []).some(m => has(dk(e), m.t)), "megaOut", "mega");
+    tally(es, "cm", gotMale, "maleOut", "male");
+    tally(es, "cf", gotFemale, "femaleOut", "female");
+    tally(es, "s", ticked("s"), "shinyOut", "shiny");
+    tally(es, "l", ticked("l"), "luckyOut", "lucky");
+    if (es.some(ticked("h"))) r.hundo++;
+    if (es.some(ticked("xl"))) r.xl++;   // XXL and XXS: any Pokémon can be either (her ask, 12 Nov: the game's Pokédex has tabs for both)
+    if (es.some(ticked("xs"))) r.xs++;
+    tally(es, "sd", ticked("sd"), "shadowOut", "sd");
+    if (POSSIBLE.pu(es) && es.some(ticked("pu"))) r.pu++;
+    tally(es, "dx", ticked("dx"), "dynamaxOut", "dx");
+    tally(es, "gx", ticked("gx"), "gmaxOut", "gx");
+    tally(es, "mega", e => (e.mega || []).some(m => has(dk(e), m.t)), "megaOut", "mega");
   }
   return r;
 }
@@ -113,6 +128,8 @@ const BOXF = [   // each box as a filter: which Pokémon it applies to, and whet
    have: e => has(dk(e), "s"), ticks: ["s"]},
   {k: "lucky", label: "Lucky", applies: e => canLucky(e), have: e => has(dk(e), "l"), ticks: ["l"]},
   {k: "hundo", label: "4★", applies: e => e.released, have: e => has(dk(e), "h"), ticks: ["h"]},
+  {k: "xxl", label: "XXL", applies: e => e.released, have: e => has(dk(e), "xl"), ticks: ["xl"]},
+  {k: "xxs", label: "XXS", applies: e => e.released, have: e => has(dk(e), "xs"), ticks: ["xs"]},
   {k: "shadow", label: "Shadow", applies: e => !!e.shadow, have: e => has(dk(e), "sd"), ticks: ["sd"]},
   {k: "purified", label: "Purified", applies: e => !!e.shadow, have: e => has(dk(e), "pu"), ticks: ["pu"]},
   {k: "dynamax", label: "Dynamax", applies: e => !!e.dynamax, have: e => has(dk(e), "dx"), ticks: ["dx"]},
@@ -153,6 +170,7 @@ function boxes(e){
      maleTick(e) ? btn("cm", "m", "mars", "Male", e.gender === "male" ? "Male (male only)" : "Male") : ""],   // female first (her call)
     [e.class === "mythical" && !canLucky(e) && !has(k, "l") ? "" : btn("l", "l", "lucky", "Lucky", "Lucky", !canLucky(e)),   // a box that can never be (a mythical’s Lucky) isn’t shown (her call, 10 Nov)
      btn("h", "h", "star", "4★", "4★ (perfect IVs)", !e.released)],
+    [btn("xl", "xl", "expand", "XXL", "XXL", !e.released), btn("xs", "xs", "shrink", "XXS", "XXS", !e.released)],
     [extra("sd"), extra("pu")],
   ];
   const wide = [extra("dx"), extra("gx"), ...(e.mega || []).map(m => btn(m.t, "mg", "mega", m.label, m.label))].filter(Boolean);   // Dynamax, Gigantamax and Mega get a full row each, so the words fit
@@ -219,7 +237,7 @@ function groupCards(groups){
 }
 
 const HL = {caught: "--caught", female: "--female", male: "--male", shiny: "--shiny", lucky: "--lucky", hundo: "--hundo",
-            shadow: "--shadow", purified: "--purified", dynamax: "--dynamax", gmax: "--gmax"};
+            shadow: "--shadow", purified: "--purified", dynamax: "--dynamax", gmax: "--gmax", xxl: "--xxl", xxs: "--xxs"};
 function card(e, more = "", inForms = false){
   const flags = [];
   if (!e.released) flags.push("Not out yet");
@@ -307,9 +325,11 @@ function statsHtml(c){
     t("--hundo", "star", "4★", c.hundo, c.out) +
     t("--shadow", "shadow", "Shadow", c.sd, c.shadowOut) +
     t("--purified", "purified", "Purified", c.pu, c.shadowOut) +
-    t("--dynamax", "expand", "Dynamax", c.dx, c.dynamaxOut) +
-    t("--gmax", "expand", "G-Max", c.gx, c.gmaxOut) +
-    t("--mega", "mega", "Mega", c.mega, c.megaOut) + `</div>`;
+    t("--dynamax", "dynamax", "Dynamax", c.dx, c.dynamaxOut) +
+    t("--gmax", "gigantamax", "G-Max", c.gx, c.gmaxOut) +
+    t("--mega", "mega", "Mega", c.mega, c.megaOut) +
+    t("--xxl", "expand", "XXL", c.xl, c.out) +
+    t("--xxs", "shrink", "XXS", c.xs, c.out) + `</div>`;
 }
 const readOnlyNote = () => readOnly ? `<div class="notice">${ic("info")} Opened from the folder, so ticks can’t be saved here. Open it with the Jemma’s Pokédex shortcut.</div>` : "";
 
@@ -434,10 +454,12 @@ function bigBoxes(e){
     B("s", "--shiny", "sparkles", "Shiny", !!e.shiny, "Unavailable") +
     B("l", "--lucky", "lucky", "Lucky", canLucky(e), e.class === "mythical" ? null : "Unavailable") +
     B("h", "--hundo", "star", "4★", e.released, "Unavailable") +
+    B("xl", "--xxl", "expand", "XXL", e.released, "Unavailable") +
+    B("xs", "--xxs", "shrink", "XXS", e.released, "Unavailable") +
     B("sd", "--shadow", "shadow", "Shadow", !!e.shadow) +
     B("pu", "--purified", "purified", "Purified", !!e.shadow) +
-    B("dx", "--dynamax", "expand", "Dynamax", !!e.dynamax) +
-    B("gx", "--gmax", "expand", "Gigantamax", !!e.gmax) +
+    B("dx", "--dynamax", "dynamax", "Dynamax", !!e.dynamax) +
+    B("gx", "--gmax", "gigantamax", "Gigantamax", !!e.gmax) +
     (e.mega || []).map(m => B(m.t, "--mega", "mega", m.label, true)).join("") + `</div>`;
 }
 // Shiny Shadow: a bonus, like a costume (her ask, 10 Nov): not counted anywhere and not on the list cards; its own card with
@@ -575,8 +597,8 @@ function eventsPage(){
 // it all at once. Nothing is saved until she presses the button.
 const QBOX = [["shiny shadow", "ss"], ["mega x", "mx"], ["mega y", "my"], ["g-max", "gx"], ["gmax", "gx"], ["gigantamax", "gx"],
   ["dynamax", "dx"], ["dmax", "dx"], ["primal", "mg"], ["mega", "mega"], ["caught", "c"], ["female", "cf"], ["male", "cm"], ["♂", "cm"],
-  ["♀", "cf"], ["shiny", "s"], ["lucky", "l"], ["4★", "h"], ["4*", "h"], ["hundo", "h"], ["perfect", "h"], ["shadow", "sd"], ["purified", "pu"]];
-const QNAME = {c: "Caught", cm: "Male", cf: "Female", s: "Shiny", l: "Lucky", h: "4★", sd: "Shadow", pu: "Purified", dx: "Dynamax", gx: "G-Max", mg: "Mega", mx: "Mega X", my: "Mega Y", ss: "Shiny Shadow"};
+  ["♀", "cf"], ["shiny", "s"], ["lucky", "l"], ["xxl", "xl"], ["xxs", "xs"], ["4★", "h"], ["4*", "h"], ["hundo", "h"], ["perfect", "h"], ["shadow", "sd"], ["purified", "pu"]];
+const QNAME = {c: "Caught", cm: "Male", cf: "Female", s: "Shiny", l: "Lucky", h: "4★", sd: "Shadow", pu: "Purified", dx: "Dynamax", gx: "G-Max", mg: "Mega", mx: "Mega X", my: "Mega Y", ss: "Shiny Shadow", xl: "XXL", xs: "XXS"};
 let quickText = "", quickTimer;
 const quickNames = (() => {   // "vulpix" -> plain Vulpix; "alolan vulpix" and "vulpix alolan" -> Alolan Vulpix
   const m = new Map();
@@ -588,7 +610,7 @@ const quickNames = (() => {   // "vulpix" -> plain Vulpix; "alolan vulpix" and "
   return m;
 })();
 function canTick(e, t){
-  return {c: true, cm: !!maleTick(e), cf: !!femaleTick(e), s: !!e.shiny, l: canLucky(e), h: e.released, sd: !!e.shadow, pu: !!e.shadow,
+  return {c: true, cm: !!maleTick(e), cf: !!femaleTick(e), s: !!e.shiny, l: canLucky(e), h: e.released, xl: e.released, xs: e.released, sd: !!e.shadow, pu: !!e.shadow,
     dx: !!e.dynamax, gx: !!e.gmax, ss: !!e.shadowShiny, mg: (e.mega || []).some(m => m.t === "mg"), mx: (e.mega || []).some(m => m.t === "mx"),
     my: (e.mega || []).some(m => m.t === "my")}[t];
 }
@@ -628,7 +650,7 @@ function quickPage(){
   view.innerHTML = `<header class="hero"><span class="label">Trial</span><h1>Quick <em>add</em></h1>
     <p>Type what you have, one line at a time: numbers, ranges or names, then the boxes. Nothing is saved until you press the button.</p></header>${readOnlyNote()}
     <div class="quick"><div><textarea id="quickText" rows="12" spellcheck="false" placeholder="25 shiny&#10;1-9 caught&#10;alolan vulpix lucky, female&#10;charizard mega x&#10;gengar shiny shadow">${esc(quickText)}</textarea>
-      <p class="muted" style="font-size:13px">Boxes: caught, male, female, shiny, lucky, 4★ (or hundo), shadow, purified, dynamax, g-max, mega (or mega x / mega y), shiny shadow. No box means caught.</p></div>
+      <p class="muted" style="font-size:13px">Boxes: caught, male, female, shiny, lucky, 4★ (or hundo), xxl, xxs, shadow, purified, dynamax, g-max, mega (or mega x / mega y), shiny shadow. No box means caught.</p></div>
     <div><h3>${todo.length ? `${num(todo.length)} to tick` : "Nothing new to tick yet"}</h3>
       ${todo.length ? `<button class="chip collect" type="button" data-quickgo>${ic("check")}Tick these ${num(todo.length)}</button>` : ""}
       ${problems.map(p => `<p class="qprob">${esc(p)}</p>`).join("")}
@@ -661,13 +683,13 @@ async function quickGo(){
 // game's tab open on her phone, she clicks the ones that are in colour there, and the count at the top should end up
 // the same as the game's. One click ticks the Pokémon's plain form (the game's Pokédex counts the species too).
 const FAST = [["c", "Caught", "poke-ball"], ["s", "Shiny", "sparkles"], ["l", "Lucky", "lucky"], ["h", "4★", "star"], ["sd", "Shadow", "shadow"],
-  ["pu", "Purified", "purified"], ["dx", "Dynamax", "expand"], ["gx", "G-Max", "expand"], ["mega", "Mega", "mega"], ["cm", "Male", "mars"], ["cf", "Female", "venus"]];
-const FAST_GAME = {c: "Pokémon", s: "Shiny", l: "Lucky", h: "100%", sd: "Shadow", pu: "Purified", gx: "G-Max", mega: "Mega"};   // the game's own tab names
-const FAST_COL = {c: "--caught", s: "--shiny", l: "--lucky", h: "--hundo", sd: "--shadow", pu: "--purified", dx: "--dynamax", gx: "--gmax", mega: "--mega", cm: "--male", cf: "--female"};
+  ["pu", "Purified", "purified"], ["dx", "Dynamax", "dynamax"], ["gx", "G-Max", "gigantamax"], ["xl", "XXL", "expand"], ["xs", "XXS", "shrink"], ["mega", "Mega", "mega"], ["cm", "Male", "mars"], ["cf", "Female", "venus"]];
+const FAST_GAME = {c: "Pokémon", s: "Shiny", l: "Lucky", h: "100%", sd: "Shadow", pu: "Purified", gx: "G-Max", mega: "Mega", xl: "XXL", xs: "XXS"};   // the game's own tab names
+const FAST_COL = {c: "--caught", s: "--shiny", l: "--lucky", h: "--hundo", sd: "--shadow", pu: "--purified", dx: "--dynamax", gx: "--gmax", mega: "--mega", cm: "--male", cf: "--female", xl: "--xxl", xs: "--xxs"};
 const fastTicks = (e, b) => b === "mega" ? (e.mega || []).map(m => m.t) : canTick(e, b) ? [b] : [];
 function fastSpecies(g){   // the region's Pokémon in number order, each with its entries that are out (regional forms count with their species, as in the game)
   const dexes = [...new Set(ENTRIES.filter(e => e.gen === g && !isRegional(e)).map(e => e.dex))].sort((a, b) => a - b);   // not-out ones too, as GO counts them
-  return dexes.map(d => ({dex: d, es: ENTRIES.filter(e => e.dex === d && e.released)}));
+  return dexes.map(d => ({dex: d, all: ENTRIES.filter(e => e.dex === d && !isRegional(e)), es: ENTRIES.filter(e => e.dex === d && e.released)}));
 }
 function fastPic(e, t){
   const gmax = `pm${e.dex}.fGIGANTAMAX`, mega = (e.mega || []).find(m => m.t === t);
@@ -681,20 +703,27 @@ function fastCell(e, t, on, n, other){
 function fastPage(){
   const g = genById[prefs.fastGen] ? prefs.fastGen : "1", b = FAST.some(x => x[0] === prefs.fastBox) ? prefs.fastBox : "c";
   const [, label, icon] = FAST.find(x => x[0] === b);
-  const rows = fastSpecies(g).filter(sp => sp.es.some(e => fastTicks(e, b).length) || (b === "c" && !sp.es.length));   // Caught: the ones not in GO yet as empty slots, as in the game
-  let got = 0, all = 0;
+  // every tab lists the whole region, so every tab counts out of the same number, as in the game (her note, 12 Nov: Shiny
+  // and Caught shouldn't have different totals); a Pokémon that can't have this box (yet) is an empty slot
+  const rows = fastSpecies(g).filter(sp => POSSIBLE[b](sp.all));   // only what can never be is left out (her rule, 12 Nov)
+  let got = 0;
+  const all = rows.length;
   const cells = rows.map(sp => {
-    if (!sp.es.length) { all++; return `<span class="fc none" title="Not in Pokémon GO yet"><span>${pad(sp.dex)}</span></span>`; }
+    const can = sp.es.filter(e => fastTicks(e, b).length);
+    if (!can.length) return `<span class="fc none" title="${!sp.es.length ? "Not in Pokémon GO yet" : `Not in Pokémon GO as ${esc(label)} yet`}"><span>${pad(sp.dex)}</span></span>`;
     const lead = sp.es.find(e => !e.form) || sp.es.find(e => e.default) || sp.es[0];
-    const main = fastTicks(lead, b).length ? lead : sp.es.find(e => fastTicks(e, b).length);
+    const main = can.includes(lead) ? lead : can[0];
     const ts = fastTicks(main, b);
-    if (ts.length > 1) {   // Charizard and Mewtwo: Mega X and Mega Y side by side
-      return ts.map(t => { const on = has(dk(main), t); all++; if (on) got++; return fastCell(main, t, on, sp.dex); }).join("");
+    if (ts.length > 1) {   // Charizard and Mewtwo: one square (one Pokémon, as the game counts), with Mega X and Mega Y to tick inside it
+      const on = ts.map(t => has(dk(main), t));
+      if (on.some(Boolean)) got++;
+      return `<span class="fc two${on.some(Boolean) ? " lit" : ""}"><img src="${fastPic(main, ts[0])}" alt="" loading="lazy"><span>${pad(sp.dex)}</span><span class="xy">` +
+        ts.map((t, k) => `<button type="button" data-fast="${attr(main.id)}" data-t="${t}" aria-pressed="${on[k]}" title="${esc(main.name)} ${t === "mx" ? "Mega X" : "Mega Y"}">${t === "mx" ? "X" : "Y"}</button>`).join("") + `</span></span>`;
     }
     const t = ts[0];
-    const elsewhere = sp.es.find(e => e !== main && fastTicks(e, b).some(x => has(dk(e), x)));   // got on another form (Alolan Vulpix…)
+    const elsewhere = can.find(e => e !== main && fastTicks(e, b).some(x => has(dk(e), x)));   // got on another form (Alolan Vulpix…)
     const mine = has(dk(main), t), on = mine || !!elsewhere;
-    all++; if (on) got++;
+    if (on) got++;
     return fastCell(main, t, on, sp.dex, !mine && elsewhere ? (elsewhere.form || elsewhere.name) : "");
   }).join("");
   setRegion(g);
@@ -712,7 +741,7 @@ function fastClick(btn){
   return tick(dk(e), t, on);
 }
 async function fastAll(){
-  const left = [...document.querySelectorAll('.fastgrid .fc[aria-pressed="false"]')];
+  const left = [...document.querySelectorAll('.fastgrid [data-fast][aria-pressed="false"]')];   // Mega X and Y count as one each here
   if (!left.length || !confirm(`Tick all ${left.length} left on this page? You can untick any afterwards.`)) return;
   // each one lights up as it's saved, with a running count, so it's clear it's working (12 Nov: she saw nothing happen
   // while 147 saved one by one); ten at a time
