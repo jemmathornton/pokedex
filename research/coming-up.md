@@ -128,3 +128,11 @@ Confirmed. Astronaut Pikachu from 1★ raids at the museum, and some Timed Resea
 - Pokémon GO Hub, Minior Showers guide: https://pokemongohub.net/post/guide/minior-showers/
 - Serebii, Max Battles list (no Espurr): https://www.serebii.net/pokemongo/maxbattles.shtml
 - MeinMMO, Clone raid day datamine (4 Nov 2026): https://mein-mmo.de/pokemon-go-leak-6-jahre-rueckkehr-seltenste-monster/
+
+## Checked again 12 Nov 2026 (overnight)
+- **Dynamax Trails (16–23 Nov):** Max Battle catches have a chance of a Special Background; the GO Pass gives Dynamax Pokémon with one. No source names it except Serebii, which says **Dark Skies** (the card the app already has as `sb-gofest2025-eternatus`; Eternatus returns this event). Not in the game files yet (PokeMiners last updated 28 Oct). Serebii's list of 52 Pokémon adds **Sneasel** and leaves out Mawile, Magikarp, Feebas, Spheal and Cottonee, which are Dynamax in GO. **Wait until 16 Nov** and check in the game before adding anything.
+- **Dynamax Espurr:** in Max Battles all week, 23–29 Nov (Leek Duck), not just on the Monday.
+- **Twilight Wishes:** pokemongo.com says the raid costumes can be shiny (both crowned Pikachu, scarf Espeon and Umbreon). For Spooky Festival Gengar and Halloween Mischief Drifblim, shiny is implied, not stated.
+- **Night Out London:** Serebii's backgrounds page lists Pikachu, Gengar and Toxtricity (both forms), matching the app.
+- **Not announced yet:** Max Monday 16 Nov, Season 25 (from 1 Dec), Max Battle Day 5 Dec, Community Day 12–13 Dec, Raid Day 19 Dec (the Clone Pokémon rumour is still unconfirmed), Hatch Day 26 Dec, the holiday events and new Minior colours.
+- Sources: pokemongo.com/en/news/dynamax-trails-eternamax-eternatus-2026, leekduck.com/events/, serebii.net/pokemongo/events/dynamaxtrails.shtml, serebii.net/pokemongo/backgrounds.shtml, github.com/PokeMiners/pogo_assets/commits/master.
