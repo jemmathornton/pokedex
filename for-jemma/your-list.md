@@ -3,7 +3,7 @@
 Everything waiting on you. **Do** = just do it; **Decide** = your call. Tell Claude when one’s done or decided and it comes off.
 
 ## Decide
-- **Region pictures:** Kanto, Sinnoh and Alola still to pick (a wider search for different places is running).
+- **Region pictures:** Kanto, Sinnoh and Alola still to pick (a wider search for different places is running; scenery only, no player character, your call 12 Nov).
 - **Fast tick (trial):** keep, change or drop.
 - **Which game to add after GO**, when you want it.
 
