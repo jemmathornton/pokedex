@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-10",
+ "updated": "2026-11-12",
  "entries": [
   {
    "id": "1",
@@ -28701,6 +28701,22 @@
    "family": "TEDDIURSA",
    "shadow": true,
    "shadowShiny": true
+  },
+  {
+   "id": "902",
+   "dex": 902,
+   "gen": 9,
+   "name": "Basculegion",
+   "form": null,
+   "types": [
+    "Water",
+    "Ghost"
+   ],
+   "img": "pm902",
+   "gender": "both",
+   "released": false,
+   "desc": "Clads itself in the souls of comrades that perished before fulfilling their goals of journeying upstream. No other species throughout all Hisui’s rivers is Basculegion’s equal.",
+   "category": "Big Fish Pokémon"
   },
   {
    "id": "903",

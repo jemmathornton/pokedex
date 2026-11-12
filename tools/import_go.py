@@ -158,6 +158,26 @@ def main():
     os.makedirs(folder, exist_ok=True)
     paths = {n: fetch(folder, n, u) for n, u in SOURCES.items()}
     dex = json.load(open(paths['pokedex.json'], encoding='utf-8'))
+    # a species pokemon-go-api leaves out (12 Nov: #902 Basculegion, not in GO yet, so Hisui showed 6 of GO's 7): a stand-in
+    # from Dittobase's record (name and types), so every Pokédex number has an entry
+    _ditto = json.load(open(paths['dittobase-go-pokedex.json'], encoding='utf-8'))
+    _ditto = _ditto if isinstance(_ditto, list) else next(v for v in _ditto.values() if isinstance(v, list))
+    _have = {sp['dexNr'] for sp in dex}
+    _gen = {sp['dexNr']: sp.get('generation') for sp in dex}
+    for n in range(1, max(_have) + 1):
+        if n in _have:
+            continue
+        rec = next((r for r in _ditto if r.get('speciesId') == n and r.get('slug') == r.get('speciesSlug')), None)
+        if not rec:
+            print(f'#{n} is in no source at all')
+            continue
+        t = [{'names': {'English': x['name']}} for x in rec.get('types', [])]
+        dex.append({'id': rec['speciesSlug'].upper().replace('-', '_'), 'formId': rec['speciesSlug'].upper().replace('-', '_'), 'dexNr': n,
+                    'generation': _gen.get(n - 1) or _gen.get(n + 1), 'names': {'English': rec['name']},
+                    'primaryType': t[0] if t else None, 'secondaryType': t[1] if len(t) > 1 else None,
+                    'pokemonClass': None, 'regionForms': {}, 'assets': None})
+        print(f'#{n} {rec["name"]}: not in pokemon-go-api, added from Dittobase')
+    dex.sort(key=lambda sp: sp['dexNr'])
     tree = json.load(open(paths['assets-tree.json'], encoding='utf-8'))
     shiny = json.load(open(paths['leekduck-shiny.json'], encoding='utf-8'))
     released_old = set(map(int, json.load(open(paths['pogoapi-released.json'], encoding='utf-8'))))

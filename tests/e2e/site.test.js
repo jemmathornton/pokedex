@@ -242,14 +242,16 @@
   // ---------- Fast tick (trial) ----------
   test("Fast tick shows a whole region in number order, with Mega X and Y apart", async () => {
     prefs.fastGen = "1"; prefs.fastBox = "c"; await go("#fast");
-    const cells = [...view().querySelectorAll(".fastgrid .fc")];
+    const cells = [...view().querySelectorAll(".fastgrid button.fc")];
     eq(cells.length, 151, "Kanto has 151");
     eq(cells[0].dataset.fast, "1", "Bulbasaur first"); eq(cells[150].dataset.fast, "151", "Mew last");
     prefs.fastBox = "mega"; fastPage();
     const zard = [...view().querySelectorAll('.fc[data-fast="6"]')].map(c => c.dataset.t);
     eq(zard, ["mx", "my"], "Charizard has X and Y");
     prefs.fastGen = "hisui"; prefs.fastBox = "c"; fastPage();
-    ok([...view().querySelectorAll(".fc")].every(c => +byId[c.dataset.fast].dex >= 899), "Hisui is #899 on");
+    ok([...view().querySelectorAll("button.fc")].every(c => +byId[c.dataset.fast].dex >= 899), "Hisui is #899 on");
+    eq(view().querySelectorAll(".fastgrid .fc").length, 7, "Hisui has 7, as in GO (Basculegion an empty slot)");
+    ok(/ \/ 7$/.test(view().querySelector(".fastn").textContent), "counted out of 7");
   });
 
   test("Fast tick ticks and unticks, and a form counts for its Pokémon", async () => {
@@ -272,7 +274,7 @@
 
   test("Fast tick's Tick all saves every one left and lights them up", async () => {
     prefs.fastGen = "hisui"; prefs.fastBox = "c"; await go("#fast");
-    const ids = [...view().querySelectorAll(".fastgrid .fc")].map(c => c.dataset.fast);
+    const ids = [...view().querySelectorAll(".fastgrid button.fc")].map(c => c.dataset.fast);
     const clear = async () => { for (const id of ids) { await save({list: "have", key: "d:" + id, tick: "c", on: false}); delete COL.have["d:" + id]; } };
     await clear(); fastPage();
     const realConfirm = window.confirm; window.confirm = () => true;

@@ -85,6 +85,7 @@ function counts(list){
              lucky: 0, luckyOut: 0, hundo: 0, out: 0, sd: 0, pu: 0, shadowOut: 0, dx: 0, dynamaxOut: 0, gx: 0, gmaxOut: 0, mega: 0, megaOut: 0};
   const by = {};
   for (const e of list) if (e.released) (by[e.dex] = by[e.dex] || []).push(e);
+  r.speciesAll = new Set(list.map(e => e.dex)).size;   // every Pokémon on the page, out in GO or not, as GO's Pokédex counts (her call, 12 Nov)
   const tally = (es, can, got, out, have) => { if (es.some(can)) { r[out]++; if (es.some(e => can(e) && got(e))) r[have]++; } };
   for (const es of Object.values(by)) {
     r.speciesOut++; r.out++;
@@ -298,7 +299,7 @@ function statsHtml(c){
   // the old row of uneven tiles looked bad). Forms sit inside the Pokémon tile.
   const t = (colour, icon, label, have, of, extra = "") => of ? statTile(colour, icon, label, have, of, extra) : "";
   return `<div class="stats">` +
-    t("--caught", "poke-ball", "Pokémon", c.species, c.speciesOut) +
+    t("--caught", "poke-ball", "Pokémon", c.species, c.speciesAll) +
     t("--female", "venus", "Female", c.female, c.femaleOut) +
     t("--male", "mars", "Male", c.male, c.maleOut) +
     t("--shiny", "sparkles", "Shiny", c.shiny, c.shinyOut) +
@@ -321,7 +322,7 @@ function home(){
     const three = firstStages(list).slice(0, 3);
     gens += `<a class="gen" href="#gen-${g}" style="--rc:${REGION_COLOURS[g]}"><span class="genart" aria-hidden="true">${three.map(e => sprite(e.img) ? `<img src="${sprite(e.img)}" alt="" loading="lazy">` : "").join("")}</span>` +
       `<span class="label">${esc(small)}</span><h3>${esc(region)}</h3><div class="rows">` +
-      row("Pokémon", "poke-ball", k.species, k.speciesOut, "var(--caught)") + row("Shiny", "sparkles", k.shiny, k.shinyOut, "var(--shiny)") +
+      row("Pokémon", "poke-ball", k.species, k.speciesAll, "var(--caught)") + row("Shiny", "sparkles", k.shiny, k.shinyOut, "var(--shiny)") +
       row("Lucky", "lucky", k.lucky, k.luckyOut, "var(--lucky)") + row("4★", "star", k.hundo, k.out, "var(--hundo)") + `</div></a>`;
   }
   const went = EVENTS.filter(e => COL.went.includes(e.id)).length;
@@ -665,7 +666,7 @@ const FAST_GAME = {c: "Pokémon", s: "Shiny", l: "Lucky", h: "100%", sd: "Shadow
 const FAST_COL = {c: "--caught", s: "--shiny", l: "--lucky", h: "--hundo", sd: "--shadow", pu: "--purified", dx: "--dynamax", gx: "--gmax", mega: "--mega", cm: "--male", cf: "--female"};
 const fastTicks = (e, b) => b === "mega" ? (e.mega || []).map(m => m.t) : canTick(e, b) ? [b] : [];
 function fastSpecies(g){   // the region's Pokémon in number order, each with its entries that are out (regional forms count with their species, as in the game)
-  const dexes = [...new Set(ENTRIES.filter(e => e.released && e.gen === g && !isRegional(e)).map(e => e.dex))].sort((a, b) => a - b);
+  const dexes = [...new Set(ENTRIES.filter(e => e.gen === g && !isRegional(e)).map(e => e.dex))].sort((a, b) => a - b);   // not-out ones too, as GO counts them
   return dexes.map(d => ({dex: d, es: ENTRIES.filter(e => e.dex === d && e.released)}));
 }
 function fastPic(e, t){
@@ -680,9 +681,10 @@ function fastCell(e, t, on, n, other){
 function fastPage(){
   const g = genById[prefs.fastGen] ? prefs.fastGen : "1", b = FAST.some(x => x[0] === prefs.fastBox) ? prefs.fastBox : "c";
   const [, label, icon] = FAST.find(x => x[0] === b);
-  const rows = fastSpecies(g).filter(sp => sp.es.some(e => fastTicks(e, b).length));
+  const rows = fastSpecies(g).filter(sp => sp.es.some(e => fastTicks(e, b).length) || (b === "c" && !sp.es.length));   // Caught: the ones not in GO yet as empty slots, as in the game
   let got = 0, all = 0;
   const cells = rows.map(sp => {
+    if (!sp.es.length) { all++; return `<span class="fc none" title="Not in Pokémon GO yet"><span>${pad(sp.dex)}</span></span>`; }
     const lead = sp.es.find(e => !e.form) || sp.es.find(e => e.default) || sp.es[0];
     const main = fastTicks(lead, b).length ? lead : sp.es.find(e => fastTicks(e, b).length);
     const ts = fastTicks(main, b);
@@ -733,8 +735,8 @@ async function fastAll(){
 function navHtml(route){
   const link = (href, icon, text, n) => `<a href="${href}" class="${route === href.slice(1) ? "on" : ""}">${ic(icon)}${esc(text)}${n !== undefined ? `<span class="n">${num(n)}</span>` : ""}</a>`;
   const out = ENTRIES.filter(e => e.released);
-  nav.innerHTML = `<div class="nav-group">${link("#home", "house", "Home")}${link("#dex", "layout-grid", "Every Pokémon", groupByNumber(out).length)}</div>
-    <div class="nav-group"><span class="label">Generations</span>${GENS.map(([g, n]) => link("#gen-" + g, "layers", g === "hisui" ? n : `${g} · ${n}`, groupByNumber(out.filter(e => e.gen === g)).length)).join("")}</div>
+  nav.innerHTML = `<div class="nav-group">${link("#home", "house", "Home")}${link("#dex", "layout-grid", "Every Pokémon", groupByNumber(ENTRIES).length)}</div>
+    <div class="nav-group"><span class="label">Generations</span>${GENS.map(([g, n]) => link("#gen-" + g, "layers", g === "hisui" ? n : `${g} · ${n}`, groupByNumber(ENTRIES.filter(e => e.gen === g)).length)).join("")}</div>
     <div class="nav-group"><span class="label">More</span>${link("#costumes", "shirt", "Costumes", COL.costumes.length)}${link("#events", "ticket", "Events and backgrounds", myEvents().length)}${link("#fast", "layout-grid", "Fast tick (trial)")}${link("#quick", "list-checks", "Quick add (trial)")}</div>`;
 }
 
