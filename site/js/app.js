@@ -154,8 +154,9 @@ const GENDER_WORDS = {male: "♂ only", female: "♀ only", none: "Genderless"};
 // ---------- boxes on a card ----------
 function boxes(e){
   // a fixed two-column grid, so every box has the same place on every card (her point, 9 Nov: the ragged rows looked
-  // bizarre): Caught | Shiny · Male | Female · Lucky | 4★ · Shadow | Purified · Dynamax | G-Max. A box that can't apply
-  // to this Pokémon leaves its place empty; a pair with neither is left out.
+  // bizarre), in the game's Pokédex order like everything else (her rule, 12 Nov): Caught · Female | Male · Shiny | Lucky ·
+  // XXL | XXS · Dynamax | G-Max · Mega (X | Y) · Shadow | Purified · 4★. A box that can't apply leaves its place empty;
+  // a row with nothing in it is left out.
   const only = onlyTicks(e);
   const k = dk(e), btn = (t, cls, icon, label, title, off) => {
     if (only && !only.includes(t)) return "";
@@ -163,23 +164,25 @@ function boxes(e){
     return `<button class="tk ${cls}" type="button" data-tick="${t}" aria-pressed="${on}" title="${attr(title)}" aria-label="${attr(title)}"${off && !on ? " disabled" : ""}>${ic(icon)}<span>${esc(label)}</span></button>`;
   };
   const x = t => EXTRAS.find(z => z.t === t);
-  const extra = t => e[x(t).flag] ? btn(t, t, x(t).icon, x(t).label, x(t).title) : "";
-  const pairs = [
-    [btn("c", "c", "poke-ball", "Caught", "Caught"), btn("s", "s", "sparkles", "Shiny", e.shiny ? "Shiny" : "No shiny in GO yet", !e.shiny)],
+  const extra = (t, label) => e[x(t).flag] ? btn(t, t, x(t).icon, label || x(t).label, x(t).title) : "";
+  const megas = (e.mega || []).map(m => btn(m.t, "mg", "mega", m.label, m.label));
+  const rows = [
+    [btn("c", "c", "poke-ball", "Caught", "Caught")],
     [femaleTick(e) ? btn("cf", "f", "venus", "Female", e.gender === "female" ? "Female (female only)" : "Female") : "",
      maleTick(e) ? btn("cm", "m", "mars", "Male", e.gender === "male" ? "Male (male only)" : "Male") : ""],   // female first (her call)
-    [e.class === "mythical" && !canLucky(e) && !has(k, "l") ? "" : btn("l", "l", "lucky", "Lucky", "Lucky", !canLucky(e)),   // a box that can never be (a mythical’s Lucky) isn’t shown (her call, 10 Nov)
-     btn("h", "h", "star", "4★", "4★ (perfect IVs)", !e.released)],
+    [btn("s", "s", "sparkles", "Shiny", e.shiny ? "Shiny" : "No shiny in GO yet", !e.shiny),
+     e.class === "mythical" && !canLucky(e) && !has(k, "l") ? "" : btn("l", "l", "lucky", "Lucky", "Lucky", !canLucky(e))],   // a box that can never be (a mythical’s Lucky) isn’t shown (her call, 10 Nov)
     [btn("xl", "xl", "expand", "XXL", "XXL", !e.released), btn("xs", "xs", "shrink", "XXS", "XXS", !e.released)],
+    [extra("dx"), extra("gx", "G-Max")],
+    megas.length > 1 ? megas : [megas[0] || ""],
     [extra("sd"), extra("pu")],
+    [btn("h", "h", "star", "4★", "4★ (perfect IVs)", !e.released)],
   ];
-  const wide = [extra("dx"), extra("gx"), ...(e.mega || []).map(m => btn(m.t, "mg", "mega", m.label, m.label))].filter(Boolean);   // Dynamax, Gigantamax and Mega get a full row each, so the words fit
   if (only) {   // working on one box: just that one, bigger
-    const one = pairs.flat().concat(wide).filter(Boolean).join("");
+    const one = rows.flat().filter(Boolean).join("");
     return one ? `<div class="ticks big">${one}</div>` : "";
   }
-  return `<div class="boxgrid">` + pairs.filter(pr => pr[0] || pr[1]).map(pr => (pr[0] || "<span></span>") + (pr[1] || "<span></span>")).join("") +
-    wide.map(w => w.replace('class="tk ', 'class="tk wide ')).join("") + `</div>`;
+  return `<div class="boxgrid">` + rows.filter(r => r.some(Boolean)).map(r => r.length === 1 ? r[0].replace('class="tk ', 'class="tk wide ') : (r[0] || "<span></span>") + (r[1] || "<span></span>")).join("") + `</div>`;
 }
 
 // the picture: small ✨ and ♀ buttons on it flip to the shiny / female picture (9 Nov: clicking the picture itself was
@@ -283,6 +286,8 @@ const shotStyle = f => { const fit = FIT_TRY || SHOT_FIT[f], ratio = RATIO_TRY |
 const shotCls = f => (PIXEL_SHOTS.has(f) ? " pixel" : "") + (RATIO_TRY || SHOT_RATIO[f] ? " ratio" : "");
 function regionShot(g){   // style and switch for a region page's banner
   // tiny DS/3DS pictures (under 500 px wide) are enlarged as sharp pixels, not a blur (her pick, 11 Nov, for Johto)
+  const pic = TRY.get("pic");   // ?pic= for pictures of options only
+  if (pic) return {style: shotStyle(pic), cls: " withshot" + shotCls(pic), sw: ""};
   if (REGION_CHOSEN[g]) return {style: shotStyle(REGION_CHOSEN[g]), cls: " withshot" + shotCls(REGION_CHOSEN[g]), sw: ""};
   const shots = REGION_SHOTS[g] || [], k = shotPick(g);
   if (!shots.length) return {style: "", sw: ""};
@@ -735,10 +740,18 @@ function fastPage(){
       ${got < all ? `<button class="linkbtn" type="button" data-fastall>${ic("check")}Tick all ${num(all - got)} left</button>` : ""}</div>
     <div class="fastgrid" style="--bc:var(${FAST_COL[b]})">${cells || `<p class="empty">None in this region.</p>`}</div>`;
 }
-function fastClick(btn){
-  const e = byId[btn.dataset.fast], t = btn.dataset.t, on = btn.getAttribute("aria-pressed") !== "true";
+// Caught that Fast tick ticked only because another box was ticked there (her note, 12 Nov: tick all the shinies, untick the
+// ones she hasn't got, and those shouldn't stay Caught): unticking that box unticks Caught again, unless something else is ticked
+const AUTO_KEY = "jemmas-pokedex-autocaught";
+const autoCaught = new Set(store.get(AUTO_KEY, []));
+const keepAuto = () => store.set(AUTO_KEY, [...autoCaught]);
+async function fastClick(btn){
+  const e = byId[btn.dataset.fast], t = btn.dataset.t, on = btn.getAttribute("aria-pressed") !== "true", key = dk(e);
   if (!on && btn.dataset.other) return toast(`Ticked on its ${curly(btn.dataset.other)} form: untick it on its page.`);
-  return tick(dk(e), t, on);
+  if (on && t !== "c" && !has(key, "c")) { autoCaught.add(key); keepAuto(); }
+  if (t === "c") { autoCaught.delete(key); keepAuto(); }
+  await tick(key, t, on);
+  if (!on && autoCaught.has(key) && (COL.have[key] || []).every(x => x === "c")) { autoCaught.delete(key); keepAuto(); if (has(key, "c")) await tick(key, "c", false); }
 }
 async function fastAll(){
   const left = [...document.querySelectorAll('.fastgrid [data-fast][aria-pressed="false"]')];   // Mega X and Y count as one each here
@@ -752,11 +765,13 @@ async function fastAll(){
       if (has(key, x)) continue;
       setTick(key, x, true);
       if (!await save({list: "have", key, tick: x, on: true})) { setTick(key, x, false); failed = true; return; }
+      if (x === "c" && t !== "c") autoCaught.add(key);   // Caught only because of this box (see fastClick)
     }
     done++; btn.setAttribute("aria-pressed", "true");
     const n = document.querySelector(".fastn"); if (n) n.textContent = `Ticking… ${num(done)} of ${num(left.length)}`;
   };
   for (let i = 0; i < left.length && !failed; i += 10) await Promise.all(left.slice(i, i + 10).map(one));
+  keepAuto();
   toast(failed ? `Stopped after ${num(done)}: not saved.` : `Ticked ${num(done)}.`);
   rerender();   // the page she's on now, in case she moved on while it was saving
 }

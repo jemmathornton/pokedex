@@ -310,6 +310,20 @@
     ok(got.includes("25:xl") && got.includes("26:xs"), "Quick add");
   });
 
+  test("Fast tick: a Caught ticked only because of Shiny comes off again with it; one she ticked herself stays", async () => {
+    const clear = async k => { for (const x of ["c", "s"]) await save({list: "have", key: k, tick: x, on: false}); delete COL.have[k]; };
+    await clear("d:35"); await clear("d:36");
+    await save({list: "have", key: "d:36", tick: "c", on: true}); setTick("d:36", "c", true);   // Clefable already caught
+    prefs.fastGen = "1"; prefs.fastBox = "s"; await go("#fast");
+    for (const id of ["35", "36"]) { click(view().querySelector(`.fc[data-fast="${id}"]`)); await wait(400); }
+    ok(has("d:35", "c") && has("d:35", "s"), "Clefairy shiny, and so caught");
+    for (const id of ["35", "36"]) { click(view().querySelector(`.fc[data-fast="${id}"]`)); await wait(600); }
+    const s = await server();
+    ok(!(s.have["d:35"] || []).includes("c"), "Clefairy's Caught came off with its Shiny");
+    ok((s.have["d:36"] || []).includes("c"), "Clefable stays Caught (ticked before)");
+    await clear("d:35"); await clear("d:36"); prefs.fastBox = "c";
+  });
+
   // ---------- run ----------
   addEventListener("load", async () => {
     await wait(500);
