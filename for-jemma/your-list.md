@@ -1,18 +1,21 @@
-# Your list (12 Nov 2026)
+# Your list (13 Nov 2026)
 
 Everything waiting on you. **Do** = just do it; **Decide** = your call. Tell Claude when one’s done or decided and it comes off.
 
 ## Decide
-- **Region pictures:** Kanto, Sinnoh and Alola still to pick (a wider search for different places is running; scenery only, no player character, your call 12 Nov).
 - **Fast tick (trial):** keep, change or drop.
+- **XXL/XXS colours:** teal/coral for now; or B, C or D from `for-jemma/xxl-xxs-options.png`.
 - **Which game to add after GO**, when you want it.
 
 ## Do
 - **Try getting your collection in:** easiest is **Fast tick → Kanto → Lucky** next to your phone’s Pokédex on the Lucky tab. Or one short screen recording of the Pokédex’s Lucky tab (Kanto only) and, if you have one, a Calcy IV export, into the Pokédex folder’s `imports` folder. Then Claude checks the reader works on your phone’s screens.
+- **Check the 49 Kalos–Paldea Pokémon** ticked Caught with no Shiny (possible leftovers from Tick all): Fast tick → Caught next to the game’s Pokédex.
 - **Tick your backgrounds** on the Events page (or on each Pokémon’s page).
 - **This weekend (14–15 Nov), GO Wild Area:** last chance for Modern Jacket Machamp.
 
 ## Done
+- Region banners: the official painted maps, all ten picked (13 Nov).
+- XXL and XXS boxes; everything in the game’s Pokédex order; totals count only what’s possible (12–13 Nov).
 - Fast tick page and a Pokédex-recording reader (both trials, 12 Nov).
 - GO Tour Kalos X: the raid Pokémon (Calem’s and Serena’s Hat Pikachu, Honedge, Xerneas) added; you have a hat Pikachu with X (11 Nov).
 - Backgrounds list the Pokémon you’d get by evolving too (11 Nov, your call); no Méga Évolution Paris (you didn’t go).
