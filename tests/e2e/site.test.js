@@ -214,8 +214,9 @@
     const two = view().querySelector('[data-shotg="1"][data-shot="2"]'); ok(two, "picture 2 on Kanto");
     click(two); await wait(30);
     ok((view().querySelector(".hero").getAttribute("style") || "").includes("regions/" + REGION_SHOTS["1"][1]), "Kanto shows picture 2");
-    click(view().querySelector('[data-shotg="1"][data-shot="0"]')); await wait(30);
-    ok(!view().querySelector(".hero").classList.contains("withshot"), "Colour: no picture");
+    ok(!view().querySelector('[data-shotg="1"][data-shot="0"]'), "no plain-colour choice (her call)");
+    for (const g of Object.keys(genById)) { await go("#gen-" + g); ok(view().querySelector(".hero").classList.contains("withshot"), `${g} has a picture`); }
+    await go("#gen-1");
     click(view().querySelector('[data-shotg="1"][data-shot="1"]')); await wait(30);
   });
 

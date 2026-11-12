@@ -1354,5 +1354,487 @@
   ],
   "people": "none",
   "bigPokemon": "none"
+ },
+ "alola-13.png": {
+  "region": "alola",
+  "game": "Pokémon Sun / Moon",
+  "place": "Hau'oli City seafront from above (opening movie)",
+  "page": "https://archive.org/details/Nintendo_3DS_Longplay_Pokemon_Sun",
+  "image": "frame at 0:00:53 of Nintendo 3DS Longplay [025] Pokémon Sun, Part 1 (top screen only)",
+  "size": [
+   400,
+   240
+  ],
+  "people": "none",
+  "bigPokemon": "none",
+  "source": "longplay frame (Nintendo 3DS Longplay [025] Pokémon Sun, World of Longplays, archive.org)",
+  "note": "native 3DS top screen, 400x240; slightly hazy (opening-movie fade just finished); parasol and car on the seafront, no people",
+  "file": "alola-13.png"
+ },
+ "alola-14.png": {
+  "region": "alola",
+  "game": "Pokémon Sun / Moon",
+  "place": "sea view past palms and a fence beside the player's house, Route 1 / Melemele Island (opening scene)",
+  "page": "https://archive.org/details/Nintendo_3DS_Longplay_Pokemon_Sun",
+  "image": "frame at 0:05:02 of Nintendo 3DS Longplay [025] Pokémon Sun, Part 1 (top screen only)",
+  "size": [
+   400,
+   240
+  ],
+  "people": "none",
+  "bigPokemon": "none",
+  "source": "longplay frame (Nintendo 3DS Longplay [025] Pokémon Sun, World of Longplays, archive.org)",
+  "note": "native 3DS top screen, 400x240",
+  "file": "alola-14.png"
+ },
+ "alola-16.png": {
+  "region": "alola",
+  "game": "Pokémon Sun / Moon",
+  "place": "open sea with Akala Island on the horizon, the ferry sailing away (cutscene)",
+  "page": "https://archive.org/details/Nintendo_3DS_Longplay_Pokemon_Sun",
+  "image": "frame at 2:21 of Nintendo 3DS Longplay [025] Pokémon Sun, Part 2 (top screen only)",
+  "size": [
+   400,
+   240
+  ],
+  "people": "none",
+  "bigPokemon": "none",
+  "source": "longplay frame (Nintendo 3DS Longplay [025] Pokémon Sun, World of Longplays, archive.org)",
+  "note": "CLOSEST OPTION: native 3DS top screen 400x240; the small ferry in the centre (about 45 px tall) carries the player and friends, who may be a few dark pixels on deck at x 52-58%",
+  "file": "alola-16.png"
+ },
+ "alola-17.png": {
+  "region": "alola",
+  "game": "Pokémon Sun / Moon",
+  "place": "rock pillars under a big blue sky with clouds, by the Altar of the Sunne (Poni Island, cutscene)",
+  "page": "https://archive.org/details/Nintendo_3DS_Longplay_Pokemon_Sun",
+  "image": "frame at 0:19:05 of Nintendo 3DS Longplay [025] Pokémon Sun, Part 5 (top screen only)",
+  "size": [
+   400,
+   240
+  ],
+  "people": "none",
+  "bigPokemon": "none",
+  "source": "longplay frame (Nintendo 3DS Longplay [025] Pokémon Sun, World of Longplays, archive.org)",
+  "note": "native 3DS top screen, 400x240",
+  "file": "alola-17.png"
+ },
+ "alola-18.png": {
+  "region": "alola",
+  "game": "Pokémon Sun / Moon",
+  "place": "Altar of the Sunne with its glowing sun disc, the moon and rock spires (Poni Island, cutscene)",
+  "page": "https://archive.org/details/Nintendo_3DS_Longplay_Pokemon_Sun",
+  "image": "frame at 0:17:28 of Nintendo 3DS Longplay [025] Pokémon Sun, Part 5 (top screen only)",
+  "size": [
+   400,
+   240
+  ],
+  "people": "none",
+  "bigPokemon": "none",
+  "source": "longplay frame (Nintendo 3DS Longplay [025] Pokémon Sun, World of Longplays, archive.org)",
+  "note": "CLOSEST OPTION: native 3DS top screen 400x240; two dark specks a few pixels big on the altar floor (left of centre at x 45%, y 62%; and at x 65%, y 56%) may be the player and Lillie, or statues; a light beam from the disc to the floor",
+  "file": "alola-18.png"
+ },
+ "galar-16.jpg": {
+  "region": "galar",
+  "game": "Pokémon Sword / Shield",
+  "place": "(place not named)",
+  "page": "https://www.youtube.com/watch?v=fPO2ouGn0lA",
+  "image": "frame at 0:39 of Pokémon Sword & Pokémon Shield - Overview Trailer - Nintendo Switch (Nintendo of America)",
+  "size": [
+   1920,
+   1080
+  ],
+  "people": "none",
+  "bigPokemon": "none",
+  "source": "official trailer frame",
+  "note": "a small in-game Route 1 sign (a round blue post marked 01) stands by the path at about 30% from the left, just at the edge of the banner area",
+  "file": "galar-16.jpg"
+ },
+ "galar-19.jpg": {
+  "region": "galar",
+  "game": "Pokémon Sword / Shield: The Crown Tundra",
+  "place": "Dyna Tree Hill, Crown Tundra",
+  "page": "https://www.youtube.com/watch?v=BsK0H-uBmNo",
+  "image": "frame at 2:00 of UK: Explore the Isle of Armor & Crown Tundra with the Pokémon Sword & Pokémon Shield Expansion Pass! (The Official Pokémon YouTube channel)",
+  "size": [
+   1920,
+   1080
+  ],
+  "people": "none",
+  "bigPokemon": "none",
+  "source": "official trailer frame",
+  "file": "galar-19.jpg"
+ },
+ "galar-22.jpg": {
+  "region": "galar",
+  "game": "Pokémon Sword / Shield",
+  "place": "Wild Area, looking towards Hammerlocke",
+  "page": "https://swordshield.pokemon.com/en-gb/",
+  "image": "frame at 0:04 of the background video (assets/media/homepage.mp4) on the official Pokémon Sword and Pokémon Shield website home page (The Pokémon Company)",
+  "size": [
+   1920,
+   1080
+  ],
+  "people": "none",
+  "bigPokemon": "none",
+  "source": "official trailer frame",
+  "note": "from the official website background video (a short loop of game footage), not a YouTube trailer; the player has just walked out of shot to the right",
+  "file": "galar-22.jpg"
+ },
+ "galar-23.jpg": {
+  "region": "galar",
+  "game": "Pokémon Sword / Shield",
+  "place": "(place not named)",
+  "page": "https://www.pokemon.co.jp/ex/sword_shield/",
+  "image": "frame at 0:00 of the top-page video top-movie01.mp4 on the official Japanese Pokémon Sword and Shield website, pokemon.co.jp (The Pokémon Company)",
+  "size": [
+   1920,
+   1080
+  ],
+  "people": "none",
+  "bigPokemon": "none",
+  "source": "official trailer frame",
+  "note": "from the official Japanese website top-page video (a short loop of game footage); a small in-game station name board on the train platform at about 30% from the left",
+  "file": "galar-23.jpg"
+ },
+ "hisui-14.jpg": {
+  "region": "hisui",
+  "game": "Pokémon Legends: Arceus",
+  "place": "(place not named)",
+  "page": "https://www.youtube.com/watch?v=QRsbFmM37T4",
+  "image": "frame at 0:22 of Discover the Hisui region... (The Official Pokémon YouTube channel)",
+  "size": [
+   1920,
+   1080
+  ],
+  "people": "none",
+  "bigPokemon": "none",
+  "source": "official trailer frame",
+  "file": "hisui-14.jpg"
+ },
+ "hisui-15.jpg": {
+  "region": "hisui",
+  "game": "Pokémon Legends: Arceus",
+  "place": "(place not named)",
+  "page": "https://www.youtube.com/watch?v=QRsbFmM37T4",
+  "image": "frame at 0:23 of Discover the Hisui region... (The Official Pokémon YouTube channel)",
+  "size": [
+   1920,
+   1080
+  ],
+  "people": "none",
+  "bigPokemon": "none",
+  "source": "official trailer frame",
+  "file": "hisui-15.jpg"
+ },
+ "hisui-16.jpg": {
+  "region": "hisui",
+  "game": "Pokémon Legends: Arceus",
+  "place": "(place not named)",
+  "page": "https://www.youtube.com/watch?v=QRsbFmM37T4",
+  "image": "frame at 0:16 of Discover the Hisui region... (The Official Pokémon YouTube channel)",
+  "size": [
+   1920,
+   1080
+  ],
+  "people": "none",
+  "bigPokemon": "none",
+  "source": "official trailer frame",
+  "file": "hisui-16.jpg"
+ },
+ "hoenn-16.jpg": {
+  "region": "hoenn",
+  "game": "Pokémon Omega Ruby / Alpha Sapphire",
+  "place": "top of Sky Pillar against the sky (Delta Episode)",
+  "page": "https://www.youtube.com/watch?v=9Lh1b2lFBMQ",
+  "image": "frame at 17:58 of Pokemon Omega Ruby & Alpha Sapphire - All Legendary Pokémon Locations (1080p60) (Mixeli)",
+  "size": [
+   1920,
+   1080
+  ],
+  "people": "none",
+  "bigPokemon": "none",
+  "source": "longplay frame (Mixeli)",
+  "file": "hoenn-16.jpg"
+ },
+ "hoenn-19.jpg": {
+  "region": "hoenn",
+  "game": "Pokémon Omega Ruby / Alpha Sapphire",
+  "place": "volcano and jungle from the game's opening movie (probably Mt. Chimney)",
+  "page": "https://www.youtube.com/watch?v=J8XLlPTd4X8",
+  "image": "frame at 0:22 of Pokemon Omega Ruby | Part 1: Moving to Hoenn! (PokeCinema)",
+  "size": [
+   1280,
+   720
+  ],
+  "people": "none",
+  "bigPokemon": "none",
+  "source": "longplay frame (PokeCinema)",
+  "note": "From the game's own opening movie (in-engine, painterly look). Same shot as hoenn-17 but full-frame with no black bars; the upload is 1280x720, so the 5:3 game picture is stretched about 7% wider as uploaded.",
+  "file": "hoenn-19.jpg"
+ },
+ "hoenn-21.jpg": {
+  "region": "hoenn",
+  "game": "Pokémon Omega Ruby / Alpha Sapphire",
+  "place": "Mossdeep City at night: Space Center rocket, roofs and starry sky",
+  "page": "https://www.youtube.com/watch?v=M2fX0iYptow",
+  "image": "frame at 15:59 of Pokemon Omega Ruby | Part 36: Primal Reversion! (PokeCinema)",
+  "size": [
+   1280,
+   720
+  ],
+  "people": "none",
+  "bigPokemon": "none",
+  "source": "longplay frame (PokeCinema)",
+  "note": "From the in-game cutscene after the Primal Groudon crisis (camera pans down from the sky over each town). Night scene. Full-frame, stretched about 7% wider as uploaded (1280x720). Timestamp is in the full video (15:59).",
+  "file": "hoenn-21.jpg"
+ },
+ "hoenn-22.jpg": {
+  "region": "hoenn",
+  "game": "Pokémon Omega Ruby / Alpha Sapphire",
+  "place": "Sootopolis City at night: Gym dome, white rocks and starry sky",
+  "page": "https://www.youtube.com/watch?v=M2fX0iYptow",
+  "image": "frame at 16:16 of Pokemon Omega Ruby | Part 36: Primal Reversion! (PokeCinema)",
+  "size": [
+   1280,
+   720
+  ],
+  "people": "none",
+  "bigPokemon": "none",
+  "source": "longplay frame (PokeCinema)",
+  "note": "Same post-crisis cutscene; Sootopolis Gym under a night sky with green sparkles. Taken just before people walk into view. Full-frame, stretched about 7% wider (1280x720). Timestamp in the full video (16:16).",
+  "file": "hoenn-22.jpg"
+ },
+ "hoenn-25.jpg": {
+  "region": "hoenn",
+  "game": "Pokémon Omega Ruby / Alpha Sapphire",
+  "place": "Mt. Chimney at night with smoke, stars, the cable car and its station, pine forest below",
+  "page": "https://www.youtube.com/watch?v=i7S2jpehh3I",
+  "image": "frame at 1:32 of Pokemon Omega Ruby | Part 21: Mt. Chimney! (PokeCinema)",
+  "size": [
+   1280,
+   720
+  ],
+  "people": "none visible (the small lit cable-car gondola, about 20 px, at x 53%, y 63% carries the player inside, not visible)",
+  "bigPokemon": "none",
+  "source": "longplay frame (PokeCinema)",
+  "note": "From the in-game cable-car cutscene (Route 112). Full-frame, stretched about 7% wider (1280x720). Timestamp in the full video (1:32).",
+  "file": "hoenn-25.jpg"
+ },
+ "kalos-14.jpg": {
+  "region": "kalos",
+  "game": "Pokémon Legends: Z-A",
+  "place": "Lumiose City skyline at night with Prism Tower",
+  "page": "https://www.youtube.com/watch?v=ZL4jOPorLQM",
+  "image": "frame at 2:20 of Pokémon Legends: Z-A – Nintendo Switch 2 Edition — Overview Trailer (Nintendo of America)",
+  "size": [
+   1920,
+   1080
+  ],
+  "people": "none",
+  "bigPokemon": "none",
+  "source": "official trailer frame",
+  "file": "kalos-14.jpg"
+ },
+ "kalos-16.jpg": {
+  "region": "kalos",
+  "game": "Pokémon Legends: Z-A",
+  "place": "Prism Tower at sunset, seen from a garden (Lumiose City)",
+  "page": "https://www.youtube.com/watch?v=qZCH7f1r4Cw",
+  "image": "frame at 1:46 of 【公式】『Pokémon LEGENDS Z-A』2nd  Trailer (ポケモン公式YouTubeチャンネル)",
+  "size": [
+   1920,
+   1080
+  ],
+  "people": "none",
+  "bigPokemon": "none",
+  "source": "official trailer frame",
+  "file": "kalos-16.jpg"
+ },
+ "kalos-17.jpg": {
+  "region": "kalos",
+  "game": "Pokémon Legends: Z-A",
+  "place": "Lumiose City from the air, Prism Tower and mountains",
+  "page": "https://www.youtube.com/watch?v=22oUOztp-88",
+  "image": "frame at 0:12 of 【公式】『Pokémon LEGENDS Z-A』Final Trailer (ポケモン公式YouTubeチャンネル)",
+  "size": [
+   1920,
+   1080
+  ],
+  "people": "none",
+  "bigPokemon": "three small bird Pokémon flying in the middle of the frame",
+  "source": "official trailer frame",
+  "note": "a tiny pinkish shape among the avenue trees (probably a Pokémon) and café chairs by the avenue; no person seen at 4x zoom",
+  "file": "kalos-17.jpg"
+ },
+ "kanto-15.jpg": {
+  "region": "kanto",
+  "game": "Pokémon: Let's Go, Pikachu! / Let's Go, Eevee!",
+  "place": "Route 1 seen from the edge of Pallet Town, looking north (place not named by the source)",
+  "page": "https://archive.org/details/Switch_Longplay_Pokemon_Lets_Go_Eevee",
+  "image": "frame at 0:04:35 (275.8 s) of Switch Longplay Pokemon Let's Go Eevee (Spazbo4, archive.org)",
+  "size": [
+   1920,
+   1080
+  ],
+  "people": "none",
+  "bigPokemon": "none",
+  "source": "longplay frame (Spazbo4, archive.org; no commentary, no overlay)",
+  "file": "kanto-15.jpg"
+ },
+ "kanto-17.jpg": {
+  "region": "kanto",
+  "game": "Pokémon: Let's Go, Pikachu! / Let's Go, Eevee!",
+  "place": "Indigo Plateau: winding steps up to the Pokémon League (arrival cutscene)",
+  "page": "https://archive.org/details/Switch_Longplay_Pokemon_Lets_Go_Eevee",
+  "image": "frame at 10:56:03 (39363.2 s) of Switch Longplay Pokemon Let's Go Eevee (Spazbo4, archive.org)",
+  "size": [
+   1920,
+   1080
+  ],
+  "people": "none",
+  "bigPokemon": "none",
+  "source": "longplay frame (Spazbo4, archive.org; no commentary, no overlay)",
+  "file": "kanto-17.jpg"
+ },
+ "kanto-21.jpg": {
+  "region": "kanto",
+  "game": "Pokémon: Let's Go, Pikachu! / Let's Go, Eevee!",
+  "place": "Indigo Plateau: plaza with Poké Ball statues at the foot of the League steps (arrival cutscene)",
+  "page": "https://archive.org/details/Switch_Longplay_Pokemon_Lets_Go_Eevee",
+  "image": "frame at 10:55:58 (39358.6 s) of Switch Longplay Pokemon Let's Go Eevee (Spazbo4, archive.org)",
+  "size": [
+   1920,
+   1080
+  ],
+  "people": "none",
+  "bigPokemon": "none",
+  "source": "longplay frame (Spazbo4, archive.org; no commentary, no overlay)",
+  "note": "no sky in this one: plaza and steps only",
+  "file": "kanto-21.jpg"
+ },
+ "paldea-11.jpg": {
+  "region": "paldea",
+  "game": "Pokémon Scarlet and Pokémon Violet",
+  "place": "(place not named)",
+  "page": "https://www.youtube.com/watch?v=d7pM4xSGQKs",
+  "image": "frame at 0:10 of World Overview | Pokémon Scarlet and Pokémon Violet (The Official Pokémon YouTube channel)",
+  "size": [
+   1920,
+   1080
+  ],
+  "people": "none",
+  "bigPokemon": "none",
+  "source": "official trailer frame",
+  "file": "paldea-11.jpg"
+ },
+ "paldea-12.jpg": {
+  "region": "paldea",
+  "game": "Pokémon Scarlet and Pokémon Violet",
+  "place": "(place not named)",
+  "page": "https://www.youtube.com/watch?v=d7pM4xSGQKs",
+  "image": "frame at 0:16 of World Overview | Pokémon Scarlet and Pokémon Violet (The Official Pokémon YouTube channel)",
+  "size": [
+   1920,
+   1080
+  ],
+  "people": "none",
+  "bigPokemon": "none",
+  "source": "official trailer frame",
+  "file": "paldea-12.jpg"
+ },
+ "paldea-16.jpg": {
+  "region": "paldea",
+  "game": "Pokémon Scarlet and Pokémon Violet",
+  "place": "(place not named)",
+  "page": "https://www.youtube.com/watch?v=MAmueMsFR1o",
+  "image": "frame at 2:01 of Pokémon Scarlet and Pokémon Violet | Announcement Trailer (The Official Pokémon YouTube channel)",
+  "size": [
+   1920,
+   1080
+  ],
+  "people": "none",
+  "bigPokemon": "none",
+  "source": "official trailer frame",
+  "file": "paldea-16.jpg"
+ },
+ "paldea-17.jpg": {
+  "region": "paldea",
+  "game": "Pokémon Scarlet and Pokémon Violet",
+  "place": "(place not named)",
+  "page": "https://www.youtube.com/watch?v=MAmueMsFR1o",
+  "image": "frame at 2:10 of Pokémon Scarlet and Pokémon Violet | Announcement Trailer (The Official Pokémon YouTube channel)",
+  "size": [
+   1920,
+   1080
+  ],
+  "people": "none",
+  "bigPokemon": "none",
+  "source": "official trailer frame",
+  "file": "paldea-17.jpg"
+ },
+ "paldea-18.jpg": {
+  "region": "paldea",
+  "game": "Pokémon Scarlet and Pokémon Violet",
+  "place": "(place not named)",
+  "page": "https://www.youtube.com/watch?v=d7pM4xSGQKs",
+  "image": "frame at 1:18 of World Overview | Pokémon Scarlet and Pokémon Violet (The Official Pokémon YouTube channel)",
+  "size": [
+   1920,
+   1080
+  ],
+  "people": "none",
+  "bigPokemon": "none",
+  "source": "official trailer frame",
+  "file": "paldea-18.jpg"
+ },
+ "sinnoh-15.jpg": {
+  "region": "sinnoh",
+  "game": "Pokémon Brilliant Diamond / Shining Pearl",
+  "place": "(place not named) empty grassy battle field with pine trees, bushes and a rocky bank under blue sky (wild battle background)",
+  "page": "https://www.youtube.com/watch?v=TUOlZBxdrTA",
+  "image": "frame at 1:29 of Pokémon Brilliant Diamond and Pokémon Shining Pearl - Overview Trailer - Nintendo Switch (Nintendo of America)",
+  "size": [
+   1920,
+   1080
+  ],
+  "people": "none",
+  "bigPokemon": "none",
+  "source": "official trailer frame",
+  "note": "weak option: the Pokémon (Bidoof) has just left the shot; mostly grass, little sky",
+  "file": "sinnoh-15.jpg"
+ },
+ "unova-12.png": {
+  "region": "unova",
+  "game": "Pokémon Black 2 / White 2",
+  "place": "snow-capped mountain over a lake and woods, from the game's opening scene (near Aspertia City)",
+  "page": "https://archive.org/details/nintendodslongplaypokemonblack2eu",
+  "image": "frame at 0:04:07 of Nintendo DS Longplay Pokémon Black 2 (EU), part 1 of 2 (top screen only)",
+  "size": [
+   512,
+   384
+  ],
+  "people": "none",
+  "bigPokemon": "none",
+  "source": "longplay frame (Nintendo DS Longplay Pokémon Black 2 (EU), World of Longplays, archive.org)",
+  "note": "DS top screen 256x192 shown pixel-doubled in the capture (512x384); a few falling green leaves (the game's own effect)",
+  "file": "unova-12.png"
+ },
+ "unova-13.png": {
+  "region": "unova",
+  "game": "Pokémon Black 2 / White 2",
+  "place": "snow-capped mountain and lake seen over trees and paths, from the game's opening scene (near Aspertia City)",
+  "page": "https://archive.org/details/nintendodslongplaypokemonblack2eu",
+  "image": "frame at 0:04:10 of Nintendo DS Longplay Pokémon Black 2 (EU), part 1 of 2 (top screen only)",
+  "size": [
+   512,
+   384
+  ],
+  "people": "none",
+  "bigPokemon": "none",
+  "source": "longplay frame (Nintendo DS Longplay Pokémon Black 2 (EU), World of Longplays, archive.org)",
+  "note": "DS top screen 256x192 shown pixel-doubled in the capture (512x384); one falling leaf over the lake",
+  "file": "unova-13.png"
  }
 }
