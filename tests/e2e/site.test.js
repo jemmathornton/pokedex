@@ -210,14 +210,16 @@
   });
 
   test("the region picture switch changes the banner", async () => {
-    await go("#gen-1");
-    const two = view().querySelector('[data-shotg="1"][data-shot="2"]'); ok(two, "picture 2 on Kanto");
-    click(two); await wait(30);
-    ok((view().querySelector(".hero").getAttribute("style") || "").includes("regions/" + REGION_SHOTS["1"][1]), "Kanto shows picture 2");
-    ok(!view().querySelector('[data-shotg="1"][data-shot="0"]'), "no plain-colour choice (her call)");
-    for (const g of Object.keys(genById)) { await go("#gen-" + g); ok(view().querySelector(".hero").classList.contains("withshot"), `${g} has a picture`); }
-    await go("#gen-1");
-    click(view().querySelector('[data-shotg="1"][data-shot="1"]')); await wait(30);
+    const g = Object.keys(REGION_SHOTS).find(k => !REGION_CHOSEN[k] && REGION_SHOTS[k].length > 1);   // a region she hasn't picked yet
+    if (g) {
+      await go("#gen-" + g);
+      const two = view().querySelector(`[data-shotg="${g}"][data-shot="2"]`); ok(two, `picture 2 on ${g}`);
+      click(two); await wait(30);
+      ok((view().querySelector(".hero").getAttribute("style") || "").includes("regions/" + REGION_SHOTS[g][1]), `${g} shows picture 2`);
+      ok(!view().querySelector(`[data-shotg="${g}"][data-shot="0"]`), "no plain-colour choice (her call)");
+      click(view().querySelector(`[data-shotg="${g}"][data-shot="1"]`)); await wait(30);
+    }
+    for (const k of Object.keys(genById)) { await go("#gen-" + k); ok(view().querySelector(".hero").classList.contains("withshot"), `${k} has a picture`); }
   });
 
   // ---------- Quick add (trial) ----------
