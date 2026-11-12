@@ -74,3 +74,7 @@ Claude’s jobs, and the record of what was decided. Everything waiting on Jemma
 - Totals count each Pokémon once, ignoring forms (her call, 11 Nov).
 - Backgrounds list evolutions too (her call); GO Tour X has the raid Pokémon (she has a hat Pikachu with X).
 - Next on her list: try getting her collection in (Pokédex recording / Calcy export), which game after GO.
+
+## 12 Nov overnight
+- Region pictures: options for every region (no plain colour: her call); sources in research/data/region-screenshots.json. Waiting on her picks. Retry official Sinnoh/Unova/Paldea trailers if YouTube downloads work again (blocked 11–12 Nov).
+- Fast tick page (#fast, trial) and tools/read_pokedex.py (prototype, needs a real recording to tune).
