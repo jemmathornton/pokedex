@@ -48,7 +48,14 @@ const byId = Object.fromEntries(ENTRIES.map(e => [e.id, e]));
 const costumeById = Object.fromEntries(COSTUMES.map(c => [c.id, c]));
 const baseOf = {};   // dex number -> its plain entry (for background Pokémon)
 ENTRIES.forEach(e => { if (!baseOf[e.dex] || (!e.form && baseOf[e.dex].form)) baseOf[e.dex] = e; });
-const canLucky = e => e.released && (e.class !== "mythical" || e.dex === 808 || e.dex === 809);   // mythicals can't be traded, so never lucky; Meltan and Melmetal are the exception (Bulbapedia, Trade (GO); her catch, 12 Nov)
+// Lucky comes only from trading, so a Pokémon the game won't let you trade can never be Lucky (the game's own trade flags,
+// 12 Nov research: 20 mythicals plus Zygarde and Eternatus; Meltan, Melmetal and Pecharunt can be traded)
+const UNTRADEABLE = new Set([151, 251, 385, 386, 489, 490, 491, 492, 493, 494, 647, 648, 649, 718, 719, 720, 721, 801, 802, 807, 890, 893]);
+const canLucky = e => e.released && !UNTRADEABLE.has(e.dex);
+// Pumpkaboo and Gourgeist are one fixed size per form in GO (the game's size data): never XXS, and only Super Size is XXL
+const SIZE_FIXED = new Set([710, 711]);
+const neverXXL = e => SIZE_FIXED.has(e.dex) && !e.id.endsWith("-super"), neverXXS = e => SIZE_FIXED.has(e.dex);
+const canXXL = e => e.released && !neverXXL(e), canXXS = e => e.released && !neverXXS(e);
 const sprite = k => k && SPRITES.has(k) ? `sprites/${k}.webp` : null;
 const BIG = new Set(DATA.bigSprites || []);   // the game's full-size pictures, for a Pokémon's page
 const bigSprite = k => k && BIG.has(k) ? `sprites/big/${k}.webp` : sprite(k);
@@ -81,9 +88,9 @@ const EXTRAS = [
 // which boxes a Pokémon could ever have (her rule, 12 Nov: only what's impossible is left out; ones not in GO yet still
 // count, as in the game's Pokédex), from all its entries, out or not
 const POSSIBLE = {
-  c: () => true, s: () => true, h: () => true, xl: () => true, xs: () => true,
-  l: es => es.some(e => e.class !== "mythical") || es[0].dex === 808 || es[0].dex === 809,   // mythicals can't be traded, Meltan and Melmetal aside
-  sd: es => es.some(e => e.class !== "mythical"), pu: es => es.some(e => e.class !== "mythical"),   // no Shadow mythicals (a suggestion: not a stated rule)
+  c: () => true, s: () => true, h: () => true, xl: es => es.some(e => !neverXXL(e)), xs: es => !neverXXS(es[0]),
+  l: es => !UNTRADEABLE.has(es[0].dex),
+  sd: () => true, pu: () => true,   // no rule rules any out (Shadow Darkrai exists, 2025)
   dx: es => !NO_DYNAMAX.has(es[0].dex), gx: es => GMAX_SPECIES.has(es[0].dex),
   mega: es => es.some(e => (e.mega || []).length || e.megaLater),
   cm: es => es.some(e => e.gender === "both" || e.gender === "male"), cf: es => es.some(e => e.gender === "both" || e.gender === "female"),
@@ -127,8 +134,8 @@ const BOXF = [   // each box as a filter: which Pokémon it applies to, and whet
   {k: "shiny", label: "Shiny", applies: e => !!e.shiny || prefs.unreleased,   // with "Not in GO" on, shinies not out yet too
    have: e => has(dk(e), "s"), ticks: ["s"]},
   {k: "lucky", label: "Lucky", applies: e => canLucky(e), have: e => has(dk(e), "l"), ticks: ["l"]},
-  {k: "xxl", label: "XXL", applies: e => e.released, have: e => has(dk(e), "xl"), ticks: ["xl"]},
-  {k: "xxs", label: "XXS", applies: e => e.released, have: e => has(dk(e), "xs"), ticks: ["xs"]},
+  {k: "xxl", label: "XXL", applies: canXXL, have: e => has(dk(e), "xl"), ticks: ["xl"]},
+  {k: "xxs", label: "XXS", applies: canXXS, have: e => has(dk(e), "xs"), ticks: ["xs"]},
   {k: "dynamax", label: "Dynamax", applies: e => !!e.dynamax, have: e => has(dk(e), "dx"), ticks: ["dx"]},
   {k: "gmax", label: "G-Max", applies: e => !!e.gmax, have: e => has(dk(e), "gx"), ticks: ["gx"]},
   // Mega Evolution and Primal (her ask, 10 Nov: a full box like Dynamax; Mega X and Y a box each, so "have" means all of them)
@@ -171,8 +178,8 @@ function boxes(e){
     [femaleTick(e) ? btn("cf", "f", "venus", "Female", e.gender === "female" ? "Female (female only)" : "Female") : "",
      maleTick(e) ? btn("cm", "m", "mars", "Male", e.gender === "male" ? "Male (male only)" : "Male") : ""],   // female first (her call)
     [btn("s", "s", "sparkles", "Shiny", e.shiny ? "Shiny" : "No shiny in GO yet", !e.shiny),
-     e.class === "mythical" && !canLucky(e) && !has(k, "l") ? "" : btn("l", "l", "lucky", "Lucky", "Lucky", !canLucky(e))],   // a box that can never be (a mythical’s Lucky) isn’t shown (her call, 10 Nov)
-    [btn("xl", "xl", "expand", "XXL", "XXL", !e.released), btn("xs", "xs", "shrink", "XXS", "XXS", !e.released)],
+     UNTRADEABLE.has(e.dex) && !has(k, "l") ? "" : btn("l", "l", "lucky", "Lucky", "Lucky", !canLucky(e))],   // a box that can never be (a mythical’s Lucky) isn’t shown (her call, 10 Nov)
+    [neverXXL(e) && !has(k, "xl") ? "" : btn("xl", "xl", "expand", "XXL", "XXL", !e.released), neverXXS(e) && !has(k, "xs") ? "" : btn("xs", "xs", "shrink", "XXS", "XXS", !e.released)],
     [extra("dx"), extra("gx", "G-Max")],
     megas.length > 1 ? megas : [megas[0] || ""],
     [extra("sd"), extra("pu")],
@@ -457,9 +464,9 @@ function bigBoxes(e){
     B("cf", "--female", "venus", "Female", !!femaleTick(e)) +   // a gender it can't be isn't shown (genderless, male only…)
     B("cm", "--male", "mars", "Male", !!maleTick(e)) +
     B("s", "--shiny", "sparkles", "Shiny", !!e.shiny, "Unavailable") +
-    B("l", "--lucky", "lucky", "Lucky", canLucky(e), e.class === "mythical" ? null : "Unavailable") +
-    B("xl", "--xxl", "expand", "XXL", e.released, "Unavailable") +
-    B("xs", "--xxs", "shrink", "XXS", e.released, "Unavailable") +
+    B("l", "--lucky", "lucky", "Lucky", canLucky(e), UNTRADEABLE.has(e.dex) ? null : "Unavailable") +
+    B("xl", "--xxl", "expand", "XXL", canXXL(e), neverXXL(e) ? null : "Unavailable") +
+    B("xs", "--xxs", "shrink", "XXS", canXXS(e), neverXXS(e) ? null : "Unavailable") +
     B("dx", "--dynamax", "dynamax", "Dynamax", !!e.dynamax) +
     B("gx", "--gmax", "gigantamax", "Gigantamax", !!e.gmax) +
     (e.mega || []).map(m => B(m.t, "--mega", "mega", m.label, true)).join("") +
@@ -501,7 +508,7 @@ function pokemonPage(n){
     row("Buddy distance", sel.buddyKm ? esc(`${num(sel.buddyKm)} km`) : "") +
     row("In Pokémon GO", yesNo(sel.released, "Available", "Unavailable")) +
     row("Shiny", yesNo(!!sel.shiny, "Available", "Unavailable")) +
-    row("Lucky", yesNo(canLucky(sel), "Available", sel.class === "mythical" ? "Not possible" : "Unavailable")) +
+    row("Lucky", yesNo(canLucky(sel), "Available", UNTRADEABLE.has(sel.dex) ? "Not possible" : "Unavailable")) +
     row("Shadow and Purified", yesNo(!!sel.shadow, "Available", "Unavailable")) +
     row("Dynamax", yesNo(!!sel.dynamax, "Available", NO_DYNAMAX.has(sel.dex) ? "Not possible" : "Unavailable")) +
     row("Gigantamax", yesNo(!!sel.gmax, "Available", GMAX_SPECIES.has(sel.dex) && !isRegional(sel) ? "Unavailable" : "Not possible")) +
@@ -615,7 +622,7 @@ const quickNames = (() => {   // "vulpix" -> plain Vulpix; "alolan vulpix" and "
   return m;
 })();
 function canTick(e, t){
-  return {c: true, cm: !!maleTick(e), cf: !!femaleTick(e), s: !!e.shiny, l: canLucky(e), h: e.released, xl: e.released, xs: e.released, sd: !!e.shadow, pu: !!e.shadow,
+  return {c: true, cm: !!maleTick(e), cf: !!femaleTick(e), s: !!e.shiny, l: canLucky(e), h: e.released, xl: canXXL(e), xs: canXXS(e), sd: !!e.shadow, pu: !!e.shadow,
     dx: !!e.dynamax, gx: !!e.gmax, ss: !!e.shadowShiny, mg: (e.mega || []).some(m => m.t === "mg"), mx: (e.mega || []).some(m => m.t === "mx"),
     my: (e.mega || []).some(m => m.t === "my")}[t];
 }

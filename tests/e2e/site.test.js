@@ -295,6 +295,9 @@
   test("Meltan and Melmetal can be Lucky (the one mythical that can be traded); Mew can't", async () => {
     ok(canLucky(byId["808"]) && canLucky(byId["809"]), "Meltan and Melmetal");
     ok(!canLucky(byId["151"]), "Mew");
+    ok(!canLucky(byId["718"] || ENTRIES.find(e => e.dex === 718)), "Zygarde can't be traded");
+    ok(!canXXS(byId["710-average"]) && !canXXL(byId["710-average"]) && canXXL(byId["710-super"]), "Pumpkaboo: no XXS, XXL only Super Size");
+    ok(POSSIBLE.sd([byId["491"]]), "Darkrai can be Shadow");
   });
 
   test("XXL and XXS: boxes on cards and the page, a filter tab, Fast tick tabs and Quick add words", async () => {
