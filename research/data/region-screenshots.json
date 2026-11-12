@@ -1836,5 +1836,33 @@
   "source": "longplay frame (Nintendo DS Longplay Pokémon Black 2 (EU), World of Longplays, archive.org)",
   "note": "DS top screen 256x192 shown pixel-doubled in the capture (512x384); one falling leaf over the lake",
   "file": "unova-13.png"
+ },
+ "johto-map-1.jpg": {
+  "page": "https://www.pidgi.net/wiki/File:Johto_and_Kanto_-_Pokemon_HeartGold_and_SoulSilver.jpg",
+  "image": "https://cdn.pidgi.net/images/3/38/Johto_and_Kanto_-_Pokemon_HeartGold_and_SoulSilver.jpg",
+  "game": "Pokémon HeartGold / SoulSilver",
+  "note": "official painted artwork of Johto and Kanto side by side (PidgiWiki credits Nintendo UK), 6000×2631; cut to her pick and saved at 2800 wide (12 Nov)",
+  "region": "johto",
+  "place": "Johto, painted region map",
+  "crop": [
+   0,
+   0,
+   3912,
+   2631
+  ]
+ },
+ "kanto-map-2.jpg": {
+  "page": "https://www.pidgi.net/wiki/File:Johto_and_Kanto_-_Pokemon_HeartGold_and_SoulSilver.jpg",
+  "image": "https://cdn.pidgi.net/images/3/38/Johto_and_Kanto_-_Pokemon_HeartGold_and_SoulSilver.jpg",
+  "game": "Pokémon HeartGold / SoulSilver",
+  "note": "official painted artwork of Johto and Kanto side by side (PidgiWiki credits Nintendo UK), 6000×2631; cut to her pick and saved at 2800 wide (12 Nov)",
+  "region": "kanto",
+  "place": "Kanto, painted region map",
+  "crop": [
+   2804,
+   0,
+   6000,
+   2631
+  ]
  }
 }
