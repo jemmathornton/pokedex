@@ -255,14 +255,19 @@ const REGION_CHOSEN = {"2": "johto-1.png", "3": "hoenn-19.jpg", "5": "unova-12.p
 // which part of a picture the banner shows, where the middle isn't the best part (12 Nov: Kanto's Route 1 was nearly all sky):
 // a closer crop towards the ground; the picture itself is unchanged
 const SHOT_FIT = {"kanto-15.jpg": "50% 100%/150% auto"};
-const shotStyle = f => ` style="--shot:url('regions/${f}')${SHOT_FIT[f] ? `;--shotfit:${SHOT_FIT[f]}` : ""}"`;
+// a narrower picture shown less zoomed in: the banner's picture area takes this shape (width / height), so more of it shows and
+// it still blends softly into the colour on the left (12 Nov: Johto looked too zoomed in)
+const SHOT_RATIO = {};
+const TRY = new URLSearchParams(location.search), FIT_TRY = TRY.get("fit"), RATIO_TRY = TRY.get("ratio");   // ?fit= and ?ratio= for pictures of options only
+const shotStyle = f => { const fit = FIT_TRY || SHOT_FIT[f], ratio = RATIO_TRY || SHOT_RATIO[f];
+  return ` style="--shot:url('regions/${f}')${fit ? `;--shotfit:${fit}` : ""}${ratio ? `;--shotratio:${ratio}` : ""}"`; };
+const shotCls = f => (PIXEL_SHOTS.has(f) ? " pixel" : "") + (RATIO_TRY || SHOT_RATIO[f] ? " ratio" : "");
 function regionShot(g){   // style and switch for a region page's banner
   // tiny DS/3DS pictures (under 500 px wide) are enlarged as sharp pixels, not a blur (her pick, 11 Nov, for Johto)
-  const pixel = f => PIXEL_SHOTS.has(f) ? " pixel" : "";
-  if (REGION_CHOSEN[g]) return {style: shotStyle(REGION_CHOSEN[g]), cls: " withshot" + pixel(REGION_CHOSEN[g]), sw: ""};
+  if (REGION_CHOSEN[g]) return {style: shotStyle(REGION_CHOSEN[g]), cls: " withshot" + shotCls(REGION_CHOSEN[g]), sw: ""};
   const shots = REGION_SHOTS[g] || [], k = shotPick(g);
   if (!shots.length) return {style: "", sw: ""};
-  return {style: k ? shotStyle(shots[k - 1]) : "", cls: k ? " withshot" + pixel(shots[k - 1]) : "",   // the picture always fills the banner (10 Nov: the uncropped and blurred tries confused; wide shots instead)
+  return {style: k ? shotStyle(shots[k - 1]) : "", cls: k ? " withshot" + shotCls(shots[k - 1]) : "",   // the picture always fills the banner (10 Nov: the uncropped and blurred tries confused; wide shots instead)
     sw: `<span class="shotsw"><span class="label">Try a picture</span><span class="opts">${shots.map((_, i) =>
       `<button type="button" data-shot="${i + 1}" data-shotg="${g}" aria-pressed="${i + 1 === k}">${i + 1}</button>`).join("")}</span></span>`};
 }
