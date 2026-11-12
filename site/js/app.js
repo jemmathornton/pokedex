@@ -651,7 +651,7 @@ async function quickGo(){
     }
     done++;
   }
-  toast(`Ticked ${done}.`); quickText = ""; quickPage();
+  toast(`Ticked ${done}.`); quickText = ""; rerender();   // the page she's on now, in case she moved on while it was saving
 }
 
 // ---------- Fast tick (TRIAL, 11 Nov overnight: her ask for a better way to put her whole collection in) ----------
@@ -712,17 +712,22 @@ function fastClick(btn){
 async function fastAll(){
   const left = [...document.querySelectorAll('.fastgrid .fc[aria-pressed="false"]')];
   if (!left.length || !confirm(`Tick all ${left.length} left on this page? You can untick any afterwards.`)) return;
-  let done = 0;
-  for (const btn of left) {
+  // each one lights up as it's saved, with a running count, so it's clear it's working (12 Nov: she saw nothing happen
+  // while 147 saved one by one); ten at a time
+  let done = 0, failed = false;
+  const one = async btn => {
     const key = dk(byId[btn.dataset.fast]), t = btn.dataset.t;
     for (const x of t === "c" ? ["c"] : [t, "c"]) {
       if (has(key, x)) continue;
       setTick(key, x, true);
-      if (!await save({list: "have", key, tick: x, on: true})) { setTick(key, x, false); toast(`Stopped after ${done}: not saved.`); return fastPage(); }
+      if (!await save({list: "have", key, tick: x, on: true})) { setTick(key, x, false); failed = true; return; }
     }
-    done++;
-  }
-  toast(`Ticked ${done}.`); fastPage();
+    done++; btn.setAttribute("aria-pressed", "true");
+    const n = document.querySelector(".fastn"); if (n) n.textContent = `Ticking… ${num(done)} of ${num(left.length)}`;
+  };
+  for (let i = 0; i < left.length && !failed; i += 10) await Promise.all(left.slice(i, i + 10).map(one));
+  toast(failed ? `Stopped after ${num(done)}: not saved.` : `Ticked ${num(done)}.`);
+  rerender();   // the page she's on now, in case she moved on while it was saving
 }
 
 function navHtml(route){

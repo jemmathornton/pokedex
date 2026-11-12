@@ -270,6 +270,19 @@
     prefs.fastGen = "1"; prefs.fastBox = "c";
   });
 
+  test("Fast tick's Tick all saves every one left and lights them up", async () => {
+    prefs.fastGen = "hisui"; prefs.fastBox = "c"; await go("#fast");
+    const ids = [...view().querySelectorAll(".fastgrid .fc")].map(c => c.dataset.fast);
+    const clear = async () => { for (const id of ids) { await save({list: "have", key: "d:" + id, tick: "c", on: false}); delete COL.have["d:" + id]; } };
+    await clear(); fastPage();
+    const realConfirm = window.confirm; window.confirm = () => true;
+    try { click(view().querySelector("[data-fastall]")); await until(() => !view().querySelector('.fastgrid .fc[aria-pressed="false"]') && !/Ticking/.test(view().querySelector(".fastn").textContent), 8000); }
+    finally { window.confirm = realConfirm; }
+    const s = await server();
+    eq(ids.filter(id => !(s.have["d:" + id] || []).includes("c")), [], "all saved");
+    await clear(); prefs.fastGen = "1";
+  });
+
   // ---------- run ----------
   addEventListener("load", async () => {
     await wait(500);

@@ -23,6 +23,7 @@ class _Results(http.server.BaseHTTPRequestHandler):
 
 def run_page_tests(timeout=900):
     with Sandbox() as box:
+        col = box.read('collection', 'go.json'); col['have'] = {}; box.write(col, 'collection', 'go.json')   # start with no ticks (the copy only), whatever she has ticked
         site = box.path('site')
         page = open(os.path.join(site, 'index.html'), encoding='utf-8').read()
         page = page.replace('</body>', '<script src="__tests__/site.test.js"></script></body>')
