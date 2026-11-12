@@ -1,17 +1,19 @@
-# Your list (11 Nov 2026)
+# Your list (12 Nov 2026)
 
 Everything waiting on you. **Do** = just do it; **Decide** = your call. Tell Claude when one’s done or decided and it comes off.
 
 ## Decide
-- **Region pictures for Kanto, Hoenn, Sinnoh, Unova and Alola:** scenery options for every region (no plain colours anywhere, your call 11 Nov, so they all match); Claude sends one picture per region.
+- **Region pictures:** pick a number for Kanto (4), Hoenn (6), Sinnoh (3), Unova (2) and Alola (5) from `for-jemma/region-pictures/` (or **Try a picture** on each region page); and say if a new one beats your Kalos, Galar, Hisui or Paldea pick. No plain colours any more (your call).
+- **Fast tick (trial):** keep, change or drop.
 - **Which game to add after GO**, when you want it.
 
 ## Do
-- **Try getting your collection in:** one short screen recording of the Pokédex’s Lucky tab (Kanto only) and, if you have one, a Calcy IV export, into the Pokédex folder’s `imports` folder. Then Claude checks the reader works on your phone’s screens.
+- **Try getting your collection in:** easiest is **Fast tick → Kanto → Lucky** next to your phone’s Pokédex on the Lucky tab. Or one short screen recording of the Pokédex’s Lucky tab (Kanto only) and, if you have one, a Calcy IV export, into the Pokédex folder’s `imports` folder. Then Claude checks the reader works on your phone’s screens.
 - **Tick your backgrounds** on the Events page (or on each Pokémon’s page).
 - **This weekend (14–15 Nov), GO Wild Area:** last chance for Modern Jacket Machamp.
 
 ## Done
+- Fast tick page and a Pokédex-recording reader (both trials, 12 Nov).
 - GO Tour Kalos X: the raid Pokémon (Calem’s and Serena’s Hat Pikachu, Honedge, Xerneas) added; you have a hat Pikachu with X (11 Nov).
 - Backgrounds list the Pokémon you’d get by evolving too (11 Nov, your call); no Méga Évolution Paris (you didn’t go).
 - Weekly backup (every Sunday 09:40; first one made 10 Nov).
