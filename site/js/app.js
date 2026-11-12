@@ -252,13 +252,17 @@ const shotPick = g => Math.max(1, Math.min(+(new URLSearchParams(location.search
 // her picks (11 Nov): these regions keep their picture and lose the switch; the rest still have one while she chooses
 const PIXEL_SHOTS = new Set(["alola-13.png", "alola-14.png", "alola-16.png", "alola-17.png", "alola-18.png", "unova-12.png", "unova-13.png", "alola-1.jpg", "alola-7.jpg", "alola-8.jpg", "hoenn-1.jpg", "hoenn-10.png", "hoenn-11.png", "hoenn-12.png", "hoenn-13.png", "hoenn-14.png", "hoenn-15.png", "hoenn-2.jpg", "hoenn-3.jpg", "hoenn-4.jpg", "hoenn-5.jpg", "hoenn-6.jpg", "hoenn-7.jpg", "hoenn-8.jpg", "hoenn-9.png", "johto-1.png", "johto-2.jpg", "johto-3.jpg", "johto-4.jpg", "johto-5.jpg", "johto-6.png", "kalos-10.jpg", "kalos-11.jpg", "kalos-12.jpg", "kalos-13.jpg", "kalos-4.jpg", "unova-1.jpg", "unova-10.png", "unova-11.png", "unova-2.jpg", "unova-3.jpg", "unova-4.png", "unova-5.png", "unova-6.png", "unova-7.jpg", "unova-8.jpg", "unova-9.jpg"]);
 const REGION_CHOSEN = {"2": "johto-1.png", "6": "kalos-1.jpg", "8": "galar-1.jpg", "hisui": "hisui-8.jpg", "9": "paldea-1.jpg"};
+// which part of a picture the banner shows, where the middle isn't the best part (12 Nov: Kanto's Route 1 was nearly all sky):
+// a closer crop towards the ground; the picture itself is unchanged
+const SHOT_FIT = {"kanto-15.jpg": "50% 100%/150% auto"};
+const shotStyle = f => ` style="--shot:url('regions/${f}')${SHOT_FIT[f] ? `;--shotfit:${SHOT_FIT[f]}` : ""}"`;
 function regionShot(g){   // style and switch for a region page's banner
   // tiny DS/3DS pictures (under 500 px wide) are enlarged as sharp pixels, not a blur (her pick, 11 Nov, for Johto)
   const pixel = f => PIXEL_SHOTS.has(f) ? " pixel" : "";
-  if (REGION_CHOSEN[g]) return {style: ` style="--shot:url('regions/${REGION_CHOSEN[g]}')"`, cls: " withshot" + pixel(REGION_CHOSEN[g]), sw: ""};
+  if (REGION_CHOSEN[g]) return {style: shotStyle(REGION_CHOSEN[g]), cls: " withshot" + pixel(REGION_CHOSEN[g]), sw: ""};
   const shots = REGION_SHOTS[g] || [], k = shotPick(g);
   if (!shots.length) return {style: "", sw: ""};
-  return {style: k ? ` style="--shot:url('regions/${shots[k - 1]}')"` : "", cls: k ? " withshot" + pixel(shots[k - 1]) : "",   // the picture always fills the banner (10 Nov: the uncropped and blurred tries confused; wide shots instead)
+  return {style: k ? shotStyle(shots[k - 1]) : "", cls: k ? " withshot" + pixel(shots[k - 1]) : "",   // the picture always fills the banner (10 Nov: the uncropped and blurred tries confused; wide shots instead)
     sw: `<span class="shotsw"><span class="label">Try a picture</span><span class="opts">${shots.map((_, i) =>
       `<button type="button" data-shot="${i + 1}" data-shotg="${g}" aria-pressed="${i + 1 === k}">${i + 1}</button>`).join("")}</span></span>`};
 }

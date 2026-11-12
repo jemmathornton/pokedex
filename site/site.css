@@ -581,7 +581,7 @@ a.formsbtn{text-decoration:none}
    and cropped to fit), blending softly into the region colour on the left, no hard edge */
 :root[data-look] .hero.withshot{background:color-mix(in srgb,var(--rc) 85%,#000)}
 .hero.withshot::after{content:"";position:absolute;inset:0 0 0 auto;width:68%;height:auto;border:0;border-radius:0;box-shadow:none;opacity:1;z-index:0;
-  background:linear-gradient(transparent 55%,rgba(0,0,0,.4)),var(--shot) center 40%/cover no-repeat;
+  background:linear-gradient(transparent 55%,rgba(0,0,0,.4)),var(--shot) var(--shotfit,center 40%/cover) no-repeat;
   -webkit-mask:linear-gradient(90deg,transparent,rgba(0,0,0,.35) 18%,rgba(0,0,0,.8) 38%,#000 55%);mask:linear-gradient(90deg,transparent,rgba(0,0,0,.35) 18%,rgba(0,0,0,.8) 38%,#000 55%)}
 .hero > .shotsw{position:absolute;left:auto;right:24px;top:18px;z-index:3;display:inline-flex;align-items:center;gap:8px}
 .withshot .stat{background:color-mix(in srgb,var(--rc) 55%,rgba(0,0,0,.55));border-color:rgba(255,255,255,.18);backdrop-filter:blur(6px)}
