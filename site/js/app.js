@@ -127,15 +127,15 @@ const BOXF = [   // each box as a filter: which Pokémon it applies to, and whet
   {k: "shiny", label: "Shiny", applies: e => !!e.shiny || prefs.unreleased,   // with "Not in GO" on, shinies not out yet too
    have: e => has(dk(e), "s"), ticks: ["s"]},
   {k: "lucky", label: "Lucky", applies: e => canLucky(e), have: e => has(dk(e), "l"), ticks: ["l"]},
-  {k: "hundo", label: "4★", applies: e => e.released, have: e => has(dk(e), "h"), ticks: ["h"]},
   {k: "xxl", label: "XXL", applies: e => e.released, have: e => has(dk(e), "xl"), ticks: ["xl"]},
   {k: "xxs", label: "XXS", applies: e => e.released, have: e => has(dk(e), "xs"), ticks: ["xs"]},
-  {k: "shadow", label: "Shadow", applies: e => !!e.shadow, have: e => has(dk(e), "sd"), ticks: ["sd"]},
-  {k: "purified", label: "Purified", applies: e => !!e.shadow, have: e => has(dk(e), "pu"), ticks: ["pu"]},
   {k: "dynamax", label: "Dynamax", applies: e => !!e.dynamax, have: e => has(dk(e), "dx"), ticks: ["dx"]},
   {k: "gmax", label: "G-Max", applies: e => !!e.gmax, have: e => has(dk(e), "gx"), ticks: ["gx"]},
   // Mega Evolution and Primal (her ask, 10 Nov: a full box like Dynamax; Mega X and Y a box each, so "have" means all of them)
   {k: "mega", label: "Mega", applies: e => !!(e.mega || []).length, have: e => (e.mega || []).every(m => has(dk(e), m.t)), ticks: e => (e.mega || []).map(m => m.t)},
+  {k: "shadow", label: "Shadow", applies: e => !!e.shadow, have: e => has(dk(e), "sd"), ticks: ["sd"]},
+  {k: "purified", label: "Purified", applies: e => !!e.shadow, have: e => has(dk(e), "pu"), ticks: ["pu"]},
+  {k: "hundo", label: "4★", applies: e => e.released, have: e => has(dk(e), "h"), ticks: ["h"]},
 ];
 const boxPass = (b, val, e) => val === "have" ? b.applies(e) && b.have(e) : val === "need" ? b.applies(e) && !b.have(e) : true;
 function boxFilter(e){
@@ -322,14 +322,14 @@ function statsHtml(c){
     t("--male", "mars", "Male", c.male, c.maleOut) +
     t("--shiny", "sparkles", "Shiny", c.shiny, c.shinyOut) +
     t("--lucky", "lucky", "Lucky", c.lucky, c.luckyOut) +
-    t("--hundo", "star", "4★", c.hundo, c.out) +
-    t("--shadow", "shadow", "Shadow", c.sd, c.shadowOut) +
-    t("--purified", "purified", "Purified", c.pu, c.shadowOut) +
+    t("--xxl", "expand", "XXL", c.xl, c.out) +
+    t("--xxs", "shrink", "XXS", c.xs, c.out) +
     t("--dynamax", "dynamax", "Dynamax", c.dx, c.dynamaxOut) +
     t("--gmax", "gigantamax", "G-Max", c.gx, c.gmaxOut) +
     t("--mega", "mega", "Mega", c.mega, c.megaOut) +
-    t("--xxl", "expand", "XXL", c.xl, c.out) +
-    t("--xxs", "shrink", "XXS", c.xs, c.out) + `</div>`;
+    t("--shadow", "shadow", "Shadow", c.sd, c.shadowOut) +
+    t("--purified", "purified", "Purified", c.pu, c.shadowOut) +
+    t("--hundo", "star", "4★", c.hundo, c.out) + `</div>`;
 }
 const readOnlyNote = () => readOnly ? `<div class="notice">${ic("info")} Opened from the folder, so ticks can’t be saved here. Open it with the Jemma’s Pokédex shortcut.</div>` : "";
 
@@ -453,14 +453,14 @@ function bigBoxes(e){
     B("cm", "--male", "mars", "Male", !!maleTick(e)) +
     B("s", "--shiny", "sparkles", "Shiny", !!e.shiny, "Unavailable") +
     B("l", "--lucky", "lucky", "Lucky", canLucky(e), e.class === "mythical" ? null : "Unavailable") +
-    B("h", "--hundo", "star", "4★", e.released, "Unavailable") +
     B("xl", "--xxl", "expand", "XXL", e.released, "Unavailable") +
     B("xs", "--xxs", "shrink", "XXS", e.released, "Unavailable") +
-    B("sd", "--shadow", "shadow", "Shadow", !!e.shadow) +
-    B("pu", "--purified", "purified", "Purified", !!e.shadow) +
     B("dx", "--dynamax", "dynamax", "Dynamax", !!e.dynamax) +
     B("gx", "--gmax", "gigantamax", "Gigantamax", !!e.gmax) +
-    (e.mega || []).map(m => B(m.t, "--mega", "mega", m.label, true)).join("") + `</div>`;
+    (e.mega || []).map(m => B(m.t, "--mega", "mega", m.label, true)).join("") +
+    B("sd", "--shadow", "shadow", "Shadow", !!e.shadow) +
+    B("pu", "--purified", "purified", "Purified", !!e.shadow) +
+    B("h", "--hundo", "star", "4★", e.released, "Unavailable") + `</div>`;
 }
 // Shiny Shadow: a bonus, like a costume (her ask, 10 Nov): not counted anywhere and not on the list cards; its own card with
 // the shiny picture, under the evolution family (her call)
@@ -682,8 +682,8 @@ async function quickGo(){
 // G-Max, Mega): every Pokémon in number order, in colour when she has it and a silhouette when she hasn't. With the
 // game's tab open on her phone, she clicks the ones that are in colour there, and the count at the top should end up
 // the same as the game's. One click ticks the Pokémon's plain form (the game's Pokédex counts the species too).
-const FAST = [["c", "Caught", "poke-ball"], ["s", "Shiny", "sparkles"], ["l", "Lucky", "lucky"], ["h", "4★", "star"], ["sd", "Shadow", "shadow"],
-  ["pu", "Purified", "purified"], ["dx", "Dynamax", "dynamax"], ["gx", "G-Max", "gigantamax"], ["xl", "XXL", "expand"], ["xs", "XXS", "shrink"], ["mega", "Mega", "mega"], ["cm", "Male", "mars"], ["cf", "Female", "venus"]];
+const FAST = [["c", "Caught", "poke-ball"], ["cf", "Female", "venus"], ["cm", "Male", "mars"], ["s", "Shiny", "sparkles"], ["l", "Lucky", "lucky"],   // the game's Pokédex order (her ask, 12 Nov), with Female, Male and Dynamax fitted in
+  ["xl", "XXL", "expand"], ["xs", "XXS", "shrink"], ["dx", "Dynamax", "dynamax"], ["gx", "G-Max", "gigantamax"], ["mega", "Mega", "mega"], ["sd", "Shadow", "shadow"], ["pu", "Purified", "purified"], ["h", "4★", "star"]];
 const FAST_GAME = {c: "Pokémon", s: "Shiny", l: "Lucky", h: "100%", sd: "Shadow", pu: "Purified", gx: "G-Max", mega: "Mega", xl: "XXL", xs: "XXS"};   // the game's own tab names
 const FAST_COL = {c: "--caught", s: "--shiny", l: "--lucky", h: "--hundo", sd: "--shadow", pu: "--purified", dx: "--dynamax", gx: "--gmax", mega: "--mega", cm: "--male", cf: "--female", xl: "--xxl", xs: "--xxs"};
 const fastTicks = (e, b) => b === "mega" ? (e.mega || []).map(m => m.t) : canTick(e, b) ? [b] : [];

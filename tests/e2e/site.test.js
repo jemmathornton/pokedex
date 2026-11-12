@@ -85,7 +85,7 @@
   // ---------- a Pokémon's page ----------
   test("Charizard's boxes: everything, with Mega X and Mega Y and the G-Max picture", async () => {
     await go("#p-6");
-    eq(strip(), ["Caught", "Female", "Male", "Shiny", "Lucky", "4★", "XXL", "XXS", "Shadow", "Purified", "Dynamax", "G-Max", "Mega X", "Mega Y"]);
+    eq(strip(), ["Caught", "Female", "Male", "Shiny", "Lucky", "XXL", "XXS", "Dynamax", "G-Max", "Mega X", "Mega Y", "Shadow", "Purified", "4★"]);
     ok(box("G-Max").querySelector("img").src.includes("GIGANTAMAX"), "G-Max shows the Gigantamax picture");
     ok(box("Mega X").querySelector("img").src.includes("MEGA_X"), "Mega X shows the Mega X picture");
     eq(fact("Mega"), "Available"); eq(fact("Gigantamax"), "Available");
@@ -151,7 +151,7 @@
   test("the filter line: tabs, Hide ones I have, all on one line", async () => {
     await go("#gen-1");
     const tabs = [...view().querySelectorAll(".worktab")].map(b => b.textContent);
-    eq(tabs, ["Female", "Male", "Shiny", "Lucky", "4★", "XXL", "XXS", "Shadow", "Purified", "Dynamax", "G-Max", "Mega"]);
+    eq(tabs, ["Female", "Male", "Shiny", "Lucky", "XXL", "XXS", "Dynamax", "G-Max", "Mega", "Shadow", "Purified", "4★"]);   // the game's Pokédex order (her ask, 12 Nov)
     const row = view().querySelector(".frow"), top = [...row.querySelectorAll(".worktab")].map(b => b.getBoundingClientRect().top);
     ok(Math.max(...top) - Math.min(...top) < 4, "the tabs wrapped onto a second line");
     const sw = view().querySelector("[data-showall]"); ok(sw, "the Hide ones I have switch"); ok(/Hide ones I have/.test(sw.textContent));
