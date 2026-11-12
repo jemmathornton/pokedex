@@ -3,7 +3,7 @@
 Everything waiting on you. **Do** = just do it; **Decide** = your call. Tell Claude when one’s done or decided and it comes off.
 
 ## Decide
-- **Region pictures:** pick a number for Kanto (4), Hoenn (6), Sinnoh (3), Unova (2) and Alola (5) from `for-jemma/region-pictures/` (or **Try a picture** on each region page); and say if a new one beats your Kalos, Galar, Hisui or Paldea pick. No plain colours any more (your call).
+- **Region pictures:** Kanto, Sinnoh and Alola still to pick (a wider search for different places is running).
 - **Fast tick (trial):** keep, change or drop.
 - **Which game to add after GO**, when you want it.
 
@@ -18,7 +18,7 @@ Everything waiting on you. **Do** = just do it; **Decide** = your call. Tell Cla
 - Backgrounds list the Pokémon you’d get by evolving too (11 Nov, your call); no Méga Évolution Paris (you didn’t go).
 - Weekly backup (every Sunday 09:40; first one made 10 Nov).
 - Test suite (36 tests, all pass; run after any change).
-- Region pictures: Johto 1, Kalos 1, Galar 1, Hisui 4, Paldea 1 (11 Nov).
+- Region pictures: Johto (Ho-Oh over the Bell Tower), Hoenn (volcano and jungle), Unova (mountain over a lake), Kalos (Lumiose skyline), Galar (Route 1), Hisui (grassland below a volcano), Paldea (panorama with Mesagoza) (12 Nov).
 - Minior keeps all seven core colours (11 Nov).
 - Look: region colours with the parade; Pokémon pages: the picture strip, with the game’s own looks for each box.
 - Icons: Shadow 3, Purified 1, Lucky 12, Mega 3 (DNA, burnt orange).

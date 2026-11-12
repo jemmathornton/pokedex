@@ -257,12 +257,13 @@
     for (const k of ["d:52", "d:52-alolan", "d:27"]) await clear(k);
     prefs.fastGen = "1"; prefs.fastBox = "s"; await go("#fast");
     click(view().querySelector('.fc[data-fast="27"]'));
-    await wait(300);
-    let s = await server();
+    let s;
+    for (let t = 0; t < 8000; t += 100) { s = await server(); if ((s.have["d:27"] || []).includes("c")) break; await wait(100); }   // saved one box after the other
     ok(s.have["d:27"] && s.have["d:27"].includes("s") && s.have["d:27"].includes("c"), "Sandshrew shiny and caught saved");
     ok(view().querySelector('.fc[data-fast="27"]').getAttribute("aria-pressed") === "true", "lit up");
-    click(view().querySelector('.fc[data-fast="27"]')); await wait(300);
-    s = await server(); ok(!(s.have["d:27"] || []).includes("s"), "unticked");
+    click(view().querySelector('.fc[data-fast="27"]'));
+    for (let t = 0; t < 8000; t += 100) { s = await server(); if (!(s.have["d:27"] || []).includes("s")) break; await wait(100); }
+    ok(!(s.have["d:27"] || []).includes("s"), "unticked");
     await save({list: "have", key: "d:52-alolan", tick: "s", on: true}); setTick("d:52-alolan", "s", true); fastPage();
     ok(view().querySelector('.fc[data-fast="52"]').getAttribute("aria-pressed") === "true", "Alolan Meowth's shiny lights Meowth");
     for (const k of ["d:52", "d:52-alolan", "d:27"]) await clear(k);
