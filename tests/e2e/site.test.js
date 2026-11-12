@@ -287,6 +287,11 @@
     await clear(); prefs.fastGen = "1";
   });
 
+  test("Meltan and Melmetal can be Lucky (the one mythical that can be traded); Mew can't", async () => {
+    ok(canLucky(byId["808"]) && canLucky(byId["809"]), "Meltan and Melmetal");
+    ok(!canLucky(byId["151"]), "Mew");
+  });
+
   // ---------- run ----------
   addEventListener("load", async () => {
     await wait(500);

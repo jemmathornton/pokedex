@@ -48,7 +48,7 @@ const byId = Object.fromEntries(ENTRIES.map(e => [e.id, e]));
 const costumeById = Object.fromEntries(COSTUMES.map(c => [c.id, c]));
 const baseOf = {};   // dex number -> its plain entry (for background Pokémon)
 ENTRIES.forEach(e => { if (!baseOf[e.dex] || (!e.form && baseOf[e.dex].form)) baseOf[e.dex] = e; });
-const canLucky = e => e.released && e.class !== "mythical";   // mythicals can't be traded, so never lucky
+const canLucky = e => e.released && (e.class !== "mythical" || e.dex === 808 || e.dex === 809);   // mythicals can't be traded, so never lucky; Meltan and Melmetal are the exception (Bulbapedia, Trade (GO); her catch, 12 Nov)
 const sprite = k => k && SPRITES.has(k) ? `sprites/${k}.webp` : null;
 const BIG = new Set(DATA.bigSprites || []);   // the game's full-size pictures, for a Pokémon's page
 const bigSprite = k => k && BIG.has(k) ? `sprites/big/${k}.webp` : sprite(k);
@@ -151,7 +151,7 @@ function boxes(e){
     [btn("c", "c", "poke-ball", "Caught", "Caught"), btn("s", "s", "sparkles", "Shiny", e.shiny ? "Shiny" : "No shiny in GO yet", !e.shiny)],
     [femaleTick(e) ? btn("cf", "f", "venus", "Female", e.gender === "female" ? "Female (female only)" : "Female") : "",
      maleTick(e) ? btn("cm", "m", "mars", "Male", e.gender === "male" ? "Male (male only)" : "Male") : ""],   // female first (her call)
-    [e.class === "mythical" && !has(k, "l") ? "" : btn("l", "l", "lucky", "Lucky", "Lucky", !canLucky(e)),   // a box that can never be (a mythical’s Lucky) isn’t shown (her call, 10 Nov)
+    [e.class === "mythical" && !canLucky(e) && !has(k, "l") ? "" : btn("l", "l", "lucky", "Lucky", "Lucky", !canLucky(e)),   // a box that can never be (a mythical’s Lucky) isn’t shown (her call, 10 Nov)
      btn("h", "h", "star", "4★", "4★ (perfect IVs)", !e.released)],
     [extra("sd"), extra("pu")],
   ];
