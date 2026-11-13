@@ -193,11 +193,13 @@ function boxes(e){
 }
 
 // the picture: small ✨ and ♀ buttons on it flip to the shiny / female picture (9 Nov: clicking the picture itself was
-// too hidden, her words). It shows shiny by itself when she has the shiny or is working on shinies.
+// too hidden, her words). It shows the normal colours unless she is on the Shiny tab: the shiny has its own box and
+// picture (13 Nov, her question: after Fast tick nearly every picture had turned shiny).
 const picFlip = new Map();   // key -> {s, f} she has flipped to (until the page is reloaded)
+const shinyFirst = () => prefs.work === "shiny";
 function pic(item, key, big = false){
   const shinyPic = sprite(item.img + ".s"), femalePic = item.femaleImg && sprite(item.femaleImg);
-  const st = picFlip.get(key) || {s: has(key, "s") || prefs.work === "shiny", f: !!femalePic};   // female look first (her call)
+  const st = picFlip.get(key) || {s: shinyFirst(), f: !!femalePic};   // female look first (her call)
   const k = (st.f && femalePic ? item.femaleImg : item.img) + (st.s && shinyPic ? ".s" : "");
   const src = big ? bigSprite(k) || bigSprite(item.img) : sprite(k) || sprite(item.img);
   const flip = (w, on, icon, title) => `<button class="flip${w === "s" ? " fs" : " ff"}" type="button" data-flip="${w}" data-pic="${attr(key)}" aria-pressed="${on}" title="${title}" aria-label="${title}">${icon}</button>`;
@@ -637,22 +639,15 @@ function allSets(){
     sets.push({id: "costumes-" + (y || "other"), title: y ? `Costumes from ${y}` : "Other costumes", when: y ? `${y}-00-00` : "0000", year: y || "Other",
       meta: "Costumes not from your events", art: null, items: cs.map(c => ({key: "c:" + c.id, e: c, img: c.img, bg: false})), cos: cs.map(c => c.id)});
   }
-  // a costume year has no background of its own (her note, 13 Nov): ?yart=b borrows that year's event backgrounds,
-  // otherwise (a) its tile shows four of its costumes (pictures only, until she picks)
-  const yart = TRY.get("yart") || "a";
-  for (const st of sets) if (!st.ev) {
-    const yb = sets.filter(o => o.ev && o.art && o.year === st.year).map(o => o.art);
-    st.arts = yart === "b" && yb.length ? yb.slice(0, 4) : null;
-    st.mosaic = st.arts ? null : st.items.slice(0, 4).map(i => sprite(i.img)).filter(Boolean);
-  }
+  // a costume year has no background of its own (her note, 13 Nov): its tile shows four of its costumes
+  for (const st of sets) if (!st.ev) st.mosaic = st.items.slice(0, 4).map(i => sprite(i.img)).filter(Boolean);
   return sets.sort((a, b) => b.when.localeCompare(a.when));
 }
 const setGot = it => hasAny(it.key, ["c", "s"]);
 function setTile(st){
   const got = st.items.filter(setGot).length, n = st.items.length;
   return `<a class="settile${got === n ? " done" : ""}" href="#set-${attr(st.id)}">` +
-    (st.arts ? `<span class="setart arts">${st.arts.map(a => `<i style="background-image:url('${a}')"></i>`).join("")}</span>`
-      : st.mosaic ? `<span class="setart mosaic">${st.mosaic.map(m => `<img src="${m}" alt="">`).join("")}</span>`
+    (st.mosaic ? `<span class="setart mosaic">${st.mosaic.map(m => `<img src="${m}" alt="">`).join("")}</span>`
       : `<span class="setart${st.art ? "" : " noart"}"${st.art ? ` style="background-image:url('${st.art}')"` : ""}>${st.art ? "" : (sprite(st.items[0].img) ? `<img src="${sprite(st.items[0].img)}" alt="">` : "")}</span>`) +
     `<span class="setbody"><b>${esc(st.title)}</b><small>${esc(st.meta)}</small>` +
     `<span class="setprog"><i style="width:${n ? got / n * 100 : 0}%"></i></span><small class="setn">${num(got)} of ${num(n)}</small></span>` +
@@ -975,7 +970,7 @@ document.addEventListener("click", ev => {
   if (b.dataset.formtick) return tick("d:" + b.dataset.formtick, b.dataset.t, b.getAttribute("aria-pressed") !== "true");
   if (b.dataset.flip) {
     const k = b.dataset.pic, item = byId[k.slice(2)] || costumeById[k.slice(2)];
-    const st = {...(picFlip.get(k) || {s: has(k, "s") || prefs.work === "shiny", f: !!(item && item.femaleImg && sprite(item.femaleImg))})};
+    const st = {...(picFlip.get(k) || {s: shinyFirst(), f: !!(item && item.femaleImg && sprite(item.femaleImg))})};
     st[b.dataset.flip] = !st[b.dataset.flip]; picFlip.set(k, st); return rerender();
   }
   if (b.hasAttribute("data-collect")) return toggleList("costumes", b.closest("[data-costume]").dataset.costume);

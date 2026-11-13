@@ -696,11 +696,5 @@ a.formsbtn{text-decoration:none}
 .hero.withshot > .heropics{position:absolute;inset:0 0 0 auto;height:auto}
 .hero.withshot > p{max-width:400px}   /* text stays clear of the picture (Fast tick) */
 .hero.withshot .prevnext a,.hero.withshot .crumbs a{background:color-mix(in srgb,var(--rc,#5A1820) 70%,rgba(0,0,0,.5));backdrop-filter:blur(6px)}   /* readable on a map */
-.setart.arts{display:grid;grid-template-columns:1fr 1fr;gap:2px;overflow:hidden;background:var(--soft)}
-.setart.arts i{background:center/cover no-repeat}
 .setart.mosaic{display:grid;grid-template-columns:1fr 1fr;place-items:center;padding:6px;background:radial-gradient(circle at 50% 50%,#fff,var(--soft))}
 .setart.mosaic img{width:48px;height:48px;object-fit:contain}
-.setart.arts{grid-template-rows:1fr 1fr}
-.setart.arts i{display:block;min-height:0}
-.setart.arts i:only-child{grid-column:1/-1;grid-row:1/-1}
-.setart.arts{align-items:stretch;justify-content:stretch}
