@@ -293,6 +293,12 @@ const TRY = new URLSearchParams(location.search), FIT_TRY = TRY.get("fit"), RATI
 const shotStyle = f => { const fit = FIT_TRY || SHOT_FIT[f], ratio = RATIO_TRY || SHOT_RATIO[f];
   return ` style="--shot:url('regions/${f}')${fit ? `;--shotfit:${fit}` : ""}${ratio ? `;--shotratio:${ratio}` : ""}"`; };
 const shotCls = f => (PIXEL_SHOTS.has(f) ? " pixel" : "") + (RATIO_TRY || SHOT_RATIO[f] ? " ratio" : "");
+// banners for the other pages (13 Nov, her ask: no plain colour or parade anywhere): a row of pictures filling the banner's
+// right side like the region maps; Home and Every Pokémon: all ten region maps side by side; Events and costumes: her
+// events' background cards; Fast tick and a Pokémon's page: its region's map
+const regionMap = g => REGION_CHOSEN[g] ? `regions/${REGION_CHOSEN[g]}` : null;
+const heroPics = srcs => srcs.length ? `<span class="heropics">${srcs.map(f => `<i style="background-image:url('${f}')"></i>`).join("")}</span>` : "";
+const ALL_MAPS = () => GENS.map(([g]) => regionMap(g)).filter(Boolean);
 function regionShot(g){   // style and switch for a region page's banner
   // tiny DS/3DS pictures (under 500 px wide) are enlarged as sharp pixels, not a blur (her pick, 11 Nov, for Johto)
   const pic = TRY.get("pic");   // ?pic= for pictures of options only
@@ -361,7 +367,7 @@ function home(){
   }
   const went = EVENTS.filter(e => COL.went.includes(e.id)).length;
   setRegion(null);
-  view.innerHTML = `<header class="hero">${heroArt(STARTERS.map(d => baseOf[d]))}<span class="label">Pokémon GO · ${num(c.speciesOut)} Pokémon out, plus their forms</span>
+  view.innerHTML = `<header class="hero withshot">${heroPics(ALL_MAPS())}<span class="label">Pokémon GO · ${num(c.speciesOut)} Pokémon out, plus their forms</span>
     <h1>Jemma’s <em>Pokédex</em></h1>${statsHtml(c)}</header>${readOnlyNote()}
     <section class="section"><h2>By generation</h2><div class="gens">${gens}</div></section>
     <section class="section"><h2>Costumes and backgrounds</h2><div class="gens">
@@ -380,7 +386,7 @@ function dexPage(title, label, list, region){
   // one line: the tabs, Clear, and on the far right a "Not caught" toggle, always there (no tab: not caught at all; a tab: missing that box), on when a tab is picked (untick it to
   // see the ones she has too, lit up; her wording and place, 9 Nov); the not-out switch under it where there are some; how many are shown sits by the title (her layout, 9 Nov)
   setRegion(region);
-  const shot = region ? regionShot(region) : {style: "", sw: ""};
+  const shot = region ? regionShot(region) : {style: "", sw: heroPics(ALL_MAPS()), cls: " withshot"};
   view.innerHTML = `<header class="hero${shot.cls || ""}"${shot.style}>${shot.sw}${heroArt(region ? firstStages(list) : STARTERS.map(d => baseOf[d]))}<span class="label">${esc(label)} · ${num(groups.length)} shown</span><h1>${title}</h1>${statsHtml(counts(list))}</header>${readOnlyNote()}
     <div class="toolbar filters" id="toolbar">
       <div class="frow"><span class="label flabel">Filter</span><div class="worktabs">` +
@@ -528,7 +534,7 @@ function pokemonPage(n){
   showAllBoxes = false;
   setRegion(sel.gen);
   const kin = ENTRIES.filter(x => x.family && x.family === sel.family && x !== sel);
-  view.innerHTML = `<header class="hero mon">${heroArt([sel, ...kin])}<div class="montop"><div class="crumbs"><a href="#dex">${ic("layout-grid")}Every Pokémon</a>` +
+  view.innerHTML = `<header class="hero mon withshot">${heroPics([regionMap(sel.gen)].filter(Boolean))}<div class="montop"><div class="crumbs"><a href="#dex">${ic("layout-grid")}Every Pokémon</a>` +
       (gen[0] ? `<a href="#gen-${gen[0]}">${ic("layers")}${esc(gen[1])}</a>` : "") + `</div>
       <nav class="prevnext" aria-label="Previous and next Pokémon">${step(prev, "prev")}${step(next, "next")}</nav></div>
     <div class="monhead"><div><span class="label">#${pad(n)}${sel.category ? " · " + esc(sel.category) : ""}</span><h1>${esc(sel.name)}${sel.form ? ` <em>${esc(sel.form)}</em>` : ""}</h1>
@@ -603,6 +609,71 @@ function eventsPage(){
     <div class="stats">${statTile("--deep-2", "ticket", "Events", list.length, list.length)}
     ${keys.length ? statTile("--caught", "poke-ball", "Backgrounds caught", keys.filter(k => has(k, "c")).length, keys.length) + statTile("--shiny", "sparkles", "Shiny", keys.filter(k => has(k, "s")).length, keys.length) : ""}</div></header>${readOnlyNote()}
     <div class="events">${html || `<p class="empty">No events yet.</p>`}</div>`;
+}
+
+
+// ---------- Events and costumes, one page (13 Nov, her ask: the two pages felt half done and mixed, as costumes and
+// backgrounds often come from the same event) ----------
+// A timeline of sets, newest first: each event she went to or took part in (its background Pokémon, plus the costumes
+// she collects that came from it) and each group of her other costumes (by the game's costume code, named with Leek
+// Duck's costume name). Every set is a tile with "5 of 12" and its Pokémon lit when got; a tile opens the set to tick.
+function allSets(){
+  const sets = [], linked = new Set();
+  for (const ev of myEvents()) {
+    const bgs = bgMonsOf(ev).map(e => ({key: bgKey(ev, e), e, img: e.img, bg: true}));
+    const cos = (ev.cards || []).filter(id => costumeById[id] && COL.costumes.includes(id));
+    cos.forEach(id => linked.add(id));
+    const items = [...bgs, ...cos.map(id => ({key: "c:" + id, e: costumeById[id], img: costumeById[id].img, bg: false}))];
+    sets.push({id: ev.id, ev, title: ev.name, when: ev.start, year: ev.start.slice(0, 4),
+      meta: `${isSpecial(ev) ? "Special background" : `${ev.city}, ${ev.country}`} · ${dates(ev.start, ev.end)}`, art: BGS.has(ev.id) ? `backgrounds/${ev.id}.webp` : null, items, cos});
+  }
+  // her other costumes, one set per year (13 Nov: by costume code made 100+ tiny sets), the year from the game's costume
+  // code, or when its shiny came out where the code has none
+  const yearOf = c => (/20\d\d/.exec(c.code) || [])[0] || (c.shiny || "").slice(0, 4) || "";
+  const groups = {};
+  for (const c of myCostumes()) if (!linked.has(c.id)) (groups[yearOf(c)] = groups[yearOf(c)] || []).push(c);
+  for (const [y, cs] of Object.entries(groups)) {
+    cs.sort((a, b) => a.code.localeCompare(b.code) || a.dex - b.dex);
+    sets.push({id: "costumes-" + (y || "other"), title: y ? `Costumes from ${y}` : "Other costumes", when: y ? `${y}-00-00` : "0000", year: y || "Other",
+      meta: "Costumes not from your events", art: null, items: cs.map(c => ({key: "c:" + c.id, e: c, img: c.img, bg: false})), cos: cs.map(c => c.id)});
+  }
+  return sets.sort((a, b) => b.when.localeCompare(a.when));
+}
+const setGot = it => hasAny(it.key, ["c", "s"]);
+function setTile(st){
+  const got = st.items.filter(setGot).length, n = st.items.length;
+  return `<a class="settile${got === n ? " done" : ""}" href="#set-${attr(st.id)}">` +
+    `<span class="setart${st.art ? "" : " noart"}"${st.art ? ` style="background-image:url('${st.art}')"` : ""}>${st.art ? "" : (sprite(st.items[0].img) ? `<img src="${sprite(st.items[0].img)}" alt="">` : "")}</span>` +
+    `<span class="setbody"><b>${esc(st.title)}</b><small>${esc(st.meta)}</small>` +
+    `<span class="setprog"><i style="width:${n ? got / n * 100 : 0}%"></i></span><small class="setn">${num(got)} of ${num(n)}</small></span>` +
+    `<span class="setstrip">${st.items.slice(0, 24).map(it => `<img class="${setGot(it) ? "on" : ""}" src="${sprite(it.img) || ""}" alt="" title="${attr(it.e.name + (it.e.costume ? " · " + it.e.costume : ""))}" loading="lazy">`).join("")}${n > 24 ? `<span class="more">+${n - 24}</span>` : ""}</span></a>`;
+}
+function setsPage(){
+  const sets = allSets();
+  const seen = new Set(), items = sets.flatMap(s => s.items).filter(i => !seen.has(i.key) && seen.add(i.key)), bg = items.filter(i => i.bg), cs = items.filter(i => !i.bg);
+  let html = "", year = "";
+  for (const st of sets) {
+    if (st.year !== year) { html += `<h2 class="yearhead">${esc(st.year)}</h2>`; year = st.year; }
+    html += setTile(st);
+  }
+  setRegion(null);
+  view.innerHTML = `<header class="hero withshot">${heroPics(sets.filter(st => st.art).slice(0, 6).map(st => st.art))}<span class="label">Pokémon GO</span><h1>Events and <em>costumes</em></h1>
+    <div class="stats">${statTile("--deep-2", "ticket", "Sets complete", sets.filter(s => s.items.every(setGot)).length, sets.length)}
+    ${statTile("--caught", "image", "Backgrounds", bg.filter(setGot).length, bg.length)}${statTile("--mega", "shirt", "Costumes", cs.filter(setGot).length, cs.length)}</div></header>${readOnlyNote()}
+    <div class="settiles">${html || `<p class="empty">Nothing yet.</p>`}</div>`;
+}
+function setPage(id){
+  const st = allSets().find(s => s.id === id);
+  if (!st) return setsPage();
+  const got = st.items.filter(setGot).length;
+  const bgs = st.ev ? bgMonsOf(st.ev) : [], cos = st.cos.map(cid => costumeById[cid]).filter(Boolean);
+  setRegion(null);
+  view.innerHTML = `<header class="hero${st.art ? " setheroart" : ""}"${st.art ? ` style="--shot:url('${st.art}')"` : ""}><div class="crumbs"><a href="#sets">${ic("arrow-left")}Events and costumes</a></div>
+    <span class="label">${esc(st.meta)}</span><h1>${esc(st.title)}</h1>
+    <div class="stats">${statTile("--caught", "poke-ball", "Got", got, st.items.length)}</div></header>${readOnlyNote()}
+    ${st.ev && st.ev.note ? `<p class="muted setnote">${esc(st.ev.note)}</p>` : ""}
+    ${bgs.length ? `<section class="section"><h2>With the <em>background</em></h2><div class="grid bggrid">${bgs.map(e => bgCard(st.ev, e, false)).join("")}</div></section>` : ""}
+    ${cos.length ? `<section class="section"><h2>${st.ev ? "Its <em>costumes</em>" : "The <em>costumes</em>"}</h2><div class="grid">${cos.map(costumeCard).join("")}</div></section>` : ""}`;
 }
 
 
@@ -741,8 +812,8 @@ function fastPage(){
     return fastCell(main, t, on, sp.dex, !mine && elsewhere ? (elsewhere.form || elsewhere.name) : "");
   }).join("");
   setRegion(g);
-  view.innerHTML = `<header class="hero"><h1>Fast <em>tick</em></h1>
-    <p>A whole region at once, laid out like the game’s Pokédex. Open the same tab on your phone (${b in FAST_GAME ? `the game calls it <b>${esc(FAST_GAME[b])}</b>` : "the game’s Pokédex has no tab for this one, so use the storage search instead"}) and click every Pokémon that’s in colour there. Your number should end up matching the game’s.</p></header>${readOnlyNote()}
+  view.innerHTML = `<header class="hero withshot">${heroPics([regionMap(g)].filter(Boolean))}<h1>Fast <em>tick</em></h1>
+    <p style="max-width:380px">A whole region at once, laid out like the game’s Pokédex. Open the same tab on your phone (${b in FAST_GAME ? `the game calls it <b>${esc(FAST_GAME[b])}</b>` : "the game’s Pokédex has no tab for this one, so use the storage search instead"}) and click every Pokémon that’s in colour there. Your number should end up matching the game’s.</p></header>${readOnlyNote()}
     <div class="toolbar filters"><div class="frow"><span class="label flabel">Region</span><div class="worktabs">${GENS.map(([id, n]) => `<button type="button" class="worktab" data-fastgen="${id}" aria-pressed="${id === g}">${esc(n)}</button>`).join("")}</div></div>
     <div class="frow"><span class="label flabel">Box</span><div class="worktabs">${FAST.map(([t, l]) => `<button type="button" class="worktab" data-fastbox="${t}" aria-pressed="${t === b}">${esc(l)}</button>`).join("")}</div></div></div>
     <div class="fasthead" style="--bc:var(${FAST_COL[b]})">${ic(icon)}<b>${esc(genById[g][1])} · ${esc(label)}</b><span class="fastn">${num(got)} / ${num(all)}</span>
@@ -790,18 +861,21 @@ function navHtml(route){
   const out = ENTRIES.filter(e => e.released);
   nav.innerHTML = `<div class="nav-group">${link("#home", "house", "Home")}${link("#dex", "layout-grid", "Every Pokémon", groupByNumber(ENTRIES).length)}</div>
     <div class="nav-group"><span class="label">Generations</span>${GENS.map(([g, n]) => link("#gen-" + g, "layers", g === "hisui" ? n : `${g} · ${n}`, groupByNumber(ENTRIES.filter(e => e.gen === g)).length)).join("")}</div>
-    <div class="nav-group"><span class="label">More</span>${link("#costumes", "shirt", "Costumes", COL.costumes.length)}${link("#events", "ticket", "Events and backgrounds", myEvents().length)}${link("#fast", "layout-grid", "Fast tick")}</div>`;
+    <div class="nav-group"><span class="label">More</span>${link("#sets", "ticket", "Events and costumes", allSets().length)}${link("#fast", "layout-grid", "Fast tick")}</div>`;
 }
 
 function route(to){   // to: draw that page without changing the address (the tests' sweep over every page)
   const r = to || (location.hash || "#home").slice(1);
   const term = q.value.trim().toLowerCase();
   const pn = /^p-(\d+)$/.exec(r), lead = pn && groupByNumber(ENTRIES.filter(e => e.dex === +pn[1]))[0];
-  navHtml(lead ? "gen-" + lead.lead.gen : r);   // a Pokémon's page lights up its region in the sidebar
+  navHtml(lead ? "gen-" + lead.lead.gen : /^set-/.test(r) ? "sets" : r);   // a Pokémon's page lights up its region in the sidebar
   if (r === "costumes") return costumesPage();
   if (r === "events") return eventsPage();
   if (r === "quick") return quickPage();
   if (r === "fast") return fastPage();
+  if (r === "sets") return setsPage();
+  const sm = /^set-(.+)$/.exec(r);
+  if (sm) return setPage(sm[1]);
   const pm = /^p-(\d+)$/.exec(r);
   if (pm) return pokemonPage(+pm[1]);
   if (term && r !== "costumes") {

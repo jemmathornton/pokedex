@@ -3,7 +3,8 @@
 Everything waiting on you. **Do** = just do it; **Decide** = your call. Tell Claude when one’s done or decided and it comes off.
 
 ## Decide
-- **Events and backgrounds, Costumes pages:** what feels off (pictures: `for-jemma/page-events.png`, `page-costumes.png`).
+- **Events and costumes (trial, 13 Nov):** one page instead of two: a timeline of sets with progress (`for-jemma/page-events-and-costumes.png`, one set: `page-one-event.png`). Keep, change or go back?
+- **Banners on every page (trial, 13 Nov):** maps on Home, Every Pokémon, Fast tick and each Pokémon page; event backgrounds on Events and costumes (`for-jemma/page-banners.png`).
 - **Which game to add after GO**, when you want it.
 
 ## Do

@@ -34,7 +34,7 @@
     const problems = [], errs = [], seen = new Set(), links = new Set();
     const onErr = e => errs.push(e.message || String(e.reason)); addEventListener("error", onErr);
     const nums = [...new Set(ENTRIES.map(e => e.dex))];
-    const routes = ["#home", "#dex", "#costumes", "#events", "#fast", ...Object.keys(genById).map(g => "#gen-" + g), ...nums.map(n => "#p-" + n)];
+    const routes = ["#home", "#dex", "#costumes", "#events", "#fast", "#sets", ...allSets().map(st => "#set-" + st.id), ...Object.keys(genById).map(g => "#gen-" + g), ...nums.map(n => "#p-" + n)];
     try {
       for (const h of routes) {
         if (seen.has(h)) continue; seen.add(h);
