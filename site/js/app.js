@@ -629,28 +629,48 @@ function allSets(){
     sets.push({id: ev.id, ev, title: ev.name, when: ev.start, year: ev.start.slice(0, 4),
       meta: `${isSpecial(ev) ? "Special background" : `${ev.city}, ${ev.country}`} · ${dates(ev.start, ev.end)}`, art: BGS.has(ev.id) ? `backgrounds/${ev.id}.webp` : null, items, cos});
   }
-  // a costume whose game code names an event she went to sits with that event too (13 Nov, her question: the GO Fest
-  // 2025 Dapper Pikachu were under "Costumes from 2025", not with GO Fest 2025 Paris); the in-person one first
-  const CODE_EVENT = [[/^GOFEST_(20\d\d)/, y => `GO Fest ${y}`], [/^WILDAREA_(20\d\d)/, y => `GO Wild Area ${y}`], [/^GOTOUR_(20\d\d)/, y => `GO Tour ${y}`]];
+  // costumes sit with the event they came from (13 Nov, her point: you only get costumes at events): the event Bulbapedia
+  // gives for each costume (data/costume-events.json); one first seen at an in-person GO Fest sits with the GO Fest she
+  // went to that year (the in-person ones share costumes), one from GO Fest Global with that year's Global background
+  const CEV = DATA.costumeEvents || {};
+  const debutOf = c => { const r = CEV[c.code] || CEV[c.code.replace(/_NOEVOLVE$/, "")]; return r && ((r.parts || {})[`${c.name} ${c.costume}`] || r); };
+  const herSet = d => {
+    const m = d && d.event && /GO Fest (20\d\d)\s*[—–-]\s*(.+)/.exec(d.event);
+    if (!d || !d.event) return null;
+    const wa = /GO Wild Area: /.test(d.event) && sets.find(o => o.title.includes(`GO Wild Area ${d.start.slice(0, 4)}`));   // an in-person Wild Area's costume came to that year's Global
+    if (wa) return wa;
+    const words = t => new Set((t.toLowerCase().match(/[a-z]{5,}/g) || []).filter(w => w !== "global"));
+    if (!m) return sets.find(o => o.title === d.event || o.ev && d.start >= o.ev.start && d.start <= (o.ev.end || o.ev.start) && [...words(d.event)].some(w => words(o.title).has(w)));   // same event under another name (the 9th Anniversary coin Gimmighoul)
+    return /Global/.test(m[2]) ? sets.find(o => isSpecial(o.ev) && [`GO Fest ${m[1]}`, `GO Fest ${m[1]} Global`].includes(o.title))
+      : sets.find(o => !isSpecial(o.ev) && o.title.includes(`GO Fest ${m[1]}`));
+  };
   for (const c of myCostumes()) {
     if (linked.has(c.id)) continue;
-    const hit = CODE_EVENT.map(([re, nm]) => (re.exec(c.code) || [])[1] && nm(re.exec(c.code)[1])).find(Boolean);
-    const st = hit && (sets.find(o => !isSpecial(o.ev) && o.title.includes(hit)) || sets.find(o => o.title.includes(hit)));
+    const st = herSet(debutOf(c));
     if (!st) continue;
     st.items.push({key: "c:" + c.id, e: c, img: c.img, bg: false}); st.cos.push(c.id); linked.add(c.id);
   }
-  // her other costumes, one set per year (13 Nov: by costume code made 100+ tiny sets), the year from the game's costume
-  // code, or when its shiny came out where the code has none
-  const yearOf = c => (/20\d\d/.exec(c.code) || [])[0] || (c.shiny || "").slice(0, 4) || "";
-  const groups = {};
-  for (const c of myCostumes()) if (!linked.has(c.id)) (groups[yearOf(c)] = groups[yearOf(c)] || []).push(c);
-  for (const [y, cs] of Object.entries(groups)) {
-    cs.sort((a, b) => a.code.localeCompare(b.code) || a.dex - b.dex);
-    sets.push({id: "costumes-" + (y || "other"), title: y ? `Costumes from ${y}` : "Other costumes", when: y ? `${y}-00-00` : "0000", year: y || "Other",
-      meta: "Costumes not from your events", art: null, items: cs.map(c => ({key: "c:" + c.id, e: c, img: c.img, bg: false})), cos: cs.map(c => c.id)});
+  // every other costume sits with the event it came from (13 Nov, her point: you only get costumes at events), named as
+  // the sources name it (data/costume-events.json); a code not looked up yet groups by its game code, tidied
+  const baseCode = code => code.replace(/_NOEVOLVE$/, "").replace(/^[A-Z]_(?=[A-Z]{3})/, "").replace(/^(.*?_20\d\d)_.*$/, "$1").replace(/_\d+(?=_20\d\d)/, "");
+  const tidy = code => baseCode(code).split("_").map(w => w === "GOFEST" ? "GO Fest" : /^\d+$/.test(w) ? w : w[0] + w.slice(1).toLowerCase()).join(" ");
+  const d0 = cs => { const d = debutOf(cs[0]); return d && !d.event && d.start ? d : null; };
+  const groups = new Map();
+  for (const c of myCostumes()) {
+    if (linked.has(c.id)) continue;
+    const d = debutOf(c) || CEV[baseCode(c.code)], ev = d && d.event ? d : null;
+    const key = ev ? ev.event : d && d.start ? `${c.name} ${c.costume}` : baseCode(c.code);   // not from an event (a GO Battle League reward…): on its own
+    if (!groups.has(key)) groups.set(key, {ev, cs: []});
+    groups.get(key).cs.push(c);
   }
-  // a costume year has no background of its own (her note, 13 Nov): its tile shows four of its costumes
-  for (const st of sets) if (!st.ev) st.mosaic = st.items.slice(0, 4).map(i => sprite(i.img)).filter(Boolean);
+  for (const [key, {ev, cs}] of groups) {
+    cs.sort((a, b) => a.code.localeCompare(b.code) || a.dex - b.dex);
+    const y = ev ? ev.start.slice(0, 4) : d0(cs) ? d0(cs).start.slice(0, 4) : (/20\d\d/.exec(key) || [])[0] || (cs.map(c => c.shiny).filter(Boolean).sort()[0] || "").slice(0, 4);
+    sets.push({id: "cos-" + key.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""), title: ev ? ev.event : d0(cs) ? key : tidy(key),
+      when: ev ? ev.start : d0(cs) ? d0(cs).start : y ? `${y}-00-00` : "0000", year: y || "Other",
+      meta: ev ? `Costumes · ${dates(ev.start, ev.end || ev.start)}` : d0(cs) ? "Costume · not from an event" : "Costumes", art: null,
+      mosaic: cs.slice(0, 4).map(c => sprite(c.img)).filter(Boolean), items: cs.map(c => ({key: "c:" + c.id, e: c, img: c.img, bg: false})), cos: cs.map(c => c.id)});
+  }
   return sets.sort((a, b) => b.when.localeCompare(a.when));
 }
 const setGot = it => hasAny(it.key, ["c", "s"]);

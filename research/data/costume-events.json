@@ -1,0 +1,1293 @@
+{
+ "_about": "Where each game costume code first appeared (its debut event), for the 156 codes in the game files. Checked 13 Nov 2026. Source: Bulbapedia's Event Pokémon (GO) list (revision of 6 Nov 2026), which gives every costume's events with dates; event names are Bulbapedia's wording, word for word, and the debut is the earliest dated entry for any Pokémon wearing that code. Dapper Pikachu cross-checked against Leek Duck's Pokémon GO Fest 2025: Global page. 151 codes have an event, 5 have none (event null), 15 carry an 'unsure' note. 'parts' (on 10 codes) gives each costume's own debut where the Pokémon sharing one code first appeared at different events (e.g. FALL_2022: Diglett at Fashion Week 2022, Vulpix at Halloween 2022 - Part II). 'note' adds Bulbapedia's own detail (where an event ran). end null = open-ended or not given.",
+ "2020": {
+  "event": "New Year's 2021",
+  "start": "2020-12-31",
+  "end": "2021-01-04",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "2021": {
+  "event": "New Year's 2021",
+  "start": "2020-12-31",
+  "end": "2021-01-04",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)",
+  "unsure": "Bulbapedia lists the 2020/2021/2022 glasses together under New Year's 2021 and marks only the 2022 glasses Slowking as a later debut (New Year's 2022); the 2021 glasses Slowbro comes from evolving the 2020 glasses Slowpoke."
+ },
+ "2022": {
+  "event": "New Year's 2022",
+  "start": "2021-12-31",
+  "end": "2022-01-04",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "ADVENTURE_HAT_2020": {
+  "event": "Secrets of the Jungle in Japan",
+  "start": "2020-12-14",
+  "end": "2020-12-21",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "ANNIVERSARY": {
+  "event": "Pokémon Day 2017",
+  "start": "2017-02-26",
+  "end": "2017-03-06",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "ANNIVERSARY_2022_NOEVOLVE": {
+  "event": "Pokémon GO 6th Anniversary",
+  "start": "2022-07-06",
+  "end": "2022-07-12",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "ANNIVERSARY_2024": {
+  "event": "Pokémon GO 8th Anniversary",
+  "start": "2024-06-28",
+  "end": "2024-07-03",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "ANNIVERSARY_2026": {
+  "event": "Ultra Unlock: 10th Anniversary Edition",
+  "start": "2026-07-21",
+  "end": "2026-07-27",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "ANNIVERSARY_2026_MALAYSIA_01": {
+  "event": "PokéXciting! GO Stamp Rally — Kuala Lumpur, Malaysia",
+  "start": "2026-09-12",
+  "end": "2029-09-11",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "ANNIVERSARY_2026_PHILIPPINE_01": {
+  "event": "PokéXciting! GO Stamp Rally — Manila, Philippines",
+  "start": "2026-09-12",
+  "end": "2029-09-11",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "ANNIVERSARY_2026_SINGAPORE_01": {
+  "event": "PokéXciting! GO Stamp Rally — Singapore",
+  "start": "2026-09-12",
+  "end": "2029-09-11",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "ANNIVERSARY_2026_TAIWAN_01": {
+  "event": "PokéXciting! GO Stamp Rally — Taipei, Taiwan",
+  "start": "2026-09-12",
+  "end": "2029-09-11",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "ANNIVERSARY_2026_THAILAND_01": {
+  "event": "PokéXciting! GO Stamp Rally — Bangkok, Thailand",
+  "start": null,
+  "end": null,
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)",
+  "unsure": "Bulbapedia gives the Bangkok stamp rally as “To be announced”; it lists PokéXciting! — Bangkok, Thailand for February 13 - 14, 2027."
+ },
+ "APRIL_2020_NOEVOLVE": {
+  "event": "Spring 2020",
+  "start": "2020-04-09",
+  "end": "2020-04-16",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "A_HALLOWEEN_2026_01": {
+  "event": "Halloween 2026 Part I",
+  "start": "2026-10-27",
+  "end": "2026-11-01",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "BB_2026": {
+  "event": "Nippon Professional Baseball collaboration",
+  "start": "2026-04-03",
+  "end": "2026-08-23",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "COIN_A1": {
+  "event": "Pokémon GO's 9th Anniversary Party",
+  "start": "2025-07-01",
+  "end": "2025-07-06",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "COIN_A2_2026": {
+  "event": "10th Anniversary Party",
+  "start": "2026-07-04",
+  "end": "2026-07-06",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "COPY_2019": {
+  "event": "Pokémon Day 2020",
+  "start": "2020-02-25",
+  "end": "2020-03-02",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "COSTUME_1": {
+  "event": "Spotlight Hour",
+  "start": "2020-10-06",
+  "end": "2020-10-06",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "COSTUME_2": {
+  "event": "New Year's 2021",
+  "start": "2020-12-31",
+  "end": "2021-01-04",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "COSTUME_2020": {
+  "event": "Pokémon GO 4th Anniversary",
+  "start": "2020-07-03",
+  "end": "2020-07-08",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)",
+  "parts": {
+   "Gengar Halloween": {
+    "event": "Halloween 2020",
+    "start": "2020-10-23",
+    "end": "2020-11-03"
+   },
+   "Lapras w Scarf": {
+    "event": "Water Festival",
+    "start": "2022-05-12",
+    "end": "2022-05-20"
+   },
+   "Pikachu 4ᵗʰ Anniversary Balloons": {
+    "event": "Pokémon GO 4th Anniversary",
+    "start": "2020-07-03",
+    "end": "2020-07-08"
+   },
+   "Sableye Litwick Hat": {
+    "event": "Halloween 2020",
+    "start": "2020-10-23",
+    "end": "2020-11-03"
+   }
+  }
+ },
+ "DIWALI_2024": {
+  "event": "Festival of Lights",
+  "start": "2024-11-01",
+  "end": "2024-11-04",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "DOCTOR": {
+  "event": null,
+  "start": "2024-02-29",
+  "end": null,
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)",
+  "unsure": "Not from an event: Bulbapedia says Pikachu Ph. D has been a platinum Showcase Star Medal reward since 29 Feb 2024."
+ },
+ "FALL_2018": {
+  "event": "H.F. Custom Tie-in",
+  "start": "2018-10-05",
+  "end": "2018-10-07",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "FALL_2019": {
+  "event": "Halloween 2019",
+  "start": "2019-10-17",
+  "end": "2019-11-01",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "FALL_2020_NOEVOLVE": {
+  "event": "Paris Fashion Week 2020",
+  "start": "2020-10-02",
+  "end": "2020-10-09",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "FALL_2022": {
+  "event": "Fashion Week 2022",
+  "start": "2022-09-27",
+  "end": "2022-10-03",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)",
+  "parts": {
+   "Diglett Fashionable": {
+    "event": "Fashion Week 2022",
+    "start": "2022-09-27",
+    "end": "2022-10-03"
+   },
+   "Dugtrio Fashionable": {
+    "event": "Fashion Week 2022",
+    "start": "2022-09-27",
+    "end": "2022-10-03"
+   },
+   "Ninetales Spooky Festival": {
+    "event": "Halloween 2022 - Part II",
+    "start": "2022-10-27",
+    "end": "2022-11-01"
+   },
+   "Vulpix Spooky Festival": {
+    "event": "Halloween 2022 - Part II",
+    "start": "2022-10-27",
+    "end": "2022-11-01"
+   }
+  }
+ },
+ "FALL_2022_NOEVOLVE": {
+  "event": "Fashion Week 2022",
+  "start": "2022-09-27",
+  "end": "2022-10-03",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)",
+  "parts": {
+   "Absol Sunglasses": {
+    "event": "Fashion Week 2022",
+    "start": "2022-09-27",
+    "end": "2022-10-03"
+   },
+   "Dusclops Cempasúchil Crown": {
+    "event": "Día de Muertos 2022",
+    "start": "2022-11-01",
+    "end": "2022-11-02"
+   },
+   "Dusknoir Cempasúchil Crown": {
+    "event": "Día de Muertos 2022",
+    "start": "2022-11-01",
+    "end": "2022-11-02"
+   },
+   "Duskull Cempasúchil Crown": {
+    "event": "Día de Muertos 2022",
+    "start": "2022-11-01",
+    "end": "2022-11-02"
+   },
+   "Gengar Spooky Festival": {
+    "event": "Halloween 2022 - Part II",
+    "start": "2022-10-27",
+    "end": "2022-11-01"
+   }
+  }
+ },
+ "FALL_2023": {
+  "event": "Día de Muertos 2023",
+  "start": "2023-11-01",
+  "end": "2023-11-02",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)",
+  "parts": {
+   "Cubone Cempasúchil Crown": {
+    "event": "Día de Muertos 2023",
+    "start": "2023-11-01",
+    "end": "2023-11-02"
+   },
+   "Dragonite Fashionable": {
+    "event": "Fashion Week 2023",
+    "start": "2023-11-15",
+    "end": "2023-11-19"
+   },
+   "Marowak Cempasúchil Crown": {
+    "event": "Día de Muertos 2023",
+    "start": "2023-11-01",
+    "end": "2023-11-02"
+   },
+   "Quagsire Fashionable": {
+    "event": "Fashion Week 2023",
+    "start": "2023-11-15",
+    "end": "2023-11-19"
+   },
+   "Wooper Fashionable": {
+    "event": "Fashion Week 2023",
+    "start": "2023-11-15",
+    "end": "2023-11-19"
+   }
+  }
+ },
+ "FALL_2023_NOEVOLVE": {
+  "event": "Halloween 2023 - Part II",
+  "start": "2023-10-26",
+  "end": "2023-10-31",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "FALL_2024": {
+  "event": "Halloween 2024 Part I",
+  "start": "2024-10-22",
+  "end": "2024-10-28",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "FASHION_2021_NOEVOLVE": {
+  "event": "Fashion Week 2021",
+  "start": "2021-09-21",
+  "end": "2021-09-28",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "FASHION_2025": {
+  "event": "Fashion Week 2025",
+  "start": "2025-01-10",
+  "end": "2025-01-19",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "FEB_2019": {
+  "event": "POKÉMON Detective Pikachu",
+  "start": "2019-05-07",
+  "end": "2019-05-17",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "FLYING_01": {
+  "event": "Pokémon Air Adventures",
+  "start": "2022-10-14",
+  "end": "2022-10-23",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)",
+  "note": "Bulbapedia: Only in Taipei"
+ },
+ "FLYING_02": {
+  "event": "Pokémon Air Adventures",
+  "start": "2022-11-11",
+  "end": "2022-11-20",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)",
+  "note": "Bulbapedia: Only in Singapore"
+ },
+ "FLYING_03": {
+  "event": "Pokémon Air Adventures",
+  "start": "2023-07-21",
+  "end": "2023-07-27",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)",
+  "note": "Bulbapedia: Only in Jeju Island"
+ },
+ "FLYING_04": {
+  "event": "Pikachu's Indonesia Journey — Bali",
+  "start": "2024-03-02",
+  "end": "2024-03-03",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "FLYING_5TH_ANNIV": {
+  "event": "Pokémon GO 5th Anniversary",
+  "start": "2021-07-06",
+  "end": "2021-07-15",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "FLYING_OKINAWA": {
+  "event": "Pokémon Air Adventures",
+  "start": "2022-05-03",
+  "end": "2022-05-08",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)",
+  "note": "Bulbapedia: Only in Okinawa Prefecture"
+ },
+ "FOSSIL_2026": {
+  "event": "Pokémon Fossil Museum – Chicago",
+  "start": "2026-05-22",
+  "end": "2027-04-11",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "GEMS_1_2021_NOEVOLVE": {
+  "event": "Pokémon Brilliant Diamond and Shining Pearl event",
+  "start": "2021-11-16",
+  "end": "2021-11-21",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "GEMS_2_2021_NOEVOLVE": {
+  "event": "Pokémon Brilliant Diamond and Shining Pearl event",
+  "start": "2021-11-16",
+  "end": "2021-11-21",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "GLASS_HELMET_2026": {
+  "event": "World Space Week 2026",
+  "start": "2026-10-04",
+  "end": "2026-10-10",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "GOFEST_2021_NOEVOLVE": {
+  "event": "Pokémon GO Fest 2021",
+  "start": "2021-07-17",
+  "end": "2021-07-18",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "GOFEST_2022": {
+  "event": "Pokémon GO Fest 2022 — Finale",
+  "start": "2022-08-27",
+  "end": "2022-08-27",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "GOFEST_2022_NOEVOLVE": {
+  "event": "Pokémon GO Fest 2022",
+  "start": "2022-06-04",
+  "end": "2022-06-05",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)",
+  "parts": {
+   "Pikachu Gracidea Flower": {
+    "event": "Pokémon GO Fest 2022",
+    "start": "2022-06-04",
+    "end": "2022-06-05"
+   },
+   "Snorlax Cowboy Hat": {
+    "event": "Pokémon GO Fest 2022 — Berlin",
+    "start": "2022-07-01",
+    "end": "2022-07-03"
+   }
+  }
+ },
+ "GOFEST_2024_MSCARF": {
+  "event": "Pokémon GO Fest 2024 — Sendai",
+  "start": "2024-05-30",
+  "end": "2024-06-02",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "GOFEST_2024_MTIARA": {
+  "event": "Pokémon GO Fest 2024 — Sendai",
+  "start": "2024-05-30",
+  "end": "2024-06-02",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "GOFEST_2024_SSCARF": {
+  "event": "Pokémon GO Fest 2024 — Sendai",
+  "start": "2024-05-30",
+  "end": "2024-06-02",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "GOFEST_2024_STIARA": {
+  "event": "Pokémon GO Fest 2024 — Sendai",
+  "start": "2024-05-30",
+  "end": "2024-06-02",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "GOFEST_2025_GOGGLES_BLUE": {
+  "event": "GO Pass - Ancients Recovered",
+  "start": "2025-06-23",
+  "end": "2025-06-29",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)",
+  "unsure": "Bulbapedia's earliest is the GO Pass - Ancients Recovered reward (from 23 Jun 2025); Leek Duck's Pokémon GO Fest 2025: Global page (28–29 Jun 2025) says Dapper Pikachu would “make their global debuts in Raids” there. Not confirmed whether Dapper Pikachu appeared at the in-person GO Fests 2025 first."
+ },
+ "GOFEST_2025_GOGGLES_RED": {
+  "event": "GO Pass - Ancients Recovered",
+  "start": "2025-06-23",
+  "end": "2025-06-29",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)",
+  "unsure": "Bulbapedia's earliest is the GO Pass - Ancients Recovered reward (from 23 Jun 2025); Leek Duck's Pokémon GO Fest 2025: Global page (28–29 Jun 2025) says Dapper Pikachu would “make their global debuts in Raids” there. Not confirmed whether Dapper Pikachu appeared at the in-person GO Fests 2025 first."
+ },
+ "GOFEST_2025_GOGGLES_YELLOW": {
+  "event": "GO Pass - Ancients Recovered",
+  "start": "2025-06-23",
+  "end": "2025-06-29",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)",
+  "unsure": "Bulbapedia's earliest is the GO Pass - Ancients Recovered reward (from 23 Jun 2025); Leek Duck's Pokémon GO Fest 2025: Global page (28–29 Jun 2025) says Dapper Pikachu would “make their global debuts in Raids” there. Not confirmed whether Dapper Pikachu appeared at the in-person GO Fests 2025 first."
+ },
+ "GOFEST_2025_MONOCLE_BLUE": {
+  "event": "Pokémon GO Fest 2025 — Osaka",
+  "start": "2025-05-29",
+  "end": "2025-06-02",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "GOFEST_2025_MONOCLE_RED": {
+  "event": "Pokémon GO Fest 2025 — Osaka",
+  "start": "2025-05-29",
+  "end": "2025-06-02",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "GOFEST_2025_MONOCLE_YELLOW": {
+  "event": "Pokémon GO Fest 2025 — Osaka",
+  "start": "2025-05-29",
+  "end": "2025-06-02",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "GOFEST_2025_TRAIN_CONDUCTOR": {
+  "event": "Pokémon GO Fest 2025 — Osaka",
+  "start": "2025-05-29",
+  "end": "2025-06-02",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "GOFEST_2026": {
+  "event": "Pokémon GO Fest 2026 - Tokyo",
+  "start": "2026-05-24",
+  "end": "2026-06-01",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "GOFEST_2026_CAP_BLUE": {
+  "event": "Pokémon GO Fest 2026 — Tokyo",
+  "start": "2026-05-24",
+  "end": "2026-06-01",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "GOFEST_2026_CAP_RED": {
+  "event": "Pokémon GO Fest 2026 — Copenhagen",
+  "start": "2026-06-11",
+  "end": "2026-06-14",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "GOFEST_2026_CAP_YELLOW": {
+  "event": "Pokémon GO Fest 2026 — Chicago",
+  "start": "2026-06-04",
+  "end": "2026-06-07",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "GOGGLES_2026": {
+  "event": "Pokémon Horizons: The Series Celebration Event",
+  "start": "2026-09-16",
+  "end": "2026-09-22",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "GOTOUR_2023_BANDANA": {
+  "event": null,
+  "start": null,
+  "end": null,
+  "source": null,
+  "unsure": "Not on Bulbapedia's Event Pokémon (GO) list: the picture is in the game files but no event with this costume was found (the GO Tour 2023 Pikachu that were released are the _NOEVOLVE codes, Brendan's hat and May's bow)."
+ },
+ "GOTOUR_2023_BANDANA_NOEVOLVE": {
+  "event": "Pokémon GO Tour: Hoenn — Las Vegas",
+  "start": "2023-02-18",
+  "end": "2023-02-19",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "GOTOUR_2023_HAT": {
+  "event": null,
+  "start": null,
+  "end": null,
+  "source": null,
+  "unsure": "Not on Bulbapedia's Event Pokémon (GO) list: the picture is in the game files but no event with this costume was found (the GO Tour 2023 Pikachu that were released are the _NOEVOLVE codes, Brendan's hat and May's bow)."
+ },
+ "GOTOUR_2023_HAT_NOEVOLVE": {
+  "event": "Pokémon GO Tour: Hoenn — Las Vegas",
+  "start": "2023-02-18",
+  "end": "2023-02-19",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "GOTOUR_2024_A": {
+  "event": "Pokémon GO Tour: Sinnoh – Los Angeles",
+  "start": "2024-02-17",
+  "end": "2024-02-18",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "GOTOUR_2024_A_02": {
+  "event": "Pokémon GO Tour: Sinnoh – Los Angeles",
+  "start": "2024-02-17",
+  "end": "2024-02-18",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "GOTOUR_2024_B": {
+  "event": "Pokémon GO Tour: Sinnoh – Los Angeles",
+  "start": "2024-02-17",
+  "end": "2024-02-18",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "GOTOUR_2024_B_02": {
+  "event": "Pokémon GO Tour: Sinnoh – Los Angeles",
+  "start": "2024-02-17",
+  "end": "2024-02-18",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "GOTOUR_2025_A": {
+  "event": "Pokémon GO Tour: Unova – Los Angeles",
+  "start": "2025-02-21",
+  "end": "2025-02-23",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "GOTOUR_2025_A_02": {
+  "event": "Pokémon GO Tour: Unova – Los Angeles",
+  "start": "2025-02-21",
+  "end": "2025-02-23",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "GOTOUR_2025_B": {
+  "event": "Pokémon GO Tour: Unova – Los Angeles",
+  "start": "2025-02-21",
+  "end": "2025-02-23",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "GOTOUR_2025_B_02": {
+  "event": "Pokémon GO Tour: Unova – Los Angeles",
+  "start": "2025-02-21",
+  "end": "2025-02-23",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "GOTOUR_2026_A": {
+  "event": "Road to Kalos",
+  "start": "2026-02-23",
+  "end": "2026-02-23",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "GOTOUR_2026_A_02": {
+  "event": "Road to Kalos",
+  "start": "2026-02-23",
+  "end": "2026-02-23",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "GOTOUR_2026_B": {
+  "event": "Road to Kalos",
+  "start": "2026-02-24",
+  "end": "2026-02-24",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "GOTOUR_2026_B_02": {
+  "event": "Road to Kalos",
+  "start": "2026-02-24",
+  "end": "2026-02-24",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "GOTOUR_2026_C": {
+  "event": "Pokémon GO Tour: Kalos – Los Angeles",
+  "start": "2026-02-20",
+  "end": "2026-02-22",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "GOTOUR_2026_C_02": {
+  "event": "Pokémon GO Tour: Kalos – Los Angeles",
+  "start": "2026-02-20",
+  "end": "2026-02-22",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "HALLOWEEN_2017": {
+  "event": "Halloween 2017",
+  "start": "2017-10-20",
+  "end": "2017-11-02",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "HALLOWEEN_2021_NOEVOLVE": {
+  "event": "Halloween 2021",
+  "start": "2021-10-15",
+  "end": "2021-10-31",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "HALLOWEEN_2025": {
+  "event": "GO Pass - Halloween 2025",
+  "start": "2025-10-21",
+  "end": "2025-11-02",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "HALLOWEEN_2026": {
+  "event": "Halloween 2026 Part I",
+  "start": "2026-10-27",
+  "end": "2026-11-01",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "HALLOWEEN_2026_01": {
+  "event": "Halloween 2026 Part I",
+  "start": "2026-10-27",
+  "end": "2026-11-01",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "HOENN_2020_NOEVOLVE": {
+  "event": "Throwback Challenge 2020 - Hoenn",
+  "start": "2020-05-15",
+  "end": "2020-05-22",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "HOLIDAY_2016": {
+  "event": "Holiday 2016",
+  "start": "2016-12-12",
+  "end": "2017-01-03",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "HOLIDAY_2021_NOEVOLVE": {
+  "event": "Holiday 2021",
+  "start": "2021-12-16",
+  "end": "2021-12-31",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "HOLIDAY_2022": {
+  "event": "Winter Holiday 2022 - Part 2",
+  "start": "2022-12-23",
+  "end": "2022-12-31",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "HOLIDAY_2023": {
+  "event": "Winter Holiday 2023 - Part 1",
+  "start": "2023-12-18",
+  "end": "2023-12-25",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)",
+  "parts": {
+   "Golduck Holiday Attire": {
+    "event": "Winter Holiday 2023 - Part 2",
+    "start": "2023-12-25",
+    "end": "2023-12-31"
+   },
+   "Pikachu Holiday Outfit": {
+    "event": "Winter Holiday 2023 - Part 1",
+    "start": "2023-12-18",
+    "end": "2023-12-25"
+   },
+   "Psyduck Holiday Attire": {
+    "event": "Winter Holiday 2023 - Part 2",
+    "start": "2023-12-25",
+    "end": "2023-12-31"
+   },
+   "Raichu Holiday Outfit": {
+    "event": "Winter Holiday 2023 - Part 1",
+    "start": "2023-12-18",
+    "end": "2023-12-25"
+   }
+  }
+ },
+ "HORIZONS": {
+  "event": "Pokémon Horizons: The Series event",
+  "start": "2024-03-05",
+  "end": "2024-03-11",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "HORIZONS_2025_NOEVOLVE": {
+  "event": "Pokémon Horizons: The Series Celebration Event",
+  "start": "2025-04-16",
+  "end": "2025-04-22",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "INDONESIA_2025_NOEVOLVE": {
+  "event": "Goal Time with Pikachu",
+  "start": "2025-08-04",
+  "end": "2025-08-09",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "JAN_2020_NOEVOLVE": {
+  "event": "Adventure Sync Hatchathon",
+  "start": "2020-01-02",
+  "end": "2020-01-16",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)",
+  "parts": {
+   "Blastoise Party Hat": {
+    "event": "Pokémon Day 2020",
+    "start": "2020-02-25",
+    "end": "2020-03-02"
+   },
+   "Bulbasaur Party Hat": {
+    "event": "Pokémon Day 2020",
+    "start": "2020-02-25",
+    "end": "2020-03-02"
+   },
+   "Charizard Party Hat": {
+    "event": "Pokémon Day 2020",
+    "start": "2020-02-25",
+    "end": "2020-03-02"
+   },
+   "Charmander Party Hat": {
+    "event": "Pokémon Day 2020",
+    "start": "2020-02-25",
+    "end": "2020-03-02"
+   },
+   "Charmeleon Party Hat": {
+    "event": "Pokémon Day 2020",
+    "start": "2020-02-25",
+    "end": "2020-03-02"
+   },
+   "Eevee Spotted Party Hat": {
+    "event": "Pokémon Day 2020",
+    "start": "2020-02-25",
+    "end": "2020-03-02"
+   },
+   "Gengar Party Hat": {
+    "event": "Pokémon Day 2020 Raid Day",
+    "start": "2020-03-01",
+    "end": "2020-03-01"
+   },
+   "Ivysaur Party Hat": {
+    "event": "Pokémon Day 2020",
+    "start": "2020-02-25",
+    "end": "2020-03-02"
+   },
+   "Nidorino Party Hat": {
+    "event": "Pokémon Day 2020 Raid Day",
+    "start": "2020-03-01",
+    "end": "2020-03-01"
+   },
+   "Pikachu Spotted Party Hat": {
+    "event": "Pokémon Day 2020",
+    "start": "2020-02-25",
+    "end": "2020-03-02"
+   },
+   "Raticate Party Hat": {
+    "event": "Adventure Sync Hatchathon",
+    "start": "2020-01-02",
+    "end": "2020-01-16"
+   },
+   "Squirtle Party Hat": {
+    "event": "Pokémon Day 2020",
+    "start": "2020-02-25",
+    "end": "2020-03-02"
+   },
+   "Venusaur Party Hat": {
+    "event": "Pokémon Day 2020",
+    "start": "2020-02-25",
+    "end": "2020-03-02"
+   },
+   "Wartortle Party Hat": {
+    "event": "Pokémon Day 2020",
+    "start": "2020-02-25",
+    "end": "2020-03-02"
+   },
+   "Wobbuffet (♂) Party Hat": {
+    "event": "Adventure Sync Hatchathon",
+    "start": "2020-01-02",
+    "end": "2020-01-16"
+   },
+   "Wurmple Party Hat": {
+    "event": "Adventure Sync Hatchathon",
+    "start": "2020-01-02",
+    "end": "2020-01-16"
+   }
+  }
+ },
+ "JAN_2022_NOEVOLVE": {
+  "event": "New Year's 2022",
+  "start": "2021-12-31",
+  "end": "2022-01-04",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "JAN_2023_NOEVOLVE": {
+  "event": "New Year's 2023",
+  "start": "2022-12-31",
+  "end": "2023-01-04",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "JAN_2024": {
+  "event": "New Year's 2024",
+  "start": "2024-01-01",
+  "end": "2024-01-03",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "JEJU": {
+  "event": "Pokémon Air Adventures",
+  "start": "2023-07-28",
+  "end": null,
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)",
+  "note": "Bulbapedia: Only in Jeju Island"
+ },
+ "JOHTO_2020_NOEVOLVE": {
+  "event": "Throwback Challenge 2020 - Johto",
+  "start": "2020-05-08",
+  "end": "2020-05-15",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "KANTO_2020_NOEVOLVE": {
+  "event": "Throwback Challenge 2020 - Kanto",
+  "start": "2020-05-01",
+  "end": "2020-05-08",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "KARIYUSHI": {
+  "event": "Pokémon Air Adventures",
+  "start": "2022-03-19",
+  "end": null,
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)",
+  "note": "Bulbapedia: Only in Okinawa Prefecture"
+ },
+ "KURTA": {
+  "event": "Festival of Colors 2025",
+  "start": "2025-03-13",
+  "end": "2025-03-17",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "K_2026_A_01": {
+  "event": "Autumn Picnic",
+  "start": "2026-09-18",
+  "end": "2026-10-11",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "MAY_2019_NOEVOLVE": {
+  "event": "Kumamoto Prefecture Revival Project",
+  "start": "2019-07-22",
+  "end": "2019-07-29",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "MAY_2023": {
+  "event": "Safari Zone in Seoul",
+  "start": "2023-10-07",
+  "end": "2023-10-08",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)",
+  "unsure": "Explorer hat Eevee and its evolutions: first at Safari Zone in Seoul, then Safari Zone in Barcelona (October 13 - 14, 2023) and later City Safaris."
+ },
+ "May_2023": {
+  "event": "Safari Zone in Seoul",
+  "start": "2023-10-07",
+  "end": "2023-10-08",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)",
+  "unsure": "Explorer hat Eevee and its evolutions: first at Safari Zone in Seoul, then Safari Zone in Barcelona (October 13 - 14, 2023) and later City Safaris."
+ },
+ "NIGHTCAP": {
+  "event": null,
+  "start": "2023-07-15",
+  "end": null,
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)",
+  "unsure": "Not from an event: Special Research for linking the Pokémon GO Plus + accessory with Pokémon GO, from 15 Jul 2023 (Bulbapedia)."
+ },
+ "NOVEMBER_2018": {
+  "event": "Pokémon Day 2019",
+  "start": "2019-02-26",
+  "end": "2019-02-28",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)",
+  "parts": {
+   "Blissey Flower Crown": {
+    "event": "Spring 2021",
+    "start": "2021-04-04",
+    "end": "2021-04-08"
+   },
+   "Chansey Flower Crown": {
+    "event": "Spring 2021",
+    "start": "2021-04-04",
+    "end": "2021-04-08"
+   },
+   "Eevee Flower Crown": {
+    "event": "Pokémon Day 2019",
+    "start": "2019-02-26",
+    "end": "2019-02-28"
+   },
+   "Espeon Flower Crown": {
+    "event": "Pokémon Day 2019",
+    "start": "2019-02-26",
+    "end": "2019-02-28"
+   },
+   "Glaceon Flower Crown": {
+    "event": "Pokémon Day 2019",
+    "start": "2019-02-26",
+    "end": "2019-02-28"
+   },
+   "Happiny Flower Crown": {
+    "event": "Spring 2021",
+    "start": "2021-04-04",
+    "end": "2021-04-08"
+   },
+   "Jolteon Flower Crown": {
+    "event": "Pokémon Day 2019",
+    "start": "2019-02-26",
+    "end": "2019-02-28"
+   },
+   "Leafeon Flower Crown": {
+    "event": "Pokémon Day 2019",
+    "start": "2019-02-26",
+    "end": "2019-02-28"
+   },
+   "Pichu Flower Crown": {
+    "event": "Pokémon Day 2019",
+    "start": "2019-02-26",
+    "end": "2019-02-28"
+   },
+   "Pikachu Flower Crown": {
+    "event": "Pokémon Day 2019",
+    "start": "2019-02-26",
+    "end": "2019-02-28"
+   },
+   "Sylveon Flower Crown": {
+    "event": "Pokémon Day 2019",
+    "start": "2019-02-26",
+    "end": "2019-02-28"
+   },
+   "Umbreon Flower Crown": {
+    "event": "Pokémon Day 2019",
+    "start": "2019-02-26",
+    "end": "2019-02-28"
+   },
+   "Vaporeon Flower Crown": {
+    "event": "Pokémon Day 2019",
+    "start": "2019-02-26",
+    "end": "2019-02-28"
+   }
+  }
+ },
+ "ONE_YEAR_ANNIVERSARY": {
+  "event": "Pokémon GO 1st Anniversary",
+  "start": "2017-07-06",
+  "end": "2017-07-27",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "PI": {
+  "event": "Detective Pikachu Returns",
+  "start": "2023-10-05",
+  "end": "2023-10-09",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)",
+  "unsure": "Same detective hat as FEB_2019, but Bulbapedia says the 2023 Pikachu and Raichu are separate entries from the 2019 ones; this is the 2023 debut."
+ },
+ "PI_NOEVOLVE": {
+  "event": "Detective Pikachu Returns",
+  "start": "2023-10-05",
+  "end": "2023-10-09",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "POP_STAR": {
+  "event": "Pokémon GO Fest 2021",
+  "start": "2021-07-17",
+  "end": "2021-07-18",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "PXP_2026": {
+  "event": "PokémonXP & 2026 Pokémon World Championships",
+  "start": "2026-08-25",
+  "end": "2026-08-30",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "P_HALLOWEEN_2026_01": {
+  "event": "Halloween 2026 Part I",
+  "start": "2026-10-27",
+  "end": "2026-11-01",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "ROCK_STAR": {
+  "event": "Pokémon GO Fest 2021",
+  "start": "2021-07-17",
+  "end": "2021-07-18",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "ROYAL_NOEVOLVE": {
+  "event": "Crown Clash",
+  "start": "2025-05-10",
+  "end": "2025-05-18",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "SAFARI_2020_NOEVOLVE": {
+  "event": "GO Safari Zone in St. Louis, USA",
+  "start": "2020-03-27",
+  "end": "2020-03-29",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)",
+  "note": "Bulbapedia: “At home: March 27 - 29, 2020”; the in-person St. Louis event was November 12 - 14, 2021."
+ },
+ "SINNOH_2020_NOEVOLVE": {
+  "event": "Throwback Challenge 2020 - Sinnoh",
+  "start": "2020-05-22",
+  "end": "2020-05-29",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "SPRING_2020_NOEVOLVE": {
+  "event": "Pokémon GO Fest 2020",
+  "start": "2020-07-25",
+  "end": "2020-07-26",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "SPRING_2023": {
+  "event": "Spring 2023",
+  "start": "2023-04-04",
+  "end": "2023-04-10",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "SPRING_2023_INSTINCT": {
+  "event": "An Instinctive Hero",
+  "start": "2023-05-02",
+  "end": "2023-05-08",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "SPRING_2023_MYSTIC": {
+  "event": "A Mystic Hero",
+  "start": "2023-04-13",
+  "end": "2023-04-17",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "SPRING_2023_VALOR": {
+  "event": "A Valorous Hero",
+  "start": "2023-05-11",
+  "end": "2023-05-17",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "SPRING_2024": {
+  "event": "Verdant Wonders",
+  "start": "2024-03-21",
+  "end": "2024-03-25",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "SPRING_2026": {
+  "event": "Sustainability Week",
+  "start": "2026-04-14",
+  "end": "2026-04-20",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "SPRING_2026_A": {
+  "event": "Pokémon Pokopia Celebration Event",
+  "start": "2026-03-10",
+  "end": "2026-03-16",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "SPRING_2026_B": {
+  "event": "Pokémon Pokopia Celebration Event",
+  "start": "2026-03-10",
+  "end": "2026-03-16",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "SUMMER_2018": {
+  "event": "Pokémon GO 2nd Anniversary",
+  "start": "2018-07-05",
+  "end": "2018-07-31",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)",
+  "parts": {
+   "Blastoise Sunglasses": {
+    "event": "Squirtle Community Day",
+    "start": "2018-07-08",
+    "end": "2018-07-08"
+   },
+   "Pichu Summer Flair": {
+    "event": "Pokémon GO 2nd Anniversary",
+    "start": "2018-07-05",
+    "end": "2018-07-31"
+   },
+   "Pikachu Summer Flair": {
+    "event": "Pokémon GO 2nd Anniversary",
+    "start": "2018-07-05",
+    "end": "2018-07-31"
+   },
+   "Raichu Summer Flair": {
+    "event": "Pokémon GO 2nd Anniversary",
+    "start": "2018-07-05",
+    "end": "2018-07-31"
+   },
+   "Squirtle Sunglasses": {
+    "event": "Squirtle Community Day",
+    "start": "2018-07-08",
+    "end": "2018-07-08"
+   },
+   "Wartortle Sunglasses": {
+    "event": "Squirtle Community Day",
+    "start": "2018-07-08",
+    "end": "2018-07-08"
+   }
+  }
+ },
+ "SUMMER_2023": {
+  "event": "Pokémon GO Fest 2023 — Osaka",
+  "start": "2023-08-04",
+  "end": "2023-08-06",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)",
+  "unsure": "Bulbapedia lists only Pokémon GO Fest 2023 — Osaka for the satchel Aerodactyl; London ran on the same dates (4–6 Aug 2023) and was not checked."
+ },
+ "SUMMER_2023_A": {
+  "event": "Pokémon GO Fest 2023 — Global",
+  "start": "2023-08-26",
+  "end": "2023-08-27",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "SUMMER_2023_B": {
+  "event": "Pokémon GO Fest 2023 — Global",
+  "start": "2023-08-26",
+  "end": "2023-08-27",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "SUMMER_2023_C": {
+  "event": "Pokémon GO Fest 2023 — Global",
+  "start": "2023-08-26",
+  "end": "2023-08-27",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "SUMMER_2023_D": {
+  "event": "Pokémon GO Fest 2023 — Global",
+  "start": "2023-08-26",
+  "end": "2023-08-27",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "SUMMER_2023_E": {
+  "event": "Pokémon GO Fest 2023 — Osaka",
+  "start": "2023-08-04",
+  "end": "2023-08-06",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)",
+  "unsure": "Amethyst crown: Bulbapedia lists Pokémon GO Fest 2023 — Osaka and Pokémon GO Fest 2023 — London, both August 4 - 6, 2023 (Osaka first), then New York City."
+ },
+ "SUMMER_2024": {
+  "event": "Slumbering Sands event",
+  "start": "2024-06-07",
+  "end": "2024-06-12",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "SWIM_2025": {
+  "event": "Pokémon Concierge Celebration Event",
+  "start": "2025-09-09",
+  "end": "2025-09-14",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "TCG_2022_NOEVOLVE": {
+  "event": "Pokémon TCG Crossover",
+  "start": "2022-06-16",
+  "end": "2022-06-30",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "TSHIRT_01": {
+  "event": "Pokémon Air Adventures",
+  "start": "2022-10-14",
+  "end": null,
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)",
+  "note": "Bulbapedia: Only in Taipei"
+ },
+ "TSHIRT_02": {
+  "event": "Pokémon Air Adventures",
+  "start": "2022-11-11",
+  "end": null,
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)",
+  "note": "Bulbapedia: Only in Singapore"
+ },
+ "TSHIRT_03": {
+  "event": "Pikachu’s Indonesia Journey",
+  "start": "2024-03-02",
+  "end": null,
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "VISOR_2026": {
+  "event": "Spring Marathon",
+  "start": "2026-05-12",
+  "end": "2026-05-18",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "VS_2019": {
+  "event": null,
+  "start": "2020-02-28",
+  "end": null,
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)",
+  "unsure": "Not from an event: Bulbapedia says Pikachu Libre has been a Legend rank reward in GO Battle League since 28 Feb 2020."
+ },
+ "WCS_2022": {
+  "event": "Pokémon 2022 World Championships Celebration",
+  "start": "2022-08-18",
+  "end": "2022-08-23",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "WCS_2023": {
+  "event": "Pokémon 2023 Pokémon World Championships Celebration",
+  "start": "2023-08-11",
+  "end": "2023-08-15",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "WCS_2024": {
+  "event": "Pokémon 2024 Pokémon World Championships Celebration",
+  "start": "2024-08-16",
+  "end": "2024-08-20",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "WCS_2025": {
+  "event": "Pokémon 2025 Pokémon World Championships Celebration",
+  "start": "2025-08-15",
+  "end": "2025-08-17",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "WCS_2026": {
+  "event": "GO Pass: PokémonXP & 2026 Worlds",
+  "start": "2026-08-25",
+  "end": "2026-08-30",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "WILDAREA_2024": {
+  "event": "Pokémon GO Wild Area: Fukuoka",
+  "start": "2024-11-16",
+  "end": "2024-11-17",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "WILDAREA_2025": {
+  "event": "Pokémon GO Wild Area — Nagasaki",
+  "start": "2025-11-07",
+  "end": "2025-11-09",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "WILDAREA_2026_01": {
+  "event": "Pokémon GO Wild Area — Sendai",
+  "start": "2026-11-06",
+  "end": "2026-11-08",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "WINTER_2018": {
+  "event": "Holiday 2019",
+  "start": "2019-12-24",
+  "end": "2020-01-01",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "WINTER_2020": {
+  "event": "Holiday 2020",
+  "start": "2020-12-22",
+  "end": "2020-12-31",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ },
+ "WINTER_2024": {
+  "event": "Holiday Part 1",
+  "start": "2024-12-17",
+  "end": "2024-12-22",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)",
+  "parts": {
+   "Dedenne Holiday Attire": {
+    "event": "Holiday Part 1",
+    "start": "2024-12-17",
+    "end": "2024-12-22"
+   },
+   "Dubwool Holiday Attire": {
+    "event": "Holiday Part 2",
+    "start": "2024-12-22",
+    "end": "2024-12-27"
+   },
+   "Wooloo Holiday Attire": {
+    "event": "Holiday Part 2",
+    "start": "2024-12-22",
+    "end": "2024-12-27"
+   }
+  }
+ },
+ "WINTER_2025": {
+  "event": "Winter Holiday Part 1",
+  "start": "2025-12-18",
+  "end": "2025-12-24",
+  "source": "https://bulbapedia.bulbagarden.net/wiki/Event_Pok%C3%A9mon_(GO)"
+ }
+}

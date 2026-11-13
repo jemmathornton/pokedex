@@ -27,6 +27,10 @@ def main():
     # special backgrounds (global, not tied to a place), with their notes; sources and doubts stay in the data file
     special = [{k: v for k, v in x.items() if k not in ('sources', 'unsure')} for x in (load('special-backgrounds.json', default={}) or {}).get('special', [])]
     collection = load('collection', 'go.json', default={})
+    # which event each costume code came from (data/costume-events.json, from research/data/costume-events.json): name and dates only
+    keep = lambda v: {f: v[f] for f in ('event', 'start', 'end') if v.get(f)}
+    cev = {k: {**keep(v), **({'parts': {n: keep(p) for n, p in v['parts'].items()}} if v.get('parts') else {})}
+           for k, v in (load('costume-events.json', default={}) or {}).items() if not k.startswith('_') and isinstance(v, dict) and (v.get('event') or v.get('start'))}
     sprites = os.path.join(SITE, 'sprites')
     have = {f[:-5] for f in os.listdir(sprites) if f.endswith('.webp')} if os.path.isdir(sprites) else set()
     bigdir = os.path.join(sprites, 'big')
@@ -48,7 +52,7 @@ def main():
     pics = [k for e in dex['entries'] + costumes['costumes'] for k in (e['img'], e['img'] + '.s')]
     missing = sum(1 for k in pics if k not in have)
     out = {'game': 'go', 'updated': dex['updated'], 'entries': dex['entries'], 'costumes': costumes['costumes'],
-           'events': events, 'special': special, 'dexByName': names, 'sprites': sorted(have), 'bigSprites': sorted(big), 'backgrounds': sorted(bgs), 'collection': collection}
+           'events': events, 'special': special, 'costumeEvents': cev, 'dexByName': names, 'sprites': sorted(have), 'bigSprites': sorted(big), 'backgrounds': sorted(bgs), 'collection': collection}
     js = 'const DATA = ' + json.dumps(out, ensure_ascii=False, separators=(',', ':')) + ';\n'
     write(os.path.join(SITE, 'js', 'data.js'), js)
     stamp()
