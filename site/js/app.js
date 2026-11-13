@@ -637,13 +637,23 @@ function allSets(){
     sets.push({id: "costumes-" + (y || "other"), title: y ? `Costumes from ${y}` : "Other costumes", when: y ? `${y}-00-00` : "0000", year: y || "Other",
       meta: "Costumes not from your events", art: null, items: cs.map(c => ({key: "c:" + c.id, e: c, img: c.img, bg: false})), cos: cs.map(c => c.id)});
   }
+  // a costume year has no background of its own (her note, 13 Nov): ?yart=b borrows that year's event backgrounds,
+  // otherwise (a) its tile shows four of its costumes (pictures only, until she picks)
+  const yart = TRY.get("yart") || "a";
+  for (const st of sets) if (!st.ev) {
+    const yb = sets.filter(o => o.ev && o.art && o.year === st.year).map(o => o.art);
+    st.arts = yart === "b" && yb.length ? yb.slice(0, 4) : null;
+    st.mosaic = st.arts ? null : st.items.slice(0, 4).map(i => sprite(i.img)).filter(Boolean);
+  }
   return sets.sort((a, b) => b.when.localeCompare(a.when));
 }
 const setGot = it => hasAny(it.key, ["c", "s"]);
 function setTile(st){
   const got = st.items.filter(setGot).length, n = st.items.length;
   return `<a class="settile${got === n ? " done" : ""}" href="#set-${attr(st.id)}">` +
-    `<span class="setart${st.art ? "" : " noart"}"${st.art ? ` style="background-image:url('${st.art}')"` : ""}>${st.art ? "" : (sprite(st.items[0].img) ? `<img src="${sprite(st.items[0].img)}" alt="">` : "")}</span>` +
+    (st.arts ? `<span class="setart arts">${st.arts.map(a => `<i style="background-image:url('${a}')"></i>`).join("")}</span>`
+      : st.mosaic ? `<span class="setart mosaic">${st.mosaic.map(m => `<img src="${m}" alt="">`).join("")}</span>`
+      : `<span class="setart${st.art ? "" : " noart"}"${st.art ? ` style="background-image:url('${st.art}')"` : ""}>${st.art ? "" : (sprite(st.items[0].img) ? `<img src="${sprite(st.items[0].img)}" alt="">` : "")}</span>`) +
     `<span class="setbody"><b>${esc(st.title)}</b><small>${esc(st.meta)}</small>` +
     `<span class="setprog"><i style="width:${n ? got / n * 100 : 0}%"></i></span><small class="setn">${num(got)} of ${num(n)}</small></span>` +
     `<span class="setstrip">${st.items.slice(0, 24).map(it => `<img class="${setGot(it) ? "on" : ""}" src="${sprite(it.img) || ""}" alt="" title="${attr(it.e.name + (it.e.costume ? " · " + it.e.costume : ""))}" loading="lazy">`).join("")}${n > 24 ? `<span class="more">+${n - 24}</span>` : ""}</span></a>`;
@@ -668,7 +678,8 @@ function setPage(id){
   const got = st.items.filter(setGot).length;
   const bgs = st.ev ? bgMonsOf(st.ev) : [], cos = st.cos.map(cid => costumeById[cid]).filter(Boolean);
   setRegion(null);
-  view.innerHTML = `<header class="hero${st.art ? " setheroart" : ""}"${st.art ? ` style="--shot:url('${st.art}')"` : ""}><div class="crumbs"><a href="#sets">${ic("arrow-left")}Events and costumes</a></div>
+  const yearArts = st.ev ? [] : allSets().filter(o => o.ev && o.art && o.year === st.year).map(o => o.art).slice(0, 6);   // a costume year's banner: that year's event backgrounds
+  view.innerHTML = `<header class="hero${st.art ? " setheroart" : yearArts.length ? " withshot" : ""}"${st.art ? ` style="--shot:url('${st.art}')"` : ""}>${yearArts.length ? heroPics(yearArts) : ""}<div class="crumbs"><a href="#sets">${ic("arrow-left")}Events and costumes</a></div>
     <span class="label">${esc(st.meta)}</span><h1>${esc(st.title)}</h1>
     <div class="stats">${statTile("--caught", "poke-ball", "Got", got, st.items.length)}</div></header>${readOnlyNote()}
     ${st.ev && st.ev.note ? `<p class="muted setnote">${esc(st.ev.note)}</p>` : ""}
