@@ -331,7 +331,7 @@ function firstStages(list){   // a region's starters (first stages that aren't r
 const view = document.getElementById("view"), nav = document.getElementById("nav"), q = document.getElementById("q");
 
 function statTile(colour, icon, label, have, of, extra = ""){
-  return `<div class="stat" style="--sc:var(${colour})"><span class="sl">${ic(icon)}${esc(label)}</span><b>${num(have)}<small> of ${num(of)}</small></b>
+  return `<div class="stat" style="--sc:var(${colour})"><span class="sl">${ic(icon)}<span class="slt">${esc(label)}</span></span><b>${num(have)}<small> of ${num(of)}</small></b>
     <span class="sbar"><i style="width:${of ? have / of * 100 : 0}%"></i></span>${extra}</div>`;
 }
 function statsHtml(c){
@@ -693,7 +693,7 @@ function setsPage(){
   }
   setRegion(null);
   view.innerHTML = `<header class="hero withshot">${heroPics(sets.filter(st => st.art).slice(0, 6).map(st => st.art))}<span class="label">Pokémon GO</span><h1>Events and <em>costumes</em></h1>
-    <div class="stats">${statTile("--deep-2", "ticket", "Sets complete", sets.filter(s => s.items.every(setGot)).length, sets.length)}
+    <div class="stats">${statTile("--deep-2", "ticket", "Complete", sets.filter(s => s.items.every(setGot)).length, sets.length)}
     ${statTile("--caught", "image", "Backgrounds", bg.filter(setGot).length, bg.length)}${statTile("--mega", "shirt", "Costumes", cs.filter(setGot).length, cs.length)}</div></header>${readOnlyNote()}
     <div class="settiles">${html || `<p class="empty">Nothing yet.</p>`}</div>`;
 }
