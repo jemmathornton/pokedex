@@ -5,7 +5,6 @@ Everything waiting on you. **Do** = just do it; **Decide** = your call. Tell Cla
 ## Decide
 - **Events and costumes (trial, 13 Nov):** one page instead of two: a timeline of sets with progress (`for-jemma/page-events-and-costumes.png`, one set: `page-one-event.png`). Keep, change or go back?
 - **Banners on every page (trial, 13 Nov):** maps on Home, Every Pokémon, Fast tick and each Pokémon page; event backgrounds on Events and costumes (`for-jemma/page-banners.png`).
-- **Hisui in the sidebar:** as now (no number), “8 · Hisui”, or no numbers on any region (`for-jemma/hisui-sidebar.png`).
 - **Which game to add after GO**, when you want it.
 
 ## Do
@@ -15,6 +14,7 @@ Everything waiting on you. **Do** = just do it; **Decide** = your call. Tell Cla
 - **This weekend (14–15 Nov), GO Wild Area:** last chance for Modern Jacket Machamp.
 
 ## Done
+- Sidebar regions without numbers, as in GO (13 Nov).
 - Pictures show the normal colours; the shiny only on the Shiny tab, in its own box, or with the ✨ button. Costume years’ tiles show four of their costumes (13 Nov).
 - Box colours checked; XXS deep sea blue (13 Nov).
 - Fast tick kept; Quick add off the sidebar (13 Nov).

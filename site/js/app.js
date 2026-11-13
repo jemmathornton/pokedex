@@ -299,7 +299,7 @@ const shotCls = f => (PIXEL_SHOTS.has(f) ? " pixel" : "") + (RATIO_TRY || SHOT_R
 // right side like the region maps; Home and Every Pokémon: all ten region maps side by side; Events and costumes: her
 // events' background cards; Fast tick and a Pokémon's page: its region's map
 const regionMap = g => REGION_CHOSEN[g] ? `regions/${REGION_CHOSEN[g]}` : null;
-const heroPics = srcs => srcs.length ? `<span class="heropics">${srcs.map(f => `<i style="background-image:url('${f}')"></i>`).join("")}</span>` : "";
+const heroPics = (srcs, cls = "") => srcs.length ? `<span class="heropics${cls ? " " + cls : ""}">${srcs.map(f => `<i style="background-image:url('${f}')"></i>`).join("")}</span>` : "";
 const ALL_MAPS = () => GENS.map(([g]) => regionMap(g)).filter(Boolean);
 function regionShot(g){   // style and switch for a region page's banner
   // tiny DS/3DS pictures (under 500 px wide) are enlarged as sharp pixels, not a blur (her pick, 11 Nov, for Johto)
@@ -673,10 +673,11 @@ function setPage(id){
   const got = st.items.filter(setGot).length;
   const bgs = st.ev ? bgMonsOf(st.ev) : [], cos = st.cos.map(cid => costumeById[cid]).filter(Boolean);
   setRegion(null);
-  const yearArts = st.ev ? [] : allSets().filter(o => o.ev && o.art && o.year === st.year).map(o => o.art).slice(0, 6);   // a costume year's banner: that year's event backgrounds
-  view.innerHTML = `<header class="hero${st.art ? " setheroart" : yearArts.length ? " withshot" : ""}"${st.art ? ` style="--shot:url('${st.art}')"` : ""}>${yearArts.length ? heroPics(yearArts) : ""}<div class="crumbs"><a href="#sets">${ic("arrow-left")}Events and costumes</a></div>
+  // a costume year's banner: some of its own costumes, as on its tile (13 Nov: other events' backgrounds there confused her)
+  const yearMons = st.ev ? [] : [...new Map(st.items.map(i => [i.e.dex, i])).values()].slice(0, 4).map(i => bigSprite(i.img)).filter(Boolean);   // one per Pokémon
+  view.innerHTML = `<header class="hero${st.art ? " setheroart" : yearMons.length ? " withshot" : ""}"${st.art ? ` style="--shot:url('${st.art}')"` : ""}>${yearMons.length ? heroPics(yearMons, "mons") : ""}<div class="crumbs"><a href="#sets">${ic("arrow-left")}Events and costumes</a></div>
     <span class="label">${esc(st.meta)}</span><h1>${esc(st.title)}</h1>
-    <div class="stats">${statTile("--caught", "poke-ball", "Got", got, st.items.length)}</div></header>${readOnlyNote()}
+    <div class="stats one">${statTile("--caught", "poke-ball", "Got", got, st.items.length)}</div></header>${readOnlyNote()}
     ${st.ev && st.ev.note ? `<p class="muted setnote">${esc(st.ev.note)}</p>` : ""}
     ${bgs.length ? `<section class="section"><h2>With the <em>background</em></h2><div class="grid bggrid">${bgs.map(e => bgCard(st.ev, e, false, false)).join("")}</div></section>` : ""}
     ${cos.length ? `<section class="section"><h2>${st.ev ? "Its <em>costumes</em>" : "The <em>costumes</em>"}</h2><div class="grid">${cos.map(costumeCard).join("")}</div></section>` : ""}`;
@@ -866,7 +867,7 @@ function navHtml(route){
   const link = (href, icon, text, n) => `<a href="${href}" class="${route === href.slice(1) ? "on" : ""}">${ic(icon)}${esc(text)}${n !== undefined ? `<span class="n">${num(n)}</span>` : ""}</a>`;
   const out = ENTRIES.filter(e => e.released);
   nav.innerHTML = `<div class="nav-group">${link("#home", "house", "Home")}${link("#dex", "layout-grid", "Every Pokémon", groupByNumber(ENTRIES).length)}</div>
-    <div class="nav-group"><span class="label">Generations</span>${GENS.map(([g, n]) => link("#gen-" + g, "layers", g === "hisui" ? n : `${g} · ${n}`, groupByNumber(ENTRIES.filter(e => e.gen === g)).length)).join("")}</div>
+    <div class="nav-group"><span class="label">Regions</span>${GENS.map(([g, n]) => link("#gen-" + g, "layers", n, groupByNumber(ENTRIES.filter(e => e.gen === g)).length)).join("")}</div>
     <div class="nav-group"><span class="label">More</span>${link("#sets", "ticket", "Events and costumes", allSets().length)}${link("#fast", "layout-grid", "Fast tick")}</div>`;
 }
 

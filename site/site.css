@@ -693,6 +693,10 @@ a.formsbtn{text-decoration:none}
 .heropics::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 70%,rgba(0,0,0,.25))}
 .hero.withshot > *:not(.heropics){position:relative;z-index:1}
 :root[data-look] .hero.mon.withshot{min-height:0}
+.heropics.mons{width:56%;background:linear-gradient(90deg,transparent,var(--soft,#F3EEE6) 18%);padding:0 3% 0 11%}
+.heropics.mons i{background:center 60%/contain no-repeat;margin:6px -18px 0}
+.heropics.mons::after{display:none}
+.stats.one,.hero.withshot .stats.one{grid-template-columns:minmax(0,190px);grid-auto-flow:row}
 .hero.withshot > .heropics{position:absolute;inset:0 0 0 auto;height:auto}
 .hero.withshot > p{max-width:400px}   /* text stays clear of the picture (Fast tick) */
 .hero.withshot .prevnext a,.hero.withshot .crumbs a{background:color-mix(in srgb,var(--rc,#5A1820) 70%,rgba(0,0,0,.5));backdrop-filter:blur(6px)}   /* readable on a map */
