@@ -3,7 +3,6 @@
 Everything waiting on you. **Do** = just do it; **Decide** = your call. Tell Claude when one’s done or decided and it comes off.
 
 ## Decide
-- **All box colours together:** a last look at `for-jemma/all-box-colours.png` (every box ticked on Charizard).
 - **Events and backgrounds, Costumes pages:** what feels off (pictures: `for-jemma/page-events.png`, `page-costumes.png`).
 - **Which game to add after GO**, when you want it.
 
@@ -14,6 +13,7 @@ Everything waiting on you. **Do** = just do it; **Decide** = your call. Tell Cla
 - **This weekend (14–15 Nov), GO Wild Area:** last chance for Modern Jacket Machamp.
 
 ## Done
+- Box colours checked; XXS deep sea blue (13 Nov).
 - Fast tick kept; Quick add off the sidebar (13 Nov).
 - Region banners: the official painted maps, all ten picked (13 Nov).
 - XXL and XXS boxes; everything in the game’s Pokédex order; totals count only what’s possible (12–13 Nov).
