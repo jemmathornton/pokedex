@@ -553,13 +553,13 @@ const BGS = new Set(DATA.backgrounds || []);   // site/backgrounds/<event id>.we
 const SPECIAL = DATA.special || [];   // special backgrounds: ticked “I took part”, like “I went” for the in-person ones (her call, 10 Nov)
 const isSpecial = ev => ev.id.startsWith("sb-");
 const bgKey = (ev, e) => `b:${ev.id}:${e.id}`;
-function bgCard(ev, e, wentButton){
+function bgCard(ev, e, wentButton, showEvent = true){   // showEvent false on the event's own page (the name is in the banner)
   const went = COL.went.includes(ev.id), key = bgKey(ev, e);
   const src = bigSprite(has(key, "s") && sprite(e.img + ".s") ? e.img + ".s" : e.img);
   const bg = BGS.has(ev.id) ? `backgrounds/${ev.id}.webp` : null;
   return `<div class="card bgcard${went ? "" : " not-went"}" data-bg="${attr(key)}" data-event="${attr(ev.id)}" data-bgdex="${e.dex}">` +
     `<div class="bgpic${bg ? "" : " nobg"}"${bg ? ` style="background-image:url('${bg}')"` : ""}>${bg ? "" : `<span class="nobg-note">No picture in the game files yet</span>`}${src ? `<img src="${src}" alt="" loading="lazy">` : ""}</div>` +
-    `<a class="nm" href="#p-${e.dex}">${esc(e.name)}</a><small class="fm">${e.costume || e.form ? esc(e.costume || e.form) + " · " : ""}${esc(ev.background || ev.name)}</small>` +
+    `<a class="nm" href="#p-${e.dex}">${esc(e.name)}</a><small class="fm">${[e.costume || e.form, showEvent ? ev.background || ev.name : ""].filter(Boolean).map(esc).join(" · ")}</small>` +
     (went ? `<div class="boxgrid"><button class="tk c" type="button" data-tick="c" aria-pressed="${has(key, "c")}" title="Have it with this background">${ic("poke-ball")}<span>Caught</span></button>` +
       `<button class="tk s" type="button" data-tick="s" aria-pressed="${has(key, "s")}" title="${e.shiny ? "Shiny with this background" : "No shiny in GO yet"}"${!e.shiny && !has(key, "s") ? " disabled" : ""}>${ic("sparkles")}<span>Shiny</span></button></div>`
       : wentButton ? `<button class="chip collect" type="button" data-went aria-pressed="false">I went</button>` : "") + `</div>`;
@@ -672,7 +672,7 @@ function setPage(id){
     <span class="label">${esc(st.meta)}</span><h1>${esc(st.title)}</h1>
     <div class="stats">${statTile("--caught", "poke-ball", "Got", got, st.items.length)}</div></header>${readOnlyNote()}
     ${st.ev && st.ev.note ? `<p class="muted setnote">${esc(st.ev.note)}</p>` : ""}
-    ${bgs.length ? `<section class="section"><h2>With the <em>background</em></h2><div class="grid bggrid">${bgs.map(e => bgCard(st.ev, e, false)).join("")}</div></section>` : ""}
+    ${bgs.length ? `<section class="section"><h2>With the <em>background</em></h2><div class="grid bggrid">${bgs.map(e => bgCard(st.ev, e, false, false)).join("")}</div></section>` : ""}
     ${cos.length ? `<section class="section"><h2>${st.ev ? "Its <em>costumes</em>" : "The <em>costumes</em>"}</h2><div class="grid">${cos.map(costumeCard).join("")}</div></section>` : ""}`;
 }
 
