@@ -210,6 +210,8 @@ function pic(item, key, big = false){
 // Every Pokémon the same way, regional forms too (her point: Paldean Tauros should work like Unown). Regional forms sit
 // on their region's page, so there they group among themselves (Paldea: one Tauros card).
 const isRegional = e => !!REGION_GEN[(e.form || "").split(" ")[0]];
+// a form's name; the plain form is named after its own region, not "usual" (her ask, 13 Nov: Tauros is Kanto)
+const formLabel = e => e.form || (genById[e.gen] || [])[1] || e.name;
 function groupByNumber(items){
   const groups = [], byDex = {};
   for (const e of items) {
@@ -516,7 +518,7 @@ function pokemonPage(n){
   const desc = sel.desc ? (sel.femaleDesc ? `<p class="dex-entry"><span class="label">Male</span>${esc(sel.desc)}</p><p class="dex-entry"><span class="label">Female</span>${esc(sel.femaleDesc)}</p>`
       : `<p class="dex-entry">${esc(sel.desc)}</p>`) : `<p class="dex-entry muted">No Pokédex entry for it in the game’s text yet.</p>`;
   const picker = ordered.length > 1 ? `<div class="formpick" role="group" aria-label="Which form to show">${ordered.map(e =>
-    `<button type="button" data-pickform="${attr(e.id)}" aria-pressed="${e === sel}" title="${attr(e.form || e.name)}">${sprite(e.img) ? `<img src="${sprite(e.img)}" alt="" loading="lazy">` : `<span class="blank">?</span>`}<small>${esc(e.form || "Usual")}</small></button>`).join("")}</div>` : "";
+    `<button type="button" data-pickform="${attr(e.id)}" aria-pressed="${e === sel}" title="${attr(e.form || e.name)}">${sprite(e.img) ? `<img src="${sprite(e.img)}" alt="" loading="lazy">` : `<span class="blank">?</span>`}<small>${esc(formLabel(e))}</small></button>`).join("")}</div>` : "";
   const family = evoFamily(sel);
   const bgCards = evs.flatMap(ev => { const ms = bgMonsOf(ev).filter(e => e.dex === n); return (ms.length ? ms : [baseOf[n] || grouped.lead]).map(e => bgCard(ev, e, false)); }).join("");
   const first = esc(sel.name);
@@ -533,7 +535,7 @@ function pokemonPage(n){
       <div class="chips">${sel.types.map(t => `<span class="type">${esc(t)}</span>`).join("")}${{both: ["Female", "Male"], male: ["Male"], female: ["Female"], none: ["Genderless"]}[sel.gender].map(g => `<span class="type">${g}</span>`).join("")}${kind ? `<span class="type">${esc(kind)}</span>` : ""}${sel.released ? "" : `<span class="type">Unavailable in GO</span>`}</div></div></div></header>${readOnlyNote()}
     <div class="mondetail"><div class="monpic">${pic(sel, dk(sel), true)}${picker}</div>
       <div>${desc}${facts}</div></div>
-    <section class="section"><div class="boxhead"><h2>Your <em>boxes</em>${ordered.length > 1 ? ` <span class="muted">for ${esc(sel.form || "the usual form")}</span>` : ""}</h2></div>${bigBoxes(sel)}</section>
+    <section class="section"><div class="boxhead"><h2>Your <em>boxes</em>${ordered.length > 1 ? ` <span class="muted">for ${esc(formLabel(sel))}</span>` : ""}</h2></div>${bigBoxes(sel)}</section>
     ${family ? `<section class="section"><h2>Evolution <em>family</em></h2>${family}</section>` : ""}
     ${sel.shadowShiny || has("d:" + sel.id, "ss") ? `<section class="section"><h2>Shiny <em>Shadow</em></h2><p class="muted" style="margin:-6px 0 14px;font-size:13.5px">A bonus, not counted.</p>${shinyShadowCard(sel)}</section>` : ""}
     ${formCards ? `<section class="section"><h2>Every <em>form</em> <span class="muted">${all.filter(caught).length} of ${all.length} caught</span></h2><div class="grid">${formCards}</div></section>` : ""}
