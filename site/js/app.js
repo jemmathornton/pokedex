@@ -629,6 +629,16 @@ function allSets(){
     sets.push({id: ev.id, ev, title: ev.name, when: ev.start, year: ev.start.slice(0, 4),
       meta: `${isSpecial(ev) ? "Special background" : `${ev.city}, ${ev.country}`} · ${dates(ev.start, ev.end)}`, art: BGS.has(ev.id) ? `backgrounds/${ev.id}.webp` : null, items, cos});
   }
+  // a costume whose game code names an event she went to sits with that event too (13 Nov, her question: the GO Fest
+  // 2025 Dapper Pikachu were under "Costumes from 2025", not with GO Fest 2025 Paris); the in-person one first
+  const CODE_EVENT = [[/^GOFEST_(20\d\d)/, y => `GO Fest ${y}`], [/^WILDAREA_(20\d\d)/, y => `GO Wild Area ${y}`], [/^GOTOUR_(20\d\d)/, y => `GO Tour ${y}`]];
+  for (const c of myCostumes()) {
+    if (linked.has(c.id)) continue;
+    const hit = CODE_EVENT.map(([re, nm]) => (re.exec(c.code) || [])[1] && nm(re.exec(c.code)[1])).find(Boolean);
+    const st = hit && (sets.find(o => !isSpecial(o.ev) && o.title.includes(hit)) || sets.find(o => o.title.includes(hit)));
+    if (!st) continue;
+    st.items.push({key: "c:" + c.id, e: c, img: c.img, bg: false}); st.cos.push(c.id); linked.add(c.id);
+  }
   // her other costumes, one set per year (13 Nov: by costume code made 100+ tiny sets), the year from the game's costume
   // code, or when its shiny came out where the code has none
   const yearOf = c => (/20\d\d/.exec(c.code) || [])[0] || (c.shiny || "").slice(0, 4) || "";
