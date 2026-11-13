@@ -723,5 +723,6 @@ a.formsbtn{text-decoration:none}
   .hero .stat b small,.hero.withshot .stat b small{font-size:9.5px;display:block}
 }
 .hero .stat{grid-template-columns:minmax(0,1fr)}
-.hero .stat .sl{flex-wrap:wrap}   /* a word too long to sit beside its icon goes under it, whole */
+.hero .stat .sl{flex-wrap:nowrap}   /* every label beside its icon (her ask, 13 Nov); app.js fitLabels makes a long word's text a little smaller */
+.hero .stat .slt{white-space:nowrap;overflow:hidden}
 .hero .stat .slt{min-width:0}

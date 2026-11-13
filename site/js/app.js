@@ -329,6 +329,18 @@ function firstStages(list){   // a region's starters (first stages that aren't r
 
 // ---------- pages ----------
 const view = document.getElementById("view"), nav = document.getElementById("nav"), q = document.getElementById("q");
+// a banner tile's label that is too long to sit whole beside its icon (Backgrounds) gets slightly smaller text, measured in
+// her own window, so every tile looks the same (her ask, 13 Nov)
+function fitLabels(){
+  for (const l of view.querySelectorAll(".hero .stat .slt")) {
+    l.style.fontSize = "";
+    let f = parseFloat(getComputedStyle(l).fontSize);
+    while (l.scrollWidth > l.clientWidth && f > 7) l.style.fontSize = (f -= 0.25) + "px";
+  }
+}
+new MutationObserver(fitLabels).observe(view, {childList: true});
+addEventListener("resize", () => requestAnimationFrame(fitLabels));
+if (document.fonts) { document.fonts.ready.then(fitLabels); document.fonts.addEventListener("loadingdone", fitLabels); }   // the label font arriving late changes the widths
 
 function statTile(colour, icon, label, have, of, extra = ""){
   return `<div class="stat" style="--sc:var(${colour})"><span class="sl">${ic(icon)}<span class="slt">${esc(label)}</span></span><b>${num(have)}<small> of ${num(of)}</small></b>
