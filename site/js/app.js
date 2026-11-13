@@ -741,7 +741,7 @@ function fastPage(){
     return fastCell(main, t, on, sp.dex, !mine && elsewhere ? (elsewhere.form || elsewhere.name) : "");
   }).join("");
   setRegion(g);
-  view.innerHTML = `<header class="hero"><span class="label">Trial</span><h1>Fast <em>tick</em></h1>
+  view.innerHTML = `<header class="hero"><h1>Fast <em>tick</em></h1>
     <p>A whole region at once, laid out like the game’s Pokédex. Open the same tab on your phone (${b in FAST_GAME ? `the game calls it <b>${esc(FAST_GAME[b])}</b>` : "the game’s Pokédex has no tab for this one, so use the storage search instead"}) and click every Pokémon that’s in colour there. Your number should end up matching the game’s.</p></header>${readOnlyNote()}
     <div class="toolbar filters"><div class="frow"><span class="label flabel">Region</span><div class="worktabs">${GENS.map(([id, n]) => `<button type="button" class="worktab" data-fastgen="${id}" aria-pressed="${id === g}">${esc(n)}</button>`).join("")}</div></div>
     <div class="frow"><span class="label flabel">Box</span><div class="worktabs">${FAST.map(([t, l]) => `<button type="button" class="worktab" data-fastbox="${t}" aria-pressed="${t === b}">${esc(l)}</button>`).join("")}</div></div></div>
@@ -790,7 +790,7 @@ function navHtml(route){
   const out = ENTRIES.filter(e => e.released);
   nav.innerHTML = `<div class="nav-group">${link("#home", "house", "Home")}${link("#dex", "layout-grid", "Every Pokémon", groupByNumber(ENTRIES).length)}</div>
     <div class="nav-group"><span class="label">Generations</span>${GENS.map(([g, n]) => link("#gen-" + g, "layers", g === "hisui" ? n : `${g} · ${n}`, groupByNumber(ENTRIES.filter(e => e.gen === g)).length)).join("")}</div>
-    <div class="nav-group"><span class="label">More</span>${link("#costumes", "shirt", "Costumes", COL.costumes.length)}${link("#events", "ticket", "Events and backgrounds", myEvents().length)}${link("#fast", "layout-grid", "Fast tick (trial)")}${link("#quick", "list-checks", "Quick add (trial)")}</div>`;
+    <div class="nav-group"><span class="label">More</span>${link("#costumes", "shirt", "Costumes", COL.costumes.length)}${link("#events", "ticket", "Events and backgrounds", myEvents().length)}${link("#fast", "layout-grid", "Fast tick")}</div>`;
 }
 
 function route(to){   // to: draw that page without changing the address (the tests' sweep over every page)
