@@ -20,8 +20,7 @@ The split into “big” and “looks only” is Claude’s suggestion (from the
 - [ ] **#0641 Tornadus** (stats): Incarnate, Therian
 - [ ] **#0642 Thundurus** (stats): Incarnate, Therian
 - [ ] **#0645 Landorus** (stats): Incarnate, Therian
-- [ ] **#0646 Kyurem** (type and stats): Kyurem, Black, White
-- [ ] **#0647 Keldeo** (moves): Ordinary, Resolute
+- [ ] **#0646 Kyurem** (stats): Kyurem, Black, White
 - [ ] **#0649 Genesect** (moves): Genesect, Burn, Chill, Douse, Shock
 - [ ] **#0710 Pumpkaboo** (stats): Average, Large, Small, Super
 - [ ] **#0711 Gourgeist** (stats): Average, Large, Small, Super
@@ -34,7 +33,7 @@ The split into “big” and “looks only” is Claude’s suggestion (from the
 - [ ] **#0800 Necrozma** (type): Necrozma, Dawn Wings, Dusk Mane
 - [ ] **#0849 Toxtricity** (moves): Amped, Low Key
 - [ ] **#0892 Urshifu** (type): Rapid Strike, Single Strike
-- [ ] **#0905 Enamorus** (type and stats): Incarnate, Therian
+- [ ] **#0905 Enamorus** (stats): Incarnate, Therian
 
 ## Forms that only look different (suggestion)
 
@@ -46,6 +45,7 @@ The split into “big” and “looks only” is Claude’s suggestion (from the
 - [ ] **#0423 Gastrodon**: East Sea, West Sea
 - [ ] **#0585 Deerling**: Autumn, Spring, Summer, Winter
 - [ ] **#0586 Sawsbuck**: Autumn, Spring, Summer, Winter
+- [ ] **#0647 Keldeo**: Ordinary, Resolute
 - [ ] **#0664 Scatterbug**: Archipelago, Continental, Elegant, Fancy, Garden, High Plains, Icy Snow, Jungle, Marine, Meadow, Modern, Monsoon, Ocean, Poké Ball, Polar, River, Sandstorm, Savanna, Sun, Tundra
 - [ ] **#0665 Spewpa**: Archipelago, Continental, Elegant, Fancy, Garden, High Plains, Icy Snow, Jungle, Marine, Meadow, Modern, Monsoon, Ocean, Poké Ball, Polar, River, Sandstorm, Savanna, Sun, Tundra
 - [ ] **#0666 Vivillon**: Archipelago, Continental, Elegant, Fancy, Garden, High Plains, Icy Snow, Jungle, Marine, Meadow, Modern, Monsoon, Ocean, Poké Ball, Polar, River, Sandstorm, Savanna, Sun, Tundra

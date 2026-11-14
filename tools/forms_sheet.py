@@ -11,9 +11,9 @@ for e in sorted(d, key=lambda e: e['dex']):
 multi = {k: v for k, v in by.items() if len(v) > 1}
 # suggestion: forms that are a different battle form (another type, stats or moves in the games) vs ones that only look different
 BIG = {150: 'stats', 351: 'type', 386: 'stats', 413: 'type', 479: 'type', 483: 'stats', 484: 'stats', 487: 'stats', 492: 'type',
-       493: 'type', 550: 'evolution (White Striped)', 555: 'type', 641: 'stats', 642: 'stats', 645: 'stats', 646: 'type and stats', 647: 'moves',
+       493: 'type', 550: 'evolution (White Striped)', 555: 'type', 641: 'stats', 642: 'stats', 645: 'stats', 646: 'stats',
        649: 'moves', 718: 'stats', 720: 'type', 741: 'type', 744: 'evolution', 745: 'stats', 774: 'stats', 800: 'type', 849: 'moves',
-       892: 'type', 905: 'type and stats', 710: 'stats', 711: 'stats'}
+       892: 'type', 905: 'stats', 710: 'stats', 711: 'stats'}
 spr = lambda img: next((p for p in (f'{R}/site/sprites/{img}.webp', f'{R}/site/sprites/{img}.png') if os.path.exists(p)), None)
 F = lambda n, b=False: ImageFont.truetype('C:/Windows/Fonts/segoeuib.ttf' if b else 'C:/Windows/Fonts/segoeui.ttf', n)
 def label(e): return e.get('form') or e['name']
