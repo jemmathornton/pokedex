@@ -486,7 +486,7 @@ function bigBoxes(e){
       const src = boxPic(e, t);
       return `<button class="pc pc-${["mg", "mx", "my"].includes(t) ? "mg" : t}${boxLook() === "strip" ? " small" : ""}" type="button" data-tick="${t}" aria-pressed="${on}" style="--bc:var(${col})"${!applies && !on ? " disabled" : ""}>` +
         `<span class="pcpic">${src ? `<img src="${src}" alt="" loading="lazy">` : ""}${on ? `<span class="pcok">${ic("check")}</span>` : ""}</span>` +
-        `<span class="pclab">${ic(icon)}<b>${esc(boxLook() === "strip" && label === "Gigantamax" && TRY.get("gmax") === "short" ? "G-Max" : label)}</b></span>${boxLook() === "strip" ? "" : `<small>${esc(on ? "Got it" : applies ? "Not yet" : why)}</small>`}</button>`;
+        `<span class="pclab">${ic(icon)}<b>${esc(boxLook() === "strip" && label === "Gigantamax" ? "G-Max" : label)}</b></span>${boxLook() === "strip" ? "" : `<small>${esc(on ? "Got it" : applies ? "Not yet" : why)}</small>`}</button>`;
     }
     return `<button class="bb" type="button" data-tick="${t}" aria-pressed="${on}" style="--bc:var(${col})"${!applies && !on ? " disabled" : ""}>${ic(icon)}<span><b>${esc(label)}</b><small>${esc(on ? "Got it" : applies ? "Not yet" : why)}</small></span></button>`;
   };

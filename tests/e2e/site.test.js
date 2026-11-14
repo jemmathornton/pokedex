@@ -85,8 +85,8 @@
   // ---------- a Pokémon's page ----------
   test("Charizard's boxes: everything, with Mega X and Mega Y and the G-Max picture", async () => {
     await go("#p-6");
-    eq(strip(), ["Caught", "Female", "Male", "Shiny", "Lucky", "XXL", "XXS", "Dynamax", "Gigantamax", "Mega X", "Mega Y", "Shadow", "Purified", "4★"]);
-    ok(box("Gigantamax").querySelector("img").src.includes("GIGANTAMAX"), "G-Max shows the Gigantamax picture");
+    eq(strip(), ["Caught", "Female", "Male", "Shiny", "Lucky", "XXL", "XXS", "Dynamax", "G-Max", "Mega X", "Mega Y", "Shadow", "Purified", "4★"]);
+    ok(box("G-Max").querySelector("img").src.includes("GIGANTAMAX"), "G-Max shows the Gigantamax picture");
     ok(box("Mega X").querySelector("img").src.includes("MEGA_X"), "Mega X shows the Mega X picture");
     eq(fact("Mega"), "Available"); eq(fact("Gigantamax"), "Available");
   });

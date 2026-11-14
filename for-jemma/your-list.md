@@ -5,7 +5,6 @@ Everything waiting on you. **Do** = just do it; **Decide** = your call. Tell Cla
 ## Decide
 - **Events and costumes (trial, 13 Nov):** one page instead of two: a timeline of sets with progress (`for-jemma/page-events-and-costumes.png`, one set: `page-one-event.png`). Keep, change or go back?
 - **Banners on every page (trial, 13 Nov):** maps on Home, Every Pokémon, Fast tick and each Pokémon page; event backgrounds on Events and costumes (`for-jemma/page-banners.png`).
-- **Gigantamax on a Pokémon’s page (14 Nov):** it’s now “Gigantamax” everywhere, but the word is too long for its small picture box under “Your boxes”, so there it drops its little icon (B). Keep that, or “G-Max” in that one box (A)? (`for-jemma/gigantamax-box.png`)
 - **Which game to add after GO**, when you want it.
 
 ## Do
@@ -15,7 +14,7 @@ Everything waiting on you. **Do** = just do it; **Decide** = your call. Tell Cla
 - **This weekend (14–15 Nov), GO Wild Area:** last chance for Modern Jacket Machamp.
 
 ## Done
-- “Gigantamax” in full instead of “G-Max”: filters, banners, cards, Fast tick, Quick add (14 Nov).
+- “Gigantamax” in full instead of “G-Max”: filters, banners, cards, Fast tick, Quick add; “G-Max” only in the small box on a Pokémon’s page (14 Nov).
 - Sidebar regions without numbers, as in GO (13 Nov).
 - Pictures show the normal colours; the shiny only on the Shiny tab, in its own box, or with the ✨ button. Costume years’ tiles show four of their costumes (13 Nov).
 - Box colours checked; XXS deep sea blue (13 Nov).
