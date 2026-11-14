@@ -137,7 +137,7 @@ const BOXF = [   // each box as a filter: which Pokémon it applies to, and whet
   {k: "xxl", label: "XXL", applies: canXXL, have: e => has(dk(e), "xl"), ticks: ["xl"]},
   {k: "xxs", label: "XXS", applies: canXXS, have: e => has(dk(e), "xs"), ticks: ["xs"]},
   {k: "dynamax", label: "Dynamax", applies: e => !!e.dynamax, have: e => has(dk(e), "dx"), ticks: ["dx"]},
-  {k: "gmax", label: "G-Max", applies: e => !!e.gmax, have: e => has(dk(e), "gx"), ticks: ["gx"]},
+  {k: "gmax", label: "Gigantamax", applies: e => !!e.gmax, have: e => has(dk(e), "gx"), ticks: ["gx"]},
   // Mega Evolution and Primal (her ask, 10 Nov: a full box like Dynamax; Mega X and Y a box each, so "have" means all of them)
   {k: "mega", label: "Mega", applies: e => !!(e.mega || []).length, have: e => (e.mega || []).every(m => has(dk(e), m.t)), ticks: e => (e.mega || []).map(m => m.t)},
   {k: "shadow", label: "Shadow", applies: e => !!e.shadow, have: e => has(dk(e), "sd"), ticks: ["sd"]},
@@ -180,7 +180,7 @@ function boxes(e){
     [btn("s", "s", "sparkles", "Shiny", e.shiny ? "Shiny" : "No shiny in GO yet", !e.shiny),
      UNTRADEABLE.has(e.dex) && !has(k, "l") ? "" : btn("l", "l", "lucky", "Lucky", "Lucky", !canLucky(e))],   // a box that can never be (a mythical’s Lucky) isn’t shown (her call, 10 Nov)
     [neverXXL(e) && !has(k, "xl") ? "" : btn("xl", "xl", "expand", "XXL", "XXL", !e.released), neverXXS(e) && !has(k, "xs") ? "" : btn("xs", "xs", "shrink", "XXS", "XXS", !e.released)],
-    [extra("dx"), extra("gx", "G-Max")],
+    [extra("dx"), extra("gx")],
     megas.length > 1 ? megas : [megas[0] || ""],
     [extra("sd"), extra("pu")],
     [btn("h", "h", "star", "4★", "4★ (perfect IVs)", !e.released)],
@@ -337,6 +337,15 @@ function fitLabels(){
     let f = parseFloat(getComputedStyle(l).fontSize);
     while (l.scrollWidth > l.clientWidth && f > 7) l.style.fontSize = (f -= 0.25) + "px";
   }
+  // a picture box's label too long for its box (Gigantamax) drops its icon (the picture shows what it is), then shrinks to fit
+  for (const p of view.querySelectorAll(".pc.small .pclab")) {
+    const box = p.closest(".pc"), over = () => box.scrollWidth > box.clientWidth;
+    p.style.fontSize = ""; p.classList.remove("noic");
+    if (!over()) continue;
+    p.classList.add("noic");
+    let f = parseFloat(getComputedStyle(p).fontSize);
+    while (over() && f > 7) p.style.fontSize = (f -= 0.25) + "px";
+  }
 }
 new MutationObserver(fitLabels).observe(view, {childList: true});
 addEventListener("resize", () => requestAnimationFrame(fitLabels));
@@ -359,7 +368,7 @@ function statsHtml(c){
     t("--xxl", "expand", "XXL", c.xl, c.out) +
     t("--xxs", "shrink", "XXS", c.xs, c.out) +
     t("--dynamax", "dynamax", "Dynamax", c.dx, c.dynamaxOut) +
-    t("--gmax", "gigantamax", "G-Max", c.gx, c.gmaxOut) +
+    t("--gmax", "gigantamax", "Gigantamax", c.gx, c.gmaxOut) +
     t("--mega", "mega", "Mega", c.mega, c.megaOut) +
     t("--shadow", "shadow", "Shadow", c.sd, c.shadowOut) +
     t("--purified", "purified", "Purified", c.pu, c.shadowOut) +
@@ -477,7 +486,7 @@ function bigBoxes(e){
       const src = boxPic(e, t);
       return `<button class="pc pc-${["mg", "mx", "my"].includes(t) ? "mg" : t}${boxLook() === "strip" ? " small" : ""}" type="button" data-tick="${t}" aria-pressed="${on}" style="--bc:var(${col})"${!applies && !on ? " disabled" : ""}>` +
         `<span class="pcpic">${src ? `<img src="${src}" alt="" loading="lazy">` : ""}${on ? `<span class="pcok">${ic("check")}</span>` : ""}</span>` +
-        `<span class="pclab">${ic(icon)}<b>${esc(boxLook() === "strip" && label === "Gigantamax" ? "G-Max" : label)}</b></span>${boxLook() === "strip" ? "" : `<small>${esc(on ? "Got it" : applies ? "Not yet" : why)}</small>`}</button>`;
+        `<span class="pclab">${ic(icon)}<b>${esc(boxLook() === "strip" && label === "Gigantamax" && TRY.get("gmax") === "short" ? "G-Max" : label)}</b></span>${boxLook() === "strip" ? "" : `<small>${esc(on ? "Got it" : applies ? "Not yet" : why)}</small>`}</button>`;
     }
     return `<button class="bb" type="button" data-tick="${t}" aria-pressed="${on}" style="--bc:var(${col})"${!applies && !on ? " disabled" : ""}>${ic(icon)}<span><b>${esc(label)}</b><small>${esc(on ? "Got it" : applies ? "Not yet" : why)}</small></span></button>`;
   };
@@ -732,7 +741,7 @@ function setPage(id){
 const QBOX = [["shiny shadow", "ss"], ["mega x", "mx"], ["mega y", "my"], ["g-max", "gx"], ["gmax", "gx"], ["gigantamax", "gx"],
   ["dynamax", "dx"], ["dmax", "dx"], ["primal", "mg"], ["mega", "mega"], ["caught", "c"], ["female", "cf"], ["male", "cm"], ["♂", "cm"],
   ["♀", "cf"], ["shiny", "s"], ["lucky", "l"], ["xxl", "xl"], ["xxs", "xs"], ["4★", "h"], ["4*", "h"], ["hundo", "h"], ["perfect", "h"], ["shadow", "sd"], ["purified", "pu"]];
-const QNAME = {c: "Caught", cm: "Male", cf: "Female", s: "Shiny", l: "Lucky", h: "4★", sd: "Shadow", pu: "Purified", dx: "Dynamax", gx: "G-Max", mg: "Mega", mx: "Mega X", my: "Mega Y", ss: "Shiny Shadow", xl: "XXL", xs: "XXS"};
+const QNAME = {c: "Caught", cm: "Male", cf: "Female", s: "Shiny", l: "Lucky", h: "4★", sd: "Shadow", pu: "Purified", dx: "Dynamax", gx: "Gigantamax", mg: "Mega", mx: "Mega X", my: "Mega Y", ss: "Shiny Shadow", xl: "XXL", xs: "XXS"};
 let quickText = "", quickTimer;
 const quickNames = (() => {   // "vulpix" -> plain Vulpix; "alolan vulpix" and "vulpix alolan" -> Alolan Vulpix
   const m = new Map();
@@ -784,7 +793,7 @@ function quickPage(){
   view.innerHTML = `<header class="hero"><span class="label">Trial</span><h1>Quick <em>add</em></h1>
     <p>Type what you have, one line at a time: numbers, ranges or names, then the boxes. Nothing is saved until you press the button.</p></header>${readOnlyNote()}
     <div class="quick"><div><textarea id="quickText" rows="12" spellcheck="false" placeholder="25 shiny&#10;1-9 caught&#10;alolan vulpix lucky, female&#10;charizard mega x&#10;gengar shiny shadow">${esc(quickText)}</textarea>
-      <p class="muted" style="font-size:13px">Boxes: caught, male, female, shiny, lucky, 4★ (or hundo), xxl, xxs, shadow, purified, dynamax, g-max, mega (or mega x / mega y), shiny shadow. No box means caught.</p></div>
+      <p class="muted" style="font-size:13px">Boxes: caught, male, female, shiny, lucky, 4★ (or hundo), xxl, xxs, shadow, purified, dynamax, gigantamax (or g-max), mega (or mega x / mega y), shiny shadow. No box means caught.</p></div>
     <div><h3>${todo.length ? `${num(todo.length)} to tick` : "Nothing new to tick yet"}</h3>
       ${todo.length ? `<button class="chip collect" type="button" data-quickgo>${ic("check")}Tick these ${num(todo.length)}</button>` : ""}
       ${problems.map(p => `<p class="qprob">${esc(p)}</p>`).join("")}
@@ -817,7 +826,7 @@ async function quickGo(){
 // game's tab open on her phone, she clicks the ones that are in colour there, and the count at the top should end up
 // the same as the game's. One click ticks the Pokémon's plain form (the game's Pokédex counts the species too).
 const FAST = [["c", "Caught", "poke-ball"], ["cf", "Female", "venus"], ["cm", "Male", "mars"], ["s", "Shiny", "sparkles"], ["l", "Lucky", "lucky"],   // the game's Pokédex order (her ask, 12 Nov), with Female, Male and Dynamax fitted in
-  ["xl", "XXL", "expand"], ["xs", "XXS", "shrink"], ["dx", "Dynamax", "dynamax"], ["gx", "G-Max", "gigantamax"], ["mega", "Mega", "mega"], ["sd", "Shadow", "shadow"], ["pu", "Purified", "purified"], ["h", "4★", "star"]];
+  ["xl", "XXL", "expand"], ["xs", "XXS", "shrink"], ["dx", "Dynamax", "dynamax"], ["gx", "Gigantamax", "gigantamax"], ["mega", "Mega", "mega"], ["sd", "Shadow", "shadow"], ["pu", "Purified", "purified"], ["h", "4★", "star"]];
 const FAST_GAME = {c: "Pokémon", s: "Shiny", l: "Lucky", h: "100%", sd: "Shadow", pu: "Purified", gx: "G-Max", mega: "Mega", xl: "XXL", xs: "XXS"};   // the game's own tab names
 const FAST_COL = {c: "--caught", s: "--shiny", l: "--lucky", h: "--hundo", sd: "--shadow", pu: "--purified", dx: "--dynamax", gx: "--gmax", mega: "--mega", cm: "--male", cf: "--female", xl: "--xxl", xs: "--xxs"};
 const fastTicks = (e, b) => b === "mega" ? (e.mega || []).map(m => m.t) : canTick(e, b) ? [b] : [];
