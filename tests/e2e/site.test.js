@@ -243,6 +243,23 @@
   });
 
   // ---------- Fast tick (trial) ----------
+  test("Fast tick does costumes and backgrounds, each once, under its event", async () => {
+    prefs.fastKind = "cos"; prefs.fastBox = "c"; await go("#fast");
+    const cos = [...view().querySelectorAll(".fastset [data-fk]")];
+    eq(cos.length, myCostumes().length, "one square per costume she collects");
+    ok(cos.every(c => c.dataset.fk.startsWith("c:")), "costume keys");
+    const key = cos[0].dataset.fk;
+    cos[0].click(); await until(() => has(key, "c"));
+    view().querySelector(`[data-fk="${key}"]`).click(); await until(() => !has(key, "c"));
+    prefs.fastKind = "bg"; fastPage();
+    const bgs = [...view().querySelectorAll(".fastset [data-fk]")].map(c => c.dataset.fk);
+    eq(bgs.length, new Set(allSets().flatMap(st => st.items.filter(i => i.bg).map(i => i.key))).size, "every background Pokémon once");
+    ok(bgs.every(k => k.startsWith("b:")), "background keys");
+    prefs.fastBox = "s"; fastPage();
+    ok(view().querySelectorAll(".fastset [data-fk]").length <= bgs.length, "Shiny: only where one is out");
+    prefs.fastKind = "dex"; prefs.fastBox = "c";
+  });
+
   test("Fast tick shows a whole region in number order, with Mega X and Y apart", async () => {
     prefs.fastGen = "1"; prefs.fastBox = "c"; await go("#fast");
     const cells = [...view().querySelectorAll(".fastgrid button.fc")];

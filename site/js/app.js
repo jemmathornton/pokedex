@@ -834,7 +834,38 @@ function fastCell(e, t, on, n, other){
   return `<button class="fc" type="button" data-fast="${attr(e.id)}" data-t="${t}" aria-pressed="${on}"${other ? ` data-other="${attr(other)}"` : ""} title="${esc(e.name)}${t === "mx" ? " Mega X" : t === "my" ? " Mega Y" : ""}">` +
     `<img src="${fastPic(e, t)}" alt="" loading="lazy"><span>${pad(n)}${t === "mx" ? " X" : t === "my" ? " Y" : ""}</span></button>`;
 }
+// what to tick: the game's Pokédex region by region, or her costumes or background Pokémon, under their events (her ask, 14 Nov)
+const FAST_KINDS = [["dex", "Pokédex"], ["cos", "Costumes"], ["bg", "Backgrounds"]];
+const fastKindRow = kind => `<div class="frow"><span class="label flabel">Tick</span><div class="worktabs">${FAST_KINDS.map(([k, l]) => `<button type="button" class="worktab" data-fastkind="${k}" aria-pressed="${k === kind}">${esc(l)}</button>`).join("")}</div></div>`;
+function fastItemCell(it, b, art){
+  const pic = (b === "s" && sprite(it.img + ".s")) || sprite(it.img) || "", what = it.e.costume || it.e.form || "";
+  const card = it.bg && art ? ` style="--card:url('${art}')"` : "";
+  return `<button class="fc col${card ? " withbg" : ""}" type="button" data-fk="${attr(it.key)}" data-t="${b}" aria-pressed="${has(it.key, b)}" title="${attr(it.e.name + (what ? " · " + what : ""))}"${card}>` +
+    `<img src="${pic}" alt="" loading="lazy"><span class="fcn">${esc(it.bg || !it.e.costume ? it.e.name : it.e.costume)}</span></button>`;
+}
+function fastSetsPage(kind){
+  const b = prefs.fastBox === "s" ? "s" : "c", [, label, icon] = FAST.find(x => x[0] === b), sets = allSets(), seen = new Set();
+  let got = 0, all = 0, html = "";
+  for (const st of sets) {   // newest first, each one once (a costume on two backgrounds' cards sits with the first)
+    const items = st.items.filter(it => (kind === "bg") === it.bg && !seen.has(it.key) && (b === "c" || it.e.shiny || has(it.key, "s")));   // Shiny: only where one is out
+    if (!items.length) continue;
+    items.forEach(it => seen.add(it.key));
+    const g = items.filter(it => has(it.key, b)).length; got += g; all += items.length;
+    html += `<section class="fastset"><h3>${esc(st.title)}<small>${num(g)} / ${num(items.length)}</small></h3><div class="fastgrid" style="--bc:var(${FAST_COL[b]})">${items.map(it => fastItemCell(it, b, st.art)).join("")}</div></section>`;
+  }
+  const how = kind === "bg" ? "<b>locationbackground</b> or <b>specialbackground</b>" : "<b>costume</b>";
+  setRegion(null);
+  view.innerHTML = `<header class="hero withshot">${heroPics(sets.filter(st => st.art).slice(0, 6).map(st => st.art))}<h1>Fast <em>tick</em></h1>
+    <p style="max-width:380px">Every ${kind === "bg" ? "background Pokémon from your events" : "costume you collect"}, under its event. Search your Pokémon in the game for ${how}${b === "s" ? " with <b>&amp;shiny</b>" : ""} and click each one you have.</p></header>${readOnlyNote()}
+    <div class="toolbar filters">${fastKindRow(kind)}
+    <div class="frow"><span class="label flabel">Box</span><div class="worktabs">${FAST.filter(([t]) => t === "c" || t === "s").map(([t, l]) => `<button type="button" class="worktab" data-fastbox="${t}" aria-pressed="${t === b}">${esc(l)}</button>`).join("")}</div></div></div>
+    <div class="fasthead" style="--bc:var(${FAST_COL[b]})">${ic(icon)}<b>${kind === "bg" ? "Backgrounds" : "Costumes"} · ${esc(label)}</b><span class="fastn">${num(got)} / ${num(all)}</span>
+      ${got < all ? `<button class="linkbtn" type="button" data-fastall>${ic("check")}Tick all ${num(all - got)} left</button>` : ""}</div>
+    ${html ? `<div class="fastsets">${html}</div>` : `<p class="empty">None yet.</p>`}`;
+}
 function fastPage(){
+  const kind = [TRY.get("fastkind"), prefs.fastKind].find(k => FAST_KINDS.some(([x]) => x === k)) || "dex";   // ?fastkind= for pictures only
+  if (kind !== "dex") return fastSetsPage(kind);
   const g = genById[prefs.fastGen] ? prefs.fastGen : "1", b = FAST.some(x => x[0] === prefs.fastBox) ? prefs.fastBox : "c";
   const [, label, icon] = FAST.find(x => x[0] === b);
   // every tab lists the whole region, so every tab counts out of the same number, as in the game (her note, 12 Nov: Shiny
@@ -863,7 +894,7 @@ function fastPage(){
   setRegion(g);
   view.innerHTML = `<header class="hero withshot">${heroPics([regionMap(g)].filter(Boolean))}<h1>Fast <em>tick</em></h1>
     <p style="max-width:380px">A whole region at once, laid out like the game’s Pokédex. Open the same tab on your phone (${b in FAST_GAME ? `the game calls it <b>${esc(FAST_GAME[b])}</b>` : "the game’s Pokédex has no tab for this one, so use the storage search instead"}) and click every Pokémon that’s in colour there. Your number should end up matching the game’s.</p></header>${readOnlyNote()}
-    <div class="toolbar filters"><div class="frow"><span class="label flabel">Region</span><div class="worktabs">${GENS.map(([id, n]) => `<button type="button" class="worktab" data-fastgen="${id}" aria-pressed="${id === g}">${esc(n)}</button>`).join("")}</div></div>
+    <div class="toolbar filters">${fastKindRow("dex")}<div class="frow"><span class="label flabel">Region</span><div class="worktabs">${GENS.map(([id, n]) => `<button type="button" class="worktab" data-fastgen="${id}" aria-pressed="${id === g}">${esc(n)}</button>`).join("")}</div></div>
     <div class="frow"><span class="label flabel">Box</span><div class="worktabs">${FAST.map(([t, l]) => `<button type="button" class="worktab" data-fastbox="${t}" aria-pressed="${t === b}">${esc(l)}</button>`).join("")}</div></div></div>
     <div class="fasthead" style="--bc:var(${FAST_COL[b]})">${ic(icon)}<b>${esc(genById[g][1])} · ${esc(label)}</b><span class="fastn">${num(got)} / ${num(all)}</span>
       ${got < all ? `<button class="linkbtn" type="button" data-fastall>${ic("check")}Tick all ${num(all - got)} left</button>` : ""}</div>
@@ -875,7 +906,7 @@ const AUTO_KEY = "jemmas-pokedex-autocaught";
 const autoCaught = new Set(store.get(AUTO_KEY, []));
 const keepAuto = () => store.set(AUTO_KEY, [...autoCaught]);
 async function fastClick(btn){
-  const e = byId[btn.dataset.fast], t = btn.dataset.t, on = btn.getAttribute("aria-pressed") !== "true", key = dk(e);
+  const t = btn.dataset.t, on = btn.getAttribute("aria-pressed") !== "true", key = btn.dataset.fk || dk(byId[btn.dataset.fast]);
   if (!on && btn.dataset.other) return toast(`Ticked on its ${curly(btn.dataset.other)} form: untick it on its page.`);
   if (on && t !== "c" && !has(key, "c")) { autoCaught.add(key); keepAuto(); }
   if (t === "c") { autoCaught.delete(key); keepAuto(); }
@@ -883,13 +914,13 @@ async function fastClick(btn){
   if (!on && autoCaught.has(key) && (COL.have[key] || []).every(x => x === "c")) { autoCaught.delete(key); keepAuto(); if (has(key, "c")) await tick(key, "c", false); }
 }
 async function fastAll(){
-  const left = [...document.querySelectorAll('.fastgrid [data-fast][aria-pressed="false"]')];   // Mega X and Y count as one each here
+  const left = [...document.querySelectorAll('.fastgrid [data-fast][aria-pressed="false"], .fastgrid [data-fk][aria-pressed="false"]')];   // Mega X and Y count as one each here
   if (!left.length || !confirm(`Tick all ${left.length} left on this page? You can untick any afterwards.`)) return;
   // each one lights up as it's saved, with a running count, so it's clear it's working (12 Nov: she saw nothing happen
   // while 147 saved one by one); ten at a time
   let done = 0, failed = false;
   const one = async btn => {
-    const key = dk(byId[btn.dataset.fast]), t = btn.dataset.t;
+    const key = btn.dataset.fk || dk(byId[btn.dataset.fast]), t = btn.dataset.t;
     for (const x of t === "c" ? ["c"] : [t, "c"]) {
       if (has(key, x)) continue;
       setTick(key, x, true);
@@ -1001,7 +1032,8 @@ document.addEventListener("click", ev => {
   if (b.hasAttribute("data-showall")) { prefs.workShow = prefs.workShow === "all" ? "need" : "all"; keepPrefs(); return rerender(); }
   if (b.dataset.work) { prefs.work = prefs.work === b.dataset.work ? "all" : b.dataset.work; prefs.workShow = prefs.work === "all" ? "all" : "need"; keepPrefs(); return rerender(); }   // click again: back to all
   if (b.hasAttribute("data-quickgo")) return quickGo();
-  if (b.dataset.fast) return fastClick(b);
+  if (b.dataset.fast || b.dataset.fk) return fastClick(b);
+  if (b.dataset.fastkind) { prefs.fastKind = b.dataset.fastkind; keepPrefs(); return rerender(); }
   if (b.hasAttribute("data-fastall")) return fastAll();
   if (b.dataset.fastgen) { prefs.fastGen = b.dataset.fastgen; keepPrefs(); return rerender(); }
   if (b.dataset.fastbox) { prefs.fastBox = b.dataset.fastbox; keepPrefs(); return rerender(); }

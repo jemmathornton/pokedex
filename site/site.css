@@ -726,3 +726,18 @@ a.formsbtn{text-decoration:none}
 .hero .stat .sl{flex-wrap:nowrap}   /* every label beside its icon (her ask, 13 Nov); app.js fitLabels makes a long word's text a little smaller */
 .hero .stat .slt{white-space:nowrap;overflow:hidden}
 .hero .stat .slt{min-width:0}
+
+/* Fast tick for costumes and backgrounds (14 Nov): each under its event; not got = faded colour (a silhouette can't show
+   which costume), a background Pokémon on its event's card */
+.fastset h3{display:flex;align-items:baseline;gap:10px;margin:22px 0 8px;font:600 15px/1.2 var(--body)}
+.fastset h3 small{font-weight:700;font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.fc.col img{filter:grayscale(1) opacity(.45)}
+.fc.col[aria-pressed="true"] img{filter:none}
+.fc .fcn{font-size:10px;font-weight:700;max-width:100%;padding:0 3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.fc.withbg{background:linear-gradient(rgba(255,255,255,.62),rgba(255,255,255,.62)),var(--card) center/cover;color:var(--ink,#222)}
+.fc.withbg[aria-pressed="true"]{background:var(--card) center/cover;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.7);border-width:2px}
+.fastsets{display:flex;flex-wrap:wrap;gap:0 34px;align-items:flex-start}   /* small events side by side */
+.fastset{min-width:240px;max-width:100%}
+.fastset h3{width:0;min-width:100%;flex-wrap:wrap;row-gap:2px}   /* a long event name wraps rather than widening its group */
+.fastset .fastgrid{display:flex;flex-wrap:wrap;gap:6px}
+.fastset .fc{width:76px}
