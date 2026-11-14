@@ -14,6 +14,7 @@ Everything waiting on you. **Do** = just do it; **Decide** = your call. Tell Cla
 - **This weekend (14–15 Nov), GO Wild Area:** last chance for Modern Jacket Machamp.
 
 ## Done
+- Regional forms (Alolan, Galarian, Hisuian, Paldean) listed apart, each with its own card and page, e.g. Hisuian Growlithe (`for-jemma/hisuian-growlithe-page.png`). Other forms (Unown, Rotom, Vivillon…) still one card each (14 Nov).
 - “Gigantamax” in full instead of “G-Max”: filters, banners, cards, Fast tick, Quick add; “G-Max” only in the small box on a Pokémon’s page (14 Nov).
 - Sidebar regions without numbers, as in GO (13 Nov).
 - Pictures show the normal colours; the shiny only on the Shiny tab, in its own box, or with the ✨ button. Costume years’ tiles show four of their costumes (13 Nov).

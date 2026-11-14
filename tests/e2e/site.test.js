@@ -33,8 +33,7 @@
   test("every page opens with no errors, blanks or leftovers, and every link on them goes somewhere", async () => {
     const problems = [], errs = [], seen = new Set(), links = new Set();
     const onErr = e => errs.push(e.message || String(e.reason)); addEventListener("error", onErr);
-    const nums = [...new Set(ENTRIES.map(e => e.dex))];
-    const routes = ["#home", "#dex", "#costumes", "#events", "#fast", "#sets", ...allSets().map(st => "#set-" + st.id), ...Object.keys(genById).map(g => "#gen-" + g), ...nums.map(n => "#p-" + n)];
+    const routes = ["#home", "#dex", "#costumes", "#events", "#fast", "#sets", ...allSets().map(st => "#set-" + st.id), ...Object.keys(genById).map(g => "#gen-" + g), ...PAGE_KEYS.map(k => "#p-" + k)];
     try {
       for (const h of routes) {
         if (seen.has(h)) continue; seen.add(h);
@@ -51,7 +50,7 @@
         if (seen.has(h) || h === "#") continue; seen.add(h);
         await show(h);
         const r = h.slice(1);
-        if (!/^(home|dex|costumes|events|gen-\w+|p-\d+)$/.test(r)) problems.push(`a link to ${h}, which isn’t a page`);
+        if (!/^(home|dex|costumes|events|gen-\w+|p-\d+(-[a-z]+)?)$/.test(r)) problems.push(`a link to ${h}, which isn’t a page`);
         if (/^p-\d+$/.test(r) && !view().querySelector(".mondetail")) problems.push(`link to ${h}: no Pokémon page`);
       }
     } finally { removeEventListener("error", onErr); }
@@ -139,6 +138,20 @@
     eq(location.hash, "#p-26");
     document.body.dispatchEvent(new KeyboardEvent("keydown", {key: "ArrowLeft", bubbles: true})); await wait(50);
     eq(location.hash, "#p-25");
+  });
+
+  test("a regional form is a Pokémon of its own: its own card and page, after the usual one (her call, 14 Nov)", async () => {
+    await go("#p-58");
+    ok(!document.querySelector(".formpick"), "Growlithe's page has no form picker");
+    eq(document.querySelector(".pn.next").getAttribute("href"), "#p-58-hisuian");
+    await go("#p-58-hisuian");
+    ok(document.querySelector("h1").textContent.includes("Hisuian"), "Hisuian Growlithe's page");
+    eq(document.querySelector(".pn.next").getAttribute("href"), "#p-59");
+    eq([...document.querySelectorAll(".formpick small")].length, 0);
+    await go("#p-128-paldean");
+    eq([...document.querySelectorAll(".formpick small")].map(x => x.textContent), ["Paldean Aqua", "Paldean Blaze", "Paldean Combat"]);
+    eq(groupByNumber(ENTRIES.filter(e => e.dex === 52)).length, 3, "Meowth, Alolan Meowth and Galarian Meowth: three cards");
+    eq(groupByNumber(ENTRIES.filter(e => e.dex === 201)).length, 1, "Unown stays one card");
   });
 
   // ---------- the lists ----------

@@ -212,13 +212,18 @@ function pic(item, key, big = false){
 // Every Pokémon the same way, regional forms too (her point: Paldean Tauros should work like Unown). Regional forms sit
 // on their region's page, so there they group among themselves (Paldea: one Tauros card).
 const isRegional = e => !!REGION_GEN[(e.form || "").split(" ")[0]];
+// regional forms are Pokémon of their own (her call, 14 Nov: Hisuian Growlithe is listed apart from Growlithe, with its own
+// card and page); other forms (Unown, Rotom, Vivillon…) stay one card and one page per number. The three Paldean Tauros are one.
+const groupKey = e => isRegional(e) ? `${e.dex}-${e.form.split(" ")[0].toLowerCase()}` : String(e.dex);
+const pageOf = e => "#p-" + groupKey(e);
 // a form's name; the plain form is named after its own region, not "usual" (her ask, 13 Nov: Tauros is Kanto)
 const formLabel = e => e.form || (genById[e.gen] || [])[1] || e.name;
 function groupByNumber(items){
   const groups = [], byDex = {};
   for (const e of items) {
-    if (!byDex[e.dex]) groups.push(byDex[e.dex] = []);
-    byDex[e.dex].push(e);
+    const k = groupKey(e);
+    if (!byDex[k]) groups.push(byDex[k] = []);
+    byDex[k].push(e);
   }
   return groups.map(g => {
     const lead = g.find(x => !x.form) || g.find(x => x.default) || g.find(x => /^[a-z0-9]/i.test(x.form)) || g[0];   // the game's default form first (Unown F)
@@ -242,11 +247,11 @@ const formGot = e => { const b = BOXF.find(x => x.k === prefs.work); return b ? 
 function formsButton(lead, others){
   if (!others.length) return "";
   const all = [lead, ...others];
-  return `<a class="formsbtn" href="#p-${lead.dex}">${ic("layers")}Forms ${all.filter(formGot).length}/${all.length}</a>`;
+  return `<a class="formsbtn" href="${pageOf(lead)}">${ic("layers")}Forms ${all.filter(formGot).length}/${all.length}</a>`;
 }
 function groupCards(groups){
   for (const k in groupsByDex) delete groupsByDex[k];
-  groups.forEach(g => { groupsByDex[g.lead.dex] = g; });
+  groups.forEach(g => { groupsByDex[groupKey(g.lead)] = g; });
   return groups.map(({lead, others}) => card(lead, formsButton(lead, others))).join("");
 }
 
@@ -265,7 +270,7 @@ function card(e, more = "", inForms = false){
   return `<div class="card${e.released ? "" : " out-not"}${got ? " got" : ""}${inForms ? " informs" : ""}" data-id="${attr(e.id)}"${got ? ` style="--hl:var(${HL[tab ? tab.k : "caught"]})"` : ""}>` +
     `<span class="no">#${pad(e.dex)}</span>` + (flags.length ? `<span class="flags">${flags.map(f => `<span>${esc(f)}</span>`).join("")}</span>` : "") +
     pic(e, dk(e)) +
-    `<a class="nm" href="#p-${e.dex}" title="Open ${attr(e.name)}’s page">${esc(e.name)}</a><small class="fm">${esc(e.form || "")}${e.form && gw ? " · " : ""}${gw ? `<span class="gd">${esc(gw)}</span>` : ""}</small>` +
+    `<a class="nm" href="${pageOf(e)}" title="Open ${attr(e.name)}’s page">${esc(e.name)}</a><small class="fm">${esc(e.form || "")}${e.form && gw ? " · " : ""}${gw ? `<span class="gd">${esc(gw)}</span>` : ""}</small>` +
     boxes(e) + more + `</div>`;
 }
 
@@ -425,8 +430,9 @@ function dexPage(title, label, list, region){
 // Pokédex entry with the facts beside it, big boxes to tick, the evolution family, every form, its costumes and
 // backgrounds, and Previous / Next at the top. With forms, a row of small pictures picks which form the top part shows.
 const REGION_OF = {1: "Kanto", 2: "Johto", 3: "Hoenn", 4: "Sinnoh", 5: "Unova", 6: "Kalos", 7: "Alola", 8: "Galar", 9: "Paldea"};
-const pageForm = {};   // dex number -> the form picked on its page (until the page is reloaded)
-const DEX_NUMBERS = [...new Set(ENTRIES.map(e => e.dex))].sort((a, b) => a - b);
+const pageForm = {};   // page (groupKey) -> the form picked on its page (until the page is reloaded)
+// every page in order: each number, then its regional forms (Growlithe, Hisuian Growlithe, Arcanine…), for Previous / Next
+const PAGE_KEYS = [...new Set([...ENTRIES].sort((a, b) => a.dex - b.dex || isRegional(a) - isRegional(b)).map(groupKey))];
 const EVO_IN = {};     // entry id -> the entries that evolve into it
 ENTRIES.forEach(x => (x.evo || []).forEach(st => { if (byId[st.to]) (EVO_IN[st.to] = EVO_IN[st.to] || []).push(x); }));
 const metres = v => `${v.toLocaleString("en-GB", {maximumFractionDigits: 2})} m`;
@@ -454,7 +460,7 @@ function evoFamily(sel){
   }
   if (seen.size < 2) return "";
   const roots = [...seen].map(i => byId[i]).filter(x => !(EVO_IN[x.id] || []).some(y => seen.has(y.id)));
-  const node = x => `<a class="evo-mon${x.id === sel.id ? " here" : ""}${x.released ? "" : " out-not"}" href="#p-${x.dex}" data-goform="${attr(x.id)}">` +
+  const node = x => `<a class="evo-mon${x.id === sel.id ? " here" : ""}${x.released ? "" : " out-not"}" href="${pageOf(x)}" data-goform="${attr(x.id)}">` +
     (sprite(x.img) ? `<img src="${sprite(x.img)}" alt="" loading="lazy">` : `<span class="blank">?</span>`) +
     `<b>${esc(x.name)}</b>${x.form ? `<small>${esc(x.form)}</small>` : ""}${x.released ? "" : `<small>Not out yet</small>`}</a>`;
   const tree = (x, path) => {
@@ -517,20 +523,23 @@ function shinyShadowCard(e){   // a picture box like the others (her note: click
 // have a Gigantamax form at all (regional forms of them don't), and Zacian, Zamazenta and Eternatus can't Dynamax
 const GMAX_SPECIES = new Set([3, 6, 9, 12, 25, 52, 68, 94, 99, 131, 133, 143, 569, 809, 812, 815, 818, 823, 826, 834, 839, 841, 842, 844, 849, 851, 858, 861, 869, 879, 884, 892]);
 const NO_DYNAMAX = new Set([888, 889, 890]);
-function pokemonPage(n){
-  const every = ENTRIES.filter(e => e.dex === n);
+function pokemonPage(key){
+  const every = ENTRIES.filter(e => groupKey(e) === key);
+  if (!every.length) return home();
+  const n = every[0].dex, regionalPage = isRegional(every[0]);
   const all = every.filter(e => prefs.unreleased || e.released || every.every(x => !x.released));
   if (!all.length) return home();
   const grouped = groupByNumber(all)[0], ordered = [grouped.lead, ...grouped.others];
-  const sel = byId[pageForm[n]] && all.includes(byId[pageForm[n]]) ? byId[pageForm[n]] : grouped.lead;
-  const costumes = myCostumes().filter(c => c.dex === n);
-  const evs = myEvents().filter(ev => (ev.backgroundPokemon || []).some(name => DATA.dexByName[name.toLowerCase()] === n));
+  const sel = byId[pageForm[key]] && all.includes(byId[pageForm[key]]) ? byId[pageForm[key]] : grouped.lead;
+  const costumes = regionalPage ? [] : myCostumes().filter(c => c.dex === n);   // costumes are of the usual form
+  const evs = myEvents().filter(ev => regionalPage ? bgMonsOf(ev).some(e => groupKey(e) === key)
+    : (ev.backgroundPokemon || []).some(name => DATA.dexByName[name.toLowerCase()] === n) && (!bgMonsOf(ev).some(e => e.dex === n) || bgMonsOf(ev).some(e => groupKey(e) === key)));
   const gw = {both: "Female · Male", male: "Male", female: "Female", none: "Genderless"}[sel.gender];   // like Type (her call, 10 Nov)
   const kind = {legendary: "Legendary", mythical: "Mythical", "ultra-beast": "Ultra Beast"}[sel.class];
   const gen = genById[sel.gen] || ["", REGION_OF[sel.gen] || "", ""];
-  const at = DEX_NUMBERS.indexOf(n), prev = DEX_NUMBERS[at - 1], next = DEX_NUMBERS[at + 1];
-  const step = (m, dir) => { if (!m) return `<span></span>`; const x = groupByNumber(ENTRIES.filter(e => e.dex === m))[0].lead;
-    return `<a class="pn ${dir}" href="#p-${m}" title="${dir === "prev" ? "Previous" : "Next"}: ${attr(x.name)}">${dir === "prev" ? ic("chevron-left") : ""}${sprite(x.img) ? `<img src="${sprite(x.img)}" alt="">` : ""}<span><small>#${pad(m)}</small>${esc(x.name)}</span>${dir === "next" ? ic("chevron-right") : ""}</a>`; };
+  const at = PAGE_KEYS.indexOf(key), prev = PAGE_KEYS[at - 1], next = PAGE_KEYS[at + 1];
+  const step = (m, dir) => { if (!m) return `<span></span>`; const x = groupByNumber(ENTRIES.filter(e => groupKey(e) === m))[0].lead;
+    return `<a class="pn ${dir}" href="#p-${m}" title="${dir === "prev" ? "Previous" : "Next"}: ${attr(x.name)}">${dir === "prev" ? ic("chevron-left") : ""}${sprite(x.img) ? `<img src="${sprite(x.img)}" alt="">` : ""}<span><small>#${pad(x.dex)}${isRegional(x) ? " " + esc(x.form.split(" ")[0]) : ""}</small>${esc(x.name)}</span>${dir === "next" ? ic("chevron-right") : ""}</a>`; };
   const yesNo = (on, yes, no) => on ? esc(yes) : `<span class="no">${esc(no)}</span>`;   // no ticks here: they looked like "caught" (her point, 10 Nov)
   const row = (t, v) => v ? `<div><dt>${esc(t)}</dt><dd>${v}</dd></div>` : "";
   const facts = `<dl class="dfacts">` +
@@ -549,7 +558,7 @@ function pokemonPage(n){
   const picker = ordered.length > 1 ? `<div class="formpick" role="group" aria-label="Which form to show">${ordered.map(e =>
     `<button type="button" data-pickform="${attr(e.id)}" aria-pressed="${e === sel}" title="${attr(e.form || e.name)}">${sprite(e.img) ? `<img src="${sprite(e.img)}" alt="" loading="lazy">` : `<span class="blank">?</span>`}<small>${esc(formLabel(e))}</small></button>`).join("")}</div>` : "";
   const family = evoFamily(sel);
-  const bgCards = evs.flatMap(ev => { const ms = bgMonsOf(ev).filter(e => e.dex === n); return (ms.length ? ms : [baseOf[n] || grouped.lead]).map(e => bgCard(ev, e, false)); }).join("");
+  const bgCards = evs.flatMap(ev => { const ms = bgMonsOf(ev).filter(e => groupKey(e) === key); return (ms.length ? ms : [regionalPage ? grouped.lead : baseOf[n] || grouped.lead]).map(e => bgCard(ev, e, false)); }).join("");
   const first = esc(sel.name);
   showAllBoxes = true;
   const formCards = all.length > 1 ? all.map(e => card(e)).join("") : "";
@@ -580,9 +589,9 @@ function bgCard(ev, e, wentButton, showEvent = true){   // showEvent false on th
   const went = COL.went.includes(ev.id), key = bgKey(ev, e);
   const src = bigSprite(has(key, "s") && sprite(e.img + ".s") ? e.img + ".s" : e.img);
   const bg = BGS.has(ev.id) ? `backgrounds/${ev.id}.webp` : null;
-  return `<div class="card bgcard${went ? "" : " not-went"}" data-bg="${attr(key)}" data-event="${attr(ev.id)}" data-bgdex="${e.dex}">` +
+  return `<div class="card bgcard${went ? "" : " not-went"}" data-bg="${attr(key)}" data-event="${attr(ev.id)}" data-bgdex="${e.dex}" data-bgmon="${attr(e.id)}">` +
     `<div class="bgpic${bg ? "" : " nobg"}"${bg ? ` style="background-image:url('${bg}')"` : ""}>${bg ? "" : `<span class="nobg-note">No picture in the game files yet</span>`}${src ? `<img src="${src}" alt="" loading="lazy">` : ""}</div>` +
-    `<a class="nm" href="#p-${e.dex}">${esc(e.name)}</a><small class="fm">${[e.costume || e.form, showEvent ? ev.background || ev.name : ""].filter(Boolean).map(esc).join(" · ")}</small>` +
+    `<a class="nm" href="${pageOf(e)}">${esc(e.name)}</a><small class="fm">${[e.costume || e.form, showEvent ? ev.background || ev.name : ""].filter(Boolean).map(esc).join(" · ")}</small>` +
     (went ? `<div class="boxgrid"><button class="tk c" type="button" data-tick="c" aria-pressed="${has(key, "c")}" title="Have it with this background">${ic("poke-ball")}<span>Caught</span></button>` +
       `<button class="tk s" type="button" data-tick="s" aria-pressed="${has(key, "s")}" title="${e.shiny ? "Shiny with this background" : "No shiny in GO yet"}"${!e.shiny && !has(key, "s") ? " disabled" : ""}>${ic("sparkles")}<span>Shiny</span></button></div>`
       : wentButton ? `<button class="chip collect" type="button" data-went aria-pressed="false">I went</button>` : "") + `</div>`;
@@ -594,7 +603,7 @@ const myCostumes = () => COSTUMES.filter(c => COL.costumes.includes(c.id));
 function costumeCard(c){
   const key = "c:" + c.id;
   return `<div class="card" data-costume="${attr(c.id)}"><span class="no">#${pad(c.dex)}</span>` +
-    pic(c, key) + `<a class="nm" href="#p-${c.dex}" title="Open ${attr(c.name)}’s page">${esc(c.name)}</a><small class="fm">${esc(c.costume)}</small>` +
+    pic(c, key) + `<a class="nm" href="${pageOf(c)}" title="Open ${attr(c.name)}’s page">${esc(c.name)}</a><small class="fm">${esc(c.costume)}</small>` +
     `<div class="boxgrid"><button class="tk c" type="button" data-tick="c" aria-pressed="${has(key, "c")}" title="Caught">${ic("poke-ball")}<span>Caught</span></button>` +
     (c.shiny || has(key, "s") ? `<button class="tk s" type="button" data-tick="s" aria-pressed="${has(key, "s")}" title="Shiny: a bonus, not counted">${ic("sparkles")}<span>Shiny</span></button>` : "") + `</div></div>`;   // a costume’s shiny is a bonus, like Shiny Shadow, and only where one is out (her calls, 10 Nov)
 }
@@ -797,7 +806,7 @@ function quickPage(){
     <div><h3>${todo.length ? `${num(todo.length)} to tick` : "Nothing new to tick yet"}</h3>
       ${todo.length ? `<button class="chip collect" type="button" data-quickgo>${ic("check")}Tick these ${num(todo.length)}</button>` : ""}
       ${problems.map(p => `<p class="qprob">${esc(p)}</p>`).join("")}
-      <ul class="qlist">${rows.slice(0, 400).map(r => `<li class="${r.cant ? "cant" : r.have ? "have" : ""}"><a href="#p-${r.e.dex}">#${pad(r.e.dex)} ${esc(r.e.name)}${r.e.form ? ` <small>${esc(r.e.form)}</small>` : ""}</a><span>${esc(QNAME[r.t])}${r.cant ? " · can’t be" : r.have ? " · already ticked" : ""}</span></li>`).join("")}</ul>
+      <ul class="qlist">${rows.slice(0, 400).map(r => `<li class="${r.cant ? "cant" : r.have ? "have" : ""}"><a href="${pageOf(r.e)}">#${pad(r.e.dex)} ${esc(r.e.name)}${r.e.form ? ` <small>${esc(r.e.form)}</small>` : ""}</a><span>${esc(QNAME[r.t])}${r.cant ? " · can’t be" : r.have ? " · already ticked" : ""}</span></li>`).join("")}</ul>
       ${rows.length > 400 ? `<p class="muted">…and ${num(rows.length - 400)} more</p>` : ""}</div></div>`;
   const ta = document.getElementById("quickText");
   ta.addEventListener("input", () => {
@@ -956,7 +965,7 @@ function navHtml(route){
 function route(to){   // to: draw that page without changing the address (the tests' sweep over every page)
   const r = to || (location.hash || "#home").slice(1);
   const term = q.value.trim().toLowerCase();
-  const pn = /^p-(\d+)$/.exec(r), lead = pn && groupByNumber(ENTRIES.filter(e => e.dex === +pn[1]))[0];
+  const pn = /^p-(\d+(?:-[a-z]+)?)$/.exec(r), lead = pn && groupByNumber(ENTRIES.filter(e => groupKey(e) === pn[1]))[0];
   navHtml(lead ? "gen-" + lead.lead.gen : /^set-/.test(r) ? "sets" : r);   // a Pokémon's page lights up its region in the sidebar
   if (r === "costumes") return costumesPage();
   if (r === "events") return eventsPage();
@@ -965,8 +974,8 @@ function route(to){   // to: draw that page without changing the address (the te
   if (r === "sets") return setsPage();
   const sm = /^set-(.+)$/.exec(r);
   if (sm) return setPage(sm[1]);
-  const pm = /^p-(\d+)$/.exec(r);
-  if (pm) return pokemonPage(+pm[1]);
+  const pm = /^p-(\d+(?:-[a-z]+)?)$/.exec(r);
+  if (pm) return pokemonPage(pm[1]);
   if (term && r !== "costumes") {
     const n = parseInt(term.replace(/^#/, ""), 10);
     const list = ENTRIES.filter(e => (e.name + " " + (e.form || "")).toLowerCase().includes(term) || e.dex === n);
@@ -1018,25 +1027,25 @@ async function toggleList(list, id){
 
 document.addEventListener("click", ev => {
   const go = ev.target.closest("a[data-goform]");
-  if (go) { const e = byId[go.dataset.goform]; pageForm[e.dex] = e.id; if (location.hash === "#p-" + e.dex) { ev.preventDefault(); rerender(); } return; }
+  if (go) { const e = byId[go.dataset.goform]; pageForm[groupKey(e)] = e.id; if (location.hash === pageOf(e)) { ev.preventDefault(); rerender(); } return; }
   const b = ev.target.closest("button");
   if (!b) {   // anywhere else on a card opens that Pokémon's page, at that form (her ask, 10 Nov; ticking is on the boxes)
     const c = ev.target.closest(".card[data-id],.card[data-costume],.card[data-bgdex]");
     const link = ev.target.closest("a");
     if (!c || (link && link.getAttribute("href") !== location.hash)) return;   // a link to this same page (a name on its own page) counts as the card
     if (link) ev.preventDefault();
-    const e = byId[c.dataset.id] || costumeById[c.dataset.costume] || baseOf[c.dataset.bgdex];
+    const e = byId[c.dataset.id] || costumeById[c.dataset.costume] || byId[c.dataset.bgmon] || costumeById[c.dataset.bgmon] || baseOf[c.dataset.bgdex];
     if (!e) return;
-    if (location.hash === "#p-" + e.dex && !c.dataset.id) {   // a costume or background on its own Pokémon's page: the card ticks its Caught box (her note, 10 Nov)
+    if (location.hash === pageOf(e) && !c.dataset.id) {   // a costume or background on its own Pokémon's page: the card ticks its Caught box (her note, 10 Nov)
       const key = c.dataset.costume ? "c:" + c.dataset.costume : c.dataset.bg;
       if (key) return tick(key, "c", !has(key, "c"));
     }
-    if (c.dataset.id) pageForm[e.dex] = e.id;
-    if (location.hash === "#p-" + e.dex) { rerender(); return scrollTo({top: 0, behavior: "smooth"}); }
-    location.hash = "#p-" + e.dex;
+    if (c.dataset.id) pageForm[groupKey(e)] = e.id;
+    if (location.hash === pageOf(e)) { rerender(); return scrollTo({top: 0, behavior: "smooth"}); }
+    location.hash = pageOf(e);
     return;
   }
-  if (b.dataset.pickform) { const e = byId[b.dataset.pickform]; pageForm[e.dex] = e.id; return rerender(); }
+  if (b.dataset.pickform) { const e = byId[b.dataset.pickform]; pageForm[groupKey(e)] = e.id; return rerender(); }
   if (b.hasAttribute("data-clear")) { Object.assign(prefs, {work: "all", workShow: "all"}); keepPrefs(); return rerender(); }
   if (b.hasAttribute("data-showall")) { prefs.workShow = prefs.workShow === "all" ? "need" : "all"; keepPrefs(); return rerender(); }
   if (b.dataset.work) { prefs.work = prefs.work === b.dataset.work ? "all" : b.dataset.work; prefs.workShow = prefs.work === "all" ? "all" : "need"; keepPrefs(); return rerender(); }   // click again: back to all
@@ -1084,7 +1093,7 @@ q.addEventListener("input", () => {
 document.getElementById("searchIco").innerHTML = ic("search");
 addEventListener("hashchange", () => { route(); scrollTo(0, 0); });
 addEventListener("keydown", ev => {   // ← and → step through the numbers on a Pokémon's page
-  if (!/^#p-\d+$/.test(location.hash) || ev.target.closest("input,textarea,select") || ev.altKey || ev.ctrlKey || ev.metaKey) return;
+  if (!/^#p-\d+(-[a-z]+)?$/.test(location.hash) || ev.target.closest("input,textarea,select") || ev.altKey || ev.ctrlKey || ev.metaKey) return;
   const a = document.querySelector(ev.key === "ArrowLeft" ? ".pn.prev" : ev.key === "ArrowRight" ? ".pn.next" : null);
   if (a) { ev.preventDefault(); location.hash = a.getAttribute("href"); }
 });
