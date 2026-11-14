@@ -91,7 +91,7 @@ const POSSIBLE = {
   c: () => true, s: () => true, h: () => true, xl: es => es.some(e => !neverXXL(e)), xs: es => !neverXXS(es[0]),
   l: es => !UNTRADEABLE.has(es[0].dex),
   sd: () => true, pu: () => true,   // no rule rules any out (Shadow Darkrai exists, 2025)
-  dx: es => !NO_DYNAMAX.has(es[0].dex), gx: es => GMAX_SPECIES.has(es[0].dex),
+  dx: es => !NO_DYNAMAX.has(es[0].dex), gx: es => es.some(e => GMAX_SPECIES.has(e.dex) && !isRegional(e)),   // no regional form can Gigantamax (Galarian Meowth can't)
   mega: es => es.some(e => (e.mega || []).length || e.megaLater),
   cm: es => es.some(e => e.gender === "both" || e.gender === "male"), cf: es => es.some(e => e.gender === "both" || e.gender === "female"),
 };
@@ -102,7 +102,7 @@ function counts(list){
   const r = {species: 0, speciesOut: 0, male: 0, maleOut: 0, female: 0, femaleOut: 0, shiny: 0, shinyOut: 0,
              lucky: 0, luckyOut: 0, hundo: 0, out: 0, sd: 0, pu: 0, shadowOut: 0, dx: 0, dynamaxOut: 0, gx: 0, gmaxOut: 0, mega: 0, megaOut: 0, xl: 0, xs: 0};
   const by = {};
-  for (const e of list) (by[e.dex] = by[e.dex] || []).push(e);
+  for (const e of list) (by[groupKey(e)] = by[groupKey(e)] || []).push(e);   // a regional form is a Pokémon of its own (her call, 14 Nov)
   r.speciesAll = Object.keys(by).length;
   const tally = (es, b, got, out, have) => { if (POSSIBLE[b](es)) { r[out]++; if (es.some(e => e.released && got(e))) r[have]++; } };
   const ticked = t => e => has(dk(e), t);
@@ -836,7 +836,7 @@ async function quickGo(){
 // the same as the game's. One click ticks the Pokémon's plain form (the game's Pokédex counts the species too).
 const FAST = [["c", "Caught", "poke-ball"], ["cf", "Female", "venus"], ["cm", "Male", "mars"], ["s", "Shiny", "sparkles"], ["l", "Lucky", "lucky"],   // the game's Pokédex order (her ask, 12 Nov), with Female, Male and Dynamax fitted in
   ["xl", "XXL", "expand"], ["xs", "XXS", "shrink"], ["dx", "Dynamax", "dynamax"], ["gx", "Gigantamax", "gigantamax"], ["mega", "Mega", "mega"], ["sd", "Shadow", "shadow"], ["pu", "Purified", "purified"], ["h", "4★", "star"]];
-const FAST_GAME = {c: "Pokémon", s: "Shiny", l: "Lucky", h: "100%", sd: "Shadow", pu: "Purified", gx: "G-Max", mega: "Mega", xl: "XXL", xs: "XXS"};   // the game's own tab names
+const FAST_GAME = {c: "Pokémon", s: "Shiny", l: "Lucky", h: "100%", sd: "Shadow", pu: "Purified", gx: "G-Max", mega: "Mega", xl: "XXL", xs: "XXS"};   // the game's own tab names (its Gigantamax tab is "G-Max": Dittobase's Pokédex V2 guide, checked 14 Nov)
 const FAST_COL = {c: "--caught", s: "--shiny", l: "--lucky", h: "--hundo", sd: "--shadow", pu: "--purified", dx: "--dynamax", gx: "--gmax", mega: "--mega", cm: "--male", cf: "--female", xl: "--xxl", xs: "--xxs"};
 const fastTicks = (e, b) => b === "mega" ? (e.mega || []).map(m => m.t) : canTick(e, b) ? [b] : [];
 function fastSpecies(g){   // the region's Pokémon in number order, each with its entries that are out; not-out ones too, as GO counts them.
