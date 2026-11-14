@@ -839,9 +839,10 @@ const FAST = [["c", "Caught", "poke-ball"], ["cf", "Female", "venus"], ["cm", "M
 const FAST_GAME = {c: "Pokémon", s: "Shiny", l: "Lucky", h: "100%", sd: "Shadow", pu: "Purified", gx: "G-Max", mega: "Mega", xl: "XXL", xs: "XXS"};   // the game's own tab names
 const FAST_COL = {c: "--caught", s: "--shiny", l: "--lucky", h: "--hundo", sd: "--shadow", pu: "--purified", dx: "--dynamax", gx: "--gmax", mega: "--mega", cm: "--male", cf: "--female", xl: "--xxl", xs: "--xxs"};
 const fastTicks = (e, b) => b === "mega" ? (e.mega || []).map(m => m.t) : canTick(e, b) ? [b] : [];
-function fastSpecies(g){   // the region's Pokémon in number order, each with its entries that are out (regional forms count with their species, as in the game)
-  const dexes = [...new Set(ENTRIES.filter(e => e.gen === g && !isRegional(e)).map(e => e.dex))].sort((a, b) => a - b);   // not-out ones too, as GO counts them
-  return dexes.map(d => ({dex: d, all: ENTRIES.filter(e => e.dex === d && !isRegional(e)), es: ENTRIES.filter(e => e.dex === d && e.released)}));
+function fastSpecies(g){   // the region's Pokémon in number order, each with its entries that are out; not-out ones too, as GO counts them.
+  // Regional forms are Pokémon of their own (her call, 14 Nov): a square each in their own region (Hisuian Growlithe under Hisui), as on the region pages
+  const keys = [...new Set(ENTRIES.filter(e => e.gen === g).sort((a, b) => a.dex - b.dex || isRegional(a) - isRegional(b)).map(groupKey))];
+  return keys.map(k => { const all = ENTRIES.filter(e => groupKey(e) === k); return {dex: all[0].dex, key: k, all, es: all.filter(e => e.released)}; });
 }
 function fastPic(e, t){
   const gmax = `pm${e.dex}.fGIGANTAMAX`, mega = (e.mega || []).find(m => m.t === t);
@@ -849,7 +850,7 @@ function fastPic(e, t){
   return sprite(k) || sprite(e.img) || "";
 }
 function fastCell(e, t, on, n, other){
-  return `<button class="fc" type="button" data-fast="${attr(e.id)}" data-t="${t}" aria-pressed="${on}"${other ? ` data-other="${attr(other)}"` : ""} title="${esc(e.name)}${t === "mx" ? " Mega X" : t === "my" ? " Mega Y" : ""}">` +
+  return `<button class="fc" type="button" data-fast="${attr(e.id)}" data-t="${t}" aria-pressed="${on}"${other ? ` data-other="${attr(other)}"` : ""} title="${isRegional(e) ? esc(e.form.split(" ")[0]) + " " : ""}${esc(e.name)}${t === "mx" ? " Mega X" : t === "my" ? " Mega Y" : ""}">` +
     `<img src="${fastPic(e, t)}" alt="" loading="lazy"><span>${pad(n)}${t === "mx" ? " X" : t === "my" ? " Y" : ""}</span></button>`;
 }
 // what to tick: the game's Pokédex region by region, or her costumes or background Pokémon, under their events (her ask, 14 Nov)
@@ -911,7 +912,7 @@ function fastPage(){
   }).join("");
   setRegion(g);
   view.innerHTML = `<header class="hero withshot">${heroPics([regionMap(g)].filter(Boolean))}<h1>Fast <em>tick</em></h1>
-    <p style="max-width:380px">A whole region at once, laid out like the game’s Pokédex. Open the same tab on your phone (${b in FAST_GAME ? `the game calls it <b>${esc(FAST_GAME[b])}</b>` : "the game’s Pokédex has no tab for this one, so use the storage search instead"}) and click every Pokémon that’s in colour there. Your number should end up matching the game’s.</p></header>${readOnlyNote()}
+    <p style="max-width:380px">A whole region at once, laid out like the game’s Pokédex. Open the same tab on your phone (${b in FAST_GAME ? `the game calls it <b>${esc(FAST_GAME[b])}</b>` : "the game’s Pokédex has no tab for this one, so use the storage search instead"}) and click every Pokémon that’s in colour there. Regional forms have their own squares here, in their own region (Hisuian Growlithe under Hisui); the game puts them with the usual one.</p></header>${readOnlyNote()}
     <div class="toolbar filters">${fastKindRow("dex")}<div class="frow"><span class="label flabel">Region</span><div class="worktabs">${GENS.map(([id, n]) => `<button type="button" class="worktab" data-fastgen="${id}" aria-pressed="${id === g}">${esc(n)}</button>`).join("")}</div></div>
     <div class="frow"><span class="label flabel">Box</span><div class="worktabs">${FAST.map(([t, l]) => `<button type="button" class="worktab" data-fastbox="${t}" aria-pressed="${t === b}">${esc(l)}</button>`).join("")}</div></div></div>
     <div class="fasthead" style="--bc:var(${FAST_COL[b]})">${ic(icon)}<b>${esc(genById[g][1])} · ${esc(label)}</b><span class="fastn">${num(got)} / ${num(all)}</span>

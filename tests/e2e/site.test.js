@@ -286,12 +286,14 @@
     prefs.fastBox = "mega"; fastPage();
     eq(zard, ["mx", "my"], "Charizard has X and Y");
     prefs.fastGen = "hisui"; prefs.fastBox = "c"; fastPage();
-    ok([...view().querySelectorAll("button.fc")].every(c => +byId[c.dataset.fast].dex >= 899), "Hisui is #899 on");
-    eq(view().querySelectorAll(".fastgrid .fc").length, 7, "Hisui has 7, as in GO (Basculegion an empty slot)");
-    ok(/ \/ 7$/.test(view().querySelector(".fastn").textContent), "counted out of 7");
+    ok([...view().querySelectorAll("button.fc")].every(c => +byId[c.dataset.fast].dex >= 899 || isRegional(byId[c.dataset.fast])), "Hisui: its Hisuian forms, then #899 on");
+    const hisuian = new Set(ENTRIES.filter(e => e.gen === "hisui" && isRegional(e)).map(groupKey)).size;
+    eq(view().querySelectorAll(".fastgrid .fc").length, 7 + hisuian, "Hisui has its 7 (Basculegion an empty slot) and a square for each Hisuian form (her call, 14 Nov)");
+    eq(view().querySelector('.fc[data-fast="58-hisuian"]').title, "Hisuian Growlithe");
+    ok(new RegExp(` / ${7 + hisuian}$`).test(view().querySelector(".fastn").textContent), "counted out of them all");
   });
 
-  test("Fast tick ticks and unticks, and a form counts for its Pokémon", async () => {
+  test("Fast tick ticks and unticks; a regional form has its own square", async () => {
     const clear = async k => { for (const t of ["c", "s"]) await save({list: "have", key: k, tick: t, on: false}); delete COL.have[k]; };
     for (const k of ["d:52", "d:52-alolan", "d:27"]) await clear(k);
     prefs.fastGen = "1"; prefs.fastBox = "s"; await go("#fast");
@@ -304,7 +306,9 @@
     for (let t = 0; t < 8000; t += 100) { s = await server(); if (!(s.have["d:27"] || []).includes("s")) break; await wait(100); }
     ok(!(s.have["d:27"] || []).includes("s"), "unticked");
     await save({list: "have", key: "d:52-alolan", tick: "s", on: true}); setTick("d:52-alolan", "s", true); fastPage();
-    ok(view().querySelector('.fc[data-fast="52"]').getAttribute("aria-pressed") === "true", "Alolan Meowth's shiny lights Meowth");
+    ok(view().querySelector('.fc[data-fast="52"]').getAttribute("aria-pressed") === "false", "Alolan Meowth's shiny doesn't light Meowth: a regional form is its own Pokémon (her call, 14 Nov)");
+    prefs.fastGen = "7"; fastPage();
+    ok(view().querySelector('.fc[data-fast="52-alolan"]').getAttribute("aria-pressed") === "true", "it lights its own square under Alola");
     for (const k of ["d:52", "d:52-alolan", "d:27"]) await clear(k);
     prefs.fastGen = "1"; prefs.fastBox = "c";
   });
