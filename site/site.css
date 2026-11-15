@@ -742,6 +742,7 @@ a.formsbtn{text-decoration:none}
 .fastset h3{width:0;min-width:100%;flex-wrap:wrap;row-gap:2px}   /* a long event name wraps rather than widening its group */
 .fastset .fastgrid{display:flex;flex-wrap:wrap;gap:6px}
 .fastset .fc{width:76px}
+.fastset .fc .fcn{white-space:normal;text-align:center;line-height:1.15;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3}   /* up to three lines, so "Team Leader Red" and "Team Leader Blue" can be told apart (15 Nov) */
 
 /* a form-tracked Pokémon's card (her pick, 15 Nov): each box fills up in its colour as she gets its forms, with the count;
    the filled part is a white-text copy of the box, clipped to how far it's got; every form got = the full box */

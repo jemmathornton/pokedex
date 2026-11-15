@@ -84,8 +84,10 @@ SEREBII_REGION = {'a': 'alolan', 'g': 'galarian', 'h': 'hisuian', 'p': 'paldean'
 DEFAULT_FORM = {201: 'pm201.fUNOWN_F'}
 # pictures in the costume slots that aren't costumes (10 Nov, her questions): exact copies of the plain picture, which the game
 # keeps as placeholders (never released as costumes), and Xerneas's normal look
-NOT_COSTUMES = {'pm26.cNOVEMBER_2018', 'pm136.cHOLIDAY_2022', 'pm136.cNOVEMBER_2018', 'pm150.cONE_YEAR_ANNIVERSARY', 'pm172.cFALL_2018',
-                'pm249.cONE_YEAR_ANNIVERSARY', 'pm716.fNEUTRAL'}
+# (15 Nov: Raichu's Flower Crown and Flareon's Holiday and Flower Crown costumes taken back off this list: she has the Raichu, Leek
+# Duck lists all three, and their pictures differ from the plain one in a small hat or flower; the 10 Nov check had compared
+# only the outlines)
+NOT_COSTUMES = {'pm150.cONE_YEAR_ANNIVERSARY', 'pm172.cFALL_2018', 'pm249.cONE_YEAR_ANNIVERSARY', 'pm716.fNEUTRAL'}
 # a picture the game files keep with the costumes that is really a form in the game's Pokédex: Armored Mewtwo (her call, 10 Nov)
 PICTURE_FORMS = {'pm150.fA': ('MEWTWO_A', 'Armored')}
 # names for costumes the sources call by code only
@@ -298,8 +300,12 @@ def main():
     protos = open(paths['pogo-protos.d.ts'], encoding='utf-8').read()
     i = protos.index('enum Form {')
     form_no = {m.group(1): int(m.group(2)) for m in re.finditer(r'(\w+) = (\d+)', protos[i:protos.index('}', i)])}
-    gm, quests = {}, {}
+    gm, quests, form_pos = {}, {}, {}
     for rec in json.load(open(paths['gamemaster.json'], encoding='utf-8')):
+        fs = rec['data'].get('formSettings')
+        if fs:   # the game's own order of each Pokémon's forms (her note, 15 Nov: alphabetical wasn't the game's order)
+            for k, f in enumerate(fs.get('forms') or []):
+                form_pos.setdefault(f['form'], k)
         ps = rec['data'].get('pokemonSettings')
         if ps:
             gm.setdefault(ps.get('form') or ps['pokemonId'], ps)
@@ -528,12 +534,33 @@ def main():
             base['femaleDesc'] = fem['desc']   # the game has a female Pokédex text of its own (Oinkologne)
         print(f'genders as forms merged: #{n} {base["name"]}')
 
+    # the game files' order (her note, 15 Nov): forms as the Game Master lists them (Unown F, A…Z, ! and ?; Rotom Heat, Wash,
+    # Frost, Fan, Mow); costumes of the older kind first, by the game's Costume list, then costume forms as the Game Master lists them
+    i = protos.index('enum Costume {')
+    costume_no = {m.group(1): int(m.group(2)) for m in re.finditer(r'(\w+) = (\d+)', protos[i:protos.index('}', i)])}
+    sid_of = {sp['dexNr']: sp['id'] for sp in dex}
+    for e in entries:
+        fid = e['_fid']
+        e['order'] = form_pos.get(fid, form_pos.get(fid + '_NORMAL', -1 if fid == e['_sid'] else 999))
+        if e['dex'] == 201:   # Unown A to Z, then ! and ? (her note, 15 Nov: F in its normal place; F stays the picture shown)
+            e['order'] = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ!?'.find(e['form'] or '')
+    # costumes newest first, as the game shows them (her notes, 15 Nov: nearly the reverse; the crowns out of place): costume
+    # forms by the game's Form number, highest first, then the older kind of costume by the game's Costume number
+    for c in costumes:
+        code = c['code'].upper()
+        k = f'{sid_of[c["dex"]]}_{code}'
+        if k in form_no:
+            c['order'] = -10000 - form_no[k]
+        elif code in costume_no or code + '_NOEVOLVE' in costume_no:
+            c['order'] = -costume_no.get(code, costume_no.get(code + '_NOEVOLVE'))
+        else:   # the same costume on another of its family (Charmeleon's goggles, numbered as Charmander's)
+            c['order'] = -10000 - max((v for f, v in form_no.items() if f.endswith('_' + code)), default=0)
     for e in entries:
         e.pop('_fid', None)
         e.pop('_evos', None)
         e.pop('_sid', None)
-    entries.sort(key=lambda e: (e['dex'], e['form'] is not None, e['form'] or ''))
-    costumes.sort(key=lambda c: (c['dex'], c['code']))
+    entries.sort(key=lambda e: (e['dex'], e['order'], e['form'] is not None, e['form'] or ''))
+    costumes.sort(key=lambda c: (c['dex'], c['order'], c['code']))
     seen = set()
     for e in entries + costumes:   # ids must be unique: the collection is saved by them
         while e['id'] in seen:

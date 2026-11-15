@@ -167,7 +167,7 @@
     eq(document.querySelector(".pn.next").getAttribute("href"), "#p-59");
     eq([...document.querySelectorAll(".formpick small")].length, 0);
     await go("#p-128-paldean");
-    eq([...document.querySelectorAll(".formpick small")].map(x => x.textContent), ["Paldean Aqua", "Paldean Blaze", "Paldean Combat"]);
+    eq([...document.querySelectorAll(".formpick small")].map(x => x.textContent), ["Paldean Combat", "Paldean Blaze", "Paldean Aqua"]);   // the game files' order (15 Nov)
     eq(groupByNumber(ENTRIES.filter(e => e.dex === 52)).length, 3, "Meowth, Alolan Meowth and Galarian Meowth: three cards");
     eq(groupByNumber(ENTRIES.filter(e => e.dex === 201)).length, 1, "Unown stays one card");
   });
@@ -288,7 +288,16 @@
     ok(bgs.every(k => k.startsWith("b:")), "background keys");
     prefs.fastBox = "s"; fastPage();
     ok(view().querySelectorAll(".fastset [data-fk]").length <= bgs.length, "Shiny: only where one is out");
-    prefs.fastKind = "dex"; prefs.fastBox = "c";
+    // Pokédex number order by default (her ask, 15 Nov), each Pokémon's costumes newest first as in the game; Event order still there
+    prefs.fastKind = "cos"; prefs.fastBox = "c"; delete prefs.fastOrder; fastPage();
+    const heads = [...view().querySelectorAll(".fastset h3")].map(h => +(/#(\d+)/.exec(h.textContent) || [])[1]);
+    ok(heads.length && heads.every((n, i) => n && (!i || n >= heads[i - 1])), "sections by number, in order");
+    const pika = [...view().querySelectorAll(".fastset")].find(s => /#0025 Pikachu/.test(s.textContent));
+    if (pika) { const ords = [...pika.querySelectorAll("[data-fk]")].map(b => costumeById[b.dataset.fk.slice(2)].order); ok(ords.every((o, i) => !i || o >= ords[i - 1]), "Pikachu's costumes in the game's order"); }
+    prefs.fastOrder = "event"; fastPage();
+    eq(view().querySelectorAll(".fastset [data-fk]").length, cos.length, "Event order: the same costumes");
+    ok(!/^#\d/.test(view().querySelector(".fastset h3").textContent), "Event order: under events");
+    delete prefs.fastOrder; prefs.fastKind = "dex"; prefs.fastBox = "c";
   });
 
   test("Fast tick shows a whole region in number order, with Mega X and Y apart", async () => {

@@ -563,7 +563,7 @@ function pokemonPage(key){
   const n = every[0].dex, regionalPage = isRegional(every[0]);
   const all = every.filter(e => prefs.unreleased || e.released || every.every(x => !x.released));
   if (!all.length) return home();
-  const grouped = groupByNumber(all)[0], ordered = [grouped.lead, ...grouped.others];
+  const grouped = groupByNumber(all)[0], ordered = all;   // the data's order, the game's (Unown A to Z, F the one shown first: her note, 15 Nov)
   const sel = byId[pageForm[key]] && all.includes(byId[pageForm[key]]) ? byId[pageForm[key]] : grouped.lead;
   const costumes = regionalPage ? [] : myCostumes().filter(c => c.dex === n);   // costumes are of the usual form
   const evs = myEvents().filter(ev => regionalPage ? bgMonsOf(ev).some(e => groupKey(e) === key)
@@ -890,27 +890,44 @@ function fastCell(e, t, on, n, other){
 // what to tick: the game's Pokédex region by region, or her costumes or background Pokémon, under their events (her ask, 14 Nov)
 const FAST_KINDS = [["dex", "Pokédex"], ["cos", "Costumes"], ["bg", "Backgrounds"], ["forms", "Forms check"]];   // Forms check: TEMPORARY (her ask, 15 Nov), take it out when she has been through
 const fastKindRow = kind => `<div class="frow"><span class="label flabel">Tick</span><div class="worktabs">${FAST_KINDS.map(([k, l]) => `<button type="button" class="worktab" data-fastkind="${k}" aria-pressed="${k === kind}">${esc(l)}</button>`).join("")}</div></div>`;
-function fastItemCell(it, b, art){
+function fastItemCell(it, b, art, evName){   // evName: in number order, a background Pokémon is named by its event
   const pic = (b === "s" && sprite(it.img + ".s")) || sprite(it.img) || "", what = it.e.costume || it.e.form || "";
   const card = it.bg && art ? ` style="--card:url('${art}')"` : "";
-  return `<button class="fc col${card ? " withbg" : ""}" type="button" data-fk="${attr(it.key)}" data-t="${b}" aria-pressed="${has(it.key, b)}" title="${attr(it.e.name + (what ? " · " + what : ""))}"${card}>` +
-    `<img src="${pic}" alt="" loading="lazy"><span class="fcn">${esc(it.bg || !it.e.costume ? it.e.name : it.e.costume)}</span></button>`;
+  const name = it.bg && evName ? (it.e.costume ? it.e.costume + " · " : "") + evName : it.bg || !it.e.costume ? it.e.name : it.e.costume;
+  return `<button class="fc col${card ? " withbg" : ""}" type="button" data-fk="${attr(it.key)}" data-t="${b}" aria-pressed="${has(it.key, b)}" title="${attr(it.e.name + (what ? " · " + what : "") + (evName ? " · " + evName : ""))}"${card}>` +
+    `<img src="${pic}" alt="" loading="lazy"><span class="fcn">${esc(name)}</span></button>`;
 }
 function fastSetsPage(kind){
   const b = prefs.fastBox === "s" ? "s" : "c", [, label, icon] = FAST.find(x => x[0] === b), sets = allSets(), seen = new Set();
+  const byNum = prefs.fastOrder !== "event";   // Pokédex order by default (her ask, 15 Nov: traded ones make event order hard to follow)
   let got = 0, all = 0, html = "";
+  const picked = [];
   for (const st of sets) {   // newest first, each one once (a costume on two backgrounds' cards sits with the first)
     const items = st.items.filter(it => (kind === "bg") === it.bg && !seen.has(it.key) && (b === "c" || it.e.shiny || has(it.key, "s")));   // Shiny: only where one is out
-    if (!items.length) continue;
-    items.forEach(it => seen.add(it.key));
-    const g = items.filter(it => has(it.key, b)).length; got += g; all += items.length;
-    html += `<section class="fastset"><h3>${esc(st.title)}<small>${num(g)} / ${num(items.length)}</small></h3><div class="fastgrid" style="--bc:var(${FAST_COL[b]})">${items.map(it => fastItemCell(it, b, st.art)).join("")}</div></section>`;
+    items.forEach(it => { seen.add(it.key); picked.push({it, st}); });
+  }
+  const groups = new Map();   // by event, or by Pokémon (a regional form on its own, as everywhere else), in number order
+  for (const p of picked) {
+    const k = byNum ? groupKey(p.it.e) : p.st.id;
+    if (!groups.has(k)) groups.set(k, {title: byNum ? `#${pad(p.it.e.dex)} ${isRegional(p.it.e) ? p.it.e.form.split(" ")[0] + " " : ""}${p.it.e.name}` : p.st.title, dex: p.it.e.dex, reg: isRegional(p.it.e), ps: []});
+    groups.get(k).ps.push(p);
+  }
+  const list = [...groups.values()];
+  if (byNum) {   // and in each, the game files' order: its forms, then its costumes (her note, 15 Nov); a background's newest first
+    list.sort((x, y) => x.dex - y.dex || x.reg - y.reg);
+    const pos = it => (it.e.costume ? 1e4 : 0) + (it.e.order ?? 999);
+    list.forEach(gr => gr.ps.sort((x, y) => pos(x.it) - pos(y.it)));
+  }
+  for (const gr of list) {
+    const g = gr.ps.filter(p => has(p.it.key, b)).length; got += g; all += gr.ps.length;
+    html += `<section class="fastset"><h3>${esc(gr.title)}<small>${num(g)} / ${num(gr.ps.length)}</small></h3><div class="fastgrid" style="--bc:var(${FAST_COL[b]})">${gr.ps.map(p => fastItemCell(p.it, b, p.st.art, byNum ? p.st.title : null)).join("")}</div></section>`;
   }
   const how = kind === "bg" ? "<b>locationbackground</b> or <b>specialbackground</b>" : "<b>costume</b>";
   setRegion(null);
   view.innerHTML = `<header class="hero withshot">${heroPics(sets.filter(st => st.art).slice(0, 6).map(st => st.art))}<h1>Fast <em>tick</em></h1>
-    <p style="max-width:380px">Every ${kind === "bg" ? "background Pokémon from your events" : "costume you collect"}, under its event. Search your Pokémon in the game for ${how}${b === "s" ? " with <b>&amp;shiny</b>" : ""} and click each one you have.</p></header>${readOnlyNote()}
+    <p style="max-width:380px">Every ${kind === "bg" ? "background Pokémon from your events" : "costume you collect"}, ${byNum ? "in Pokédex number order" : "under its event"}. Search your Pokémon in the game for ${how}${b === "s" ? " with <b>&amp;shiny</b>" : ""}${byNum ? ", sort by number," : ""} and click each one you have.</p></header>${readOnlyNote()}
     <div class="toolbar filters">${fastKindRow(kind)}
+    <div class="frow"><span class="label flabel">Order</span><div class="worktabs">${[["num", "Number"], ["event", "Event"]].map(([k, l]) => `<button type="button" class="worktab" data-fastorder="${k}" aria-pressed="${(k === "num") === byNum}">${l}</button>`).join("")}</div></div>
     <div class="frow"><span class="label flabel">Box</span><div class="worktabs">${FAST.filter(([t]) => t === "c" || t === "s").map(([t, l]) => `<button type="button" class="worktab" data-fastbox="${t}" aria-pressed="${t === b}">${esc(l)}</button>`).join("")}</div></div></div>
     <div class="fasthead" style="--bc:var(${FAST_COL[b]})">${ic(icon)}<b>${kind === "bg" ? "Backgrounds" : "Costumes"} · ${esc(label)}</b><span class="fastn">${num(got)} / ${num(all)}</span>
       ${got < all ? `<button class="linkbtn" type="button" data-fastall>${ic("check")}Tick all ${num(all - got)} left</button>` : ""}</div>
@@ -925,7 +942,7 @@ function fastFormsPage(){
   let got = 0, all = 0, html = "";
   for (const [dex, es] of [...byDex].sort((x, y) => x[0] - y[0])) {
     if (es.length < 2 || !(FORM_SPECIES.has(dex) || es.some(isRegional))) continue;   // only her form-by-form picks and regional forms (not Scatterbug…)
-    const g0 = groupByNumber(es.filter(e => !isRegional(e)))[0], ordered = [...(g0 ? [g0.lead, ...g0.others] : []), ...es.filter(isRegional)];
+    const ordered = [...es.filter(e => !isRegional(e)), ...es.filter(isRegional)];   // the data's order, the game's (Unown A to Z)
     const hasRegional = es.some(isRegional);
     const cells = ordered.flatMap(e => fastTicks(e, b).map(t => {
       const on = has(dk(e), t), name = (e.form || (hasRegional ? (genById[e.gen] || [])[1] : "") || e.name) + (t === "mx" ? " · X" : t === "my" ? " · Y" : "");
@@ -1120,6 +1137,7 @@ document.addEventListener("click", ev => {
   if (b.hasAttribute("data-fastall")) return fastAll();
   if (b.dataset.fastgen) { prefs.fastGen = b.dataset.fastgen; keepPrefs(); return rerender(); }
   if (b.dataset.fastbox) { prefs.fastBox = b.dataset.fastbox; keepPrefs(); return rerender(); }
+  if (b.dataset.fastorder) { prefs.fastOrder = b.dataset.fastorder; keepPrefs(); return rerender(); }
   if (b.dataset.shotg) { prefs.regionShot = {...(prefs.regionShot || {}), [b.dataset.shotg]: +b.dataset.shot}; keepPrefs(); return rerender(); }   // trial, 10 Nov
   if (b.dataset.notout) { prefs.unreleased = b.dataset.notout === "yes"; keepPrefs(); return rerender(); }
   if (b.dataset.workshow) { prefs.workShow = b.dataset.workshow; keepPrefs(); return rerender(); }
