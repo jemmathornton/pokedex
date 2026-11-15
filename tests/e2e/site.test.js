@@ -33,7 +33,7 @@
   test("every page opens with no errors, blanks or leftovers, and every link on them goes somewhere", async () => {
     const problems = [], errs = [], seen = new Set(), links = new Set();
     const onErr = e => errs.push(e.message || String(e.reason)); addEventListener("error", onErr);
-    const routes = ["#home", "#dex", "#costumes", "#events", "#fast", "#sets", ...allSets().map(st => "#set-" + st.id), ...Object.keys(genById).map(g => "#gen-" + g), ...PAGE_KEYS.map(k => "#p-" + k)];
+    const routes = ["#home", "#dex", "#costumes", "#events", "#fast", "#want", "#sets", ...allSets().map(st => "#set-" + st.id), ...Object.keys(genById).map(g => "#gen-" + g), ...PAGE_KEYS.map(k => "#p-" + k)];
     try {
       for (const h of routes) {
         if (seen.has(h)) continue; seen.add(h);
@@ -328,6 +328,20 @@
     let msg = ""; const t0 = window.toast; window.toast = m => { msg = m; };
     try { ok(!await save({list: "have", key: "d:25", tick: "zz", on: true})); ok(/Not a box/.test(msg) && !/isn’t answering/.test(msg), msg); }
     finally { window.toast = t0; }
+  });
+
+  test("Looking for lists what's out and not got, and ticking one takes it off", async () => {
+    const key = "d:83", clear = async () => { for (const t of ["c", "s"]) await save({list: "have", key, tick: t, on: false}); delete COL.have[key]; autoCaught.delete(key); };
+    await clear();
+    try {
+      for (const [b] of WANT) { prefs.wantBox = b; await go("#want"); eq(view().querySelectorAll(".fc.want").length, wanted(b).length, b + ": one square each"); }
+      prefs.wantBox = "s"; await go("#want");
+      ok(view().querySelector('.fc.want[href="#p-83"]'), "Farfetch’d’s shiny is out and not got");
+      ok(!wanted("l").some(u => UNTRADEABLE.has(u.e.dex)), "no lucky that can't be traded");
+      ok(!wanted("s").some(u => !u.e.shiny), "only shinies that are out");
+      await tick(key, "s", true); await go("#want");
+      ok(!view().querySelector('.fc.want[href="#p-83"]'), "gone once ticked");
+    } finally { await clear(); prefs.wantBox = "s"; }
   });
 
   // ---------- Fast tick (trial) ----------

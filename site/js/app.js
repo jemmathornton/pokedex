@@ -1054,12 +1054,54 @@ async function fastAll(){
   rerender();   // the page she's on now, in case she moved on while it was saving
 }
 
+// ---------- Looking for (TRIAL, her ask 15 Nov: a page for what she's searching for) ----------
+// shinies that are out and she needs, the same for Dynamax, Gigantamax and Mega, and luckies to try to trade for: every Pokémon
+// whose box is out in GO and not ticked, by region. A Pokémon counts as got if any of its forms has it, except the ones she
+// tracks form by form, where each form is its own; regional forms are their own (as everywhere)
+const WANT = [["s", "Shiny", "sparkles", "--shiny"], ["l", "Lucky", "lucky", "--lucky"], ["dx", "Dynamax", "dynamax", "--dynamax"],
+  ["gx", "Gigantamax", "gigantamax", "--gmax"], ["mega", "Mega", "mega", "--mega"]];
+function wanted(b){
+  const can = e => b === "s" ? !!e.shiny : b === "l" ? !UNTRADEABLE.has(e.dex) : b === "dx" ? !!e.dynamax : b === "gx" ? !!e.gmax : false;
+  const units = [];
+  for (const g of groupByNumber(ENTRIES.filter(e => e.released))) {
+    const es = [g.lead, ...g.others];
+    if (b === "mega") { for (const e of es) for (const m of e.mega || []) if (!has(dk(e), m.t)) units.push({e, t: m.t, what: m.t === "mx" ? "Mega X" : m.t === "my" ? "Mega Y" : ""}); continue; }
+    if (FORM_SPECIES.has(g.lead.dex)) { for (const e of es) if (can(e) && !has(dk(e), b)) units.push({e, t: b, what: formLabel(e)}); continue; }
+    const ok = es.filter(can);
+    if (ok.length && !ok.some(e => has(dk(e), b))) units.push({e: ok.includes(g.lead) ? g.lead : ok[0], t: b, what: ""});
+  }
+  return units;
+}
+function wantPage(){
+  const b = [TRY.get("want"), prefs.wantBox].find(k => WANT.some(w => w[0] === k)) || "s", [, label, icon, col] = WANT.find(w => w[0] === b);   // ?want= for pictures only
+  const units = wanted(b), name = u => `${isRegional(u.e) ? u.e.form.split(" ")[0] + " " : ""}${u.e.name}${u.what ? " · " + u.what : ""}`;
+  let html = "";
+  for (const [g, region] of GENS) {
+    const us = units.filter(u => u.e.gen === g);
+    if (!us.length) continue;
+    html += `<section class="fastset"><h3>${esc(region)}<small>${num(us.length)}</small></h3><div class="fastgrid" style="--bc:var(${col})">` +
+      us.map(u => `<a class="fc col want" href="${pageOf(u.e)}" title="${attr(name(u))}"><img src="${b === "s" ? sprite(u.e.img + ".s") || sprite(u.e.img) : fastPic(u.e, u.t)}" alt="" loading="lazy"><span>${pad(u.e.dex)}</span><span class="fcn">${esc(name(u))}</span></a>`).join("") + `</div></section>`;
+  }
+  setRegion(null);
+  view.innerHTML = `<header class="hero withshot">${heroPics(ALL_MAPS())}<span class="label">Trial</span><h1>Looking <em>for</em></h1>
+    <p style="max-width:380px">Everything that’s out in Pokémon GO that you haven’t got yet: shinies to hunt, luckies to try to trade for, and Dynamax, Gigantamax and Mega to look out for. Ticking one on its page takes it off here.</p></header>${readOnlyNote()}
+    <div class="toolbar filters"><div class="frow"><span class="label flabel">Box</span><div class="worktabs">${WANT.map(([t, l]) => `<button type="button" class="worktab" data-wantbox="${t}" aria-pressed="${t === b}">${esc(l)}</button>`).join("")}</div></div></div>
+    <div class="fasthead" style="--bc:var(${col})">${ic(icon)}<b>${esc(label)} · still to get</b><span class="fastn">${num(units.length)}</span>
+      ${units.length ? `<button class="linkbtn" type="button" data-wantcopy>${ic("copy")}Copy the list</button>` : ""}</div>
+    ${html ? `<div class="fastsets">${html}</div>` : `<p class="empty">Nothing left: you have every one that’s out.</p>`}`;
+}
+async function wantCopy(){
+  const b = WANT.some(w => w[0] === prefs.wantBox) ? prefs.wantBox : "s", label = WANT.find(w => w[0] === b)[1];
+  const text = `${label} I’m looking for: ` + wanted(b).map(u => `#${u.e.dex} ${isRegional(u.e) ? u.e.form.split(" ")[0] + " " : ""}${u.e.name}${u.what ? " (" + u.what + ")" : ""}`).join(", ");
+  try { await navigator.clipboard.writeText(text); toast("Copied: paste it into a message to a friend."); } catch (e) { toast("Couldn’t copy here."); }
+}
+
 function navHtml(route){
   const link = (href, icon, text, n) => `<a href="${href}" class="${route === href.slice(1) ? "on" : ""}">${ic(icon)}${esc(text)}${n !== undefined ? `<span class="n">${num(n)}</span>` : ""}</a>`;
   const out = ENTRIES.filter(e => e.released);
   nav.innerHTML = `<div class="nav-group">${link("#home", "house", "Home")}${link("#dex", "layout-grid", "Every Pokémon", groupByNumber(ENTRIES).length)}</div>
     <div class="nav-group"><span class="label">Regions</span>${GENS.map(([g, n]) => link("#gen-" + g, "layers", n, groupByNumber(ENTRIES.filter(e => e.gen === g)).length)).join("")}</div>
-    <div class="nav-group"><span class="label">More</span>${link("#sets", "ticket", "Events and costumes", allSets().length)}${link("#fast", "layout-grid", "Fast tick")}</div>`;
+    <div class="nav-group"><span class="label">More</span>${link("#sets", "ticket", "Events and costumes", allSets().length)}${link("#want", "search", "Looking for")}${link("#fast", "layout-grid", "Fast tick")}</div>`;
 }
 
 function route(to){   // to: draw that page without changing the address (the tests' sweep over every page)
@@ -1071,6 +1113,7 @@ function route(to){   // to: draw that page without changing the address (the te
   if (r === "events") return eventsPage();
   if (r === "quick") return quickPage();
   if (r === "fast") return fastPage();
+  if (r === "want") return wantPage();
   if (r === "sets") return setsPage();
   const sm = /^set-(.+)$/.exec(r);
   if (sm) return setPage(sm[1]);
@@ -1166,6 +1209,8 @@ document.addEventListener("click", ev => {
   if (b.hasAttribute("data-fastall")) return fastAll();
   if (b.dataset.fastgen) { prefs.fastGen = b.dataset.fastgen; keepPrefs(); return rerender(); }
   if (b.dataset.fastbox) { prefs.fastBox = b.dataset.fastbox; keepPrefs(); return rerender(); }
+  if (b.dataset.wantbox) { prefs.wantBox = b.dataset.wantbox; keepPrefs(); return rerender(); }
+  if (b.hasAttribute("data-wantcopy")) return wantCopy();
   if (b.dataset.fastorder) { prefs.fastOrder = b.dataset.fastorder; keepPrefs(); return rerender(); }
   if (b.dataset.shotg) { prefs.regionShot = {...(prefs.regionShot || {}), [b.dataset.shotg]: +b.dataset.shot}; keepPrefs(); return rerender(); }   // trial, 10 Nov
   if (b.dataset.notout) { prefs.unreleased = b.dataset.notout === "yes"; keepPrefs(); return rerender(); }
