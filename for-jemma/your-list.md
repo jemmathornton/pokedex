@@ -3,8 +3,8 @@
 Everything waiting on you. **Do** = just do it; **Decide** = your call. Tell Claude when one’s done or decided and it comes off.
 
 ## Decide
-- **How cards show Pokémon whose forms you track one by one (15 Nov):** your 42 picks (Rotom, Unown, Furfrou…) stay one card in the lists, and every form gets its own boxes on its page. Pick how the card shows your progress: A bars, B numbers or C dots (`for-jemma/form-cards-options.png`).
-- **Left off your forms picks; on purpose?** These are out in GO: Scatterbug, Spewpa, Pumpkaboo (you picked Gourgeist), Rockruff (you picked Lycanroc), Sinistea, Polteageist, Urshifu. Arceus is left for when it’s out.
+- **How cards show Pokémon whose forms you track one by one (15 Nov):** your picks (Rotom, Unown, Furfrou…, now with Pumpkaboo and Urshifu) stay one card, and every form gets its own boxes on its page. Latest look, your idea: each box fills up in its colour with the count, e.g. Shiny 1/4 (`for-jemma/form-cards-fill.png`; the earlier three in `form-cards-options.png`). Use it?
+- **Sinistea and Polteageist:** track their Antique forms one by one or not? (You’re undecided.) Rockruff, Scatterbug and Spewpa left off on purpose: no real difference until they evolve. Arceus when it’s out.
 - **Events and costumes (trial, 13 Nov):** one page instead of two: a timeline of sets with progress (`for-jemma/page-events-and-costumes.png`, one set: `page-one-event.png`). Keep, change or go back?
 - **Banners on every page (trial, 13 Nov):** maps on Home, Every Pokémon, Fast tick and each Pokémon page; event backgrounds on Events and costumes (`for-jemma/page-banners.png`).
 - **Which game to add after GO**, when you want it.

@@ -160,10 +160,10 @@ const GENDER_WORDS = {male: "♂ only", female: "♀ only", none: "Genderless"};
 
 // ---------- boxes on a card ----------
 // Pokémon whose forms she tracks one by one (her picks, 15 Nov): still one card in the lists, but its boxes there count her
-// forms (Shiny 3/6) and the card opens its page, where every form has its own boxes. Arceus left for when it's out (her call).
-const FORM_SPECIES = new Set([150, 351, 386, 413, 479, 483, 484, 487, 492, 550, 641, 642, 645, 646, 649, 711, 718, 720, 741, 745, 774, 800, 849, 905,
+// forms (Shiny 3/6) and the card opens its page (Pumpkaboo and Urshifu added 15 Nov; Sinistea and Polteageist undecided), where every form has its own boxes. Arceus left for when it's out (her call).
+const FORM_SPECIES = new Set([150, 351, 386, 413, 479, 483, 484, 487, 492, 550, 641, 642, 645, 646, 649, 710, 711, 718, 720, 741, 745, 774, 800, 849, 892, 905,
   201, 327, 412, 421, 422, 423, 585, 586, 647, 666, 669, 670, 671, 676, 925, 931, 978, 982]);
-const FORM_LOOK = new URLSearchParams(location.search).get("formcards");   // TRIAL (15 Nov): ?formcards=bar|count|dots, three looks for her to pick from
+const FORM_LOOK = new URLSearchParams(location.search).get("formcards");   // TRIAL (15 Nov): ?formcards=bar|count|dots|fill, looks for her to pick from
 function formBoxes(lead, forms){
   // every box, counted over her forms that can have it: got/out of; a box no form can have isn't shown
   const out = forms.filter(f => f.released);
@@ -171,8 +171,9 @@ function formBoxes(lead, forms){
     const fs = out.filter(can); if (!fs.length) return "";
     const got = fs.filter(f => has(dk(f), t)).length, all = got === fs.length;
     const dots = fs.length <= 10 ? `<i class="dots">${fs.map(f => `<i${has(dk(f), t) ? ` class="on"` : ""}></i>`).join("")}</i>` : "";
+    const inner = `${ic(icon)}<span>${esc(label)}</span>${["count", "fill"].includes(FORM_LOOK) ? `<b>${got}/${fs.length}</b>` : FORM_LOOK === "dots" && dots ? dots : ""}`;
     return `<a class="tk fb ${cls}${got && !all ? " some" : ""}" href="${pageOf(lead)}" aria-pressed="${all}" title="${attr(`${label}: ${got} of ${fs.length} forms`)}" style="--p:${Math.round(got / fs.length * 100)}%">` +
-      `${ic(icon)}<span>${esc(label)}</span>${FORM_LOOK === "count" ? `<b>${got}/${fs.length}</b>` : FORM_LOOK === "dots" && dots ? dots : ""}</a>`;
+      inner + (FORM_LOOK === "fill" && got && !all ? `<span class="fill" aria-hidden="true">${inner}</span>` : "") + `</a>`;   // fill: the box fills in its colour, white words on the filled part
   };
   const megaT = [...new Set(out.flatMap(f => (f.mega || []).map(m => m.t)))];
   const rows = [

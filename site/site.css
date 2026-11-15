@@ -764,3 +764,12 @@ a.formsbtn{text-decoration:none}
 .fb-dots .tk.fb .dots i{width:6px;height:6px}
 .fb-count .tk.fb b{font-size:9px;letter-spacing:-.3px}
 .fb-count .tk.fb .i{width:11px;height:11px}
+/* fill (her idea, 15 Nov): the whole box fills up in its colour, numbers too; the filled part is a white-text copy of the box, clipped */
+.fb-fill .tk.fb{gap:2px;padding:2px 4px}
+.fb-fill .tk.fb b{font-size:9px;letter-spacing:-.3px}
+.fb-fill .tk.fb .i{width:11px;height:11px}
+.tk.fb .fill{position:absolute;inset:0;display:flex;align-items:center;gap:2px;padding:2px 4px;background:var(--bc);color:#fff;
+  clip-path:inset(0 calc(100% - var(--p)) 0 0);pointer-events:none}
+.tk.fb .fill span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.fb-fill .tk.fb span,.fb-count .tk.fb span{letter-spacing:-.15px}
+.fb-fill .tk.fb b,.fb-count .tk.fb b{font-size:8.5px;letter-spacing:-.4px}
