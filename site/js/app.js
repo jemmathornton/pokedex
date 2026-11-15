@@ -888,7 +888,7 @@ function fastCell(e, t, on, n, other){
     `<img src="${fastPic(e, t)}" alt="" loading="lazy"><span>${pad(n)}${t === "mx" ? " X" : t === "my" ? " Y" : ""}</span></button>`;
 }
 // what to tick: the game's Pokédex region by region, or her costumes or background Pokémon, under their events (her ask, 14 Nov)
-const FAST_KINDS = [["dex", "Pokédex"], ["cos", "Costumes"], ["bg", "Backgrounds"]];
+const FAST_KINDS = [["dex", "Pokédex"], ["cos", "Costumes"], ["bg", "Backgrounds"], ["forms", "Forms check"]];   // Forms check: TEMPORARY (her ask, 15 Nov), take it out when she has been through
 const fastKindRow = kind => `<div class="frow"><span class="label flabel">Tick</span><div class="worktabs">${FAST_KINDS.map(([k, l]) => `<button type="button" class="worktab" data-fastkind="${k}" aria-pressed="${k === kind}">${esc(l)}</button>`).join("")}</div></div>`;
 function fastItemCell(it, b, art){
   const pic = (b === "s" && sprite(it.img + ".s")) || sprite(it.img) || "", what = it.e.costume || it.e.form || "";
@@ -916,8 +916,37 @@ function fastSetsPage(kind){
       ${got < all ? `<button class="linkbtn" type="button" data-fastall>${ic("check")}Tick all ${num(all - got)} left</button>` : ""}</div>
     ${html ? `<div class="fastsets">${html}</div>` : `<p class="empty">None yet.</p>`}`;
 }
+// TEMPORARY (her ask, 15 Nov: after regional forms and form-by-form tracking she wants to check every form's boxes):
+// every Pokémon with more than one form out, each form its own square, under its number, one box at a time
+function fastFormsPage(){
+  const b = FAST.some(x => x[0] === prefs.fastBox) ? prefs.fastBox : "c", [, label, icon] = FAST.find(x => x[0] === b);
+  const out = ENTRIES.filter(e => e.released), byDex = new Map();
+  for (const e of out) { if (!byDex.has(e.dex)) byDex.set(e.dex, []); byDex.get(e.dex).push(e); }
+  let got = 0, all = 0, html = "";
+  for (const [dex, es] of [...byDex].sort((x, y) => x[0] - y[0])) {
+    if (es.length < 2) continue;
+    const g0 = groupByNumber(es.filter(e => !isRegional(e)))[0], ordered = [...(g0 ? [g0.lead, ...g0.others] : []), ...es.filter(isRegional)];
+    const hasRegional = es.some(isRegional);
+    const cells = ordered.flatMap(e => fastTicks(e, b).map(t => {
+      const on = has(dk(e), t), name = (e.form || (hasRegional ? (genById[e.gen] || [])[1] : "") || e.name) + (t === "mx" ? " · X" : t === "my" ? " · Y" : "");
+      all++; if (on) got++;
+      return `<button class="fc col" type="button" data-fast="${attr(e.id)}" data-t="${t}" aria-pressed="${on}" title="${attr(e.name + " · " + name)}"><img src="${fastPic(e, t)}" alt="" loading="lazy"><span class="fcn">${esc(name)}</span></button>`;
+    }));
+    if (!cells.length) continue;
+    const g = cells.filter(c => c.includes('aria-pressed="true"')).length;
+    html += `<section class="fastset"><h3>#${pad(dex)} ${esc(es[0].name)}<small>${num(g)} / ${num(cells.length)}</small></h3><div class="fastgrid" style="--bc:var(${FAST_COL[b]})">${cells.join("")}</div></section>`;
+  }
+  setRegion(null);
+  view.innerHTML = `<header class="hero withshot">${heroPics(ALL_MAPS())}<h1>Fast <em>tick</em></h1>
+    <p style="max-width:380px">For now: every Pokémon with more than one form, each form on its own, so you can check them all against the game. Pick a box, then click each form you have.</p></header>${readOnlyNote()}
+    <div class="toolbar filters">${fastKindRow("forms")}
+    <div class="frow"><span class="label flabel">Box</span><div class="worktabs">${FAST.map(([t, l]) => `<button type="button" class="worktab" data-fastbox="${t}" aria-pressed="${t === b}">${esc(l)}</button>`).join("")}</div></div></div>
+    <div class="fasthead" style="--bc:var(${FAST_COL[b]})">${ic(icon)}<b>Forms · ${esc(label)}</b><span class="fastn">${num(got)} / ${num(all)}</span></div>
+    ${html ? `<div class="fastsets">${html}</div>` : `<p class="empty">None.</p>`}`;
+}
 function fastPage(){
   const kind = [TRY.get("fastkind"), prefs.fastKind].find(k => FAST_KINDS.some(([x]) => x === k)) || "dex";   // ?fastkind= for pictures only
+  if (kind === "forms") return fastFormsPage();
   if (kind !== "dex") return fastSetsPage(kind);
   const g = genById[prefs.fastGen] ? prefs.fastGen : "1", b = FAST.some(x => x[0] === prefs.fastBox) ? prefs.fastBox : "c";
   const [, label, icon] = FAST.find(x => x[0] === b);

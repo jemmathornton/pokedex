@@ -331,6 +331,21 @@
     prefs.fastGen = "1"; prefs.fastBox = "c";
   });
 
+  test("Fast tick's Forms check: every form of every Pokémon with forms, each ticked on its own (temporary, her ask 15 Nov)", async () => {
+    const k = "d:37-alolan"; await save({list: "have", key: k, tick: "c", on: false}); delete COL.have[k];
+    prefs.fastKind = "forms"; prefs.fastBox = "c"; await go("#fast");
+    ok(view().querySelector('.fc[data-fast="201-a"]') || view().querySelector('.fc[data-fast^="201"]'), "Unown's letters are there");
+    ok(!view().querySelector('.fc[data-fast="1"]'), "Bulbasaur (no forms) isn't");
+    const cell = view().querySelector('.fc[data-fast="37-alolan"]');
+    eq(cell.querySelector(".fcn").textContent, "Alolan");
+    eq(view().querySelector('.fc[data-fast="37"] .fcn').textContent, "Kanto", "the usual one named by its region beside a regional form");
+    click(cell);
+    let s; for (let t = 0; t < 8000; t += 100) { s = await server(); if ((s.have[k] || []).includes("c")) break; await wait(100); }
+    ok((s.have[k] || []).includes("c"), "Alolan Vulpix saved, on its own");
+    await save({list: "have", key: k, tick: "c", on: false}); delete COL.have[k];
+    prefs.fastKind = "dex";
+  });
+
   test("Fast tick's Tick all saves every one left and lights them up", async () => {
     prefs.fastGen = "hisui"; prefs.fastBox = "c"; await go("#fast");
     const ids = [...view().querySelectorAll(".fastgrid button.fc")].map(c => c.dataset.fast);
