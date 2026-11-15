@@ -917,14 +917,14 @@ function fastSetsPage(kind){
     ${html ? `<div class="fastsets">${html}</div>` : `<p class="empty">None yet.</p>`}`;
 }
 // TEMPORARY (her ask, 15 Nov: after regional forms and form-by-form tracking she wants to check every form's boxes):
-// every Pokémon with more than one form out, each form its own square, under its number, one box at a time
+// her form-by-form picks and every Pokémon with a regional form, each form its own square, under its number, one box at a time
 function fastFormsPage(){
   const b = FAST.some(x => x[0] === prefs.fastBox) ? prefs.fastBox : "c", [, label, icon] = FAST.find(x => x[0] === b);
   const out = ENTRIES.filter(e => e.released), byDex = new Map();
   for (const e of out) { if (!byDex.has(e.dex)) byDex.set(e.dex, []); byDex.get(e.dex).push(e); }
   let got = 0, all = 0, html = "";
   for (const [dex, es] of [...byDex].sort((x, y) => x[0] - y[0])) {
-    if (es.length < 2) continue;
+    if (es.length < 2 || !(FORM_SPECIES.has(dex) || es.some(isRegional))) continue;   // only her form-by-form picks and regional forms (not Scatterbug…)
     const g0 = groupByNumber(es.filter(e => !isRegional(e)))[0], ordered = [...(g0 ? [g0.lead, ...g0.others] : []), ...es.filter(isRegional)];
     const hasRegional = es.some(isRegional);
     const cells = ordered.flatMap(e => fastTicks(e, b).map(t => {
@@ -938,7 +938,7 @@ function fastFormsPage(){
   }
   setRegion(null);
   view.innerHTML = `<header class="hero withshot">${heroPics(ALL_MAPS())}<h1>Fast <em>tick</em></h1>
-    <p style="max-width:380px">For now: every Pokémon with more than one form, each form on its own, so you can check them all against the game. Pick a box, then click each form you have.</p></header>${readOnlyNote()}
+    <p style="max-width:380px">For now: the Pokémon you track form by form and the ones with regional forms, each form on its own, so you can check them all against the game. Pick a box, then click each form you have.</p></header>${readOnlyNote()}
     <div class="toolbar filters">${fastKindRow("forms")}
     <div class="frow"><span class="label flabel">Box</span><div class="worktabs">${FAST.map(([t, l]) => `<button type="button" class="worktab" data-fastbox="${t}" aria-pressed="${t === b}">${esc(l)}</button>`).join("")}</div></div></div>
     <div class="fasthead" style="--bc:var(${FAST_COL[b]})">${ic(icon)}<b>Forms · ${esc(label)}</b><span class="fastn">${num(got)} / ${num(all)}</span></div>

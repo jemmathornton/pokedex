@@ -336,6 +336,7 @@
     prefs.fastKind = "forms"; prefs.fastBox = "c"; await go("#fast");
     ok(view().querySelector('.fc[data-fast="201-a"]') || view().querySelector('.fc[data-fast^="201"]'), "Unown's letters are there");
     ok(!view().querySelector('.fc[data-fast="1"]'), "Bulbasaur (no forms) isn't");
+    ok(!view().querySelector('.fc[data-fast^="664"]'), "Scatterbug (forms she doesn't track one by one) isn't");
     const cell = view().querySelector('.fc[data-fast="37-alolan"]');
     eq(cell.querySelector(".fcn").textContent, "Alolan");
     eq(view().querySelector('.fc[data-fast="37"] .fcn').textContent, "Kanto", "the usual one named by its region beside a regional form");
