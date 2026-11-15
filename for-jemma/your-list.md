@@ -9,13 +9,13 @@ Everything waiting on you. **Do** = just do it; **Decide** = your call. Tell Cla
 - **Which game to add after GO**, when you want it.
 
 ## Do
-- **Check every form’s boxes:** Fast tick → **Forms check**. Every Pokémon with forms (regional ones and the ones you track one by one), each form on its own; go through each box (Caught, Shiny…) against the game. Tell Claude when you’re done and it comes off.
 - **Try getting your collection in:** easiest is **Fast tick → Kanto → Lucky** next to your phone’s Pokédex on the Lucky tab. Or one short screen recording of the Pokédex’s Lucky tab (Kanto only) and, if you have one, a Calcy IV export, into the Pokédex folder’s `imports` folder. Then Claude checks the reader works on your phone’s screens.
 - **Check the 49 Kalos–Paldea Pokémon** ticked Caught with no Shiny (possible leftovers from Tick all): Fast tick → Caught next to the game’s Pokédex.
 - **Tick your backgrounds** on the Events page (or on each Pokémon’s page).
 - **This weekend (14–15 Nov), GO Wild Area:** last chance for Modern Jacket Machamp.
 
 ## Done
+- Every form’s boxes checked (15 Nov); Claude found no impossible ticks.
 - Pokémon whose forms you track one by one (Rotom, Unown, Furfrou…, Pumpkaboo, Urshifu) stay one card; its boxes fill up in their colour with the count (Shiny 1/4), and each form has its own boxes on the Pokémon’s page. Your earlier ticks are mostly on one form each, so tick the rest there (15 Nov).
 - Regional forms (Alolan, Galarian, Hisuian, Paldean) listed apart, each with its own card and page, e.g. Hisuian Growlithe (`for-jemma/hisuian-growlithe-page.png`). Other forms (Unown, Rotom, Vivillon…) still one card each. Fast tick too: each regional form has its own square in its own region (14 Nov).
 - “Gigantamax” in full instead of “G-Max”: filters, banners, cards, Fast tick, Quick add; “G-Max” only in the small box on a Pokémon’s page (14 Nov).
