@@ -159,6 +159,34 @@ function onlyTicks(e){   // cards show only the box she's working on
 const GENDER_WORDS = {male: "♂ only", female: "♀ only", none: "Genderless"};
 
 // ---------- boxes on a card ----------
+// Pokémon whose forms she tracks one by one (her picks, 15 Nov): still one card in the lists, but its boxes there count her
+// forms (Shiny 3/6) and the card opens its page, where every form has its own boxes. Arceus left for when it's out (her call).
+const FORM_SPECIES = new Set([150, 351, 386, 413, 479, 483, 484, 487, 492, 550, 641, 642, 645, 646, 649, 711, 718, 720, 741, 745, 774, 800, 849, 905,
+  201, 327, 412, 421, 422, 423, 585, 586, 647, 666, 669, 670, 671, 676, 925, 931, 978, 982]);
+const FORM_LOOK = new URLSearchParams(location.search).get("formcards");   // TRIAL (15 Nov): ?formcards=bar|count|dots, three looks for her to pick from
+function formBoxes(lead, forms){
+  // every box, counted over her forms that can have it: got/out of; a box no form can have isn't shown
+  const out = forms.filter(f => f.released);
+  const B = (t, cls, icon, label, can) => {
+    const fs = out.filter(can); if (!fs.length) return "";
+    const got = fs.filter(f => has(dk(f), t)).length, all = got === fs.length;
+    const dots = fs.length <= 10 ? `<i class="dots">${fs.map(f => `<i${has(dk(f), t) ? ` class="on"` : ""}></i>`).join("")}</i>` : "";
+    return `<a class="tk fb ${cls}${got && !all ? " some" : ""}" href="${pageOf(lead)}" aria-pressed="${all}" title="${attr(`${label}: ${got} of ${fs.length} forms`)}" style="--p:${Math.round(got / fs.length * 100)}%">` +
+      `${ic(icon)}<span>${esc(label)}</span>${FORM_LOOK === "count" ? `<b>${got}/${fs.length}</b>` : FORM_LOOK === "dots" && dots ? dots : ""}</a>`;
+  };
+  const megaT = [...new Set(out.flatMap(f => (f.mega || []).map(m => m.t)))];
+  const rows = [
+    [B("c", "c", "poke-ball", "Caught", () => true)],
+    [B("cf", "f", "venus", "Female", femaleTick), B("cm", "m", "mars", "Male", maleTick)],
+    [B("s", "s", "sparkles", "Shiny", f => !!f.shiny), B("l", "l", "lucky", "Lucky", canLucky)],
+    [B("xl", "xl", "expand", "XXL", f => !neverXXL(f)), B("xs", "xs", "shrink", "XXS", f => !neverXXS(f))],
+    [B("dx", "dx", "dynamax", "Dynamax", f => !!f.dynamax), B("gx", "gx", "gigantamax", "Gigantamax", f => !!f.gmax)],
+    megaT.map(t => B(t, "mg", "mega", t === "mx" ? "Mega X" : t === "my" ? "Mega Y" : "Mega", f => (f.mega || []).some(m => m.t === t))),
+    [B("sd", "sd", "shadow", "Shadow", f => !!f.shadow), B("pu", "pu", "purified", "Purified", f => !!f.shadow)],
+    [B("h", "h", "star", "4★", () => true)],
+  ];
+  return `<div class="boxgrid fbs fb-${FORM_LOOK}">` + rows.filter(r => r.some(Boolean)).map(r => r.length === 1 ? r[0].replace('class="tk ', 'class="tk wide ') : (r[0] || "<span></span>") + (r[1] || "<span></span>")).join("") + `</div>`;
+}
 function boxes(e){
   // a fixed two-column grid, so every box has the same place on every card (her point, 9 Nov: the ragged rows looked
   // bizarre), in the game's Pokédex order like everything else (her rule, 12 Nov): Caught · Female | Male · Shiny | Lucky ·
@@ -252,12 +280,12 @@ function formsButton(lead, others){
 function groupCards(groups){
   for (const k in groupsByDex) delete groupsByDex[k];
   groups.forEach(g => { groupsByDex[groupKey(g.lead)] = g; });
-  return groups.map(({lead, others}) => card(lead, formsButton(lead, others))).join("");
+  return groups.map(({lead, others}) => card(lead, formsButton(lead, others), false, FORM_SPECIES.has(lead.dex) ? ENTRIES.filter(x => groupKey(x) === groupKey(lead)) : null)).join("");
 }
 
 const HL = {caught: "--caught", female: "--female", male: "--male", shiny: "--shiny", lucky: "--lucky", hundo: "--hundo",
             shadow: "--shadow", purified: "--purified", dynamax: "--dynamax", gmax: "--gmax", xxl: "--xxl", xxs: "--xxs"};
-function card(e, more = "", inForms = false){
+function card(e, more = "", inForms = false, forms = null){
   const flags = [];
   if (!e.released) flags.push("Not out yet");
   if (e.class === "legendary") flags.push("Legendary");
@@ -271,7 +299,7 @@ function card(e, more = "", inForms = false){
     `<span class="no">#${pad(e.dex)}</span>` + (flags.length ? `<span class="flags">${flags.map(f => `<span>${esc(f)}</span>`).join("")}</span>` : "") +
     pic(e, dk(e)) +
     `<a class="nm" href="${pageOf(e)}" title="Open ${attr(e.name)}’s page">${esc(e.name)}</a><small class="fm">${esc(e.form || "")}${e.form && gw ? " · " : ""}${gw ? `<span class="gd">${esc(gw)}</span>` : ""}</small>` +
-    boxes(e) + more + `</div>`;
+    (forms && FORM_LOOK && FORM_SPECIES.has(e.dex) && !onlyTicks(e) ? formBoxes(e, forms) : boxes(e)) + more + `</div>`;
 }
 
 // ---------- the banner and sidebar look: “Colours + parade” (her pick, 10 Nov, of the trial looks): each region's colour in
@@ -977,6 +1005,7 @@ function route(to){   // to: draw that page without changing the address (the te
   if (sm) return setPage(sm[1]);
   const pm = /^p-(\d+(?:-[a-z]+)?)$/.exec(r);
   if (pm) return pokemonPage(pm[1]);
+  if (TRY.get("only")) { const ns = TRY.get("only").split(",").map(Number); Object.assign(prefs, {work: "all", workShow: "all"}); return dexPage("Forms", "Trial", ENTRIES.filter(e => ns.includes(e.dex) && !isRegional(e)).sort((a, b) => ns.indexOf(a.dex) - ns.indexOf(b.dex))); }   // ?only= for pictures of options only
   if (term && r !== "costumes") {
     const n = parseInt(term.replace(/^#/, ""), 10);
     const list = ENTRIES.filter(e => (e.name + " " + (e.form || "")).toLowerCase().includes(term) || e.dex === n);

@@ -742,3 +742,25 @@ a.formsbtn{text-decoration:none}
 .fastset h3{width:0;min-width:100%;flex-wrap:wrap;row-gap:2px}   /* a long event name wraps rather than widening its group */
 .fastset .fastgrid{display:flex;flex-wrap:wrap;gap:6px}
 .fastset .fc{width:76px}
+
+/* TRIAL (15 Nov): a form-tracked Pokémon's card counts its forms on each box (?formcards=bar|tint|dots); all forms got = the full box */
+.tk.fb{text-decoration:none;position:relative;overflow:hidden}
+.tk.fb b{margin-left:auto;font-size:9.5px;font-weight:700;opacity:.8;flex:none;letter-spacing:-.2px}
+.fb-count .tk.fb{gap:2px;padding:2px 4px}
+.tk.fb.c{--bc:var(--caught)}.tk.fb.f{--bc:var(--female)}.tk.fb.m{--bc:var(--male)}.tk.fb.s{--bc:var(--shiny)}.tk.fb.l{--bc:var(--lucky)}
+.tk.fb.h{--bc:var(--hundo)}.tk.fb.sd{--bc:var(--shadow)}.tk.fb.pu{--bc:var(--purified)}.tk.fb.dx{--bc:var(--dynamax)}.tk.fb.gx{--bc:var(--gmax)}
+.tk.fb.mg{--bc:var(--mega)}.tk.fb.xl{--bc:var(--xxl)}.tk.fb.xs{--bc:var(--xxs)}
+.fb-bar .tk.fb::after,.fb-dots .tk.fb:not(:has(.dots))::after{content:"";position:absolute;left:0;bottom:0;height:3px;width:var(--p);background:var(--bc)}
+.tk.fb[aria-pressed="true"]::after{display:none}
+.tk.fb .dots{display:flex;flex-wrap:wrap;gap:2px;margin-left:auto;max-width:46%;justify-content:flex-end}
+.tk.fb .dots i{width:5px;height:5px;border-radius:50%;background:color-mix(in srgb,var(--muted) 35%,transparent)}
+.tk.fb .dots i.on{background:var(--bc)}
+.tk.fb[aria-pressed="true"] .dots i{background:#fff}
+.fb-bar .tk.fb::before,.fb-dots .tk.fb:not(:has(.dots))::before{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:color-mix(in srgb,var(--bc) 16%,transparent)}
+.fb-bar .tk.fb::after,.fb-dots .tk.fb:not(:has(.dots))::after{height:4px}
+.tk.fb[aria-pressed="true"]::before{display:none}
+.fb-dots .tk.fb{flex-wrap:wrap;row-gap:2px;padding-bottom:4px}
+.fb-dots .tk.fb .dots{flex-basis:100%;max-width:none;margin-left:0;justify-content:flex-start;gap:3px;padding-left:1px}
+.fb-dots .tk.fb .dots i{width:6px;height:6px}
+.fb-count .tk.fb b{font-size:9px;letter-spacing:-.3px}
+.fb-count .tk.fb .i{width:11px;height:11px}
