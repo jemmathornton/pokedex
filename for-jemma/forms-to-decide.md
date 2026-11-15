@@ -1,6 +1,6 @@
 # Forms: which get their own card? (14 Nov 2026)
 
-Regional forms (Alolan, Galarian, Hisuian, Paldean) already have their own card and page. Everything below is still one card per number, with its forms inside, as Unown is. Put **Yes** next to any you want listed separately (its own card, page and Fast tick square, like Hisuian Growlithe). Pictures: `forms-big.png` and `forms-looks.png`.
+Regional forms (Alolan, Galarian, Hisuian, Paldean) already have their own card and page. Everything below is still one card per number, with its forms inside, as Unown is. Easiest: open `forms-to-decide.html` and click **Own cards** on the ones you want. Or put **Yes** next to any you want listed separately (its own card, page and Fast tick square, like Hisuian Growlithe). Pictures: `forms-big.png` and `forms-looks.png`.
 
 The split into “big” and “looks only” is Claude’s suggestion (from the main games: whether a form has another type, other stats, other moves or evolves differently). Form names are the game’s.
 

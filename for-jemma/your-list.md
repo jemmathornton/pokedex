@@ -3,7 +3,7 @@
 Everything waiting on you. **Do** = just do it; **Decide** = your call. Tell Claude when one’s done or decided and it comes off.
 
 ## Decide
-- **Which other forms get their own card (14 Nov):** regional forms already do. Tick the ones you want in `for-jemma/forms-to-decide.md`, with pictures in `forms-big.png` (another type, stats, moves or evolution: Rotom, Deoxys, Kyurem…) and `forms-looks.png` (Unown, Vivillon, Furfrou…). The split is Claude’s suggestion.
+- **Which other forms get their own card (14 Nov):** regional forms already do. Open `for-jemma/forms-to-decide.html` (double-click it), click **Own cards** on the ones you want (big forms like Rotom, Deoxys, Kyurem; look-only ones like Unown, Vivillon, Furfrou), then tell Claude the line at the bottom. The split is Claude’s suggestion.
 - **Events and costumes (trial, 13 Nov):** one page instead of two: a timeline of sets with progress (`for-jemma/page-events-and-costumes.png`, one set: `page-one-event.png`). Keep, change or go back?
 - **Banners on every page (trial, 13 Nov):** maps on Home, Every Pokémon, Fast tick and each Pokémon page; event backgrounds on Events and costumes (`for-jemma/page-banners.png`).
 - **Which game to add after GO**, when you want it.
