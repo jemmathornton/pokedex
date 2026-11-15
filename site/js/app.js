@@ -100,7 +100,7 @@ function counts(list){
   // Pokémon's own page, not in these totals), and out of every Pokémon that could ever have that box, out in GO yet or
   // not (12 Nov, as the game's Pokédex counts): got if any of its forms has it
   const r = {species: 0, speciesOut: 0, male: 0, maleOut: 0, female: 0, femaleOut: 0, shiny: 0, shinyOut: 0,
-             lucky: 0, luckyOut: 0, hundo: 0, out: 0, sd: 0, pu: 0, shadowOut: 0, dx: 0, dynamaxOut: 0, gx: 0, gmaxOut: 0, mega: 0, megaOut: 0, xl: 0, xs: 0};
+             lucky: 0, luckyOut: 0, hundo: 0, out: 0, sd: 0, pu: 0, shadowOut: 0, dx: 0, dynamaxOut: 0, gx: 0, gmaxOut: 0, mega: 0, megaOut: 0, xl: 0, xlOut: 0, xs: 0, xsOut: 0};
   const by = {};
   for (const e of list) (by[groupKey(e)] = by[groupKey(e)] || []).push(e);   // a regional form is a Pokémon of its own (her call, 14 Nov)
   r.speciesAll = Object.keys(by).length;
@@ -115,8 +115,8 @@ function counts(list){
     tally(es, "s", ticked("s"), "shinyOut", "shiny");
     tally(es, "l", ticked("l"), "luckyOut", "lucky");
     if (es.some(ticked("h"))) r.hundo++;
-    if (es.some(ticked("xl"))) r.xl++;   // XXL and XXS: any Pokémon can be either (her ask, 12 Nov: the game's Pokédex has tabs for both)
-    if (es.some(ticked("xs"))) r.xs++;
+    tally(es, "xl", ticked("xl"), "xlOut", "xl");   // XXL and XXS: nearly any Pokémon can be either (her ask, 12 Nov), not the fixed Pumpkaboo and Gourgeist sizes (15 Nov review)
+    tally(es, "xs", ticked("xs"), "xsOut", "xs");
     tally(es, "sd", ticked("sd"), "shadowOut", "sd");
     if (POSSIBLE.pu(es) && es.some(ticked("pu"))) r.pu++;
     tally(es, "dx", ticked("dx"), "dynamaxOut", "dx");
@@ -290,7 +290,7 @@ function groupCards(groups){
 }
 
 const HL = {caught: "--caught", female: "--female", male: "--male", shiny: "--shiny", lucky: "--lucky", hundo: "--hundo",
-            shadow: "--shadow", purified: "--purified", dynamax: "--dynamax", gmax: "--gmax", xxl: "--xxl", xxs: "--xxs"};
+            shadow: "--shadow", purified: "--purified", dynamax: "--dynamax", gmax: "--gmax", mega: "--mega", xxl: "--xxl", xxs: "--xxs"};
 function card(e, more = "", inForms = false, forms = null){
   const flags = [];
   if (!e.released) flags.push("Not out yet");
@@ -405,8 +405,8 @@ function statsHtml(c){
     t("--male", "mars", "Male", c.male, c.maleOut) +
     t("--shiny", "sparkles", "Shiny", c.shiny, c.shinyOut) +
     t("--lucky", "lucky", "Lucky", c.lucky, c.luckyOut) +
-    t("--xxl", "expand", "XXL", c.xl, c.out) +
-    t("--xxs", "shrink", "XXS", c.xs, c.out) +
+    t("--xxl", "expand", "XXL", c.xl, c.xlOut) +
+    t("--xxs", "shrink", "XXS", c.xs, c.xsOut) +
     t("--dynamax", "dynamax", "Dynamax", c.dx, c.dynamaxOut) +
     t("--gmax", "gigantamax", "Gigantamax", c.gx, c.gmaxOut) +
     t("--mega", "mega", "Mega", c.mega, c.megaOut) +
@@ -441,7 +441,14 @@ function home(){
 }
 
 function dexPage(title, label, list, region){
-  const items = list.filter(e => (prefs.unreleased || e.released) && boxFilter(e));
+  const shown = list.filter(e => prefs.unreleased || e.released);
+  let items = shown.filter(boxFilter);
+  if (prefs.workShow === "need") {   // a Pokémon is got when any of its forms has it, as the totals count (15 Nov review: Scatterbug,
+    // Rockruff, Sinistea and Paldean Tauros stayed on "Hide ones I have" with a different form caught); not the ones she tracks form by form
+    const b = BOXF.find(x => x.k === prefs.work);
+    const got = new Set(shown.filter(e => !FORM_SPECIES.has(e.dex) && (b ? b.applies(e) && b.have(e) : caught(e))).map(groupKey));
+    items = items.filter(e => FORM_SPECIES.has(e.dex) || !got.has(groupKey(e)));
+  }
   const notOut = list.filter(e => !e.released).length;
   const groups = groupByNumber(items);
   const seg = (attrName, cur, rows) => `<span class="opts">${rows.map(([v, l]) => `<button type="button" ${attrName}="${v}" aria-pressed="${v === cur}">${l}</button>`).join("")}</span>`;
@@ -702,7 +709,7 @@ function allSets(){
   const herSet = d => {
     const m = d && d.event && /GO Fest (20\d\d)\s*[—–-]\s*(.+)/.exec(d.event);
     if (!d || !d.event) return null;
-    const wa = /GO Wild Area: /.test(d.event) && sets.find(o => o.title.includes(`GO Wild Area ${d.start.slice(0, 4)}`));   // an in-person Wild Area's costume came to that year's Global
+    const wa = /GO Wild Area: /.test(d.event) && d.start && sets.find(o => o.title.includes(`GO Wild Area ${d.start.slice(0, 4)}`));   // an in-person Wild Area's costume came to that year's Global
     if (wa) return wa;
     const words = t => new Set((t.toLowerCase().match(/[a-z]{5,}/g) || []).filter(w => w !== "global"));
     if (!m) return sets.find(o => o.title === d.event || o.ev && d.start >= o.ev.start && d.start <= (o.ev.end || o.ev.start) && [...words(d.event)].some(w => words(o.title).has(w)));   // same event under another name (the 9th Anniversary coin Gimmighoul)
@@ -730,10 +737,10 @@ function allSets(){
   }
   for (const [key, {ev, cs}] of groups) {
     cs.sort((a, b) => a.code.localeCompare(b.code) || a.dex - b.dex);
-    const y = ev ? ev.start.slice(0, 4) : d0(cs) ? d0(cs).start.slice(0, 4) : (/20\d\d/.exec(key) || [])[0] || (cs.map(c => c.shiny).filter(Boolean).sort()[0] || "").slice(0, 4);
+    const y = ev && ev.start ? ev.start.slice(0, 4) : d0(cs) ? d0(cs).start.slice(0, 4) : (/20\d\d/.exec(key) || [])[0] || (cs.map(c => c.shiny).filter(Boolean).sort()[0] || "").slice(0, 4);
     sets.push({id: "cos-" + key.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""), title: ev ? ev.event : d0(cs) ? key : tidy(key),
-      when: ev ? ev.start : d0(cs) ? d0(cs).start : y ? `${y}-00-00` : "0000", year: y || "Other",
-      meta: ev ? `Costumes · ${dates(ev.start, ev.end || ev.start)}` : d0(cs) ? "Costume · not from an event" : "Costumes", art: null,
+      when: ev && ev.start ? ev.start : d0(cs) ? d0(cs).start : y ? `${y}-00-00` : "0000", year: y || "Other",   // an event with no date yet (the Bangkok stamp rally, "To be announced"): by year
+      meta: ev ? (ev.start ? `Costumes · ${dates(ev.start, ev.end || ev.start)}` : "Costumes · dates to be announced") : d0(cs) ? "Costume · not from an event" : "Costumes", art: null,
       mosaic: cs.slice(0, 4).map(c => sprite(c.img)).filter(Boolean), items: cs.map(c => ({key: "c:" + c.id, e: c, img: c.img, bg: false})), cos: cs.map(c => c.id)});
   }
   return sets.sort((a, b) => b.when.localeCompare(a.when));
@@ -1008,10 +1015,7 @@ const keepAuto = () => store.set(AUTO_KEY, [...autoCaught]);
 async function fastClick(btn){
   const t = btn.dataset.t, on = btn.getAttribute("aria-pressed") !== "true", key = btn.dataset.fk || dk(byId[btn.dataset.fast]);
   if (!on && btn.dataset.other) return toast(`Ticked on its ${curly(btn.dataset.other)} form: untick it on its page.`);
-  if (on && t !== "c" && !has(key, "c")) { autoCaught.add(key); keepAuto(); }
-  if (t === "c") { autoCaught.delete(key); keepAuto(); }
-  await tick(key, t, on);
-  if (!on && autoCaught.has(key) && (COL.have[key] || []).every(x => x === "c")) { autoCaught.delete(key); keepAuto(); if (has(key, "c")) await tick(key, "c", false); }
+  await tick(key, t, on);   // tick() looks after a Caught that came with another box
 }
 async function fastAll(){
   const left = [...document.querySelectorAll('.fastgrid [data-fast][aria-pressed="false"], .fastgrid [data-fk][aria-pressed="false"]')];   // Mega X and Y count as one each here
@@ -1081,7 +1085,8 @@ async function save(body){
   try {
     const r = await fetch("/api/tick", {method: "POST", headers: {"Content-Type": "application/json", "X-Pokedex": "1"}, body: JSON.stringify(body)});
     const j = await r.json();
-    if (!j.ok) throw new Error(j.error || "not saved");
+    if (!j.ok && r.status >= 500) throw new Error(j.error);
+    if (!j.ok) { toast(`Not saved: ${curly(j.error || "the server said no")}`); return false; }   // the server's own reason (15 Nov review: it always said "isn't answering")
     return true;
   } catch (e) {
     toast("Not saved: the Pokédex server isn’t answering. Try again in a moment.");
@@ -1095,11 +1100,20 @@ function setTick(key, t, on){
 }
 async function tick(key, t, on){
   const alsoCaught = on && t !== "c" && !has(key, "c");   // a ♂, ♀, shiny, lucky… one is caught too
+  // a Caught ticked only because of another box goes again when that box is unticked, unless something else is still
+  // ticked (her note, 12 Nov, for Fast tick; everywhere since the 15 Nov review); ticking Caught by hand keeps it
+  if (alsoCaught) autoCaught.add(key);
+  if (t === "c") autoCaught.delete(key);
+  keepAuto();
   setTick(key, t, on);
   if (alsoCaught) setTick(key, "c", true);
   rerender();
   if (!await save({list: "have", key, tick: t, on})) { setTick(key, t, !on); if (alsoCaught) setTick(key, "c", false); return rerender(); }
   if (alsoCaught && !await save({list: "have", key, tick: "c", on: true})) { setTick(key, "c", false); rerender(); }
+  if (!on && t !== "c" && autoCaught.has(key) && (COL.have[key] || []).every(x => x === "c")) {
+    autoCaught.delete(key); keepAuto();
+    if (has(key, "c")) await tick(key, "c", false);
+  }
 }
 async function toggleList(list, id){
   const on = !COL[list].includes(id);

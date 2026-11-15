@@ -273,6 +273,63 @@
     for (const k of ["d:132", "d:133"]) { for (const t of ["c", "s"]) await save({list: "have", key: k, tick: t, on: false}); delete COL.have[k]; }
   });
 
+  // ---------- the 15 Nov review's fixes ----------
+  test("a collected costume whose event has no date yet doesn't break the pages", async () => {
+    const id = DATA.costumes.find(c => c.code === "ANNIVERSARY_2026_THAILAND_01").id, before = [...COL.costumes];
+    try {
+      COL.costumes = [...COL.costumes, id];
+      const st = allSets().find(s => s.cos.includes(id));
+      ok(st, "it has a set"); ok(/to be announced/.test(st.meta), "dates to be announced");
+      await go("#home"); ok(view().querySelector("h1"), "Home still draws");
+    } finally { COL.costumes = before; }
+  });
+
+  test("every costume of a code with parts has its own part (Pumpkaboo's Halloween sits at Halloween 2022)", async () => {
+    const CEV = DATA.costumeEvents, missing = DATA.costumes.filter(c => { const r = CEV[c.code] || CEV[c.code.replace(/_NOEVOLVE$/, "")]; return r && r.parts && !r.parts[`${c.name} ${c.costume}`]; });
+    eq(missing.map(c => c.id), [], "no part");
+  });
+
+  test("XXL and XXS count only what can be (Pumpkaboo and Gourgeist sizes are fixed)", async () => {
+    const k = counts(ENTRIES.filter(e => e.gen === "6"));
+    eq(k.xsOut, fastSpecies("6").filter(sp => POSSIBLE.xs(sp.all)).length, "Kalos XXS as Fast tick counts it");
+    ok(k.xsOut < k.out, "fewer than every Pokémon");
+  });
+
+  test("a got card under the Mega tab is marked in the Mega colour", async () => {
+    const key = "d:6", before = COL.have[key];
+    try {
+      COL.have[key] = ["c", "mx", "my"]; prefs.work = "mega"; prefs.workShow = "all"; await go("#gen-1");
+      const card = view().querySelector('.card[data-id="6"]');
+      ok(card && /--hl:var\(--mega\)/.test(card.getAttribute("style") || ""), "--hl is --mega");
+    } finally { if (before) COL.have[key] = before; else delete COL.have[key]; prefs.work = "all"; prefs.workShow = "all"; }
+  });
+
+  test("Hide ones I have hides a Pokémon caught in another form (not the ones tracked form by form)", async () => {
+    const forms = ENTRIES.filter(e => e.dex === 664 && e.released), keys = forms.map(dk), before = keys.map(k => COL.have[k]);
+    try {
+      keys.forEach(k => delete COL.have[k]); COL.have[dk(forms[forms.length - 1])] = ["c"];
+      prefs.work = "all"; prefs.workShow = "need"; await go("#gen-6");
+      ok(!view().querySelector('.card[data-id^="664"]'), "Scatterbug hidden");
+    } finally { keys.forEach((k, i) => { if (before[i]) COL.have[k] = before[i]; else delete COL.have[k]; }); prefs.workShow = "all"; }
+  });
+
+  test("unticking a Shiny on a Pokémon's page unticks the Caught that came with it", async () => {
+    const key = "d:7", clear = async () => { for (const t of ["c", "s"]) await save({list: "have", key, tick: t, on: false}); delete COL.have[key]; autoCaught.delete(key); };
+    await clear();
+    try {
+      await tick(key, "s", true); ok(has(key, "c") && has(key, "s"), "Shiny ticks Caught too");
+      await tick(key, "s", false); ok(!has(key, "c"), "and unticking it takes Caught away");
+      await tick(key, "c", true); await tick(key, "s", true); await tick(key, "s", false);
+      ok(has(key, "c"), "a Caught ticked by hand stays");
+    } finally { await clear(); }
+  });
+
+  test("a refusal from the server says why", async () => {
+    let msg = ""; const t0 = window.toast; window.toast = m => { msg = m; };
+    try { ok(!await save({list: "have", key: "d:25", tick: "zz", on: true})); ok(/Not a box/.test(msg) && !/isn’t answering/.test(msg), msg); }
+    finally { window.toast = t0; }
+  });
+
   // ---------- Fast tick (trial) ----------
   test("Fast tick does costumes and backgrounds, each once, under its event", async () => {
     prefs.fastKind = "cos"; prefs.fastBox = "c"; await go("#fast");

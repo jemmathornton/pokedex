@@ -13,13 +13,49 @@ Posts need the header "X-Pokedex: 1", which only the site itself sends, so a pag
 Each change is written straight away (to a temporary file, then swapped in), so nothing is lost if the PC goes off.
 The weekly backup (tools/backup.py) saves it to git and zips it.
 """
-import functools, http.server, json, os, re, sys, threading, time
+import contextlib, functools, http.server, json, os, re, shutil, sys, threading, time
 
 PORT = int(sys.argv[sys.argv.index('--port') + 1]) if '--port' in sys.argv else 8030
 ROOT = os.environ.get('POKEDEX_ROOT') or os.path.dirname(os.path.dirname(os.path.abspath(__file__)))   # POKEDEX_ROOT: the tests' throwaway copy
 SITE = os.path.join(ROOT, 'site')
 FILE = os.path.join(ROOT, 'data', 'collection', 'go.json')
-LOCK = threading.Lock()
+THREADS = threading.Lock()
+
+
+@contextlib.contextmanager
+def LOCK():
+    """One change at a time, across this server's threads and across both copies (8030 and 8031 save to the same file;
+    the 15 Nov review showed 5 of 200 ticks lost when the two saved at once): a lock on go.json.lock as well."""
+    with THREADS:
+        os.makedirs(os.path.dirname(FILE), exist_ok=True)
+        fh = open(FILE + '.lock', 'a+b')
+        try:
+            for n in range(200):   # up to 20 seconds
+                try:
+                    if os.name == 'nt':
+                        import msvcrt
+                        fh.seek(0)
+                        msvcrt.locking(fh.fileno(), msvcrt.LK_NBLCK, 1)
+                    else:
+                        import fcntl
+                        fcntl.flock(fh.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
+                    break
+                except OSError:
+                    if n == 199:
+                        raise
+                    time.sleep(.1)
+            try:
+                yield
+            finally:
+                if os.name == 'nt':
+                    import msvcrt
+                    fh.seek(0)
+                    msvcrt.locking(fh.fileno(), msvcrt.LK_UNLCK, 1)
+                else:
+                    import fcntl
+                    fcntl.flock(fh.fileno(), fcntl.LOCK_UN)
+        finally:
+            fh.close()
 KEY = re.compile(r'^[a-z]:[\w:.!?#\'’-]{1,120}$', re.I)   # d:<entry> c:<costume> b:<event>:<pokemon>
 TICKS = {'c', 'cm', 'cf', 's', 'l', 'h', 'sd', 'pu', 'dx', 'gx', 'ss', 'mg', 'mx', 'my', 'xl', 'xs'}   # caught, male, female, shiny, lucky, 4★, shadow, purified, Dynamax, Gigantamax, shiny shadow (a bonus), Mega (or Primal), Mega X, Mega Y, XXL, XXS
 
@@ -27,7 +63,12 @@ TICKS = {'c', 'cm', 'cf', 's', 'l', 'h', 'sd', 'pu', 'dx', 'gx', 'ss', 'mg', 'mx
 def read():
     if not os.path.exists(FILE):
         return {'have': {}, 'went': [], 'costumes': []}
-    c = json.load(open(FILE, encoding='utf-8'))
+    try:
+        with open(FILE, encoding='utf-8') as fh:
+            c = json.load(fh)
+    except ValueError:   # a broken file (the PC went off mid-save): the copy before the last change
+        with open(FILE + '.bak', encoding='utf-8') as fh:
+            c = json.load(fh)
     for k, v in (('have', {}), ('went', []), ('costumes', [])):
         c.setdefault(k, v)
     return c
@@ -39,6 +80,14 @@ def write(obj):
     with open(tmp, 'w', encoding='utf-8', newline='\n') as fh:
         json.dump(obj, fh, ensure_ascii=False, indent=1, sort_keys=True)
         fh.write('\n')
+        fh.flush()
+        os.fsync(fh.fileno())   # on the disk before it's swapped in, so a power cut can't leave an empty file
+    try:
+        with open(FILE, encoding='utf-8') as fh:
+            json.load(fh)
+        shutil.copyfile(FILE, FILE + '.bak')   # the copy before this change, only if it's whole
+    except (OSError, ValueError):
+        pass
     for n in range(10):   # Windows refuses the swap while the file is being read: try again for a moment
         try:
             return os.replace(tmp, FILE)
@@ -99,8 +148,9 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             if not self.host_ok():
                 return self.reply({'error': 'not allowed'}, 403)
             if self.path == '/api/collection':
-                with LOCK:
-                    return self.reply(read())
+                with LOCK():
+                    c = read()
+                return self.reply(c)
             return self.reply({'error': 'unknown'}, 404)
         return super().do_GET()
 
@@ -109,8 +159,9 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             return self.reply({'error': 'not allowed'}, 403)
         try:
             body = json.loads(self.rfile.read(min(int(self.headers.get('Content-Length', 0)), 10000)) or b'{}')
-            with LOCK:
-                self.reply(change(body))
+            with LOCK():
+                r = change(body)
+            self.reply(r)
         except Exception as e:
             self.reply({'ok': False, 'error': str(e)}, 500)
 

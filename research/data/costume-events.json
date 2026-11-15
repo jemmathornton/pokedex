@@ -203,7 +203,17 @@
     "start": "2022-09-27",
     "end": "2022-10-03"
    },
+   "Gourgeist Halloween": {
+    "event": "Halloween 2022 - Part II",
+    "start": "2022-10-27",
+    "end": "2022-11-01"
+   },
    "Ninetales Spooky Festival": {
+    "event": "Halloween 2022 - Part II",
+    "start": "2022-10-27",
+    "end": "2022-11-01"
+   },
+   "Pumpkaboo Halloween": {
     "event": "Halloween 2022 - Part II",
     "start": "2022-10-27",
     "end": "2022-11-01"
@@ -911,6 +921,11 @@
     "start": "2019-02-26",
     "end": "2019-02-28"
    },
+   "Flareon Flower Crown": {
+    "event": "Pokémon Day 2019",
+    "start": "2019-02-26",
+    "end": "2019-02-28"
+   },
    "Glaceon Flower Crown": {
     "event": "Pokémon Day 2019",
     "start": "2019-02-26",
@@ -937,6 +952,11 @@
     "end": "2019-02-28"
    },
    "Pikachu Flower Crown": {
+    "event": "Pokémon Day 2019",
+    "start": "2019-02-26",
+    "end": "2019-02-28"
+   },
+   "Raichu Flower Crown": {
     "event": "Pokémon Day 2019",
     "start": "2019-02-26",
     "end": "2019-02-28"

@@ -37,6 +37,37 @@ class Server(unittest.TestCase):
     def saved(self):
         return self.box.read('collection', 'go.json')
 
+    def test_two_copies_saving_at_once_lose_nothing(self):
+        # her app (8030) and the preview copy (8031) save to the same file; the 15 Nov review lost 5 of 200 this way
+        import subprocess, socket, time
+        s = socket.socket(); s.bind(('127.0.0.1', 0)); port = s.getsockname()[1]; s.close()
+        env = dict(os.environ, POKEDEX_ROOT=self.box.root)
+        proc = subprocess.Popen([sys.executable, '-X', 'utf8', self.serve.__file__, '--port', str(port)], env=env)
+        try:
+            other = f'http://127.0.0.1:{port}'
+            for _ in range(50):
+                try:
+                    urllib.request.urlopen(other + '/api/collection').read(); break
+                except OSError:
+                    time.sleep(.1)
+            def send(base, key):
+                req = urllib.request.Request(base + '/api/tick', data=json.dumps({'list': 'have', 'key': key, 'tick': 'c', 'on': True}).encode(),
+                                             headers={'Content-Type': 'application/json', 'X-Pokedex': '1'}, method='POST')
+                urllib.request.urlopen(req).read()
+            jobs = [threading.Thread(target=send, args=(self.url if n % 2 else other, f'd:{n + 1}')) for n in range(120)]
+            [j.start() for j in jobs]; [j.join() for j in jobs]
+            self.assertEqual(len(self.saved()['have']), 120)
+        finally:
+            proc.terminate(); proc.wait()
+
+    def test_a_broken_file_falls_back_to_the_copy_before(self):
+        self.post({'list': 'have', 'key': 'd:1', 'tick': 'c', 'on': True})
+        self.post({'list': 'have', 'key': 'd:4', 'tick': 'c', 'on': True})   # the .bak now has d:1
+        with open(self.serve.FILE, 'w', encoding='utf-8') as fh:
+            fh.write('{"have": {"d:1"')   # cut off, as after a power cut mid-write
+        self.assertEqual(self.post({'list': 'have', 'key': 'd:7', 'tick': 'c', 'on': True}), (200, {'ok': True}))
+        self.assertEqual(set(self.saved()['have']), {'d:1', 'd:7'})
+
     def test_ticking_and_unticking_a_box(self):
         self.assertEqual(self.post({'list': 'have', 'key': 'd:25', 'tick': 's', 'on': True}), (200, {'ok': True}))
         self.assertIn('s', self.saved()['have']['d:25'])

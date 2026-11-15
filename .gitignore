@@ -13,3 +13,5 @@ site/backgrounds/
 site/variants/
 # the region screenshots (official press screenshots; where each came from: research/data/region-screenshots.json)
 site/regions/
+data/collection/*.bak
+data/collection/*.lock
