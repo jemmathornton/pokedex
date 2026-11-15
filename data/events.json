@@ -10,7 +10,8 @@
   "backgroundPokemon": [
    "Pikachu",
    "Gengar",
-   "Toxtricity"
+   "Toxtricity",
+   "Raichu"
   ],
   "debutShinies": [],
   "sources": [
@@ -36,7 +37,13 @@
    "Magnemite",
    "Starmie",
    "Solrock",
-   "Blipbug"
+   "Blipbug",
+   "Raichu",
+   "Clefable",
+   "Magneton",
+   "Magnezone",
+   "Dottler",
+   "Orbeetle"
   ],
   "debutShinies": [],
   "sources": [
@@ -63,7 +70,13 @@
    "Magnemite",
    "Starmie",
    "Solrock",
-   "Blipbug"
+   "Blipbug",
+   "Raichu",
+   "Clefable",
+   "Magneton",
+   "Magnezone",
+   "Dottler",
+   "Orbeetle"
   ],
   "debutShinies": [],
   "sources": [
@@ -89,7 +102,13 @@
    "Magnemite",
    "Starmie",
    "Solrock",
-   "Blipbug"
+   "Blipbug",
+   "Raichu",
+   "Clefable",
+   "Magneton",
+   "Magnezone",
+   "Dottler",
+   "Orbeetle"
   ],
   "debutShinies": [],
   "sources": [
@@ -116,7 +135,13 @@
    "Magnemite",
    "Starmie",
    "Solrock",
-   "Blipbug"
+   "Blipbug",
+   "Raichu",
+   "Clefable",
+   "Magneton",
+   "Magnezone",
+   "Dottler",
+   "Orbeetle"
   ],
   "debutShinies": [],
   "sources": [
@@ -143,7 +168,13 @@
    "Magnemite",
    "Starmie",
    "Solrock",
-   "Blipbug"
+   "Blipbug",
+   "Raichu",
+   "Clefable",
+   "Magneton",
+   "Magnezone",
+   "Dottler",
+   "Orbeetle"
   ],
   "debutShinies": [],
   "sources": [
@@ -169,7 +200,13 @@
    "Magnemite",
    "Starmie",
    "Solrock",
-   "Blipbug"
+   "Blipbug",
+   "Raichu",
+   "Clefable",
+   "Magneton",
+   "Magnezone",
+   "Dottler",
+   "Orbeetle"
   ],
   "debutShinies": [],
   "sources": [
@@ -190,7 +227,8 @@
   "end": "2026-10-04",
   "background": "San Diego Comic Con Malaga",
   "backgroundPokemon": [
-   "Pikachu"
+   "Pikachu",
+   "Raichu"
   ],
   "debutShinies": [],
   "sources": [
@@ -210,7 +248,15 @@
   "end": "2026-09-27",
   "background": "City Safari - Lisbon",
   "backgroundPokemon": [
-   "Eevee"
+   "Eevee",
+   "Vaporeon",
+   "Jolteon",
+   "Flareon",
+   "Espeon",
+   "Umbreon",
+   "Leafeon",
+   "Glaceon",
+   "Sylveon"
   ],
   "debutShinies": [],
   "sources": [
@@ -230,7 +276,15 @@
   "end": "2026-09-27",
   "background": "City Safari - Marseille",
   "backgroundPokemon": [
-   "Eevee"
+   "Eevee",
+   "Vaporeon",
+   "Jolteon",
+   "Flareon",
+   "Espeon",
+   "Umbreon",
+   "Leafeon",
+   "Glaceon",
+   "Sylveon"
   ],
   "debutShinies": [],
   "sources": [
@@ -250,7 +304,15 @@
   "end": "2026-09-27",
   "background": "City Safari - Munich",
   "backgroundPokemon": [
-   "Eevee"
+   "Eevee",
+   "Vaporeon",
+   "Jolteon",
+   "Flareon",
+   "Espeon",
+   "Umbreon",
+   "Leafeon",
+   "Glaceon",
+   "Sylveon"
   ],
   "debutShinies": [],
   "sources": [
@@ -298,7 +360,9 @@
    "Treecko",
    "Grovyle",
    "Sceptile",
-   "Sewaddle"
+   "Sewaddle",
+   "Swadloon",
+   "Leavanny"
   ],
   "debutShinies": [],
   "sources": [
@@ -321,7 +385,9 @@
    "Treecko",
    "Grovyle",
    "Sceptile",
-   "Sewaddle"
+   "Sewaddle",
+   "Swadloon",
+   "Leavanny"
   ],
   "debutShinies": [],
   "sources": [
@@ -344,7 +410,9 @@
    "Treecko",
    "Grovyle",
    "Sceptile",
-   "Sewaddle"
+   "Sewaddle",
+   "Swadloon",
+   "Leavanny"
   ],
   "debutShinies": [],
   "sources": [
@@ -367,7 +435,9 @@
    "Treecko",
    "Grovyle",
    "Sceptile",
-   "Sewaddle"
+   "Sewaddle",
+   "Swadloon",
+   "Leavanny"
   ],
   "debutShinies": [],
   "sources": [
@@ -390,7 +460,9 @@
    "Treecko",
    "Grovyle",
    "Sceptile",
-   "Seedot"
+   "Seedot",
+   "Nuzleaf",
+   "Shiftry"
   ],
   "debutShinies": [],
   "sources": [
@@ -413,7 +485,9 @@
    "Treecko",
    "Grovyle",
    "Sceptile",
-   "Hoppip"
+   "Hoppip",
+   "Skiploom",
+   "Jumpluff"
   ],
   "debutShinies": [],
   "sources": [
@@ -436,7 +510,9 @@
    "Treecko",
    "Grovyle",
    "Sceptile",
-   "Sewaddle"
+   "Sewaddle",
+   "Swadloon",
+   "Leavanny"
   ],
   "debutShinies": [],
   "sources": [
@@ -459,7 +535,8 @@
    "Treecko",
    "Grovyle",
    "Sceptile",
-   "Pineco"
+   "Pineco",
+   "Forretress"
   ],
   "debutShinies": [],
   "sources": [
@@ -482,7 +559,8 @@
    "Treecko",
    "Grovyle",
    "Sceptile",
-   "Pineco"
+   "Pineco",
+   "Forretress"
   ],
   "debutShinies": [],
   "sources": [
@@ -505,7 +583,8 @@
    "Treecko",
    "Grovyle",
    "Sceptile",
-   "Pineco"
+   "Pineco",
+   "Forretress"
   ],
   "debutShinies": [],
   "sources": [
@@ -528,7 +607,9 @@
    "Treecko",
    "Grovyle",
    "Sceptile",
-   "Sewaddle"
+   "Sewaddle",
+   "Swadloon",
+   "Leavanny"
   ],
   "debutShinies": [],
   "sources": [
@@ -551,7 +632,9 @@
    "Treecko",
    "Grovyle",
    "Sceptile",
-   "Sewaddle"
+   "Sewaddle",
+   "Swadloon",
+   "Leavanny"
   ],
   "debutShinies": [],
   "sources": [
@@ -574,7 +657,9 @@
    "Treecko",
    "Grovyle",
    "Sceptile",
-   "Seedot"
+   "Seedot",
+   "Nuzleaf",
+   "Shiftry"
   ],
   "debutShinies": [],
   "sources": [
@@ -597,7 +682,9 @@
    "Treecko",
    "Grovyle",
    "Sceptile",
-   "Seedot"
+   "Seedot",
+   "Nuzleaf",
+   "Shiftry"
   ],
   "debutShinies": [],
   "sources": [
@@ -620,7 +707,9 @@
    "Treecko",
    "Grovyle",
    "Sceptile",
-   "Seedot"
+   "Seedot",
+   "Nuzleaf",
+   "Shiftry"
   ],
   "debutShinies": [],
   "sources": [
@@ -643,7 +732,8 @@
    "Treecko",
    "Grovyle",
    "Sceptile",
-   "Pineco"
+   "Pineco",
+   "Forretress"
   ],
   "debutShinies": [],
   "sources": [
@@ -666,7 +756,9 @@
    "Treecko",
    "Grovyle",
    "Sceptile",
-   "Hoppip"
+   "Hoppip",
+   "Skiploom",
+   "Jumpluff"
   ],
   "debutShinies": [],
   "sources": [
@@ -689,7 +781,8 @@
    "Treecko",
    "Grovyle",
    "Sceptile",
-   "Pineco"
+   "Pineco",
+   "Forretress"
   ],
   "debutShinies": [],
   "sources": [
@@ -712,7 +805,9 @@
    "Treecko",
    "Grovyle",
    "Sceptile",
-   "Hoppip"
+   "Hoppip",
+   "Skiploom",
+   "Jumpluff"
   ],
   "debutShinies": [],
   "sources": [
@@ -735,7 +830,9 @@
    "Treecko",
    "Grovyle",
    "Sceptile",
-   "Hoppip"
+   "Hoppip",
+   "Skiploom",
+   "Jumpluff"
   ],
   "debutShinies": [],
   "sources": [
@@ -758,7 +855,9 @@
    "Treecko",
    "Grovyle",
    "Sceptile",
-   "Hoppip"
+   "Hoppip",
+   "Skiploom",
+   "Jumpluff"
   ],
   "debutShinies": [],
   "sources": [
@@ -781,7 +880,9 @@
    "Treecko",
    "Grovyle",
    "Sceptile",
-   "Seedot"
+   "Seedot",
+   "Nuzleaf",
+   "Shiftry"
   ],
   "debutShinies": [],
   "sources": [
@@ -804,7 +905,9 @@
    "Treecko",
    "Grovyle",
    "Sceptile",
-   "Hoppip"
+   "Hoppip",
+   "Skiploom",
+   "Jumpluff"
   ],
   "debutShinies": [],
   "sources": [
@@ -827,7 +930,9 @@
    "Treecko",
    "Grovyle",
    "Sceptile",
-   "Seedot"
+   "Seedot",
+   "Nuzleaf",
+   "Shiftry"
   ],
   "debutShinies": [],
   "sources": [
@@ -850,7 +955,9 @@
    "Treecko",
    "Grovyle",
    "Sceptile",
-   "Seedot"
+   "Seedot",
+   "Nuzleaf",
+   "Shiftry"
   ],
   "debutShinies": [],
   "sources": [
@@ -872,7 +979,10 @@
   "backgroundPokemon": [
    "Treecko",
    "Grovyle",
-   "Seedot"
+   "Seedot",
+   "Sceptile",
+   "Nuzleaf",
+   "Shiftry"
   ],
   "debutShinies": [],
   "sources": [
@@ -896,7 +1006,9 @@
    "Treecko",
    "Grovyle",
    "Sceptile",
-   "Sewaddle"
+   "Sewaddle",
+   "Swadloon",
+   "Leavanny"
   ],
   "debutShinies": [],
   "sources": [
@@ -981,7 +1093,15 @@
   "end": "2025-09-28",
   "background": "City Safari Amsterdam",
   "backgroundPokemon": [
-   "Eevee"
+   "Eevee",
+   "Vaporeon",
+   "Jolteon",
+   "Flareon",
+   "Espeon",
+   "Umbreon",
+   "Leafeon",
+   "Glaceon",
+   "Sylveon"
   ],
   "debutShinies": [],
   "sources": [
@@ -1002,7 +1122,15 @@
   "end": "2025-09-28",
   "background": "City Safari Valencia",
   "backgroundPokemon": [
-   "Eevee"
+   "Eevee",
+   "Vaporeon",
+   "Jolteon",
+   "Flareon",
+   "Espeon",
+   "Umbreon",
+   "Leafeon",
+   "Glaceon",
+   "Sylveon"
   ],
   "debutShinies": [],
   "sources": [
@@ -1046,7 +1174,8 @@
   "end": "2025-08-24",
   "background": "Road Trip 2025 Cologne",
   "backgroundPokemon": [
-   "Pikachu"
+   "Pikachu",
+   "Raichu"
   ],
   "debutShinies": [],
   "sources": [
@@ -1067,7 +1196,8 @@
   "end": "2025-08-16",
   "background": "Road Trip 2025 The Hague",
   "backgroundPokemon": [
-   "Pikachu"
+   "Pikachu",
+   "Raichu"
   ],
   "debutShinies": [],
   "sources": [
@@ -1087,7 +1217,8 @@
   "end": "2025-08-09",
   "background": "Road Trip 2025 Berlin",
   "backgroundPokemon": [
-   "Pikachu"
+   "Pikachu",
+   "Raichu"
   ],
   "debutShinies": [],
   "sources": [
@@ -1107,7 +1238,8 @@
   "end": "2025-08-02",
   "background": "Road Trip 2025 Valencia",
   "backgroundPokemon": [
-   "Pikachu"
+   "Pikachu",
+   "Raichu"
   ],
   "debutShinies": [],
   "sources": [
@@ -1127,7 +1259,8 @@
   "end": "2025-07-26",
   "background": "Road Trip 2025 Paris",
   "backgroundPokemon": [
-   "Pikachu"
+   "Pikachu",
+   "Raichu"
   ],
   "debutShinies": [],
   "sources": [
@@ -1147,7 +1280,8 @@
   "end": "2025-07-19",
   "background": "Road Trip 2025 London",
   "backgroundPokemon": [
-   "Pikachu"
+   "Pikachu",
+   "Raichu"
   ],
   "debutShinies": [],
   "sources": [
@@ -1167,7 +1301,8 @@
   "end": "2025-07-16",
   "background": "Road Trip 2025 Manchester",
   "backgroundPokemon": [
-   "Pikachu"
+   "Pikachu",
+   "Raichu"
   ],
   "debutShinies": [],
   "sources": [
@@ -1216,7 +1351,15 @@
   "end": "2025-03-30",
   "background": "City Safari Milan",
   "backgroundPokemon": [
-   "Eevee"
+   "Eevee",
+   "Vaporeon",
+   "Jolteon",
+   "Flareon",
+   "Espeon",
+   "Umbreon",
+   "Leafeon",
+   "Glaceon",
+   "Sylveon"
   ],
   "debutShinies": [
    "Mudbray",
@@ -1307,7 +1450,15 @@
   "end": "2023-10-14",
   "background": "City Safari Barcelona",
   "backgroundPokemon": [
-   "Eevee"
+   "Eevee",
+   "Vaporeon",
+   "Jolteon",
+   "Flareon",
+   "Espeon",
+   "Umbreon",
+   "Leafeon",
+   "Glaceon",
+   "Sylveon"
   ],
   "debutShinies": [],
   "sources": [
