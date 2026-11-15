@@ -91,7 +91,8 @@ NOT_COSTUMES = {'pm150.cONE_YEAR_ANNIVERSARY', 'pm172.cFALL_2018', 'pm249.cONE_Y
 # a picture the game files keep with the costumes that is really a form in the game's Pokédex: Armored Mewtwo (her call, 10 Nov)
 PICTURE_FORMS = {'pm150.fA': ('MEWTWO_A', 'Armored')}
 # names for costumes the sources call by code only
-COSTUME_NAMES = {'COPY_2019': 'Clone', 'FEB_2019': 'Detective Hat'}   # Detective Hat: Dittobase's name (Leek Duck has none, no shiny)
+COSTUME_NAMES = {'COPY_2019': 'Clone', 'FEB_2019': 'Detective Hat', 'GOFEST_2021_NOEVOLVE': 'Meloetta Hat',
+                 'COIN_A1': '9th Anniversary Coin', 'COIN_A2_2026': '10th Anniversary Coin'}   # Dittobase's names where Leek Duck has none (Detective Hat, Flygon's Meloetta Hat) or only "(9)" and "(10)" (the coin Gimmighouls)
 
 
 def serebii_rows(html, start=None, end=None):
@@ -291,6 +292,21 @@ def main():
                 c['femaleImg'] = key + '.g2'
             if key in shiny_out or ld in shiny_out:
                 c['shiny'] = shiny_out.get(key, shiny_out.get(ld)) or True
+            costumes.append(c)
+        # costumes on a form (15 Nov, her note: Galarian Zigzagoon's Meloetta Hat was missing; Pumpkaboo's Halloween ones
+        # too): pm263.fGALARIAN.cGOFEST_2021_NOEVOLVE; `form` says which form wears it
+        for key in sorted(files):
+            m = re.fullmatch(rf'pm{n}\.f([A-Z0-9_]+)\.c([A-Za-z0-9_]+?)(\.g2)?(\.s)?', key)
+            if not m or m.group(3) or m.group(4) or key in used or key in NOT_COSTUMES:
+                continue
+            fname, code = form_name(f'{sid}_{m.group(1)}', sid), m.group(2)
+            label = re.sub(r'^\([A-Z-]+\)\s*', '', shiny_label.get(key, '')) or COSTUME_NAMES.get(code.upper()) or tidy(code)
+            c = {'id': f'{n}-{slug(fname)}-{slug(code)}', 'dex': n, 'name': name, 'form': fname, 'costume': label, 'code': code, 'img': key,
+                 '_fform': f'{sid}_{m.group(1)}'}
+            if key + '.g2' in files:
+                c['femaleImg'] = key + '.g2'
+            if key in shiny_out:
+                c['shiny'] = shiny_out[key] or True
             costumes.append(c)
 
     # GO's own Pokédex page for each (her ask, 9 Nov): description and category word for word from the game's text file
@@ -555,6 +571,7 @@ def main():
             c['order'] = -costume_no.get(code, costume_no.get(code + '_NOEVOLVE'))
         else:   # the same costume on another of its family (Charmeleon's goggles, numbered as Charmander's)
             c['order'] = -10000 - max((v for f, v in form_no.items() if f.endswith('_' + code)), default=0)
+        c['order'] = c['order'] * 10 + form_pos.get(c.pop('_fform', ''), 0)   # one costume on several forms: in the forms' order (Pumpkaboo Small, Average, Large, Super)
     for e in entries:
         e.pop('_fid', None)
         e.pop('_evos', None)

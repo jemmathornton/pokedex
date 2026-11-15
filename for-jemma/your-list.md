@@ -15,7 +15,7 @@ Everything waiting on you. **Do** = just do it; **Decide** = your call. Tell Cla
 - **This weekend (14–15 Nov), GO Wild Area:** last chance for Modern Jacket Machamp.
 
 ## Done
-- Fast tick’s Costumes and Backgrounds in Pokédex number order (Order: Number / Event); forms and costumes in the game’s order (Unown A–Z; costumes newest first). Raichu’s Flower Crown and Flareon’s Flower Crown and Holiday Hat added (wrongly left out on 10 Nov) (15 Nov).
+- Fast tick’s Costumes and Backgrounds in Pokédex number order (Order: Number / Event); forms and costumes in the game’s order (Unown A–Z; costumes newest first). Raichu’s Flower Crown and Flareon’s Flower Crown and Holiday Hat added (wrongly left out on 10 Nov); costumes on a form added (Galarian Zigzagoon’s and Galarian Ponyta’s Meloetta Hat, Pumpkaboo’s and Gourgeist’s Halloween in each size), and Flygon’s Meloetta Hat; the Gimmighoul backgrounds show the coin Gimmighoul (15 Nov).
 - Every form’s boxes checked (15 Nov); Claude found no impossible ticks.
 - Pokémon whose forms you track one by one (Rotom, Unown, Furfrou…, Pumpkaboo, Urshifu) stay one card; its boxes fill up in their colour with the count (Shiny 1/4), and each form has its own boxes on the Pokémon’s page. Your earlier ticks are mostly on one form each, so tick the rest there (15 Nov).
 - Regional forms (Alolan, Galarian, Hisuian, Paldean) listed apart, each with its own card and page, e.g. Hisuian Growlithe (`for-jemma/hisuian-growlithe-page.png`). Other forms (Unown, Rotom, Vivillon…) still one card each. Fast tick too: each regional form has its own square in its own region (14 Nov).

@@ -249,6 +249,7 @@ const isRegional = e => !!REGION_GEN[(e.form || "").split(" ")[0]];
 // card and page); other forms (Unown, Rotom, Vivillon…) stay one card and one page per number. The three Paldean Tauros are one.
 const groupKey = e => isRegional(e) ? `${e.dex}-${e.form.split(" ")[0].toLowerCase()}` : String(e.dex);
 const pageOf = e => "#p-" + groupKey(e);
+const cosName = c => c.form ? `${c.costume} · ${c.form}` : c.costume;   // a costume on a form says which (Halloween · Small, 15 Nov)
 // a form's name; the plain form is named after its own region, not "usual" (her ask, 13 Nov: Tauros is Kanto)
 const formLabel = e => e.form || (genById[e.gen] || [])[1] || e.name;
 function groupByNumber(items){
@@ -565,7 +566,7 @@ function pokemonPage(key){
   if (!all.length) return home();
   const grouped = groupByNumber(all)[0], ordered = all;   // the data's order, the game's (Unown A to Z, F the one shown first: her note, 15 Nov)
   const sel = byId[pageForm[key]] && all.includes(byId[pageForm[key]]) ? byId[pageForm[key]] : grouped.lead;
-  const costumes = regionalPage ? [] : myCostumes().filter(c => c.dex === n);   // costumes are of the usual form
+  const costumes = myCostumes().filter(c => groupKey(c) === key);   // a costume on a regional form sits on that form's page (Galarian Zigzagoon's Meloetta Hat)
   const evs = myEvents().filter(ev => regionalPage ? bgMonsOf(ev).some(e => groupKey(e) === key)
     : (ev.backgroundPokemon || []).some(name => DATA.dexByName[name.toLowerCase()] === n) && (!bgMonsOf(ev).some(e => e.dex === n) || bgMonsOf(ev).some(e => groupKey(e) === key)));
   const gw = {both: "Female · Male", male: "Male", female: "Female", none: "Genderless"}[sel.gender];   // like Type (her call, 10 Nov)
@@ -625,7 +626,7 @@ function bgCard(ev, e, wentButton, showEvent = true){   // showEvent false on th
   const bg = BGS.has(ev.id) ? `backgrounds/${ev.id}.webp` : null;
   return `<div class="card bgcard${went ? "" : " not-went"}" data-bg="${attr(key)}" data-event="${attr(ev.id)}" data-bgdex="${e.dex}" data-bgmon="${attr(e.id)}">` +
     `<div class="bgpic${bg ? "" : " nobg"}"${bg ? ` style="background-image:url('${bg}')"` : ""}>${bg ? "" : `<span class="nobg-note">No picture in the game files yet</span>`}${src ? `<img src="${src}" alt="" loading="lazy">` : ""}</div>` +
-    `<a class="nm" href="${pageOf(e)}">${esc(e.name)}</a><small class="fm">${[e.costume || e.form, showEvent ? ev.background || ev.name : ""].filter(Boolean).map(esc).join(" · ")}</small>` +
+    `<a class="nm" href="${pageOf(e)}">${esc(e.name)}</a><small class="fm">${[e.costume ? cosName(e) : e.form, showEvent ? ev.background || ev.name : ""].filter(Boolean).map(esc).join(" · ")}</small>` +
     (went ? `<div class="boxgrid"><button class="tk c" type="button" data-tick="c" aria-pressed="${has(key, "c")}" title="Have it with this background">${ic("poke-ball")}<span>Caught</span></button>` +
       `<button class="tk s" type="button" data-tick="s" aria-pressed="${has(key, "s")}" title="${e.shiny ? "Shiny with this background" : "No shiny in GO yet"}"${!e.shiny && !has(key, "s") ? " disabled" : ""}>${ic("sparkles")}<span>Shiny</span></button></div>`
       : wentButton ? `<button class="chip collect" type="button" data-went aria-pressed="false">I went</button>` : "") + `</div>`;
@@ -637,14 +638,14 @@ const myCostumes = () => COSTUMES.filter(c => COL.costumes.includes(c.id));
 function costumeCard(c){
   const key = "c:" + c.id;
   return `<div class="card" data-costume="${attr(c.id)}"><span class="no">#${pad(c.dex)}</span>` +
-    pic(c, key) + `<a class="nm" href="${pageOf(c)}" title="Open ${attr(c.name)}’s page">${esc(c.name)}</a><small class="fm">${esc(c.costume)}</small>` +
+    pic(c, key) + `<a class="nm" href="${pageOf(c)}" title="Open ${attr(c.name)}’s page">${esc(c.name)}</a><small class="fm">${esc(cosName(c))}</small>` +
     `<div class="boxgrid"><button class="tk c" type="button" data-tick="c" aria-pressed="${has(key, "c")}" title="Caught">${ic("poke-ball")}<span>Caught</span></button>` +
     (c.shiny || has(key, "s") ? `<button class="tk s" type="button" data-tick="s" aria-pressed="${has(key, "s")}" title="Shiny: a bonus, not counted">${ic("sparkles")}<span>Shiny</span></button>` : "") + `</div></div>`;   // a costume’s shiny is a bonus, like Shiny Shadow, and only where one is out (her calls, 10 Nov)
 }
 function costumesPage(){
   const term = q.value.trim().toLowerCase();
   let items = myCostumes();
-  if (term) items = items.filter(c => (c.name + " " + c.costume).toLowerCase().includes(term) || String(c.dex) === term);
+  if (term) items = items.filter(c => (c.name + " " + cosName(c)).toLowerCase().includes(term) || String(c.dex) === term);
   const ck = c => "c:" + c.id, mine = myCostumes();
   setRegion(null);
   view.innerHTML = `<header class="hero">${heroArt(mine)}<span class="label">Pokémon GO</span><h1>Costumes</h1><p class="muted" style="margin:6px 0 0;font-size:14px">A costume’s Shiny is a bonus, not counted.</p>
@@ -745,7 +746,7 @@ function setTile(st){
       : `<span class="setart${st.art ? "" : " noart"}"${st.art ? ` style="background-image:url('${st.art}')"` : ""}>${st.art ? "" : (sprite(st.items[0].img) ? `<img src="${sprite(st.items[0].img)}" alt="">` : "")}</span>`) +
     `<span class="setbody"><b>${esc(st.title)}</b><small>${esc(st.meta)}</small>` +
     `<span class="setprog"><i style="width:${n ? got / n * 100 : 0}%"></i></span><small class="setn">${num(got)} of ${num(n)}</small></span>` +
-    `<span class="setstrip">${st.items.slice(0, 24).map(it => `<img class="${setGot(it) ? "on" : ""}" src="${sprite(it.img) || ""}" alt="" title="${attr(it.e.name + (it.e.costume ? " · " + it.e.costume : ""))}" loading="lazy">`).join("")}${n > 24 ? `<span class="more">+${n - 24}</span>` : ""}</span></a>`;
+    `<span class="setstrip">${st.items.slice(0, 24).map(it => `<img class="${setGot(it) ? "on" : ""}" src="${sprite(it.img) || ""}" alt="" title="${attr(it.e.name + (it.e.costume ? " · " + cosName(it.e) : ""))}" loading="lazy">`).join("")}${n > 24 ? `<span class="more">+${n - 24}</span>` : ""}</span></a>`;
 }
 function setsPage(){
   const sets = allSets();
@@ -891,9 +892,9 @@ function fastCell(e, t, on, n, other){
 const FAST_KINDS = [["dex", "Pokédex"], ["cos", "Costumes"], ["bg", "Backgrounds"], ["forms", "Forms check"]];   // Forms check: TEMPORARY (her ask, 15 Nov), take it out when she has been through
 const fastKindRow = kind => `<div class="frow"><span class="label flabel">Tick</span><div class="worktabs">${FAST_KINDS.map(([k, l]) => `<button type="button" class="worktab" data-fastkind="${k}" aria-pressed="${k === kind}">${esc(l)}</button>`).join("")}</div></div>`;
 function fastItemCell(it, b, art, evName){   // evName: in number order, a background Pokémon is named by its event
-  const pic = (b === "s" && sprite(it.img + ".s")) || sprite(it.img) || "", what = it.e.costume || it.e.form || "";
+  const pic = (b === "s" && sprite(it.img + ".s")) || sprite(it.img) || "", what = it.e.costume ? cosName(it.e) : it.e.form || "";
   const card = it.bg && art ? ` style="--card:url('${art}')"` : "";
-  const name = it.bg && evName ? (it.e.costume ? it.e.costume + " · " : "") + evName : it.bg || !it.e.costume ? it.e.name : it.e.costume;
+  const name = it.bg && evName ? (it.e.costume ? cosName(it.e) + " · " : "") + evName : it.bg || !it.e.costume ? it.e.name : cosName(it.e);
   return `<button class="fc col${card ? " withbg" : ""}" type="button" data-fk="${attr(it.key)}" data-t="${b}" aria-pressed="${has(it.key, b)}" title="${attr(it.e.name + (what ? " · " + what : "") + (evName ? " · " + evName : ""))}"${card}>` +
     `<img src="${pic}" alt="" loading="lazy"><span class="fcn">${esc(name)}</span></button>`;
 }
