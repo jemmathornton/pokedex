@@ -1065,37 +1065,50 @@ function wanted(b){
   const units = [];
   for (const g of groupByNumber(ENTRIES.filter(e => e.released))) {
     const es = [g.lead, ...g.others];
-    if (b === "mega") { for (const e of es) for (const m of e.mega || []) if (!has(dk(e), m.t)) units.push({e, t: m.t, what: m.t === "mx" ? "Mega X" : m.t === "my" ? "Mega Y" : ""}); continue; }
-    if (FORM_SPECIES.has(g.lead.dex)) { for (const e of es) if (can(e) && !has(dk(e), b)) units.push({e, t: b, what: formLabel(e)}); continue; }
+    if (b === "mega") { for (const e of es) for (const m of e.mega || []) if (!has(dk(e), m.t)) units.push({e, t: m.t, key: FORM_SPECIES.has(e.dex) ? e.id : groupKey(e), what: m.t === "mx" ? "Mega X" : m.t === "my" ? "Mega Y" : ""}); continue; }
+    if (FORM_SPECIES.has(g.lead.dex)) { for (const e of es) if (can(e) && !has(dk(e), b)) units.push({e, t: b, key: e.id, what: formLabel(e)}); continue; }
     const ok = es.filter(can);
-    if (ok.length && !ok.some(e => has(dk(e), b))) units.push({e: ok.includes(g.lead) ? g.lead : ok[0], t: b, what: ""});
+    if (ok.length && !ok.some(e => has(dk(e), b))) units.push({e: ok.includes(g.lead) ? g.lead : ok[0], t: b, key: groupKey(g.lead), what: ""});
   }
   return units;
 }
+// her ask, 15 Nov: show where they overlap (a lucky and a shiny needed for the same one): each square has a small icon for
+// every other box she also still needs for it, and "Only overlaps" lists just those
+function wantShown(b){
+  const need = new Map();
+  for (const [t] of WANT) for (const u of wanted(t)) { if (!need.has(u.key)) need.set(u.key, new Set()); need.get(u.key).add(t); }
+  const also = u => WANT.filter(([t]) => t !== b && need.get(u.key).has(t));
+  const units = wanted(b).map(u => ({...u, also: also(u)}));
+  return wantOverlap() ? units.filter(u => u.also.length) : units;
+}
+const wantOverlap = () => !!prefs.wantOverlap || TRY.has("overlap");   // ?overlap for pictures only
+const wantBox = () => [TRY.get("want"), prefs.wantBox].find(k => WANT.some(w => w[0] === k)) || "s";   // ?want= for pictures only
 function wantPage(){
-  const b = [TRY.get("want"), prefs.wantBox].find(k => WANT.some(w => w[0] === k)) || "s", [, label, icon, col] = WANT.find(w => w[0] === b);   // ?want= for pictures only
-  const units = wanted(b), name = u => `${isRegional(u.e) ? u.e.form.split(" ")[0] + " " : ""}${u.e.name}${u.what ? " · " + u.what : ""}`;
+  const b = wantBox(), [, label, icon, col] = WANT.find(w => w[0] === b);
+  const units = wantShown(b), name = u => `${isRegional(u.e) ? u.e.form.split(" ")[0] + " " : ""}${u.e.name}${u.what ? " · " + u.what : ""}`;
   let html = "";
   for (const [g, region] of GENS) {
     const us = units.filter(u => u.e.gen === g);
     if (!us.length) continue;
     html += `<section class="fastset"><h3>${esc(region)}<small>${num(us.length)}</small></h3><div class="fastgrid" style="--bc:var(${col})">` +
-      us.map(u => `<a class="fc col want" href="${pageOf(u.e)}" title="${attr(name(u))}"><img src="${b === "s" ? sprite(u.e.img + ".s") || sprite(u.e.img) : fastPic(u.e, u.t)}" alt="" loading="lazy"><span>${pad(u.e.dex)}</span><span class="fcn">${esc(name(u))}</span></a>`).join("") + `</div></section>`;
+      us.map(u => `<a class="fc col want" href="${pageOf(u.e)}" title="${attr(name(u) + (u.also.length ? " · also " + u.also.map(w => w[1]).join(", ") : ""))}">` +
+        (u.also.length ? `<span class="wb">${u.also.map(([, , i, c]) => `<i style="--c:var(${c})">${ic(i)}</i>`).join("")}</span>` : "") +
+        `<img src="${b === "s" ? sprite(u.e.img + ".s") || sprite(u.e.img) : fastPic(u.e, u.t)}" alt="" loading="lazy"><span>${pad(u.e.dex)}</span><span class="fcn">${esc(name(u))}</span></a>`).join("") + `</div></section>`;
   }
   setRegion(null);
   view.innerHTML = `<header class="hero withshot">${heroPics(ALL_MAPS())}<span class="label">Trial</span><h1>Looking <em>for</em></h1>
-    <p style="max-width:380px">Everything that’s out in Pokémon GO that you haven’t got yet: shinies to hunt, luckies to try to trade for, and Dynamax, Gigantamax and Mega to look out for. Ticking one on its page takes it off here.</p></header>${readOnlyNote()}
-    <div class="toolbar filters"><div class="frow"><span class="label flabel">Box</span><div class="worktabs">${WANT.map(([t, l]) => `<button type="button" class="worktab" data-wantbox="${t}" aria-pressed="${t === b}">${esc(l)}</button>`).join("")}</div></div></div>
-    <div class="fasthead" style="--bc:var(${col})">${ic(icon)}<b>${esc(label)} · still to get</b><span class="fastn">${num(units.length)}</span>
+    <p style="max-width:380px">Everything that’s out in Pokémon GO that you haven’t got yet: shinies to hunt, luckies to try to trade for, and Dynamax, Gigantamax and Mega to look out for. The small icons on a square are the other boxes you need for it too. Ticking one on its page takes it off here.</p></header>${readOnlyNote()}
+    <div class="toolbar filters"><div class="frow"><span class="label flabel">Box</span><div class="worktabs">${WANT.map(([t, l]) => `<button type="button" class="worktab" data-wantbox="${t}" aria-pressed="${t === b}">${esc(l)}</button>`).join("")}</div>
+      <span class="switches"><button class="switchbtn" type="button" role="switch" data-wantoverlap aria-checked="${wantOverlap()}"><span class="track"></span>Only overlaps</button></span></div></div>
+    <div class="fasthead" style="--bc:var(${col})">${ic(icon)}<b>${esc(label)} · still to get${wantOverlap() ? ", with another box too" : ""}</b><span class="fastn">${num(units.length)}</span>
       ${units.length ? `<button class="linkbtn" type="button" data-wantcopy>${ic("copy")}Copy the list</button>` : ""}</div>
-    ${html ? `<div class="fastsets">${html}</div>` : `<p class="empty">Nothing left: you have every one that’s out.</p>`}`;
+    ${html ? `<div class="fastsets">${html}</div>` : `<p class="empty">${wantOverlap() ? "None that you need another box for too." : "Nothing left: you have every one that’s out."}</p>`}`;
 }
 async function wantCopy(){
-  const b = WANT.some(w => w[0] === prefs.wantBox) ? prefs.wantBox : "s", label = WANT.find(w => w[0] === b)[1];
-  const text = `${label} I’m looking for: ` + wanted(b).map(u => `#${u.e.dex} ${isRegional(u.e) ? u.e.form.split(" ")[0] + " " : ""}${u.e.name}${u.what ? " (" + u.what + ")" : ""}`).join(", ");
+  const b = wantBox(), label = WANT.find(w => w[0] === b)[1];
+  const text = `${label} I’m looking for: ` + wantShown(b).map(u => `#${u.e.dex} ${isRegional(u.e) ? u.e.form.split(" ")[0] + " " : ""}${u.e.name}${u.what ? " (" + u.what + ")" : ""}`).join(", ");
   try { await navigator.clipboard.writeText(text); toast("Copied: paste it into a message to a friend."); } catch (e) { toast("Couldn’t copy here."); }
 }
-
 function navHtml(route){
   const link = (href, icon, text, n) => `<a href="${href}" class="${route === href.slice(1) ? "on" : ""}">${ic(icon)}${esc(text)}${n !== undefined ? `<span class="n">${num(n)}</span>` : ""}</a>`;
   const out = ENTRIES.filter(e => e.released);
@@ -1211,6 +1224,7 @@ document.addEventListener("click", ev => {
   if (b.dataset.fastbox) { prefs.fastBox = b.dataset.fastbox; keepPrefs(); return rerender(); }
   if (b.dataset.wantbox) { prefs.wantBox = b.dataset.wantbox; keepPrefs(); return rerender(); }
   if (b.hasAttribute("data-wantcopy")) return wantCopy();
+  if (b.hasAttribute("data-wantoverlap")) { prefs.wantOverlap = !prefs.wantOverlap; keepPrefs(); return rerender(); }
   if (b.dataset.fastorder) { prefs.fastOrder = b.dataset.fastorder; keepPrefs(); return rerender(); }
   if (b.dataset.shotg) { prefs.regionShot = {...(prefs.regionShot || {}), [b.dataset.shotg]: +b.dataset.shot}; keepPrefs(); return rerender(); }   // trial, 10 Nov
   if (b.dataset.notout) { prefs.unreleased = b.dataset.notout === "yes"; keepPrefs(); return rerender(); }

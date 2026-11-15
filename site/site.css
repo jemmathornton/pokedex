@@ -746,6 +746,10 @@ a.formsbtn{text-decoration:none}
 .fc.want{text-decoration:none;color:inherit}
 .fc.want img,.fc.col.want img{filter:none}
 .fc.want:hover{border-color:var(--bc)}
+.fc.want{position:relative}
+.fc.want .wb{position:absolute;top:4px;right:4px;display:flex;flex-direction:column;gap:2px}   /* the other boxes needed for it too */
+.fc.want .wb i{width:15px;height:15px;padding:2.5px;border-radius:5px;background:var(--c);color:#fff;box-sizing:border-box;display:block}
+.fc.want .wb .i{width:10px;height:10px;display:block}
 .fastset .fc .fcn{white-space:normal;text-align:center;line-height:1.15;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3}   /* up to three lines, so "Team Leader Red" and "Team Leader Blue" can be told apart (15 Nov) */
 
 /* a form-tracked Pokémon's card (her pick, 15 Nov): each box fills up in its colour as she gets its forms, with the count;

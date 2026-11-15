@@ -339,9 +339,16 @@
       ok(view().querySelector('.fc.want[href="#p-83"]'), "Farfetch’d’s shiny is out and not got");
       ok(!wanted("l").some(u => UNTRADEABLE.has(u.e.dex)), "no lucky that can't be traded");
       ok(!wanted("s").some(u => !u.e.shiny), "only shinies that are out");
+      // overlaps (her ask, 15 Nov): the other boxes needed show as icons; Only overlaps keeps just those
+      const all = wantShown("s"), withAlso = all.filter(u => u.also.length);
+      eq(view().querySelectorAll(".fc.want .wb").length, withAlso.length, "an icon set on each square that needs more");
+      prefs.wantOverlap = true; await go("#want");
+      eq(view().querySelectorAll(".fc.want").length, withAlso.length, "Only overlaps");
+      ok([...view().querySelectorAll(".fc.want")].every(a => a.querySelector(".wb")), "every one has another box");
+      prefs.wantOverlap = false;
       await tick(key, "s", true); await go("#want");
       ok(!view().querySelector('.fc.want[href="#p-83"]'), "gone once ticked");
-    } finally { await clear(); prefs.wantBox = "s"; }
+    } finally { await clear(); prefs.wantBox = "s"; prefs.wantOverlap = false; }
   });
 
   // ---------- Fast tick (trial) ----------
