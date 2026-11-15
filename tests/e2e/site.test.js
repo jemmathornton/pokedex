@@ -346,6 +346,12 @@
       eq(view().querySelectorAll(".fc.want").length, withAlso.length, "Only overlaps");
       ok([...view().querySelectorAll(".fc.want")].every(a => a.querySelector(".wb")), "every one has another box");
       prefs.wantOverlap = false;
+      // Backgrounds (her ask, 15 Nov): each background's Pokémon she hasn't got with it, under its background
+      prefs.wantBox = "bg"; await go("#want");
+      const bgs = bgWanted(); eq(view().querySelectorAll(".fc.want").length, bgs.length, "one square each");
+      const keys = new Set(allSets().flatMap(st => st.items.filter(i => i.bg).map(i => i.key)));
+      eq(bgs.length, [...keys].filter(k => !has(k, "c")).length, "every background Pokémon not got, once each");
+      prefs.wantBox = "s"; await go("#want");
       await tick(key, "s", true); await go("#want");
       ok(!view().querySelector('.fc.want[href="#p-83"]'), "gone once ticked");
     } finally { await clear(); prefs.wantBox = "s"; prefs.wantOverlap = false; }

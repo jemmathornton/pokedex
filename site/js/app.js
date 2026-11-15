@@ -1074,39 +1074,55 @@ function wanted(b){
 }
 // her ask, 15 Nov: show where they overlap (a lucky and a shiny needed for the same one): each square has a small icon for
 // every other box she also still needs for it, and "Only overlaps" lists just those
+// Backgrounds (her ask, 15 Nov: to see which background Pokémon to target when an old background comes back, like Dark Skies
+// for Dynamax Trails): from her events, each background's Pokémon she hasn't got with it (Caught), under that background's card
+const WANT_TABS = [...WANT, ["bg", "Backgrounds", "ticket", "--deep-2"]];
+function bgWanted(){
+  const seen = new Set(), units = [];
+  for (const st of allSets()) for (const it of st.items) {
+    if (!it.bg || seen.has(it.key)) continue;
+    seen.add(it.key);
+    if (!has(it.key, "c")) units.push({e: it.e, st, key: it.e.costume ? null : FORM_SPECIES.has(it.e.dex) ? it.e.id : groupKey(it.e), what: it.e.costume ? cosName(it.e) : FORM_SPECIES.has(it.e.dex) && it.e.form ? it.e.form : "", img: it.img});
+  }
+  return units;
+}
 function wantShown(b){
   const need = new Map();
   for (const [t] of WANT) for (const u of wanted(t)) { if (!need.has(u.key)) need.set(u.key, new Set()); need.get(u.key).add(t); }
-  const also = u => WANT.filter(([t]) => t !== b && need.get(u.key).has(t));
-  const units = wanted(b).map(u => ({...u, also: also(u)}));
+  const also = u => u.key && need.has(u.key) ? WANT.filter(([t]) => t !== b && need.get(u.key).has(t)) : [];
+  const units = (b === "bg" ? bgWanted() : wanted(b)).map(u => ({...u, also: also(u)}));
   return wantOverlap() ? units.filter(u => u.also.length) : units;
 }
 const wantOverlap = () => !!prefs.wantOverlap || TRY.has("overlap");   // ?overlap for pictures only
-const wantBox = () => [TRY.get("want"), prefs.wantBox].find(k => WANT.some(w => w[0] === k)) || "s";   // ?want= for pictures only
+const wantBox = () => [TRY.get("want"), prefs.wantBox].find(k => WANT_TABS.some(w => w[0] === k)) || "s";   // ?want= for pictures only
+const wantName = u => `${isRegional(u.e) ? u.e.form.split(" ")[0] + " " : ""}${u.e.name}${u.what ? " · " + u.what : ""}`;
 function wantPage(){
-  const b = wantBox(), [, label, icon, col] = WANT.find(w => w[0] === b);
-  const units = wantShown(b), name = u => `${isRegional(u.e) ? u.e.form.split(" ")[0] + " " : ""}${u.e.name}${u.what ? " · " + u.what : ""}`;
+  const b = wantBox(), [, label, icon, col] = WANT_TABS.find(w => w[0] === b);
+  const units = wantShown(b);
+  const cell = (u, art) => `<a class="fc col want${art ? " withbg" : ""}" href="${pageOf(u.e)}" title="${attr(wantName(u) + (u.st ? " · " + u.st.title : "") + (u.also.length ? " · also " + u.also.map(w => w[1]).join(", ") : ""))}"${art ? ` style="--card:url('${art}')"` : ""}>` +
+    (u.also.length ? `<span class="wb">${u.also.map(([, , i, c]) => `<i style="--c:var(${c})">${ic(i)}</i>`).join("")}</span>` : "") +
+    `<img src="${u.img ? sprite(u.img) : b === "s" ? sprite(u.e.img + ".s") || sprite(u.e.img) : fastPic(u.e, u.t)}" alt="" loading="lazy"><span>${pad(u.e.dex)}</span><span class="fcn">${esc(wantName(u))}</span></a>`;
   let html = "";
-  for (const [g, region] of GENS) {
-    const us = units.filter(u => u.e.gen === g);
+  const groups = b === "bg" ? [...new Set(units.map(u => u.st))].map(st => [st.title, units.filter(u => u.st === st), st.art])
+    : GENS.map(([g, region]) => [region, units.filter(u => u.e.gen === g), null]);
+  for (const [title, us, art] of groups) {
     if (!us.length) continue;
-    html += `<section class="fastset"><h3>${esc(region)}<small>${num(us.length)}</small></h3><div class="fastgrid" style="--bc:var(${col})">` +
-      us.map(u => `<a class="fc col want" href="${pageOf(u.e)}" title="${attr(name(u) + (u.also.length ? " · also " + u.also.map(w => w[1]).join(", ") : ""))}">` +
-        (u.also.length ? `<span class="wb">${u.also.map(([, , i, c]) => `<i style="--c:var(${c})">${ic(i)}</i>`).join("")}</span>` : "") +
-        `<img src="${b === "s" ? sprite(u.e.img + ".s") || sprite(u.e.img) : fastPic(u.e, u.t)}" alt="" loading="lazy"><span>${pad(u.e.dex)}</span><span class="fcn">${esc(name(u))}</span></a>`).join("") + `</div></section>`;
+    html += `<section class="fastset"><h3>${esc(title)}<small>${num(us.length)}</small></h3><div class="fastgrid" style="--bc:var(${col})">${us.map(u => cell(u, art)).join("")}</div></section>`;
   }
   setRegion(null);
   view.innerHTML = `<header class="hero withshot">${heroPics(ALL_MAPS())}<span class="label">Trial</span><h1>Looking <em>for</em></h1>
-    <p style="max-width:380px">Everything that’s out in Pokémon GO that you haven’t got yet: shinies to hunt, luckies to try to trade for, and Dynamax, Gigantamax and Mega to look out for. The small icons on a square are the other boxes you need for it too. Ticking one on its page takes it off here.</p></header>${readOnlyNote()}
-    <div class="toolbar filters"><div class="frow"><span class="label flabel">Box</span><div class="worktabs">${WANT.map(([t, l]) => `<button type="button" class="worktab" data-wantbox="${t}" aria-pressed="${t === b}">${esc(l)}</button>`).join("")}</div>
+    <p style="max-width:380px">${b === "bg" ? "The background Pokémon from your events that you haven’t got with that background yet, under each background: handy when one comes back." : "Everything that’s out in Pokémon GO that you haven’t got yet: shinies to hunt, luckies to try to trade for, and Dynamax, Gigantamax and Mega to look out for."} The small icons on a square are the other boxes you need for it too. Ticking one takes it off here.</p></header>${readOnlyNote()}
+    <div class="toolbar filters"><div class="frow"><span class="label flabel">Box</span><div class="worktabs">${WANT_TABS.map(([t, l]) => `<button type="button" class="worktab" data-wantbox="${t}" aria-pressed="${t === b}">${esc(l)}</button>`).join("")}</div>
       <span class="switches"><button class="switchbtn" type="button" role="switch" data-wantoverlap aria-checked="${wantOverlap()}"><span class="track"></span>Only overlaps</button></span></div></div>
     <div class="fasthead" style="--bc:var(${col})">${ic(icon)}<b>${esc(label)} · still to get${wantOverlap() ? ", with another box too" : ""}</b><span class="fastn">${num(units.length)}</span>
       ${units.length ? `<button class="linkbtn" type="button" data-wantcopy>${ic("copy")}Copy the list</button>` : ""}</div>
     ${html ? `<div class="fastsets">${html}</div>` : `<p class="empty">${wantOverlap() ? "None that you need another box for too." : "Nothing left: you have every one that’s out."}</p>`}`;
 }
 async function wantCopy(){
-  const b = wantBox(), label = WANT.find(w => w[0] === b)[1];
-  const text = `${label} I’m looking for: ` + wantShown(b).map(u => `#${u.e.dex} ${isRegional(u.e) ? u.e.form.split(" ")[0] + " " : ""}${u.e.name}${u.what ? " (" + u.what + ")" : ""}`).join(", ");
+  const b = wantBox(), label = WANT_TABS.find(w => w[0] === b)[1], units = wantShown(b);
+  const one = u => `#${u.e.dex} ${isRegional(u.e) ? u.e.form.split(" ")[0] + " " : ""}${u.e.name}${u.what ? " (" + u.what + ")" : ""}`;
+  const text = b === "bg" ? [...new Set(units.map(u => u.st))].map(st => `${st.title}: ` + units.filter(u => u.st === st).map(one).join(", ")).join("\n")
+    : `${label} I’m looking for: ` + units.map(one).join(", ");
   try { await navigator.clipboard.writeText(text); toast("Copied: paste it into a message to a friend."); } catch (e) { toast("Couldn’t copy here."); }
 }
 function navHtml(route){
