@@ -3,7 +3,6 @@
 Everything waiting on you. **Do** = just do it; **Decide** = your call. Tell Claude when one’s done or decided and it comes off.
 
 ## Decide
-- **How cards show Pokémon whose forms you track one by one (15 Nov):** your picks (Rotom, Unown, Furfrou…, now with Pumpkaboo and Urshifu) stay one card, and every form gets its own boxes on its page. Latest look, your idea: each box fills up in its colour with the count, e.g. Shiny 1/4 (`for-jemma/form-cards-fill.png`; the earlier three in `form-cards-options.png`). Use it?
 - **Sinistea and Polteageist:** track their Antique forms one by one or not? (You’re undecided.) Rockruff, Scatterbug and Spewpa left off on purpose: no real difference until they evolve. Arceus when it’s out.
 - **Events and costumes (trial, 13 Nov):** one page instead of two: a timeline of sets with progress (`for-jemma/page-events-and-costumes.png`, one set: `page-one-event.png`). Keep, change or go back?
 - **Banners on every page (trial, 13 Nov):** maps on Home, Every Pokémon, Fast tick and each Pokémon page; event backgrounds on Events and costumes (`for-jemma/page-banners.png`).
@@ -16,6 +15,7 @@ Everything waiting on you. **Do** = just do it; **Decide** = your call. Tell Cla
 - **This weekend (14–15 Nov), GO Wild Area:** last chance for Modern Jacket Machamp.
 
 ## Done
+- Pokémon whose forms you track one by one (Rotom, Unown, Furfrou…, Pumpkaboo, Urshifu) stay one card; its boxes fill up in their colour with the count (Shiny 1/4), and each form has its own boxes on the Pokémon’s page. Your earlier ticks are mostly on one form each, so tick the rest there (15 Nov).
 - Regional forms (Alolan, Galarian, Hisuian, Paldean) listed apart, each with its own card and page, e.g. Hisuian Growlithe (`for-jemma/hisuian-growlithe-page.png`). Other forms (Unown, Rotom, Vivillon…) still one card each. Fast tick too: each regional form has its own square in its own region (14 Nov).
 - “Gigantamax” in full instead of “G-Max”: filters, banners, cards, Fast tick, Quick add; “G-Max” only in the small box on a Pokémon’s page (14 Nov).
 - Sidebar regions without numbers, as in GO (13 Nov).

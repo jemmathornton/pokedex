@@ -140,6 +140,24 @@
     eq(location.hash, "#p-25");
   });
 
+  test("a Pokémon whose forms she tracks one by one: one card whose boxes count her forms and fill up (her pick, 15 Nov)", async () => {
+    prefs.work = "all"; prefs.workShow = "all"; await go("#gen-4");
+    const card = [...view().querySelectorAll(".card")].find(c => c.querySelector(".nm").textContent === "Rotom");
+    const forms = ENTRIES.filter(e => e.dex === 479 && e.released);
+    const n = forms.filter(e => has(dk(e), "c")).length;
+    eq(card.querySelector(".tk.fb.c").title, `Caught: ${n} of ${forms.length} forms`);
+    eq(card.querySelector(".tk.fb.c b").textContent, `${n}/${forms.length}`);
+    eq(!!card.querySelector(".tk.fb.c .fill"), n > 0 && n < forms.length, "partly got: the filled part is drawn");
+    eq(card.classList.contains("got"), n === forms.length, "marked only when every form is caught");
+    ok(card.querySelector(".tk.fb.c").getAttribute("href") === "#p-479", "a box opens its page");
+    const bulba = [...view().querySelectorAll(".card")].find(c => c.querySelector(".nm").textContent === "Turtwig");
+    ok(bulba && !bulba.querySelector(".tk.fb") && bulba.querySelector("button.tk"), "other Pokémon keep their tick boxes");
+    prefs.work = "shiny"; route();
+    const one = [...view().querySelectorAll(".card")].find(c => c.querySelector(".nm").textContent === "Rotom");
+    ok(one.querySelectorAll(".tk.fb").length === 1 && one.querySelector(".tk.fb.s"), "with a tab on: just that box, counted");
+    prefs.work = "all";
+  });
+
   test("a regional form is a Pokémon of its own: its own card and page, after the usual one (her call, 14 Nov)", async () => {
     await go("#p-58");
     ok(!document.querySelector(".formpick"), "Growlithe's page has no form picker");

@@ -163,17 +163,18 @@ const GENDER_WORDS = {male: "♂ only", female: "♀ only", none: "Genderless"};
 // forms (Shiny 3/6) and the card opens its page (Pumpkaboo and Urshifu added 15 Nov; Sinistea and Polteageist undecided), where every form has its own boxes. Arceus left for when it's out (her call).
 const FORM_SPECIES = new Set([150, 351, 386, 413, 479, 483, 484, 487, 492, 550, 641, 642, 645, 646, 649, 710, 711, 718, 720, 741, 745, 774, 800, 849, 892, 905,
   201, 327, 412, 421, 422, 423, 585, 586, 647, 666, 669, 670, 671, 676, 925, 931, 978, 982]);
-const FORM_LOOK = new URLSearchParams(location.search).get("formcards");   // TRIAL (15 Nov): ?formcards=bar|count|dots|fill, looks for her to pick from
-function formBoxes(lead, forms){
+// her pick of the looks (15 Nov, her idea): each box fills up in its colour as she gets its forms, with the count (Shiny 1/4);
+// the filled part is a copy of the box in white words, clipped; every form got = the full box. With a filter tab on, just that box.
+function formBoxes(lead, forms, only){
   // every box, counted over her forms that can have it: got/out of; a box no form can have isn't shown
   const out = forms.filter(f => f.released);
   const B = (t, cls, icon, label, can) => {
+    if (only && !only.includes(t)) return "";
     const fs = out.filter(can); if (!fs.length) return "";
     const got = fs.filter(f => has(dk(f), t)).length, all = got === fs.length;
-    const dots = fs.length <= 10 ? `<i class="dots">${fs.map(f => `<i${has(dk(f), t) ? ` class="on"` : ""}></i>`).join("")}</i>` : "";
-    const inner = `${ic(icon)}<span>${esc(label)}</span>${["count", "fill"].includes(FORM_LOOK) ? `<b>${got}/${fs.length}</b>` : FORM_LOOK === "dots" && dots ? dots : ""}`;
-    return `<a class="tk fb ${cls}${got && !all ? " some" : ""}" href="${pageOf(lead)}" aria-pressed="${all}" title="${attr(`${label}: ${got} of ${fs.length} forms`)}" style="--p:${Math.round(got / fs.length * 100)}%">` +
-      inner + (FORM_LOOK === "fill" && got && !all ? `<span class="fill" aria-hidden="true">${inner}</span>` : "") + `</a>`;   // fill: the box fills in its colour, white words on the filled part
+    const inner = `${ic(icon)}<span>${esc(label)}</span><b>${got}/${fs.length}</b>`;
+    return `<a class="tk fb ${cls}" href="${pageOf(lead)}" aria-pressed="${all}" title="${attr(`${label}: ${got} of ${fs.length} forms`)}" style="--p:${Math.round(got / fs.length * 100)}%">` +
+      inner + (got && !all ? `<span class="fill" aria-hidden="true">${inner}</span>` : "") + `</a>`;
   };
   const megaT = [...new Set(out.flatMap(f => (f.mega || []).map(m => m.t)))];
   const rows = [
@@ -186,8 +187,11 @@ function formBoxes(lead, forms){
     [B("sd", "sd", "shadow", "Shadow", f => !!f.shadow), B("pu", "pu", "purified", "Purified", f => !!f.shadow)],
     [B("h", "h", "star", "4★", () => true)],
   ];
-  return `<div class="boxgrid fbs fb-${FORM_LOOK}">` + rows.filter(r => r.some(Boolean)).map(r => r.length === 1 ? r[0].replace('class="tk ', 'class="tk wide ') : (r[0] || "<span></span>") + (r[1] || "<span></span>")).join("") + `</div>`;
+  if (only) { const one = rows.flat().filter(Boolean).join(""); return one ? `<div class="ticks big fbs">${one}</div>` : ""; }
+  return `<div class="boxgrid fbs">` + rows.filter(r => r.some(Boolean)).map(r => r.length === 1 ? r[0].replace('class="tk ', 'class="tk wide ') : (r[0] || "<span></span>") + (r[1] || "<span></span>")).join("") + `</div>`;
 }
+// a form-tracked card is marked (got) only when every form that can has it: caught, or with a tab on, that tab's box
+const formsGot = (forms, tab) => { const fs = forms.filter(f => f.released && (!tab || tab.applies(f))); return fs.length > 0 && fs.every(f => tab ? tab.have(f) : caught(f)); };
 function boxes(e){
   // a fixed two-column grid, so every box has the same place on every card (her point, 9 Nov: the ragged rows looked
   // bizarre), in the game's Pokédex order like everything else (her rule, 12 Nov): Caught · Female | Male · Shiny | Lucky ·
@@ -295,12 +299,13 @@ function card(e, more = "", inForms = false, forms = null){
   const gw = GENDER_WORDS[e.gender];
   // the card is marked when she has it: caught, or with a tab on, that tab's box, in its colour (her call, 9 Nov)
   const tab = !showAllBoxes && BOXF.find(x => x.k === prefs.work);
-  const got = tab ? tab.applies(e) && tab.have(e) : caught(e);
+  const byForm = forms && FORM_SPECIES.has(e.dex);
+  const got = byForm ? formsGot(forms, tab) : tab ? tab.applies(e) && tab.have(e) : caught(e);
   return `<div class="card${e.released ? "" : " out-not"}${got ? " got" : ""}${inForms ? " informs" : ""}" data-id="${attr(e.id)}"${got ? ` style="--hl:var(${HL[tab ? tab.k : "caught"]})"` : ""}>` +
     `<span class="no">#${pad(e.dex)}</span>` + (flags.length ? `<span class="flags">${flags.map(f => `<span>${esc(f)}</span>`).join("")}</span>` : "") +
     pic(e, dk(e)) +
     `<a class="nm" href="${pageOf(e)}" title="Open ${attr(e.name)}’s page">${esc(e.name)}</a><small class="fm">${esc(e.form || "")}${e.form && gw ? " · " : ""}${gw ? `<span class="gd">${esc(gw)}</span>` : ""}</small>` +
-    (forms && FORM_LOOK && FORM_SPECIES.has(e.dex) && !onlyTicks(e) ? formBoxes(e, forms) : boxes(e)) + more + `</div>`;
+    (byForm ? formBoxes(e, forms, onlyTicks(e)) : boxes(e)) + more + `</div>`;
 }
 
 // ---------- the banner and sidebar look: “Colours + parade” (her pick, 10 Nov, of the trial looks): each region's colour in

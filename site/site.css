@@ -743,33 +743,18 @@ a.formsbtn{text-decoration:none}
 .fastset .fastgrid{display:flex;flex-wrap:wrap;gap:6px}
 .fastset .fc{width:76px}
 
-/* TRIAL (15 Nov): a form-tracked Pokémon's card counts its forms on each box (?formcards=bar|tint|dots); all forms got = the full box */
-.tk.fb{text-decoration:none;position:relative;overflow:hidden}
-.tk.fb b{margin-left:auto;font-size:9.5px;font-weight:700;opacity:.8;flex:none;letter-spacing:-.2px}
-.fb-count .tk.fb{gap:2px;padding:2px 4px}
+/* a form-tracked Pokémon's card (her pick, 15 Nov): each box fills up in its colour as she gets its forms, with the count;
+   the filled part is a white-text copy of the box, clipped to how far it's got; every form got = the full box */
+.tk.fb{text-decoration:none;position:relative;overflow:hidden;gap:2px;padding:2px 4px}
+.tk.fb .i{width:11px;height:11px}
+.tk.fb span{letter-spacing:-.15px}
+.tk.fb b{margin-left:auto;font-size:8.5px;font-weight:700;opacity:.85;flex:none;letter-spacing:-.4px}
 .tk.fb.c{--bc:var(--caught)}.tk.fb.f{--bc:var(--female)}.tk.fb.m{--bc:var(--male)}.tk.fb.s{--bc:var(--shiny)}.tk.fb.l{--bc:var(--lucky)}
 .tk.fb.h{--bc:var(--hundo)}.tk.fb.sd{--bc:var(--shadow)}.tk.fb.pu{--bc:var(--purified)}.tk.fb.dx{--bc:var(--dynamax)}.tk.fb.gx{--bc:var(--gmax)}
 .tk.fb.mg{--bc:var(--mega)}.tk.fb.xl{--bc:var(--xxl)}.tk.fb.xs{--bc:var(--xxs)}
-.fb-bar .tk.fb::after,.fb-dots .tk.fb:not(:has(.dots))::after{content:"";position:absolute;left:0;bottom:0;height:3px;width:var(--p);background:var(--bc)}
-.tk.fb[aria-pressed="true"]::after{display:none}
-.tk.fb .dots{display:flex;flex-wrap:wrap;gap:2px;margin-left:auto;max-width:46%;justify-content:flex-end}
-.tk.fb .dots i{width:5px;height:5px;border-radius:50%;background:color-mix(in srgb,var(--muted) 35%,transparent)}
-.tk.fb .dots i.on{background:var(--bc)}
-.tk.fb[aria-pressed="true"] .dots i{background:#fff}
-.fb-bar .tk.fb::before,.fb-dots .tk.fb:not(:has(.dots))::before{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:color-mix(in srgb,var(--bc) 16%,transparent)}
-.fb-bar .tk.fb::after,.fb-dots .tk.fb:not(:has(.dots))::after{height:4px}
-.tk.fb[aria-pressed="true"]::before{display:none}
-.fb-dots .tk.fb{flex-wrap:wrap;row-gap:2px;padding-bottom:4px}
-.fb-dots .tk.fb .dots{flex-basis:100%;max-width:none;margin-left:0;justify-content:flex-start;gap:3px;padding-left:1px}
-.fb-dots .tk.fb .dots i{width:6px;height:6px}
-.fb-count .tk.fb b{font-size:9px;letter-spacing:-.3px}
-.fb-count .tk.fb .i{width:11px;height:11px}
-/* fill (her idea, 15 Nov): the whole box fills up in its colour, numbers too; the filled part is a white-text copy of the box, clipped */
-.fb-fill .tk.fb{gap:2px;padding:2px 4px}
-.fb-fill .tk.fb b{font-size:9px;letter-spacing:-.3px}
-.fb-fill .tk.fb .i{width:11px;height:11px}
 .tk.fb .fill{position:absolute;inset:0;display:flex;align-items:center;gap:2px;padding:2px 4px;background:var(--bc);color:#fff;
   clip-path:inset(0 calc(100% - var(--p)) 0 0);pointer-events:none}
 .tk.fb .fill span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.fb-fill .tk.fb span,.fb-count .tk.fb span{letter-spacing:-.15px}
-.fb-fill .tk.fb b,.fb-count .tk.fb b{font-size:8.5px;letter-spacing:-.4px}
+.ticks.big .tk.fb,.ticks.big .tk.fb .fill{padding:4px 14px;gap:6px}
+.ticks.big .tk.fb .i{width:12px;height:12px}
+.ticks.big .tk.fb b{font-size:11px;margin-left:8px}
