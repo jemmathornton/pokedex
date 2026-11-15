@@ -416,6 +416,23 @@ function statsHtml(c){
 }
 const readOnlyNote = () => readOnly ? `<div class="notice">${ic("info")} Opened from the folder, so ticks can’t be saved here. Open it with the Jemma’s Pokédex shortcut.</div>` : "";
 
+// Home's costume and background tiles, laid out like the region tiles above them (her note, 15 Nov: they looked odd):
+// three she has, and Caught and Shiny counted as Fast tick counts them (each costume or background Pokémon once)
+function setTiles(){
+  const seen = new Set(), items = [];
+  for (const st of allSets()) for (const it of st.items) if (!seen.has(it.key)) { seen.add(it.key); items.push(it); }
+  const row = (name, icon, have, of, col) => `<span class="rl" style="--c:${col}">${ic(icon)}${name}</span><span class="bar" style="--c:${col}"><i style="width:${of ? have / of * 100 : 0}%"></i></span><span class="v">${num(have)} / ${num(of)}</span>`;
+  const tile = (bg, label, title) => {
+    const its = items.filter(it => it.bg === bg), shinyOut = its.filter(it => it.e.shiny);
+    const got = its.filter(it => has(it.key, "c")), pics = [], dexes = new Set();
+    for (const it of got.length ? got : its) { if (pics.length < 3 && !dexes.has(it.e.dex) && sprite(it.img)) { dexes.add(it.e.dex); pics.push(sprite(it.img)); } }
+    return `<a class="gen" href="#sets"><span class="genart" aria-hidden="true">${pics.map(p => `<img src="${p}" alt="" loading="lazy">`).join("")}</span>` +
+      `<span class="label">${label}</span><h3>${title}</h3><div class="rows">` +
+      row("Caught", "poke-ball", got.length, its.length, "var(--caught)") + row("Shiny", "sparkles", shinyOut.filter(it => has(it.key, "s")).length, shinyOut.length, "var(--shiny)") +
+      (bg ? `<span class="rl" style="--c:var(--deep-2)">${ic("ticket")}Events</span><span></span><span class="v">${num(myEvents().length)}</span>` : "") + `</div></a>`;
+  };
+  return tile(false, "Collecting", "Costumes") + tile(true, "Your events", "Backgrounds");
+}
 function home(){
   const c = counts(ENTRIES);
   let gens = "";
@@ -433,10 +450,7 @@ function home(){
   view.innerHTML = `<header class="hero withshot">${heroPics(ALL_MAPS())}<span class="label">Pokémon GO · ${num(c.speciesOut)} Pokémon out, plus their forms</span>
     <h1>Jemma’s <em>Pokédex</em></h1>${statsHtml(c)}</header>${readOnlyNote()}
     <section class="section"><h2>By generation</h2><div class="gens">${gens}</div></section>
-    <section class="section"><h2>Costumes and backgrounds</h2><div class="gens">
-      <a class="gen" href="#costumes"><span class="genart" aria-hidden="true">${myCostumes().slice(0, 3).map(c => sprite(c.img) ? `<img src="${sprite(c.img)}" alt="" loading="lazy">` : "").join("")}</span><span class="label">Costumes</span><h3>${num(myCostumes().length)} collecting</h3><p class="muted" style="margin:6px 0 0;font-size:13.5px">the ones you collect</p></a>
-      <a class="gen" href="#events"><span class="genart" aria-hidden="true">${myEvents().flatMap(bgMonsOf).slice(0, 3).map(e => sprite(e.img) ? `<img src="${sprite(e.img)}" alt="" loading="lazy">` : "").join("")}</span><span class="label">Events</span><h3>${num(myEvents().length)} with backgrounds</h3><p class="muted" style="margin:6px 0 0;font-size:13.5px">the ones you went to or took part in</p></a>
-    </div></section>
+    <section class="section"><h2>Costumes and backgrounds</h2><div class="gens">${setTiles()}</div></section>
     <p class="muted" style="margin-top:40px;font-size:12.5px">Pokémon data from the game, checked ${dates(DATA.updated)}.</p>`;
 }
 
