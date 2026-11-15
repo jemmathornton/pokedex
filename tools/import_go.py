@@ -199,7 +199,7 @@ def main():
     shiny_out = {}
     for s in shiny:
         shiny_out.setdefault(s['aa_fn'], s.get('released_date', '').replace('/', '-'))
-    shiny_label = {s['aa_fn']: re.sub(r'\s+', ' ', s['name_suffix']).strip() for s in shiny if s.get('name_suffix')}
+    shiny_label = {s['aa_fn']: re.sub(r'^\([♂♀]\)\s*', '', re.sub(r'\s+', ' ', s['name_suffix']).strip()) for s in shiny if s.get('name_suffix')}   # without Leek Duck's gender mark ("(♂) Party Hat" Wobbuffet, 15 Nov check)
 
     # genders: PokeAPI gender_rate is eighths female (-1 = genderless)
     gender = {}
@@ -454,7 +454,7 @@ def main():
             base.setdefault('mega', []).append({'t': t, 'label': label, 'img': pic})
             mega_n += 1
     for r in ditto:   # a Mega not out yet (Dittobase lists the main games' Megas): "Unavailable" rather than "Not possible"
-        base = byid.get(str(r.get('speciesId')))
+        base = byid.get(str(r.get('speciesId'))) or next((e for e in entries if e['dex'] == r.get('speciesId') and e.get('default')), None)   # Zygarde and Tatsugiri have no plain form (15 Nov check)
         if r.get('isMega') and not r.get('isReleased') and base and not base.get('mega'):
             base['megaLater'] = True
     print(f'Mega and Primal: {mega_n} out, on {sum(1 for e in entries if e.get("mega"))} entries')
@@ -511,8 +511,8 @@ def main():
                 plain[i] = r
     out_diff = sorted(i for i, r in plain.items() if bool(r.get('isReleased')) != byid[i]['released'])
     shiny_diff = sorted(i for i, r in plain.items() if byid[i]['released'] and bool(r.get('isShinyReleased')) != bool(byid[i].get('shiny')))
-    for i in out_diff:   # either source is enough, as above
-        if plain[i].get('isReleased'):
+    for i in out_diff:   # either source is enough, as above, unless release-fixes.json says otherwise (Minior's cores, 15 Nov)
+        if plain[i].get('isReleased') and i not in fixes:
             byid[i]['released'] = True
     for i in shiny_diff:
         if plain[i].get('isShinyReleased') and not byid[i].get('shiny'):

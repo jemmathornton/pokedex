@@ -22456,7 +22456,7 @@
    ],
    "img": "pm666.fFANCY",
    "gender": "both",
-   "released": true,
+   "released": false,
    "desc": "Vivillon with many different patterns are found all over the world. These patterns are affected by the climate of their habitat.",
    "category": "Scale Pokémon",
    "height": 1.2,
@@ -22675,7 +22675,7 @@
    ],
    "img": "pm666.fPOKEBALL",
    "gender": "both",
-   "released": true,
+   "released": false,
    "desc": "Vivillon with many different patterns are found all over the world. These patterns are affected by the climate of their habitat.",
    "category": "Scale Pokémon",
    "height": 1.2,
@@ -23037,6 +23037,7 @@
      "to": "671-red"
     }
    ],
+   "megaLater": true,
    "order": 0
   },
   {
@@ -24878,6 +24879,7 @@
      "to": "718-50"
     }
    ],
+   "megaLater": true,
    "order": 0
   },
   {
@@ -26498,7 +26500,7 @@
    ],
    "img": "pm774.fBLUE",
    "gender": "none",
-   "released": true,
+   "released": false,
    "desc": "Although its outer shell is uncommonly durable, the shock of falling to the ground smashes the shell to smithereens.",
    "category": "Meteor Pokémon",
    "height": 0.3,
@@ -26540,7 +26542,7 @@
    ],
    "img": "pm774.fINDIGO",
    "gender": "none",
-   "released": true,
+   "released": false,
    "desc": "Although its outer shell is uncommonly durable, the shock of falling to the ground smashes the shell to smithereens.",
    "category": "Meteor Pokémon",
    "height": 0.3,
@@ -26561,7 +26563,7 @@
    ],
    "img": "pm774.fORANGE",
    "gender": "none",
-   "released": true,
+   "released": false,
    "desc": "Although its outer shell is uncommonly durable, the shock of falling to the ground smashes the shell to smithereens.",
    "category": "Meteor Pokémon",
    "height": 0.3,
@@ -26582,7 +26584,7 @@
    ],
    "img": "pm774.fRED",
    "gender": "none",
-   "released": true,
+   "released": false,
    "desc": "Although its outer shell is uncommonly durable, the shock of falling to the ground smashes the shell to smithereens.",
    "category": "Meteor Pokémon",
    "height": 0.3,
@@ -26603,7 +26605,7 @@
    ],
    "img": "pm774.fVIOLET",
    "gender": "none",
-   "released": true,
+   "released": false,
    "desc": "Although its outer shell is uncommonly durable, the shock of falling to the ground smashes the shell to smithereens.",
    "category": "Meteor Pokémon",
    "height": 0.3,
@@ -31821,6 +31823,7 @@
    "weight": 8.0,
    "buddyKm": 5.0,
    "family": "TATSUGIRI",
+   "megaLater": true,
    "order": 0
   },
   {

@@ -1,0 +1,10 @@
+{
+ "_about": "By hand: true/false overrides for what's out in GO, by entry id (15 Nov check: Leek Duck and Dittobase). Minior: only the Green (Orionids, Oct 2026) and Yellow (Leonids, Nov 2026) cores are out, one more core per Minior Showers event; Fancy and Poké Ball Vivillon aren't out (Dittobase: unreleased; Leek Duck: no shiny). Take a line out when it comes.",
+ "774-red": false,
+ "774-orange": false,
+ "774-blue": false,
+ "774-indigo": false,
+ "774-violet": false,
+ "666-fancy": false,
+ "666-poke-ball": false
+}

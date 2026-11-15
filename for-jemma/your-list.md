@@ -1,8 +1,10 @@
-# Your list (14 Nov 2026)
+# Your list (15 Nov 2026)
 
 Everything waiting on you. **Do** = just do it; **Decide** = your call. Tell Claude when one’s done or decided and it comes off.
 
 ## Decide
+- **Fast tick, now you’ve been through everything:** keep it (handy for new events, costumes and regions), keep it without the temporary Forms check, or take it out?
+- **Crowned Zacian and Zamazenta, and Complete Zygarde:** track them as Pokémon of their own (like Dusk Mane Necrozma and Black Kyurem) or not? They’re kept forms you make in GO; at the moment they aren’t in the app.
 - **Sinistea and Polteageist:** track their Antique forms one by one or not? (You’re undecided.) Rockruff, Scatterbug and Spewpa left off on purpose: no real difference until they evolve. Arceus when it’s out.
 - **Events and costumes (trial, 13 Nov):** one page instead of two: a timeline of sets with progress (`for-jemma/page-events-and-costumes.png`, one set: `page-one-event.png`). Keep, change or go back?
 - **Banners on every page (trial, 13 Nov):** maps on Home, Every Pokémon, Fast tick and each Pokémon page; event backgrounds on Events and costumes (`for-jemma/page-banners.png`).
@@ -11,10 +13,11 @@ Everything waiting on you. **Do** = just do it; **Decide** = your call. Tell Cla
 ## Do
 - **Try getting your collection in:** easiest is **Fast tick → Kanto → Lucky** next to your phone’s Pokédex on the Lucky tab. Or one short screen recording of the Pokédex’s Lucky tab (Kanto only) and, if you have one, a Calcy IV export, into the Pokédex folder’s `imports` folder. Then Claude checks the reader works on your phone’s screens.
 - **Check the 49 Kalos–Paldea Pokémon** ticked Caught with no Shiny (possible leftovers from Tick all): Fast tick → Caught next to the game’s Pokédex.
-- **Tick your backgrounds** on the Events page (or on each Pokémon’s page).
-- **This weekend (14–15 Nov), GO Wild Area:** last chance for Modern Jacket Machamp.
+- **Dynamax Trails (16–23 Nov):** Max Battle catches get a background, probably the Dark Skies one again (Serebii); tell Claude once you’ve seen it, and Sneasel, Mawile and the rest go on it.
 
 ## Done
+- Online check (15 Nov): nothing new in the game since 9 Nov, no costume or background missing. Fixed: Minior only Green and Yellow cores out so far; Fancy and Poké Ball Vivillon not out yet; Mega Zygarde and Mega Tatsugiri “Unavailable” (not “Not possible”); Wobbuffet’s costume called Party Hat. Mega Clefable comes on 28 Nov.
+- Backgrounds and costumes all ticked and checked (15 Nov).
 - Full review (15 Nov): ticks can no longer be lost when both server copies save at once, and a spare copy is kept; XXL/XXS totals leave out the fixed Pumpkaboo sizes; Mega cards in burnt orange; “Hide ones I have” hides Pokémon caught in another form; unticking Shiny anywhere unticks a Caught that came with it; Pumpkaboo’s Halloween costumes under Halloween 2022.
 - Fast tick’s Costumes and Backgrounds in Pokédex number order (Order: Number / Event); forms and costumes in the game’s order (Unown A–Z; costumes oldest first, Holiday Hat first). Raichu’s Flower Crown and Flareon’s Flower Crown and Holiday Hat added (wrongly left out on 10 Nov); costumes on a form added (Galarian Zigzagoon’s and Galarian Ponyta’s Meloetta Hat, Pumpkaboo’s and Gourgeist’s Halloween in each size), and Flygon’s Meloetta Hat; the Gimmighoul backgrounds show the coin Gimmighoul; GO Tour 2025 Enigma ticked as taken part (Purrloin, Pidove, Boldore, Woobat…); every background now lists the evolutions too (Dark Skies was missing 32) (15 Nov).
 - Every form’s boxes checked (15 Nov); Claude found no impossible ticks.
