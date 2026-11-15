@@ -560,17 +560,17 @@ def main():
         e['order'] = form_pos.get(fid, form_pos.get(fid + '_NORMAL', -1 if fid == e['_sid'] else 999))
         if e['dex'] == 201:   # Unown A to Z, then ! and ? (her note, 15 Nov: F in its normal place; F stays the picture shown)
             e['order'] = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ!?'.find(e['form'] or '')
-    # costumes newest first, as the game shows them (her notes, 15 Nov: nearly the reverse; the crowns out of place): costume
-    # forms by the game's Form number, highest first, then the older kind of costume by the game's Costume number
+    # costumes oldest first, Holiday Hat first (her notes, 15 Nov: the crowns out of place; then Holiday Hat should be first): the
+    # older kind of costume by the game's Costume number, then costume forms by the game's Form number (which puts the crowns after GO Fest 2025)
     for c in costumes:
         code = c['code'].upper()
         k = f'{sid_of[c["dex"]]}_{code}'
         if k in form_no:
-            c['order'] = -10000 - form_no[k]
+            c['order'] = 10000 + form_no[k]
         elif code in costume_no or code + '_NOEVOLVE' in costume_no:
-            c['order'] = -costume_no.get(code, costume_no.get(code + '_NOEVOLVE'))
+            c['order'] = costume_no.get(code, costume_no.get(code + '_NOEVOLVE'))
         else:   # the same costume on another of its family (Charmeleon's goggles, numbered as Charmander's)
-            c['order'] = -10000 - max((v for f, v in form_no.items() if f.endswith('_' + code)), default=0)
+            c['order'] = 10000 + max((v for f, v in form_no.items() if f.endswith('_' + code)), default=9999)
         c['order'] = c['order'] * 10 + form_pos.get(c.pop('_fform', ''), 0)   # one costume on several forms: in the forms' order (Pumpkaboo Small, Average, Large, Super)
     for e in entries:
         e.pop('_fid', None)
