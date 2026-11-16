@@ -33,7 +33,7 @@
   test("every page opens with no errors, blanks or leftovers, and every link on them goes somewhere", async () => {
     const problems = [], errs = [], seen = new Set(), links = new Set();
     const onErr = e => errs.push(e.message || String(e.reason)); addEventListener("error", onErr);
-    const routes = ["#home", "#dex", "#costumes", "#events", "#fast", "#want", "#sets", ...allSets().map(st => "#set-" + st.id), ...Object.keys(genById).map(g => "#gen-" + g), ...PAGE_KEYS.map(k => "#p-" + k)];
+    const routes = ["#home", "#dex", "#costumes", "#events", "#fast", "#want", "#coming", "#sets", ...allSets().map(st => "#set-" + st.id), ...Object.keys(genById).map(g => "#gen-" + g), ...PAGE_KEYS.map(k => "#p-" + k)];
     try {
       for (const h of routes) {
         if (seen.has(h)) continue; seen.add(h);
@@ -355,6 +355,23 @@
       await tick(key, "s", true); await go("#want");
       ok(!view().querySelector('.fc.want[href="#p-83"]'), "gone once ticked");
     } finally { await clear(); prefs.wantBox = "s"; prefs.wantOverlap = false; }
+  });
+
+  test("Coming up: each event, and what's still needed from its Pokémon", async () => {
+    const key = "d:624", before = COL.have[key], up0 = DATA.upcoming;
+    try {
+      delete COL.have[key];
+      eq(upNeeds({id: "624", shiny: true, as: []}), ["c", "s"], "Pawniard not caught: new, and shiny");
+      COL.have[key] = ["c", "s"]; eq(upNeeds({id: "624", shiny: true, as: []}), [], "nothing once caught and shiny");
+      eq(upNeeds({id: "624", shiny: true, as: ["shadow"]}), ["sd"], "a Shadow raid asks for the Shadow");
+      DATA.upcoming = {fetched: "2026-11-16", backgrounds: {"t-ev": {background: "sb-gofest2025-eternatus"}}, events: [
+        {id: "t-ev", name: "Test event", type: "Event", start: "2026-11-16T10:00:00.000", end: "2026-11-23T20:00:00.000", link: "https://leekduck.com/events/", mons: [{name: "Pawniard", id: "624", shiny: true, as: []}]}]};
+      await go("#coming");
+      ok(/Test event/.test(view().textContent), "the event");
+      ok(view().querySelector('.fc.want.done[href="#p-624"]'), "Pawniard faded: nothing left to get");
+      const wantedHere = bgWanted().filter(u => u.st.id === "sb-gofest2025-eternatus").length;
+      eq(view().querySelectorAll('.evmons .fc.withbg').length, COL.went.includes("sb-gofest2025-eternatus") ? wantedHere : 0, "the background's Pokémon not got with it");
+    } finally { if (before) COL.have[key] = before; else delete COL.have[key]; DATA.upcoming = up0; }
   });
 
   // ---------- Fast tick (trial) ----------

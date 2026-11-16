@@ -1125,12 +1125,58 @@ async function wantCopy(){
     : `${label} I’m looking for: ` + units.map(one).join(", ");
   try { await navigator.clipboard.writeText(text); toast("Copied: paste it into a message to a friend."); } catch (e) { toast("Couldn’t copy here."); }
 }
+// ---------- Coming up (TRIAL, her ask 16 Nov: upcoming events with details and what she needs to hunt) ----------
+// the next six weeks from Leek Duck (tools/import_events.py, via ScrapedDuck): each event with its dates and a link, and
+// the Pokémon it's known to have with what she still needs from each (new to her, shiny, Mega, Shadow, Dynamax,
+// Gigantamax); one bringing back a background of hers lists that background's Pokémon she hasn't got with it
+const NEED_LOOK = {c: ["New", "poke-ball", "--caught"], s: ["Shiny", "sparkles", "--shiny"], mega: ["Mega", "mega", "--mega"],
+  sd: ["Shadow", "shadow", "--shadow"], dx: ["Dynamax", "dynamax", "--dynamax"], gx: ["Gigantamax", "gigantamax", "--gmax"], bg: ["Background", "ticket", "--deep-2"]};
+function upNeeds(m){
+  const e = byId[m.id];
+  if (!e) return [];
+  const group = FORM_SPECIES.has(e.dex) ? [e] : ENTRIES.filter(x => groupKey(x) === groupKey(e) && x.released);
+  const any = t => group.some(x => has(dk(x), t));
+  const out = [];
+  if (!group.some(caught)) out.push("c");
+  if ((m.shiny ?? !!e.shiny) && e.shiny && !any("s")) out.push("s");
+  for (const a of m.as || []) {
+    if (a === "mega" && (e.mega || []).some(x => !has(dk(e), x.t))) out.push("mega");
+    if (a === "shadow" && !any("sd")) out.push("sd");
+    if (a === "dynamax" && !any("dx")) out.push("dx");
+    if (a === "gmax" && !any("gx")) out.push("gx");
+  }
+  return out;
+}
+function comingPage(){
+  const now = new Date(), up = DATA.upcoming || {events: []}, day = s => (s || "").slice(0, 10);
+  const square = (e, needs, extra = "", art = null) => `<a class="fc col want${needs.length ? "" : " done"}${art ? " withbg" : ""}" href="${pageOf(e)}" title="${attr(e.name + (e.form ? " · " + e.form : "") + (extra ? " · " + extra : "") + (needs.length ? " · you need: " + needs.map(n => NEED_LOOK[n][0]).join(", ") : " · you have everything from it"))}"${art ? ` style="--card:url('${art}')"` : ""}>` +
+    (needs.length ? `<span class="wb">${needs.map(n => `<i style="--c:var(${NEED_LOOK[n][2]})">${ic(NEED_LOOK[n][1])}</i>`).join("")}</span>` : "") +
+    `<img src="${sprite(e.img) || ""}" alt="" loading="lazy"><span>${pad(e.dex)}</span><span class="fcn">${esc(extra || (e.form && FORM_SPECIES.has(e.dex) ? e.name + " · " + e.form : e.name))}</span></a>`;
+  const rows = up.events.map(ev => {
+    const on = new Date(ev.start) <= now, mons = ev.mons.filter(m => byId[m.id]);
+    const cells = mons.map(m => square(byId[m.id], upNeeds(m)));
+    const bgId = (up.backgrounds[ev.id] || {}).background, st = bgId && allSets().find(s => s.id === bgId);
+    const bgs = st ? bgWanted().filter(u => u.st.id === st.id) : [];
+    const want = mons.filter(m => upNeeds(m).length).length;
+    return `<div class="evrow${on ? " on" : ""}"><div class="evwhen"><span class="label">${on ? "On now" : esc(ev.type || "")}</span>
+        <h3>${esc(ev.name)}</h3><p class="muted">${dates(day(ev.start), day(ev.end) || day(ev.start))}${on && ev.type ? " · " + esc(ev.type) : ""}</p>
+        <a class="linkbtn" href="${attr(ev.link)}" target="_blank" rel="noopener">${ic("external-link")}Details on Leek Duck</a></div>
+      <div class="evmons">${mons.length ? `<p class="evsum">${want ? `You need something from ${num(want)} of ${num(mons.length)}` : "You have everything from these"}</p><div class="fastgrid" style="--bc:var(--deep-2)">${cells.join("")}</div>` : ""}
+        ${st ? `<p class="evsum">Brings back the <b>${esc(st.title)}</b> background: ${bgs.length ? `${num(bgs.length)} of yours not got with it yet` : "you have them all"}</p><div class="fastgrid" style="--bc:var(--deep-2)">${bgs.map(u => square(u.e, ["bg"], u.e.costume ? cosName(u.e) : "", st.art)).join("")}</div>` : ""}
+        ${!mons.length && !st ? `<p class="muted evsum">Leek Duck lists what’s in it.</p>` : ""}</div></div>`;
+  }).join("");
+  setRegion(null);
+  view.innerHTML = `<header class="hero withshot">${heroPics(ALL_MAPS())}<span class="label">Trial</span><h1>Coming <em>up</em></h1>
+    <p style="max-width:380px">The next six weeks of Pokémon GO events from Leek Duck, and what you still need from each: the small icons say what (new to you, shiny, Mega, Shadow, Dynamax, Gigantamax, or the background). Checked ${dates(up.fetched || DATA.updated)}.</p></header>${readOnlyNote()}
+    ${rows ? `<div class="evlist">${rows}</div>` : `<p class="empty">No events saved yet: run tools/import_events.py.</p>`}`;
+}
+
 function navHtml(route){
   const link = (href, icon, text, n) => `<a href="${href}" class="${route === href.slice(1) ? "on" : ""}">${ic(icon)}${esc(text)}${n !== undefined ? `<span class="n">${num(n)}</span>` : ""}</a>`;
   const out = ENTRIES.filter(e => e.released);
   nav.innerHTML = `<div class="nav-group">${link("#home", "house", "Home")}${link("#dex", "layout-grid", "Every Pokémon", groupByNumber(ENTRIES).length)}</div>
     <div class="nav-group"><span class="label">Regions</span>${GENS.map(([g, n]) => link("#gen-" + g, "layers", n, groupByNumber(ENTRIES.filter(e => e.gen === g)).length)).join("")}</div>
-    <div class="nav-group"><span class="label">More</span>${link("#sets", "ticket", "Events and costumes", allSets().length)}${link("#want", "search", "Looking for")}${link("#fast", "layout-grid", "Fast tick")}</div>`;
+    <div class="nav-group"><span class="label">More</span>${link("#sets", "ticket", "Events and costumes", allSets().length)}${link("#want", "search", "Looking for")}${link("#coming", "calendar", "Coming up")}${link("#fast", "layout-grid", "Fast tick")}</div>`;
 }
 
 function route(to){   // to: draw that page without changing the address (the tests' sweep over every page)
@@ -1143,6 +1189,7 @@ function route(to){   // to: draw that page without changing the address (the te
   if (r === "quick") return quickPage();
   if (r === "fast") return fastPage();
   if (r === "want") return wantPage();
+  if (r === "coming") return comingPage();
   if (r === "sets") return setsPage();
   const sm = /^set-(.+)$/.exec(r);
   if (sm) return setPage(sm[1]);

@@ -747,6 +747,16 @@ a.formsbtn{text-decoration:none}
 .fc.want img,.fc.col.want img{filter:none}
 .fc.want:hover{border-color:var(--bc)}
 .fc.want{position:relative}
+.fc.want.done{opacity:.45}   /* Coming up: nothing left to get from it */
+/* Coming up (trial, 16 Nov): one row per event, its dates and link on the left, what it has on the right */
+.evlist{margin-top:8px}
+.evrow{display:grid;grid-template-columns:270px 1fr;gap:20px;padding:18px 0;border-top:1px solid var(--line)}
+.evrow.on .evwhen .label{color:var(--deep-2)}
+.evwhen h3{font-size:22px;margin:2px 0 4px;line-height:1.15}
+.evwhen p{margin:0 0 8px;font-size:13.5px}
+.evsum{margin:0 0 8px;font-size:13.5px;font-weight:700}
+.evmons .fastgrid{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.evmons .fc{width:76px}
 .fc.want .wb{position:absolute;top:4px;right:4px;display:flex;flex-direction:column;gap:2px}   /* the other boxes needed for it too */
 .fc.want .wb i{width:15px;height:15px;padding:2.5px;border-radius:5px;background:var(--c);color:#fff;box-sizing:border-box;display:block}
 .fc.want .wb .i{width:10px;height:10px;display:block}

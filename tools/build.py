@@ -51,7 +51,10 @@ def main():
                 problems.append(f'{ev["id"]}: no entry or costume {c}')
     pics = [k for e in dex['entries'] + costumes['costumes'] for k in (e['img'], e['img'] + '.s')]
     missing = sum(1 for k in pics if k not in have)
+    upcoming = load('go', 'upcoming.json', default={}) or {}   # tools/import_events.py: the Coming up page
+    upbg = {k: {'background': v['background']} for k, v in (load('go', 'upcoming-backgrounds.json', default={}) or {}).items() if not k.startswith('_')}
     out = {'game': 'go', 'updated': dex['updated'], 'entries': dex['entries'], 'costumes': costumes['costumes'],
+           'upcoming': {'fetched': upcoming.get('fetched'), 'events': upcoming.get('events', []), 'backgrounds': upbg},
            'events': events, 'special': special, 'costumeEvents': cev, 'dexByName': names, 'sprites': sorted(have), 'bigSprites': sorted(big), 'backgrounds': sorted(bgs), 'collection': collection}
     js = 'const DATA = ' + json.dumps(out, ensure_ascii=False, separators=(',', ':')) + ';\n'
     write(os.path.join(SITE, 'js', 'data.js'), js)

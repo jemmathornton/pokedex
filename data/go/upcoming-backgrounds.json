@@ -1,0 +1,4 @@
+{
+ "_about": "By hand: which of her backgrounds an upcoming event brings back (event id from data/go/upcoming.json -> background id in special-backgrounds.json or events.json), so the Coming up page can say which of that event's background Pokémon she still needs. `unsure` stays off the site.",
+ "dynamax-trails-2026": {"background": "sb-gofest2025-eternatus", "unsure": "Serebii's event page shows the Dark Skies card; no official post names it (15 Nov). Check on the first catch."}
+}

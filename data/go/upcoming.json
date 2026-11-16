@@ -1,0 +1,427 @@
+{
+ "fetched": "2026-11-16",
+ "source": "Leek Duck (leekduck.com/events), via ScrapedDuck",
+ "events": [
+  {
+   "id": "pokemon-x-adidas-2026",
+   "name": "adidas × Pokémon Timed Research",
+   "type": "Research",
+   "kind": "research",
+   "start": "2026-09-25T10:00:00.000",
+   "end": "2027-01-15T20:00:00.000",
+   "link": "https://leekduck.com/events/pokemon-x-adidas-2026/",
+   "mons": []
+  },
+  {
+   "id": "go-pass-november-2026",
+   "name": "GO Pass: November",
+   "type": "GO Pass",
+   "kind": "go-pass",
+   "start": "2026-11-03T10:00:00.000",
+   "end": "2026-12-01T10:00:00.000",
+   "link": "https://leekduck.com/events/go-pass-november-2026/",
+   "mons": []
+  },
+  {
+   "id": "minior-showers-leonids-2026",
+   "name": "Minior Showers: Leonids 2026",
+   "type": "Event",
+   "kind": "event",
+   "start": "2026-11-14T17:00:00.000",
+   "end": "2026-11-19T23:59:00.000",
+   "link": "https://leekduck.com/events/minior-showers-leonids-2026/",
+   "mons": [
+    {
+     "name": "Minior",
+     "key": null,
+     "shiny": null,
+     "id": "774-green",
+     "as": []
+    }
+   ]
+  },
+  {
+   "id": "cresselia-darkrai-in-5-star-raid-battles-november-2026",
+   "name": "Cresselia and Darkrai in 5-star Raid Battles",
+   "type": "Raid Battles",
+   "kind": "raid-battles",
+   "start": "2026-11-16T06:00:00.000",
+   "end": "2026-11-24T22:00:00.000",
+   "link": "https://leekduck.com/events/cresselia-darkrai-in-5-star-raid-battles-november-2026/",
+   "mons": [
+    {
+     "name": "Cresselia",
+     "key": "488_00",
+     "shiny": true,
+     "id": "488",
+     "as": []
+    },
+    {
+     "name": "Darkrai",
+     "key": "491_00",
+     "shiny": true,
+     "id": "491",
+     "as": []
+    }
+   ]
+  },
+  {
+   "id": "mega-banette-in-mega-raids-november-2026",
+   "name": "Mega Banette in Mega Raids",
+   "type": "Raid Battles",
+   "kind": "raid-battles",
+   "start": "2026-11-16T06:00:00.000",
+   "end": "2026-11-24T22:00:00.000",
+   "link": "https://leekduck.com/events/mega-banette-in-mega-raids-november-2026/",
+   "mons": [
+    {
+     "name": "Mega Banette",
+     "key": "pm354.fMEGA",
+     "shiny": true,
+     "id": "354",
+     "as": [
+      "mega"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "shadow-tornadus-incarnate-forme-in-shadow-raids-november-16-2026",
+   "name": "Shadow Tornadus (Incarnate Forme) in Shadow Raids",
+   "type": "Raid Battles",
+   "kind": "raid-battles",
+   "start": "2026-11-16T06:00:00.000",
+   "end": "2026-12-01T22:00:00.000",
+   "link": "https://leekduck.com/events/shadow-tornadus-incarnate-forme-in-shadow-raids-november-16-2026/",
+   "mons": [
+    {
+     "name": "Tornadus (Incarnate)",
+     "key": "641_11",
+     "shiny": false,
+     "id": "641-incarnate",
+     "as": [
+      "shadow"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "dynamax-trails-2026",
+   "name": "Dynamax Trails",
+   "type": "Event",
+   "kind": "event",
+   "start": "2026-11-16T10:00:00.000",
+   "end": "2026-11-23T20:00:00.000",
+   "link": "https://leekduck.com/events/dynamax-trails-2026/",
+   "mons": []
+  },
+  {
+   "id": "raidhour20261118",
+   "name": "Cresselia and Darkrai Raid Hour",
+   "type": "Raid Hour",
+   "kind": "raid-hour",
+   "start": "2026-11-18T18:00:00.000",
+   "end": "2026-11-18T19:00:00.000",
+   "link": "https://leekduck.com/events/raidhour20261118/",
+   "mons": [
+    {
+     "name": "Cresselia",
+     "key": null,
+     "shiny": null,
+     "id": "488",
+     "as": []
+    },
+    {
+     "name": "Darkrai",
+     "key": null,
+     "shiny": null,
+     "id": "491",
+     "as": []
+    }
+   ]
+  },
+  {
+   "id": "pokemonspotlighthour2026-11-19",
+   "name": "Grookey, Scorbunny, and Sobble Spotlight Hour",
+   "type": "Pokémon Spotlight Hour",
+   "kind": "pokemon-spotlight-hour",
+   "start": "2026-11-19T18:00:00.000",
+   "end": "2026-11-19T19:00:00.000",
+   "link": "https://leekduck.com/events/pokemonspotlighthour2026-11-19/",
+   "mons": [
+    {
+     "name": "Grookey",
+     "key": "pm810",
+     "shiny": true,
+     "id": "810",
+     "as": []
+    },
+    {
+     "name": "Scorbunny",
+     "key": "pm813",
+     "shiny": true,
+     "id": "813",
+     "as": []
+    },
+    {
+     "name": "Sobble",
+     "key": "pm816",
+     "shiny": true,
+     "id": "816",
+     "as": []
+    }
+   ]
+  },
+  {
+   "id": "eternamax-eternatus-max-battles-2026",
+   "name": "Eternamax Eternatus Returns",
+   "type": "Max Battles",
+   "kind": "max-battles",
+   "start": "2026-11-21T11:00:00.000",
+   "end": "2026-11-21T14:00:00.000",
+   "link": "https://leekduck.com/events/eternamax-eternatus-max-battles-2026/",
+   "mons": []
+  },
+  {
+   "id": "november-communityday2026",
+   "name": "Pawniard Community Day",
+   "type": "Community Day",
+   "kind": "community-day",
+   "start": "2026-11-21T14:00:00.000",
+   "end": "2026-11-21T17:00:00.000",
+   "link": "https://leekduck.com/events/november-communityday2026/",
+   "mons": [
+    {
+     "name": "Pawniard",
+     "key": "624_00",
+     "shiny": true,
+     "id": "624",
+     "as": []
+    }
+   ]
+  },
+  {
+   "id": "max-mondays-2026-11-23",
+   "name": "Dynamax Espurr during Max Monday",
+   "type": "Max Mondays",
+   "kind": "max-mondays",
+   "start": "2026-11-23T06:00:00.000",
+   "end": "2026-11-23T21:00:00.000",
+   "link": "https://leekduck.com/events/max-mondays-2026-11-23/",
+   "mons": [
+    {
+     "name": "Espurr",
+     "key": null,
+     "shiny": null,
+     "id": "677",
+     "as": [
+      "dynamax"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "twilight-wishes-2026",
+   "name": "Twilight Wishes",
+   "type": "Event",
+   "kind": "event",
+   "start": "2026-11-24T10:00:00.000",
+   "end": "2026-11-30T20:00:00.000",
+   "link": "https://leekduck.com/events/twilight-wishes-2026/",
+   "mons": []
+  },
+  {
+   "id": "deoxys-normal-defense-attack-speed-formes-in-5-star-raid-battles-november-2026",
+   "name": "Deoxys (Normal, Defense, Attack, and Speed Formes) in 5-star Raid Battles",
+   "type": "Raid Battles",
+   "kind": "raid-battles",
+   "start": "2026-11-25T06:00:00.000",
+   "end": "2026-12-01T22:00:00.000",
+   "link": "https://leekduck.com/events/deoxys-normal-defense-attack-speed-formes-in-5-star-raid-battles-november-2026/",
+   "mons": [
+    {
+     "name": "Deoxys (Normal)",
+     "key": "386_11",
+     "shiny": true,
+     "id": "386",
+     "as": []
+    },
+    {
+     "name": "Deoxys (Defense)",
+     "key": "386_13",
+     "shiny": true,
+     "id": "386-defense",
+     "as": []
+    },
+    {
+     "name": "Deoxys (Attack)",
+     "key": "386_12",
+     "shiny": true,
+     "id": "386-attack",
+     "as": []
+    },
+    {
+     "name": "Deoxys (Speed)",
+     "key": "386_14",
+     "shiny": true,
+     "id": "386-speed",
+     "as": []
+    }
+   ]
+  },
+  {
+   "id": "mega-metagross-in-mega-raids-november-2026",
+   "name": "Mega Metagross in Mega Raids",
+   "type": "Raid Battles",
+   "kind": "raid-battles",
+   "start": "2026-11-25T06:00:00.000",
+   "end": "2026-12-01T22:00:00.000",
+   "link": "https://leekduck.com/events/mega-metagross-in-mega-raids-november-2026/",
+   "mons": [
+    {
+     "name": "Mega Metagross",
+     "key": "pm376.fMEGA",
+     "shiny": true,
+     "id": "376",
+     "as": [
+      "mega"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "raidhour20261125",
+   "name": "Deoxys (Normal, Defense, Attack, and Speed Formes) Raid Hour",
+   "type": "Raid Hour",
+   "kind": "raid-hour",
+   "start": "2026-11-25T18:00:00.000",
+   "end": "2026-11-25T19:00:00.000",
+   "link": "https://leekduck.com/events/raidhour20261125/",
+   "mons": [
+    {
+     "name": "Deoxys",
+     "key": null,
+     "shiny": null,
+     "id": "386",
+     "as": []
+    }
+   ]
+  },
+  {
+   "id": "pokemonspotlighthour2026-11-26",
+   "name": "Noibat Spotlight Hour",
+   "type": "Pokémon Spotlight Hour",
+   "kind": "pokemon-spotlight-hour",
+   "start": "2026-11-26T18:00:00.000",
+   "end": "2026-11-26T19:00:00.000",
+   "link": "https://leekduck.com/events/pokemonspotlighthour2026-11-26/",
+   "mons": [
+    {
+     "name": "Noibat",
+     "key": "714_00",
+     "shiny": true,
+     "id": "714",
+     "as": []
+    }
+   ]
+  },
+  {
+   "id": "clefable-super-mega-raid-day-2026",
+   "name": "Clefable Super Mega Raid Day",
+   "type": "Raid Day",
+   "kind": "raid-day",
+   "start": "2026-11-28T14:00:00.000",
+   "end": "2026-11-28T17:00:00.000",
+   "link": "https://leekduck.com/events/clefable-super-mega-raid-day-2026/",
+   "mons": [
+    {
+     "name": "Clefable",
+     "key": null,
+     "shiny": null,
+     "id": "36",
+     "as": [
+      "mega"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "max-mondays-2026-11-30",
+   "name": "Dynamax Cryogonal during Max Monday",
+   "type": "Max Mondays",
+   "kind": "max-mondays",
+   "start": "2026-11-30T06:00:00.000",
+   "end": "2026-11-30T21:00:00.000",
+   "link": "https://leekduck.com/events/max-mondays-2026-11-30/",
+   "mons": [
+    {
+     "name": "Cryogonal",
+     "key": null,
+     "shiny": null,
+     "id": "615",
+     "as": [
+      "dynamax"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "max-battle-day-december-2026",
+   "name": "Max Battle Day",
+   "type": "Max Battles",
+   "kind": "max-battles",
+   "start": "2026-12-05T14:00:00.000",
+   "end": "2026-12-05T17:00:00.000",
+   "link": "https://leekduck.com/events/max-battle-day-december-2026/",
+   "mons": []
+  },
+  {
+   "id": "minior-showers-geminids-2026",
+   "name": "Minior Showers: Geminids 2026",
+   "type": "Event",
+   "kind": "event",
+   "start": "2026-12-11T17:00:00.000",
+   "end": "2026-12-16T23:59:00.000",
+   "link": "https://leekduck.com/events/minior-showers-geminids-2026/",
+   "mons": [
+    {
+     "name": "Minior",
+     "key": null,
+     "shiny": null,
+     "id": "774-green",
+     "as": []
+    }
+   ]
+  },
+  {
+   "id": "december-communityday2026",
+   "name": "December Community Day",
+   "type": "Community Day",
+   "kind": "community-day",
+   "start": "2026-12-12T14:00:00.000",
+   "end": "2026-12-13T17:00:00.000",
+   "link": "https://leekduck.com/events/december-communityday2026/",
+   "mons": []
+  },
+  {
+   "id": "raid-day-december-2026",
+   "name": "Raid Day",
+   "type": "Raid Day",
+   "kind": "raid-day",
+   "start": "2026-12-19T14:00:00.000",
+   "end": "2026-12-19T17:00:00.000",
+   "link": "https://leekduck.com/events/raid-day-december-2026/",
+   "mons": []
+  },
+  {
+   "id": "hatch-day-december-2026",
+   "name": "Hatch Day",
+   "type": "Event",
+   "kind": "event",
+   "start": "2026-12-26T11:00:00.000",
+   "end": "2026-12-26T17:00:00.000",
+   "link": "https://leekduck.com/events/hatch-day-december-2026/",
+   "mons": []
+  }
+ ]
+}
