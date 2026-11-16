@@ -1077,12 +1077,18 @@ function wanted(b){
 // Backgrounds (her ask, 15 Nov: to see which background Pokémon to target when an old background comes back, like Dark Skies
 // for Dynamax Trails): from her events, each background's Pokémon she hasn't got with it (Caught), under that background's card
 const WANT_TABS = [...WANT, ["bg", "Backgrounds", "ticket", "--deep-2"]];
+// Pokédex number order for background Pokémon (her ask, 16 Nov): number, the usual form before a regional one, a plain one before its costumes, then the game's own order
+const dexOrder = (a, b) => a.e.dex - b.e.dex || isRegional(a.e) - isRegional(b.e) || !!a.e.costume - !!b.e.costume || (a.e.order ?? 0) - (b.e.order ?? 0);
 function bgWanted(){
   const seen = new Set(), units = [];
-  for (const st of allSets()) for (const it of st.items) {
-    if (!it.bg || seen.has(it.key)) continue;
-    seen.add(it.key);
-    if (!has(it.key, "c")) units.push({e: it.e, st, key: it.e.costume ? null : FORM_SPECIES.has(it.e.dex) ? it.e.id : groupKey(it.e), what: it.e.costume ? cosName(it.e) : FORM_SPECIES.has(it.e.dex) && it.e.form ? it.e.form : "", img: it.img});
+  for (const st of allSets()) {
+    const here = [];
+    for (const it of st.items) {
+      if (!it.bg || seen.has(it.key)) continue;
+      seen.add(it.key);
+      if (!has(it.key, "c")) here.push({e: it.e, st, key: it.e.costume ? null : FORM_SPECIES.has(it.e.dex) ? it.e.id : groupKey(it.e), what: it.e.costume ? cosName(it.e) : FORM_SPECIES.has(it.e.dex) && it.e.form ? it.e.form : "", img: it.img});
+    }
+    units.push(...here.sort(dexOrder));   // each background's in Pokédex number order (her ask, 16 Nov)
   }
   return units;
 }
@@ -1147,6 +1153,14 @@ function upNeeds(m){
   }
   return out;
 }
+// a background Pokémon on Coming up ticks there (her ask, 16 Nov: say she's got it with that background without leaving
+// the page): click = Caught with the background, again = untick; got ones faded, as the rest of the page
+function bgTick(it, art){
+  const on = has(it.key, "c"), name = it.e.name + (it.e.costume ? " · " + cosName(it.e) : "");
+  return `<button type="button" class="fc col want withbg${on ? " done" : ""}" data-fk="${attr(it.key)}" data-t="c" aria-pressed="${on}" title="${attr(name + (on ? " · got with this background: click to untick" : " · click when you’ve got it with this background"))}" style="--card:url('${art}')">` +
+    (on ? "" : `<span class="wb"><i style="--c:var(--deep-2)">${ic("ticket")}</i></span>`) +
+    `<img src="${sprite(it.img) || ""}" alt="" loading="lazy"><span>${pad(it.e.dex)}</span><span class="fcn">${esc(it.e.costume ? cosName(it.e) : it.e.name)}</span></button>`;
+}
 function comingPage(){
   const now = new Date(), up = DATA.upcoming || {events: []}, day = s => (s || "").slice(0, 10);
   const square = (e, needs, extra = "", art = null) => `<a class="fc col want${needs.length ? "" : " done"}${art ? " withbg" : ""}" href="${pageOf(e)}" title="${attr(e.name + (e.form ? " · " + e.form : "") + (extra ? " · " + extra : "") + (needs.length ? " · you need: " + needs.map(n => NEED_LOOK[n][0]).join(", ") : " · you have everything from it"))}"${art ? ` style="--card:url('${art}')"` : ""}>` +
@@ -1157,13 +1171,14 @@ function comingPage(){
     const cells = mons.map(m => square(byId[m.id], upNeeds(m)));
     const bgId = (up.backgrounds[ev.id] || {}).background, st = bgId && allSets().find(s => s.id === bgId);
     const seenBg = new Set(), bgAll = st ? st.items.filter(it => it.bg && !seenBg.has(it.key) && seenBg.add(it.key)) : [];   // every one, those got faded (her ask, 16 Nov)
+    bgAll.sort(dexOrder);   // Pokédex number order (her ask, 16 Nov)
     const bgs = bgAll.filter(it => !has(it.key, "c"));
     const want = mons.filter(m => upNeeds(m).length).length;
     return `<div class="evrow${on ? " on" : ""}"><div class="evwhen"><span class="label">${on ? "On now" : esc(ev.type || "")}</span>
         <h3>${esc(ev.name)}</h3><p class="muted">${dates(day(ev.start), day(ev.end) || day(ev.start))}${on && ev.type ? " · " + esc(ev.type) : ""}</p>
         <a class="linkbtn" href="${attr(ev.link)}" target="_blank" rel="noopener">${ic("external-link")}Details on Leek Duck</a></div>
       <div class="evmons">${mons.length ? `<p class="evsum">${want ? `You need something from ${num(want)} of ${num(mons.length)}` : "You have everything from these"}</p><div class="fastgrid" style="--bc:var(--deep-2)">${cells.join("")}</div>` : ""}
-        ${st ? `<p class="evsum">Brings back the <b>${esc(st.title)}</b> background: ${bgs.length ? `${num(bgs.length)} of ${num(bgAll.length)} not got with it yet` : "you have them all"}</p><div class="fastgrid" style="--bc:var(--deep-2)">${bgAll.map(it => square(it.e, has(it.key, "c") ? [] : ["bg"], it.e.costume ? cosName(it.e) : "", st.art)).join("")}</div>` : ""}
+        ${st ? `<p class="evsum">Brings back the <b>${esc(st.title)}</b> background: ${bgs.length ? `${num(bgs.length)} of ${num(bgAll.length)} not got with it yet` : "you have them all"}</p><div class="fastgrid" style="--bc:var(--deep-2)">${bgAll.map(it => bgTick(it, st.art)).join("")}</div>` : ""}
         ${!mons.length && !st ? `<p class="muted evsum">Leek Duck lists what’s in it.</p>` : ""}</div></div>`;
   }).join("");
   setRegion(null);

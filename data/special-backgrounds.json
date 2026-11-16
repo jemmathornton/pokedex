@@ -1165,16 +1165,28 @@
     "Malamar",
     "Steenee",
     "Tsareena",
-    "Centiskorch"
+    "Centiskorch",
+    "Sneasel",
+    "Weavile",
+    "Mawile",
+    "Magikarp",
+    "Gyarados",
+    "Feebas",
+    "Milotic",
+    "Spheal",
+    "Sealeo",
+    "Walrein",
+    "Cottonee",
+    "Whimsicott"
    ],
-   "note": "Caught from Max Battles: Dynamax Pokémon during Dark Skies (18-23 Aug 2025) and Gigantamax Pokémon at the Max Finale weekend (23-24 Aug). Evolving a Dynamax one keeps it. Shiny possible except Grookey, Scorbunny, Sobble, Hatenna and the G-Max Galar starters (Dittobase). Other Dynamax Pokémon could turn up at Max Finale Power Spots too (Pikachu to Duraludon at the end of this list). Evolving one keeps the background, so its evolutions are listed too.",
+   "note": "Caught from Max Battles: Dynamax Pokémon during Dark Skies (18-23 Aug 2025) and Gigantamax Pokémon at the Max Finale weekend (23-24 Aug). Evolving a Dynamax one keeps it. Shiny possible except Grookey, Scorbunny, Sobble, Hatenna and the G-Max Galar starters (Dittobase). Other Dynamax Pokémon could turn up at Max Finale Power Spots too (Pikachu to Duraludon at the end of this list). Evolving one keeps the background, so its evolutions are listed too. Back with Dynamax Trails (16-23 Nov 2026): Max Battle catches and the GO Pass Dynamax encounters; Sneasel, Mawile, Magikarp, Feebas, Spheal and Cottonee new to it (Leek Duck, Serebii), with their evolutions.",
    "sources": [
     "https://leekduck.com/events/dark-skies/",
     "https://leekduck.com/events/pokemon-go-fest-2025-max-finale/",
     "https://www.dittobase.com/pokemon-go/backgrounds/sb-go-fest-2025-dark-skies",
     "https://www.serebii.net/pokemongo/backgrounds.shtml"
    ],
-   "unsure": "Card matched by picture (identical to Serebii's \"Dark Skies\"); the file name says Eternatus but no source says Eternatus itself could get it. Serebii also lists Abra, Bounsweet, Combee, Deino, Drampa, Duraludon, Eevee, Electabuzz, Growlithe, Hitmonchan, Hitmonlee, Hitmontop, Hoothoot, Inkay, Magmar, Pikachu, Ralts, Rhyhorn, Roggenrola, Sizzlipede, Toxel, Trapinch and Woobat (left out here: Dittobase doesn't). The 23 Power Spot extras (Pikachu to Duraludon) are from Serebii only; Dittobase lists just the first 49. Jemma asked for them all (10 Nov).",
+   "unsure": "Card matched by picture (identical to Serebii's \"Dark Skies\"); the file name says Eternatus but no source says Eternatus itself could get it. Serebii also lists Abra, Bounsweet, Combee, Deino, Drampa, Duraludon, Eevee, Electabuzz, Growlithe, Hitmonchan, Hitmonlee, Hitmontop, Hoothoot, Inkay, Magmar, Pikachu, Ralts, Rhyhorn, Roggenrola, Sizzlipede, Toxel, Trapinch and Woobat (left out here: Dittobase doesn't). The 23 Power Spot extras (Pikachu to Duraludon) are from Serebii only; Dittobase lists just the first 49. Jemma asked for them all (10 Nov). Dynamax Trails: Magikarp, Spheal and Cottonee only on Leek Duck's list; Feebas confirmed by Jemma (16 Nov).",
    "picture": "darkskies",
    "cards": [
     "1",
@@ -1307,7 +1319,19 @@
     "687",
     "762",
     "763",
-    "851"
+    "851",
+    "215",
+    "461",
+    "303",
+    "129",
+    "130",
+    "349",
+    "350",
+    "363",
+    "364",
+    "365",
+    "546",
+    "547"
    ]
   },
   {

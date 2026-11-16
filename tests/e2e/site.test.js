@@ -373,6 +373,8 @@
       const st = allSets().find(s => s.id === "sb-gofest2025-eternatus"), keys = st ? [...new Set(st.items.filter(i => i.bg).map(i => i.key))] : [];
       eq(view().querySelectorAll('.evmons .fc.withbg').length, keys.length, "all the background's Pokémon");
       eq(view().querySelectorAll('.evmons .fc.withbg.done').length, keys.filter(k => has(k, "c")).length, "the ones she has, faded");
+      const nums = [...view().querySelectorAll('.evmons .fc.withbg')].map(a => +a.querySelector("span:not(.wb):not(.fcn)").textContent);
+      ok(nums.every((n, i) => !i || n >= nums[i - 1]), "in Pokédex number order (her ask, 16 Nov)");
     } finally { if (before) COL.have[key] = before; else delete COL.have[key]; DATA.upcoming = up0; }
   });
 

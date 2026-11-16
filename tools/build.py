@@ -41,6 +41,33 @@ def main():
     for e in dex['entries']:
         names.setdefault(e['name'].lower(), e['dex'])
     problems = []
+    # a background an upcoming event brings back gets that event's Pokémon and their evolutions (her note, 16 Nov: Feebas
+    # from Dynamax Trails wasn't on Dark Skies): data/go/upcoming-backgrounds.json `pokemon`
+    by_id = {e['id']: e for e in dex['entries']}
+    def evolved(i):
+        out = []
+        for s in by_id[i].get('evo') or []:
+            if s['to'] in by_id:
+                out += [s['to']] + evolved(s['to'])
+        return out
+    for evid, m in (load('go', 'upcoming-backgrounds.json', default={}) or {}).items():
+        if evid.startswith('_'):
+            continue
+        target = next((x for x in events + special if x['id'] == m['background']), None)
+        if not target:
+            problems.append(f'upcoming-backgrounds: no background {m["background"]}'); continue
+        for n in m.get('pokemon') or []:
+            base, form = re.sub(r'\s*\(.*\)', '', n).strip().lower(), (re.search(r'\((.*?)(?: Forme?)?\)', n) or [None, None])[1]
+            es = [e for e in dex['entries'] if e['name'].lower() == base]
+            e = next((x for x in es if form and (x.get('form') or '').lower().startswith(form.lower())), None) or next((x for x in es if not x.get('form')), None) or (es[0] if es else None)
+            if not e:
+                problems.append(f'upcoming-backgrounds {evid}: no Pokémon called {n}'); continue
+            for i in [e['id']] + evolved(e['id']):
+                if target.get('cards') is not None:
+                    if i not in target['cards']:
+                        target['cards'].append(i)
+                elif by_id[i]['name'] not in target.setdefault('backgroundPokemon', []):
+                    target['backgroundPokemon'].append(by_id[i]['name'])
     for ev in events + special:   # background Pokémon by name -> dex number (so the page can show their pictures)
         for p in ev.get('backgroundPokemon') or []:
             if p.lower() not in names:
