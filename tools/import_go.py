@@ -90,6 +90,8 @@ DEFAULT_FORM = {201: 'pm201.fUNOWN_F'}
 NOT_COSTUMES = {'pm150.cONE_YEAR_ANNIVERSARY', 'pm172.cFALL_2018', 'pm249.cONE_YEAR_ANNIVERSARY', 'pm716.fNEUTRAL'}
 # a picture the game files keep with the costumes that is really a form in the game's Pokédex: Armored Mewtwo (her call, 10 Nov)
 PICTURE_FORMS = {'pm150.fA': ('MEWTWO_A', 'Armored')}
+# one Pokémon, not forms: their forms only show once they evolve (her rule, 16 Nov)
+NO_FORMS = (664, 665, 744)
 # names for costumes the sources call by code only
 COSTUME_NAMES = {'COPY_2019': 'Clone', 'FEB_2019': 'Detective Hat', 'GOFEST_2021_NOEVOLVE': 'Meloetta Hat',
                  'COIN_A1': '9th Anniversary Coin', 'COIN_A2_2026': '10th Anniversary Coin'}   # Dittobase's names where Leek Duck has none (Detective Hat, Flygon's Meloetta Hat) or only "(9)" and "(10)" (the coin Gimmighouls)
@@ -599,6 +601,28 @@ def main():
                 del e['evo']
     if lost:
         print(f'{len(lost)} evolutions to something with no entry:', ', '.join(lost[:20]))
+    # Pokémon whose "forms" only show once they evolve are one Pokémon, as in the main games (her rule, 16 Nov): Scatterbug
+    # and Spewpa (a Vivillon pattern each, all the same picture) and Rockruff (Dusk). The first entry stays, under its id
+    # (her ticks are on it), with no form; it evolves into every form of the next stage
+    for n in NO_FORMS:
+        group = [e for e in entries if e['dex'] == n]
+        if len(group) < 2:
+            continue
+        keep, rest = group[0], group[1:]
+        gone = {e['id'] for e in rest}
+        evo = {st['to']: st for e in group for st in e.get('evo', [])}
+        if evo:
+            keep['evo'] = list(evo.values())
+        keep['form'] = None
+        keep.pop('default', None)
+        keep['released'] = any(e['released'] for e in group)
+        for e in entries:
+            for st in e.get('evo', []):
+                if st['to'] in gone:
+                    st['to'] = keep['id']
+            if e.get('evo'):
+                seen, e['evo'] = set(), [st for st in e['evo'] if not (st['to'] in seen or seen.add(st['to']))]
+        entries[:] = [e for e in entries if e['id'] not in gone]
     pics = {k: files.get(k) for e in entries + costumes for k in (e['img'], e['img'] + '.s', e.get('femaleImg'), (e.get('femaleImg') or '') + '.s') if k and k != '.s'}
     pics.update({k: files.get(k) for e in entries for m in e.get('mega') or [] for k in (m['img'], m['img'] + '.s')})   # the Mega pictures
     missing = sorted(k for k, v in pics.items() if not v)

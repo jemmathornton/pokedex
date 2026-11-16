@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-15",
+ "updated": "2026-11-16",
  "entries": [
   {
    "id": "1",
@@ -21,12 +21,7 @@
    "weight": 6.9,
    "buddyKm": 3.0,
    "family": "BULBASAUR",
-   "evo": [
-    {
-     "candy": 25,
-     "to": "2"
-    }
-   ],
+   "evo": [],
    "dynamax": true,
    "shadow": true,
    "shadowShiny": true,
@@ -21262,7 +21257,7 @@
    "dex": 664,
    "gen": 6,
    "name": "Scatterbug",
-   "form": "Archipelago",
+   "form": null,
    "types": [
     "Bug"
    ],
@@ -21270,7 +21265,6 @@
    "gender": "both",
    "released": true,
    "shiny": "2025-02-18",
-   "default": true,
    "desc": "When under attack from bird Pokémon, it spews a poisonous black powder that causes paralysis on contact.",
    "category": "Scatterdust Pokémon",
    "height": 0.3,
@@ -21286,543 +21280,11 @@
    "order": 0
   },
   {
-   "id": "664-continental",
-   "dex": 664,
-   "gen": 6,
-   "name": "Scatterbug",
-   "form": "Continental",
-   "types": [
-    "Bug"
-   ],
-   "img": "pm664",
-   "gender": "both",
-   "released": true,
-   "shiny": "2025-02-18",
-   "default": true,
-   "desc": "When under attack from bird Pokémon, it spews a poisonous black powder that causes paralysis on contact.",
-   "category": "Scatterdust Pokémon",
-   "height": 0.3,
-   "weight": 2.5,
-   "buddyKm": 1.0,
-   "family": "SCATTERBUG",
-   "evo": [
-    {
-     "candy": 25,
-     "to": "665-continental"
-    }
-   ],
-   "order": 1
-  },
-  {
-   "id": "664-elegant",
-   "dex": 664,
-   "gen": 6,
-   "name": "Scatterbug",
-   "form": "Elegant",
-   "types": [
-    "Bug"
-   ],
-   "img": "pm664",
-   "gender": "both",
-   "released": true,
-   "shiny": "2025-02-18",
-   "default": true,
-   "desc": "When under attack from bird Pokémon, it spews a poisonous black powder that causes paralysis on contact.",
-   "category": "Scatterdust Pokémon",
-   "height": 0.3,
-   "weight": 2.5,
-   "buddyKm": 1.0,
-   "family": "SCATTERBUG",
-   "evo": [
-    {
-     "candy": 25,
-     "to": "665-elegant"
-    }
-   ],
-   "order": 2
-  },
-  {
-   "id": "664-fancy",
-   "dex": 664,
-   "gen": 6,
-   "name": "Scatterbug",
-   "form": "Fancy",
-   "types": [
-    "Bug"
-   ],
-   "img": "pm664",
-   "gender": "both",
-   "released": true,
-   "shiny": "2025-02-18",
-   "default": true,
-   "desc": "When under attack from bird Pokémon, it spews a poisonous black powder that causes paralysis on contact.",
-   "category": "Scatterdust Pokémon",
-   "height": 0.3,
-   "weight": 2.5,
-   "buddyKm": 1.0,
-   "family": "SCATTERBUG",
-   "evo": [
-    {
-     "candy": 25,
-     "to": "665-fancy"
-    }
-   ],
-   "order": 3
-  },
-  {
-   "id": "664-garden",
-   "dex": 664,
-   "gen": 6,
-   "name": "Scatterbug",
-   "form": "Garden",
-   "types": [
-    "Bug"
-   ],
-   "img": "pm664",
-   "gender": "both",
-   "released": true,
-   "shiny": "2025-02-18",
-   "default": true,
-   "desc": "When under attack from bird Pokémon, it spews a poisonous black powder that causes paralysis on contact.",
-   "category": "Scatterdust Pokémon",
-   "height": 0.3,
-   "weight": 2.5,
-   "buddyKm": 1.0,
-   "family": "SCATTERBUG",
-   "evo": [
-    {
-     "candy": 25,
-     "to": "665-garden"
-    }
-   ],
-   "order": 4
-  },
-  {
-   "id": "664-high-plains",
-   "dex": 664,
-   "gen": 6,
-   "name": "Scatterbug",
-   "form": "High Plains",
-   "types": [
-    "Bug"
-   ],
-   "img": "pm664",
-   "gender": "both",
-   "released": true,
-   "shiny": "2025-02-18",
-   "default": true,
-   "desc": "When under attack from bird Pokémon, it spews a poisonous black powder that causes paralysis on contact.",
-   "category": "Scatterdust Pokémon",
-   "height": 0.3,
-   "weight": 2.5,
-   "buddyKm": 1.0,
-   "family": "SCATTERBUG",
-   "evo": [
-    {
-     "candy": 25,
-     "to": "665-high-plains"
-    }
-   ],
-   "order": 5
-  },
-  {
-   "id": "664-icy-snow",
-   "dex": 664,
-   "gen": 6,
-   "name": "Scatterbug",
-   "form": "Icy Snow",
-   "types": [
-    "Bug"
-   ],
-   "img": "pm664",
-   "gender": "both",
-   "released": true,
-   "shiny": "2025-02-18",
-   "default": true,
-   "desc": "When under attack from bird Pokémon, it spews a poisonous black powder that causes paralysis on contact.",
-   "category": "Scatterdust Pokémon",
-   "height": 0.3,
-   "weight": 2.5,
-   "buddyKm": 1.0,
-   "family": "SCATTERBUG",
-   "evo": [
-    {
-     "candy": 25,
-     "to": "665-icy-snow"
-    }
-   ],
-   "order": 6
-  },
-  {
-   "id": "664-jungle",
-   "dex": 664,
-   "gen": 6,
-   "name": "Scatterbug",
-   "form": "Jungle",
-   "types": [
-    "Bug"
-   ],
-   "img": "pm664",
-   "gender": "both",
-   "released": true,
-   "shiny": "2025-02-18",
-   "default": true,
-   "desc": "When under attack from bird Pokémon, it spews a poisonous black powder that causes paralysis on contact.",
-   "category": "Scatterdust Pokémon",
-   "height": 0.3,
-   "weight": 2.5,
-   "buddyKm": 1.0,
-   "family": "SCATTERBUG",
-   "evo": [
-    {
-     "candy": 25,
-     "to": "665-jungle"
-    }
-   ],
-   "order": 7
-  },
-  {
-   "id": "664-marine",
-   "dex": 664,
-   "gen": 6,
-   "name": "Scatterbug",
-   "form": "Marine",
-   "types": [
-    "Bug"
-   ],
-   "img": "pm664",
-   "gender": "both",
-   "released": true,
-   "shiny": "2025-02-18",
-   "default": true,
-   "desc": "When under attack from bird Pokémon, it spews a poisonous black powder that causes paralysis on contact.",
-   "category": "Scatterdust Pokémon",
-   "height": 0.3,
-   "weight": 2.5,
-   "buddyKm": 1.0,
-   "family": "SCATTERBUG",
-   "evo": [
-    {
-     "candy": 25,
-     "to": "665-marine"
-    }
-   ],
-   "order": 8
-  },
-  {
-   "id": "664-meadow",
-   "dex": 664,
-   "gen": 6,
-   "name": "Scatterbug",
-   "form": "Meadow",
-   "types": [
-    "Bug"
-   ],
-   "img": "pm664",
-   "gender": "both",
-   "released": true,
-   "shiny": "2025-02-18",
-   "default": true,
-   "desc": "When under attack from bird Pokémon, it spews a poisonous black powder that causes paralysis on contact.",
-   "category": "Scatterdust Pokémon",
-   "height": 0.3,
-   "weight": 2.5,
-   "buddyKm": 1.0,
-   "family": "SCATTERBUG",
-   "evo": [
-    {
-     "candy": 25,
-     "to": "665-meadow"
-    }
-   ],
-   "order": 9
-  },
-  {
-   "id": "664-modern",
-   "dex": 664,
-   "gen": 6,
-   "name": "Scatterbug",
-   "form": "Modern",
-   "types": [
-    "Bug"
-   ],
-   "img": "pm664",
-   "gender": "both",
-   "released": true,
-   "shiny": "2025-02-18",
-   "default": true,
-   "desc": "When under attack from bird Pokémon, it spews a poisonous black powder that causes paralysis on contact.",
-   "category": "Scatterdust Pokémon",
-   "height": 0.3,
-   "weight": 2.5,
-   "buddyKm": 1.0,
-   "family": "SCATTERBUG",
-   "evo": [
-    {
-     "candy": 25,
-     "to": "665-modern"
-    }
-   ],
-   "order": 10
-  },
-  {
-   "id": "664-monsoon",
-   "dex": 664,
-   "gen": 6,
-   "name": "Scatterbug",
-   "form": "Monsoon",
-   "types": [
-    "Bug"
-   ],
-   "img": "pm664",
-   "gender": "both",
-   "released": true,
-   "shiny": "2025-02-18",
-   "default": true,
-   "desc": "When under attack from bird Pokémon, it spews a poisonous black powder that causes paralysis on contact.",
-   "category": "Scatterdust Pokémon",
-   "height": 0.3,
-   "weight": 2.5,
-   "buddyKm": 1.0,
-   "family": "SCATTERBUG",
-   "evo": [
-    {
-     "candy": 25,
-     "to": "665-monsoon"
-    }
-   ],
-   "order": 11
-  },
-  {
-   "id": "664-ocean",
-   "dex": 664,
-   "gen": 6,
-   "name": "Scatterbug",
-   "form": "Ocean",
-   "types": [
-    "Bug"
-   ],
-   "img": "pm664",
-   "gender": "both",
-   "released": true,
-   "shiny": "2025-02-18",
-   "default": true,
-   "desc": "When under attack from bird Pokémon, it spews a poisonous black powder that causes paralysis on contact.",
-   "category": "Scatterdust Pokémon",
-   "height": 0.3,
-   "weight": 2.5,
-   "buddyKm": 1.0,
-   "family": "SCATTERBUG",
-   "evo": [
-    {
-     "candy": 25,
-     "to": "665-ocean"
-    }
-   ],
-   "order": 12
-  },
-  {
-   "id": "664-poke-ball",
-   "dex": 664,
-   "gen": 6,
-   "name": "Scatterbug",
-   "form": "Poké Ball",
-   "types": [
-    "Bug"
-   ],
-   "img": "pm664",
-   "gender": "both",
-   "released": true,
-   "shiny": "2025-02-18",
-   "default": true,
-   "desc": "When under attack from bird Pokémon, it spews a poisonous black powder that causes paralysis on contact.",
-   "category": "Scatterdust Pokémon",
-   "height": 0.3,
-   "weight": 2.5,
-   "buddyKm": 1.0,
-   "family": "SCATTERBUG",
-   "evo": [
-    {
-     "candy": 25,
-     "to": "665-poke-ball"
-    }
-   ],
-   "order": 13
-  },
-  {
-   "id": "664-polar",
-   "dex": 664,
-   "gen": 6,
-   "name": "Scatterbug",
-   "form": "Polar",
-   "types": [
-    "Bug"
-   ],
-   "img": "pm664",
-   "gender": "both",
-   "released": true,
-   "shiny": "2025-02-18",
-   "default": true,
-   "desc": "When under attack from bird Pokémon, it spews a poisonous black powder that causes paralysis on contact.",
-   "category": "Scatterdust Pokémon",
-   "height": 0.3,
-   "weight": 2.5,
-   "buddyKm": 1.0,
-   "family": "SCATTERBUG",
-   "evo": [
-    {
-     "candy": 25,
-     "to": "665-polar"
-    }
-   ],
-   "order": 14
-  },
-  {
-   "id": "664-river",
-   "dex": 664,
-   "gen": 6,
-   "name": "Scatterbug",
-   "form": "River",
-   "types": [
-    "Bug"
-   ],
-   "img": "pm664",
-   "gender": "both",
-   "released": true,
-   "shiny": "2025-02-18",
-   "default": true,
-   "desc": "When under attack from bird Pokémon, it spews a poisonous black powder that causes paralysis on contact.",
-   "category": "Scatterdust Pokémon",
-   "height": 0.3,
-   "weight": 2.5,
-   "buddyKm": 1.0,
-   "family": "SCATTERBUG",
-   "evo": [
-    {
-     "candy": 25,
-     "to": "665-river"
-    }
-   ],
-   "order": 15
-  },
-  {
-   "id": "664-sandstorm",
-   "dex": 664,
-   "gen": 6,
-   "name": "Scatterbug",
-   "form": "Sandstorm",
-   "types": [
-    "Bug"
-   ],
-   "img": "pm664",
-   "gender": "both",
-   "released": true,
-   "shiny": "2025-02-18",
-   "default": true,
-   "desc": "When under attack from bird Pokémon, it spews a poisonous black powder that causes paralysis on contact.",
-   "category": "Scatterdust Pokémon",
-   "height": 0.3,
-   "weight": 2.5,
-   "buddyKm": 1.0,
-   "family": "SCATTERBUG",
-   "evo": [
-    {
-     "candy": 25,
-     "to": "665-sandstorm"
-    }
-   ],
-   "order": 16
-  },
-  {
-   "id": "664-savanna",
-   "dex": 664,
-   "gen": 6,
-   "name": "Scatterbug",
-   "form": "Savanna",
-   "types": [
-    "Bug"
-   ],
-   "img": "pm664",
-   "gender": "both",
-   "released": true,
-   "shiny": "2025-02-18",
-   "default": true,
-   "desc": "When under attack from bird Pokémon, it spews a poisonous black powder that causes paralysis on contact.",
-   "category": "Scatterdust Pokémon",
-   "height": 0.3,
-   "weight": 2.5,
-   "buddyKm": 1.0,
-   "family": "SCATTERBUG",
-   "evo": [
-    {
-     "candy": 25,
-     "to": "665-savanna"
-    }
-   ],
-   "order": 17
-  },
-  {
-   "id": "664-sun",
-   "dex": 664,
-   "gen": 6,
-   "name": "Scatterbug",
-   "form": "Sun",
-   "types": [
-    "Bug"
-   ],
-   "img": "pm664",
-   "gender": "both",
-   "released": true,
-   "shiny": "2025-02-18",
-   "default": true,
-   "desc": "When under attack from bird Pokémon, it spews a poisonous black powder that causes paralysis on contact.",
-   "category": "Scatterdust Pokémon",
-   "height": 0.3,
-   "weight": 2.5,
-   "buddyKm": 1.0,
-   "family": "SCATTERBUG",
-   "evo": [
-    {
-     "candy": 25,
-     "to": "665-sun"
-    }
-   ],
-   "order": 18
-  },
-  {
-   "id": "664-tundra",
-   "dex": 664,
-   "gen": 6,
-   "name": "Scatterbug",
-   "form": "Tundra",
-   "types": [
-    "Bug"
-   ],
-   "img": "pm664",
-   "gender": "both",
-   "released": true,
-   "shiny": "2025-02-18",
-   "default": true,
-   "desc": "When under attack from bird Pokémon, it spews a poisonous black powder that causes paralysis on contact.",
-   "category": "Scatterdust Pokémon",
-   "height": 0.3,
-   "weight": 2.5,
-   "buddyKm": 1.0,
-   "family": "SCATTERBUG",
-   "evo": [
-    {
-     "candy": 25,
-     "to": "665-tundra"
-    }
-   ],
-   "order": 19
-  },
-  {
    "id": "665-archipelago",
    "dex": 665,
    "gen": 6,
    "name": "Spewpa",
-   "form": "Archipelago",
+   "form": null,
    "types": [
     "Bug"
    ],
@@ -21830,7 +21292,6 @@
    "gender": "both",
    "released": true,
    "shiny": "2025-02-18",
-   "default": true,
    "desc": "It lives hidden within thicket shadows. When predators attack, it quickly bristles the fur covering its body in an effort to threaten them.",
    "category": "Scatterdust Pokémon",
    "height": 0.3,
@@ -21841,541 +21302,85 @@
     {
      "candy": 100,
      "to": "666-archipelago"
-    }
-   ],
-   "order": 0
-  },
-  {
-   "id": "665-continental",
-   "dex": 665,
-   "gen": 6,
-   "name": "Spewpa",
-   "form": "Continental",
-   "types": [
-    "Bug"
-   ],
-   "img": "pm665",
-   "gender": "both",
-   "released": true,
-   "shiny": "2025-02-18",
-   "default": true,
-   "desc": "It lives hidden within thicket shadows. When predators attack, it quickly bristles the fur covering its body in an effort to threaten them.",
-   "category": "Scatterdust Pokémon",
-   "height": 0.3,
-   "weight": 8.4,
-   "buddyKm": 1.0,
-   "family": "SCATTERBUG",
-   "evo": [
+    },
     {
      "candy": 100,
      "to": "666-continental"
-    }
-   ],
-   "order": 1
-  },
-  {
-   "id": "665-elegant",
-   "dex": 665,
-   "gen": 6,
-   "name": "Spewpa",
-   "form": "Elegant",
-   "types": [
-    "Bug"
-   ],
-   "img": "pm665",
-   "gender": "both",
-   "released": true,
-   "shiny": "2025-02-18",
-   "default": true,
-   "desc": "It lives hidden within thicket shadows. When predators attack, it quickly bristles the fur covering its body in an effort to threaten them.",
-   "category": "Scatterdust Pokémon",
-   "height": 0.3,
-   "weight": 8.4,
-   "buddyKm": 1.0,
-   "family": "SCATTERBUG",
-   "evo": [
+    },
     {
      "candy": 100,
      "to": "666-elegant"
-    }
-   ],
-   "order": 2
-  },
-  {
-   "id": "665-fancy",
-   "dex": 665,
-   "gen": 6,
-   "name": "Spewpa",
-   "form": "Fancy",
-   "types": [
-    "Bug"
-   ],
-   "img": "pm665",
-   "gender": "both",
-   "released": true,
-   "shiny": "2025-02-18",
-   "default": true,
-   "desc": "It lives hidden within thicket shadows. When predators attack, it quickly bristles the fur covering its body in an effort to threaten them.",
-   "category": "Scatterdust Pokémon",
-   "height": 0.3,
-   "weight": 8.4,
-   "buddyKm": 1.0,
-   "family": "SCATTERBUG",
-   "evo": [
+    },
     {
      "candy": 100,
      "to": "666-fancy"
-    }
-   ],
-   "order": 3
-  },
-  {
-   "id": "665-garden",
-   "dex": 665,
-   "gen": 6,
-   "name": "Spewpa",
-   "form": "Garden",
-   "types": [
-    "Bug"
-   ],
-   "img": "pm665",
-   "gender": "both",
-   "released": true,
-   "shiny": "2025-02-18",
-   "default": true,
-   "desc": "It lives hidden within thicket shadows. When predators attack, it quickly bristles the fur covering its body in an effort to threaten them.",
-   "category": "Scatterdust Pokémon",
-   "height": 0.3,
-   "weight": 8.4,
-   "buddyKm": 1.0,
-   "family": "SCATTERBUG",
-   "evo": [
+    },
     {
      "candy": 100,
      "to": "666-garden"
-    }
-   ],
-   "order": 4
-  },
-  {
-   "id": "665-high-plains",
-   "dex": 665,
-   "gen": 6,
-   "name": "Spewpa",
-   "form": "High Plains",
-   "types": [
-    "Bug"
-   ],
-   "img": "pm665",
-   "gender": "both",
-   "released": true,
-   "shiny": "2025-02-18",
-   "default": true,
-   "desc": "It lives hidden within thicket shadows. When predators attack, it quickly bristles the fur covering its body in an effort to threaten them.",
-   "category": "Scatterdust Pokémon",
-   "height": 0.3,
-   "weight": 8.4,
-   "buddyKm": 1.0,
-   "family": "SCATTERBUG",
-   "evo": [
+    },
     {
      "candy": 100,
      "to": "666-high-plains"
-    }
-   ],
-   "order": 5
-  },
-  {
-   "id": "665-icy-snow",
-   "dex": 665,
-   "gen": 6,
-   "name": "Spewpa",
-   "form": "Icy Snow",
-   "types": [
-    "Bug"
-   ],
-   "img": "pm665",
-   "gender": "both",
-   "released": true,
-   "shiny": "2025-02-18",
-   "default": true,
-   "desc": "It lives hidden within thicket shadows. When predators attack, it quickly bristles the fur covering its body in an effort to threaten them.",
-   "category": "Scatterdust Pokémon",
-   "height": 0.3,
-   "weight": 8.4,
-   "buddyKm": 1.0,
-   "family": "SCATTERBUG",
-   "evo": [
+    },
     {
      "candy": 100,
      "to": "666-icy-snow"
-    }
-   ],
-   "order": 6
-  },
-  {
-   "id": "665-jungle",
-   "dex": 665,
-   "gen": 6,
-   "name": "Spewpa",
-   "form": "Jungle",
-   "types": [
-    "Bug"
-   ],
-   "img": "pm665",
-   "gender": "both",
-   "released": true,
-   "shiny": "2025-02-18",
-   "default": true,
-   "desc": "It lives hidden within thicket shadows. When predators attack, it quickly bristles the fur covering its body in an effort to threaten them.",
-   "category": "Scatterdust Pokémon",
-   "height": 0.3,
-   "weight": 8.4,
-   "buddyKm": 1.0,
-   "family": "SCATTERBUG",
-   "evo": [
+    },
     {
      "candy": 100,
      "to": "666-jungle"
-    }
-   ],
-   "order": 7
-  },
-  {
-   "id": "665-marine",
-   "dex": 665,
-   "gen": 6,
-   "name": "Spewpa",
-   "form": "Marine",
-   "types": [
-    "Bug"
-   ],
-   "img": "pm665",
-   "gender": "both",
-   "released": true,
-   "shiny": "2025-02-18",
-   "default": true,
-   "desc": "It lives hidden within thicket shadows. When predators attack, it quickly bristles the fur covering its body in an effort to threaten them.",
-   "category": "Scatterdust Pokémon",
-   "height": 0.3,
-   "weight": 8.4,
-   "buddyKm": 1.0,
-   "family": "SCATTERBUG",
-   "evo": [
+    },
     {
      "candy": 100,
      "to": "666-marine"
-    }
-   ],
-   "order": 8
-  },
-  {
-   "id": "665-meadow",
-   "dex": 665,
-   "gen": 6,
-   "name": "Spewpa",
-   "form": "Meadow",
-   "types": [
-    "Bug"
-   ],
-   "img": "pm665",
-   "gender": "both",
-   "released": true,
-   "shiny": "2025-02-18",
-   "default": true,
-   "desc": "It lives hidden within thicket shadows. When predators attack, it quickly bristles the fur covering its body in an effort to threaten them.",
-   "category": "Scatterdust Pokémon",
-   "height": 0.3,
-   "weight": 8.4,
-   "buddyKm": 1.0,
-   "family": "SCATTERBUG",
-   "evo": [
+    },
     {
      "candy": 100,
      "to": "666-meadow"
-    }
-   ],
-   "order": 9
-  },
-  {
-   "id": "665-modern",
-   "dex": 665,
-   "gen": 6,
-   "name": "Spewpa",
-   "form": "Modern",
-   "types": [
-    "Bug"
-   ],
-   "img": "pm665",
-   "gender": "both",
-   "released": true,
-   "shiny": "2025-02-18",
-   "default": true,
-   "desc": "It lives hidden within thicket shadows. When predators attack, it quickly bristles the fur covering its body in an effort to threaten them.",
-   "category": "Scatterdust Pokémon",
-   "height": 0.3,
-   "weight": 8.4,
-   "buddyKm": 1.0,
-   "family": "SCATTERBUG",
-   "evo": [
+    },
     {
      "candy": 100,
      "to": "666-modern"
-    }
-   ],
-   "order": 10
-  },
-  {
-   "id": "665-monsoon",
-   "dex": 665,
-   "gen": 6,
-   "name": "Spewpa",
-   "form": "Monsoon",
-   "types": [
-    "Bug"
-   ],
-   "img": "pm665",
-   "gender": "both",
-   "released": true,
-   "shiny": "2025-02-18",
-   "default": true,
-   "desc": "It lives hidden within thicket shadows. When predators attack, it quickly bristles the fur covering its body in an effort to threaten them.",
-   "category": "Scatterdust Pokémon",
-   "height": 0.3,
-   "weight": 8.4,
-   "buddyKm": 1.0,
-   "family": "SCATTERBUG",
-   "evo": [
+    },
     {
      "candy": 100,
      "to": "666-monsoon"
-    }
-   ],
-   "order": 11
-  },
-  {
-   "id": "665-ocean",
-   "dex": 665,
-   "gen": 6,
-   "name": "Spewpa",
-   "form": "Ocean",
-   "types": [
-    "Bug"
-   ],
-   "img": "pm665",
-   "gender": "both",
-   "released": true,
-   "shiny": "2025-02-18",
-   "default": true,
-   "desc": "It lives hidden within thicket shadows. When predators attack, it quickly bristles the fur covering its body in an effort to threaten them.",
-   "category": "Scatterdust Pokémon",
-   "height": 0.3,
-   "weight": 8.4,
-   "buddyKm": 1.0,
-   "family": "SCATTERBUG",
-   "evo": [
+    },
     {
      "candy": 100,
      "to": "666-ocean"
-    }
-   ],
-   "order": 12
-  },
-  {
-   "id": "665-poke-ball",
-   "dex": 665,
-   "gen": 6,
-   "name": "Spewpa",
-   "form": "Poké Ball",
-   "types": [
-    "Bug"
-   ],
-   "img": "pm665",
-   "gender": "both",
-   "released": true,
-   "shiny": "2025-02-18",
-   "default": true,
-   "desc": "It lives hidden within thicket shadows. When predators attack, it quickly bristles the fur covering its body in an effort to threaten them.",
-   "category": "Scatterdust Pokémon",
-   "height": 0.3,
-   "weight": 8.4,
-   "buddyKm": 1.0,
-   "family": "SCATTERBUG",
-   "evo": [
+    },
     {
      "candy": 100,
      "to": "666-poke-ball"
-    }
-   ],
-   "order": 13
-  },
-  {
-   "id": "665-polar",
-   "dex": 665,
-   "gen": 6,
-   "name": "Spewpa",
-   "form": "Polar",
-   "types": [
-    "Bug"
-   ],
-   "img": "pm665",
-   "gender": "both",
-   "released": true,
-   "shiny": "2025-02-18",
-   "default": true,
-   "desc": "It lives hidden within thicket shadows. When predators attack, it quickly bristles the fur covering its body in an effort to threaten them.",
-   "category": "Scatterdust Pokémon",
-   "height": 0.3,
-   "weight": 8.4,
-   "buddyKm": 1.0,
-   "family": "SCATTERBUG",
-   "evo": [
+    },
     {
      "candy": 100,
      "to": "666-polar"
-    }
-   ],
-   "order": 14
-  },
-  {
-   "id": "665-river",
-   "dex": 665,
-   "gen": 6,
-   "name": "Spewpa",
-   "form": "River",
-   "types": [
-    "Bug"
-   ],
-   "img": "pm665",
-   "gender": "both",
-   "released": true,
-   "shiny": "2025-02-18",
-   "default": true,
-   "desc": "It lives hidden within thicket shadows. When predators attack, it quickly bristles the fur covering its body in an effort to threaten them.",
-   "category": "Scatterdust Pokémon",
-   "height": 0.3,
-   "weight": 8.4,
-   "buddyKm": 1.0,
-   "family": "SCATTERBUG",
-   "evo": [
+    },
     {
      "candy": 100,
      "to": "666-river"
-    }
-   ],
-   "order": 15
-  },
-  {
-   "id": "665-sandstorm",
-   "dex": 665,
-   "gen": 6,
-   "name": "Spewpa",
-   "form": "Sandstorm",
-   "types": [
-    "Bug"
-   ],
-   "img": "pm665",
-   "gender": "both",
-   "released": true,
-   "shiny": "2025-02-18",
-   "default": true,
-   "desc": "It lives hidden within thicket shadows. When predators attack, it quickly bristles the fur covering its body in an effort to threaten them.",
-   "category": "Scatterdust Pokémon",
-   "height": 0.3,
-   "weight": 8.4,
-   "buddyKm": 1.0,
-   "family": "SCATTERBUG",
-   "evo": [
+    },
     {
      "candy": 100,
      "to": "666-sandstorm"
-    }
-   ],
-   "order": 16
-  },
-  {
-   "id": "665-savanna",
-   "dex": 665,
-   "gen": 6,
-   "name": "Spewpa",
-   "form": "Savanna",
-   "types": [
-    "Bug"
-   ],
-   "img": "pm665",
-   "gender": "both",
-   "released": true,
-   "shiny": "2025-02-18",
-   "default": true,
-   "desc": "It lives hidden within thicket shadows. When predators attack, it quickly bristles the fur covering its body in an effort to threaten them.",
-   "category": "Scatterdust Pokémon",
-   "height": 0.3,
-   "weight": 8.4,
-   "buddyKm": 1.0,
-   "family": "SCATTERBUG",
-   "evo": [
+    },
     {
      "candy": 100,
      "to": "666-savanna"
-    }
-   ],
-   "order": 17
-  },
-  {
-   "id": "665-sun",
-   "dex": 665,
-   "gen": 6,
-   "name": "Spewpa",
-   "form": "Sun",
-   "types": [
-    "Bug"
-   ],
-   "img": "pm665",
-   "gender": "both",
-   "released": true,
-   "shiny": "2025-02-18",
-   "default": true,
-   "desc": "It lives hidden within thicket shadows. When predators attack, it quickly bristles the fur covering its body in an effort to threaten them.",
-   "category": "Scatterdust Pokémon",
-   "height": 0.3,
-   "weight": 8.4,
-   "buddyKm": 1.0,
-   "family": "SCATTERBUG",
-   "evo": [
+    },
     {
      "candy": 100,
      "to": "666-sun"
-    }
-   ],
-   "order": 18
-  },
-  {
-   "id": "665-tundra",
-   "dex": 665,
-   "gen": 6,
-   "name": "Spewpa",
-   "form": "Tundra",
-   "types": [
-    "Bug"
-   ],
-   "img": "pm665",
-   "gender": "both",
-   "released": true,
-   "shiny": "2025-02-18",
-   "default": true,
-   "desc": "It lives hidden within thicket shadows. When predators attack, it quickly bristles the fur covering its body in an effort to threaten them.",
-   "category": "Scatterdust Pokémon",
-   "height": 0.3,
-   "weight": 8.4,
-   "buddyKm": 1.0,
-   "family": "SCATTERBUG",
-   "evo": [
+    },
     {
      "candy": 100,
      "to": "666-tundra"
     }
    ],
-   "order": 19
+   "order": 0
   },
   {
    "id": "666-archipelago",
@@ -22840,11 +21845,6 @@
     {
      "candy": 50,
      "gender": "male",
-     "to": "668"
-    },
-    {
-     "candy": 50,
-     "gender": "female",
      "to": "668"
     }
    ],
@@ -23594,11 +22594,6 @@
     {
      "candy": 50,
      "gender": "male",
-     "to": "678"
-    },
-    {
-     "candy": 50,
-     "gender": "female",
      "to": "678"
     }
    ],
@@ -25689,37 +24684,14 @@
      "candy": 50,
      "time": "night",
      "to": "745-midnight"
-    }
-   ],
-   "order": 0
-  },
-  {
-   "id": "744-dusk",
-   "dex": 744,
-   "gen": 7,
-   "name": "Rockruff",
-   "form": "Dusk",
-   "types": [
-    "Rock"
-   ],
-   "img": "pm744.fDUSK",
-   "gender": "both",
-   "released": true,
-   "desc": "When it rubs the rocks on its neck against you, that’s proof of its love for you. However, the rocks are sharp, so the gesture is quite painful!",
-   "category": "Puppy Pokémon",
-   "height": 0.5,
-   "weight": 9.2,
-   "buddyKm": 5.0,
-   "family": "ROCKRUFF",
-   "evo": [
+    },
     {
      "candy": 50,
      "time": "dusk",
      "to": "745-dusk"
     }
    ],
-   "shiny": true,
-   "order": 1
+   "order": 0
   },
   {
    "id": "745-midday",
@@ -30219,11 +29191,6 @@
     {
      "candy": 50,
      "gender": "male",
-     "to": "916"
-    },
-    {
-     "candy": 50,
-     "gender": "female",
      "to": "916"
     }
    ],
