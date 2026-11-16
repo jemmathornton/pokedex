@@ -1156,13 +1156,14 @@ function comingPage(){
     const on = new Date(ev.start) <= now, mons = ev.mons.filter(m => byId[m.id]);
     const cells = mons.map(m => square(byId[m.id], upNeeds(m)));
     const bgId = (up.backgrounds[ev.id] || {}).background, st = bgId && allSets().find(s => s.id === bgId);
-    const bgs = st ? bgWanted().filter(u => u.st.id === st.id) : [];
+    const seenBg = new Set(), bgAll = st ? st.items.filter(it => it.bg && !seenBg.has(it.key) && seenBg.add(it.key)) : [];   // every one, those got faded (her ask, 16 Nov)
+    const bgs = bgAll.filter(it => !has(it.key, "c"));
     const want = mons.filter(m => upNeeds(m).length).length;
     return `<div class="evrow${on ? " on" : ""}"><div class="evwhen"><span class="label">${on ? "On now" : esc(ev.type || "")}</span>
         <h3>${esc(ev.name)}</h3><p class="muted">${dates(day(ev.start), day(ev.end) || day(ev.start))}${on && ev.type ? " · " + esc(ev.type) : ""}</p>
         <a class="linkbtn" href="${attr(ev.link)}" target="_blank" rel="noopener">${ic("external-link")}Details on Leek Duck</a></div>
       <div class="evmons">${mons.length ? `<p class="evsum">${want ? `You need something from ${num(want)} of ${num(mons.length)}` : "You have everything from these"}</p><div class="fastgrid" style="--bc:var(--deep-2)">${cells.join("")}</div>` : ""}
-        ${st ? `<p class="evsum">Brings back the <b>${esc(st.title)}</b> background: ${bgs.length ? `${num(bgs.length)} of yours not got with it yet` : "you have them all"}</p><div class="fastgrid" style="--bc:var(--deep-2)">${bgs.map(u => square(u.e, ["bg"], u.e.costume ? cosName(u.e) : "", st.art)).join("")}</div>` : ""}
+        ${st ? `<p class="evsum">Brings back the <b>${esc(st.title)}</b> background: ${bgs.length ? `${num(bgs.length)} of ${num(bgAll.length)} not got with it yet` : "you have them all"}</p><div class="fastgrid" style="--bc:var(--deep-2)">${bgAll.map(it => square(it.e, has(it.key, "c") ? [] : ["bg"], it.e.costume ? cosName(it.e) : "", st.art)).join("")}</div>` : ""}
         ${!mons.length && !st ? `<p class="muted evsum">Leek Duck lists what’s in it.</p>` : ""}</div></div>`;
   }).join("");
   setRegion(null);

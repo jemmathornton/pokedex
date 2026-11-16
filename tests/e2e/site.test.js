@@ -369,8 +369,10 @@
       await go("#coming");
       ok(/Test event/.test(view().textContent), "the event");
       ok(view().querySelector('.fc.want.done[href="#p-624"]'), "Pawniard faded: nothing left to get");
-      const wantedHere = bgWanted().filter(u => u.st.id === "sb-gofest2025-eternatus").length;
-      eq(view().querySelectorAll('.evmons .fc.withbg').length, COL.went.includes("sb-gofest2025-eternatus") ? wantedHere : 0, "the background's Pokémon not got with it");
+      // every one of the background's Pokémon, the ones she has with it faded (her ask, 16 Nov)
+      const st = allSets().find(s => s.id === "sb-gofest2025-eternatus"), keys = st ? [...new Set(st.items.filter(i => i.bg).map(i => i.key))] : [];
+      eq(view().querySelectorAll('.evmons .fc.withbg').length, keys.length, "all the background's Pokémon");
+      eq(view().querySelectorAll('.evmons .fc.withbg.done').length, keys.filter(k => has(k, "c")).length, "the ones she has, faded");
     } finally { if (before) COL.have[key] = before; else delete COL.have[key]; DATA.upcoming = up0; }
   });
 
