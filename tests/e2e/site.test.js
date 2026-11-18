@@ -398,7 +398,7 @@
       DATA.upcoming.events.push({id: "t-pass", name: "Test pass", type: "GO Pass", start: "2026-11-03T10:00:00.000", end: "2099-12-01T10:00:00.000", link: "https://leekduck.com/events/", mons: []});
       await go("#coming");
       const hs = [...view().querySelectorAll(".evweek h2")].map(h => h.textContent);
-      eq(hs[hs.length - 1], "Running for weeks");
+      eq(hs[hs.length - 1], "This season");
       ok(/Test pass/.test(view().querySelector(".evweek:last-child .evline").textContent), "the pass on one line at the bottom");
       ok(view().querySelector(".evrow .evkind") && view().querySelector(".evrow .evlen"), "kind and length on each event");
     } finally { if (before) COL.have[key] = before; else delete COL.have[key]; DATA.upcoming = up0; comingOpen.clear(); if (k0) delete COL.have[k0]; }
