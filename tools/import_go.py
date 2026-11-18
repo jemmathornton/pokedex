@@ -486,6 +486,21 @@ def main():
             print(f'  {flag}: Serebii only {only_s}; Dittobase only {only_d}')
         for i in only_s:   # either source is enough: a missing box is worse than a spare one (9 Nov)
             byid[i][flag] = True
+    # by hand, ahead of the sources (data/go/flag-fixes.json, {"<entry id>": ["dynamax", ...]}): a debut the sources haven't
+    # caught up with yet (18 Nov recheck: Dynamax Espurr at Max Monday, 23 Nov, while Coming up asked for it). Passed on to
+    # what it evolves into, as in the game (a Dynamax Pokémon stays Dynamax when it evolves)
+    ff = os.path.join(DATA, 'flag-fixes.json')
+    flag_fixes = json.load(open(ff, encoding='utf-8')) if os.path.exists(ff) else {}
+    for i, flags in flag_fixes.items():
+        if i.startswith('_') or i not in byid:
+            continue
+        todo = [byid[i]]
+        while todo:
+            e = todo.pop()
+            for flag in flags:
+                e[flag] = True
+            todo += [t for f in e['_evos'] for t in entries if t['_fid'] in (f, f.replace('_NORMAL', ''))]
+        print(f'flag fixes: {i} {flags}')
 
     # a shadow that evolves stays a shadow: Shadow Alolan Meowth makes Shadow Alolan Persian (Dittobase lists only the ones
     # caught directly). The game's own evolution data, form by form.

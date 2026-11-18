@@ -1,5 +1,5 @@
 {
- "fetched": "2026-11-16",
+ "fetched": "2026-11-18",
  "source": "Leek Duck (leekduck.com/events), via ScrapedDuck",
  "events": [
   {
@@ -51,15 +51,15 @@
    "mons": [
     {
      "name": "Cresselia",
-     "key": "488_00",
-     "shiny": true,
+     "key": null,
+     "shiny": null,
      "id": "488",
      "as": []
     },
     {
      "name": "Darkrai",
-     "key": "491_00",
-     "shiny": true,
+     "key": null,
+     "shiny": null,
      "id": "491",
      "as": []
     }
@@ -116,29 +116,14 @@
    "mons": []
   },
   {
-   "id": "raidhour20261118",
-   "name": "Cresselia and Darkrai Raid Hour",
-   "type": "Raid Hour",
-   "kind": "raid-hour",
-   "start": "2026-11-18T18:00:00.000",
-   "end": "2026-11-18T19:00:00.000",
-   "link": "https://leekduck.com/events/raidhour20261118/",
-   "mons": [
-    {
-     "name": "Cresselia",
-     "key": null,
-     "shiny": null,
-     "id": "488",
-     "as": []
-    },
-    {
-     "name": "Darkrai",
-     "key": null,
-     "shiny": null,
-     "id": "491",
-     "as": []
-    }
-   ]
+   "id": "duolingo-timed-research-2026",
+   "name": "Pokémon GO and Duolingo Timed Research",
+   "type": "Timed Research",
+   "kind": "timed-research",
+   "start": "2026-11-17T10:00:00.000",
+   "end": "2026-12-31T23:59:00.000",
+   "link": "https://leekduck.com/events/duolingo-timed-research-2026/",
+   "mons": []
   },
   {
    "id": "pokemonspotlighthour2026-11-19",

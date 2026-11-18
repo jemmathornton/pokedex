@@ -79,6 +79,14 @@ def main():
     pics = [k for e in dex['entries'] + costumes['costumes'] for k in (e['img'], e['img'] + '.s')]
     missing = sum(1 for k in pics if k not in have)
     upcoming = load('go', 'upcoming.json', default={}) or {}   # tools/import_events.py: the Coming up page
+    # an upcoming event asking for a box the Pokédex data hasn't got (18 Nov recheck: Dynamax Espurr's debut, which its
+    # page said was unavailable) -> data/go/flag-fixes.json
+    flag = {'dynamax': 'dynamax', 'shadow': 'shadow', 'gmax': 'gmax', 'mega': 'mega'}
+    for ev in upcoming.get('events', []):
+        for m in ev.get('mons', []):
+            for a in m.get('as', []):
+                if m['id'] in by_id and not by_id[m['id']].get(flag[a]):
+                    problems.append(f'{ev["name"]}: {by_id[m["id"]]["name"]} as {a}, which dex.json says it can’t be: add it to data/go/flag-fixes.json')
     upbg = {k: {'background': v['background']} for k, v in (load('go', 'upcoming-backgrounds.json', default={}) or {}).items() if not k.startswith('_')}
     out = {'game': 'go', 'updated': dex['updated'], 'entries': dex['entries'], 'costumes': costumes['costumes'],
            'upcoming': {'fetched': upcoming.get('fetched'), 'events': upcoming.get('events', []), 'backgrounds': upbg},

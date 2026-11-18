@@ -683,7 +683,11 @@ function costumesPage(){
 // in data/ so one can be added back by ticking it there
 const myEvents = () => [...EVENTS, ...SPECIAL].filter(ev => COL.went.includes(ev.id) && (ev.backgroundPokemon || []).length)
   .sort((a, b) => b.start.localeCompare(a.start));
-const bgMonsOf = ev => (ev.cards ? ev.cards.map(id => byId[id] || costumeById[id]) : (ev.backgroundPokemon || []).map(name => baseOf[DATA.dexByName[name.toLowerCase()]])).filter(Boolean);   // in its costume where the background came with one
+// in its costume where the background came with one; a Pokémon whose male and female are two forms (Unfezant…) both, female
+// first (18 Nov recheck: each background had shown just one, and not always the same one)
+const bgMonsOf = ev => { const seen = new Set();
+  return (ev.cards ? ev.cards.map(id => byId[id] || costumeById[id]) : (ev.backgroundPokemon || []).map(name => baseOf[DATA.dexByName[name.toLowerCase()]])).filter(Boolean)
+    .flatMap(e => e.genderForm ? ENTRIES.filter(x => x.dex === e.dex && x.genderForm) : [e]).filter(e => !seen.has(e.id) && seen.add(e.id)); };
 function eventsPage(){
   const list = myEvents();
   let html = "", year = "";

@@ -320,6 +320,9 @@
     ok(FORM_SPECIES.has(592), "tracked form by form");
     eq(JSON.stringify(ENTRIES.find(e => e.id === "667").evo.map(s => s.to)), JSON.stringify(["668", "668-female"]), "Litleo evolves into both");
     eq(ENTRIES.find(e => e.id === "592-female").evo[0].to, "593-female", "female to female");
+    eq(bgMonsOf({backgroundPokemon: ["Unfezant"]}).map(e => e.id).join(), "521-female,521", "a background by name: both, female first");
+    eq(bgMonsOf({cards: ["916"]}).map(e => e.id).join(), "916-female,916", "a background by card: both too");
+    ok(byId["677"].dynamax && byId["678"].dynamax && byId["678-female"].dynamax, "Dynamax Espurr (flag-fixes.json) and what it evolves into");
     pageForm["592"] = "592-female"; await go("#p-592");
     ok(view().querySelector('.bigboxes[data-id="592-female"]'), "the female's own page boxes");
     delete pageForm["592"];
