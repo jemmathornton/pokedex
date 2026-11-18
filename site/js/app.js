@@ -1187,7 +1187,7 @@ function comingPage(){
     const on = a <= now, left = Math.round((midnight(b) - today) / DAY), until = Math.round((midnight(a) - today) / DAY);
     const status = on ? (left <= 0 ? "On now · ends today" : left === 1 ? "On now · ends tomorrow" : `On now · ends in ${left} days`)
       : until === 0 ? "Today" : until === 1 ? "Tomorrow" : `In ${until} days`;
-    return {a, b, on, len, when, status, long: days > 21};   // three weeks or more: GO Pass, Timed Research (a two-week raid stays in its week)
+    return {a, b, on, len, when, status, long: days >= 14};   // two weeks or more: GO Pass, Timed Research, a Shadow legendary's raids (her point, 18 Nov)
   };
   const kindChip = (ev, i) => `<span class="evkind">${esc(ev.type || "Event")}</span><span class="evlen">${esc(i.len)}</span>`;
   const evs = up.events.map(ev => {
