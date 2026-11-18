@@ -72,6 +72,7 @@ const caught = e => (COL.have[dk(e)] || []).length > 0;   // any box ticked: she
 // (`genderForm`), each its own boxes: no ♂/♀ box on them, the form says it
 const maleTick = e => !e.genderForm && (e.gender === "both" || e.gender === "male") ? "cm" : null;
 const femaleTick = e => !e.genderForm && (e.gender === "both" || e.gender === "female") ? "cf" : null;
+const gName = e => e.name + (e.genderForm ? (e.gender === "female" ? " ♀" : " ♂") : "");   // Unfezant ♀ and Unfezant ♂ side by side (18 Nov)
 const gotMale = e => !!maleTick(e) && has(dk(e), maleTick(e));
 const gotFemale = e => !!femaleTick(e) && has(dk(e), femaleTick(e));
 // species with more than one entry out in GO (Unown, Vivillon, Alolan Vulpix…): their entries are the "forms"
@@ -918,7 +919,7 @@ const fastKindRow = kind => `<div class="frow"><span class="label flabel">Tick</
 function fastItemCell(it, b, art, evName){   // evName: in number order, a background Pokémon is named by its event
   const pic = (b === "s" && sprite(it.img + ".s")) || sprite(it.img) || "", what = it.e.costume ? cosName(it.e) : it.e.form || "";
   const card = it.bg && art ? ` style="--card:url('${art}')"` : "";
-  const name = it.bg && evName ? (it.e.costume ? cosName(it.e) + " · " : "") + evName : it.bg || !it.e.costume ? it.e.name : cosName(it.e);
+  const name = it.bg && evName ? (it.e.costume ? cosName(it.e) + " · " : "") + evName : it.bg || !it.e.costume ? gName(it.e) : cosName(it.e);
   return `<button class="fc col${card ? " withbg" : ""}" type="button" data-fk="${attr(it.key)}" data-t="${b}" aria-pressed="${has(it.key, b)}" title="${attr(it.e.name + (what ? " · " + what : "") + (evName ? " · " + evName : ""))}"${card}>` +
     `<img src="${pic}" alt="" loading="lazy"><span class="fcn">${esc(name)}</span></button>`;
 }
@@ -1159,36 +1160,82 @@ function upNeeds(m){
 // a background Pokémon on Coming up ticks there (her ask, 16 Nov: say she's got it with that background without leaving
 // the page): click = Caught with the background, again = untick; got ones faded, as the rest of the page
 function bgTick(it, art){
-  const on = has(it.key, "c"), name = it.e.name + (it.e.costume ? " · " + cosName(it.e) : "");
+  const on = has(it.key, "c"), name = gName(it.e) + (it.e.costume ? " · " + cosName(it.e) : "");
   return `<button type="button" class="fc col want withbg${on ? " done" : ""}" data-fk="${attr(it.key)}" data-t="c" aria-pressed="${on}" title="${attr(name + (on ? " · got with this background: click to untick" : " · click when you’ve got it with this background"))}" style="--card:url('${art}')">` +
     (on ? "" : `<span class="wb"><i style="--c:var(--deep-2)">${ic("ticket")}</i></span>`) +
-    `<img src="${sprite(it.img) || ""}" alt="" loading="lazy"><span>${pad(it.e.dex)}</span><span class="fcn">${esc(it.e.costume ? cosName(it.e) : it.e.name)}</span></button>`;
+    `<img src="${sprite(it.img) || ""}" alt="" loading="lazy"><span>${pad(it.e.dex)}</span><span class="fcn">${esc(it.e.costume ? cosName(it.e) : gName(it.e))}</span></button>`;
 }
 function comingPage(){
   const now = new Date(), up = DATA.upcoming || {events: []}, day = s => (s || "").slice(0, 10);
   const square = (e, needs, extra = "", art = null) => `<a class="fc col want${needs.length ? "" : " done"}${art ? " withbg" : ""}" href="${pageOf(e)}" title="${attr(e.name + (e.form ? " · " + e.form : "") + (extra ? " · " + extra : "") + (needs.length ? " · you need: " + needs.map(n => NEED_LOOK[n][0]).join(", ") : " · you have everything from it"))}"${art ? ` style="--card:url('${art}')"` : ""}>` +
     (needs.length ? `<span class="wb">${needs.map(n => `<i style="--c:var(${NEED_LOOK[n][2]})">${ic(NEED_LOOK[n][1])}</i>`).join("")}</span>` : "") +
-    `<img src="${sprite(e.img) || ""}" alt="" loading="lazy"><span>${pad(e.dex)}</span><span class="fcn">${esc(extra || (e.form && FORM_SPECIES.has(e.dex) ? e.name + " · " + e.form : e.name))}</span></a>`;
-  const rows = up.events.map(ev => {
-    const on = new Date(ev.start) <= now, mons = ev.mons.filter(m => byId[m.id]);
-    const cells = mons.map(m => square(byId[m.id], upNeeds(m)));
-    const bgId = (up.backgrounds[ev.id] || {}).background, st = bgId && allSets().find(s => s.id === bgId);
-    const seenBg = new Set(), bgAll = st ? st.items.filter(it => it.bg && !seenBg.has(it.key) && seenBg.add(it.key)) : [];   // every one, those got faded (her ask, 16 Nov)
+    `<img src="${sprite(e.img) || ""}" alt="" loading="lazy"><span>${pad(e.dex)}</span><span class="fcn">${esc(extra || (e.genderForm ? gName(e) : e.form && FORM_SPECIES.has(e.dex) ? e.name + " · " + e.form : e.name))}</span></a>`;
+  // her point (18 Nov): a months-long event for an avatar item isn't a Community Day. So each event says its kind and how
+  // long it runs; the ones running for weeks sit together at the bottom, one line each; the rest go by week, and an event
+  // with nothing for her is one line too
+  const DAY = 864e5, MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  const WD = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  const midnight = d => new Date(d.getFullYear(), d.getMonth(), d.getDate());
+  const longDate = d => `${WD[d.getDay()]} ${d.getDate()} ${MONTHS[d.getMonth()]}`;
+  const hm = d => `${String(d.getHours()).padStart(2, "0")}:${String(d.getMinutes()).padStart(2, "0")}`;
+  const today = midnight(now);
+  const info = ev => {
+    const a = new Date(ev.start), b = new Date(ev.end || ev.start), days = Math.round((midnight(b) - midnight(a)) / DAY) + 1;
+    const hours = Math.round((b - a) / 36e5), oneDay = days === 1;
+    const len = oneDay ? (hours <= 1 ? "1 hour" : hours < 12 ? `${hours} hours` : "All day") : days >= 14 ? `${Math.round(days / 7)} weeks` : `${days} days`;
+    const when = oneDay ? `${longDate(a)} · ${hm(a)}–${hm(b)}` : dates(day(ev.start), day(ev.end) || day(ev.start));
+    const on = a <= now, left = Math.round((midnight(b) - today) / DAY), until = Math.round((midnight(a) - today) / DAY);
+    const status = on ? (left <= 0 ? "On now · ends today" : left === 1 ? "On now · ends tomorrow" : `On now · ends in ${left} days`)
+      : until === 0 ? "Today" : until === 1 ? "Tomorrow" : `In ${until} days`;
+    return {a, b, on, len, when, status, long: days > 21};   // three weeks or more: GO Pass, Timed Research (a two-week raid stays in its week)
+  };
+  const kindChip = (ev, i) => `<span class="evkind">${esc(ev.type || "Event")}</span><span class="evlen">${esc(i.len)}</span>`;
+  const evs = up.events.map(ev => {
+    const i = info(ev), mons = ev.mons.filter(m => byId[m.id]);
+    const bgId = (up.backgrounds[ev.id] || {}).background, st = bgId && allSets().find(x => x.id === bgId);
+    const seenBg = new Set(), bgAll = st ? st.items.filter(it => it.bg && !seenBg.has(it.key) && seenBg.add(it.key)) : [];
     bgAll.sort(dexOrder);   // Pokédex number order (her ask, 16 Nov)
-    const bgs = bgAll.filter(it => !has(it.key, "c"));
-    const want = mons.filter(m => upNeeds(m).length).length;
-    return `<div class="evrow${on ? " on" : ""}"><div class="evwhen"><span class="label">${on ? "On now" : esc(ev.type || "")}</span>
-        <h3>${esc(ev.name)}</h3><p class="muted">${dates(day(ev.start), day(ev.end) || day(ev.start))}${on && ev.type ? " · " + esc(ev.type) : ""}</p>
+    const want = mons.filter(m => upNeeds(m).length).length, bgs = bgAll.filter(it => !has(it.key, "c"));
+    return {ev, i, mons, st, bgAll, bgs, want, full: !!(want || bgs.length)};
+  }).filter(x => x.i.b >= today);
+  // one line: an event running for weeks, or one with nothing for her (or nothing listed yet)
+  const line = x => `<div class="evline${x.i.on ? " on" : ""}"><div class="evlname"><b>${esc(x.ev.name)}</b>${kindChip(x.ev, x.i)}</div>
+      <span class="muted">${esc(x.i.long ? (x.i.on ? "Until " : "From ") + longDate(x.i.on ? x.i.b : x.i.a) : x.i.when)}</span>
+      <span class="evlwhat">${x.want ? `You need something from ${num(x.want)}` : x.mons.length || x.st ? "You have everything from it" : "Pokémon not listed"}</span>
+      <a class="linkbtn" href="${attr(x.ev.link)}" target="_blank" rel="noopener">${ic("external-link")}Leek Duck</a>
+      ${x.i.long && x.want ? `<div class="evlmons fastgrid">${x.mons.filter(m => upNeeds(m).length).map(m => square(byId[m.id], upNeeds(m))).join("")}</div>` : ""}</div>`;
+  const row = x => {
+    const {ev, i, mons, st, bgAll, bgs, want} = x, open = comingOpen.has(ev.id), got = bgAll.length - bgs.length;
+    return `<div class="evrow${i.on ? " on" : ""}"><div class="evwhen"><span class="label">${esc(i.status)}</span>
+        <h3>${esc(ev.name)}</h3><p class="evchips">${kindChip(ev, i)}</p><p class="muted">${esc(i.when)}</p>
         <a class="linkbtn" href="${attr(ev.link)}" target="_blank" rel="noopener">${ic("external-link")}Details on Leek Duck</a></div>
-      <div class="evmons">${mons.length ? `<p class="evsum">${want ? `You need something from ${num(want)} of ${num(mons.length)}` : "You have everything from these"}</p><div class="fastgrid" style="--bc:var(--deep-2)">${cells.join("")}</div>` : ""}
-        ${st ? `<p class="evsum">Brings back the <b>${esc(st.title)}</b> background: ${bgs.length ? `${num(bgs.length)} of ${num(bgAll.length)} not got with it yet` : "you have them all"}</p><div class="fastgrid" style="--bc:var(--deep-2)">${bgAll.map(it => bgTick(it, st.art)).join("")}</div>` : ""}
-        ${!mons.length && !st ? `<p class="muted evsum">Leek Duck lists what’s in it.</p>` : ""}</div></div>`;
-  }).join("");
+      <div class="evmons">${mons.length ? `<p class="evsum">${want ? `You need something from ${num(want)} of ${num(mons.length)}` : "You have everything from these"}</p><div class="fastgrid" style="--bc:var(--deep-2)">${mons.map(m => square(byId[m.id], upNeeds(m))).join("")}</div>` : ""}
+        ${st ? `<p class="evsum">Brings back the <b>${esc(st.title)}</b> background: ${bgs.length ? `${num(bgs.length)} of ${num(bgAll.length)} still to get with it` : "you have them all"}</p>
+          <div class="fastgrid" style="--bc:var(--deep-2)">${(open ? bgAll : bgs).map(it => bgTick(it, st.art)).join("")}</div>
+          ${got ? `<button class="linkbtn" type="button" data-comegot="${attr(ev.id)}">${ic(open ? "eye-off" : "eye")}${open ? `Hide the ${num(got)} you have` : `Show the ${num(got)} you have too`}</button>` : ""}` : ""}</div></div>`;
+  };
+  const monday = d => { const m = midnight(d); m.setDate(m.getDate() - (m.getDay() + 6) % 7); return m; };
+  const thisWeek = monday(now);
+  const weekName = w => { const n = Math.round((w - thisWeek) / (7 * DAY)); return n <= 0 ? "This week" : n === 1 ? "Next week" : `Week of ${w.getDate()} ${MONTHS[w.getMonth()]}`; };
+  const weeks = new Map();
+  for (const x of evs.filter(x => !x.i.long)) {
+    const w = monday(x.i.on ? now : x.i.a).getTime();
+    if (!weeks.has(w)) weeks.set(w, []);
+    weeks.get(w).push(x);
+  }
+  let html = "";
+  for (const [w, xs] of [...weeks].sort((p, q) => p[0] - q[0])) {
+    const big = xs.filter(x => x.full), small = xs.filter(x => !x.full);
+    html += `<section class="evweek"><h2>${esc(weekName(new Date(w)))}</h2>${big.map(row).join("")}${small.length ? `<div class="evlines">${small.map(line).join("")}</div>` : ""}</section>`;
+  }
+  const long = evs.filter(x => x.i.long);
+  if (long.length) html += `<section class="evweek"><h2>Running for weeks</h2><div class="evlines">${long.map(line).join("")}</div></section>`;
   setRegion(null);
   view.innerHTML = `<header class="hero withshot">${heroPics(ALL_MAPS())}<span class="label">Trial</span><h1>Coming <em>up</em></h1>
-    <p style="max-width:380px">The next six weeks of Pokémon GO events from Leek Duck, and what you still need from each: the small icons say what (new to you, shiny, Mega, Shadow, Dynamax, Gigantamax, or the background). Checked ${dates(up.fetched || DATA.updated)}.</p></header>${readOnlyNote()}
-    ${rows ? `<div class="evlist">${rows}</div>` : `<p class="empty">No events saved yet: run tools/import_events.py.</p>`}`;
+    <p style="max-width:380px">The next six weeks of Pokémon GO events from Leek Duck, week by week, and what you still need from each: the small icons say what (new to you, shiny, Mega, Shadow, Dynamax, Gigantamax, or the background). Events running for weeks are at the bottom. Checked ${dates(up.fetched || DATA.updated)}.</p></header>${readOnlyNote()}
+    ${html ? `<div class="evlist">${html}</div>` : `<p class="empty">No events saved yet: run tools/import_events.py.</p>`}`;
 }
+const comingOpen = new Set();   // Coming up: backgrounds showing the ones she has too
 
 function navHtml(route){
   const link = (href, icon, text, n) => `<a href="${href}" class="${route === href.slice(1) ? "on" : ""}">${ic(icon)}${esc(text)}${n !== undefined ? `<span class="n">${num(n)}</span>` : ""}</a>`;
@@ -1306,6 +1353,7 @@ document.addEventListener("click", ev => {
   if (b.dataset.fastbox) { prefs.fastBox = b.dataset.fastbox; keepPrefs(); return rerender(); }
   if (b.dataset.wantbox) { prefs.wantBox = b.dataset.wantbox; keepPrefs(); return rerender(); }
   if (b.hasAttribute("data-wantcopy")) return wantCopy();
+  if (b.dataset.comegot) { const k = b.dataset.comegot; comingOpen.has(k) ? comingOpen.delete(k) : comingOpen.add(k); return rerender(); }
   if (b.hasAttribute("data-wantoverlap")) { prefs.wantOverlap = !prefs.wantOverlap; keepPrefs(); return rerender(); }
   if (b.dataset.fastorder) { prefs.fastOrder = b.dataset.fastorder; keepPrefs(); return rerender(); }
   if (b.dataset.shotg) { prefs.regionShot = {...(prefs.regionShot || {}), [b.dataset.shotg]: +b.dataset.shot}; keepPrefs(); return rerender(); }   // trial, 10 Nov

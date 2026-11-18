@@ -370,7 +370,7 @@
   });
 
   test("Coming up: each event, and what's still needed from its Pokémon", async () => {
-    const key = "d:624", before = COL.have[key], up0 = DATA.upcoming;
+    const key = "d:624", before = COL.have[key], up0 = DATA.upcoming; let k0;
     try {
       delete COL.have[key];
       eq(upNeeds({id: "624", shiny: true, as: []}), ["c", "s"], "Pawniard not caught: new, and shiny");
@@ -381,13 +381,24 @@
       await go("#coming");
       ok(/Test event/.test(view().textContent), "the event");
       ok(view().querySelector('.fc.want.done[href="#p-624"]'), "Pawniard faded: nothing left to get");
-      // every one of the background's Pokémon, the ones she has with it faded (her ask, 16 Nov)
+      // the background's Pokémon still to get; the ones she has, faded, behind a button (18 Nov)
       const st = allSets().find(s => s.id === "sb-gofest2025-eternatus"), keys = st ? [...new Set(st.items.filter(i => i.bg).map(i => i.key))] : [];
-      eq(view().querySelectorAll('.evmons .fc.withbg').length, keys.length, "all the background's Pokémon");
+      k0 = keys.find(k => !has(k, "c")); if (k0) COL.have[k0] = ["c"];   // in memory only
+      await go("#coming");
+      eq(view().querySelectorAll('.evmons .fc.withbg').length, keys.filter(k => !has(k, "c")).length, "the ones still to get");
+      click(view().querySelector("[data-comegot]")); await wait(50);
+      eq(view().querySelectorAll('.evmons .fc.withbg').length, keys.length, "all of them once shown");
       eq(view().querySelectorAll('.evmons .fc.withbg.done').length, keys.filter(k => has(k, "c")).length, "the ones she has, faded");
       const nums = [...view().querySelectorAll('.evmons .fc.withbg')].map(a => +a.querySelector("span:not(.wb):not(.fcn)").textContent);
       ok(nums.every((n, i) => !i || n >= nums[i - 1]), "in Pokédex number order (her ask, 16 Nov)");
-    } finally { if (before) COL.have[key] = before; else delete COL.have[key]; DATA.upcoming = up0; }
+      // by week, each with its kind and length; one running for weeks at the bottom, one line (her point, 18 Nov)
+      DATA.upcoming.events.push({id: "t-pass", name: "Test pass", type: "GO Pass", start: "2026-11-03T10:00:00.000", end: "2099-12-01T10:00:00.000", link: "https://leekduck.com/events/", mons: []});
+      await go("#coming");
+      const hs = [...view().querySelectorAll(".evweek h2")].map(h => h.textContent);
+      eq(hs[hs.length - 1], "Running for weeks");
+      ok(/Test pass/.test(view().querySelector(".evweek:last-child .evline").textContent), "the pass on one line at the bottom");
+      ok(view().querySelector(".evrow .evkind") && view().querySelector(".evrow .evlen"), "kind and length on each event");
+    } finally { if (before) COL.have[key] = before; else delete COL.have[key]; DATA.upcoming = up0; comingOpen.clear(); if (k0) delete COL.have[k0]; }
   });
 
   // ---------- Fast tick (trial) ----------

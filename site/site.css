@@ -752,6 +752,22 @@ a.formsbtn{text-decoration:none}
 .evlist{margin-top:8px}
 .evrow{display:grid;grid-template-columns:270px 1fr;gap:20px;padding:18px 0;border-top:1px solid var(--line)}
 .evrow.on .evwhen .label{color:var(--deep-2)}
+/* Coming up by week (18 Nov, her point: a months-long event isn't a Community Day): each event's kind and length as chips;
+   events running for weeks, and ones with nothing for her, one line each */
+.evweek h2{font-size:26px;margin:26px 0 2px}
+.evchips{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 6px}
+.evkind,.evlen{font-size:11.5px;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.evkind{background:var(--deep-2);color:#fff}
+.evlen{border:1px solid var(--line);opacity:.8}
+.evlines{border-top:1px solid var(--line);padding:6px 0}
+.evline{display:grid;grid-template-columns:minmax(0,1fr) 290px 200px auto;gap:6px 16px;align-items:center;padding:7px 0;font-size:13.5px}
+.evline + .evline{border-top:1px dashed var(--line)}
+.evlname{display:flex;gap:8px;align-items:center;flex-wrap:wrap;min-width:0}
+.evlname b{font-weight:700}
+.evlmons{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:6px}
+.evlmons .fc{width:76px}
+/* a background Pokémon she has: faded like the rest of the page, not picked out */
+.fc.want.done.withbg[aria-pressed="true"]{background:linear-gradient(rgba(255,255,255,.62),rgba(255,255,255,.62)),var(--card) center/cover;color:inherit;text-shadow:none;border-width:1px}
 .evwhen h3{font-size:22px;margin:2px 0 4px;line-height:1.15}
 .evwhen p{margin:0 0 8px;font-size:13.5px}
 .evsum{margin:0 0 8px;font-size:13.5px;font-weight:700}
