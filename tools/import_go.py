@@ -629,14 +629,14 @@ def main():
         entries[:] = [e for e in entries if e['id'] not in gone]
     # Pokémon whose male and female look fully different are two forms, Male and Female, each with its own boxes (her
     # pick, 18 Nov: the six the game files keep as forms, plus Unfezant, Hippopotas and Hippowdon). The male stays under
-    # the old id (her ticks are on it); the female is <number>-female. Each evolves into its own gender; one before evolves
+    # the old id (her ticks were on it); the female is <number>-female, listed first and shown on the card. Each evolves into its own gender; one before evolves
     # into both, by gender
     for n in GENDER_FORMS:
         male = next((e for e in entries if e['dex'] == n and e.get('femaleImg')), None)
         if not male:
             continue
         fem = {**male, 'id': f'{n}-female', 'form': 'Female', 'gender': 'female', 'img': male['femaleImg'],
-               'desc': male.get('femaleDesc') or male.get('desc'), 'order': male['order'] + 0.5}
+               'desc': male.get('femaleDesc') or male.get('desc'), 'order': male['order'] - 0.5}
         for x in (male, fem):
             x.pop('femaleImg', None)
             x.pop('femaleDesc', None)
@@ -646,7 +646,8 @@ def main():
         if male.get('evo'):   # same form to same form: no gender note on the step
             male['evo'] = [{k: v for k, v in st.items() if k != 'gender'} for st in male['evo']]
             fem['evo'] = [{**st, 'to': st['to'] + '-female' if int(st['to'].split('-')[0]) in GENDER_FORMS else st['to']} for st in male['evo']]
-        entries.insert(entries.index(male) + 1, fem)
+        fem['default'] = True   # Female first and the one shown, as Female comes before Male everywhere (her point, 18 Nov)
+        entries.insert(entries.index(male), fem)
     for e in entries:
         if e['dex'] in GENDER_FORMS or not e.get('evo'):
             continue
