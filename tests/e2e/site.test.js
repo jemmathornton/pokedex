@@ -379,8 +379,9 @@
       eq(upNeeds({id: "624", shiny: true, as: []}), ["c", "s"], "Pawniard not caught: new, and shiny");
       COL.have[key] = ["c", "s"]; eq(upNeeds({id: "624", shiny: true, as: []}), [], "nothing once caught and shiny");
       eq(upNeeds({id: "624", shiny: true, as: ["shadow"]}), ["sd"], "a Shadow raid asks for the Shadow");
+      const iso = d => { const t = new Date(Date.now() + d * 864e5); return new Date(t - t.getTimezoneOffset() * 6e4).toISOString().slice(0, 23); };   // dates around today, so the test never goes stale
       DATA.upcoming = {fetched: "2026-11-16", backgrounds: {"t-ev": {background: "sb-gofest2025-eternatus"}}, events: [
-        {id: "t-ev", name: "Test event", type: "Event", start: "2026-11-16T10:00:00.000", end: "2026-11-23T20:00:00.000", link: "https://leekduck.com/events/", mons: [{name: "Pawniard", id: "624", shiny: true, as: []}]}]};
+        {id: "t-ev", name: "Test event", type: "Event", start: iso(-2), end: iso(5), link: "https://leekduck.com/events/", mons: [{name: "Pawniard", id: "624", shiny: true, as: []}]}]};
       await go("#coming");
       ok(/Test event/.test(view().textContent), "the event");
       ok(view().querySelector('.fc.want.done[href="#p-624"]'), "Pawniard faded: nothing left to get");
@@ -401,6 +402,18 @@
       eq(hs[hs.length - 1], "This season");
       ok(/Test pass/.test(view().querySelector(".evweek:last-child .evline").textContent), "the pass on one line at the bottom");
       ok(view().querySelector(".evrow .evkind") && view().querySelector(".evrow .evlen"), "kind and length on each event");
+      // the layout trial (18 Nov): Calendar, Hunt list and Two panes show the same events; picking one shows it in full
+      const lay0 = prefs.comingLayout;
+      try {
+        prefs.comingLayout = "cal"; await go("#coming");
+        ok(view().querySelector(".calbar"), "calendar bars");
+        click(view().querySelector('.calbar[data-comesel="t-ev"]')); await wait(50);
+        ok(/Test event/.test(view().querySelector(".caldetail").textContent), "the picked event underneath");
+        prefs.comingLayout = "split"; await go("#coming");
+        ok(view().querySelector('.splititem.sel[data-comesel="t-ev"]') && /Test event/.test(view().querySelector(".splitdetail").textContent), "two panes: the picked one in full");
+        prefs.comingLayout = "hunt"; await go("#coming");
+        ok(view().querySelector(".huntset"), "hunt list");
+      } finally { prefs.comingLayout = lay0; comingSel = null; }
     } finally { if (before) COL.have[key] = before; else delete COL.have[key]; DATA.upcoming = up0; comingOpen.clear(); if (k0) delete COL.have[k0]; }
   });
 

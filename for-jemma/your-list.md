@@ -1,9 +1,14 @@
-# Your list (16 Nov 2026)
+# Your list (18 Nov 2026)
 
 Everything waiting on you. **Do** = just do it; **Decide** = your call. Tell Claude when one’s done or decided and it comes off.
 
 ## Decide
-- **Coming up (trial, 16 Nov):** the next six weeks of events from Leek Duck, with dates, a link, each event’s Pokémon marked with what you still need (new, shiny, Mega, Shadow, Dynamax…), and a background of yours it brings back (Dynamax Trails: Dark Skies, 122 not got with it) (`for-jemma/coming-up.png`). Only Community Days, Spotlight Hours, raids and Pokémon in the title are filled in by themselves; for bigger events it links to Leek Duck. Keep, change or drop? Claude refreshes it when you ask.
+- **What’s on (was Coming up; trial): which layout?** (18 Nov, your ask: too much to take in.) Try them on the page: the **Layout** row at the top has four buttons, and nothing changes your ticks. All four are suggestions:
+  - **List** (`for-jemma/whats-on-list.png`): what it is now. This week, This month, the weeks after, This season; every event in full, so Dark Skies’ 128 fill the screen.
+  - **Calendar** (`whats-on-calendar.png`): six weeks as a calendar, each event a bar across its days, coloured by kind (Community Day gold, raids orange, Max Battles pink, Spotlight Hour teal, events blue, GO Pass and research grey). Bold bars have something for you, with small icons for what. Click a bar to see it in full underneath. Good for seeing what overlaps and how long things run.
+  - **Hunt list** (`whats-on-hunt-list.png`): what you need first, not events. Shadow: Tornadus (raids until Tue 1 Dec); Dynamax: Espurr (Mon 23 Nov); Mega: Clefable (Sat 28 Nov); then Dark Skies as one card with a bar (16 of 144) and a button to show the 128. Events with nothing for you, or no Pokémon listed yet, are just names at the bottom. The shortest to read.
+  - **Two panes** (`whats-on-two-panes.png`): every event as a short line on the left (by week, coloured by kind, icons where there’s something for you); click one and it shows in full on the right. Like an email inbox.
+  Pick one (or a mix, e.g. the Hunt list on top and the Calendar below) and the rest go. Only Community Days, Spotlight Hours, raids and Pokémon in the title are filled in by themselves; Claude refreshes it when you ask.
 - **Looking for (trial, 15 Nov):** a page of what’s out and you still need: Shiny, Lucky (to trade for), Dynamax, Gigantamax and Mega, by region, and Backgrounds (each of your events’ background Pokémon not got yet, under its card: `looking-for-backgrounds.png`), with Copy the list; small icons show the other boxes you need for each, and Only overlaps lists just those, e.g. Lucky with Only overlaps = the best ones for a lucky trade (`for-jemma/looking-for-s.png`, `-l`, `-mega`, `-lucky-overlaps`). Keep, change or drop?
 - **Crowned Zacian and Zamazenta, and Complete Zygarde:** track them as Pokémon of their own (like Dusk Mane Necrozma and Black Kyurem) or not? They’re kept forms you make in GO; at the moment they aren’t in the app.
 - **Sinistea and Polteageist:** track their Antique forms one by one or not? (You’re undecided.) Rockruff, Scatterbug and Spewpa left off on purpose: no real difference until they evolve. Arceus when it’s out.

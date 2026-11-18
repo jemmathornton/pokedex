@@ -1238,12 +1238,85 @@ function comingPage(){
   if (month.length) html += section("This month", month);
   for (const [w, xs] of ws) html += section(weekName(new Date(w)), xs);
   if (season.length) html += section("This season", season);
+  // ---- layout trial (her ask, 18 Nov: "so much info it is hard to display it all"): the same events three other ways,
+  // picked with the Layout row (prefs.comingLayout) or ?layout= for pictures. Suggestions; the list above is the one in use
+  const KINDS = [["cd", "Community Day", "--lucky"], ["raid", "Raids", "--mega"], ["max", "Max Battles", "--dynamax"], ["spot", "Spotlight Hour", "--xxl"], ["ev", "Event", "--xxs"], ["long", "GO Pass and research", "--muted"]];
+  const kindOf = ev => /community/i.test(ev.type) ? "cd" : /raid/i.test(ev.type) ? "raid" : /max/i.test(ev.type) ? "max" : /spotlight/i.test(ev.type) ? "spot" : /pass|research/i.test(ev.type) ? "long" : "ev";
+  const kcol = ev => `var(${KINDS.find(k => k[0] === kindOf(ev))[2]})`;
+  const needSet = x => [...new Set(x.mons.flatMap(m => upNeeds(m)))];
+  const badge = x => (needSet(x).length || x.bgs.length) ? `<span class="nb">${needSet(x).map(n => `<i style="--c:var(${NEED_LOOK[n][2]})" title="${attr(NEED_LOOK[n][0])}">${ic(NEED_LOOK[n][1])}</i>`).join("")}${x.bgs.length ? `<i style="--c:var(--deep)" title="Background">${ic("ticket")}</i><b>${num(x.bgs.length)}</b>` : ""}</span>` : "";
+  const wsAll = [...weeks].sort((p, q) => p[0] - q[0]).map(([, xs]) => xs), firstThis = [...weeks].some(([w]) => weekName(new Date(w)) === "This week");
+  const shown = firstThis ? [...wsAll[0], ...month, ...wsAll.slice(1).flat(), ...season] : [...month, ...wsAll.flat(), ...season];
+  const sel = evs.find(x => x.ev.id === comingSel) || shown.find(x => x.full) || evs[0];   // the first one with something for her, in the order shown
+  const legend = `<div class="callegend">${KINDS.map(([, l, c]) => `<span><i style="--k:var(${c})"></i>${esc(l)}</span>`).join("")}<span class="muted">Filled: something for you</span></div>`;
+  const shortDay = d => `${WD[d.getDay()].slice(0, 3)} ${d.getDate()} ${MONTHS[d.getMonth()].slice(0, 3)}`;
+  const lay = ["list", "cal", "hunt", "split"].includes(TRY.get("layout")) ? TRY.get("layout") : prefs.comingLayout || "list";
+  if (lay === "cal") {   // A: a calendar, six weeks, events as bars across their days; click one for its details underneath
+    const visible = evs.filter(x => !x.i.season);
+    let g = `<div class="calweek calhead">${["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"].map(d => `<span>${d}</span>`).join("")}</div>`;
+    for (let w = 0; w < 6; w++) {
+      const ws = new Date(thisWeek); ws.setDate(ws.getDate() + 7 * w);
+      const we = new Date(ws); we.setDate(we.getDate() + 6);
+      const inW = visible.filter(x => midnight(x.i.a) <= we && midnight(x.i.b) >= ws).sort((p, q) => (q.i.b - q.i.a) - (p.i.b - p.i.a) || p.i.a - q.i.a);
+      const lanes = [];
+      const bars = inW.map(x => {
+        const c0 = Math.max(0, Math.round((midnight(x.i.a) - ws) / DAY)), c1 = Math.min(6, Math.round((midnight(x.i.b) - ws) / DAY));
+        let l = lanes.findIndex(o => o.every((v, i) => i < c0 || i > c1 || !v));
+        if (l < 0) { l = lanes.length; lanes.push(Array(7).fill(false)); }
+        for (let i = c0; i <= c1; i++) lanes[l][i] = true;
+        const one = /hour/.test(x.i.len);   // a few hours on one day: its start time
+        return `<button type="button" class="calbar${x.full ? " need" : ""}${x === sel ? " sel" : ""}" data-comesel="${attr(x.ev.id)}" style="grid-column:${c0 + 1}/${c1 + 2};grid-row:${l + 2};--k:${kcol(x.ev)}" title="${attr(x.ev.name + " · " + x.i.when)}">${one ? `<small>${hm(x.i.a)}</small>` : ""}<span class="t">${esc(x.ev.name)}</span>${badge(x)}</button>`;
+      }).join("");
+      const days = [...Array(7)].map((_, i) => { const d = new Date(ws); d.setDate(d.getDate() + i);
+        return `<span class="calday${+d === +today ? " today" : d < today ? " past" : ""}" style="grid-column:${i + 1};grid-row:1">${d.getDate() === 1 || (w === 0 && i === 0) ? `${d.getDate()} ${MONTHS[d.getMonth()].slice(0, 3)}` : d.getDate()}</span>`; }).join("");
+      g += `<div class="calweek">${days}${bars}</div>`;
+    }
+    const seasonL = evs.filter(x => x.i.season);
+    html = `${legend}${seasonL.length ? `<p class="calseason"><b>All season:</b> ${seasonL.map(x => `<button type="button" class="linkbtn" data-comesel="${attr(x.ev.id)}">${esc(x.ev.name)}</button> <span class="muted">until ${shortDay(x.i.b)}</span>`).join(" · ")}</p>` : ""}
+      <div class="cal">${g}</div>${sel ? `<div class="caldetail"><span class="label">Picked</span>${row(sel)}</div>` : ""}`;
+  }
+  if (lay === "hunt") {   // B: what to hunt first, by box, each with the event and when; backgrounds as cards; the rest folded away
+    const items = [];
+    for (const x of evs) for (const m of x.mons) for (const n of upNeeds(m)) items.push({x, m, n});
+    const whenShort = x => x.i.on ? (x.i.month || x.i.season ? `until ${shortDay(x.i.b)}` : x.i.status.replace("On now · ", "")) : x.i.len.includes("hour") || x.i.len === "All day" ? `${shortDay(x.i.a)} ${hm(x.i.a)}` : `from ${shortDay(x.i.a)}`;
+    const groups = ["c", "s", "sd", "dx", "gx", "mega"].map(n => [n, items.filter(it => it.n === n)]).filter(([, its]) => its.length);
+    const huntCell = it => `<a class="hunt" href="${pageOf(byId[it.m.id])}"><img src="${sprite(byId[it.m.id].img) || ""}" alt="" loading="lazy"><span class="hn">${esc(gName(byId[it.m.id]))}</span>
+      <span class="hev">${esc(it.x.ev.name)}</span><span class="hw${it.x.i.on ? " on" : ""}">${esc(whenShort(it.x))}</span></a>`;
+    let h = groups.map(([n, its]) => `<section class="huntset"><h3 style="--c:var(${NEED_LOOK[n][2]})"><i>${ic(NEED_LOOK[n][1])}</i>${esc(n === "c" ? "New to you" : NEED_LOOK[n][0])}<small>${num(its.length)}</small></h3><div class="huntgrid">${its.map(huntCell).join("")}</div></section>`).join("");
+    const bgEvs = evs.filter(x => x.st && x.bgs.length);
+    if (bgEvs.length) h += `<section class="huntset"><h3 style="--c:var(--deep)"><i>${ic("ticket")}</i>Backgrounds coming back<small>${num(bgEvs.length)}</small></h3>${bgEvs.map(x => {
+      const open = comingOpen.has(x.ev.id), got = x.bgAll.length - x.bgs.length;
+      return `<div class="huntbg"><span class="hbart" style="background-image:url('${x.st.art}')"></span><div><b>${esc(x.st.title)}</b><span class="muted"> · ${esc(x.ev.name)}, ${esc(whenShort(x))}</span>
+        <div class="hbbar"><i style="width:${(100 * got / x.bgAll.length).toFixed(1)}%"></i></div><span class="muted">${num(got)} of ${num(x.bgAll.length)} got with it · ${num(x.bgs.length)} to go</span>
+        <button class="linkbtn" type="button" data-comegot="${attr(x.ev.id)}">${ic(open ? "eye-off" : "eye")}${open ? "Hide them" : `Show the ${num(x.bgs.length)} to get`}</button>
+        ${open ? `<div class="fastgrid" style="--bc:var(--deep-2)">${x.bgs.map(it => bgTick(it, x.st.art)).join("")}</div>` : ""}</div></div>`; }).join("")}</section>`;
+    const rest = evs.filter(x => !x.full);
+    const listed = rest.filter(x => x.mons.length || x.st), unlisted = rest.filter(x => !x.mons.length && !x.st);
+    const mini = x => `<a href="${attr(x.ev.link)}" target="_blank" rel="noopener"><b>${esc(x.ev.name)}</b> <span class="muted">${esc(x.i.on && (x.i.month || x.i.season) ? "until " + shortDay(x.i.b) : x.i.on ? "on now" : shortDay(x.i.a))}</span></a>`;
+    h += `<section class="huntset huntrest"><h3>Nothing new for you<small>${num(listed.length)}</small></h3><p>${listed.map(mini).join("")}</p></section>`;
+    if (unlisted.length) h += `<section class="huntset huntrest"><h3>Pokémon not listed yet<small>${num(unlisted.length)}</small></h3><p>${unlisted.map(mini).join("")}</p></section>`;
+    html = h;
+  }
+  if (lay === "split") {   // C: every event in a short list on the left; the picked one in full on the right
+    const item = x => `<button type="button" class="splititem${x === sel ? " sel" : ""}${x.full ? "" : " none"}" data-comesel="${attr(x.ev.id)}" style="--k:${kcol(x.ev)}">
+      <span class="si1"><b>${esc(x.ev.name)}</b>${badge(x)}</span><span class="si2">${esc(x.ev.type || "Event")} · ${esc(x.i.on ? x.i.status.replace("On now · ", "on now, ") : x.i.month || x.i.season ? "from " + shortDay(x.i.a) : x.i.len.includes("hour") || x.i.len === "All day" ? shortDay(x.i.a) + " " + hm(x.i.a) : shortDay(x.i.a) + " – " + shortDay(x.i.b))}</span></button>`;
+    const sec = (t, xs) => xs.length ? `<h3 class="splith">${esc(t)}</h3>${xs.map(item).join("")}` : "";
+    const ws2 = [...weeks].sort((p, q) => p[0] - q[0]);
+    let left = "";
+    if (ws2.length && weekName(new Date(ws2[0][0])) === "This week") left += sec("This week", ws2.shift()[1]);
+    left += sec("This month", month);
+    for (const [w, xs] of ws2) left += sec(weekName(new Date(w)), xs);
+    left += sec("This season", season);
+    html = `<div class="split"><div class="splitlist">${left}</div><div class="splitdetail">${sel ? row(sel) : ""}</div></div>`;
+  }
+  const layTabs = `<div class="toolbar filters"><div class="frow"><span class="label flabel">Layout</span><div class="worktabs">${[["list", "List"], ["cal", "Calendar"], ["hunt", "Hunt list"], ["split", "Two panes"]].map(([k, l]) => `<button type="button" class="worktab" data-comelayout="${k}" aria-pressed="${k === lay}">${l}</button>`).join("")}</div><span class="muted" style="margin-left:auto;font-size:13px">Trial: three other ways to show the same events</span></div></div>`;
   setRegion(null);
   view.innerHTML = `<header class="hero withshot">${heroPics(ALL_MAPS())}<span class="label">Trial</span><h1>What’s <em>on</em></h1>
-    <p style="max-width:380px">What’s on in Pokémon GO over the next six weeks (from Leek Duck), and what you still need from each: the small icons say what. Checked ${dates(up.fetched || DATA.updated)}.</p></header>${readOnlyNote()}
-    ${html ? `<div class="evlist">${html}</div>` : `<p class="empty">No events saved yet: run tools/import_events.py.</p>`}`;
+    <p style="max-width:380px">What’s on in Pokémon GO over the next six weeks (from Leek Duck), and what you still need from each: the small icons say what. Checked ${dates(up.fetched || DATA.updated)}.</p></header>${readOnlyNote()}${layTabs}
+    ${html ? `<div class="evlist lay-${lay}">${html}</div>` : `<p class="empty">No events saved yet: run tools/import_events.py.</p>`}`;
 }
 const comingOpen = new Set();   // Coming up: backgrounds showing the ones she has too
+let comingSel = null;   // the layout trial: the event picked in Calendar and Two panes
 
 function navHtml(route){
   const link = (href, icon, text, n) => `<a href="${href}" class="${route === href.slice(1) ? "on" : ""}">${ic(icon)}${esc(text)}${n !== undefined ? `<span class="n">${num(n)}</span>` : ""}</a>`;
@@ -1361,6 +1434,8 @@ document.addEventListener("click", ev => {
   if (b.dataset.fastbox) { prefs.fastBox = b.dataset.fastbox; keepPrefs(); return rerender(); }
   if (b.dataset.wantbox) { prefs.wantBox = b.dataset.wantbox; keepPrefs(); return rerender(); }
   if (b.hasAttribute("data-wantcopy")) return wantCopy();
+  if (b.dataset.comesel) { comingSel = b.dataset.comesel; return rerender(); }
+  if (b.dataset.comelayout) { prefs.comingLayout = b.dataset.comelayout; keepPrefs(); return rerender(); }
   if (b.dataset.comegot) { const k = b.dataset.comegot; comingOpen.has(k) ? comingOpen.delete(k) : comingOpen.add(k); return rerender(); }
   if (b.hasAttribute("data-wantoverlap")) { prefs.wantOverlap = !prefs.wantOverlap; keepPrefs(); return rerender(); }
   if (b.dataset.fastorder) { prefs.fastOrder = b.dataset.fastorder; keepPrefs(); return rerender(); }
