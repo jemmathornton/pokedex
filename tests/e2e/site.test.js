@@ -313,6 +313,18 @@
     } finally { keys.forEach((k, i) => { if (before[i]) COL.have[k] = before[i]; else delete COL.have[k]; }); prefs.workShow = "all"; }
   });
 
+  test("male and female fully different (Frillish…) are two forms with their own boxes and no ♂/♀ box", async () => {
+    const m = ENTRIES.find(e => e.id === "592"), f = ENTRIES.find(e => e.id === "592-female");
+    ok(m && f && m.form === "Male" && f.form === "Female" && f.img !== m.img, "two entries, each its own picture");
+    ok(!maleTick(m) && !femaleTick(m) && !maleTick(f) && !femaleTick(f), "no ♂/♀ boxes");
+    ok(FORM_SPECIES.has(592), "tracked form by form");
+    eq(JSON.stringify(ENTRIES.find(e => e.id === "667").evo.map(s => s.to)), JSON.stringify(["668", "668-female"]), "Litleo evolves into both");
+    eq(ENTRIES.find(e => e.id === "592-female").evo[0].to, "593-female", "female to female");
+    pageForm["592"] = "592-female"; await go("#p-592");
+    ok(view().querySelector('.bigboxes[data-id="592-female"]'), "the female's own page boxes");
+    delete pageForm["592"];
+  });
+
   test("unticking a Shiny on a Pokémon's page unticks the Caught that came with it", async () => {
     const key = "d:7", clear = async () => { for (const t of ["c", "s"]) await save({list: "have", key, tick: t, on: false}); delete COL.have[key]; autoCaught.delete(key); };
     await clear();

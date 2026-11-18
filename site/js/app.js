@@ -68,8 +68,10 @@ const hasAny = (key, ts) => ts.some(t => has(key, t));
 const dk = e => "d:" + e.id;
 const caught = e => (COL.have[dk(e)] || []).length > 0;   // any box ticked: she has one
 // Caught ("c") is on every card; ♂ ("cm") and ♀ ("cf") sit beside it wherever that gender exists (her call, 9 Nov)
-const maleTick = e => e.gender === "both" || e.gender === "male" ? "cm" : null;
-const femaleTick = e => e.gender === "both" || e.gender === "female" ? "cf" : null;
+// male and female fully different (her pick, 18 Nov: Frillish, Pyroar, Unfezant…) are two forms, Male and Female
+// (`genderForm`), each its own boxes: no ♂/♀ box on them, the form says it
+const maleTick = e => !e.genderForm && (e.gender === "both" || e.gender === "male") ? "cm" : null;
+const femaleTick = e => !e.genderForm && (e.gender === "both" || e.gender === "female") ? "cf" : null;
 const gotMale = e => !!maleTick(e) && has(dk(e), maleTick(e));
 const gotFemale = e => !!femaleTick(e) && has(dk(e), femaleTick(e));
 // species with more than one entry out in GO (Unown, Vivillon, Alolan Vulpix…): their entries are the "forms"
@@ -93,7 +95,7 @@ const POSSIBLE = {
   sd: () => true, pu: () => true,   // no rule rules any out (Shadow Darkrai exists, 2025)
   dx: es => !NO_DYNAMAX.has(es[0].dex), gx: es => es.some(e => GMAX_SPECIES.has(e.dex) && !isRegional(e)),   // no regional form can Gigantamax (Galarian Meowth can't)
   mega: es => es.some(e => (e.mega || []).length || e.megaLater),
-  cm: es => es.some(e => e.gender === "both" || e.gender === "male"), cf: es => es.some(e => e.gender === "both" || e.gender === "female"),
+  cm: es => es.some(e => maleTick(e)), cf: es => es.some(e => femaleTick(e)),
 };
 function counts(list){
   // the totals at the top of a page count each Pokémon once, ignoring forms (her call, 11 Nov: forms are counted on each
@@ -162,7 +164,8 @@ const GENDER_WORDS = {male: "♂ only", female: "♀ only", none: "Genderless"};
 // Pokémon whose forms she tracks one by one (her picks, 15 Nov): still one card in the lists, but its boxes there count her
 // forms (Shiny 3/6) and the card opens its page (Pumpkaboo and Urshifu added 15 Nov; Sinistea and Polteageist undecided), where every form has its own boxes. Arceus left for when it's out (her call).
 const FORM_SPECIES = new Set([150, 351, 386, 413, 479, 483, 484, 487, 492, 550, 641, 642, 645, 646, 649, 710, 711, 718, 720, 741, 745, 774, 800, 849, 892, 905,
-  201, 327, 412, 421, 422, 423, 585, 586, 647, 666, 669, 670, 671, 676, 925, 931, 978, 982]);
+  201, 327, 412, 421, 422, 423, 585, 586, 647, 666, 669, 670, 671, 676, 925, 931, 978, 982,
+  449, 450, 521, 592, 593, 668, 678, 876, 902, 916]);   // male and female fully different (her pick, 18 Nov)
 // her pick of the looks (15 Nov, her idea): each box fills up in its colour as she gets its forms, with the count (Shiny 1/4);
 // the filled part is a copy of the box in white words, clipped; every form got = the full box. With a filter tab on, just that box.
 function formBoxes(lead, forms, only){
@@ -297,7 +300,7 @@ function card(e, more = "", inForms = false, forms = null){
   if (e.class === "legendary") flags.push("Legendary");
   if (e.class === "mythical") flags.push("Mythical");
   if (e.class === "ultra-beast") flags.push("Ultra Beast");
-  const gw = GENDER_WORDS[e.gender];
+  const gw = e.genderForm ? null : GENDER_WORDS[e.gender];   // a Male or Female form says it already
   // the card is marked when she has it: caught, or with a tab on, that tab's box, in its colour (her call, 9 Nov)
   const tab = !showAllBoxes && BOXF.find(x => x.k === prefs.work);
   const byForm = forms && FORM_SPECIES.has(e.dex);

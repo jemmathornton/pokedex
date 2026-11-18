@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-16",
+ "updated": "2026-11-18",
  "entries": [
   {
    "id": "1",
@@ -14516,14 +14516,13 @@
    "dex": 449,
    "gen": 4,
    "name": "Hippopotas",
-   "form": null,
+   "form": "Male",
    "types": [
     "Ground"
    ],
    "img": "pm449",
-   "gender": "both",
+   "gender": "male",
    "released": true,
-   "femaleImg": "pm449.g2",
    "shiny": "2020-02-07",
    "desc": "It enshrouds itself with sand to protect itself from germs. It does not enjoy getting wet.",
    "category": "Hippo Pokémon",
@@ -14539,21 +14538,51 @@
    ],
    "shadow": true,
    "shadowShiny": true,
-   "order": 0
+   "order": 0,
+   "genderForm": true
+  },
+  {
+   "id": "449-female",
+   "dex": 449,
+   "gen": 4,
+   "name": "Hippopotas",
+   "form": "Female",
+   "types": [
+    "Ground"
+   ],
+   "img": "pm449.g2",
+   "gender": "female",
+   "released": true,
+   "shiny": "2020-02-07",
+   "desc": "It enshrouds itself with sand to protect itself from germs. It does not enjoy getting wet.",
+   "category": "Hippo Pokémon",
+   "height": 0.8,
+   "weight": 49.5,
+   "buddyKm": 3.0,
+   "family": "HIPPOPOTAS",
+   "evo": [
+    {
+     "candy": 50,
+     "to": "450-female"
+    }
+   ],
+   "shadow": true,
+   "shadowShiny": true,
+   "order": 0.5,
+   "genderForm": true
   },
   {
    "id": "450",
    "dex": 450,
    "gen": 4,
    "name": "Hippowdon",
-   "form": null,
+   "form": "Male",
    "types": [
     "Ground"
    ],
    "img": "pm450",
-   "gender": "both",
+   "gender": "male",
    "released": true,
-   "femaleImg": "pm450.g2",
    "shiny": "2020-02-07",
    "desc": "It blasts internally stored sand from ports on its body to create a towering twister for attack.",
    "category": "Heavyweight Pokémon",
@@ -14563,7 +14592,32 @@
    "family": "HIPPOPOTAS",
    "shadow": true,
    "shadowShiny": true,
-   "order": 0
+   "order": 0,
+   "genderForm": true
+  },
+  {
+   "id": "450-female",
+   "dex": 450,
+   "gen": 4,
+   "name": "Hippowdon",
+   "form": "Female",
+   "types": [
+    "Ground"
+   ],
+   "img": "pm450.g2",
+   "gender": "female",
+   "released": true,
+   "shiny": "2020-02-07",
+   "desc": "It blasts internally stored sand from ports on its body to create a towering twister for attack.",
+   "category": "Heavyweight Pokémon",
+   "height": 2.0,
+   "weight": 300.0,
+   "buddyKm": 3.0,
+   "family": "HIPPOPOTAS",
+   "shadow": true,
+   "shadowShiny": true,
+   "order": 0.5,
+   "genderForm": true
   },
   {
    "id": "451",
@@ -16898,7 +16952,13 @@
    "evo": [
     {
      "candy": 50,
-     "to": "521"
+     "to": "521",
+     "gender": "male"
+    },
+    {
+     "candy": 50,
+     "to": "521-female",
+     "gender": "female"
     }
    ],
    "dynamax": true,
@@ -16911,15 +16971,14 @@
    "dex": 521,
    "gen": 5,
    "name": "Unfezant",
-   "form": null,
+   "form": "Male",
    "types": [
     "Normal",
     "Flying"
    ],
    "img": "pm521",
-   "gender": "both",
+   "gender": "male",
    "released": true,
-   "femaleImg": "pm521.g2",
    "shiny": "2020-07-02",
    "desc": "Males have plumage on their heads. They will never let themselves feel close to anyone other than their Trainers.",
    "category": "Proud Pokémon",
@@ -16930,7 +16989,34 @@
    "dynamax": true,
    "shadow": true,
    "shadowShiny": true,
-   "order": 0
+   "order": 0,
+   "genderForm": true
+  },
+  {
+   "id": "521-female",
+   "dex": 521,
+   "gen": 5,
+   "name": "Unfezant",
+   "form": "Female",
+   "types": [
+    "Normal",
+    "Flying"
+   ],
+   "img": "pm521.g2",
+   "gender": "female",
+   "released": true,
+   "shiny": "2020-07-02",
+   "desc": "Males have plumage on their heads. They will never let themselves feel close to anyone other than their Trainers.",
+   "category": "Proud Pokémon",
+   "height": 1.2,
+   "weight": 29.0,
+   "buddyKm": 1.0,
+   "family": "PIDOVE",
+   "dynamax": true,
+   "shadow": true,
+   "shadowShiny": true,
+   "order": 0.5,
+   "genderForm": true
   },
   {
    "id": "522",
@@ -19109,13 +19195,13 @@
    "dex": 592,
    "gen": 5,
    "name": "Frillish",
-   "form": null,
+   "form": "Male",
    "types": [
     "Water",
     "Ghost"
    ],
    "img": "pm592",
-   "gender": "both",
+   "gender": "male",
    "released": true,
    "shiny": "2023-02-08",
    "desc": "Using the invisible poison spikes on its veillike arms and legs, it paralyzes its enemies and causes them to drown.",
@@ -19130,21 +19216,50 @@
      "to": "593"
     }
    ],
-   "femaleImg": "pm592.fFEMALE",
-   "order": 0
+   "order": 0,
+   "genderForm": true
+  },
+  {
+   "id": "592-female",
+   "dex": 592,
+   "gen": 5,
+   "name": "Frillish",
+   "form": "Female",
+   "types": [
+    "Water",
+    "Ghost"
+   ],
+   "img": "pm592.fFEMALE",
+   "gender": "female",
+   "released": true,
+   "shiny": "2023-02-08",
+   "desc": "Using the invisible poison spikes on its veillike arms and legs, it paralyzes its enemies and causes them to drown.",
+   "category": "Floating Pokémon",
+   "height": 1.2,
+   "weight": 33.0,
+   "buddyKm": 3.0,
+   "family": "FRILLISH",
+   "evo": [
+    {
+     "candy": 50,
+     "to": "593-female"
+    }
+   ],
+   "order": 0.5,
+   "genderForm": true
   },
   {
    "id": "593",
    "dex": 593,
    "gen": 5,
    "name": "Jellicent",
-   "form": null,
+   "form": "Male",
    "types": [
     "Water",
     "Ghost"
    ],
    "img": "pm593",
-   "gender": "both",
+   "gender": "male",
    "released": true,
    "shiny": "2023-02-08",
    "desc": "Fishermen are terrified of Jellicent. It’s rumored to drag them into the sea and steal their lives away.",
@@ -19153,8 +19268,31 @@
    "weight": 135.0,
    "buddyKm": 3.0,
    "family": "FRILLISH",
-   "femaleImg": "pm593.fFEMALE",
-   "order": 0
+   "order": 0,
+   "genderForm": true
+  },
+  {
+   "id": "593-female",
+   "dex": 593,
+   "gen": 5,
+   "name": "Jellicent",
+   "form": "Female",
+   "types": [
+    "Water",
+    "Ghost"
+   ],
+   "img": "pm593.fFEMALE",
+   "gender": "female",
+   "released": true,
+   "shiny": "2023-02-08",
+   "desc": "Fishermen are terrified of Jellicent. It’s rumored to drag them into the sea and steal their lives away.",
+   "category": "Floating Pokémon",
+   "height": 2.2,
+   "weight": 135.0,
+   "buddyKm": 3.0,
+   "family": "FRILLISH",
+   "order": 0.5,
+   "genderForm": true
   },
   {
    "id": "594",
@@ -21846,6 +21984,11 @@
      "candy": 50,
      "gender": "male",
      "to": "668"
+    },
+    {
+     "candy": 50,
+     "gender": "female",
+     "to": "668-female"
     }
    ],
    "order": 0
@@ -21855,13 +21998,13 @@
    "dex": 668,
    "gen": 6,
    "name": "Pyroar",
-   "form": null,
+   "form": "Male",
    "types": [
     "Fire",
     "Normal"
    ],
    "img": "pm668",
-   "gender": "both",
+   "gender": "male",
    "released": true,
    "shiny": "2022-02-01",
    "desc": "The male with the largest mane of fire is the leader of the pride.",
@@ -21871,8 +22014,32 @@
    "buddyKm": 3.0,
    "family": "LITLEO",
    "megaLater": true,
-   "femaleImg": "pm668.fFEMALE",
-   "order": 0
+   "order": 0,
+   "genderForm": true
+  },
+  {
+   "id": "668-female",
+   "dex": 668,
+   "gen": 6,
+   "name": "Pyroar",
+   "form": "Female",
+   "types": [
+    "Fire",
+    "Normal"
+   ],
+   "img": "pm668.fFEMALE",
+   "gender": "female",
+   "released": true,
+   "shiny": "2022-02-01",
+   "desc": "The male with the largest mane of fire is the leader of the pride.",
+   "category": "Royal Pokémon",
+   "height": 1.5,
+   "weight": 81.5,
+   "buddyKm": 3.0,
+   "family": "LITLEO",
+   "megaLater": true,
+   "order": 0.5,
+   "genderForm": true
   },
   {
    "id": "669-red",
@@ -22595,6 +22762,11 @@
      "candy": 50,
      "gender": "male",
      "to": "678"
+    },
+    {
+     "candy": 50,
+     "gender": "female",
+     "to": "678-female"
     }
    ],
    "order": 0
@@ -22604,12 +22776,12 @@
    "dex": 678,
    "gen": 6,
    "name": "Meowstic",
-   "form": null,
+   "form": "Male",
    "types": [
     "Psychic"
    ],
    "img": "pm678",
-   "gender": "both",
+   "gender": "male",
    "released": true,
    "shiny": "2022-02-01",
    "desc": "When in danger, it raises its ears and releases enough psychic power to grind a 10-ton truck into dust.",
@@ -22619,8 +22791,31 @@
    "buddyKm": 3.0,
    "family": "ESPURR",
    "megaLater": true,
-   "femaleImg": "pm678.fFEMALE",
-   "order": 0
+   "order": 0,
+   "genderForm": true
+  },
+  {
+   "id": "678-female",
+   "dex": 678,
+   "gen": 6,
+   "name": "Meowstic",
+   "form": "Female",
+   "types": [
+    "Psychic"
+   ],
+   "img": "pm678.fFEMALE",
+   "gender": "female",
+   "released": true,
+   "shiny": "2022-02-01",
+   "desc": "When in danger, it raises its ears and releases enough psychic power to grind a 10-ton truck into dust.",
+   "category": "Constraint Pokémon",
+   "height": 0.6,
+   "weight": 8.5,
+   "buddyKm": 3.0,
+   "family": "ESPURR",
+   "megaLater": true,
+   "order": 0.5,
+   "genderForm": true
   },
   {
    "id": "679",
@@ -28213,24 +28408,46 @@
    "dex": 876,
    "gen": 8,
    "name": "Indeedee",
-   "form": null,
+   "form": "Male",
    "types": [
     "Psychic",
     "Normal"
    ],
    "img": "pm876.fMALE",
-   "gender": "both",
+   "gender": "male",
    "released": true,
    "shiny": "2025-09-16",
-   "default": true,
    "desc": "It uses the horns on its head to sense the emotions of others. Males will act as valets for those they serve, looking after their every need.",
    "category": "Emotion Pokémon",
    "height": 0.9,
    "weight": 28.0,
    "buddyKm": 3.0,
    "family": "INDEEDEE",
-   "femaleImg": "pm876.fFEMALE",
-   "order": 0
+   "order": 0,
+   "genderForm": true
+  },
+  {
+   "id": "876-female",
+   "dex": 876,
+   "gen": 8,
+   "name": "Indeedee",
+   "form": "Female",
+   "types": [
+    "Psychic",
+    "Normal"
+   ],
+   "img": "pm876.fFEMALE",
+   "gender": "female",
+   "released": true,
+   "shiny": "2025-09-16",
+   "desc": "It uses the horns on its head to sense the emotions of others. Males will act as valets for those they serve, looking after their every need.",
+   "category": "Emotion Pokémon",
+   "height": 0.9,
+   "weight": 28.0,
+   "buddyKm": 3.0,
+   "family": "INDEEDEE",
+   "order": 0.5,
+   "genderForm": true
   },
   {
    "id": "877-full-belly",
@@ -29192,6 +29409,11 @@
      "candy": 50,
      "gender": "male",
      "to": "916"
+    },
+    {
+     "candy": 50,
+     "gender": "female",
+     "to": "916-female"
     }
    ],
    "order": 0
@@ -29201,12 +29423,12 @@
    "dex": 916,
    "gen": 9,
    "name": "Oinkologne",
-   "form": null,
+   "form": "Male",
    "types": [
     "Normal"
    ],
    "img": "pm916",
-   "gender": "both",
+   "gender": "male",
    "released": true,
    "shiny": "2023-09-05",
    "desc": "Oinkologne is proud of its fine, glossy skin. It emits a concentrated scent from the tip of its tail.",
@@ -29215,9 +29437,30 @@
    "weight": 120.0,
    "buddyKm": 1.0,
    "family": "LECHONK",
-   "femaleImg": "pm916.fFEMALE",
-   "femaleDesc": "This Pokémon sends a flowerlike scent wafting about. Well-developed muscles in its legs allow it to leap more than 16 feet with no trouble at all.",
-   "order": 0
+   "order": 0,
+   "genderForm": true
+  },
+  {
+   "id": "916-female",
+   "dex": 916,
+   "gen": 9,
+   "name": "Oinkologne",
+   "form": "Female",
+   "types": [
+    "Normal"
+   ],
+   "img": "pm916.fFEMALE",
+   "gender": "female",
+   "released": true,
+   "shiny": "2023-09-05",
+   "desc": "This Pokémon sends a flowerlike scent wafting about. Well-developed muscles in its legs allow it to leap more than 16 feet with no trouble at all.",
+   "category": "Hog Pokémon",
+   "height": 1.0,
+   "weight": 120.0,
+   "buddyKm": 1.0,
+   "family": "LECHONK",
+   "order": 0.5,
+   "genderForm": true
   },
   {
    "id": "917",

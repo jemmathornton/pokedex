@@ -92,6 +92,10 @@ NOT_COSTUMES = {'pm150.cONE_YEAR_ANNIVERSARY', 'pm172.cFALL_2018', 'pm249.cONE_Y
 PICTURE_FORMS = {'pm150.fA': ('MEWTWO_A', 'Armored')}
 # one Pokémon, not forms: their forms only show once they evolve (her rule, 16 Nov)
 NO_FORMS = (664, 665, 744)
+# male and female fully different: two forms each (her pick, 18 Nov). Frillish, Jellicent, Pyroar, Meowstic, Indeedee and
+# Oinkologne are forms in the game files too; Unfezant, Hippopotas and Hippowdon only have a female picture. Basculegion
+# (902) belongs here once it's out in GO.
+GENDER_FORMS = (449, 450, 521, 592, 593, 668, 678, 876, 902, 916)
 # names for costumes the sources call by code only
 COSTUME_NAMES = {'COPY_2019': 'Clone', 'FEB_2019': 'Detective Hat', 'GOFEST_2021_NOEVOLVE': 'Meloetta Hat',
                  'COIN_A1': '9th Anniversary Coin', 'COIN_A2_2026': '10th Anniversary Coin'}   # Dittobase's names where Leek Duck has none (Detective Hat, Flygon's Meloetta Hat) or only "(9)" and "(10)" (the coin Gimmighouls)
@@ -623,7 +627,37 @@ def main():
             if e.get('evo'):
                 seen, e['evo'] = set(), [st for st in e['evo'] if not (st['to'] in seen or seen.add(st['to']))]
         entries[:] = [e for e in entries if e['id'] not in gone]
-    pics = {k: files.get(k) for e in entries + costumes for k in (e['img'], e['img'] + '.s', e.get('femaleImg'), (e.get('femaleImg') or '') + '.s') if k and k != '.s'}
+    # Pokémon whose male and female look fully different are two forms, Male and Female, each with its own boxes (her
+    # pick, 18 Nov: the six the game files keep as forms, plus Unfezant, Hippopotas and Hippowdon). The male stays under
+    # the old id (her ticks are on it); the female is <number>-female. Each evolves into its own gender; one before evolves
+    # into both, by gender
+    for n in GENDER_FORMS:
+        male = next((e for e in entries if e['dex'] == n and e.get('femaleImg')), None)
+        if not male:
+            continue
+        fem = {**male, 'id': f'{n}-female', 'form': 'Female', 'gender': 'female', 'img': male['femaleImg'],
+               'desc': male.get('femaleDesc') or male.get('desc'), 'order': male['order'] + 0.5}
+        for x in (male, fem):
+            x.pop('femaleImg', None)
+            x.pop('femaleDesc', None)
+            x.pop('default', None)
+            x['genderForm'] = True
+        male.update(form='Male', gender='male')
+        if male.get('evo'):   # same form to same form: no gender note on the step
+            male['evo'] = [{k: v for k, v in st.items() if k != 'gender'} for st in male['evo']]
+            fem['evo'] = [{**st, 'to': st['to'] + '-female' if int(st['to'].split('-')[0]) in GENDER_FORMS else st['to']} for st in male['evo']]
+        entries.insert(entries.index(male) + 1, fem)
+    for e in entries:
+        if e['dex'] in GENDER_FORMS or not e.get('evo'):
+            continue
+        evo = []
+        for st in e['evo']:
+            if int(st['to'].split('-')[0]) in GENDER_FORMS and st['to'].isdigit():
+                evo += [{**st, 'gender': 'male'}, {**st, 'to': st['to'] + '-female', 'gender': 'female'}]
+            else:
+                evo.append(st)
+        e['evo'] = evo
+    pics ={k: files.get(k) for e in entries + costumes for k in (e['img'], e['img'] + '.s', e.get('femaleImg'), (e.get('femaleImg') or '') + '.s') if k and k != '.s'}
     pics.update({k: files.get(k) for e in entries for m in e.get('mega') or [] for k in (m['img'], m['img'] + '.s')})   # the Mega pictures
     missing = sorted(k for k, v in pics.items() if not v)
 
