@@ -1139,7 +1139,7 @@ async function wantCopy(){
     : `${label} I’m looking for: ` + units.map(one).join(", ");
   try { await navigator.clipboard.writeText(text); toast("Copied: paste it into a message to a friend."); } catch (e) { toast("Couldn’t copy here."); }
 }
-// ---------- Events calendar (was Coming up, renamed 18 Nov, her point: it's more what's on) (TRIAL, her ask 16 Nov: upcoming events with details and what she needs to hunt) ----------
+// ---------- What’s on (was Coming up, then Events calendar; renamed 18 Nov, her point: it’s more what’s on, and “Events” clashed with Events and costumes) (TRIAL, her ask 16 Nov: upcoming events with details and what she needs to hunt) ----------
 // the next six weeks from Leek Duck (tools/import_events.py, via ScrapedDuck): each event with its dates and a link, and
 // the Pokémon it's known to have with what she still needs from each (new to her, shiny, Mega, Shadow, Dynamax,
 // Gigantamax); one bringing back a background of hers lists that background's Pokémon she hasn't got with it
@@ -1239,7 +1239,7 @@ function comingPage(){
   for (const [w, xs] of ws) html += section(weekName(new Date(w)), xs);
   if (season.length) html += section("This season", season);
   setRegion(null);
-  view.innerHTML = `<header class="hero withshot">${heroPics(ALL_MAPS())}<span class="label">Trial</span><h1>Events <em>calendar</em></h1>
+  view.innerHTML = `<header class="hero withshot">${heroPics(ALL_MAPS())}<span class="label">Trial</span><h1>What’s <em>on</em></h1>
     <p style="max-width:380px">What’s on in Pokémon GO over the next six weeks (from Leek Duck), and what you still need from each: the small icons say what. Checked ${dates(up.fetched || DATA.updated)}.</p></header>${readOnlyNote()}
     ${html ? `<div class="evlist">${html}</div>` : `<p class="empty">No events saved yet: run tools/import_events.py.</p>`}`;
 }
@@ -1250,7 +1250,7 @@ function navHtml(route){
   const out = ENTRIES.filter(e => e.released);
   nav.innerHTML = `<div class="nav-group">${link("#home", "house", "Home")}${link("#dex", "layout-grid", "Every Pokémon", groupByNumber(ENTRIES).length)}</div>
     <div class="nav-group"><span class="label">Regions</span>${GENS.map(([g, n]) => link("#gen-" + g, "layers", n, groupByNumber(ENTRIES.filter(e => e.gen === g)).length)).join("")}</div>
-    <div class="nav-group"><span class="label">More</span>${link("#sets", "ticket", "Events and costumes", allSets().length)}${link("#want", "search", "Looking for")}${link("#coming", "calendar", "Events calendar")}${link("#fast", "layout-grid", "Fast tick")}</div>`;
+    <div class="nav-group"><span class="label">More</span>${link("#sets", "ticket", "Events and costumes", allSets().length)}${link("#want", "search", "Looking for")}${link("#coming", "calendar", "What’s on")}${link("#fast", "layout-grid", "Fast tick")}</div>`;
 }
 
 function route(to){   // to: draw that page without changing the address (the tests' sweep over every page)
