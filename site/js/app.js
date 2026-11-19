@@ -1196,8 +1196,9 @@ function comingPage(){
   const kindChip = (ev, i) => `<span class="evkind">${esc(ev.type || "Event")}</span><span class="evlen">${esc(i.len)}</span>`;
   const evs = up.events.map(ev => {
     const i = info(ev), mons = ev.mons.filter(m => byId[m.id]);
-    const bgId = (up.backgrounds[ev.id] || {}).background, st = bgId && allSets().find(x => x.id === bgId);
-    const seenBg = new Set(), bgAll = st ? st.items.filter(it => it.bg && !seenBg.has(it.key) && seenBg.add(it.key)) : [];
+    const ub = up.backgrounds[ev.id] || {}, bgId = ub.background, st = bgId && allSets().find(x => x.id === bgId);
+    const only = ub.dex && ub.dex.length ? new Set(ub.dex) : null;   // only the ones that can get it at this event (19 Nov), not the whole background
+    const seenBg = new Set(), bgAll = st ? st.items.filter(it => it.bg && (!only || only.has(it.e.dex)) && !seenBg.has(it.key) && seenBg.add(it.key)) : [];
     bgAll.sort(dexOrder);   // Pokédex number order (her ask, 16 Nov)
     const want = mons.filter(m => upNeeds(m).length).length, bgs = bgAll.filter(it => !has(it.key, "c"));
     return {ev, i, mons, st, bgAll, bgs, want, full: !!(want || bgs.length)};

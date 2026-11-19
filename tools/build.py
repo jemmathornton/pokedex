@@ -50,6 +50,7 @@ def main():
             if s['to'] in by_id:
                 out += [s['to']] + evolved(s['to'])
         return out
+    can_get = {}   # event id -> the dex numbers that can get the background at that event (her point, 19 Nov: Pawniard Community Day showed all 38 of the year's Community Day Pokémon)
     for evid, m in (load('go', 'upcoming-backgrounds.json', default={}) or {}).items():
         if evid.startswith('_'):
             continue
@@ -63,6 +64,7 @@ def main():
             if not e:
                 problems.append(f'upcoming-backgrounds {evid}: no Pokémon called {n}'); continue
             for i in [e['id']] + evolved(e['id']):
+                can_get.setdefault(evid, set()).add(by_id[i]['dex'])
                 if target.get('cards') is not None:
                     if i not in target['cards']:
                         target['cards'].append(i)
@@ -87,7 +89,7 @@ def main():
             for a in m.get('as', []):
                 if m['id'] in by_id and not by_id[m['id']].get(flag[a]):
                     problems.append(f'{ev["name"]}: {by_id[m["id"]]["name"]} as {a}, which dex.json says it can’t be: add it to data/go/flag-fixes.json')
-    upbg = {k: {'background': v['background']} for k, v in (load('go', 'upcoming-backgrounds.json', default={}) or {}).items() if not k.startswith('_')}
+    upbg = {k: {'background': v['background'], 'dex': sorted(can_get.get(k, []))} for k, v in (load('go', 'upcoming-backgrounds.json', default={}) or {}).items() if not k.startswith('_')}
     out = {'game': 'go', 'updated': dex['updated'], 'entries': dex['entries'], 'costumes': costumes['costumes'],
            'upcoming': {'fetched': upcoming.get('fetched'), 'events': upcoming.get('events', []), 'backgrounds': upbg},
            'events': events, 'special': special, 'costumeEvents': cev, 'dexByName': names, 'sprites': sorted(have), 'bigSprites': sorted(big), 'backgrounds': sorted(bgs), 'collection': collection}
