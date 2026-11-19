@@ -25,6 +25,8 @@
   "135-holiday-2022",
   "135-november-2018",
   "135-spring-2023",
+  "136-holiday-2022",
+  "136-november-2018",
   "136-spring-2023",
   "142-summer-2023",
   "143-gofest-2022-noevolve",
@@ -161,11 +163,13 @@
   "26-halloween-2017",
   "26-holiday-2016",
   "26-holiday-2023",
+  "26-november-2018",
   "26-one-year-anniversary",
   "26-pi",
   "26-spring-2023",
   "26-summer-2018",
   "26-winter-2018",
+  "263-galarian-gofest-2021-noevolve",
   "265-jan-2020-noevolve",
   "281-fall-2020-noevolve",
   "282-gofest-2021-noevolve",
@@ -178,6 +182,7 @@
   "302-costume-2020",
   "31-royal-noevolve",
   "33-jan-2020-noevolve",
+  "330-gofest-2021-noevolve",
   "34-royal-noevolve",
   "355-fall-2022-noevolve",
   "356-fall-2022-noevolve",
@@ -248,6 +253,14 @@
   "700-november-2018",
   "700-spring-2023",
   "702-winter-2024",
+  "710-average-fall-2022",
+  "710-large-fall-2022",
+  "710-small-fall-2022",
+  "710-super-fall-2022",
+  "711-average-fall-2022",
+  "711-large-fall-2022",
+  "711-small-fall-2022",
+  "711-super-fall-2022",
   "714-halloween-2025",
   "715-halloween-2025",
   "722-fall-2024",
@@ -256,6 +269,7 @@
   "737-winter-2025",
   "738-winter-2025",
   "760-wildarea-2025",
+  "77-galarian-gofest-2021-noevolve",
   "77-spring-2023-valor",
   "78-spring-2023-valor",
   "79-2020",
@@ -287,6 +301,1356 @@
   "999-coin-a2-2026"
  ],
  "have": {
+  "b:go-fest-2023-london:384": [
+   "c"
+  ],
+  "b:go-fest-2023-london:488": [
+   "c"
+  ],
+  "b:go-fest-2023-london:716": [
+   "c"
+  ],
+  "b:go-fest-2023-london:717": [
+   "c"
+  ],
+  "b:go-fest-2024-madrid:792": [
+   "c"
+  ],
+  "b:go-fest-2024-madrid:793": [
+   "c"
+  ],
+  "b:go-fest-2024-madrid:795": [
+   "c"
+  ],
+  "b:go-fest-2024-madrid:798": [
+   "c"
+  ],
+  "b:go-fest-2024-madrid:799": [
+   "c"
+  ],
+  "b:go-fest-2024-madrid:800": [
+   "c",
+   "s"
+  ],
+  "b:go-fest-2024-madrid:806": [
+   "c"
+  ],
+  "b:go-fest-2025-paris:818": [
+   "c"
+  ],
+  "b:go-fest-2025-paris:888": [
+   "c"
+  ],
+  "b:go-fest-2025-paris:889": [
+   "c",
+   "s"
+  ],
+  "b:go-fest-2026-copenhagen:128-paldean-combat": [
+   "c",
+   "s"
+  ],
+  "b:go-fest-2026-copenhagen:146": [
+   "c"
+  ],
+  "b:go-fest-2026-copenhagen:150": [
+   "c"
+  ],
+  "b:go-fest-2026-copenhagen:77-spring-2023-valor": [
+   "c"
+  ],
+  "b:lego-collab-2026-uk-poland:25": [
+   "c"
+  ],
+  "b:sb-10th-anniversary-celebration-mewtwo:150": [
+   "c"
+  ],
+  "b:sb-10th-anniversary-gimmighoul-coin:999-coin-a2-2026": [
+   "c"
+  ],
+  "b:sb-2024-decembercdrecap:113": [
+   "c"
+  ],
+  "b:sb-2024-decembercdrecap:540": [
+   "c"
+  ],
+  "b:sb-2024-decembercdrecap:56": [
+   "c"
+  ],
+  "b:sb-2024-decembercdrecap:602": [
+   "c"
+  ],
+  "b:sb-2024-decembercdrecap:69": [
+   "c"
+  ],
+  "b:sb-2024-decembercdrecap:704": [
+   "c"
+  ],
+  "b:sb-2024-decembercdrecap:722": [
+   "c"
+  ],
+  "b:sb-2024-decembercdrecap:725": [
+   "c"
+  ],
+  "b:sb-2024-decembercdrecap:728": [
+   "c"
+  ],
+  "b:sb-2024-decembercdrecap:761": [
+   "c"
+  ],
+  "b:sb-2024-decembercdrecap:77": [
+   "c"
+  ],
+  "b:sb-2024-decembercdrecap:77-galarian": [
+   "c"
+  ],
+  "b:sb-9thanniversary:999-coin-a1": [
+   "c"
+  ],
+  "b:sb-community-2026:570": [
+   "c"
+  ],
+  "b:sb-community-2026:633": [
+   "c"
+  ],
+  "b:sb-community-2026:810": [
+   "c"
+  ],
+  "b:sb-community-2026:813": [
+   "c"
+  ],
+  "b:sb-community-2026:816": [
+   "c",
+   "s"
+  ],
+  "b:sb-community-2026:827": [
+   "c"
+  ],
+  "b:sb-community-2026:915": [
+   "c"
+  ],
+  "b:sb-community-2026:916": [
+   "c"
+  ],
+  "b:sb-community-2026:957": [
+   "c"
+  ],
+  "b:sb-community-2026:996": [
+   "c",
+   "s"
+  ],
+  "b:sb-community-2026:998": [
+   "c"
+  ],
+  "b:sb-concierge2025:54-swim-2025": [
+   "c"
+  ],
+  "b:sb-go-fest-2025-zacian:888": [
+   "c"
+  ],
+  "b:sb-go-fest-2025-zamazenta:889": [
+   "c"
+  ],
+  "b:sb-go-wild-area-2026-into-the-wild-go-wild-area-global:483": [
+   "c"
+  ],
+  "b:sb-go-wild-area-2026-into-the-wild-go-wild-area-global:484": [
+   "c"
+  ],
+  "b:sb-go-wild-area-2026-into-the-wild-go-wild-area-global:643": [
+   "c"
+  ],
+  "b:sb-go-wild-area-2026-into-the-wild-go-wild-area-global:644": [
+   "c"
+  ],
+  "b:sb-go-wild-area-2026-into-the-wild-go-wild-area-global:646": [
+   "c",
+   "s"
+  ],
+  "b:sb-go-wild-area-2026-into-the-wild-go-wild-area-global:68-wildarea-2026-01": [
+   "c"
+  ],
+  "b:sb-go-wild-area-2026-into-the-wild-go-wild-area-global:884": [
+   "c"
+  ],
+  "b:sb-go-wild-area-2026-into-the-wild-go-wild-area-global:888": [
+   "c"
+  ],
+  "b:sb-go-wild-area-2026-into-the-wild-go-wild-area-global:889": [
+   "c"
+  ],
+  "b:sb-gofest2024-radiance:791": [
+   "c"
+  ],
+  "b:sb-gofest2024-wormhole:794": [
+   "c",
+   "s"
+  ],
+  "b:sb-gofest2024-wormhole:796": [
+   "c"
+  ],
+  "b:sb-gofest2024-wormhole:797": [
+   "c"
+  ],
+  "b:sb-gofest2024-wormhole:798": [
+   "c"
+  ],
+  "b:sb-gofest2024-wormhole:800": [
+   "c"
+  ],
+  "b:sb-gofest2025-eternatus:138": [
+   "c"
+  ],
+  "b:sb-gofest2025-eternatus:140": [
+   "c"
+  ],
+  "b:sb-gofest2025-eternatus:143": [
+   "c"
+  ],
+  "b:sb-gofest2025-eternatus:25": [
+   "c"
+  ],
+  "b:sb-gofest2025-eternatus:320": [
+   "c"
+  ],
+  "b:sb-gofest2025-eternatus:349": [
+   "c"
+  ],
+  "b:sb-gofest2025-eternatus:415": [
+   "c"
+  ],
+  "b:sb-gofest2025-eternatus:519": [
+   "c"
+  ],
+  "b:sb-gofest2025-eternatus:554": [
+   "c"
+  ],
+  "b:sb-gofest2025-eternatus:66": [
+   "c"
+  ],
+  "b:sb-gofest2025-eternatus:68": [
+   "c"
+  ],
+  "b:sb-gofest2025-eternatus:761": [
+   "c"
+  ],
+  "b:sb-gofest2025-eternatus:810": [
+   "c"
+  ],
+  "b:sb-gofest2025-eternatus:821": [
+   "c"
+  ],
+  "b:sb-gofest2025-eternatus:849-amped": [
+   "c"
+  ],
+  "b:sb-gofest2025-eternatus:849-low-key": [
+   "c"
+  ],
+  "b:sb-gofest2025-eternatus:9": [
+   "c"
+  ],
+  "b:sb-gofest2025:377": [
+   "c"
+  ],
+  "b:sb-gofest2025:378": [
+   "c"
+  ],
+  "b:sb-gofest2025:379": [
+   "c"
+  ],
+  "b:sb-gofest2025:486": [
+   "c"
+  ],
+  "b:sb-gofest2025:894": [
+   "c"
+  ],
+  "b:sb-gofest2025:895": [
+   "c"
+  ],
+  "b:sb-gofest2026-global:649-douse": [
+   "c"
+  ],
+  "b:sb-gofest2026-global:793": [
+   "c"
+  ],
+  "b:sb-gofest2026-global:795": [
+   "c"
+  ],
+  "b:sb-gofest2026-global:800": [
+   "c"
+  ],
+  "b:sb-gofest2026-global:805": [
+   "c"
+  ],
+  "b:sb-gofest2026-global:806": [
+   "c"
+  ],
+  "b:sb-gofest2026-global:888": [
+   "c"
+  ],
+  "b:sb-gofest2026-global:889": [
+   "c"
+  ],
+  "b:sb-gofest2026-mewtwo:150": [
+   "c"
+  ],
+  "b:sb-gotour2025-black:501": [
+   "c"
+  ],
+  "b:sb-gotour2025-black:643": [
+   "c"
+  ],
+  "b:sb-gotour2025-black:646": [
+   "c"
+  ],
+  "b:sb-gotour2025-enigma:509": [
+   "c"
+  ],
+  "b:sb-gotour2025-enigma:519": [
+   "c"
+  ],
+  "b:sb-gotour2025-enigma:525": [
+   "c"
+  ],
+  "b:sb-gotour2025-enigma:527": [
+   "c"
+  ],
+  "b:sb-gotour2025-enigma:532": [
+   "c"
+  ],
+  "b:sb-gotour2025-enigma:535": [
+   "c"
+  ],
+  "b:sb-gotour2025-enigma:551": [
+   "c"
+  ],
+  "b:sb-gotour2025-enigma:555-standard": [
+   "c"
+  ],
+  "b:sb-gotour2025-enigma:559": [
+   "c"
+  ],
+  "b:sb-gotour2025-enigma:561": [
+   "c"
+  ],
+  "b:sb-gotour2025-enigma:570": [
+   "c"
+  ],
+  "b:sb-gotour2025-enigma:595": [
+   "c"
+  ],
+  "b:sb-gotour2025-enigma:597": [
+   "c"
+  ],
+  "b:sb-gotour2025-white:501": [
+   "c"
+  ],
+  "b:sb-gotour2025-white:646": [
+   "c"
+  ],
+  "b:sb-gotour2025-white:646-white": [
+   "c"
+  ],
+  "b:sb-gotour2026-mega:149": [
+   "c"
+  ],
+  "b:sb-gotour2026-mega:448": [
+   "c"
+  ],
+  "b:sb-gotour2026-mega:653": [
+   "c"
+  ],
+  "b:sb-gotour2026-mega:655": [
+   "c"
+  ],
+  "b:sb-gotour2026-mega:656": [
+   "c"
+  ],
+  "b:sb-gotour2026-mega:687": [
+   "c"
+  ],
+  "b:sb-gotour2026-mega:71": [
+   "c",
+   "s"
+  ],
+  "b:sb-gotour2026-mega:870": [
+   "c"
+  ],
+  "b:sb-gotour2026-pearl:484": [
+   "c"
+  ],
+  "b:sb-gotour2026-sapphire:25-gotour-2023-hat-noevolve": [
+   "c"
+  ],
+  "b:sb-gotour2026-silver:25-gotour-2026-b": [
+   "c"
+  ],
+  "b:sb-gotour2026-x:25-gotour-2026-c": [
+   "c"
+  ],
+  "b:sb-gotour2026-x:653": [
+   "c"
+  ],
+  "b:sb-gotour2026-y:653": [
+   "c"
+  ],
+  "b:sb-gotour2026-y:717": [
+   "c"
+  ],
+  "b:sb-gowa-fukuoka:849-low-key": [
+   "c"
+  ],
+  "b:sb-pokopia:131": [
+   "c"
+  ],
+  "b:sb-pokopia:132-spring-2026-a": [
+   "c"
+  ],
+  "b:sb-pokopia:132-spring-2026-b": [
+   "c"
+  ],
+  "b:sb-pokopia:143": [
+   "c"
+  ],
+  "b:sb-pokopia:149": [
+   "c"
+  ],
+  "b:sb-s24-sep-2026:4-goggles-2026": [
+   "c"
+  ],
+  "b:sb-season17-dueldestiny:280": [
+   "c"
+  ],
+  "b:sb-season17-dueldestiny:906": [
+   "c"
+  ],
+  "b:sb-season18-mightandmastery:158": [
+   "c"
+  ],
+  "b:sb-season18-mightandmastery:582": [
+   "c"
+  ],
+  "b:sb-season18-mightandmastery:909": [
+   "c"
+  ],
+  "b:sb-season18-mightandmastery:921": [
+   "c"
+  ],
+  "b:sb-season18-mightandmastery:935": [
+   "c"
+  ],
+  "b:sb-season19-delightfuldays:133": [
+   "c"
+  ],
+  "b:sb-season19-delightfuldays:144": [
+   "c"
+  ],
+  "b:sb-season19-delightfuldays:145": [
+   "c"
+  ],
+  "b:sb-season19-delightfuldays:782": [
+   "c"
+  ],
+  "b:sb-season19-delightfuldays:815": [
+   "c"
+  ],
+  "b:sb-season19-delightfuldays:821": [
+   "c"
+  ],
+  "b:sb-season19-delightfuldays:912": [
+   "c"
+  ],
+  "b:sb-season20-talesoftransformation:152": [
+   "c"
+  ],
+  "b:sb-season20-talesoftransformation:639": [
+   "c"
+  ],
+  "b:sb-season20-talesoftransformation:640": [
+   "c"
+  ],
+  "b:sb-season20-talesoftransformation:669-red": [
+   "c"
+  ],
+  "b:sb-season20-talesoftransformation:731": [
+   "c"
+  ],
+  "b:sb-season20-talesoftransformation:733": [
+   "c",
+   "s"
+  ],
+  "b:sb-teamleader-blue:131-spring-2023-mystic": [
+   "c"
+  ],
+  "b:sb-teamleader-red:25-gotour-2026-a": [
+   "c"
+  ],
+  "b:sb-teamleader-red:77-spring-2023-valor": [
+   "c"
+  ],
+  "b:sb-teamleader-yellow:1": [
+   "c"
+  ],
+  "b:sb-teamleader-yellow:1-jan-2020-noevolve": [
+   "c"
+  ],
+  "b:sb-teamleader-yellow:155": [
+   "c"
+  ],
+  "b:sb-teamleader-yellow:239-spring-2023-instinct": [
+   "c"
+  ],
+  "b:sb-teamleader-yellow:25-anniversary-2026": [
+   "c"
+  ],
+  "b:sb-teamleader-yellow:393": [
+   "c"
+  ],
+  "b:sb-teamleader-yellow:4": [
+   "c"
+  ],
+  "b:sb-teamleader-yellow:4-jan-2020-noevolve": [
+   "c"
+  ],
+  "b:sb-teamleader-yellow:7": [
+   "c"
+  ],
+  "b:sb-teamleader-yellow:7-jan-2020-noevolve": [
+   "c"
+  ],
+  "b:sb-teamleader-yellow:722": [
+   "c"
+  ],
+  "b:sb-teamleader-yellow:725": [
+   "c"
+  ],
+  "b:sb-teamleader-yellow:728": [
+   "c"
+  ],
+  "b:sb-teamleader-yellow:813": [
+   "c"
+  ],
+  "b:sb-teamleader-yellow:816": [
+   "c"
+  ],
+  "b:sb-teamleader-yellow:906": [
+   "c"
+  ],
+  "b:sb-teamleader-yellow:909": [
+   "c"
+  ],
+  "b:sb-teamleader-yellow:912": [
+   "c"
+  ],
+  "c:1-fall-2019": [
+   "c"
+  ],
+  "c:1-jan-2020-noevolve": [
+   "c"
+  ],
+  "c:1-spring-2020-noevolve": [
+   "c"
+  ],
+  "c:10-gofest-2026": [
+   "c",
+   "s"
+  ],
+  "c:104-fall-2023": [
+   "c"
+  ],
+  "c:113-november-2018": [
+   "c"
+  ],
+  "c:12-fashion-2021-noevolve": [
+   "c",
+   "s"
+  ],
+  "c:131-costume-2020": [
+   "c",
+   "s"
+  ],
+  "c:131-spring-2023-mystic": [
+   "c"
+  ],
+  "c:132-spring-2026-a": [
+   "c"
+  ],
+  "c:132-spring-2026-b": [
+   "c"
+  ],
+  "c:133-gofest-2024-mtiara": [
+   "c",
+   "s"
+  ],
+  "c:133-gofest-2024-stiara": [
+   "c",
+   "s"
+  ],
+  "c:133-holiday-2022": [
+   "c"
+  ],
+  "c:133-jan-2020-noevolve": [
+   "c"
+  ],
+  "c:133-november-2018": [
+   "c"
+  ],
+  "c:133-spring-2023": [
+   "c"
+  ],
+  "c:134-holiday-2022": [
+   "c"
+  ],
+  "c:134-november-2018": [
+   "c"
+  ],
+  "c:134-spring-2023": [
+   "c"
+  ],
+  "c:135-holiday-2022": [
+   "c"
+  ],
+  "c:135-november-2018": [
+   "c"
+  ],
+  "c:135-spring-2023": [
+   "c"
+  ],
+  "c:136-holiday-2022": [
+   "c"
+  ],
+  "c:136-november-2018": [
+   "c"
+  ],
+  "c:136-spring-2023": [
+   "c"
+  ],
+  "c:142-summer-2023": [
+   "c",
+   "s"
+  ],
+  "c:143-gofest-2022-noevolve": [
+   "c",
+   "s"
+  ],
+  "c:143-nightcap": [
+   "c"
+  ],
+  "c:143-wildarea-2024": [
+   "c"
+  ],
+  "c:149-fall-2023": [
+   "c"
+  ],
+  "c:163-jan-2022-noevolve": [
+   "c",
+   "s"
+  ],
+  "c:172-anniversary": [
+   "c",
+   "s"
+  ],
+  "c:172-halloween-2017": [
+   "c"
+  ],
+  "c:172-holiday-2016": [
+   "c"
+  ],
+  "c:172-november-2018": [
+   "c",
+   "s"
+  ],
+  "c:172-one-year-anniversary": [
+   "c"
+  ],
+  "c:172-summer-2018": [
+   "c"
+  ],
+  "c:175-april-2020-noevolve": [
+   "c"
+  ],
+  "c:176-april-2020-noevolve": [
+   "c"
+  ],
+  "c:185-winter-2025": [
+   "c"
+  ],
+  "c:194-fall-2023": [
+   "c"
+  ],
+  "c:196-gofest-2024-sscarf": [
+   "c",
+   "s"
+  ],
+  "c:196-november-2018": [
+   "c"
+  ],
+  "c:196-spring-2023": [
+   "c"
+  ],
+  "c:197-gofest-2024-mscarf": [
+   "c",
+   "s"
+  ],
+  "c:197-november-2018": [
+   "c"
+  ],
+  "c:197-spring-2023": [
+   "c"
+  ],
+  "c:199-2022": [
+   "c"
+  ],
+  "c:20-jan-2020-noevolve": [
+   "c"
+  ],
+  "c:202-jan-2020-noevolve": [
+   "c"
+  ],
+  "c:215-fashion-2021-noevolve": [
+   "c"
+  ],
+  "c:216-halloween-2025": [
+   "c"
+  ],
+  "c:222-spring-2026": [
+   "c"
+  ],
+  "c:225-winter-2020": [
+   "c",
+   "s"
+  ],
+  "c:234-winter-2018": [
+   "c",
+   "s"
+  ],
+  "c:238-fall-2020-noevolve": [
+   "c"
+  ],
+  "c:239-spring-2023-instinct": [
+   "c"
+  ],
+  "c:242-november-2018": [
+   "c"
+  ],
+  "c:25-adventure-hat-2020": [
+   "c"
+  ],
+  "c:25-anniversary": [
+   "c",
+   "s"
+  ],
+  "c:25-anniversary-2022-noevolve": [
+   "c",
+   "s"
+  ],
+  "c:25-anniversary-2026": [
+   "c"
+  ],
+  "c:25-april-2020-noevolve": [
+   "c"
+  ],
+  "c:25-costume-1": [
+   "c"
+  ],
+  "c:25-costume-2": [
+   "c"
+  ],
+  "c:25-costume-2020": [
+   "c"
+  ],
+  "c:25-fall-2018": [
+   "c"
+  ],
+  "c:25-fall-2019": [
+   "c",
+   "s"
+  ],
+  "c:25-fall-2023-noevolve": [
+   "c"
+  ],
+  "c:25-feb-2019": [
+   "c"
+  ],
+  "c:25-flying-5th-anniv": [
+   "c"
+  ],
+  "c:25-glass-helmet-2026": [
+   "c"
+  ],
+  "c:25-gofest-2021-noevolve": [
+   "c"
+  ],
+  "c:25-gofest-2022": [
+   "c",
+   "s"
+  ],
+  "c:25-gofest-2022-noevolve": [
+   "c"
+  ],
+  "c:25-gofest-2024-mtiara": [
+   "c",
+   "s"
+  ],
+  "c:25-gofest-2024-stiara": [
+   "c",
+   "s"
+  ],
+  "c:25-gofest-2025-goggles-blue": [
+   "c",
+   "s"
+  ],
+  "c:25-gofest-2025-goggles-red": [
+   "c",
+   "s"
+  ],
+  "c:25-gofest-2025-goggles-yellow": [
+   "c",
+   "s"
+  ],
+  "c:25-gofest-2025-monocle-blue": [
+   "c",
+   "s"
+  ],
+  "c:25-gofest-2025-monocle-red": [
+   "c",
+   "s"
+  ],
+  "c:25-gofest-2025-monocle-yellow": [
+   "c",
+   "s"
+  ],
+  "c:25-gofest-2026-cap-blue": [
+   "c",
+   "s"
+  ],
+  "c:25-gofest-2026-cap-red": [
+   "c",
+   "s"
+  ],
+  "c:25-gofest-2026-cap-yellow": [
+   "c",
+   "s"
+  ],
+  "c:25-gotour-2023-bandana-noevolve": [
+   "c",
+   "s"
+  ],
+  "c:25-gotour-2023-hat-noevolve": [
+   "c",
+   "s"
+  ],
+  "c:25-gotour-2024-a": [
+   "c",
+   "s"
+  ],
+  "c:25-gotour-2024-a-02": [
+   "c",
+   "s"
+  ],
+  "c:25-gotour-2024-b": [
+   "c",
+   "s"
+  ],
+  "c:25-gotour-2024-b-02": [
+   "c",
+   "s"
+  ],
+  "c:25-gotour-2025-a": [
+   "c",
+   "s"
+  ],
+  "c:25-gotour-2025-a-02": [
+   "c",
+   "s"
+  ],
+  "c:25-gotour-2025-b": [
+   "c",
+   "s"
+  ],
+  "c:25-gotour-2025-b-02": [
+   "c",
+   "s"
+  ],
+  "c:25-gotour-2026-a": [
+   "c"
+  ],
+  "c:25-gotour-2026-a-02": [
+   "c"
+  ],
+  "c:25-gotour-2026-b": [
+   "c"
+  ],
+  "c:25-gotour-2026-b-02": [
+   "c"
+  ],
+  "c:25-gotour-2026-c": [
+   "c",
+   "s"
+  ],
+  "c:25-gotour-2026-c-02": [
+   "c",
+   "s"
+  ],
+  "c:25-halloween-2017": [
+   "c"
+  ],
+  "c:25-halloween-2021-noevolve": [
+   "c",
+   "s"
+  ],
+  "c:25-halloween-2026": [
+   "c"
+  ],
+  "c:25-hoenn-2020-noevolve": [
+   "c"
+  ],
+  "c:25-holiday-2016": [
+   "c",
+   "s"
+  ],
+  "c:25-holiday-2023": [
+   "c"
+  ],
+  "c:25-horizons": [
+   "c",
+   "s"
+  ],
+  "c:25-jan-2020-noevolve": [
+   "c"
+  ],
+  "c:25-jan-2023-noevolve": [
+   "c"
+  ],
+  "c:25-johto-2020-noevolve": [
+   "c"
+  ],
+  "c:25-kanto-2020-noevolve": [
+   "c"
+  ],
+  "c:25-may-2019-noevolve": [
+   "c"
+  ],
+  "c:25-november-2018": [
+   "c"
+  ],
+  "c:25-one-year-anniversary": [
+   "c"
+  ],
+  "c:25-pi": [
+   "c"
+  ],
+  "c:25-pop-star": [
+   "c"
+  ],
+  "c:25-pxp-2026": [
+   "c"
+  ],
+  "c:25-rock-star": [
+   "c"
+  ],
+  "c:25-safari-2020-noevolve": [
+   "c",
+   "s"
+  ],
+  "c:25-sinnoh-2020-noevolve": [
+   "c"
+  ],
+  "c:25-spring-2023": [
+   "c",
+   "s"
+  ],
+  "c:25-summer-2018": [
+   "c"
+  ],
+  "c:25-summer-2023-a": [
+   "c",
+   "s"
+  ],
+  "c:25-summer-2023-b": [
+   "c",
+   "s"
+  ],
+  "c:25-summer-2023-c": [
+   "c",
+   "s"
+  ],
+  "c:25-summer-2023-d": [
+   "c",
+   "s"
+  ],
+  "c:25-summer-2023-e": [
+   "c",
+   "s"
+  ],
+  "c:25-tcg-2022-noevolve": [
+   "c",
+   "s"
+  ],
+  "c:25-visor-2026": [
+   "c"
+  ],
+  "c:25-vs-2019": [
+   "c"
+  ],
+  "c:25-wcs-2022": [
+   "c"
+  ],
+  "c:25-wcs-2023": [
+   "c"
+  ],
+  "c:25-wcs-2024": [
+   "c"
+  ],
+  "c:25-wcs-2025": [
+   "c"
+  ],
+  "c:25-wcs-2026": [
+   "c"
+  ],
+  "c:25-winter-2018": [
+   "c",
+   "s"
+  ],
+  "c:25-winter-2020": [
+   "c"
+  ],
+  "c:26-anniversary": [
+   "c"
+  ],
+  "c:26-costume-1": [
+   "c"
+  ],
+  "c:26-costume-2": [
+   "c"
+  ],
+  "c:26-fall-2018": [
+   "c"
+  ],
+  "c:26-feb-2019": [
+   "c"
+  ],
+  "c:26-halloween-2017": [
+   "c"
+  ],
+  "c:26-holiday-2016": [
+   "c"
+  ],
+  "c:26-holiday-2023": [
+   "c"
+  ],
+  "c:26-november-2018": [
+   "c"
+  ],
+  "c:26-one-year-anniversary": [
+   "c"
+  ],
+  "c:26-pi": [
+   "c"
+  ],
+  "c:26-spring-2023": [
+   "c"
+  ],
+  "c:26-summer-2018": [
+   "c"
+  ],
+  "c:26-winter-2018": [
+   "c"
+  ],
+  "c:263-galarian-gofest-2021-noevolve": [
+   "c"
+  ],
+  "c:265-jan-2020-noevolve": [
+   "c",
+   "s"
+  ],
+  "c:281-fall-2020-noevolve": [
+   "c",
+   "s"
+  ],
+  "c:282-gofest-2021-noevolve": [
+   "c"
+  ],
+  "c:287-summer-2024": [
+   "c"
+  ],
+  "c:3-copy-2019": [
+   "c"
+  ],
+  "c:302-costume-2020": [
+   "c"
+  ],
+  "c:31-royal-noevolve": [
+   "c"
+  ],
+  "c:33-jan-2020-noevolve": [
+   "c"
+  ],
+  "c:330-gofest-2021-noevolve": [
+   "c"
+  ],
+  "c:34-royal-noevolve": [
+   "c"
+  ],
+  "c:355-fall-2022-noevolve": [
+   "c"
+  ],
+  "c:356-fall-2022-noevolve": [
+   "c"
+  ],
+  "c:359-fall-2022-noevolve": [
+   "c",
+   "s"
+  ],
+  "c:363-holiday-2021-noevolve": [
+   "c"
+  ],
+  "c:37-fall-2022": [
+   "c",
+   "s"
+  ],
+  "c:38-fall-2022": [
+   "c"
+  ],
+  "c:387-gems-1-2021-noevolve": [
+   "c"
+  ],
+  "c:387-gems-2-2021-noevolve": [
+   "c"
+  ],
+  "c:39-jan-2024": [
+   "c",
+   "s"
+  ],
+  "c:390-gems-1-2021-noevolve": [
+   "c"
+  ],
+  "c:390-gems-2-2021-noevolve": [
+   "c"
+  ],
+  "c:393-gems-1-2021-noevolve": [
+   "c",
+   "s"
+  ],
+  "c:393-gems-2-2021-noevolve": [
+   "c",
+   "s"
+  ],
+  "c:393-halloween-2021-noevolve": [
+   "c",
+   "s"
+  ],
+  "c:4-fall-2019": [
+   "c"
+  ],
+  "c:4-goggles-2026": [
+   "c",
+   "s"
+  ],
+  "c:4-jan-2020-noevolve": [
+   "c"
+  ],
+  "c:4-spring-2020-noevolve": [
+   "c",
+   "s"
+  ],
+  "c:403-fall-2020-noevolve": [
+   "c",
+   "s"
+  ],
+  "c:41-halloween-2026-01": [
+   "c"
+  ],
+  "c:426-halloween-2021-noevolve": [
+   "c"
+  ],
+  "c:427-april-2020-noevolve": [
+   "c"
+  ],
+  "c:428-april-2020-noevolve": [
+   "c",
+   "s"
+  ],
+  "c:440-november-2018": [
+   "c"
+  ],
+  "c:453-fall-2020-noevolve": [
+   "c",
+   "s"
+  ],
+  "c:454-fall-2020-noevolve": [
+   "c"
+  ],
+  "c:468-april-2020-noevolve": [
+   "c"
+  ],
+  "c:470-november-2018": [
+   "c"
+  ],
+  "c:470-spring-2023": [
+   "c"
+  ],
+  "c:471-holiday-2021-noevolve": [
+   "c"
+  ],
+  "c:471-november-2018": [
+   "c"
+  ],
+  "c:477-fall-2022-noevolve": [
+   "c"
+  ],
+  "c:5-jan-2020-noevolve": [
+   "c"
+  ],
+  "c:50-fall-2022": [
+   "c"
+  ],
+  "c:51-fall-2022": [
+   "c"
+  ],
+  "c:522-fashion-2021-noevolve": [
+   "c"
+  ],
+  "c:54-holiday-2023": [
+   "c"
+  ],
+  "c:54-swim-2025": [
+   "c"
+  ],
+  "c:546-spring-2024": [
+   "c",
+   "s"
+  ],
+  "c:572-fashion-2025": [
+   "c"
+  ],
+  "c:6-copy-2019": [
+   "c"
+  ],
+  "c:6-goggles-2026": [
+   "c"
+  ],
+  "c:6-jan-2020-noevolve": [
+   "c"
+  ],
+  "c:6-spring-2020-noevolve": [
+   "c"
+  ],
+  "c:613-winter-2020": [
+   "c"
+  ],
+  "c:656-fall-2024": [
+   "c"
+  ],
+  "c:68-wildarea-2026-01": [
+   "c"
+  ],
+  "c:7-fall-2019": [
+   "c"
+  ],
+  "c:7-jan-2020-noevolve": [
+   "c"
+  ],
+  "c:7-spring-2020-noevolve": [
+   "c",
+   "s"
+  ],
+  "c:7-summer-2018": [
+   "c",
+   "s"
+  ],
+  "c:700-november-2018": [
+   "c"
+  ],
+  "c:702-winter-2024": [
+   "c"
+  ],
+  "c:710-average-fall-2022": [
+   "c"
+  ],
+  "c:710-large-fall-2022": [
+   "c",
+   "s"
+  ],
+  "c:710-small-fall-2022": [
+   "c",
+   "s"
+  ],
+  "c:710-super-fall-2022": [
+   "c"
+  ],
+  "c:714-halloween-2025": [
+   "c",
+   "s"
+  ],
+  "c:722-fall-2024": [
+   "c",
+   "s"
+  ],
+  "c:737-winter-2025": [
+   "c"
+  ],
+  "c:760-wildarea-2025": [
+   "c"
+  ],
+  "c:77-galarian-gofest-2021-noevolve": [
+   "c"
+  ],
+  "c:77-spring-2023-valor": [
+   "c"
+  ],
+  "c:79-2020": [
+   "c"
+  ],
+  "c:79-pi-noevolve": [
+   "c",
+   "s"
+  ],
+  "c:8-summer-2018": [
+   "c",
+   "s"
+  ],
+  "c:80-2021": [
+   "c"
+  ],
+  "c:831-winter-2024": [
+   "c"
+  ],
+  "c:854-p-halloween-2026-01": [
+   "c"
+  ],
+  "c:870-gofest-2025-train-conductor": [
+   "c",
+   "s"
+  ],
+  "c:88-anniversary-2024": [
+   "c"
+  ],
+  "c:9-jan-2020-noevolve": [
+   "c"
+  ],
+  "c:907-horizons-2025-noevolve": [
+   "c",
+   "s"
+  ],
+  "c:94-costume-2020": [
+   "c"
+  ],
+  "c:94-fall-2022-noevolve": [
+   "c"
+  ],
+  "c:94-fall-2023-noevolve": [
+   "c"
+  ],
+  "c:94-jan-2020-noevolve": [
+   "c",
+   "s"
+  ],
+  "c:999-coin-a1": [
+   "c"
+  ],
+  "c:999-coin-a2-2026": [
+   "c"
+  ],
   "d:1": [
    "c",
    "cf",
@@ -316,10 +1680,22 @@
    "l",
    "s",
    "sd",
+   "xl"
+  ],
+  "d:100-hisuian": [
+   "c",
+   "h",
+   "l",
+   "s",
    "xl",
    "xs"
   ],
   "d:101": [
+   "c",
+   "l",
+   "s"
+  ],
+  "d:101-hisuian": [
    "c",
    "l",
    "s"
@@ -339,6 +1715,13 @@
    "xl"
   ],
   "d:103": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "s"
+  ],
+  "d:103-alolan": [
    "c",
    "cf",
    "cm",
@@ -365,6 +1748,14 @@
    "h",
    "l",
    "s"
+  ],
+  "d:105-alolan": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "s",
+   "xl"
   ],
   "d:106": [
    "c",
@@ -414,6 +1805,13 @@
    "s",
    "sd",
    "xl"
+  ],
+  "d:110-galarian": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
   ],
   "d:111": [
    "c",
@@ -518,6 +1916,13 @@
    "s",
    "xs"
   ],
+  "d:122-galarian": [
+   "c",
+   "cf",
+   "cm",
+   "s",
+   "xs"
+  ],
   "d:123": [
    "c",
    "cf",
@@ -566,6 +1971,15 @@
    "c",
    "cm",
    "l",
+   "s"
+  ],
+  "d:128-paldean-aqua": [
+   "c",
+   "cm"
+  ],
+  "d:128-paldean-combat": [
+   "c",
+   "cm",
    "s"
   ],
   "d:129": [
@@ -722,6 +2136,10 @@
    "s",
    "sd"
   ],
+  "d:144-galarian": [
+   "c",
+   "s"
+  ],
   "d:145": [
    "c",
    "l",
@@ -733,6 +2151,10 @@
    "l",
    "s",
    "sd"
+  ],
+  "d:146-galarian": [
+   "c",
+   "s"
   ],
   "d:147": [
    "c",
@@ -825,6 +2247,11 @@
    "cm",
    "s",
    "sd"
+  ],
+  "d:157-hisuian": [
+   "c",
+   "cm",
+   "s"
   ],
   "d:158": [
    "c",
@@ -1117,6 +2544,15 @@
    "xl",
    "xs"
   ],
+  "d:19-alolan": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd",
+   "xs"
+  ],
   "d:190": [
    "c",
    "cf",
@@ -1157,6 +2593,15 @@
    "pu",
    "s",
    "sd",
+   "xl",
+   "xs"
+  ],
+  "d:194-paldean": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
    "xl",
    "xs"
   ],
@@ -1218,6 +2663,14 @@
    "sd",
    "xs"
   ],
+  "d:20-alolan": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd"
+  ],
   "d:200": [
    "c",
    "cf",
@@ -1227,13 +2680,140 @@
    "s",
    "sd"
   ],
-  "d:201-f": [
+  "d:201-a": [
    "c",
-   "h",
-   "l",
    "s",
    "xl",
    "xs"
+  ],
+  "d:201-b": [
+   "c",
+   "s"
+  ],
+  "d:201-c": [
+   "c",
+   "s"
+  ],
+  "d:201-d": [
+   "c",
+   "s"
+  ],
+  "d:201-e": [
+   "c",
+   "s",
+   "xs"
+  ],
+  "d:201-exclamation": [
+   "c",
+   "s",
+   "xl"
+  ],
+  "d:201-f": [
+   "c",
+   "s"
+  ],
+  "d:201-g": [
+   "c",
+   "s"
+  ],
+  "d:201-h": [
+   "c",
+   "s",
+   "xs"
+  ],
+  "d:201-i": [
+   "c",
+   "s",
+   "xl"
+  ],
+  "d:201-j": [
+   "c",
+   "s"
+  ],
+  "d:201-k": [
+   "c",
+   "s",
+   "xs"
+  ],
+  "d:201-l": [
+   "c",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:201-m": [
+   "c",
+   "s"
+  ],
+  "d:201-n": [
+   "c",
+   "s"
+  ],
+  "d:201-o": [
+   "c",
+   "h",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:201-p": [
+   "c",
+   "s"
+  ],
+  "d:201-q": [
+   "c",
+   "s"
+  ],
+  "d:201-question": [
+   "c",
+   "s",
+   "xs"
+  ],
+  "d:201-r": [
+   "c",
+   "s"
+  ],
+  "d:201-s": [
+   "c",
+   "l",
+   "s",
+   "xs"
+  ],
+  "d:201-t": [
+   "c",
+   "h",
+   "s",
+   "xs"
+  ],
+  "d:201-u": [
+   "c",
+   "h",
+   "s",
+   "xl"
+  ],
+  "d:201-v": [
+   "c",
+   "s",
+   "xl"
+  ],
+  "d:201-w": [
+   "c",
+   "s",
+   "xl"
+  ],
+  "d:201-x": [
+   "c",
+   "s",
+   "xl"
+  ],
+  "d:201-y": [
+   "c",
+   "s",
+   "xl"
+  ],
+  "d:201-z": [
+   "c",
+   "s"
   ],
   "d:202": [
    "c",
@@ -1324,7 +2904,13 @@
    "cm",
    "h",
    "s",
-   "sd",
+   "sd"
+  ],
+  "d:211-hisuian": [
+   "c",
+   "cf",
+   "cm",
+   "s",
    "xl",
    "xs"
   ],
@@ -1332,6 +2918,7 @@
    "c",
    "cf",
    "cm",
+   "h",
    "l",
    "mg",
    "s",
@@ -1360,8 +2947,17 @@
    "cf",
    "cm",
    "dx",
-   "h",
    "l",
+   "s",
+   "sd",
+   "xl",
+   "xs"
+  ],
+  "d:215-hisuian": [
+   "c",
+   "cf",
+   "cm",
+   "h",
    "s",
    "sd",
    "xs"
@@ -1427,6 +3023,11 @@
    "cm",
    "l",
    "s"
+  ],
+  "d:222-galarian": [
+   "c",
+   "cf",
+   "cm"
   ],
   "d:223": [
    "c",
@@ -1746,6 +3347,12 @@
    "my",
    "s"
   ],
+  "d:26-alolan": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
   "d:260": [
    "c",
    "cf",
@@ -1782,6 +3389,13 @@
    "l",
    "s"
   ],
+  "d:263-galarian": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
   "d:264": [
    "c",
    "cf",
@@ -1789,6 +3403,12 @@
    "l",
    "s",
    "xl"
+  ],
+  "d:264-galarian": [
+   "c",
+   "cf",
+   "cm",
+   "s"
   ],
   "d:265": [
    "c",
@@ -1832,6 +3452,15 @@
    "cm",
    "l",
    "pu",
+   "s",
+   "sd",
+   "xs"
+  ],
+  "d:27-alolan": [
+   "c",
+   "cf",
+   "cm",
+   "l",
    "s",
    "sd",
    "xs"
@@ -1915,6 +3544,12 @@
    "s"
   ],
   "d:28": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:28-alolan": [
    "c",
    "cf",
    "cm",
@@ -2345,10 +3980,52 @@
   ],
   "d:327-1": [
    "c",
+   "cm"
+  ],
+  "d:327-2": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:327-3": [
+   "c",
    "cf",
    "cm",
    "l",
    "s"
+  ],
+  "d:327-4": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:327-5": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:327-6": [
+   "c",
+   "cf",
+   "cm"
+  ],
+  "d:327-7": [
+   "c",
+   "cf",
+   "cm"
+  ],
+  "d:327-8": [
+   "c",
+   "cf"
+  ],
+  "d:327-9": [
+   "c",
+   "cf",
+   "cm",
+   "l"
   ],
   "d:328": [
    "c",
@@ -2525,6 +4202,7 @@
    "c",
    "cf",
    "cm",
+   "dx",
    "s",
    "sd"
   ],
@@ -2547,6 +4225,24 @@
    "cf",
    "cm",
    "h",
+   "s"
+  ],
+  "d:351-rainy": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:351-snowy": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:351-sunny": [
+   "c",
+   "cf",
+   "cm",
    "l",
    "s",
    "xs"
@@ -2640,7 +4336,6 @@
    "c",
    "cf",
    "cm",
-   "l",
    "s",
    "sd"
   ],
@@ -2676,6 +4371,7 @@
    "cf",
    "cm",
    "h",
+   "l",
    "s",
    "xl"
   ],
@@ -2716,6 +4412,15 @@
    "xl",
    "xs"
   ],
+  "d:37-alolan": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd",
+   "xl"
+  ],
   "d:370": [
    "c",
    "cf",
@@ -2748,6 +4453,7 @@
   ],
   "d:374": [
    "c",
+   "dx",
    "l",
    "s",
    "sd",
@@ -2790,6 +4496,13 @@
    "l",
    "s",
    "xs"
+  ],
+  "d:38-alolan": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
   ],
   "d:380": [
    "c",
@@ -2836,6 +4549,18 @@
    "s"
   ],
   "d:386": [
+   "c",
+   "s"
+  ],
+  "d:386-attack": [
+   "c",
+   "s"
+  ],
+  "d:386-defense": [
+   "c",
+   "s"
+  ],
+  "d:386-speed": [
    "c",
    "s"
   ],
@@ -3087,12 +4812,37 @@
    "c",
    "cf",
    "cm",
+   "s",
+   "xl"
+  ],
+  "d:412-sandy": [
+   "c",
+   "cf",
+   "cm",
    "l",
    "s",
    "xl",
    "xs"
   ],
+  "d:412-trash": [
+   "c",
+   "cf",
+   "cm",
+   "s",
+   "xl",
+   "xs"
+  ],
   "d:413-plant": [
+   "c",
+   "cf",
+   "s"
+  ],
+  "d:413-sandy": [
+   "c",
+   "cf",
+   "s"
+  ],
+  "d:413-trash": [
    "c",
    "cf",
    "s"
@@ -3107,6 +4857,7 @@
    "c",
    "cf",
    "cm",
+   "dx",
    "l",
    "s",
    "xl",
@@ -3168,6 +4919,20 @@
    "l",
    "s"
   ],
+  "d:421-sunny": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:422-east-sea": [
+   "c",
+   "cf",
+   "cm",
+   "s",
+   "xl",
+   "xs"
+  ],
   "d:422-west-sea": [
    "c",
    "cf",
@@ -3176,6 +4941,11 @@
    "s",
    "xl",
    "xs"
+  ],
+  "d:423-east-sea": [
+   "c",
+   "cf",
+   "cm"
   ],
   "d:423-west-sea": [
    "c",
@@ -3397,16 +5167,19 @@
    "c",
    "cf",
    "cm",
+   "h",
    "l",
    "mg",
    "s"
   ],
   "d:449": [
    "c",
-   "cf",
-   "cm",
-   "h",
    "l",
+   "s",
+   "sd"
+  ],
+  "d:449-female": [
+   "c",
    "s",
    "sd"
   ],
@@ -3418,9 +5191,10 @@
    "s"
   ],
   "d:450": [
+   "c"
+  ],
+  "d:450-female": [
    "c",
-   "cf",
-   "cm",
    "l",
    "s"
   ],
@@ -3633,6 +5407,21 @@
    "s"
   ],
   "d:479": [
+   "c"
+  ],
+  "d:479-fan": [
+   "c"
+  ],
+  "d:479-frost": [
+   "c"
+  ],
+  "d:479-heat": [
+   "c"
+  ],
+  "d:479-mow": [
+   "c"
+  ],
+  "d:479-wash": [
    "c",
    "s"
   ],
@@ -3665,10 +5454,21 @@
   "d:483": [
    "c",
    "dx",
+   "l",
    "s",
    "sd"
   ],
+  "d:483-origin": [
+   "c",
+   "s"
+  ],
   "d:484": [
+   "c",
+   "dx",
+   "l",
+   "s"
+  ],
+  "d:484-origin": [
    "c",
    "l",
    "s"
@@ -3691,9 +5491,15 @@
    "l",
    "s"
   ],
+  "d:487-origin": [
+   "c",
+   "l",
+   "s"
+  ],
   "d:488": [
    "c",
    "cf",
+   "h",
    "l",
    "s"
   ],
@@ -3775,6 +5581,16 @@
    "xl",
    "xs"
   ],
+  "d:50-alolan": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd",
+   "xl",
+   "xs"
+  ],
   "d:500": [
    "c",
    "cf",
@@ -3803,6 +5619,12 @@
    "cf",
    "cm",
    "l",
+   "s"
+  ],
+  "d:503-hisuian": [
+   "c",
+   "cf",
+   "cm",
    "s"
   ],
   "d:504": [
@@ -3854,6 +5676,14 @@
    "xl"
   ],
   "d:51": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl"
+  ],
+  "d:51-alolan": [
    "c",
    "cf",
    "cm",
@@ -3936,6 +5766,22 @@
    "l",
    "s",
    "sd",
+   "xl"
+  ],
+  "d:52-alolan": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xs"
+  ],
+  "d:52-galarian": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
    "xl",
    "xs"
   ],
@@ -3948,10 +5794,10 @@
    "xl"
   ],
   "d:521": [
-   "c",
-   "cf",
-   "cm",
-   "l"
+   "c"
+  ],
+  "d:521-female": [
+   "c"
   ],
   "d:522": [
    "c",
@@ -4028,6 +5874,13 @@
    "h",
    "l",
    "pu",
+   "s"
+  ],
+  "d:53-alolan": [
+   "c",
+   "cf",
+   "cm",
+   "l",
    "s"
   ],
   "d:530": [
@@ -4185,9 +6038,13 @@
    "c",
    "cf",
    "h",
-   "s",
    "xl",
    "xs"
+  ],
+  "d:549-hisuian": [
+   "c",
+   "cf",
+   "s"
   ],
   "d:55": [
    "c",
@@ -4195,6 +6052,14 @@
    "cm",
    "l",
    "s"
+  ],
+  "d:550-blue-striped": [
+   "c",
+   "cf",
+   "cm",
+   "s",
+   "xl",
+   "xs"
   ],
   "d:550-red-striped": [
    "c",
@@ -4205,6 +6070,14 @@
    "s",
    "xl",
    "xs"
+  ],
+  "d:550-white-striped": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl"
   ],
   "d:551": [
    "c",
@@ -4224,6 +6097,17 @@
    "l",
    "s",
    "sd"
+  ],
+  "d:554-galarian": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:555-galarian": [
+   "c",
+   "cf"
   ],
   "d:555-standard": [
    "c",
@@ -4289,10 +6173,17 @@
    "c",
    "cf",
    "cm",
-   "h",
    "l",
    "s",
    "sd"
+  ],
+  "d:562-galarian": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s"
   ],
   "d:563": [
    "c",
@@ -4360,6 +6251,11 @@
    "s",
    "xl",
    "xs"
+  ],
+  "d:570-hisuian": [
+   "c",
+   "cf",
+   "cm"
   ],
   "d:571": [
    "c",
@@ -4435,11 +6331,15 @@
    "pu",
    "s",
    "sd",
-   "xl",
-   "xs"
+   "xl"
   ],
   "d:58-hisuian": [
-   "c"
+   "c",
+   "cf",
+   "cm",
+   "s",
+   "xl",
+   "xs"
   ],
   "d:580": [
    "c",
@@ -4473,22 +6373,53 @@
    "cf",
    "s"
   ],
+  "d:585-autumn": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
   "d:585-spring": [
    "c",
    "cf",
    "cm",
    "h",
+   "s"
+  ],
+  "d:585-summer": [
+   "c",
+   "cf",
+   "cm",
    "l",
    "s",
    "xl",
    "xs"
   ],
+  "d:585-winter": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:586-autumn": [
+   "c",
+   "cf",
+   "cm"
+  ],
   "d:586-spring": [
+   "c",
+   "cm"
+  ],
+  "d:586-summer": [
    "c",
    "cf",
    "cm",
    "l",
    "s"
+  ],
+  "d:586-winter": [
+   "c",
+   "cm"
   ],
   "d:587": [
    "c",
@@ -4522,6 +6453,12 @@
    "s",
    "xl"
   ],
+  "d:59-hisuian": [
+   "c",
+   "cf",
+   "s",
+   "xl"
+  ],
   "d:590": [
    "c",
    "cf",
@@ -4541,17 +6478,22 @@
   ],
   "d:592": [
    "c",
-   "cf",
-   "cm",
-   "l",
    "s",
    "xl",
    "xs"
   ],
+  "d:592-female": [
+   "c",
+   "l",
+   "s",
+   "xs"
+  ],
   "d:593": [
    "c",
-   "cf",
-   "cm",
+   "s"
+  ],
+  "d:593-female": [
+   "c",
    "l",
    "s"
   ],
@@ -4717,6 +6659,7 @@
    "c",
    "cf",
    "cm",
+   "h",
    "l",
    "s",
    "xl"
@@ -4757,6 +6700,12 @@
    "cm",
    "s",
    "xs"
+  ],
+  "d:618-galarian": [
+   "c",
+   "cf",
+   "cm",
+   "s"
   ],
   "d:619": [
    "c",
@@ -4821,6 +6770,12 @@
    "xl"
   ],
   "d:628": [
+   "c",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:628-hisuian": [
    "c",
    "cm",
    "l",
@@ -4907,9 +6862,15 @@
   ],
   "d:640": [
    "c",
+   "l",
    "s"
   ],
   "d:641-incarnate": [
+   "c",
+   "cm",
+   "s"
+  ],
+  "d:641-therian": [
    "c",
    "cm",
    "l",
@@ -4919,6 +6880,11 @@
    "c",
    "cm",
    "l",
+   "s"
+  ],
+  "d:642-therian": [
+   "c",
+   "cm",
    "s"
   ],
   "d:643": [
@@ -4935,15 +6901,23 @@
   "d:645-incarnate": [
    "c",
    "cm",
-   "h",
-   "l",
    "s",
    "sd"
+  ],
+  "d:645-therian": [
+   "c",
+   "cm",
+   "h",
+   "l",
+   "s"
   ],
   "d:646": [
    "c",
    "l",
    "s"
+  ],
+  "d:646-white": [
+   "c"
   ],
   "d:647-ordinary": [
    "c"
@@ -4954,6 +6928,19 @@
   "d:649": [
    "c",
    "s"
+  ],
+  "d:649-burn": [
+   "c",
+   "s"
+  ],
+  "d:649-chill": [
+   "c"
+  ],
+  "d:649-douse": [
+   "c"
+  ],
+  "d:649-shock": [
+   "c"
   ],
   "d:65": [
    "c",
@@ -5096,6 +7083,8 @@
    "cm",
    "h",
    "l",
+   "s",
+   "xl",
    "xs"
   ],
   "d:665-archipelago": [
@@ -5103,33 +7092,55 @@
    "cf",
    "l"
   ],
-  "d:666-archipelago": [
+  "d:666-continental": [
    "c",
-   "cm",
    "h"
   ],
   "d:667": [
    "c",
    "cf",
    "cm",
-   "h",
    "l",
    "s",
    "xl"
   ],
   "d:668": [
+   "c"
+  ],
+  "d:668-female": [
    "c",
-   "cf",
-   "cm",
    "l",
    "s"
+  ],
+  "d:669-blue": [
+   "c",
+   "cf",
+   "s"
+  ],
+  "d:669-orange": [
+   "c",
+   "cf",
+   "s",
+   "xl"
   ],
   "d:669-red": [
    "c",
    "cf",
-   "l",
    "s",
    "xl",
+   "xs"
+  ],
+  "d:669-white": [
+   "c",
+   "cf",
+   "l",
+   "s",
+   "xl"
+  ],
+  "d:669-yellow": [
+   "c",
+   "cf",
+   "s",
    "xs"
   ],
   "d:67": [
@@ -5137,10 +7148,19 @@
    "cf",
    "cm",
    "l",
-   "s",
-   "xl"
+   "s"
+  ],
+  "d:670-orange": [
+   "c",
+   "cf",
+   "s"
   ],
   "d:670-red": [
+   "c",
+   "cf",
+   "s"
+  ],
+  "d:671-orange": [
    "c",
    "cf",
    "s"
@@ -5150,10 +7170,16 @@
    "cf",
    "s"
   ],
+  "d:671-white": [
+   "c",
+   "cf",
+   "s"
+  ],
   "d:672": [
    "c",
    "cf",
    "cm",
+   "h",
    "s",
    "xs"
   ],
@@ -5170,6 +7196,51 @@
    "sd",
    "xl"
   ],
+  "d:676-dandy": [
+   "c",
+   "cm",
+   "s"
+  ],
+  "d:676-debutante": [
+   "c",
+   "cf",
+   "cm",
+   "s",
+   "xl"
+  ],
+  "d:676-diamond": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:676-heart": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:676-kabuki": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:676-la-reine": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:676-matron": [
+   "c",
+   "cm",
+   "s"
+  ],
   "d:676-natural": [
    "c",
    "cf",
@@ -5178,6 +7249,19 @@
    "s",
    "xl",
    "xs"
+  ],
+  "d:676-pharaoh": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:676-star": [
+   "c",
+   "cf",
+   "cm",
+   "s"
   ],
   "d:677": [
    "c",
@@ -5189,8 +7273,10 @@
   ],
   "d:678": [
    "c",
-   "cf",
-   "cm",
+   "s"
+  ],
+  "d:678-female": [
+   "c",
    "s"
   ],
   "d:679": [
@@ -5206,7 +7292,8 @@
    "gx",
    "h",
    "l",
-   "s"
+   "s",
+   "xl"
   ],
   "d:680": [
    "c",
@@ -5461,20 +7548,40 @@
    "mg",
    "s"
   ],
-  "d:710-small": [
+  "d:710-average": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:710-large": [
    "c",
    "cf",
    "cm",
    "l",
    "s"
   ],
+  "d:710-small": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
   "d:710-super": [
    "c",
+   "cf",
+   "cm",
+   "s",
    "xl"
+  ],
+  "d:711-average": [
+   "c",
+   "cf",
+   "cm",
+   "s"
   ],
   "d:711-small": [
    "c",
-   "cf",
    "cm",
    "s"
   ],
@@ -5492,6 +7599,11 @@
    "cf",
    "cm",
    "l",
+   "s"
+  ],
+  "d:713-hisuian": [
+   "c",
+   "cm",
    "s"
   ],
   "d:714": [
@@ -5539,7 +7651,7 @@
    "xl",
    "xs"
   ],
-  "d:720-confined": [
+  "d:720-unbound": [
    "c"
   ],
   "d:721": [
@@ -5567,6 +7679,11 @@
    "cf",
    "cm",
    "l",
+   "s"
+  ],
+  "d:724-hisuian": [
+   "c",
+   "cm",
    "s"
   ],
   "d:725": [
@@ -5697,6 +7814,14 @@
    "s",
    "sd"
   ],
+  "d:74-alolan": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd"
+  ],
   "d:741-baile": [
    "c",
    "cf",
@@ -5705,6 +7830,22 @@
    "s",
    "xl",
    "xs"
+  ],
+  "d:741-pau": [
+   "c",
+   "cf",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:741-pompom": [
+   "c",
+   "cf",
+   "cm"
+  ],
+  "d:741-sensu": [
+   "c",
+   "cf"
   ],
   "d:742": [
    "c",
@@ -5757,6 +7898,13 @@
    "l",
    "s",
    "sd"
+  ],
+  "d:75-alolan": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
   ],
   "d:750": [
    "c",
@@ -5829,6 +7977,12 @@
    "cf",
    "cm",
    "l",
+   "s"
+  ],
+  "d:76-alolan": [
+   "c",
+   "cf",
+   "cm",
    "s"
   ],
   "d:760": [
@@ -5908,6 +8062,14 @@
    "l",
    "s",
    "sd",
+   "xl"
+  ],
+  "d:77-galarian": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
    "xl",
    "xs"
   ],
@@ -5917,7 +8079,10 @@
    "cm",
    "s"
   ],
-  "d:774-blue": [
+  "d:774-green": [
+   "c"
+  ],
+  "d:774-yellow": [
    "c"
   ],
   "d:775": [
@@ -5960,8 +8125,15 @@
    "c",
    "cf",
    "cm",
-   "h",
    "l",
+   "s",
+   "xl"
+  ],
+  "d:78-galarian": [
+   "c",
+   "cf",
+   "cm",
+   "h",
    "s"
   ],
   "d:780": [
@@ -6025,6 +8197,14 @@
    "pu",
    "s",
    "sd",
+   "xl"
+  ],
+  "d:79-galarian": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
    "xl",
    "xs"
   ],
@@ -6089,6 +8269,11 @@
    "mg",
    "s",
    "sd"
+  ],
+  "d:80-galarian": [
+   "c",
+   "cf",
+   "s"
   ],
   "d:800": [
    "c",
@@ -6254,7 +8439,14 @@
    "cf",
    "cm",
    "h",
+   "l"
+  ],
+  "d:83-galarian": [
+   "c",
+   "cf",
+   "cm",
    "l",
+   "s",
    "xs"
   ],
   "d:831": [
@@ -6325,11 +8517,17 @@
    "cm",
    "s"
   ],
-  "d:849-low-key": [
+  "d:849-amped": [
    "c",
    "cf",
    "cm",
    "dx",
+   "gx"
+  ],
+  "d:849-low-key": [
+   "c",
+   "cf",
+   "cm",
    "gx"
   ],
   "d:85": [
@@ -6346,7 +8544,8 @@
    "cm",
    "dx",
    "s",
-   "xl"
+   "xl",
+   "xs"
   ],
   "d:852": [
    "c",
@@ -6436,9 +8635,10 @@
   ],
   "d:876": [
    "c",
-   "cf",
-   "cm",
    "s"
+  ],
+  "d:876-female": [
+   "c"
   ],
   "d:877-full-belly": [
    "c",
@@ -6456,6 +8656,14 @@
    "s",
    "sd",
    "xl"
+  ],
+  "d:88-alolan": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd"
   ],
   "d:884": [
    "c",
@@ -6483,6 +8691,15 @@
    "c",
    "cf",
    "cm",
+   "l",
+   "pu",
+   "s"
+  ],
+  "d:89-alolan": [
+   "c",
+   "cf",
+   "cm",
+   "l",
    "s"
   ],
   "d:890": [
@@ -6554,6 +8771,10 @@
    "s"
   ],
   "d:905-incarnate": [
+   "c",
+   "cf"
+  ],
+  "d:905-therian": [
    "c",
    "cf"
   ],
@@ -6634,9 +8855,11 @@
   ],
   "d:916": [
    "c",
-   "cf",
-   "cm",
    "l",
+   "s"
+  ],
+  "d:916-female": [
+   "c",
    "s"
   ],
   "d:917": [
@@ -6714,8 +8937,23 @@
    "c",
    "cf",
    "cm",
-   "xl",
+   "xl"
+  ],
+  "d:931-green": [
+   "c",
+   "cf",
+   "cm",
    "xs"
+  ],
+  "d:931-white": [
+   "c",
+   "cf",
+   "xl"
+  ],
+  "d:931-yellow": [
+   "c",
+   "cf",
+   "cm"
   ],
   "d:932": [
    "c",
@@ -6797,6 +9035,17 @@
    "cf",
    "s"
   ],
+  "d:958": [
+   "c",
+   "cf",
+   "s"
+  ],
+  "d:959": [
+   "c",
+   "cf",
+   "s",
+   "xl"
+  ],
   "d:96": [
    "c",
    "cf",
@@ -6864,6 +9113,10 @@
    "cm"
   ],
   "d:978-curly": [
+   "c",
+   "cm"
+  ],
+  "d:978-droopy": [
    "c",
    "cm",
    "l"
@@ -6952,6 +9205,7 @@
   "sb-gofest2026-mewtwo",
   "sb-gotour2025-black",
   "sb-gotour2025-black-white",
+  "sb-gotour2025-enigma",
   "sb-gotour2025-white",
   "sb-gotour2026-diamond",
   "sb-gotour2026-gold",
