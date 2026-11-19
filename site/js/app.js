@@ -432,7 +432,7 @@ function setTiles(){
   for (const it of items.filter(it => has(it.key, "c"))) { if (pics.length < 3 && !dexes.has(it.e.dex) && sprite(it.img)) { dexes.add(it.e.dex); pics.push(sprite(it.img)); } }
   return `<a class="gen" href="#sets" style="grid-column:span 2"><span class="genart" aria-hidden="true">${pics.map(p => `<img src="${p}" alt="" loading="lazy">`).join("")}</span><span class="label">Your events</span><h3>Costumes and backgrounds</h3><div class="rows">` +
     row("Backgrounds", "image", bgI.filter(it => has(it.key, "c")).length, bgI.length, "var(--caught)") + row("Costumes", "shirt", csI.filter(it => has(it.key, "c")).length, csI.length, "var(--mega)") +
-    row("Events done", "ticket", sets.filter(st => st.items.every(setGot)).length, sets.length, "var(--deep-2)") + `</div></a>`;
+    row("Events", "ticket", sets.filter(st => st.items.every(setGot)).length, sets.length, "var(--deep-2)") + `</div></a>`;
 }
 function home(){
   const c = counts(ENTRIES);
@@ -784,7 +784,7 @@ function setsPage(){
   }
   setRegion(null);
   view.innerHTML = `<header class="hero withshot">${heroPics(sets.filter(st => st.art).slice(0, 6).map(st => st.art))}<span class="label">Pokémon GO</span><h1>Event <em>Pokémon</em></h1>
-    <div class="stats">${statTile("--deep-2", "ticket", "Events done", sets.filter(s => s.items.every(setGot)).length, sets.length)}
+    <div class="stats">${statTile("--deep-2", "ticket", "Events", sets.filter(s => s.items.every(setGot)).length, sets.length)}
     ${statTile("--caught", "image", "Backgrounds", bg.filter(setGot).length, bg.length)}${statTile("--mega", "shirt", "Costumes", cs.filter(setGot).length, cs.length)}</div></header>${readOnlyNote()}
     <div class="settiles">${html || `<p class="empty">Nothing yet.</p>`}</div>`;
 }
