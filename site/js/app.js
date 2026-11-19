@@ -450,7 +450,7 @@ function home(){
   setRegion(null);
   view.innerHTML = `<header class="hero withshot">${heroPics(ALL_MAPS())}<span class="label">Pokémon GO · ${num(c.speciesOut)} Pokémon out, plus their forms</span>
     <h1>Jemma’s <em>Pokédex</em></h1>${statsHtml(c)}</header>${readOnlyNote()}
-    <section class="section"><h2>By generation</h2><div class="gens">${gens}</div></section>
+    <section class="section"><h2>By region</h2><div class="gens">${gens}</div></section>
     <section class="section"><h2>Event Pokémon</h2><div class="gens">${setTiles()}</div></section>
     <p class="muted" style="margin-top:40px;font-size:12.5px">Pokémon data from the game, checked ${dates(DATA.updated)}.</p>`;
 }
