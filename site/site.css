@@ -796,8 +796,15 @@ a.formsbtn{text-decoration:none}
 
 /* What's on, layout trial (18 Nov): Calendar, Hunt list, Two panes */
 .callegend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;margin:10px 0 8px}
-.callegend span{display:inline-flex;align-items:center;gap:6px}
-.callegend i{width:12px;height:12px;border-radius:3px;background:var(--k)}
+.callegend{align-items:center}
+.callegend .muted{font-size:12.5px}
+.calkey{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:7px;padding:4px 10px 4px 6px;border-radius:999px;border:1px solid var(--line);background:var(--surface);font-size:13px;font-weight:700}
+.calkey i{width:16px;height:16px;border-radius:4px;background:var(--k);color:#fff;display:grid;place-items:center}
+.calkey i .i{width:12px;height:12px}
+.calkey.off{color:var(--muted);font-weight:600;background:transparent;border-style:dashed}
+.calkey.off i{background:transparent;box-shadow:inset 0 0 0 2px var(--k)}
+.calkey.off i .i{display:none}
+.calkey:hover{border-color:var(--muted)}
 .calseason{font-size:13.5px;margin:0 0 10px}
 .cal{border:1px solid var(--line);border-radius:14px;background:var(--surface);padding:6px 8px 4px}
 .calweek{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));column-gap:4px;row-gap:3px;padding:2px 0 10px;border-top:1px solid var(--line)}
@@ -808,9 +815,12 @@ a.formsbtn{text-decoration:none}
 .calday.today::after{content:" · today";font-weight:600}
 .calday.past{opacity:.45}
 .calbar{all:unset;box-sizing:border-box;cursor:pointer;display:flex;gap:6px;align-items:center;min-width:0;height:26px;padding:0 7px;border-radius:7px;font-size:12.5px;
-  background:var(--soft);color:var(--muted);border-left:5px solid var(--k);white-space:nowrap;overflow:hidden}
-.calbar.need{background:color-mix(in srgb,var(--k) 16%,var(--surface));color:var(--ink);font-weight:700;box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--k) 45%,transparent)}
-.calbar.sel{box-shadow:inset 0 0 0 2px var(--ink)}
+  background:var(--k);color:#fff;font-weight:600;white-space:nowrap;overflow:hidden;transition:filter .12s}   /* every event filled in its kind's colour, white text (her ask, 19 Nov) */
+.calbar:hover{filter:brightness(1.12)}
+.calbar.need{font-weight:800}
+.calbar.sel{box-shadow:0 0 0 2px var(--surface),0 0 0 4px var(--k)}
+.calbar .nb i{box-shadow:0 0 0 1.5px #fff}
+.calbar .nb b{color:#fff}
 .calbar small{font-weight:700;opacity:.8}
 .calbar .t{overflow:hidden;text-overflow:ellipsis;min-width:0}
 .nb{display:inline-flex;gap:2px;align-items:center;margin-left:auto;flex:none}
@@ -854,7 +864,23 @@ a.formsbtn{text-decoration:none}
 .calside .rrun{min-width:0;width:100%}
 .calside .rpics img{width:30px;height:30px;margin-right:-6px}
 .calside .rruns{flex-direction:column}
+.calnav{display:flex;align-items:center;gap:10px;margin:6px 0 10px}
+.calnav h2{font-size:30px;min-width:220px;text-align:center}
+.calnav h2 em{color:var(--deep-2)}
+.calnav .muted{margin-left:auto;font-size:12.5px}
+.calnav .iconbtn{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;border:1px solid var(--line);background:var(--surface);cursor:pointer;color:var(--ink)}
+.calnav .iconbtn:disabled{opacity:.35;cursor:default}
+.calday.out{opacity:.4}
+.calneed{margin-top:26px}
+.calneed h2{font-size:30px;margin-bottom:6px}
+.calneed h2 em{color:var(--deep-2)}
+.calneedgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:4px 20px;align-items:start}
+.calneedgrid .huntset:has(.huntbg){grid-column:1/-1}
 .caldetail{margin-top:18px}
+.cal .caldetail{margin:2px 0 12px;padding:10px 14px 4px;border-radius:12px;background:var(--paper);border:1px solid var(--line)}
+.rboard .caldetail{margin:8px 0 4px;padding:10px 14px 4px;border-radius:12px;background:var(--surface);border:1px solid var(--line)}
+.caldetail{position:relative}
+.cdclose{position:absolute;top:10px;right:14px;z-index:1}
 .caldetail .evrow{border-top:0;padding-top:6px}
 .huntset{margin:22px 0 6px}
 .huntset h3{display:flex;align-items:center;gap:10px;font-size:24px;margin-bottom:10px}

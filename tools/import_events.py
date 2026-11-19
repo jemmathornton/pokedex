@@ -41,6 +41,12 @@ def mons(xd):
     return out
 
 
+def tidy(name):
+    """Her rule (19 Nov): a day is "[Name] [Type] Day" like Clefable Super Mega Raid Day, so Leek Duck's "Dynamax Espurr
+    during Max Monday" is shown "Dynamax Espurr Max Monday"."""
+    return re.sub(r' during (?=Max Monday)', ' ', name)
+
+
 def resolve(evname, ms, dex):
     """Each Pokémon matched to an entry of ours, with what it comes as there (Mega, Shadow, Dynamax, Gigantamax). Where
     ScrapedDuck lists none, the Pokémon named in the event's title ("Dynamax Espurr during Max Monday", "Clefable Super
@@ -85,7 +91,7 @@ def main():
         if ev.get('eventType') in SKIP or ev['name'].startswith('[Canceled]') or not end or end < today or (start and start > today + timedelta(days=AHEAD)):
             continue
         ms = resolve(ev['name'], mons(ev.get('extraData') or {}), dex)
-        events.append({'id': ev['eventID'], 'name': ev['name'], 'type': ev.get('heading') or ev.get('eventType'), 'kind': ev.get('eventType'),
+        events.append({'id': ev['eventID'], 'name': tidy(ev['name']), 'type': ev.get('heading') or ev.get('eventType'), 'kind': ev.get('eventType'),
                        'start': ev.get('start'), 'end': ev.get('end'), 'link': ev['link'], 'mons': ms})
         print(f'{(ev.get("start") or "")[:10]}  {ev["name"]}: {len(ms)} Pokémon listed')
     events.sort(key=lambda e: e['start'] or '')

@@ -409,7 +409,12 @@
         ok(view().querySelector(".calbar"), "calendar bars");
         click(view().querySelector('.calbar[data-comesel="t-ev"]')); await wait(50);
         ok(/Test event/.test(view().querySelector(".caldetail").textContent), "the picked event underneath");
-        ok(view().querySelectorAll("[data-comelong]").length === 3 && view().querySelector(".rboard"), "long events: a raid board above, by default");
+        ok(view().querySelector(".calweek + .caldetail"), "the details open under the week clicked");
+        ok(/\d{4}/.test(view().querySelector(".calnav h2").textContent) && view().querySelector(".calneed"), "a month with its name, and You need under it");
+        ok(view().querySelectorAll("[data-comelong]").length === 3 && view().querySelectorAll(".calkey").length === 7, "long events row and a toggle for each kind");
+        const hide0 = prefs.comingHide; prefs.comingHide = ["ev"]; comingSel = null; await go("#coming");
+        ok(!view().querySelector('.calbar[data-comesel="t-ev"]') && view().querySelector('.calkey.off[data-comekind="ev"]'), "a kind switched off leaves the calendar");
+        prefs.comingHide = hide0;
         const long0 = prefs.comingLong; prefs.comingLong = "beside"; await go("#coming");
         ok(view().querySelector(".calside .rboard"), "long events beside the calendar");
         prefs.comingLong = long0;
