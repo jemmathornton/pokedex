@@ -1,17 +1,7 @@
+# Everything is kept in git and on GitHub (her ask, 19 Nov: "put absolutely everything there"), pictures, raw downloads
+# and logs included. Only throwaway files are left out:
 __pycache__/
 *.pyc
 *.tmp
-*.lnk
-logs/
-# raw downloads, fetched again by tools/import_go.py
-imports/
-# the game's pictures (about 20 MB), fetched again by tools/fetch_sprites.py; the weekly backup zips them
-site/sprites/
-# the game's location cards for the event backgrounds (about 3 MB), fetched again by tools/fetch_backgrounds.py
-site/backgrounds/
-# the game's Gigantamax pictures and the Lucky/Shadow looks for the Pokémon page, fetched again by tools/fetch_sprites.py --extras
-site/variants/
-# the region screenshots (official press screenshots; where each came from: research/data/region-screenshots.json)
-site/regions/
-data/collection/*.bak
+# held open by the server while it saves, so it can't be read
 data/collection/*.lock

@@ -1,0 +1,9234 @@
+{
+ "costumes": [
+  "1-fall-2019",
+  "1-jan-2020-noevolve",
+  "1-spring-2020-noevolve",
+  "10-gofest-2026",
+  "104-fall-2023",
+  "105-fall-2023",
+  "113-november-2018",
+  "12-fashion-2021-noevolve",
+  "125-spring-2023-instinct",
+  "131-costume-2020",
+  "131-spring-2023-mystic",
+  "132-spring-2026-a",
+  "132-spring-2026-b",
+  "133-gofest-2024-mtiara",
+  "133-gofest-2024-stiara",
+  "133-holiday-2022",
+  "133-jan-2020-noevolve",
+  "133-november-2018",
+  "133-spring-2023",
+  "134-holiday-2022",
+  "134-november-2018",
+  "134-spring-2023",
+  "135-holiday-2022",
+  "135-november-2018",
+  "135-spring-2023",
+  "136-holiday-2022",
+  "136-november-2018",
+  "136-spring-2023",
+  "142-summer-2023",
+  "143-gofest-2022-noevolve",
+  "143-nightcap",
+  "143-wildarea-2024",
+  "149-fall-2023",
+  "163-jan-2022-noevolve",
+  "164-jan-2022-noevolve",
+  "169-halloween-2026-01",
+  "172-anniversary",
+  "172-costume-2",
+  "172-halloween-2017",
+  "172-holiday-2016",
+  "172-november-2018",
+  "172-one-year-anniversary",
+  "172-spring-2023",
+  "172-summer-2018",
+  "172-winter-2018",
+  "175-april-2020-noevolve",
+  "176-april-2020-noevolve",
+  "185-winter-2025",
+  "194-fall-2023",
+  "195-fall-2023",
+  "196-gofest-2024-sscarf",
+  "196-holiday-2022",
+  "196-november-2018",
+  "196-spring-2023",
+  "197-gofest-2024-mscarf",
+  "197-holiday-2022",
+  "197-november-2018",
+  "197-spring-2023",
+  "199-2022",
+  "2-jan-2020-noevolve",
+  "2-spring-2020-noevolve",
+  "20-jan-2020-noevolve",
+  "202-jan-2020-noevolve",
+  "215-fashion-2021-noevolve",
+  "216-halloween-2025",
+  "217-halloween-2025",
+  "222-spring-2026",
+  "225-winter-2020",
+  "234-winter-2018",
+  "238-fall-2020-noevolve",
+  "239-spring-2023-instinct",
+  "242-november-2018",
+  "25-adventure-hat-2020",
+  "25-anniversary",
+  "25-anniversary-2022-noevolve",
+  "25-anniversary-2026",
+  "25-april-2020-noevolve",
+  "25-copy-2019",
+  "25-costume-1",
+  "25-costume-2",
+  "25-costume-2020",
+  "25-doctor",
+  "25-fall-2018",
+  "25-fall-2019",
+  "25-fall-2023-noevolve",
+  "25-feb-2019",
+  "25-flying-5th-anniv",
+  "25-glass-helmet-2026",
+  "25-gofest-2021-noevolve",
+  "25-gofest-2022",
+  "25-gofest-2022-noevolve",
+  "25-gofest-2024-mtiara",
+  "25-gofest-2024-stiara",
+  "25-gofest-2025-goggles-blue",
+  "25-gofest-2025-goggles-red",
+  "25-gofest-2025-goggles-yellow",
+  "25-gofest-2025-monocle-blue",
+  "25-gofest-2025-monocle-red",
+  "25-gofest-2025-monocle-yellow",
+  "25-gofest-2026-cap-blue",
+  "25-gofest-2026-cap-red",
+  "25-gofest-2026-cap-yellow",
+  "25-gotour-2023-bandana-noevolve",
+  "25-gotour-2023-hat-noevolve",
+  "25-gotour-2024-a",
+  "25-gotour-2024-a-02",
+  "25-gotour-2024-b",
+  "25-gotour-2024-b-02",
+  "25-gotour-2025-a",
+  "25-gotour-2025-a-02",
+  "25-gotour-2025-b",
+  "25-gotour-2025-b-02",
+  "25-gotour-2026-a",
+  "25-gotour-2026-a-02",
+  "25-gotour-2026-b",
+  "25-gotour-2026-b-02",
+  "25-gotour-2026-c",
+  "25-gotour-2026-c-02",
+  "25-halloween-2017",
+  "25-halloween-2021-noevolve",
+  "25-halloween-2026",
+  "25-hoenn-2020-noevolve",
+  "25-holiday-2016",
+  "25-holiday-2023",
+  "25-horizons",
+  "25-jan-2020-noevolve",
+  "25-jan-2023-noevolve",
+  "25-johto-2020-noevolve",
+  "25-kanto-2020-noevolve",
+  "25-may-2019-noevolve",
+  "25-november-2018",
+  "25-one-year-anniversary",
+  "25-pi",
+  "25-pop-star",
+  "25-pxp-2026",
+  "25-rock-star",
+  "25-safari-2020-noevolve",
+  "25-sinnoh-2020-noevolve",
+  "25-spring-2023",
+  "25-summer-2018",
+  "25-summer-2023-a",
+  "25-summer-2023-b",
+  "25-summer-2023-c",
+  "25-summer-2023-d",
+  "25-summer-2023-e",
+  "25-tcg-2022-noevolve",
+  "25-visor-2026",
+  "25-vs-2019",
+  "25-wcs-2022",
+  "25-wcs-2023",
+  "25-wcs-2024",
+  "25-wcs-2025",
+  "25-wcs-2026",
+  "25-winter-2018",
+  "25-winter-2020",
+  "26-anniversary",
+  "26-costume-1",
+  "26-costume-2",
+  "26-fall-2018",
+  "26-feb-2019",
+  "26-halloween-2017",
+  "26-holiday-2016",
+  "26-holiday-2023",
+  "26-november-2018",
+  "26-one-year-anniversary",
+  "26-pi",
+  "26-spring-2023",
+  "26-summer-2018",
+  "26-winter-2018",
+  "263-galarian-gofest-2021-noevolve",
+  "265-jan-2020-noevolve",
+  "281-fall-2020-noevolve",
+  "282-gofest-2021-noevolve",
+  "287-summer-2024",
+  "288-summer-2024",
+  "289-summer-2024",
+  "3-copy-2019",
+  "3-jan-2020-noevolve",
+  "3-spring-2020-noevolve",
+  "302-costume-2020",
+  "31-royal-noevolve",
+  "33-jan-2020-noevolve",
+  "330-gofest-2021-noevolve",
+  "34-royal-noevolve",
+  "355-fall-2022-noevolve",
+  "356-fall-2022-noevolve",
+  "359-fall-2022-noevolve",
+  "363-holiday-2021-noevolve",
+  "37-fall-2022",
+  "38-fall-2022",
+  "387-gems-1-2021-noevolve",
+  "387-gems-2-2021-noevolve",
+  "39-jan-2024",
+  "390-gems-1-2021-noevolve",
+  "390-gems-2-2021-noevolve",
+  "393-gems-1-2021-noevolve",
+  "393-gems-2-2021-noevolve",
+  "393-halloween-2021-noevolve",
+  "4-fall-2019",
+  "4-goggles-2026",
+  "4-jan-2020-noevolve",
+  "4-spring-2020-noevolve",
+  "40-jan-2024",
+  "403-fall-2020-noevolve",
+  "41-halloween-2026-01",
+  "42-halloween-2026-01",
+  "426-halloween-2021-noevolve",
+  "427-april-2020-noevolve",
+  "428-april-2020-noevolve",
+  "440-november-2018",
+  "453-fall-2020-noevolve",
+  "454-fall-2020-noevolve",
+  "466-spring-2023-instinct",
+  "468-april-2020-noevolve",
+  "470-holiday-2022",
+  "470-november-2018",
+  "470-spring-2023",
+  "471-holiday-2021-noevolve",
+  "471-holiday-2022",
+  "471-november-2018",
+  "471-spring-2023",
+  "477-fall-2022-noevolve",
+  "5-goggles-2026",
+  "5-jan-2020-noevolve",
+  "5-spring-2020-noevolve",
+  "50-fall-2022",
+  "51-fall-2022",
+  "522-fashion-2021-noevolve",
+  "54-holiday-2023",
+  "54-swim-2025",
+  "546-spring-2024",
+  "547-spring-2024",
+  "55-holiday-2023",
+  "572-fashion-2025",
+  "573-fashion-2025",
+  "6-copy-2019",
+  "6-goggles-2026",
+  "6-jan-2020-noevolve",
+  "6-spring-2020-noevolve",
+  "613-winter-2020",
+  "614-winter-2020",
+  "656-fall-2024",
+  "657-fall-2024",
+  "658-fall-2024",
+  "68-wildarea-2026-01",
+  "7-fall-2019",
+  "7-jan-2020-noevolve",
+  "7-spring-2020-noevolve",
+  "7-summer-2018",
+  "700-holiday-2022",
+  "700-november-2018",
+  "700-spring-2023",
+  "702-winter-2024",
+  "710-average-fall-2022",
+  "710-large-fall-2022",
+  "710-small-fall-2022",
+  "710-super-fall-2022",
+  "711-average-fall-2022",
+  "711-large-fall-2022",
+  "711-small-fall-2022",
+  "711-super-fall-2022",
+  "714-halloween-2025",
+  "715-halloween-2025",
+  "722-fall-2024",
+  "723-fall-2024",
+  "724-fall-2024",
+  "737-winter-2025",
+  "738-winter-2025",
+  "760-wildarea-2025",
+  "77-galarian-gofest-2021-noevolve",
+  "77-spring-2023-valor",
+  "78-spring-2023-valor",
+  "79-2020",
+  "79-pi-noevolve",
+  "8-jan-2020-noevolve",
+  "8-spring-2020-noevolve",
+  "8-summer-2018",
+  "80-2021",
+  "831-winter-2024",
+  "832-winter-2024",
+  "854-a-halloween-2026-01",
+  "854-p-halloween-2026-01",
+  "855-a-halloween-2026-01",
+  "855-p-halloween-2026-01",
+  "870-gofest-2025-train-conductor",
+  "88-anniversary-2024",
+  "89-anniversary-2024",
+  "9-copy-2019",
+  "9-jan-2020-noevolve",
+  "9-spring-2020-noevolve",
+  "9-summer-2018",
+  "901-halloween-2025",
+  "907-horizons-2025-noevolve",
+  "94-costume-2020",
+  "94-fall-2022-noevolve",
+  "94-fall-2023-noevolve",
+  "94-jan-2020-noevolve",
+  "999-coin-a1",
+  "999-coin-a2-2026"
+ ],
+ "have": {
+  "b:go-fest-2023-london:384": [
+   "c"
+  ],
+  "b:go-fest-2023-london:488": [
+   "c"
+  ],
+  "b:go-fest-2023-london:716": [
+   "c"
+  ],
+  "b:go-fest-2023-london:717": [
+   "c"
+  ],
+  "b:go-fest-2024-madrid:792": [
+   "c"
+  ],
+  "b:go-fest-2024-madrid:793": [
+   "c"
+  ],
+  "b:go-fest-2024-madrid:795": [
+   "c"
+  ],
+  "b:go-fest-2024-madrid:798": [
+   "c"
+  ],
+  "b:go-fest-2024-madrid:799": [
+   "c"
+  ],
+  "b:go-fest-2024-madrid:800": [
+   "c",
+   "s"
+  ],
+  "b:go-fest-2024-madrid:806": [
+   "c"
+  ],
+  "b:go-fest-2025-paris:818": [
+   "c"
+  ],
+  "b:go-fest-2025-paris:888": [
+   "c"
+  ],
+  "b:go-fest-2025-paris:889": [
+   "c",
+   "s"
+  ],
+  "b:go-fest-2026-copenhagen:128-paldean-combat": [
+   "c",
+   "s"
+  ],
+  "b:go-fest-2026-copenhagen:146": [
+   "c"
+  ],
+  "b:go-fest-2026-copenhagen:150": [
+   "c"
+  ],
+  "b:go-fest-2026-copenhagen:77-spring-2023-valor": [
+   "c"
+  ],
+  "b:lego-collab-2026-uk-poland:25": [
+   "c"
+  ],
+  "b:sb-10th-anniversary-celebration-mewtwo:150": [
+   "c"
+  ],
+  "b:sb-10th-anniversary-gimmighoul-coin:999-coin-a2-2026": [
+   "c"
+  ],
+  "b:sb-2024-decembercdrecap:113": [
+   "c"
+  ],
+  "b:sb-2024-decembercdrecap:540": [
+   "c"
+  ],
+  "b:sb-2024-decembercdrecap:56": [
+   "c"
+  ],
+  "b:sb-2024-decembercdrecap:602": [
+   "c"
+  ],
+  "b:sb-2024-decembercdrecap:69": [
+   "c"
+  ],
+  "b:sb-2024-decembercdrecap:704": [
+   "c"
+  ],
+  "b:sb-2024-decembercdrecap:722": [
+   "c"
+  ],
+  "b:sb-2024-decembercdrecap:725": [
+   "c"
+  ],
+  "b:sb-2024-decembercdrecap:728": [
+   "c"
+  ],
+  "b:sb-2024-decembercdrecap:761": [
+   "c"
+  ],
+  "b:sb-2024-decembercdrecap:77": [
+   "c"
+  ],
+  "b:sb-2024-decembercdrecap:77-galarian": [
+   "c"
+  ],
+  "b:sb-9thanniversary:999-coin-a1": [
+   "c"
+  ],
+  "b:sb-community-2026:570": [
+   "c"
+  ],
+  "b:sb-community-2026:633": [
+   "c"
+  ],
+  "b:sb-community-2026:810": [
+   "c"
+  ],
+  "b:sb-community-2026:813": [
+   "c"
+  ],
+  "b:sb-community-2026:816": [
+   "c",
+   "s"
+  ],
+  "b:sb-community-2026:827": [
+   "c"
+  ],
+  "b:sb-community-2026:915": [
+   "c"
+  ],
+  "b:sb-community-2026:916": [
+   "c"
+  ],
+  "b:sb-community-2026:957": [
+   "c"
+  ],
+  "b:sb-community-2026:996": [
+   "c",
+   "s"
+  ],
+  "b:sb-community-2026:998": [
+   "c"
+  ],
+  "b:sb-concierge2025:54-swim-2025": [
+   "c"
+  ],
+  "b:sb-go-fest-2025-zacian:888": [
+   "c"
+  ],
+  "b:sb-go-fest-2025-zamazenta:889": [
+   "c"
+  ],
+  "b:sb-go-wild-area-2026-into-the-wild-go-wild-area-global:483": [
+   "c"
+  ],
+  "b:sb-go-wild-area-2026-into-the-wild-go-wild-area-global:484": [
+   "c"
+  ],
+  "b:sb-go-wild-area-2026-into-the-wild-go-wild-area-global:643": [
+   "c"
+  ],
+  "b:sb-go-wild-area-2026-into-the-wild-go-wild-area-global:644": [
+   "c"
+  ],
+  "b:sb-go-wild-area-2026-into-the-wild-go-wild-area-global:646": [
+   "c",
+   "s"
+  ],
+  "b:sb-go-wild-area-2026-into-the-wild-go-wild-area-global:68-wildarea-2026-01": [
+   "c"
+  ],
+  "b:sb-go-wild-area-2026-into-the-wild-go-wild-area-global:884": [
+   "c"
+  ],
+  "b:sb-go-wild-area-2026-into-the-wild-go-wild-area-global:888": [
+   "c"
+  ],
+  "b:sb-go-wild-area-2026-into-the-wild-go-wild-area-global:889": [
+   "c"
+  ],
+  "b:sb-gofest2024-radiance:791": [
+   "c"
+  ],
+  "b:sb-gofest2024-wormhole:794": [
+   "c",
+   "s"
+  ],
+  "b:sb-gofest2024-wormhole:796": [
+   "c"
+  ],
+  "b:sb-gofest2024-wormhole:797": [
+   "c"
+  ],
+  "b:sb-gofest2024-wormhole:798": [
+   "c"
+  ],
+  "b:sb-gofest2024-wormhole:800": [
+   "c"
+  ],
+  "b:sb-gofest2025-eternatus:138": [
+   "c"
+  ],
+  "b:sb-gofest2025-eternatus:140": [
+   "c"
+  ],
+  "b:sb-gofest2025-eternatus:143": [
+   "c"
+  ],
+  "b:sb-gofest2025-eternatus:25": [
+   "c"
+  ],
+  "b:sb-gofest2025-eternatus:320": [
+   "c"
+  ],
+  "b:sb-gofest2025-eternatus:349": [
+   "c"
+  ],
+  "b:sb-gofest2025-eternatus:415": [
+   "c"
+  ],
+  "b:sb-gofest2025-eternatus:519": [
+   "c"
+  ],
+  "b:sb-gofest2025-eternatus:554": [
+   "c"
+  ],
+  "b:sb-gofest2025-eternatus:66": [
+   "c"
+  ],
+  "b:sb-gofest2025-eternatus:68": [
+   "c"
+  ],
+  "b:sb-gofest2025-eternatus:761": [
+   "c"
+  ],
+  "b:sb-gofest2025-eternatus:810": [
+   "c"
+  ],
+  "b:sb-gofest2025-eternatus:821": [
+   "c"
+  ],
+  "b:sb-gofest2025-eternatus:849-amped": [
+   "c"
+  ],
+  "b:sb-gofest2025-eternatus:849-low-key": [
+   "c"
+  ],
+  "b:sb-gofest2025-eternatus:9": [
+   "c"
+  ],
+  "b:sb-gofest2025:377": [
+   "c"
+  ],
+  "b:sb-gofest2025:378": [
+   "c"
+  ],
+  "b:sb-gofest2025:379": [
+   "c"
+  ],
+  "b:sb-gofest2025:486": [
+   "c"
+  ],
+  "b:sb-gofest2025:894": [
+   "c"
+  ],
+  "b:sb-gofest2025:895": [
+   "c"
+  ],
+  "b:sb-gofest2026-global:649-douse": [
+   "c"
+  ],
+  "b:sb-gofest2026-global:793": [
+   "c"
+  ],
+  "b:sb-gofest2026-global:795": [
+   "c"
+  ],
+  "b:sb-gofest2026-global:800": [
+   "c"
+  ],
+  "b:sb-gofest2026-global:805": [
+   "c"
+  ],
+  "b:sb-gofest2026-global:806": [
+   "c"
+  ],
+  "b:sb-gofest2026-global:888": [
+   "c"
+  ],
+  "b:sb-gofest2026-global:889": [
+   "c"
+  ],
+  "b:sb-gofest2026-mewtwo:150": [
+   "c"
+  ],
+  "b:sb-gotour2025-black:501": [
+   "c"
+  ],
+  "b:sb-gotour2025-black:643": [
+   "c"
+  ],
+  "b:sb-gotour2025-black:646": [
+   "c"
+  ],
+  "b:sb-gotour2025-enigma:509": [
+   "c"
+  ],
+  "b:sb-gotour2025-enigma:519": [
+   "c"
+  ],
+  "b:sb-gotour2025-enigma:525": [
+   "c"
+  ],
+  "b:sb-gotour2025-enigma:527": [
+   "c"
+  ],
+  "b:sb-gotour2025-enigma:532": [
+   "c"
+  ],
+  "b:sb-gotour2025-enigma:535": [
+   "c"
+  ],
+  "b:sb-gotour2025-enigma:551": [
+   "c"
+  ],
+  "b:sb-gotour2025-enigma:555-standard": [
+   "c"
+  ],
+  "b:sb-gotour2025-enigma:559": [
+   "c"
+  ],
+  "b:sb-gotour2025-enigma:561": [
+   "c"
+  ],
+  "b:sb-gotour2025-enigma:570": [
+   "c"
+  ],
+  "b:sb-gotour2025-enigma:595": [
+   "c"
+  ],
+  "b:sb-gotour2025-enigma:597": [
+   "c"
+  ],
+  "b:sb-gotour2025-white:501": [
+   "c"
+  ],
+  "b:sb-gotour2025-white:646": [
+   "c"
+  ],
+  "b:sb-gotour2025-white:646-white": [
+   "c"
+  ],
+  "b:sb-gotour2026-mega:149": [
+   "c"
+  ],
+  "b:sb-gotour2026-mega:448": [
+   "c"
+  ],
+  "b:sb-gotour2026-mega:653": [
+   "c"
+  ],
+  "b:sb-gotour2026-mega:655": [
+   "c"
+  ],
+  "b:sb-gotour2026-mega:656": [
+   "c"
+  ],
+  "b:sb-gotour2026-mega:687": [
+   "c"
+  ],
+  "b:sb-gotour2026-mega:71": [
+   "c",
+   "s"
+  ],
+  "b:sb-gotour2026-mega:870": [
+   "c"
+  ],
+  "b:sb-gotour2026-pearl:484": [
+   "c"
+  ],
+  "b:sb-gotour2026-sapphire:25-gotour-2023-hat-noevolve": [
+   "c"
+  ],
+  "b:sb-gotour2026-silver:25-gotour-2026-b": [
+   "c"
+  ],
+  "b:sb-gotour2026-x:25-gotour-2026-c": [
+   "c"
+  ],
+  "b:sb-gotour2026-x:653": [
+   "c"
+  ],
+  "b:sb-gotour2026-y:653": [
+   "c"
+  ],
+  "b:sb-gotour2026-y:717": [
+   "c"
+  ],
+  "b:sb-gowa-fukuoka:849-low-key": [
+   "c"
+  ],
+  "b:sb-pokopia:131": [
+   "c"
+  ],
+  "b:sb-pokopia:132-spring-2026-a": [
+   "c"
+  ],
+  "b:sb-pokopia:132-spring-2026-b": [
+   "c"
+  ],
+  "b:sb-pokopia:143": [
+   "c"
+  ],
+  "b:sb-pokopia:149": [
+   "c"
+  ],
+  "b:sb-s24-sep-2026:4-goggles-2026": [
+   "c"
+  ],
+  "b:sb-season17-dueldestiny:280": [
+   "c"
+  ],
+  "b:sb-season17-dueldestiny:906": [
+   "c"
+  ],
+  "b:sb-season18-mightandmastery:158": [
+   "c"
+  ],
+  "b:sb-season18-mightandmastery:582": [
+   "c"
+  ],
+  "b:sb-season18-mightandmastery:909": [
+   "c"
+  ],
+  "b:sb-season18-mightandmastery:921": [
+   "c"
+  ],
+  "b:sb-season18-mightandmastery:935": [
+   "c"
+  ],
+  "b:sb-season19-delightfuldays:133": [
+   "c"
+  ],
+  "b:sb-season19-delightfuldays:144": [
+   "c"
+  ],
+  "b:sb-season19-delightfuldays:145": [
+   "c"
+  ],
+  "b:sb-season19-delightfuldays:782": [
+   "c"
+  ],
+  "b:sb-season19-delightfuldays:815": [
+   "c"
+  ],
+  "b:sb-season19-delightfuldays:821": [
+   "c"
+  ],
+  "b:sb-season19-delightfuldays:912": [
+   "c"
+  ],
+  "b:sb-season20-talesoftransformation:152": [
+   "c"
+  ],
+  "b:sb-season20-talesoftransformation:639": [
+   "c"
+  ],
+  "b:sb-season20-talesoftransformation:640": [
+   "c"
+  ],
+  "b:sb-season20-talesoftransformation:669-red": [
+   "c"
+  ],
+  "b:sb-season20-talesoftransformation:731": [
+   "c"
+  ],
+  "b:sb-season20-talesoftransformation:733": [
+   "c",
+   "s"
+  ],
+  "b:sb-teamleader-blue:131-spring-2023-mystic": [
+   "c"
+  ],
+  "b:sb-teamleader-red:25-gotour-2026-a": [
+   "c"
+  ],
+  "b:sb-teamleader-red:77-spring-2023-valor": [
+   "c"
+  ],
+  "b:sb-teamleader-yellow:1": [
+   "c"
+  ],
+  "b:sb-teamleader-yellow:1-jan-2020-noevolve": [
+   "c"
+  ],
+  "b:sb-teamleader-yellow:155": [
+   "c"
+  ],
+  "b:sb-teamleader-yellow:239-spring-2023-instinct": [
+   "c"
+  ],
+  "b:sb-teamleader-yellow:25-anniversary-2026": [
+   "c"
+  ],
+  "b:sb-teamleader-yellow:393": [
+   "c"
+  ],
+  "b:sb-teamleader-yellow:4": [
+   "c"
+  ],
+  "b:sb-teamleader-yellow:4-jan-2020-noevolve": [
+   "c"
+  ],
+  "b:sb-teamleader-yellow:7": [
+   "c"
+  ],
+  "b:sb-teamleader-yellow:7-jan-2020-noevolve": [
+   "c"
+  ],
+  "b:sb-teamleader-yellow:722": [
+   "c"
+  ],
+  "b:sb-teamleader-yellow:725": [
+   "c"
+  ],
+  "b:sb-teamleader-yellow:728": [
+   "c"
+  ],
+  "b:sb-teamleader-yellow:813": [
+   "c"
+  ],
+  "b:sb-teamleader-yellow:816": [
+   "c"
+  ],
+  "b:sb-teamleader-yellow:906": [
+   "c"
+  ],
+  "b:sb-teamleader-yellow:909": [
+   "c"
+  ],
+  "b:sb-teamleader-yellow:912": [
+   "c"
+  ],
+  "c:1-fall-2019": [
+   "c"
+  ],
+  "c:1-jan-2020-noevolve": [
+   "c"
+  ],
+  "c:1-spring-2020-noevolve": [
+   "c"
+  ],
+  "c:10-gofest-2026": [
+   "c",
+   "s"
+  ],
+  "c:104-fall-2023": [
+   "c"
+  ],
+  "c:113-november-2018": [
+   "c"
+  ],
+  "c:12-fashion-2021-noevolve": [
+   "c",
+   "s"
+  ],
+  "c:131-costume-2020": [
+   "c",
+   "s"
+  ],
+  "c:131-spring-2023-mystic": [
+   "c"
+  ],
+  "c:132-spring-2026-a": [
+   "c"
+  ],
+  "c:132-spring-2026-b": [
+   "c"
+  ],
+  "c:133-gofest-2024-mtiara": [
+   "c",
+   "s"
+  ],
+  "c:133-gofest-2024-stiara": [
+   "c",
+   "s"
+  ],
+  "c:133-holiday-2022": [
+   "c"
+  ],
+  "c:133-jan-2020-noevolve": [
+   "c"
+  ],
+  "c:133-november-2018": [
+   "c"
+  ],
+  "c:133-spring-2023": [
+   "c"
+  ],
+  "c:134-holiday-2022": [
+   "c"
+  ],
+  "c:134-november-2018": [
+   "c"
+  ],
+  "c:134-spring-2023": [
+   "c"
+  ],
+  "c:135-holiday-2022": [
+   "c"
+  ],
+  "c:135-november-2018": [
+   "c"
+  ],
+  "c:135-spring-2023": [
+   "c"
+  ],
+  "c:136-holiday-2022": [
+   "c"
+  ],
+  "c:136-november-2018": [
+   "c"
+  ],
+  "c:136-spring-2023": [
+   "c"
+  ],
+  "c:142-summer-2023": [
+   "c",
+   "s"
+  ],
+  "c:143-gofest-2022-noevolve": [
+   "c",
+   "s"
+  ],
+  "c:143-nightcap": [
+   "c"
+  ],
+  "c:143-wildarea-2024": [
+   "c"
+  ],
+  "c:149-fall-2023": [
+   "c"
+  ],
+  "c:163-jan-2022-noevolve": [
+   "c",
+   "s"
+  ],
+  "c:172-anniversary": [
+   "c",
+   "s"
+  ],
+  "c:172-halloween-2017": [
+   "c"
+  ],
+  "c:172-holiday-2016": [
+   "c"
+  ],
+  "c:172-november-2018": [
+   "c",
+   "s"
+  ],
+  "c:172-one-year-anniversary": [
+   "c"
+  ],
+  "c:172-summer-2018": [
+   "c"
+  ],
+  "c:175-april-2020-noevolve": [
+   "c"
+  ],
+  "c:176-april-2020-noevolve": [
+   "c"
+  ],
+  "c:185-winter-2025": [
+   "c"
+  ],
+  "c:194-fall-2023": [
+   "c"
+  ],
+  "c:196-gofest-2024-sscarf": [
+   "c",
+   "s"
+  ],
+  "c:196-november-2018": [
+   "c"
+  ],
+  "c:196-spring-2023": [
+   "c"
+  ],
+  "c:197-gofest-2024-mscarf": [
+   "c",
+   "s"
+  ],
+  "c:197-november-2018": [
+   "c"
+  ],
+  "c:197-spring-2023": [
+   "c"
+  ],
+  "c:199-2022": [
+   "c"
+  ],
+  "c:20-jan-2020-noevolve": [
+   "c"
+  ],
+  "c:202-jan-2020-noevolve": [
+   "c"
+  ],
+  "c:215-fashion-2021-noevolve": [
+   "c"
+  ],
+  "c:216-halloween-2025": [
+   "c"
+  ],
+  "c:222-spring-2026": [
+   "c"
+  ],
+  "c:225-winter-2020": [
+   "c",
+   "s"
+  ],
+  "c:234-winter-2018": [
+   "c",
+   "s"
+  ],
+  "c:238-fall-2020-noevolve": [
+   "c"
+  ],
+  "c:239-spring-2023-instinct": [
+   "c"
+  ],
+  "c:242-november-2018": [
+   "c"
+  ],
+  "c:25-adventure-hat-2020": [
+   "c"
+  ],
+  "c:25-anniversary": [
+   "c",
+   "s"
+  ],
+  "c:25-anniversary-2022-noevolve": [
+   "c",
+   "s"
+  ],
+  "c:25-anniversary-2026": [
+   "c"
+  ],
+  "c:25-april-2020-noevolve": [
+   "c"
+  ],
+  "c:25-costume-1": [
+   "c"
+  ],
+  "c:25-costume-2": [
+   "c"
+  ],
+  "c:25-costume-2020": [
+   "c"
+  ],
+  "c:25-fall-2018": [
+   "c"
+  ],
+  "c:25-fall-2019": [
+   "c",
+   "s"
+  ],
+  "c:25-fall-2023-noevolve": [
+   "c"
+  ],
+  "c:25-feb-2019": [
+   "c"
+  ],
+  "c:25-flying-5th-anniv": [
+   "c"
+  ],
+  "c:25-glass-helmet-2026": [
+   "c"
+  ],
+  "c:25-gofest-2021-noevolve": [
+   "c"
+  ],
+  "c:25-gofest-2022": [
+   "c",
+   "s"
+  ],
+  "c:25-gofest-2022-noevolve": [
+   "c"
+  ],
+  "c:25-gofest-2024-mtiara": [
+   "c",
+   "s"
+  ],
+  "c:25-gofest-2024-stiara": [
+   "c",
+   "s"
+  ],
+  "c:25-gofest-2025-goggles-blue": [
+   "c",
+   "s"
+  ],
+  "c:25-gofest-2025-goggles-red": [
+   "c",
+   "s"
+  ],
+  "c:25-gofest-2025-goggles-yellow": [
+   "c",
+   "s"
+  ],
+  "c:25-gofest-2025-monocle-blue": [
+   "c",
+   "s"
+  ],
+  "c:25-gofest-2025-monocle-red": [
+   "c",
+   "s"
+  ],
+  "c:25-gofest-2025-monocle-yellow": [
+   "c",
+   "s"
+  ],
+  "c:25-gofest-2026-cap-blue": [
+   "c",
+   "s"
+  ],
+  "c:25-gofest-2026-cap-red": [
+   "c",
+   "s"
+  ],
+  "c:25-gofest-2026-cap-yellow": [
+   "c",
+   "s"
+  ],
+  "c:25-gotour-2023-bandana-noevolve": [
+   "c",
+   "s"
+  ],
+  "c:25-gotour-2023-hat-noevolve": [
+   "c",
+   "s"
+  ],
+  "c:25-gotour-2024-a": [
+   "c",
+   "s"
+  ],
+  "c:25-gotour-2024-a-02": [
+   "c",
+   "s"
+  ],
+  "c:25-gotour-2024-b": [
+   "c",
+   "s"
+  ],
+  "c:25-gotour-2024-b-02": [
+   "c",
+   "s"
+  ],
+  "c:25-gotour-2025-a": [
+   "c",
+   "s"
+  ],
+  "c:25-gotour-2025-a-02": [
+   "c",
+   "s"
+  ],
+  "c:25-gotour-2025-b": [
+   "c",
+   "s"
+  ],
+  "c:25-gotour-2025-b-02": [
+   "c",
+   "s"
+  ],
+  "c:25-gotour-2026-a": [
+   "c"
+  ],
+  "c:25-gotour-2026-a-02": [
+   "c"
+  ],
+  "c:25-gotour-2026-b": [
+   "c"
+  ],
+  "c:25-gotour-2026-b-02": [
+   "c"
+  ],
+  "c:25-gotour-2026-c": [
+   "c",
+   "s"
+  ],
+  "c:25-gotour-2026-c-02": [
+   "c",
+   "s"
+  ],
+  "c:25-halloween-2017": [
+   "c"
+  ],
+  "c:25-halloween-2021-noevolve": [
+   "c",
+   "s"
+  ],
+  "c:25-halloween-2026": [
+   "c"
+  ],
+  "c:25-hoenn-2020-noevolve": [
+   "c"
+  ],
+  "c:25-holiday-2016": [
+   "c",
+   "s"
+  ],
+  "c:25-holiday-2023": [
+   "c"
+  ],
+  "c:25-horizons": [
+   "c",
+   "s"
+  ],
+  "c:25-jan-2020-noevolve": [
+   "c"
+  ],
+  "c:25-jan-2023-noevolve": [
+   "c"
+  ],
+  "c:25-johto-2020-noevolve": [
+   "c"
+  ],
+  "c:25-kanto-2020-noevolve": [
+   "c"
+  ],
+  "c:25-may-2019-noevolve": [
+   "c"
+  ],
+  "c:25-november-2018": [
+   "c"
+  ],
+  "c:25-one-year-anniversary": [
+   "c"
+  ],
+  "c:25-pi": [
+   "c"
+  ],
+  "c:25-pop-star": [
+   "c"
+  ],
+  "c:25-pxp-2026": [
+   "c"
+  ],
+  "c:25-rock-star": [
+   "c"
+  ],
+  "c:25-safari-2020-noevolve": [
+   "c",
+   "s"
+  ],
+  "c:25-sinnoh-2020-noevolve": [
+   "c"
+  ],
+  "c:25-spring-2023": [
+   "c",
+   "s"
+  ],
+  "c:25-summer-2018": [
+   "c"
+  ],
+  "c:25-summer-2023-a": [
+   "c",
+   "s"
+  ],
+  "c:25-summer-2023-b": [
+   "c",
+   "s"
+  ],
+  "c:25-summer-2023-c": [
+   "c",
+   "s"
+  ],
+  "c:25-summer-2023-d": [
+   "c",
+   "s"
+  ],
+  "c:25-summer-2023-e": [
+   "c",
+   "s"
+  ],
+  "c:25-tcg-2022-noevolve": [
+   "c",
+   "s"
+  ],
+  "c:25-visor-2026": [
+   "c"
+  ],
+  "c:25-vs-2019": [
+   "c"
+  ],
+  "c:25-wcs-2022": [
+   "c"
+  ],
+  "c:25-wcs-2023": [
+   "c"
+  ],
+  "c:25-wcs-2024": [
+   "c"
+  ],
+  "c:25-wcs-2025": [
+   "c"
+  ],
+  "c:25-wcs-2026": [
+   "c"
+  ],
+  "c:25-winter-2018": [
+   "c",
+   "s"
+  ],
+  "c:25-winter-2020": [
+   "c"
+  ],
+  "c:26-anniversary": [
+   "c"
+  ],
+  "c:26-costume-1": [
+   "c"
+  ],
+  "c:26-costume-2": [
+   "c"
+  ],
+  "c:26-fall-2018": [
+   "c"
+  ],
+  "c:26-feb-2019": [
+   "c"
+  ],
+  "c:26-halloween-2017": [
+   "c"
+  ],
+  "c:26-holiday-2016": [
+   "c"
+  ],
+  "c:26-holiday-2023": [
+   "c"
+  ],
+  "c:26-november-2018": [
+   "c"
+  ],
+  "c:26-one-year-anniversary": [
+   "c"
+  ],
+  "c:26-pi": [
+   "c"
+  ],
+  "c:26-spring-2023": [
+   "c"
+  ],
+  "c:26-summer-2018": [
+   "c"
+  ],
+  "c:26-winter-2018": [
+   "c"
+  ],
+  "c:263-galarian-gofest-2021-noevolve": [
+   "c"
+  ],
+  "c:265-jan-2020-noevolve": [
+   "c",
+   "s"
+  ],
+  "c:281-fall-2020-noevolve": [
+   "c",
+   "s"
+  ],
+  "c:282-gofest-2021-noevolve": [
+   "c"
+  ],
+  "c:287-summer-2024": [
+   "c"
+  ],
+  "c:3-copy-2019": [
+   "c"
+  ],
+  "c:302-costume-2020": [
+   "c"
+  ],
+  "c:31-royal-noevolve": [
+   "c"
+  ],
+  "c:33-jan-2020-noevolve": [
+   "c"
+  ],
+  "c:330-gofest-2021-noevolve": [
+   "c"
+  ],
+  "c:34-royal-noevolve": [
+   "c"
+  ],
+  "c:355-fall-2022-noevolve": [
+   "c"
+  ],
+  "c:356-fall-2022-noevolve": [
+   "c"
+  ],
+  "c:359-fall-2022-noevolve": [
+   "c",
+   "s"
+  ],
+  "c:363-holiday-2021-noevolve": [
+   "c"
+  ],
+  "c:37-fall-2022": [
+   "c",
+   "s"
+  ],
+  "c:38-fall-2022": [
+   "c"
+  ],
+  "c:387-gems-1-2021-noevolve": [
+   "c"
+  ],
+  "c:387-gems-2-2021-noevolve": [
+   "c"
+  ],
+  "c:39-jan-2024": [
+   "c",
+   "s"
+  ],
+  "c:390-gems-1-2021-noevolve": [
+   "c"
+  ],
+  "c:390-gems-2-2021-noevolve": [
+   "c"
+  ],
+  "c:393-gems-1-2021-noevolve": [
+   "c",
+   "s"
+  ],
+  "c:393-gems-2-2021-noevolve": [
+   "c",
+   "s"
+  ],
+  "c:393-halloween-2021-noevolve": [
+   "c",
+   "s"
+  ],
+  "c:4-fall-2019": [
+   "c"
+  ],
+  "c:4-goggles-2026": [
+   "c",
+   "s"
+  ],
+  "c:4-jan-2020-noevolve": [
+   "c"
+  ],
+  "c:4-spring-2020-noevolve": [
+   "c",
+   "s"
+  ],
+  "c:403-fall-2020-noevolve": [
+   "c",
+   "s"
+  ],
+  "c:41-halloween-2026-01": [
+   "c"
+  ],
+  "c:426-halloween-2021-noevolve": [
+   "c"
+  ],
+  "c:427-april-2020-noevolve": [
+   "c"
+  ],
+  "c:428-april-2020-noevolve": [
+   "c",
+   "s"
+  ],
+  "c:440-november-2018": [
+   "c"
+  ],
+  "c:453-fall-2020-noevolve": [
+   "c",
+   "s"
+  ],
+  "c:454-fall-2020-noevolve": [
+   "c"
+  ],
+  "c:468-april-2020-noevolve": [
+   "c"
+  ],
+  "c:470-november-2018": [
+   "c"
+  ],
+  "c:470-spring-2023": [
+   "c"
+  ],
+  "c:471-holiday-2021-noevolve": [
+   "c"
+  ],
+  "c:471-november-2018": [
+   "c"
+  ],
+  "c:477-fall-2022-noevolve": [
+   "c"
+  ],
+  "c:5-jan-2020-noevolve": [
+   "c"
+  ],
+  "c:50-fall-2022": [
+   "c"
+  ],
+  "c:51-fall-2022": [
+   "c"
+  ],
+  "c:522-fashion-2021-noevolve": [
+   "c"
+  ],
+  "c:54-holiday-2023": [
+   "c"
+  ],
+  "c:54-swim-2025": [
+   "c"
+  ],
+  "c:546-spring-2024": [
+   "c",
+   "s"
+  ],
+  "c:572-fashion-2025": [
+   "c"
+  ],
+  "c:6-copy-2019": [
+   "c"
+  ],
+  "c:6-goggles-2026": [
+   "c"
+  ],
+  "c:6-jan-2020-noevolve": [
+   "c"
+  ],
+  "c:6-spring-2020-noevolve": [
+   "c"
+  ],
+  "c:613-winter-2020": [
+   "c"
+  ],
+  "c:656-fall-2024": [
+   "c"
+  ],
+  "c:68-wildarea-2026-01": [
+   "c"
+  ],
+  "c:7-fall-2019": [
+   "c"
+  ],
+  "c:7-jan-2020-noevolve": [
+   "c"
+  ],
+  "c:7-spring-2020-noevolve": [
+   "c",
+   "s"
+  ],
+  "c:7-summer-2018": [
+   "c",
+   "s"
+  ],
+  "c:700-november-2018": [
+   "c"
+  ],
+  "c:702-winter-2024": [
+   "c"
+  ],
+  "c:710-average-fall-2022": [
+   "c"
+  ],
+  "c:710-large-fall-2022": [
+   "c",
+   "s"
+  ],
+  "c:710-small-fall-2022": [
+   "c",
+   "s"
+  ],
+  "c:710-super-fall-2022": [
+   "c"
+  ],
+  "c:714-halloween-2025": [
+   "c",
+   "s"
+  ],
+  "c:722-fall-2024": [
+   "c",
+   "s"
+  ],
+  "c:737-winter-2025": [
+   "c"
+  ],
+  "c:760-wildarea-2025": [
+   "c"
+  ],
+  "c:77-galarian-gofest-2021-noevolve": [
+   "c"
+  ],
+  "c:77-spring-2023-valor": [
+   "c"
+  ],
+  "c:79-2020": [
+   "c"
+  ],
+  "c:79-pi-noevolve": [
+   "c",
+   "s"
+  ],
+  "c:8-summer-2018": [
+   "c",
+   "s"
+  ],
+  "c:80-2021": [
+   "c"
+  ],
+  "c:831-winter-2024": [
+   "c"
+  ],
+  "c:854-p-halloween-2026-01": [
+   "c"
+  ],
+  "c:870-gofest-2025-train-conductor": [
+   "c",
+   "s"
+  ],
+  "c:88-anniversary-2024": [
+   "c"
+  ],
+  "c:9-jan-2020-noevolve": [
+   "c"
+  ],
+  "c:907-horizons-2025-noevolve": [
+   "c",
+   "s"
+  ],
+  "c:94-costume-2020": [
+   "c"
+  ],
+  "c:94-fall-2022-noevolve": [
+   "c"
+  ],
+  "c:94-fall-2023-noevolve": [
+   "c"
+  ],
+  "c:94-jan-2020-noevolve": [
+   "c",
+   "s"
+  ],
+  "c:999-coin-a1": [
+   "c"
+  ],
+  "c:999-coin-a2-2026": [
+   "c"
+  ],
+  "d:1": [
+   "c",
+   "cf",
+   "cm",
+   "dx",
+   "h",
+   "l",
+   "pu",
+   "s",
+   "sd",
+   "xl",
+   "xs"
+  ],
+  "d:10": [
+   "c",
+   "cf",
+   "cm",
+   "dx",
+   "h",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:100": [
+   "c",
+   "l",
+   "s",
+   "sd",
+   "xl"
+  ],
+  "d:100-hisuian": [
+   "c",
+   "h",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:101": [
+   "c",
+   "l",
+   "s"
+  ],
+  "d:101-hisuian": [
+   "c",
+   "l",
+   "s"
+  ],
+  "d:1012": [
+   "c"
+  ],
+  "d:102": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "pu",
+   "s",
+   "sd",
+   "xl"
+  ],
+  "d:103": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "s"
+  ],
+  "d:103-alolan": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s",
+   "sd",
+   "xl"
+  ],
+  "d:104": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "pu",
+   "s",
+   "sd",
+   "xl"
+  ],
+  "d:105": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s"
+  ],
+  "d:105-alolan": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "s",
+   "xl"
+  ],
+  "d:106": [
+   "c",
+   "cm",
+   "dx",
+   "s",
+   "sd"
+  ],
+  "d:107": [
+   "c",
+   "cm",
+   "dx",
+   "pu",
+   "s",
+   "sd"
+  ],
+  "d:108": [
+   "c",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:109": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "pu",
+   "s",
+   "sd",
+   "xl",
+   "xs"
+  ],
+  "d:11": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:110": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd",
+   "xl"
+  ],
+  "d:110-galarian": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:111": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd",
+   "xl"
+  ],
+  "d:112": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:113": [
+   "c",
+   "cf",
+   "dx",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:114": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd",
+   "xl"
+  ],
+  "d:115": [
+   "c",
+   "cf",
+   "l",
+   "mg",
+   "s"
+  ],
+  "d:116": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd"
+  ],
+  "d:117": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:118": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:119": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:12": [
+   "c",
+   "cf",
+   "cm",
+   "gx",
+   "h",
+   "l",
+   "s"
+  ],
+  "d:120": [
+   "c",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:121": [
+   "c",
+   "l",
+   "mg",
+   "s"
+  ],
+  "d:122": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s",
+   "xs"
+  ],
+  "d:122-galarian": [
+   "c",
+   "cf",
+   "cm",
+   "s",
+   "xs"
+  ],
+  "d:123": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd"
+  ],
+  "d:124": [
+   "c",
+   "cf",
+   "h",
+   "l",
+   "s",
+   "xs"
+  ],
+  "d:125": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd",
+   "xs"
+  ],
+  "d:126": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "pu",
+   "s",
+   "sd"
+  ],
+  "d:127": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "mg",
+   "s",
+   "sd"
+  ],
+  "d:128": [
+   "c",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:128-paldean-aqua": [
+   "c",
+   "cm"
+  ],
+  "d:128-paldean-combat": [
+   "c",
+   "cm",
+   "s"
+  ],
+  "d:129": [
+   "c",
+   "cf",
+   "cm",
+   "dx",
+   "l",
+   "pu",
+   "s",
+   "sd"
+  ],
+  "d:13": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "pu",
+   "s",
+   "sd",
+   "xl",
+   "xs"
+  ],
+  "d:130": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "mg",
+   "s",
+   "xl"
+  ],
+  "d:131": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd",
+   "xl",
+   "xs"
+  ],
+  "d:132": [
+   "c",
+   "l",
+   "s",
+   "xl"
+  ],
+  "d:133": [
+   "c",
+   "cf",
+   "cm",
+   "dx",
+   "h",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:134": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:135": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:136": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:137": [
+   "c",
+   "l",
+   "pu",
+   "s",
+   "sd"
+  ],
+  "d:138": [
+   "c",
+   "cf",
+   "cm",
+   "dx",
+   "l",
+   "s",
+   "sd",
+   "xl"
+  ],
+  "d:139": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s"
+  ],
+  "d:14": [
+   "c",
+   "cf",
+   "s",
+   "sd"
+  ],
+  "d:140": [
+   "c",
+   "cf",
+   "cm",
+   "dx",
+   "l",
+   "s",
+   "sd",
+   "xs"
+  ],
+  "d:141": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:142": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "mg",
+   "s",
+   "sd"
+  ],
+  "d:143": [
+   "c",
+   "cf",
+   "cm",
+   "gx",
+   "h",
+   "l",
+   "pu",
+   "s",
+   "sd",
+   "xs"
+  ],
+  "d:144": [
+   "c",
+   "l",
+   "s",
+   "sd"
+  ],
+  "d:144-galarian": [
+   "c",
+   "s"
+  ],
+  "d:145": [
+   "c",
+   "l",
+   "s",
+   "sd"
+  ],
+  "d:146": [
+   "c",
+   "l",
+   "s",
+   "sd"
+  ],
+  "d:146-galarian": [
+   "c",
+   "s"
+  ],
+  "d:147": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd",
+   "xl"
+  ],
+  "d:148": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:149": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "mg",
+   "s"
+  ],
+  "d:15": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "mg",
+   "s"
+  ],
+  "d:150": [
+   "c",
+   "h",
+   "l",
+   "mx",
+   "my",
+   "s",
+   "sd"
+  ],
+  "d:151": [
+   "c",
+   "s"
+  ],
+  "d:152": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd"
+  ],
+  "d:153": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd"
+  ],
+  "d:154": [
+   "c",
+   "cf",
+   "cm",
+   "s",
+   "sd"
+  ],
+  "d:155": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd",
+   "xl"
+  ],
+  "d:156": [
+   "c",
+   "cf",
+   "cm",
+   "s",
+   "sd"
+  ],
+  "d:157": [
+   "c",
+   "cf",
+   "cm",
+   "s",
+   "sd"
+  ],
+  "d:157-hisuian": [
+   "c",
+   "cm",
+   "s"
+  ],
+  "d:158": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd",
+   "xs"
+  ],
+  "d:159": [
+   "c",
+   "cf",
+   "cm",
+   "s",
+   "sd",
+   "xs"
+  ],
+  "d:16": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "pu",
+   "s",
+   "sd",
+   "xl",
+   "xs"
+  ],
+  "d:160": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd"
+  ],
+  "d:161": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:162": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:163": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s",
+   "xl"
+  ],
+  "d:164": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:165": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd"
+  ],
+  "d:166": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:167": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl"
+  ],
+  "d:168": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s"
+  ],
+  "d:169": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "pu",
+   "s"
+  ],
+  "d:17": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:170": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xs"
+  ],
+  "d:171": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:172": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s",
+   "xs"
+  ],
+  "d:173": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:174": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl"
+  ],
+  "d:175": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:176": [
+   "c",
+   "cf",
+   "cm",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:177": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd",
+   "xs"
+  ],
+  "d:178": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd"
+  ],
+  "d:179": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd",
+   "xl"
+  ],
+  "d:18": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "mg",
+   "s"
+  ],
+  "d:180": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:181": [
+   "c",
+   "cf",
+   "cm",
+   "mg",
+   "s"
+  ],
+  "d:182": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:183": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:184": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:185": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd",
+   "xs"
+  ],
+  "d:186": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:187": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "pu",
+   "s",
+   "sd",
+   "xl"
+  ],
+  "d:188": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:189": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:19": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "pu",
+   "s",
+   "sd",
+   "xl",
+   "xs"
+  ],
+  "d:19-alolan": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd",
+   "xs"
+  ],
+  "d:190": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd",
+   "xl",
+   "xs"
+  ],
+  "d:191": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:192": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xs"
+  ],
+  "d:193": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:194": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "pu",
+   "s",
+   "sd",
+   "xl",
+   "xs"
+  ],
+  "d:194-paldean": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:195": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "s"
+  ],
+  "d:196": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:197": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xs"
+  ],
+  "d:198": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd",
+   "xs"
+  ],
+  "d:199": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:2": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:20": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "pu",
+   "s",
+   "sd",
+   "xs"
+  ],
+  "d:20-alolan": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd"
+  ],
+  "d:200": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "pu",
+   "s",
+   "sd"
+  ],
+  "d:201-a": [
+   "c",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:201-b": [
+   "c",
+   "s"
+  ],
+  "d:201-c": [
+   "c",
+   "s"
+  ],
+  "d:201-d": [
+   "c",
+   "s"
+  ],
+  "d:201-e": [
+   "c",
+   "s",
+   "xs"
+  ],
+  "d:201-exclamation": [
+   "c",
+   "s",
+   "xl"
+  ],
+  "d:201-f": [
+   "c",
+   "s"
+  ],
+  "d:201-g": [
+   "c",
+   "s"
+  ],
+  "d:201-h": [
+   "c",
+   "s",
+   "xs"
+  ],
+  "d:201-i": [
+   "c",
+   "s",
+   "xl"
+  ],
+  "d:201-j": [
+   "c",
+   "s"
+  ],
+  "d:201-k": [
+   "c",
+   "s",
+   "xs"
+  ],
+  "d:201-l": [
+   "c",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:201-m": [
+   "c",
+   "s"
+  ],
+  "d:201-n": [
+   "c",
+   "s"
+  ],
+  "d:201-o": [
+   "c",
+   "h",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:201-p": [
+   "c",
+   "s"
+  ],
+  "d:201-q": [
+   "c",
+   "s"
+  ],
+  "d:201-question": [
+   "c",
+   "s",
+   "xs"
+  ],
+  "d:201-r": [
+   "c",
+   "s"
+  ],
+  "d:201-s": [
+   "c",
+   "l",
+   "s",
+   "xs"
+  ],
+  "d:201-t": [
+   "c",
+   "h",
+   "s",
+   "xs"
+  ],
+  "d:201-u": [
+   "c",
+   "h",
+   "s",
+   "xl"
+  ],
+  "d:201-v": [
+   "c",
+   "s",
+   "xl"
+  ],
+  "d:201-w": [
+   "c",
+   "s",
+   "xl"
+  ],
+  "d:201-x": [
+   "c",
+   "s",
+   "xl"
+  ],
+  "d:201-y": [
+   "c",
+   "s",
+   "xl"
+  ],
+  "d:201-z": [
+   "c",
+   "s"
+  ],
+  "d:202": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd",
+   "xl"
+  ],
+  "d:203": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd",
+   "xl"
+  ],
+  "d:204": [
+   "c",
+   "cf",
+   "cm",
+   "s",
+   "sd",
+   "xl"
+  ],
+  "d:205": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:206": [
+   "c",
+   "cf",
+   "cm",
+   "s",
+   "xs"
+  ],
+  "d:207": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s",
+   "sd"
+  ],
+  "d:208": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "mg",
+   "s"
+  ],
+  "d:209": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd",
+   "xl",
+   "xs"
+  ],
+  "d:21": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:210": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:211": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "s",
+   "sd"
+  ],
+  "d:211-hisuian": [
+   "c",
+   "cf",
+   "cm",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:212": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "mg",
+   "s",
+   "sd"
+  ],
+  "d:213": [
+   "c",
+   "cf",
+   "cm",
+   "dx",
+   "l",
+   "s",
+   "sd"
+  ],
+  "d:214": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "mg",
+   "s",
+   "xl"
+  ],
+  "d:215": [
+   "c",
+   "cf",
+   "cm",
+   "dx",
+   "l",
+   "s",
+   "sd",
+   "xl",
+   "xs"
+  ],
+  "d:215-hisuian": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "s",
+   "sd",
+   "xs"
+  ],
+  "d:216": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd",
+   "xl",
+   "xs"
+  ],
+  "d:217": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:218": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:219": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:22": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:220": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "pu",
+   "s",
+   "sd",
+   "xl"
+  ],
+  "d:221": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd"
+  ],
+  "d:222": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:222-galarian": [
+   "c",
+   "cf",
+   "cm"
+  ],
+  "d:223": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s"
+  ],
+  "d:224": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:225": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "s",
+   "sd",
+   "xs"
+  ],
+  "d:226": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xs"
+  ],
+  "d:227": [
+   "c",
+   "cf",
+   "cm",
+   "mg",
+   "s",
+   "sd"
+  ],
+  "d:228": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd",
+   "xs"
+  ],
+  "d:229": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "mg",
+   "pu",
+   "s"
+  ],
+  "d:23": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd",
+   "xs"
+  ],
+  "d:230": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:231": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s",
+   "sd",
+   "xl",
+   "xs"
+  ],
+  "d:232": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:233": [
+   "c",
+   "l",
+   "s",
+   "sd"
+  ],
+  "d:234": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd"
+  ],
+  "d:235": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:236": [
+   "c",
+   "cm",
+   "h",
+   "s"
+  ],
+  "d:237": [
+   "c",
+   "cm",
+   "l",
+   "s",
+   "sd",
+   "xs"
+  ],
+  "d:238": [
+   "c",
+   "cf",
+   "l",
+   "s"
+  ],
+  "d:239": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s"
+  ],
+  "d:24": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:240": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s"
+  ],
+  "d:241": [
+   "c",
+   "cf",
+   "s"
+  ],
+  "d:242": [
+   "c",
+   "cf",
+   "h",
+   "s"
+  ],
+  "d:243": [
+   "c",
+   "l",
+   "s",
+   "sd",
+   "xl"
+  ],
+  "d:244": [
+   "c",
+   "l",
+   "s",
+   "sd"
+  ],
+  "d:245": [
+   "c",
+   "dx",
+   "h",
+   "l",
+   "s",
+   "sd"
+  ],
+  "d:246": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "pu",
+   "s",
+   "sd",
+   "xs"
+  ],
+  "d:247": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:248": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "mg",
+   "pu",
+   "s",
+   "sd"
+  ],
+  "d:249": [
+   "c",
+   "l",
+   "s",
+   "sd"
+  ],
+  "d:25": [
+   "c",
+   "cf",
+   "cm",
+   "dx",
+   "h",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:250": [
+   "c",
+   "l",
+   "s",
+   "sd"
+  ],
+  "d:251": [
+   "c",
+   "s"
+  ],
+  "d:252": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s",
+   "sd"
+  ],
+  "d:253": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:254": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "mg",
+   "s"
+  ],
+  "d:255": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd"
+  ],
+  "d:256": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:257": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "mg",
+   "s"
+  ],
+  "d:258": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd"
+  ],
+  "d:259": [
+   "c",
+   "cm",
+   "l",
+   "s",
+   "sd"
+  ],
+  "d:26": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "mx",
+   "my",
+   "s"
+  ],
+  "d:26-alolan": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:260": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "mg",
+   "pu",
+   "s",
+   "sd"
+  ],
+  "d:261": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "pu",
+   "s",
+   "sd",
+   "xs"
+  ],
+  "d:262": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s",
+   "xs"
+  ],
+  "d:263": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:263-galarian": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:264": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl"
+  ],
+  "d:264-galarian": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:265": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:266": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:267": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:268": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:269": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:27": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "pu",
+   "s",
+   "sd",
+   "xs"
+  ],
+  "d:27-alolan": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd",
+   "xs"
+  ],
+  "d:270": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl"
+  ],
+  "d:271": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:272": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s"
+  ],
+  "d:273": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "pu",
+   "s",
+   "sd",
+   "xl"
+  ],
+  "d:274": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xs"
+  ],
+  "d:275": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:276": [
+   "c",
+   "cm",
+   "l",
+   "s",
+   "sd",
+   "xl"
+  ],
+  "d:277": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s",
+   "xl"
+  ],
+  "d:278": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:279": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:28": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:28-alolan": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:280": [
+   "c",
+   "cf",
+   "cm",
+   "dx",
+   "l",
+   "s",
+   "sd",
+   "xl",
+   "xs"
+  ],
+  "d:281": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd"
+  ],
+  "d:282": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "mg",
+   "s"
+  ],
+  "d:283": [
+   "c",
+   "cf",
+   "cm",
+   "s",
+   "xl"
+  ],
+  "d:284": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:285": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:286": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "s"
+  ],
+  "d:287": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s",
+   "sd",
+   "xs"
+  ],
+  "d:288": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:289": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:29": [
+   "c",
+   "cf",
+   "h",
+   "l",
+   "pu",
+   "s",
+   "sd"
+  ],
+  "d:290": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:291": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:292": [
+   "c",
+   "h",
+   "s",
+   "xl"
+  ],
+  "d:293": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd",
+   "xs"
+  ],
+  "d:294": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd"
+  ],
+  "d:295": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:296": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s",
+   "sd",
+   "xs"
+  ],
+  "d:297": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s"
+  ],
+  "d:298": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:299": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "s",
+   "sd",
+   "xl",
+   "xs"
+  ],
+  "d:3": [
+   "c",
+   "cf",
+   "cm",
+   "gx",
+   "h",
+   "l",
+   "mg",
+   "pu",
+   "s",
+   "sd"
+  ],
+  "d:30": [
+   "c",
+   "cf",
+   "l",
+   "s",
+   "sd"
+  ],
+  "d:300": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xs"
+  ],
+  "d:301": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:302": [
+   "c",
+   "cf",
+   "cm",
+   "dx",
+   "h",
+   "l",
+   "mg",
+   "s",
+   "sd"
+  ],
+  "d:303": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "mg",
+   "s",
+   "sd",
+   "xl"
+  ],
+  "d:304": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "pu",
+   "s",
+   "sd",
+   "xl"
+  ],
+  "d:305": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:306": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "mg",
+   "s"
+  ],
+  "d:307": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s",
+   "xl"
+  ],
+  "d:308": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "mg",
+   "s"
+  ],
+  "d:309": [
+   "c",
+   "cf",
+   "cm",
+   "s",
+   "sd",
+   "xl",
+   "xs"
+  ],
+  "d:31": [
+   "c",
+   "cf",
+   "l",
+   "s"
+  ],
+  "d:310": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "mg",
+   "s"
+  ],
+  "d:311": [
+   "c",
+   "cf",
+   "cm",
+   "s",
+   "xs"
+  ],
+  "d:312": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:313": [
+   "c",
+   "cm",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:314": [
+   "c",
+   "cf",
+   "l",
+   "s"
+  ],
+  "d:315": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s",
+   "xl"
+  ],
+  "d:316": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl"
+  ],
+  "d:317": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s"
+  ],
+  "d:318": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "pu",
+   "s",
+   "sd"
+  ],
+  "d:319": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "mg",
+   "s"
+  ],
+  "d:32": [
+   "c",
+   "cm",
+   "l",
+   "pu",
+   "s",
+   "sd",
+   "xs"
+  ],
+  "d:320": [
+   "c",
+   "cf",
+   "cm",
+   "dx",
+   "h",
+   "l",
+   "s",
+   "sd",
+   "xl",
+   "xs"
+  ],
+  "d:321": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:322": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd"
+  ],
+  "d:323": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "mg",
+   "s"
+  ],
+  "d:324": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl"
+  ],
+  "d:325": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd"
+  ],
+  "d:326": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:327-1": [
+   "c",
+   "cm"
+  ],
+  "d:327-2": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:327-3": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:327-4": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:327-5": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:327-6": [
+   "c",
+   "cf",
+   "cm"
+  ],
+  "d:327-7": [
+   "c",
+   "cf",
+   "cm"
+  ],
+  "d:327-8": [
+   "c",
+   "cf"
+  ],
+  "d:327-9": [
+   "c",
+   "cf",
+   "cm",
+   "l"
+  ],
+  "d:328": [
+   "c",
+   "cf",
+   "cm",
+   "dx",
+   "l",
+   "s",
+   "sd"
+  ],
+  "d:329": [
+   "c",
+   "cf",
+   "h",
+   "l",
+   "s"
+  ],
+  "d:33": [
+   "c",
+   "cm",
+   "h",
+   "l",
+   "s",
+   "sd"
+  ],
+  "d:330": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:331": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s",
+   "sd",
+   "xl",
+   "xs"
+  ],
+  "d:332": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:333": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd",
+   "xl",
+   "xs"
+  ],
+  "d:334": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "mg",
+   "s"
+  ],
+  "d:335": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s"
+  ],
+  "d:336": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl"
+  ],
+  "d:337": [
+   "c",
+   "l",
+   "s",
+   "xl"
+  ],
+  "d:338": [
+   "c",
+   "l",
+   "s"
+  ],
+  "d:339": [
+   "c",
+   "cf",
+   "cm",
+   "s",
+   "sd",
+   "xs"
+  ],
+  "d:34": [
+   "c",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:340": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:341": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd",
+   "xs"
+  ],
+  "d:342": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:343": [
+   "c",
+   "s",
+   "sd",
+   "xs"
+  ],
+  "d:344": [
+   "c",
+   "s"
+  ],
+  "d:345": [
+   "c",
+   "cf",
+   "cm",
+   "s",
+   "sd"
+  ],
+  "d:346": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:347": [
+   "c",
+   "cm",
+   "l",
+   "pu",
+   "s",
+   "sd",
+   "xl",
+   "xs"
+  ],
+  "d:348": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s"
+  ],
+  "d:349": [
+   "c",
+   "cf",
+   "cm",
+   "dx",
+   "s",
+   "sd"
+  ],
+  "d:35": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl"
+  ],
+  "d:350": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:351": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "s"
+  ],
+  "d:351-rainy": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:351-snowy": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:351-sunny": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xs"
+  ],
+  "d:352": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:353": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "pu",
+   "s",
+   "sd"
+  ],
+  "d:354": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "mg",
+   "s"
+  ],
+  "d:355": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "pu",
+   "s",
+   "sd",
+   "xl",
+   "xs"
+  ],
+  "d:356": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd",
+   "xl"
+  ],
+  "d:357": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:358": [
+   "c",
+   "cm",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:359": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "mg",
+   "s",
+   "sd",
+   "xl",
+   "xs"
+  ],
+  "d:36": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:360": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:361": [
+   "c",
+   "cf",
+   "cm",
+   "s",
+   "sd"
+  ],
+  "d:362": [
+   "c",
+   "cf",
+   "cm",
+   "mg",
+   "s"
+  ],
+  "d:363": [
+   "c",
+   "cf",
+   "cm",
+   "dx",
+   "h",
+   "l",
+   "s",
+   "sd",
+   "xl",
+   "xs"
+  ],
+  "d:364": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl"
+  ],
+  "d:365": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s",
+   "xl"
+  ],
+  "d:366": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:367": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:368": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "s"
+  ],
+  "d:369": [
+   "c",
+   "cf",
+   "cm",
+   "l"
+  ],
+  "d:37": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "pu",
+   "s",
+   "sd",
+   "xl",
+   "xs"
+  ],
+  "d:37-alolan": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd",
+   "xl"
+  ],
+  "d:370": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:371": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd"
+  ],
+  "d:372": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:373": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "mg",
+   "s"
+  ],
+  "d:374": [
+   "c",
+   "dx",
+   "l",
+   "s",
+   "sd",
+   "xl",
+   "xs"
+  ],
+  "d:375": [
+   "c",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:376": [
+   "c",
+   "l",
+   "mg",
+   "s",
+   "sd",
+   "xl"
+  ],
+  "d:377": [
+   "c",
+   "s"
+  ],
+  "d:378": [
+   "c",
+   "l",
+   "s"
+  ],
+  "d:379": [
+   "c",
+   "s",
+   "sd"
+  ],
+  "d:38": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xs"
+  ],
+  "d:38-alolan": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:380": [
+   "c",
+   "cf",
+   "dx",
+   "h",
+   "l",
+   "mg",
+   "s",
+   "sd"
+  ],
+  "d:381": [
+   "c",
+   "cm",
+   "l",
+   "mg",
+   "s",
+   "sd"
+  ],
+  "d:382": [
+   "c",
+   "l",
+   "mg",
+   "s",
+   "sd",
+   "xs"
+  ],
+  "d:383": [
+   "c",
+   "h",
+   "l",
+   "mg",
+   "s",
+   "sd"
+  ],
+  "d:384": [
+   "c",
+   "l",
+   "mg",
+   "s"
+  ],
+  "d:385": [
+   "c",
+   "s"
+  ],
+  "d:386": [
+   "c",
+   "s"
+  ],
+  "d:386-attack": [
+   "c",
+   "s"
+  ],
+  "d:386-defense": [
+   "c",
+   "s"
+  ],
+  "d:386-speed": [
+   "c",
+   "s"
+  ],
+  "d:387": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd"
+  ],
+  "d:388": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:389": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "pu",
+   "s",
+   "sd"
+  ],
+  "d:39": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:390": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd"
+  ],
+  "d:391": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:392": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s"
+  ],
+  "d:393": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s",
+   "sd",
+   "xl",
+   "xs"
+  ],
+  "d:394": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:395": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s",
+   "xl"
+  ],
+  "d:396": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "pu",
+   "s",
+   "sd",
+   "xl",
+   "xs"
+  ],
+  "d:397": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xs"
+  ],
+  "d:398": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s"
+  ],
+  "d:399": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "pu",
+   "s",
+   "sd",
+   "xs"
+  ],
+  "d:4": [
+   "c",
+   "cf",
+   "cm",
+   "dx",
+   "h",
+   "l",
+   "s",
+   "sd",
+   "xl",
+   "xs"
+  ],
+  "d:40": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:400": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd"
+  ],
+  "d:401": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl"
+  ],
+  "d:402": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:403": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd"
+  ],
+  "d:404": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:405": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:406": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:407": [
+   "c",
+   "cf",
+   "l",
+   "s"
+  ],
+  "d:408": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s",
+   "sd",
+   "xs"
+  ],
+  "d:409": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s"
+  ],
+  "d:41": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "pu",
+   "s",
+   "sd",
+   "xl",
+   "xs"
+  ],
+  "d:410": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd",
+   "xs"
+  ],
+  "d:411": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s"
+  ],
+  "d:412-plant": [
+   "c",
+   "cf",
+   "cm",
+   "s",
+   "xl"
+  ],
+  "d:412-sandy": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:412-trash": [
+   "c",
+   "cf",
+   "cm",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:413-plant": [
+   "c",
+   "cf",
+   "s"
+  ],
+  "d:413-sandy": [
+   "c",
+   "cf",
+   "s"
+  ],
+  "d:413-trash": [
+   "c",
+   "cf",
+   "s"
+  ],
+  "d:414": [
+   "c",
+   "cm",
+   "s",
+   "xl"
+  ],
+  "d:415": [
+   "c",
+   "cf",
+   "cm",
+   "dx",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:416": [
+   "c",
+   "cf",
+   "s"
+  ],
+  "d:417": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:418": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:419": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:42": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "pu",
+   "s"
+  ],
+  "d:420": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:421-overcast": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s"
+  ],
+  "d:421-sunny": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:422-east-sea": [
+   "c",
+   "cf",
+   "cm",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:422-west-sea": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:423-east-sea": [
+   "c",
+   "cf",
+   "cm"
+  ],
+  "d:423-west-sea": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl"
+  ],
+  "d:424": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:425": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd",
+   "xl"
+  ],
+  "d:426": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl"
+  ],
+  "d:427": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:428": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "mg",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:429": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s"
+  ],
+  "d:43": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "pu",
+   "s",
+   "sd",
+   "xl",
+   "xs"
+  ],
+  "d:430": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd"
+  ],
+  "d:431": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s",
+   "sd",
+   "xs"
+  ],
+  "d:432": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:433": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l"
+  ],
+  "d:434": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s",
+   "sd",
+   "xl",
+   "xs"
+  ],
+  "d:435": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xs"
+  ],
+  "d:436": [
+   "c",
+   "l",
+   "s"
+  ],
+  "d:437": [
+   "c",
+   "l",
+   "s"
+  ],
+  "d:438": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s",
+   "xs"
+  ],
+  "d:439": [
+   "c",
+   "cf",
+   "cm",
+   "s",
+   "xs"
+  ],
+  "d:44": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "pu",
+   "s"
+  ],
+  "d:440": [
+   "c",
+   "cf",
+   "l",
+   "s"
+  ],
+  "d:441": [
+   "c",
+   "cf",
+   "cm",
+   "l"
+  ],
+  "d:442": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:443": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd",
+   "xl"
+  ],
+  "d:444": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:445": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "mg",
+   "s"
+  ],
+  "d:446": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "s"
+  ],
+  "d:447": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s",
+   "xs"
+  ],
+  "d:448": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "mg",
+   "s"
+  ],
+  "d:449": [
+   "c",
+   "l",
+   "s",
+   "sd"
+  ],
+  "d:449-female": [
+   "c",
+   "s",
+   "sd"
+  ],
+  "d:45": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:450": [
+   "c"
+  ],
+  "d:450-female": [
+   "c",
+   "l",
+   "s"
+  ],
+  "d:451": [
+   "c",
+   "cf",
+   "cm",
+   "s",
+   "sd"
+  ],
+  "d:452": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s"
+  ],
+  "d:453": [
+   "c",
+   "cf",
+   "cm",
+   "s",
+   "sd",
+   "xl"
+  ],
+  "d:454": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "s"
+  ],
+  "d:455": [
+   "c",
+   "cf",
+   "cm",
+   "l"
+  ],
+  "d:456": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s",
+   "xl"
+  ],
+  "d:457": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:458": [
+   "c",
+   "cf",
+   "cm",
+   "l"
+  ],
+  "d:459": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd",
+   "xl"
+  ],
+  "d:46": [
+   "c",
+   "cf",
+   "cm",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:460": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "mg",
+   "s"
+  ],
+  "d:461": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:462": [
+   "c",
+   "s",
+   "xl"
+  ],
+  "d:463": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:464": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:465": [
+   "c",
+   "cm",
+   "s"
+  ],
+  "d:466": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:467": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:468": [
+   "c",
+   "cf",
+   "cm",
+   "s",
+   "xl"
+  ],
+  "d:469": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:47": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "s"
+  ],
+  "d:470": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:471": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:472": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:473": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s"
+  ],
+  "d:474": [
+   "c",
+   "l",
+   "s",
+   "sd"
+  ],
+  "d:475": [
+   "c",
+   "cm",
+   "l",
+   "mg",
+   "s"
+  ],
+  "d:476": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s"
+  ],
+  "d:477": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:478": [
+   "c",
+   "cf",
+   "s"
+  ],
+  "d:479": [
+   "c"
+  ],
+  "d:479-fan": [
+   "c"
+  ],
+  "d:479-frost": [
+   "c"
+  ],
+  "d:479-heat": [
+   "c"
+  ],
+  "d:479-mow": [
+   "c"
+  ],
+  "d:479-wash": [
+   "c",
+   "s"
+  ],
+  "d:48": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "pu",
+   "s",
+   "sd",
+   "xs"
+  ],
+  "d:480": [
+   "c",
+   "l",
+   "s",
+   "xs"
+  ],
+  "d:481": [
+   "c",
+   "l",
+   "s"
+  ],
+  "d:482": [
+   "c",
+   "l",
+   "s"
+  ],
+  "d:483": [
+   "c",
+   "dx",
+   "l",
+   "s",
+   "sd"
+  ],
+  "d:483-origin": [
+   "c",
+   "s"
+  ],
+  "d:484": [
+   "c",
+   "dx",
+   "l",
+   "s"
+  ],
+  "d:484-origin": [
+   "c",
+   "l",
+   "s"
+  ],
+  "d:485": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:486": [
+   "c",
+   "s",
+   "sd",
+   "xl"
+  ],
+  "d:487-altered": [
+   "c",
+   "l",
+   "s"
+  ],
+  "d:487-origin": [
+   "c",
+   "l",
+   "s"
+  ],
+  "d:488": [
+   "c",
+   "cf",
+   "h",
+   "l",
+   "s"
+  ],
+  "d:49": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "pu",
+   "s"
+  ],
+  "d:491": [
+   "c",
+   "s"
+  ],
+  "d:492-land": [
+   "c",
+   "s"
+  ],
+  "d:494": [
+   "c"
+  ],
+  "d:495": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd"
+  ],
+  "d:496": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:497": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:498": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd",
+   "xl"
+  ],
+  "d:499": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:5": [
+   "c",
+   "cf",
+   "cm",
+   "dx",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:50": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd",
+   "xl",
+   "xs"
+  ],
+  "d:50-alolan": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd",
+   "xl",
+   "xs"
+  ],
+  "d:500": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:501": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd",
+   "xl"
+  ],
+  "d:502": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:503": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:503-hisuian": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:504": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd",
+   "xs"
+  ],
+  "d:505": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s"
+  ],
+  "d:506": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl"
+  ],
+  "d:507": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:508": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s"
+  ],
+  "d:509": [
+   "c",
+   "cf",
+   "cm",
+   "s",
+   "sd",
+   "xl"
+  ],
+  "d:51": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl"
+  ],
+  "d:51-alolan": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:510": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "s"
+  ],
+  "d:511": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "s"
+  ],
+  "d:513": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:514": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l"
+  ],
+  "d:515": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:516": [
+   "c",
+   "cm",
+   "s"
+  ],
+  "d:517": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:518": [
+   "c",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:519": [
+   "c",
+   "cf",
+   "cm",
+   "dx",
+   "l",
+   "pu",
+   "s",
+   "sd",
+   "xl",
+   "xs"
+  ],
+  "d:52": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd",
+   "xl"
+  ],
+  "d:52-alolan": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xs"
+  ],
+  "d:52-galarian": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:520": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl"
+  ],
+  "d:521": [
+   "c"
+  ],
+  "d:521-female": [
+   "c"
+  ],
+  "d:522": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s",
+   "sd",
+   "xl",
+   "xs"
+  ],
+  "d:523": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:524": [
+   "c",
+   "cf",
+   "cm",
+   "dx",
+   "h",
+   "l",
+   "s"
+  ],
+  "d:525": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:526": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:527": [
+   "c",
+   "cf",
+   "cm",
+   "dx",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:528": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:529": [
+   "c",
+   "cf",
+   "cm",
+   "dx",
+   "l",
+   "s",
+   "sd",
+   "xl",
+   "xs"
+  ],
+  "d:53": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "pu",
+   "s"
+  ],
+  "d:53-alolan": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:530": [
+   "c",
+   "cf",
+   "cm",
+   "dx",
+   "l",
+   "s"
+  ],
+  "d:531": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "mg",
+   "s"
+  ],
+  "d:532": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:533": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd",
+   "xl"
+  ],
+  "d:534": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl"
+  ],
+  "d:535": [
+   "c",
+   "cf",
+   "cm",
+   "s",
+   "xl"
+  ],
+  "d:536": [
+   "c",
+   "cm",
+   "s"
+  ],
+  "d:537": [
+   "c",
+   "cf",
+   "l",
+   "s"
+  ],
+  "d:538": [
+   "c",
+   "cm",
+   "l",
+   "s",
+   "xs"
+  ],
+  "d:539": [
+   "c",
+   "cm",
+   "h",
+   "l",
+   "s"
+  ],
+  "d:54": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "pu",
+   "s",
+   "sd",
+   "xl"
+  ],
+  "d:540": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:541": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:542": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:543": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s",
+   "xl"
+  ],
+  "d:544": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:545": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:546": [
+   "c",
+   "cf",
+   "cm",
+   "dx",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:547": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:548": [
+   "c",
+   "cf",
+   "h",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:549": [
+   "c",
+   "cf",
+   "h",
+   "xl",
+   "xs"
+  ],
+  "d:549-hisuian": [
+   "c",
+   "cf",
+   "s"
+  ],
+  "d:55": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:550-blue-striped": [
+   "c",
+   "cf",
+   "cm",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:550-red-striped": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:550-white-striped": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl"
+  ],
+  "d:551": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:552": [
+   "c",
+   "cm"
+  ],
+  "d:554": [
+   "c",
+   "cf",
+   "cm",
+   "dx",
+   "l",
+   "s",
+   "sd"
+  ],
+  "d:554-galarian": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:555-galarian": [
+   "c",
+   "cf"
+  ],
+  "d:555-standard": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:556": [
+   "c",
+   "cf",
+   "cm",
+   "xl"
+  ],
+  "d:557": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd",
+   "xs"
+  ],
+  "d:558": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:559": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:56": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s",
+   "sd",
+   "xl",
+   "xs"
+  ],
+  "d:560": [
+   "c",
+   "cm",
+   "s"
+  ],
+  "d:561": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "xl",
+   "xs"
+  ],
+  "d:562": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd"
+  ],
+  "d:562-galarian": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s"
+  ],
+  "d:563": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:564": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:565": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:566": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl"
+  ],
+  "d:567": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:568": [
+   "c",
+   "cf",
+   "cm",
+   "dx",
+   "s",
+   "xs"
+  ],
+  "d:569": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:57": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s"
+  ],
+  "d:570": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:570-hisuian": [
+   "c",
+   "cf",
+   "cm"
+  ],
+  "d:571": [
+   "c",
+   "cm",
+   "s"
+  ],
+  "d:572": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:573": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:574": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd",
+   "xl",
+   "xs"
+  ],
+  "d:575": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:576": [
+   "c",
+   "cf",
+   "l",
+   "s"
+  ],
+  "d:577": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "s",
+   "sd",
+   "xl"
+  ],
+  "d:578": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:579": [
+   "c",
+   "cm",
+   "h",
+   "l",
+   "s"
+  ],
+  "d:58": [
+   "c",
+   "cf",
+   "cm",
+   "dx",
+   "l",
+   "pu",
+   "s",
+   "sd",
+   "xl"
+  ],
+  "d:58-hisuian": [
+   "c",
+   "cf",
+   "cm",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:580": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd"
+  ],
+  "d:581": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:582": [
+   "c",
+   "cf",
+   "cm",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:583": [
+   "c",
+   "cm",
+   "s"
+  ],
+  "d:584": [
+   "c",
+   "cf",
+   "s"
+  ],
+  "d:585-autumn": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:585-spring": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "s"
+  ],
+  "d:585-summer": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:585-winter": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:586-autumn": [
+   "c",
+   "cf",
+   "cm"
+  ],
+  "d:586-spring": [
+   "c",
+   "cm"
+  ],
+  "d:586-summer": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:586-winter": [
+   "c",
+   "cm"
+  ],
+  "d:587": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:588": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xs"
+  ],
+  "d:589": [
+   "c",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:59": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl"
+  ],
+  "d:59-hisuian": [
+   "c",
+   "cf",
+   "s",
+   "xl"
+  ],
+  "d:590": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd",
+   "xl",
+   "xs"
+  ],
+  "d:591": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:592": [
+   "c",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:592-female": [
+   "c",
+   "l",
+   "s",
+   "xs"
+  ],
+  "d:593": [
+   "c",
+   "s"
+  ],
+  "d:593-female": [
+   "c",
+   "l",
+   "s"
+  ],
+  "d:594": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:595": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd",
+   "xl",
+   "xs"
+  ],
+  "d:596": [
+   "c",
+   "cf",
+   "s",
+   "xl"
+  ],
+  "d:597": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd",
+   "xs"
+  ],
+  "d:598": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:599": [
+   "c",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:6": [
+   "c",
+   "cf",
+   "cm",
+   "gx",
+   "h",
+   "l",
+   "mx",
+   "my",
+   "pu",
+   "s",
+   "sd",
+   "xl",
+   "xs"
+  ],
+  "d:60": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "pu",
+   "s",
+   "sd",
+   "xl"
+  ],
+  "d:600": [
+   "c",
+   "l",
+   "s"
+  ],
+  "d:601": [
+   "c"
+  ],
+  "d:602": [
+   "c",
+   "cf",
+   "cm",
+   "s",
+   "xl"
+  ],
+  "d:603": [
+   "c",
+   "cm",
+   "s"
+  ],
+  "d:604": [
+   "c",
+   "cf",
+   "cm",
+   "s",
+   "xl"
+  ],
+  "d:605": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xs"
+  ],
+  "d:606": [
+   "c",
+   "cf",
+   "s"
+  ],
+  "d:607": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd",
+   "xl",
+   "xs"
+  ],
+  "d:608": [
+   "c",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:609": [
+   "c",
+   "cf",
+   "cm",
+   "mg",
+   "s"
+  ],
+  "d:61": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd"
+  ],
+  "d:610": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd",
+   "xl",
+   "xs"
+  ],
+  "d:611": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:612": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s",
+   "xl"
+  ],
+  "d:613": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:614": [
+   "c",
+   "cf"
+  ],
+  "d:615": [
+   "c",
+   "dx",
+   "l",
+   "s"
+  ],
+  "d:616": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd"
+  ],
+  "d:617": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:618": [
+   "c",
+   "cf",
+   "cm",
+   "s",
+   "xs"
+  ],
+  "d:618-galarian": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:619": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:62": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "pu",
+   "s",
+   "sd"
+  ],
+  "d:620": [
+   "c",
+   "cf",
+   "s"
+  ],
+  "d:621": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:622": [
+   "c",
+   "s",
+   "xl"
+  ],
+  "d:623": [
+   "c"
+  ],
+  "d:624": [
+   "c",
+   "cf",
+   "cm",
+   "s",
+   "xl"
+  ],
+  "d:625": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "s"
+  ],
+  "d:626": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:627": [
+   "c",
+   "cm",
+   "s",
+   "xl"
+  ],
+  "d:628": [
+   "c",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:628-hisuian": [
+   "c",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:629": [
+   "c",
+   "cf",
+   "s",
+   "xl"
+  ],
+  "d:63": [
+   "c",
+   "cf",
+   "cm",
+   "dx",
+   "l",
+   "pu",
+   "s",
+   "sd",
+   "xl",
+   "xs"
+  ],
+  "d:630": [
+   "c",
+   "cf",
+   "s"
+  ],
+  "d:631": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:632": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:633": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd",
+   "xl"
+  ],
+  "d:634": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:635": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl"
+  ],
+  "d:636": [
+   "c",
+   "cf",
+   "cm"
+  ],
+  "d:638": [
+   "c",
+   "s"
+  ],
+  "d:639": [
+   "c",
+   "s"
+  ],
+  "d:64": [
+   "c",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:640": [
+   "c",
+   "l",
+   "s"
+  ],
+  "d:641-incarnate": [
+   "c",
+   "cm",
+   "s"
+  ],
+  "d:641-therian": [
+   "c",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:642-incarnate": [
+   "c",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:642-therian": [
+   "c",
+   "cm",
+   "s"
+  ],
+  "d:643": [
+   "c",
+   "l",
+   "s",
+   "sd"
+  ],
+  "d:644": [
+   "c",
+   "l",
+   "s"
+  ],
+  "d:645-incarnate": [
+   "c",
+   "cm",
+   "s",
+   "sd"
+  ],
+  "d:645-therian": [
+   "c",
+   "cm",
+   "h",
+   "l",
+   "s"
+  ],
+  "d:646": [
+   "c",
+   "l",
+   "s"
+  ],
+  "d:646-white": [
+   "c"
+  ],
+  "d:647-ordinary": [
+   "c"
+  ],
+  "d:648-aria": [
+   "c"
+  ],
+  "d:649": [
+   "c",
+   "s"
+  ],
+  "d:649-burn": [
+   "c",
+   "s"
+  ],
+  "d:649-chill": [
+   "c"
+  ],
+  "d:649-douse": [
+   "c"
+  ],
+  "d:649-shock": [
+   "c"
+  ],
+  "d:65": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "mg",
+   "s",
+   "sd"
+  ],
+  "d:650": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s",
+   "sd",
+   "xl",
+   "xs"
+  ],
+  "d:651": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:652": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:653": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd",
+   "xs"
+  ],
+  "d:654": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xs"
+  ],
+  "d:655": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "mg",
+   "s",
+   "xs"
+  ],
+  "d:656": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:657": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl"
+  ],
+  "d:658": [
+   "c",
+   "cm",
+   "l",
+   "s",
+   "xl"
+  ],
+  "d:659": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd",
+   "xl",
+   "xs"
+  ],
+  "d:66": [
+   "c",
+   "cf",
+   "cm",
+   "dx",
+   "l",
+   "pu",
+   "s",
+   "sd",
+   "xs"
+  ],
+  "d:660": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s"
+  ],
+  "d:661": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:662": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:663": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:664-archipelago": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:665-archipelago": [
+   "c",
+   "cf",
+   "l"
+  ],
+  "d:666-archipelago": [
+   "cm"
+  ],
+  "d:666-continental": [
+   "c",
+   "h"
+  ],
+  "d:667": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl"
+  ],
+  "d:668": [
+   "c"
+  ],
+  "d:668-female": [
+   "c",
+   "l",
+   "s"
+  ],
+  "d:669-blue": [
+   "c",
+   "cf",
+   "s"
+  ],
+  "d:669-orange": [
+   "c",
+   "cf",
+   "s",
+   "xl"
+  ],
+  "d:669-red": [
+   "c",
+   "cf",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:669-white": [
+   "c",
+   "cf",
+   "l",
+   "s",
+   "xl"
+  ],
+  "d:669-yellow": [
+   "c",
+   "cf",
+   "s",
+   "xs"
+  ],
+  "d:67": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:670-orange": [
+   "c",
+   "cf",
+   "s"
+  ],
+  "d:670-red": [
+   "c",
+   "cf",
+   "s"
+  ],
+  "d:671-orange": [
+   "c",
+   "cf",
+   "s"
+  ],
+  "d:671-red": [
+   "c",
+   "cf",
+   "s"
+  ],
+  "d:671-white": [
+   "c",
+   "cf",
+   "s"
+  ],
+  "d:672": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "s",
+   "xs"
+  ],
+  "d:673": [
+   "c",
+   "cm",
+   "s"
+  ],
+  "d:674": [
+   "c",
+   "cf",
+   "cm",
+   "s",
+   "sd",
+   "xl"
+  ],
+  "d:676-dandy": [
+   "c",
+   "cm",
+   "s"
+  ],
+  "d:676-debutante": [
+   "c",
+   "cf",
+   "cm",
+   "s",
+   "xl"
+  ],
+  "d:676-diamond": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:676-heart": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:676-kabuki": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:676-la-reine": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:676-matron": [
+   "c",
+   "cm",
+   "s"
+  ],
+  "d:676-natural": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:676-pharaoh": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:676-star": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:677": [
+   "c",
+   "cf",
+   "cm",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:678": [
+   "c",
+   "s"
+  ],
+  "d:678-female": [
+   "c",
+   "s"
+  ],
+  "d:679": [
+   "c",
+   "cm",
+   "h",
+   "s"
+  ],
+  "d:68": [
+   "c",
+   "cf",
+   "cm",
+   "gx",
+   "h",
+   "l",
+   "s",
+   "xl"
+  ],
+  "d:680": [
+   "c",
+   "cf"
+  ],
+  "d:682": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xs"
+  ],
+  "d:683": [
+   "c",
+   "cf",
+   "l",
+   "s"
+  ],
+  "d:684": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:686": [
+   "c",
+   "cf",
+   "cm",
+   "dx",
+   "l",
+   "s",
+   "sd"
+  ],
+  "d:687": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "mg",
+   "s"
+  ],
+  "d:688": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:689": [
+   "c",
+   "cf",
+   "l",
+   "s",
+   "xl"
+  ],
+  "d:69": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s",
+   "sd",
+   "xl",
+   "xs"
+  ],
+  "d:690": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:691": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:692": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xs"
+  ],
+  "d:693": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:694": [
+   "c",
+   "cf",
+   "cm",
+   "s",
+   "sd"
+  ],
+  "d:695": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:696": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd",
+   "xl",
+   "xs"
+  ],
+  "d:697": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:698": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd",
+   "xl",
+   "xs"
+  ],
+  "d:699": [
+   "c",
+   "cm",
+   "s",
+   "xl"
+  ],
+  "d:7": [
+   "c",
+   "cf",
+   "cm",
+   "dx",
+   "l",
+   "s",
+   "sd",
+   "xl",
+   "xs"
+  ],
+  "d:70": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "pu",
+   "s"
+  ],
+  "d:700": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:701": [
+   "c",
+   "cf",
+   "cm"
+  ],
+  "d:702": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl"
+  ],
+  "d:703": [
+   "c",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:704": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:705": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:706": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:707": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "xl"
+  ],
+  "d:708": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd",
+   "xs"
+  ],
+  "d:709": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:71": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "mg",
+   "s"
+  ],
+  "d:710-average": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:710-large": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:710-small": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:710-super": [
+   "c",
+   "cf",
+   "cm",
+   "s",
+   "xl"
+  ],
+  "d:711-average": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:711-small": [
+   "c",
+   "cm",
+   "s"
+  ],
+  "d:712": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:713": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:713-hisuian": [
+   "c",
+   "cm",
+   "s"
+  ],
+  "d:714": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:715": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s",
+   "xl"
+  ],
+  "d:716": [
+   "c",
+   "s"
+  ],
+  "d:717": [
+   "c",
+   "l",
+   "s"
+  ],
+  "d:718-10": [
+   "c"
+  ],
+  "d:719": [
+   "c",
+   "mg"
+  ],
+  "d:72": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s",
+   "sd",
+   "xl",
+   "xs"
+  ],
+  "d:720-unbound": [
+   "c"
+  ],
+  "d:721": [
+   "c"
+  ],
+  "d:722": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:723": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl"
+  ],
+  "d:724": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:724-hisuian": [
+   "c",
+   "cm",
+   "s"
+  ],
+  "d:725": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:726": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl"
+  ],
+  "d:727": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl"
+  ],
+  "d:728": [
+   "c",
+   "cf",
+   "cm",
+   "s",
+   "xl"
+  ],
+  "d:729": [
+   "c",
+   "cm",
+   "s"
+  ],
+  "d:73": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s"
+  ],
+  "d:730": [
+   "c",
+   "cm"
+  ],
+  "d:731": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:732": [
+   "c",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:733": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:734": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:735": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:736": [
+   "c",
+   "cf",
+   "cm",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:737": [
+   "c",
+   "cf",
+   "cm",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:738": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:739": [
+   "c",
+   "cf",
+   "cm",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:74": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s",
+   "sd"
+  ],
+  "d:74-alolan": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd"
+  ],
+  "d:741-baile": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:741-pau": [
+   "c",
+   "cf",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:741-pompom": [
+   "c",
+   "cf",
+   "cm"
+  ],
+  "d:741-sensu": [
+   "c",
+   "cf"
+  ],
+  "d:742": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:743": [
+   "c"
+  ],
+  "d:744": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:747": [
+   "c",
+   "cf",
+   "cm",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:748": [
+   "c",
+   "cf",
+   "cm",
+   "s",
+   "xl"
+  ],
+  "d:749": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "s",
+   "xl"
+  ],
+  "d:75": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd"
+  ],
+  "d:75-alolan": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:750": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:751": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:752": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:753": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s",
+   "sd",
+   "xl",
+   "xs"
+  ],
+  "d:754": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:755": [
+   "c",
+   "cf",
+   "cm",
+   "s",
+   "xl"
+  ],
+  "d:756": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:757": [
+   "c",
+   "cf",
+   "cm"
+  ],
+  "d:759": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl"
+  ],
+  "d:76": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:76-alolan": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:760": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:761": [
+   "c",
+   "cf",
+   "dx",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:762": [
+   "c",
+   "cf",
+   "l",
+   "s"
+  ],
+  "d:763": [
+   "c",
+   "cf",
+   "l",
+   "s"
+  ],
+  "d:764": [
+   "c",
+   "cf",
+   "cm",
+   "l"
+  ],
+  "d:765": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:766": [
+   "c",
+   "cf",
+   "cm",
+   "dx",
+   "s"
+  ],
+  "d:767": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd",
+   "xl",
+   "xs"
+  ],
+  "d:768": [
+   "c",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:769": [
+   "c",
+   "cf",
+   "cm",
+   "s",
+   "sd",
+   "xl"
+  ],
+  "d:77": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd",
+   "xl"
+  ],
+  "d:77-galarian": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:770": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:774-green": [
+   "c"
+  ],
+  "d:774-yellow": [
+   "c"
+  ],
+  "d:775": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:776": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "s",
+   "xs"
+  ],
+  "d:777": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:778-disguised": [
+   "c",
+   "cf",
+   "cm"
+  ],
+  "d:779": [
+   "c",
+   "cf",
+   "cm",
+   "s",
+   "xs"
+  ],
+  "d:78": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl"
+  ],
+  "d:78-galarian": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "s"
+  ],
+  "d:780": [
+   "c",
+   "cf",
+   "cm"
+  ],
+  "d:781": [
+   "c",
+   "s",
+   "xs"
+  ],
+  "d:782": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xs"
+  ],
+  "d:783": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:784": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "s"
+  ],
+  "d:785": [
+   "c",
+   "l",
+   "s"
+  ],
+  "d:786": [
+   "c",
+   "s"
+  ],
+  "d:787": [
+   "c",
+   "h",
+   "s"
+  ],
+  "d:788": [
+   "c",
+   "l",
+   "s"
+  ],
+  "d:789": [
+   "c"
+  ],
+  "d:79": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "pu",
+   "s",
+   "sd",
+   "xl"
+  ],
+  "d:79-galarian": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:791": [
+   "c",
+   "xs"
+  ],
+  "d:792": [
+   "c",
+   "l",
+   "s"
+  ],
+  "d:793": [
+   "c",
+   "h",
+   "s"
+  ],
+  "d:794": [
+   "c",
+   "l",
+   "s",
+   "xl"
+  ],
+  "d:795": [
+   "c",
+   "s"
+  ],
+  "d:796": [
+   "c",
+   "s",
+   "xs"
+  ],
+  "d:797": [
+   "c",
+   "s",
+   "xs"
+  ],
+  "d:798": [
+   "c",
+   "s"
+  ],
+  "d:799": [
+   "c",
+   "l",
+   "s"
+  ],
+  "d:8": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd",
+   "xl",
+   "xs"
+  ],
+  "d:80": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "mg",
+   "s",
+   "sd"
+  ],
+  "d:80-galarian": [
+   "c",
+   "cf",
+   "s"
+  ],
+  "d:800": [
+   "c",
+   "l",
+   "s"
+  ],
+  "d:802": [
+   "c"
+  ],
+  "d:803": [
+   "c"
+  ],
+  "d:805": [
+   "c"
+  ],
+  "d:806": [
+   "c"
+  ],
+  "d:808": [
+   "c",
+   "dx",
+   "l",
+   "s"
+  ],
+  "d:809": [
+   "c",
+   "h",
+   "l",
+   "s"
+  ],
+  "d:81": [
+   "c",
+   "l",
+   "pu",
+   "s",
+   "sd",
+   "xl",
+   "xs"
+  ],
+  "d:810": [
+   "c",
+   "cf",
+   "cm",
+   "dx",
+   "s",
+   "xl"
+  ],
+  "d:812": [
+   "c",
+   "cm",
+   "gx"
+  ],
+  "d:813": [
+   "c",
+   "cf",
+   "cm",
+   "dx",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:814": [
+   "c",
+   "cf",
+   "cm",
+   "dx",
+   "s"
+  ],
+  "d:815": [
+   "c",
+   "cm",
+   "gx"
+  ],
+  "d:816": [
+   "c",
+   "cf",
+   "cm",
+   "dx",
+   "s",
+   "xl"
+  ],
+  "d:817": [
+   "c",
+   "cf",
+   "cm"
+  ],
+  "d:818": [
+   "c",
+   "cm",
+   "gx"
+  ],
+  "d:819": [
+   "c",
+   "cf",
+   "cm",
+   "dx",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:82": [
+   "c",
+   "h",
+   "l",
+   "s",
+   "xl"
+  ],
+  "d:820": [
+   "c",
+   "cf",
+   "s"
+  ],
+  "d:821": [
+   "c",
+   "cf",
+   "cm",
+   "dx",
+   "s",
+   "sd",
+   "xl",
+   "xs"
+  ],
+  "d:822": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:823": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s"
+  ],
+  "d:824": [
+   "c",
+   "cf",
+   "cm"
+  ],
+  "d:827": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:828": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:829": [
+   "c",
+   "cf",
+   "cm",
+   "xs"
+  ],
+  "d:83": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l"
+  ],
+  "d:83-galarian": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xs"
+  ],
+  "d:831": [
+   "c",
+   "cf",
+   "cm",
+   "dx",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:832": [
+   "c",
+   "cf"
+  ],
+  "d:835": [
+   "c",
+   "cf",
+   "cm"
+  ],
+  "d:836": [
+   "c",
+   "cf"
+  ],
+  "d:837": [
+   "c",
+   "cf",
+   "cm"
+  ],
+  "d:838": [
+   "c"
+  ],
+  "d:84": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:840": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "xl",
+   "xs"
+  ],
+  "d:843": [
+   "c",
+   "cf",
+   "cm"
+  ],
+  "d:845": [
+   "c",
+   "cf",
+   "cm"
+  ],
+  "d:846": [
+   "c",
+   "cf",
+   "cm"
+  ],
+  "d:848": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:849-amped": [
+   "c",
+   "cf",
+   "cm",
+   "dx",
+   "gx"
+  ],
+  "d:849-low-key": [
+   "c",
+   "cf",
+   "cm",
+   "gx"
+  ],
+  "d:85": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s"
+  ],
+  "d:850": [
+   "c",
+   "cf",
+   "cm",
+   "dx",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:852": [
+   "c",
+   "cf",
+   "cm"
+  ],
+  "d:854": [
+   "c",
+   "xl",
+   "xs"
+  ],
+  "d:856": [
+   "c",
+   "cf",
+   "dx",
+   "h",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:857": [
+   "c",
+   "cf",
+   "xs"
+  ],
+  "d:859": [
+   "c",
+   "cm"
+  ],
+  "d:86": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s",
+   "sd"
+  ],
+  "d:862": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:863": [
+   "c",
+   "cf",
+   "cm"
+  ],
+  "d:865": [
+   "c",
+   "cf",
+   "cm"
+  ],
+  "d:866": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:87": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:870": [
+   "c",
+   "l",
+   "mg",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:872": [
+   "c",
+   "cf",
+   "cm"
+  ],
+  "d:874": [
+   "c",
+   "cf",
+   "cm",
+   "xl",
+   "xs"
+  ],
+  "d:876": [
+   "c",
+   "s"
+  ],
+  "d:876-female": [
+   "c"
+  ],
+  "d:877-full-belly": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:88": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "pu",
+   "s",
+   "sd",
+   "xl"
+  ],
+  "d:88-alolan": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd"
+  ],
+  "d:884": [
+   "c",
+   "cf",
+   "cm",
+   "gx"
+  ],
+  "d:885": [
+   "c",
+   "cf",
+   "cm"
+  ],
+  "d:888": [
+   "c",
+   "h",
+   "l",
+   "s"
+  ],
+  "d:889": [
+   "c",
+   "h",
+   "s"
+  ],
+  "d:89": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "pu",
+   "s"
+  ],
+  "d:89-alolan": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:890": [
+   "c"
+  ],
+  "d:891": [
+   "c",
+   "cm",
+   "dx"
+  ],
+  "d:893": [
+   "c"
+  ],
+  "d:894": [
+   "c",
+   "l",
+   "s"
+  ],
+  "d:895": [
+   "c",
+   "s"
+  ],
+  "d:899": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:9": [
+   "c",
+   "cf",
+   "cm",
+   "gx",
+   "l",
+   "mg",
+   "pu",
+   "s",
+   "sd"
+  ],
+  "d:90": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "pu",
+   "s",
+   "sd"
+  ],
+  "d:900": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:901": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd",
+   "xl"
+  ],
+  "d:904": [
+   "c",
+   "cm",
+   "s"
+  ],
+  "d:905-incarnate": [
+   "c",
+   "cf"
+  ],
+  "d:905-therian": [
+   "c",
+   "cf"
+  ],
+  "d:906": [
+   "c",
+   "cf",
+   "cm",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:907": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:908": [
+   "c",
+   "cf",
+   "cm",
+   "h"
+  ],
+  "d:909": [
+   "c",
+   "cf",
+   "cm",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:91": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "sd"
+  ],
+  "d:910": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:911": [
+   "c",
+   "cf",
+   "cm",
+   "s",
+   "xs"
+  ],
+  "d:912": [
+   "c",
+   "cf",
+   "cm",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:913": [
+   "c",
+   "cf",
+   "cm"
+  ],
+  "d:914": [
+   "c",
+   "cm"
+  ],
+  "d:915": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:916": [
+   "c",
+   "l",
+   "s"
+  ],
+  "d:916-female": [
+   "c",
+   "s"
+  ],
+  "d:917": [
+   "c",
+   "cf",
+   "cm"
+  ],
+  "d:919": [
+   "c",
+   "cf",
+   "cm",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:92": [
+   "c",
+   "cf",
+   "cm",
+   "dx",
+   "h",
+   "l",
+   "s",
+   "sd",
+   "xs"
+  ],
+  "d:920": [
+   "c",
+   "cf",
+   "s"
+  ],
+  "d:921": [
+   "c",
+   "cf",
+   "cm",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:922": [
+   "c",
+   "cm",
+   "s"
+  ],
+  "d:924": [
+   "c"
+  ],
+  "d:925-family-of-four": [
+   "c"
+  ],
+  "d:926": [
+   "c",
+   "cf",
+   "cm"
+  ],
+  "d:927": [
+   "c",
+   "cf"
+  ],
+  "d:928": [
+   "c",
+   "cf",
+   "cm",
+   "s",
+   "xs"
+  ],
+  "d:93": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:931-blue": [
+   "c",
+   "cf",
+   "cm",
+   "xl"
+  ],
+  "d:931-green": [
+   "c",
+   "cf",
+   "cm",
+   "xs"
+  ],
+  "d:931-white": [
+   "c",
+   "cf",
+   "xl"
+  ],
+  "d:931-yellow": [
+   "c",
+   "cf",
+   "cm"
+  ],
+  "d:932": [
+   "c",
+   "cf",
+   "cm"
+  ],
+  "d:935": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s",
+   "xl",
+   "xs"
+  ],
+  "d:938": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "xl"
+  ],
+  "d:94": [
+   "c",
+   "cf",
+   "cm",
+   "gx",
+   "h",
+   "l",
+   "mg",
+   "s"
+  ],
+  "d:940": [
+   "c",
+   "cf",
+   "cm",
+   "xl"
+  ],
+  "d:942": [
+   "c",
+   "cf",
+   "cm"
+  ],
+  "d:944": [
+   "c",
+   "cf"
+  ],
+  "d:946": [
+   "c",
+   "cf",
+   "cm"
+  ],
+  "d:948": [
+   "c",
+   "cf",
+   "cm"
+  ],
+  "d:95": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s",
+   "sd"
+  ],
+  "d:950": [
+   "c",
+   "cf",
+   "cm"
+  ],
+  "d:955": [
+   "c",
+   "cf",
+   "cm"
+  ],
+  "d:957": [
+   "c",
+   "cf",
+   "s"
+  ],
+  "d:958": [
+   "c",
+   "cf",
+   "s"
+  ],
+  "d:959": [
+   "c",
+   "cf",
+   "s",
+   "xl"
+  ],
+  "d:96": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "pu",
+   "s",
+   "sd",
+   "xl",
+   "xs"
+  ],
+  "d:960": [
+   "c",
+   "cf",
+   "cm",
+   "l"
+  ],
+  "d:962": [
+   "c",
+   "cf",
+   "cm"
+  ],
+  "d:965": [
+   "c",
+   "cf",
+   "cm"
+  ],
+  "d:968": [
+   "c",
+   "cf",
+   "cm"
+  ],
+  "d:969": [
+   "c",
+   "cf",
+   "cm"
+  ],
+  "d:97": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "l",
+   "s"
+  ],
+  "d:971": [
+   "c",
+   "cf",
+   "cm"
+  ],
+  "d:973": [
+   "c",
+   "cf",
+   "cm"
+  ],
+  "d:974": [
+   "c",
+   "cf",
+   "cm",
+   "xl"
+  ],
+  "d:977": [
+   "c",
+   "cf",
+   "cm"
+  ],
+  "d:978-curly": [
+   "c",
+   "cm"
+  ],
+  "d:978-droopy": [
+   "c",
+   "cm",
+   "l"
+  ],
+  "d:98": [
+   "c",
+   "cf",
+   "cm",
+   "dx",
+   "l",
+   "s",
+   "sd",
+   "xl"
+  ],
+  "d:980": [
+   "c",
+   "cf",
+   "cm",
+   "h",
+   "s",
+   "xl"
+  ],
+  "d:982-two": [
+   "c",
+   "cf",
+   "cm",
+   "s"
+  ],
+  "d:983": [
+   "c",
+   "l",
+   "s"
+  ],
+  "d:99": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:996": [
+   "c",
+   "cf",
+   "cm",
+   "l",
+   "s"
+  ],
+  "d:997": [
+   "c",
+   "cf",
+   "s"
+  ],
+  "d:998": [
+   "c",
+   "cm",
+   "s"
+  ],
+  "d:999": [
+   "c",
+   "l",
+   "s",
+   "xs"
+  ]
+ },
+ "went": [
+  "go-fest-2023-london",
+  "go-fest-2024-madrid",
+  "go-fest-2025-paris",
+  "go-fest-2026-copenhagen",
+  "lego-collab-2026-uk-poland",
+  "sb-10th-anniversary-celebration-mewtwo",
+  "sb-10th-anniversary-gimmighoul-coin",
+  "sb-2024-decembercdrecap",
+  "sb-9thanniversary",
+  "sb-community-2026",
+  "sb-concierge2025",
+  "sb-go-fest-2025-zacian",
+  "sb-go-fest-2025-zamazenta",
+  "sb-go-wild-area-2026-into-the-wild-go-wild-area-global",
+  "sb-gofest2024-radiance",
+  "sb-gofest2024-wormhole",
+  "sb-gofest2024-wormhole-sun",
+  "sb-gofest2025",
+  "sb-gofest2025-eternatus",
+  "sb-gofest2026-global",
+  "sb-gofest2026-mewtwo",
+  "sb-gotour2025-black",
+  "sb-gotour2025-black-white",
+  "sb-gotour2025-enigma",
+  "sb-gotour2025-white",
+  "sb-gotour2026-diamond",
+  "sb-gotour2026-gold",
+  "sb-gotour2026-mega",
+  "sb-gotour2026-pearl",
+  "sb-gotour2026-ruby",
+  "sb-gotour2026-sapphire",
+  "sb-gotour2026-silver",
+  "sb-gotour2026-x",
+  "sb-gotour2026-y",
+  "sb-gowa-fukuoka",
+  "sb-gowa2025-global",
+  "sb-pokopia",
+  "sb-s24-sep-2026",
+  "sb-season17-dueldestiny",
+  "sb-season18-mightandmastery",
+  "sb-season19-delightfuldays",
+  "sb-season20-talesoftransformation",
+  "sb-teamleader-blue",
+  "sb-teamleader-red",
+  "sb-teamleader-yellow"
+ ]
+}
