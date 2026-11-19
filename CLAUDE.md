@@ -49,6 +49,8 @@ A private Pokédex for Jemma’s Pokémon GO collection: every Pokémon and form
 
 `DATA.game` is `"go"` and her ticks are in `collection/go.json`; another game gets its own `data/<game>/` import, `collection/<game>.json` and its own section in the sidebar. Which game first is on her list.
 
+Regions are labelled by their games (her ask, 19 Nov: app.js `GENS`, "Red and Blue" … "Scarlet and Violet", like "Legends: Arceus"), on Home and the region pages; Home's three pictures are each region's first three, except Hisui: Hisuian Growlithe, Voltorb and Qwilfish (`HOME_ART`).
+
 ## Region banners (12 Nov)
 
 Each region page's banner is an official painted region map (her switch from scenery, 12 Nov): app.js `REGION_CHOSEN`, files in site/regions (`<region>-map-<n>.jpg`, copies of the official art from Pokémon wikis, at most 2800 px wide), sources in research/data/region-screenshots.json and the scratchpad sheets. The map fills 70% of the banner at full colour, the same for every region, with a short fade on its left (her ask: over half map, all the same); `SHOT_FIT` sets each map's crop (Hisui closer so its parchment edge is cut off). Galar's map is tall, so the banner shows a slice. Show banner options at 1600 wide, cropped exactly as the banner shows them, labelled with place/what and game, one picture per place.

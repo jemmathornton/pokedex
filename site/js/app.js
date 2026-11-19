@@ -32,9 +32,11 @@ const keepPrefs = () => store.set(PREFS_KEY, prefs);
 
 // ---------- what there is ----------
 // the sections, in game order: [key, region, small label]. Hisui stands on its own between Galar and Paldea (her call, 9 Nov)
-const GENS = [["1", "Kanto", "Generation 1"], ["2", "Johto", "Generation 2"], ["3", "Hoenn", "Generation 3"], ["4", "Sinnoh", "Generation 4"],
-  ["5", "Unova", "Generation 5"], ["6", "Kalos", "Generation 6"], ["7", "Alola", "Generation 7"], ["8", "Galar", "Generation 8"],
-  ["hisui", "Hisui", "Legends: Arceus"], ["9", "Paldea", "Generation 9"]];
+// each region with its games, like Legends: Arceus (her ask, 19 Nov: games, not generation numbers)
+const GENS = [["1", "Kanto", "Red and Blue"], ["2", "Johto", "Gold and Silver"], ["3", "Hoenn", "Ruby and Sapphire"], ["4", "Sinnoh", "Diamond and Pearl"],
+  ["5", "Unova", "Black and White"], ["6", "Kalos", "X and Y"], ["7", "Alola", "Sun and Moon"], ["8", "Galar", "Sword and Shield"],
+  ["hisui", "Hisui", "Legends: Arceus"], ["9", "Paldea", "Scarlet and Violet"]];
+const HOME_ART = {hisui: ["58-hisuian", "100-hisuian", "211-hisuian"]};   // her pick (19 Nov): Hisuian Growlithe, Voltorb and Qwilfish, not the first three
 const genById = Object.fromEntries(GENS.map(g => [g[0], g]));
 const ENTRIES = DATA.entries, COSTUMES = DATA.costumes, EVENTS = DATA.events;
 // regional forms go under their region, not their species' generation (her call, 9 Nov): Alolan Vulpix in Alola, not Kanto.
@@ -443,7 +445,7 @@ function home(){
   for (const [g, region, small] of GENS) {
     const list = ENTRIES.filter(e => e.gen === g), k = counts(list);
     const row = (name, icon, have, of, col) => `<span class="rl" style="--c:${col}">${ic(icon)}${name}</span><span class="bar" style="--c:${col}"><i style="width:${of ? have / of * 100 : 0}%"></i></span><span class="v">${num(have)} / ${num(of)}</span>`;
-    const three = firstStages(list).slice(0, 3);
+    const three = HOME_ART[g] ? HOME_ART[g].map(i => byId[i]).filter(Boolean) : firstStages(list).slice(0, 3);
     gens += `<a class="gen" href="#gen-${g}" style="--rc:${REGION_COLOURS[g]}"><span class="genart" aria-hidden="true">${three.map(e => sprite(e.img) ? `<img src="${sprite(e.img)}" alt="" loading="lazy">` : "").join("")}</span>` +
       `<span class="label">${esc(small)}</span><h3>${esc(region)}</h3><div class="rows">` +
       row("Pokémon", "poke-ball", k.species, k.speciesAll, "var(--caught)") + row("Shiny", "sparkles", k.shiny, k.shinyOut, "var(--shiny)") +
