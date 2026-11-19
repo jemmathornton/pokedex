@@ -43,7 +43,7 @@ A private Pokédex for Jemma’s Pokémon GO collection: every Pokémon and form
 - **Checking:** the `pokedex` preview (`.claude/launch.json`) runs a second copy on port 8031 (same data). Look at changed pages at 1600px (her window). Remove any test ticks.
 - **Shortcuts:** `tools/make_shortcuts.ps1` (made 9 Nov: “Jemma’s Pokédex” on the Desktop, Start menu and project folder, running tools/open_app.pyw: the server if needed, then a Chrome app window on http://localhost:8030 with its own profile in %LOCALAPPDATA%\Jemmas Pokedex; `-Startup` also adds a Startup-folder server). App icon: `tools/make_icons.py` (a new picture needs a new .ico name).
 - **Weekly backup:** the Windows task “Jemma's Pokedex - weekly backup” (Sundays 09:40, `tools/make_backup_task.ps1`) runs `tools/backup.py`: commits any changes (her ticks), then zips the project (pictures included, imports left out) to Documents\PokedexBackups (keeps 8). Log in `logs/backup.log`.
-- Git repo (no remote): commit after each piece of work (`data.js` included, so the folder always works as it is).
+- Git repo, backed up to GitHub (19 Nov, her ask): https://github.com/jemmathornton/pokedex, **public** (her choice, after being told it shows her ticks, events, notes and email); gh is installed and signed in. Commit after each piece of work (`data.js` included, so the folder always works as it is). Pictures, imports/ and logs/ are not in git.
 
 ## Later: other games
 
