@@ -437,6 +437,13 @@ function setTiles(){
       row("Caught", "poke-ball", got.length, its.length, "var(--caught)") + row("Shiny", "sparkles", shinyOut.filter(it => has(it.key, "s")).length, shinyOut.length, "var(--shiny)") +
       (bg ? `<span class="rl" style="--c:var(--deep-2)">${ic("ticket")}Events</span><span></span><span class="v">${num(myEvents().length)}</span>` : "") + `</div></a>`;
   };
+  if (TRY.get("home") === "one") {   // suggestion (19 Nov, her point that both cards open the same page): one card, as the page is
+    const sets = allSets(), bgI = items.filter(it => it.bg), csI = items.filter(it => !it.bg), pics = [], dexes = new Set();
+    for (const it of items.filter(it => has(it.key, "c"))) { if (pics.length < 3 && !dexes.has(it.e.dex) && sprite(it.img)) { dexes.add(it.e.dex); pics.push(sprite(it.img)); } }
+    return `<a class="gen" href="#sets" style="grid-column:span 2"><span class="genart" aria-hidden="true">${pics.map(p => `<img src="${p}" alt="" loading="lazy">`).join("")}</span><span class="label">Your events</span><h3>Events and costumes</h3><div class="rows">` +
+      row("Backgrounds", "image", bgI.filter(it => has(it.key, "c")).length, bgI.length, "var(--caught)") + row("Costumes", "shirt", csI.filter(it => has(it.key, "c")).length, csI.length, "var(--mega)") +
+      row("Complete", "ticket", sets.filter(st => st.items.every(setGot)).length, sets.length, "var(--deep-2)") + `</div></a>`;
+  }
   return tile(false, "Collecting", "Costumes") + tile(true, "Your events", "Backgrounds");
 }
 function home(){
