@@ -213,12 +213,10 @@
     q.value = ""; q.dispatchEvent(new Event("input")); await wait(250);
   });
 
-  test("Costumes and Events show only hers", async () => {
-    await go("#costumes");
-    eq(view().querySelectorAll(".grid .card").length, COL.costumes.filter(id => COSTUMES.some(c => c.id === id)).length);
-    await go("#events");
-    const shown = [...view().querySelectorAll(".event")].map(e => e.dataset.event);
-    ok(shown.every(id => COL.went.includes(id)), "an event she didn't go to is showing");
+  test("Event Pokémon shows only hers; the old pages lead there", async () => {
+    ok(myCostumes().every(c => COL.costumes.includes(c.id)), "a costume she doesn't collect");
+    ok(myEvents().every(ev => COL.went.includes(ev.id)), "an event she didn't go to");
+    for (const old of ["#costumes", "#events"]) { await go(old); await wait(50); eq(location.hash, "#sets", old); }
   });
 
   test("the totals count each Pokémon once, whatever its forms (her rule, 11 Nov)", async () => {

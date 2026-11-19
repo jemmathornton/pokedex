@@ -20,7 +20,11 @@ AHEAD = 42   # days
 
 
 def when(s):
-    return datetime.fromisoformat(s.replace('Z', '+00:00')).replace(tzinfo=None) if s else None
+    # a time with Z is UTC: turned into this computer's time, not just stripped (19 Nov review: an hour out in summer)
+    if not s:
+        return None
+    d = datetime.fromisoformat(s.replace('Z', '+00:00'))
+    return d.astimezone().replace(tzinfo=None) if d.tzinfo else d
 
 
 def key(img):
@@ -92,12 +96,14 @@ def main():
             continue
         ms = resolve(ev['name'], mons(ev.get('extraData') or {}), dex)
         events.append({'id': ev['eventID'], 'name': tidy(ev['name']), 'type': ev.get('heading') or ev.get('eventType'), 'kind': ev.get('eventType'),
-                       'start': ev.get('start'), 'end': ev.get('end'), 'link': ev['link'], 'mons': ms})
+                       'start': ev.get('start'), 'end': ev.get('end'), 'link': ev.get('link') or 'https://leekduck.com/events/', 'mons': ms})   # one event with no link mustn't stop the refresh
         print(f'{(ev.get("start") or "")[:10]}  {ev["name"]}: {len(ms)} Pokémon listed')
     events.sort(key=lambda e: e['start'] or '')
-    with open(OUT, 'w', encoding='utf-8', newline='\n') as fh:
+    tmp = OUT + '.tmp'   # written whole, then swapped in, so a failure halfway never leaves a broken file
+    with open(tmp, 'w', encoding='utf-8', newline='\n') as fh:
         json.dump({'fetched': date.today().isoformat(), 'source': 'Leek Duck (leekduck.com/events), via ScrapedDuck', 'events': events}, fh, ensure_ascii=False, indent=1)
         fh.write('\n')
+    os.replace(tmp, OUT)
     print(f'Written data/go/upcoming.json: {len(events)} events. Now run tools/build.py.')
 
 

@@ -61,13 +61,19 @@ TICKS = {'c', 'cm', 'cf', 's', 'l', 'h', 'sd', 'pu', 'dx', 'gx', 'ss', 'mg', 'mx
 
 
 def read():
-    if not os.path.exists(FILE):
-        return {'have': {}, 'went': [], 'costumes': []}
+    # utf-8-sig: a file saved by Notepad or PowerShell starts with a BOM, which isn't a broken file (19 Nov review)
     try:
-        with open(FILE, encoding='utf-8') as fh:
+        with open(FILE, encoding='utf-8-sig') as fh:
             c = json.load(fh)
-    except ValueError:   # a broken file (the PC went off mid-save): the copy before the last change
-        with open(FILE + '.bak', encoding='utf-8') as fh:
+    except (FileNotFoundError, ValueError):
+        # missing (moved for a moment, a git checkout) or broken (the PC went off mid-save): the copy before the last
+        # change. Missing too: a first start, so empty. Never start from empty while a .bak exists, or the next two
+        # saves would replace both files with almost nothing (19 Nov review)
+        if not os.path.exists(FILE + '.bak'):
+            if os.path.exists(FILE):
+                raise RuntimeError(f'{FILE} is broken and there is no .bak copy: nothing saved, fix it by hand')
+            return {'have': {}, 'went': [], 'costumes': []}
+        with open(FILE + '.bak', encoding='utf-8-sig') as fh:
             c = json.load(fh)
     for k, v in (('have', {}), ('went', []), ('costumes', [])):
         c.setdefault(k, v)
@@ -83,7 +89,7 @@ def write(obj):
         fh.flush()
         os.fsync(fh.fileno())   # on the disk before it's swapped in, so a power cut can't leave an empty file
     try:
-        with open(FILE, encoding='utf-8') as fh:
+        with open(FILE, encoding='utf-8-sig') as fh:
             json.load(fh)
         shutil.copyfile(FILE, FILE + '.bak')   # the copy before this change, only if it's whole
     except (OSError, ValueError):

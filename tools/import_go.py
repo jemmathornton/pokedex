@@ -492,7 +492,10 @@ def main():
     ff = os.path.join(DATA, 'flag-fixes.json')
     flag_fixes = json.load(open(ff, encoding='utf-8')) if os.path.exists(ff) else {}
     for i, flags in flag_fixes.items():
-        if i.startswith('_') or i not in byid:
+        if i.startswith('_'):
+            continue
+        if i not in byid:   # said out loud, not skipped quietly (19 Nov review): ids before forms are merged or split by gender, e.g. 678 not 678-female
+            print(f'flag-fixes.json: no entry {i} (use the id before forms are merged or split by gender)')
             continue
         todo = [byid[i]]
         while todo:

@@ -5,6 +5,7 @@ const ic = n => ICONS[n].replace("<svg ", '<svg class="i" aria-hidden="true" ');
 const curly = s => String(s ?? "").replace(/(^|[\s(\[“"—-])'/g, "$1‘").replace(/'/g, "’");
 const esc = s => curly(s).replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
 const attr = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"}[c]));
+const tip = s => attr(curly(s));   // hover text is shown, so curly apostrophes like the rest (19 Nov review: “Farfetch'd” in tooltips); attr() stays for ids and links
 const num = n => n.toLocaleString("en-GB");
 const MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
 const pad = n => String(n).padStart(4, "0");
@@ -80,7 +81,6 @@ const gotFemale = e => !!femaleTick(e) && has(dk(e), femaleTick(e));
 // species with more than one entry out in GO (Unown, Vivillon, Alolan Vulpix…): their entries are the "forms"
 const outBySpecies = {};
 ENTRIES.forEach(e => { if (e.released) (outBySpecies[e.dex] = outBySpecies[e.dex] || []).push(e); });
-const hasForms = e => (outBySpecies[e.dex] || []).length > 1;
 
 // the extra boxes, only on the Pokémon they can apply to (Serebii's lists, tools/import_go.py)
 const EXTRAS = [
@@ -179,7 +179,7 @@ function formBoxes(lead, forms, only){
     const fs = out.filter(can); if (!fs.length) return "";
     const got = fs.filter(f => has(dk(f), t)).length, all = got === fs.length;
     const inner = `${ic(icon)}<span>${esc(label)}</span><b>${got}/${fs.length}</b>`;
-    return `<a class="tk fb ${cls}" href="${pageOf(lead)}" aria-pressed="${all}" title="${attr(`${label}: ${got} of ${fs.length} forms`)}" style="--p:${Math.round(got / fs.length * 100)}%">` +
+    return `<a class="tk fb ${cls}" href="${pageOf(lead)}" aria-pressed="${all}" title="${tip(`${label}: ${got} of ${fs.length} forms`)}" style="--p:${Math.round(got / fs.length * 100)}%">` +
       inner + (got && !all ? `<span class="fill" aria-hidden="true">${inner}</span>` : "") + `</a>`;
   };
   const megaT = [...new Set(out.flatMap(f => (f.mega || []).map(m => m.t)))];
@@ -207,7 +207,7 @@ function boxes(e){
   const k = dk(e), btn = (t, cls, icon, label, title, off) => {
     if (only && !only.includes(t)) return "";
     const on = has(k, t);
-    return `<button class="tk ${cls}" type="button" data-tick="${t}" aria-pressed="${on}" title="${attr(title)}" aria-label="${attr(title)}"${off && !on ? " disabled" : ""}>${ic(icon)}<span>${esc(label)}</span></button>`;
+    return `<button class="tk ${cls}" type="button" data-tick="${t}" aria-pressed="${on}" title="${tip(title)}" aria-label="${attr(title)}"${off && !on ? " disabled" : ""}>${ic(icon)}<span>${esc(label)}</span></button>`;
   };
   const x = t => EXTRAS.find(z => z.t === t);
   const extra = (t, label) => e[x(t).flag] ? btn(t, t, x(t).icon, label || x(t).label, x(t).title) : "";
@@ -273,13 +273,6 @@ function groupByNumber(items){
 }
 // a Pokémon's other forms: small pictures inside its card (9 Nov: no expanding, and not as ordinary cards, her words).
 // Clicking one ticks that form: Caught, or with a tab on, that tab's box. Ticked ones light up in the box's colour.
-function formTick(e){
-  const b = BOXF.find(x => x.k === prefs.work);
-  if (!b) return "c";
-  if (!b.applies(e)) return null;
-  const t = typeof b.ticks === "function" ? b.ticks(e) : b.ticks;
-  return t[0];
-}
 // a card shows a small "Forms 3/28" button; it opens a pop-up with every form as a full card with all its boxes (9 Nov:
 // forms inside the card made Unown's card far too tall; she wants shiny etc. for each form, her words). The list never changes.
 const groupsByDex = {};   // the current page's groups, for the pop-up
@@ -342,7 +335,7 @@ const shotStyle = f => { const fit = FIT_TRY || SHOT_FIT[f], ratio = RATIO_TRY |
   return ` style="--shot:url('regions/${f}')${fit ? `;--shotfit:${fit}` : ""}${ratio ? `;--shotratio:${ratio}` : ""}"`; };
 const shotCls = f => (PIXEL_SHOTS.has(f) ? " pixel" : "") + (RATIO_TRY || SHOT_RATIO[f] ? " ratio" : "");
 // banners for the other pages (13 Nov, her ask: no plain colour or parade anywhere): a row of pictures filling the banner's
-// right side like the region maps; Home and Every Pokémon: all ten region maps side by side; Events and costumes: her
+// right side like the region maps; Home and Every Pokémon: all ten region maps side by side; Event Pokémon: her
 // events' background cards; Fast tick and a Pokémon's page: its region's map
 const regionMap = g => REGION_CHOSEN[g] ? `regions/${REGION_CHOSEN[g]}` : null;
 const heroPics = (srcs, cls = "") => srcs.length ? `<span class="heropics${cls ? " " + cls : ""}">${srcs.map(f => `<i style="background-image:url('${f}')"></i>`).join("")}</span>` : "";
@@ -464,6 +457,10 @@ function dexPage(title, label, list, region){
     const got = new Set(shown.filter(e => !FORM_SPECIES.has(e.dex) && (b ? b.applies(e) && b.have(e) : caught(e))).map(groupKey));
     items = items.filter(e => FORM_SPECIES.has(e.dex) || !got.has(groupKey(e)));
   }
+  // a form-by-form Pokémon keeps all its forms on the card, so the card still leads with its default form (19 Nov review:
+  // with Unown F caught and "Hide ones I have" on, the card showed Unown A)
+  const formKeys = new Set(items.filter(e => FORM_SPECIES.has(e.dex)).map(groupKey)), kept = new Set(items);
+  items = shown.filter(e => FORM_SPECIES.has(e.dex) ? formKeys.has(groupKey(e)) : kept.has(e));
   const notOut = list.filter(e => !e.released).length;
   const groups = groupByNumber(items);
   const seg = (attrName, cur, rows) => `<span class="opts">${rows.map(([v, l]) => `<button type="button" ${attrName}="${v}" aria-pressed="${v === cur}">${l}</button>`).join("")}</span>`;
@@ -613,7 +610,7 @@ function pokemonPage(key){
   const desc = sel.desc ? (sel.femaleDesc ? `<p class="dex-entry"><span class="label">Male</span>${esc(sel.desc)}</p><p class="dex-entry"><span class="label">Female</span>${esc(sel.femaleDesc)}</p>`
       : `<p class="dex-entry">${esc(sel.desc)}</p>`) : `<p class="dex-entry muted">No Pokédex entry for it in the game’s text yet.</p>`;
   const picker = ordered.length > 1 ? `<div class="formpick" role="group" aria-label="Which form to show">${ordered.map(e =>
-    `<button type="button" data-pickform="${attr(e.id)}" aria-pressed="${e === sel}" title="${attr(e.form || e.name)}">${sprite(e.img) ? `<img src="${sprite(e.img)}" alt="" loading="lazy">` : `<span class="blank">?</span>`}<small>${esc(formLabel(e))}</small></button>`).join("")}</div>` : "";
+    `<button type="button" data-pickform="${attr(e.id)}" aria-pressed="${e === sel}" title="${tip(e.form || e.name)}">${sprite(e.img) ? `<img src="${sprite(e.img)}" alt="" loading="lazy">` : `<span class="blank">?</span>`}<small>${esc(formLabel(e))}</small></button>`).join("")}</div>` : "";
   const family = evoFamily(sel);
   const bgCards = evs.flatMap(ev => { const ms = bgMonsOf(ev).filter(e => groupKey(e) === key); return (ms.length ? ms : [regionalPage ? grouped.lead : baseOf[n] || grouped.lead]).map(e => bgCard(ev, e, false)); }).join("");
   const first = esc(sel.name);
@@ -664,18 +661,6 @@ function costumeCard(c){
     `<div class="boxgrid"><button class="tk c" type="button" data-tick="c" aria-pressed="${has(key, "c")}" title="Caught">${ic("poke-ball")}<span>Caught</span></button>` +
     (c.shiny || has(key, "s") ? `<button class="tk s" type="button" data-tick="s" aria-pressed="${has(key, "s")}" title="Shiny: a bonus, not counted">${ic("sparkles")}<span>Shiny</span></button>` : "") + `</div></div>`;   // a costume’s shiny is a bonus, like Shiny Shadow, and only where one is out (her calls, 10 Nov)
 }
-function costumesPage(){
-  const term = q.value.trim().toLowerCase();
-  let items = myCostumes();
-  if (term) items = items.filter(c => (c.name + " " + cosName(c)).toLowerCase().includes(term) || String(c.dex) === term);
-  const ck = c => "c:" + c.id, mine = myCostumes();
-  setRegion(null);
-  view.innerHTML = `<header class="hero">${heroArt(mine)}<span class="label">Pokémon GO</span><h1>Costumes</h1><p class="muted" style="margin:6px 0 0;font-size:14px">A costume’s Shiny is a bonus, not counted.</p>
-    ${mine.length ? `<div class="stats">${statTile("--caught", "poke-ball", "Caught", mine.filter(c => hasAny(ck(c), ["c", "s"])).length, mine.length)}</div>` : ""}</header>${readOnlyNote()}
-    ${term ? `<p class="muted" style="font-size:13.5px">Matching “${esc(q.value.trim())}”</p>` : ""}
-    ${items.length ? `<div class="grid" style="margin-top:22px">${items.map(costumeCard).join("")}</div>` : `<p class="empty">${term ? "Nothing matches." : "No costumes yet."}</p>`}`;
-}
-
 // only the events she went to (or took part in, for special backgrounds) exist in the app (her call, 10 Nov); the rest stay
 // in data/ so one can be added back by ticking it there
 const myEvents = () => [...EVENTS, ...SPECIAL].filter(ev => COL.went.includes(ev.id) && (ev.backgroundPokemon || []).length)
@@ -685,24 +670,7 @@ const myEvents = () => [...EVENTS, ...SPECIAL].filter(ev => COL.went.includes(ev
 const bgMonsOf = ev => { const seen = new Set();
   return (ev.cards ? ev.cards.map(id => byId[id] || costumeById[id]) : (ev.backgroundPokemon || []).map(name => baseOf[DATA.dexByName[name.toLowerCase()]])).filter(Boolean)
     .flatMap(e => e.genderForm ? ENTRIES.filter(x => x.dex === e.dex && x.genderForm) : [e]).filter(e => !seen.has(e.id) && seen.add(e.id)); };
-function eventsPage(){
-  const list = myEvents();
-  let html = "", year = "";
-  for (const ev of list) {
-    const y = ev.start.slice(0, 4);
-    if (y !== year) { html += `<h2 class="yearhead">${y}</h2>`; year = y; }
-    html += `<div class="event went" data-event="${attr(ev.id)}"><div class="top"><div>
-      <h3>${esc(ev.name)}</h3><div class="meta">${isSpecial(ev) ? `${ic("sparkles")} Special background` : `${ic("map-pin")} ${esc(ev.city)}, ${esc(ev.country)}`} · ${esc(dates(ev.start, ev.end))}</div>
-      ${isSpecial(ev) && ev.note ? `<div class="bg muted">${esc(ev.note)}</div>` : ""}</div></div>
-      <div class="grid bggrid">${bgMonsOf(ev).map(e => bgCard(ev, e, false)).join("")}</div></div>`;
-  }
-  const keys = list.flatMap(ev => bgMonsOf(ev).map(e => bgKey(ev, e)));
-  setRegion(null);
-  view.innerHTML = `<header class="hero">${heroArt(list.flatMap(bgMonsOf))}<span class="label">Pokémon GO</span><h1>Events and <em>backgrounds</em></h1>
-    <div class="stats">${statTile("--deep-2", "ticket", "Events", list.length, list.length)}
-    ${keys.length ? statTile("--caught", "poke-ball", "Backgrounds caught", keys.filter(k => has(k, "c")).length, keys.length) + statTile("--shiny", "sparkles", "Shiny", keys.filter(k => has(k, "s")).length, keys.length) : ""}</div></header>${readOnlyNote()}
-    <div class="events">${html || `<p class="empty">No events yet.</p>`}</div>`;
-}
+
 
 
 // ---------- Event Pokémon (was Events and costumes; renamed 19 Nov, her idea: all-inclusive for one page), one page (13 Nov, her ask: the two pages felt half done and mixed, as costumes and
@@ -769,10 +737,10 @@ function setTile(st){
   const got = st.items.filter(setGot).length, n = st.items.length;
   return `<a class="settile${got === n ? " done" : ""}" href="#set-${attr(st.id)}">` +
     (st.mosaic ? `<span class="setart mosaic">${st.mosaic.map(m => `<img src="${m}" alt="">`).join("")}</span>`
-      : `<span class="setart${st.art ? "" : " noart"}"${st.art ? ` style="background-image:url('${st.art}')"` : ""}>${st.art ? "" : (sprite(st.items[0].img) ? `<img src="${sprite(st.items[0].img)}" alt="">` : "")}</span>`) +
+      : `<span class="setart${st.art ? "" : " noart"}"${st.art ? ` style="background-image:url('${st.art}')"` : ""}>${st.art ? "" : (sprite((st.items[0] || {}).img) ? `<img src="${sprite((st.items[0] || {}).img)}" alt="">` : "")}</span>`) +
     `<span class="setbody"><b>${esc(st.title)}</b><small>${esc(st.meta)}</small>` +
     `<span class="setprog"><i style="width:${n ? got / n * 100 : 0}%"></i></span><small class="setn">${num(got)} of ${num(n)}</small></span>` +
-    `<span class="setstrip">${st.items.slice(0, 24).map(it => `<img class="${setGot(it) ? "on" : ""}" src="${sprite(it.img) || ""}" alt="" title="${attr(it.e.name + (it.e.costume ? " · " + cosName(it.e) : ""))}" loading="lazy">`).join("")}${n > 24 ? `<span class="more">+${n - 24}</span>` : ""}</span></a>`;
+    `<span class="setstrip">${st.items.slice(0, 24).map(it => `<img class="${setGot(it) ? "on" : ""}" src="${sprite(it.img) || ""}" alt="" title="${tip(it.e.name + (it.e.costume ? " · " + cosName(it.e) : ""))}" loading="lazy">`).join("")}${n > 24 ? `<span class="more">+${n - 24}</span>` : ""}</span></a>`;
 }
 function setsPage(){
   const sets = allSets();
@@ -830,7 +798,7 @@ function canTick(e, t){
 function quickParse(text){
   const rows = [], problems = [];
   for (const raw of text.split("\n")) {
-    let line = raw.toLowerCase().replace(/[“”"]/g, "").trim();
+    let line = raw.toLowerCase().replace(/[“”"]/g, "").replace(/[‘’]/g, "'").trim();   // “farfetch’d” typed curly finds Farfetch'd
     if (!line) continue;
     const boxes = [];
     for (const [w, t] of QBOX) {
@@ -921,7 +889,7 @@ function fastItemCell(it, b, art, evName){   // evName: in number order, a backg
   const pic = (b === "s" && sprite(it.img + ".s")) || sprite(it.img) || "", what = it.e.costume ? cosName(it.e) : it.e.form || "";
   const card = it.bg && art ? ` style="--card:url('${art}')"` : "";
   const name = it.bg && evName ? (it.e.costume ? cosName(it.e) + " · " : "") + evName : it.bg || !it.e.costume ? gName(it.e) : cosName(it.e);
-  return `<button class="fc col${card ? " withbg" : ""}" type="button" data-fk="${attr(it.key)}" data-t="${b}" aria-pressed="${has(it.key, b)}" title="${attr(it.e.name + (what ? " · " + what : "") + (evName ? " · " + evName : ""))}"${card}>` +
+  return `<button class="fc col${card ? " withbg" : ""}" type="button" data-fk="${attr(it.key)}" data-t="${b}" aria-pressed="${has(it.key, b)}" title="${tip(it.e.name + (what ? " · " + what : "") + (evName ? " · " + evName : ""))}"${card}>` +
     `<img src="${pic}" alt="" loading="lazy"><span class="fcn">${esc(name)}</span></button>`;
 }
 function fastSetsPage(kind){
@@ -974,7 +942,7 @@ function fastFormsPage(){
     const cells = ordered.flatMap(e => fastTicks(e, b).map(t => {
       const on = has(dk(e), t), name = (e.form || (hasRegional ? (genById[e.gen] || [])[1] : "") || e.name) + (t === "mx" ? " · X" : t === "my" ? " · Y" : "");
       all++; if (on) got++;
-      return `<button class="fc col" type="button" data-fast="${attr(e.id)}" data-t="${t}" aria-pressed="${on}" title="${attr(e.name + " · " + name)}"><img src="${fastPic(e, t)}" alt="" loading="lazy"><span class="fcn">${esc(name)}</span></button>`;
+      return `<button class="fc col" type="button" data-fast="${attr(e.id)}" data-t="${t}" aria-pressed="${on}" title="${tip(e.name + " · " + name)}"><img src="${fastPic(e, t)}" alt="" loading="lazy"><span class="fcn">${esc(name)}</span></button>`;
     }));
     if (!cells.length) continue;
     const g = cells.filter(c => c.includes('aria-pressed="true"')).length;
@@ -1106,11 +1074,11 @@ function wantShown(b){
 }
 const wantOverlap = () => !!prefs.wantOverlap || TRY.has("overlap");   // ?overlap for pictures only
 const wantBox = () => [TRY.get("want"), prefs.wantBox].find(k => WANT_TABS.some(w => w[0] === k)) || "s";   // ?want= for pictures only
-const wantName = u => `${isRegional(u.e) ? u.e.form.split(" ")[0] + " " : ""}${u.e.name}${u.what ? " · " + u.what : ""}`;
+const wantName = u => `${isRegional(u.e) ? u.e.form.split(" ")[0] + " " : ""}${curly(u.e.name)}${u.what ? " · " + u.what : ""}`;
 function wantPage(){
   const b = wantBox(), [, label, icon, col] = WANT_TABS.find(w => w[0] === b);
   const units = wantShown(b);
-  const cell = (u, art) => `<a class="fc col want${art ? " withbg" : ""}" href="${pageOf(u.e)}" title="${attr(wantName(u) + (u.st ? " · " + u.st.title : "") + (u.also.length ? " · also " + u.also.map(w => w[1]).join(", ") : ""))}"${art ? ` style="--card:url('${art}')"` : ""}>` +
+  const cell = (u, art) => `<a class="fc col want${art ? " withbg" : ""}" href="${pageOf(u.e)}" title="${tip(wantName(u) + (u.st ? " · " + u.st.title : "") + (u.also.length ? " · also " + u.also.map(w => w[1]).join(", ") : ""))}"${art ? ` style="--card:url('${art}')"` : ""}>` +
     (u.also.length ? `<span class="wb">${u.also.map(([, , i, c]) => `<i style="--c:var(${c})">${ic(i)}</i>`).join("")}</span>` : "") +
     `<img src="${u.img ? sprite(u.img) : b === "s" ? sprite(u.e.img + ".s") || sprite(u.e.img) : fastPic(u.e, u.t)}" alt="" loading="lazy"><span>${pad(u.e.dex)}</span><span class="fcn">${esc(wantName(u))}</span></a>`;
   let html = "";
@@ -1131,7 +1099,7 @@ function wantPage(){
 }
 async function wantCopy(){
   const b = wantBox(), label = WANT_TABS.find(w => w[0] === b)[1], units = wantShown(b);
-  const one = u => `#${u.e.dex} ${isRegional(u.e) ? u.e.form.split(" ")[0] + " " : ""}${u.e.name}${u.what ? " (" + u.what + ")" : ""}`;
+  const one = u => `#${u.e.dex} ${isRegional(u.e) ? u.e.form.split(" ")[0] + " " : ""}${curly(u.e.name)}${u.what ? " (" + u.what + ")" : ""}`;
   const text = b === "bg" ? [...new Set(units.map(u => u.st))].map(st => `${st.title}: ` + units.filter(u => u.st === st).map(one).join(", ")).join("\n")
     : `${label} I’m looking for: ` + units.map(one).join(", ");
   try { await navigator.clipboard.writeText(text); toast("Copied: paste it into a message to a friend."); } catch (e) { toast("Couldn’t copy here."); }
@@ -1158,17 +1126,17 @@ function upNeeds(m){
   }
   return out;
 }
-// a background Pokémon on Coming up ticks there (her ask, 16 Nov: say she's got it with that background without leaving
+// a background Pokémon on What’s on ticks there (her ask, 16 Nov: say she's got it with that background without leaving
 // the page): click = Caught with the background, again = untick; got ones faded, as the rest of the page
 function bgTick(it, art){
   const on = has(it.key, "c"), name = gName(it.e) + (it.e.costume ? " · " + cosName(it.e) : "");
-  return `<button type="button" class="fc col want withbg${on ? " done" : ""}" data-fk="${attr(it.key)}" data-t="c" aria-pressed="${on}" title="${attr(name + (on ? " · got with this background: click to untick" : " · click when you’ve got it with this background"))}" style="--card:url('${art}')">` +
+  return `<button type="button" class="fc col want withbg${on ? " done" : ""}" data-fk="${attr(it.key)}" data-t="c" aria-pressed="${on}" title="${tip(name + (on ? " · got with this background: click to untick" : " · click when you’ve got it with this background"))}"${art ? ` style="--card:url('${art}')"` : ""}>` +
     (on ? "" : `<span class="wb"><i style="--c:var(--deep-2)">${ic("ticket")}</i></span>`) +
     `<img src="${sprite(it.img) || ""}" alt="" loading="lazy"><span>${pad(it.e.dex)}</span><span class="fcn">${esc(it.e.costume ? cosName(it.e) : gName(it.e))}</span></button>`;
 }
 function comingPage(){
   const now = new Date(), up = DATA.upcoming || {events: []}, day = s => (s || "").slice(0, 10);
-  const square = (e, needs, extra = "", art = null) => `<a class="fc col want${needs.length ? "" : " done"}${art ? " withbg" : ""}" href="${pageOf(e)}" title="${attr(e.name + (e.form ? " · " + e.form : "") + (extra ? " · " + extra : "") + (needs.length ? " · you need: " + needs.map(n => NEED_LOOK[n][0]).join(", ") : " · you have everything from it"))}"${art ? ` style="--card:url('${art}')"` : ""}>` +
+  const square = (e, needs, extra = "", art = null) => `<a class="fc col want${needs.length ? "" : " done"}${art ? " withbg" : ""}" href="${pageOf(e)}" title="${tip(e.name + (e.form ? " · " + e.form : "") + (extra ? " · " + extra : "") + (needs.length ? " · you need: " + needs.map(n => NEED_LOOK[n][0]).join(", ") : " · you have everything from it"))}"${art ? ` style="--card:url('${art}')"` : ""}>` +
     (needs.length ? `<span class="wb">${needs.map(n => `<i style="--c:var(${NEED_LOOK[n][2]})">${ic(NEED_LOOK[n][1])}</i>`).join("")}</span>` : "") +
     `<img src="${sprite(e.img) || ""}" alt="" loading="lazy"><span>${pad(e.dex)}</span><span class="fcn">${esc(extra || (e.genderForm ? gName(e) : e.form && FORM_SPECIES.has(e.dex) ? e.name + " · " + e.form : e.name))}</span></a>`;
   // her point (18 Nov): a months-long event for an avatar item isn't a Community Day. So each event says its kind and how
@@ -1199,7 +1167,7 @@ function comingPage(){
     bgAll.sort(dexOrder);   // Pokédex number order (her ask, 16 Nov)
     const want = mons.filter(m => upNeeds(m).length).length, bgs = bgAll.filter(it => !has(it.key, "c"));
     return {ev, i, mons, st, bgAll, bgs, want, full: !!(want || bgs.length)};
-  }).filter(x => x.i.b >= today);
+  }).filter(x => x.i.b > now);   // gone once it has finished, not at midnight (19 Nov review: a Spotlight Hour stayed "On now" all evening)
   // the details of one event, opened under the week clicked in the calendar
   const row = x => {
     const {ev, i, mons, st, bgAll, bgs, want} = x, open = comingOpen.has(ev.id), got = bgAll.length - bgs.length;
@@ -1218,7 +1186,7 @@ function comingPage(){
   const kindOf = ev => /community/i.test(ev.type) ? "cd" : /raid|max/i.test(ev.type) ? (new Date(ev.end || ev.start) - new Date(ev.start) >= 2 * DAY ? "rot" : "day") : /spotlight/i.test(ev.type) ? "spot" : /pass/i.test(ev.type) ? "pass" : /research/i.test(ev.type) ? "research" : "ev";
   const kcol = ev => `var(${KINDS.find(k => k[0] === kindOf(ev))[2]})`;
   const needSet = x => [...new Set(x.mons.flatMap(m => upNeeds(m)))];
-  const badge = x => (needSet(x).length || x.bgs.length) ? `<span class="nb">${needSet(x).map(n => `<i style="--c:var(${NEED_LOOK[n][2]})" title="${attr(NEED_LOOK[n][0])}">${ic(NEED_LOOK[n][1])}</i>`).join("")}${x.bgs.length ? `<i style="--c:var(--deep)" title="Background">${ic("ticket")}</i><b>${num(x.bgs.length)}</b>` : ""}</span>` : "";
+  const badge = x => (needSet(x).length || x.bgs.length) ? `<span class="nb">${needSet(x).map(n => `<i style="--c:var(${NEED_LOOK[n][2]})" title="${tip(NEED_LOOK[n][0])}">${ic(NEED_LOOK[n][1])}</i>`).join("")}${x.bgs.length ? `<i style="--c:var(--deep)" title="Background">${ic("ticket")}</i><b>${num(x.bgs.length)}</b>` : ""}</span>` : "";
   const hide = new Set(prefs.comingHide || []);   // her ask (19 Nov): each kind can be shown or hidden from the row of kinds
   const legend = `<div class="callegend">${KINDS.map(([k, l, c]) => `<button type="button" class="calkey${hide.has(k) ? " off" : ""}" data-comekind="${k}" aria-pressed="${!hide.has(k)}" title="${hide.has(k) ? "Show" : "Hide"} ${attr(l)}"><i style="--k:var(${c})">${ic("check")}</i>${esc(l)}</button>`).join("")}<span class="muted">Click one to show or hide it</span></div>`;
   const shortDay = d => `${WD[d.getDay()].slice(0, 3)} ${d.getDate()} ${MONTHS[d.getMonth()].slice(0, 3)}`;
@@ -1229,7 +1197,7 @@ function comingPage(){
   const tierOf = x => (/ in (.+)$/.exec(x.ev.name) || [, "Raids"])[1];   // the source's own words: "5-star Raid Battles", "Mega Raids"
   const visible = evs.filter(x => !hide.has(kindOf(x.ev)));
   const names = x => { const n = [...new Set(x.mons.map(m => byId[m.id].name))]; return n.length > 1 ? n.slice(0, -1).join(", ") + " and " + n[n.length - 1] : n[0] || x.ev.name; };
-  const pics = x => [...new Map(x.mons.map(m => [byId[m.id].img, byId[m.id]])).values()].map(e => `<img src="${sprite(e.img) || ""}" alt="" loading="lazy" title="${attr(gName(e) + (e.form ? " · " + e.form : ""))}">`).join("");
+  const pics = x => [...new Map(x.mons.map(m => [byId[m.id].img, byId[m.id]])).values()].map(e => `<img src="${sprite(e.img) || ""}" alt="" loading="lazy" title="${tip(gName(e) + (e.form ? " · " + e.form : ""))}">`).join("");
   let g = `<div class="calweek calhead">${["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"].map(d => `<span>${d}</span>`).join("")}</div>`;
   // a month at a time, with arrows (her point, 19 Nov: six weeks with no month named, and no way to move on)
   const m0 = new Date(today.getFullYear(), today.getMonth() + comingMonth, 1), mEnd = new Date(m0.getFullYear(), m0.getMonth() + 1, 0), mNext = new Date(m0.getFullYear(), m0.getMonth() + 1, 1);
@@ -1248,7 +1216,7 @@ function comingPage(){
       for (let i = c0; i <= c1; i++) lanes[l][i] = true;
       const one = /hour/.test(x.i.len);   // a few hours on one day: its start time
       const mini = isRaidRun(x);
-      return `<button type="button" class="calbar${mini ? " mini" : ""}${x.full ? " need" : ""}${x === cs && comingWeek === String(w) ? " sel" : ""}" data-comesel="${attr(x.ev.id)}" data-comeweek="${w}" style="grid-column:${c0 + 1}/${c1 + 2};grid-row:${l + 2};--k:${kcol(x.ev)}" title="${attr(x.ev.name + " · " + x.i.when)}">${one ? `<small>${hm(x.i.a)}</small>` : ""}${mini ? `<small>${esc(tierOf(x).replace(/ Raid Battles| Raids/, ""))}</small><span class="mp">${pics(x)}</span><span class="t">${esc(names(x))}</span>` : `<span class="t">${esc(x.ev.name)}</span>`}${badge(x)}</button>`;
+      return `<button type="button" class="calbar${mini ? " mini" : ""}${x.full ? " need" : ""}${x === cs && comingWeek === String(w) ? " sel" : ""}" data-comesel="${attr(x.ev.id)}" data-comeweek="${w}" style="grid-column:${c0 + 1}/${c1 + 2};grid-row:${l + 2};--k:${kcol(x.ev)}" title="${tip(x.ev.name + " · " + x.i.when)}">${one ? `<small>${hm(x.i.a)}</small>` : ""}${mini ? `<small>${esc(tierOf(x).replace(/ Raid Battles| Raids/, ""))}</small><span class="mp">${pics(x)}</span><span class="t">${esc(names(x))}</span>` : `<span class="t">${esc(x.ev.name)}</span>`}${badge(x)}</button>`;
     }).join("");
     const days = [...Array(7)].map((_, i) => { const d = new Date(ws); d.setDate(d.getDate() + i);
       return `<span class="calday${+d === +today ? " today" : d < today ? " past" : ""}${d.getMonth() !== m0.getMonth() ? " out" : ""}" style="grid-column:${i + 1};grid-row:1">${d.getDate() === 1 ? `${d.getDate()} ${MONTHS[d.getMonth()].slice(0, 3)}` : d.getDate()}</span>`; }).join("");
@@ -1268,7 +1236,7 @@ function comingPage(){
   const bgEvs = evs.filter(x => inMonth(x) && x.st && x.bgs.length);
   if (bgEvs.length) h += `<section class="huntset"><h3 style="--c:var(--deep)"><i>${ic("ticket")}</i>Backgrounds coming back<small>${num(bgEvs.length)}</small></h3>${bgEvs.map(x => {
     const open = comingOpen.has(x.ev.id), got = x.bgAll.length - x.bgs.length;
-    return `<div class="huntbg"><span class="hbart" style="background-image:url('${x.st.art}')"></span><div><b>${esc(x.st.title)}</b><span class="muted"> · ${esc(x.ev.name)}, ${esc(whenShort(x))}</span>
+    return `<div class="huntbg"><span class="hbart"${x.st.art ? ` style="background-image:url('${x.st.art}')"` : ""}></span><div><b>${esc(x.st.title)}</b><span class="muted"> · ${esc(x.ev.name)}, ${esc(whenShort(x))}</span>
       <div class="hbbar"><i style="width:${(100 * got / x.bgAll.length).toFixed(1)}%"></i></div><span class="muted">${num(got)} of ${num(x.bgAll.length)} got with it · ${num(x.bgs.length)} to go</span>
       <button class="linkbtn" type="button" data-comegot="${attr(x.ev.id)}">${ic(open ? "eye-off" : "eye")}${open ? "Hide them" : `Show the ${num(x.bgs.length)} to get`}</button>
       ${open ? `<div class="fastgrid" style="--bc:var(--deep-2)">${x.bgs.map(it => bgTick(it, x.st.art)).join("")}</div>` : ""}</div></div>`; }).join("")}</section>`;
@@ -1294,8 +1262,7 @@ function route(to){   // to: draw that page without changing the address (the te
   const term = q.value.trim().toLowerCase();
   const pn = /^p-(\d+(?:-[a-z]+)?)$/.exec(r), lead = pn && groupByNumber(ENTRIES.filter(e => groupKey(e) === pn[1]))[0];
   navHtml(lead ? "gen-" + lead.lead.gen : /^set-/.test(r) ? "sets" : r);   // a Pokémon's page lights up its region in the sidebar
-  if (r === "costumes") return costumesPage();
-  if (r === "events") return eventsPage();
+  if (r === "costumes" || r === "events") { location.replace("#sets"); return; }   // the old pages are now Event Pokémon
   if (r === "quick") return quickPage();
   if (r === "fast") return fastPage();
   if (r === "want") return wantPage();
@@ -1306,7 +1273,7 @@ function route(to){   // to: draw that page without changing the address (the te
   const pm = /^p-(\d+(?:-[a-z]+)?)$/.exec(r);
   if (pm) return pokemonPage(pm[1]);
   if (TRY.get("only")) { const ns = TRY.get("only").split(",").map(Number); Object.assign(prefs, {work: "all", workShow: "all"}); return dexPage("Forms", "Trial", ENTRIES.filter(e => ns.includes(e.dex) && !isRegional(e)).sort((a, b) => ns.indexOf(a.dex) - ns.indexOf(b.dex))); }   // ?only= for pictures of options only
-  if (term && r !== "costumes") {
+  if (term) {
     const n = parseInt(term.replace(/^#/, ""), 10);
     const list = ENTRIES.filter(e => (e.name + " " + (e.form || "")).toLowerCase().includes(term) || e.dex === n);
     return dexPage(`“${esc(q.value.trim())}”`, "Search", list);
@@ -1411,16 +1378,11 @@ document.addEventListener("click", ev => {
   if (b.dataset.fastorder) { prefs.fastOrder = b.dataset.fastorder; keepPrefs(); return rerender(); }
   if (b.dataset.shotg) { prefs.regionShot = {...(prefs.regionShot || {}), [b.dataset.shotg]: +b.dataset.shot}; keepPrefs(); return rerender(); }   // trial, 10 Nov
   if (b.dataset.notout) { prefs.unreleased = b.dataset.notout === "yes"; keepPrefs(); return rerender(); }
-  if (b.dataset.workshow) { prefs.workShow = b.dataset.workshow; keepPrefs(); return rerender(); }
-  if (b.dataset.cmode) { prefs.costumes = b.dataset.cmode; keepPrefs(); return rerender(); }
-  if (b.dataset.emode) { prefs.events = b.dataset.emode; keepPrefs(); return rerender(); }
-  if (b.dataset.formtick) return tick("d:" + b.dataset.formtick, b.dataset.t, b.getAttribute("aria-pressed") !== "true");
   if (b.dataset.flip) {
     const k = b.dataset.pic, item = byId[k.slice(2)] || costumeById[k.slice(2)];
     const st = {...(picFlip.get(k) || {s: shinyFirst(), f: !!(item && item.femaleImg && sprite(item.femaleImg))})};
     st[b.dataset.flip] = !st[b.dataset.flip]; picFlip.set(k, st); return rerender();
   }
-  if (b.hasAttribute("data-collect")) return toggleList("costumes", b.closest("[data-costume]").dataset.costume);
   if (b.hasAttribute("data-went")) return toggleList("went", b.closest("[data-event]").dataset.event);
   if (b.dataset.tick) {
     const holder = b.closest("[data-id],[data-costume],[data-bg]");   // a card, the big boxes on a Pokémon's page, a costume or a background
@@ -1429,19 +1391,12 @@ document.addEventListener("click", ev => {
   }
 });
 
-document.addEventListener("change", ev => {   // the filters
-  const el = ev.target.closest("[data-pref]");
-  if (!el) return;
-  prefs[el.dataset.pref] = el.type === "checkbox" ? el.checked : el.value;
-  keepPrefs(); rerender();
-});
-
 let qTimer;
 q.addEventListener("input", () => {
   clearTimeout(qTimer);
   qTimer = setTimeout(() => {
     const r = (location.hash || "#home").slice(1);
-    if (q.value.trim() && !["dex", "costumes"].includes(r) && !r.startsWith("gen-")) location.hash = "#dex"; else route();
+    if (q.value.trim() && r !== "dex" && !r.startsWith("gen-")) location.hash = "#dex"; else route();
   }, 150);
 });
 document.getElementById("searchIco").innerHTML = ic("search");

@@ -48,9 +48,11 @@ def refresh_events():
                                encoding='utf-8', errors='replace', env=env, creationflags=NO_WINDOW, timeout=600)
             if r.returncode:
                 log(f'events: {script} failed: ' + (r.stderr or r.stdout).strip()[-600:])
-                return
+                if script == 'import_events.py':
+                    return
+        # build.py still writes the app when it finds problems (19 Nov review), so the new events are listed either way
         new = [n for i, n in names().items() if i not in before]
-        log('events: refreshed' + (f'; new: {"; ".join(new)}' if new else '; nothing new'))
+        log('events: refreshed' + (f'; new: {"; ".join(new)} (check them for a Special Background by hand)' if new else '; nothing new'))
     except Exception as e:
         log(f'events: refresh failed: {e}')
 
