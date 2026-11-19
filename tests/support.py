@@ -80,6 +80,33 @@ class Sandbox:
         return _data_js(self.path('site', 'js', 'data.js'))
 
 
+class LightSandbox(Sandbox):
+    """A quicker throwaway copy (under a second, against about 8 for Sandbox) for tests that don't need the pictures:
+    data/ copied, and site/ with just index.html, the styles and js/ (enough for the server's API and for the build,
+    which then finds no pictures). with_data=False copies only the ticks file."""
+
+    def __init__(self, with_data=True):
+        super().__init__()
+        self.with_data = with_data
+
+    def __enter__(self):
+        self.root = tempfile.mkdtemp(prefix='pokedex-test-')
+        if self.with_data:
+            shutil.copytree(os.path.join(REAL, 'data'), os.path.join(self.root, 'data'), ignore=shutil.ignore_patterns('*.tmp', '*.bak', '*.lock'))
+        else:
+            os.makedirs(os.path.join(self.root, 'data', 'collection'))
+            shutil.copy2(REAL_TICKS, os.path.join(self.root, 'data', 'collection', 'go.json'))
+        site = os.path.join(self.root, 'site')
+        os.makedirs(site)
+        for name in os.listdir(os.path.join(REAL, 'site')):
+            if name.endswith(('.html', '.css')):
+                shutil.copy2(os.path.join(REAL, 'site', name), os.path.join(site, name))
+        shutil.copytree(os.path.join(REAL, 'site', 'js'), os.path.join(site, 'js'))
+        self._env = os.environ.get('POKEDEX_ROOT')
+        os.environ['POKEDEX_ROOT'] = self.root
+        return self
+
+
 def _data_js(path):
     text = open(path, encoding='utf-8').read()
     return json.loads(text.split('const DATA = ', 1)[1].rsplit(';', 1)[0])

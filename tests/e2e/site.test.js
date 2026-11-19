@@ -540,13 +540,184 @@
     await clear("d:35"); await clear("d:36"); prefs.fastBox = "c";
   });
 
+  // ---------- more checks (19 Nov) ----------
+  // a known app bug: the test says what should happen; while it fails it's reported as known (not a failure), and once
+  // it passes it fails, so the note gets taken off
+  const knownBug = (name, why, fn) => tests.push([name, fn, why]);
+  const inMemory = async (keys, fn) => {   // change ticks in memory only for a check, then put them back
+    const before = keys.map(k => COL.have[k]);
+    try { keys.forEach(k => delete COL.have[k]); await fn(); }
+    finally { keys.forEach((k, i) => { if (before[i]) COL.have[k] = before[i]; else delete COL.have[k]; }); }
+  };
+
+  test("the totals: gender forms, one-gender species, regional forms and forms tracked one by one", async () => {
+    const of = n => counts(ENTRIES.filter(e => e.dex === n));
+    const frillish = of(592);
+    eq([frillish.speciesAll, frillish.maleOut, frillish.femaleOut], [1, 0, 0], "Frillish: one Pokémon, no ♂/♀ boxes (her call, 18 Nov)");
+    const tauros = of(128);
+    eq([tauros.speciesAll, tauros.maleOut, tauros.femaleOut], [2, 2, 0], "Tauros and the Paldean Tauros: two Pokémon, male only");
+    eq([of(37).speciesAll, of(201).speciesAll], [2, 1], "Vulpix and Alolan Vulpix two, Unown one");
+    eq([of(52).gmaxOut, of(52).speciesAll], [1, 3], "Meowth's three: only the usual one can Gigantamax");
+    eq([of(888).dynamaxOut, of(151).luckyOut, of(808).luckyOut], [0, 0, 1], "Zacian no Dynamax, Mew no Lucky, Meltan Lucky");
+    await inMemory(["d:201-f", "d:201-a", "d:592-female", "d:37-alolan", "d:37"], async () => {
+      COL.have["d:201-a"] = ["c", "s"]; COL.have["d:592-female"] = ["c"]; COL.have["d:37-alolan"] = ["c", "s"];
+      eq([of(201).species, of(201).shiny], [1, 1], "one Unown form caught and shiny: Unown counts");
+      eq(of(592).species, 1, "the female Frillish counts Frillish");
+      const v = of(37); eq([v.species, v.shiny, v.speciesAll], [1, 1, 2], "Alolan Vulpix counts itself, not Vulpix");
+    });
+  });
+
+  test("ticking any box ticks Caught too and saves both; Caught goes again with the last of them", async () => {
+    const key = "d:10", clear = async () => { for (const t of ["c", "l", "dx"]) await save({list: "have", key, tick: t, on: false}); delete COL.have[key]; autoCaught.delete(key); };
+    await clear();
+    try {
+      await tick(key, "l", true); await tick(key, "dx", true);
+      let s = await server(); eq([...s.have[key]].sort(), ["c", "dx", "l"], "saved:");
+      await tick(key, "l", false); ok(has(key, "c"), "Dynamax still ticked, so still caught");
+      await tick(key, "dx", false); s = await server();
+      ok(!s.have[key], "nothing left saved once the last box is off");
+    } finally { await clear(); }
+  });
+
+  test("Quick add: ranges, en dashes, #, curly apostrophes, forms, symbols and what can't be", async () => {
+    const {rows, problems} = quickParse("4–6, 8\n#25 4*\n\n“farfetch’d” shiny\nvulpix alolan\nvulpix (alolan) lucky\nmr. mime\nnidoran♀ shiny\ngengar shiny shadow\nkyogre primal\nbulbasaur mega\ntauros female\n9999");
+    const got = rows.map(r => `${r.e.id}:${r.t}${r.cant ? "!" : ""}`);
+    for (const w of ["4:c", "5:c", "6:c", "8:c", "25:h", "83:s", "37-alolan:c", "37-alolan:l", "122:c", "29:s", "94:ss", "382:mg", "1:mg!", "128:cf!"]) ok(got.includes(w), `missing ${w} in ${got}`);
+    ok(!got.includes("7:c"), "8 is on its own, not a range");
+    ok(!got.includes("94:s") && !got.includes("94:sd"), "Shiny Shadow is one box, not Shiny and Shadow");
+    ok(!got.some(g => g.startsWith("29:cf")), "Nidoran♀'s ♀ is its name, not a box");
+    eq(problems, ["No Pokémon #9999"]);
+    eq(quickParse("").rows.length + quickParse("  \n ").problems.length, 0, "blank lines do nothing");
+  });
+
+  test("What's on: a month at a time, You need for the month shown, kinds hidden, ended events gone, a bar clicked twice closes", async () => {
+    const up0 = DATA.upcoming, hide0 = prefs.comingHide, now = new Date();
+    const loc = t => new Date(t - t.getTimezoneOffset() * 6e4).toISOString().slice(0, 23);
+    const at = h => loc(new Date(Date.now() + h * 36e5));
+    const next = new Date(now.getFullYear(), now.getMonth() + 1, 1, 10), next2 = new Date(+next + 3 * 36e5);
+    const M = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+    const monthName = d => `${M[d.getMonth()]} ${d.getFullYear()}`;
+    const need = () => [...view().querySelectorAll(".calneed .hn")].map(n => n.textContent);
+    await inMemory(["d:624", "d:25", "d:1"], async () => {
+      try {
+        DATA.upcoming = {fetched: "2026-11-19", backgrounds: {}, events: [
+          {id: "t-now", name: "Test raid hour", type: "Raid Hour", start: at(-1), end: at(1), link: "https://leekduck.com/events/", mons: [{name: "Pawniard", id: "624", shiny: true, as: []}]},
+          {id: "t-next", name: "Test Community Day", type: "Community Day", start: loc(next), end: loc(next2), link: "https://leekduck.com/events/", mons: [{name: "Pikachu", id: "25", shiny: true, as: []}]},
+          {id: "t-gone", name: "Test ended", type: "Event", start: at(-3), end: loc(new Date(Date.now() - 6e4)), link: "https://leekduck.com/events/", mons: [{name: "Bulbasaur", id: "1", shiny: true, as: []}]}]};
+        prefs.comingHide = []; comingSel = comingWeek = null; comingMonth = 0; await go("#coming");
+        eq(view().querySelector(".calnav h2").textContent, monthName(now));
+        ok(view().querySelector('[data-comemonth="-1"]').disabled, "no going back before this month");
+        ok(!view().querySelector('.calbar[data-comesel="t-gone"]'), "an event that has ended is gone");
+        ok(need().includes("Pawniard") && !need().includes("Pikachu") && !need().includes("Bulbasaur"), `You need this month: ${need()}`);
+        const bar = () => view().querySelector('.calbar[data-comesel="t-now"]');
+        click(bar()); await wait(30); ok(view().querySelector(".caldetail"), "opened");
+        click(bar()); await wait(30); ok(!view().querySelector(".caldetail"), "clicked again: closed");
+        click(bar()); await wait(30);
+        click(view().querySelector('[data-comemonth="1"]')); await wait(30);
+        eq(view().querySelector(".calnav h2").textContent, monthName(next));
+        ok(!view().querySelector(".caldetail"), "moving month closes the details");
+        ok(need().includes("Pikachu") && !need().includes("Pawniard"), `You need next month: ${need()}`);
+        ok(view().querySelector('[data-comemonth="1"]').disabled, "nothing listed after next month");
+        ok(view().querySelector('.calbar[data-comesel="t-next"]'), "the Community Day on the calendar");
+        click(view().querySelector('.calkey[data-comekind="cd"]')); await wait(30);
+        ok(!view().querySelector('.calbar[data-comesel="t-next"]'), "Community Days hidden");
+        click(view().querySelector('.calkey[data-comekind="cd"]')); await wait(30);
+        ok(view().querySelector('.calbar[data-comesel="t-next"]'), "and shown again");
+        click(view().querySelector('[data-comemonth="0"]')); await wait(30);
+        eq(view().querySelector(".calnav h2").textContent, monthName(now), "Back to this month");
+        COL.have["d:624"] = ["c", "s"]; await go("#coming");
+        ok(!need().includes("Pawniard"), "nothing needed once caught and shiny");
+      } finally { DATA.upcoming = up0; prefs.comingHide = hide0; keepPrefs(); comingSel = comingWeek = null; comingMonth = 0; }
+    });
+  });
+
+  test("Event Pokémon: the page's counts, each set's tile, and Home's card all agree", async () => {
+    const sets = allSets(), seen = new Set(), items = sets.flatMap(s => s.items).filter(i => !seen.has(i.key) && seen.add(i.key));
+    const want = [[sets.filter(s => s.items.every(setGot)).length, sets.length], [items.filter(i => i.bg && setGot(i)).length, items.filter(i => i.bg).length],
+                  [items.filter(i => !i.bg && setGot(i)).length, items.filter(i => !i.bg).length]];
+    ok(sets.length > 5 && want[1][1] > 0 && want[2][1] > 0, "her events and costumes are there");
+    eq(new Set(sets.map(s => s.id)).size, sets.length, "set ids are unique");
+    await go("#sets");
+    eq([...view().querySelectorAll(".stats .stat b")].map(b => b.textContent.split(" of ").map(x => +x.replace(/,/g, ""))), want, "the page's tiles");
+    eq(view().querySelectorAll(".settile").length, sets.length, "a tile per set");
+    const st = sets.find(s => s.ev && s.items.length);
+    eq(view().querySelector(`.settile[href="#set-${st.id}"] .setn`).textContent, `${st.items.filter(setGot).length} of ${st.items.length}`);
+    await go("#set-" + st.id); ok(view().querySelector("h1").textContent === curly(st.title), "the set's own page");
+    await go("#set-no-such-set"); eq(view().querySelector("h1").textContent, "Event Pokémon", "an unknown set: the list");
+    await go("#home");
+    eq([...view().querySelector('.gen[href="#sets"]').querySelectorAll(".v")].map(v => v.textContent.split(" / ").map(x => +x.replace(/,/g, ""))), [want[1], want[2], want[0]], "Home's card (Backgrounds, Costumes, Events)");
+  });
+
+  test("Home's region cards count as the region pages do", async () => {
+    await go("#home");
+    for (const [g] of GENS) {
+      const k = counts(ENTRIES.filter(e => e.gen === g)), v = [...view().querySelector(`.gen[href="#gen-${g}"]`).querySelectorAll(".v")].map(x => x.textContent);
+      eq(v, [[k.species, k.speciesAll], [k.shiny, k.shinyOut], [k.lucky, k.luckyOut], [k.hundo, k.out]].map(([a, b]) => `${num(a)} / ${num(b)}`), g);
+    }
+    eq(+nav.querySelector('a[href="#dex"] .n').textContent.replace(/,/g, ""), groupByNumber(ENTRIES).length, "Every Pokémon in the sidebar");
+  });
+
+  test("unknown addresses go Home; a Pokémon's page lights its region in the sidebar", async () => {
+    for (const h of ["#gen-99", "#nonsense"]) {
+      await go(h); ok(/Pokédex/.test(view().querySelector("h1").textContent), `${h} goes Home`);
+    }
+    await go("#p-58-hisuian"); eq(nav.querySelector("a.on").getAttribute("href"), "#gen-hisui");
+    await go("#set-" + allSets()[0].id); eq(nav.querySelector("a.on").getAttribute("href"), "#sets");
+  });
+
+  test("search: forms, nothing found, and typing on Home goes to Every Pokémon", async () => {
+    const search = async v => { q.value = v; q.dispatchEvent(new Event("input")); await wait(250); };
+    try {
+      await go("#dex");
+      await search("alolan");
+      const nms = [...view().querySelectorAll(".card")].map(c => c.dataset.id);
+      ok(nms.length > 10 && nms.every(id => /-alolan$/.test(id)), `only Alolan forms: ${nms.slice(0, 5)}`);
+      await search("zzzz"); ok(view().querySelector(".empty"), "Nothing here.");
+      await search("farfetch'd"); ok(view().querySelector('.card[data-id="83"]'), "Farfetch’d typed straight");
+      await search(""); await go("#home");
+      await search("pikachu"); await until(() => location.hash === "#dex");
+      ok(view().querySelector('.card[data-id="25"]'), "Pikachu on Every Pokémon");
+    } finally { q.value = ""; route(); }
+  });
+
+  test("search finds a name typed with a curly apostrophe, as the page shows it (Farfetch’d)", async () => {
+    try {
+      await go("#dex"); q.value = "farfetch’d"; q.dispatchEvent(new Event("input")); await wait(250);
+      ok(view().querySelector('.card[data-id="83"]'), "Farfetch’d typed curly");
+    } finally { q.value = ""; route(); }
+  });
+
+  test("Looking for: every tab, Mega X and Y apart, no impossible ones, and Copy the list", async () => {
+    await inMemory(["d:6", "d:83"], async () => {
+      const mega = wanted("mega").filter(u => u.e.dex === 6).map(u => u.what).sort();
+      eq(mega, ["Mega X", "Mega Y"]);
+      ok(!wanted("gx").some(u => isRegional(u.e) || !GMAX_SPECIES.has(u.e.dex)), "Gigantamax only for the 32");
+      ok(!wanted("dx").some(u => NO_DYNAMAX.has(u.e.dex)), "no Dynamax Zacian");
+      ok(wanted("s").every(u => u.e.released), "only what's out");
+      for (const [b, l] of WANT_TABS) {
+        prefs.wantBox = b; prefs.wantOverlap = false; await go("#want");
+        eq(view().querySelector(`[data-wantbox="${b}"]`).getAttribute("aria-pressed"), "true", l);
+        eq(+view().querySelector(".fastn").textContent.replace(/,/g, ""), wantShown(b).length, `${l}: the count`);
+      }
+      let copied = ""; const cb = navigator.clipboard, fake = {writeText: async t => { copied = t; }};
+      Object.defineProperty(navigator, "clipboard", {value: fake, configurable: true});
+      try { prefs.wantBox = "s"; await go("#want"); click(view().querySelector("[data-wantcopy]")); await until(() => copied); }
+      finally { Object.defineProperty(navigator, "clipboard", {value: cb, configurable: true}); }
+      ok(copied.startsWith("Shiny I’m looking for: ") && copied.includes("#83 Farfetch’d"), copied.slice(0, 120));
+    });
+    prefs.wantBox = "s";
+  });
+
   // ---------- run ----------
   addEventListener("load", async () => {
     await wait(500);
     const out = [];
-    for (const [name, fn] of tests) {
-      try { await fn(); out.push({name, ok: true}); }
-      catch (e) { out.push({name, ok: false, error: `${String(e && e.stack || e).slice(0, 800)}\n  (page then: ${location.hash})`}); }
+    for (const [name, fn, known] of tests) {
+      try { await fn(); out.push(known ? {name, ok: false, error: `passes now: take it off knownBug (${known})`} : {name, ok: true}); }
+      catch (e) {
+        if (known) out.push({name, ok: true, known: `${known} [${String(e && e.message || e).slice(0, 200)}]`});
+        else out.push({name, ok: false, error: `${String(e && e.stack || e).slice(0, 800)}\n  (page then: ${location.hash})`});
+      }
     }
     const report = new URLSearchParams(location.search).get("report");
     if (report) await realFetch(`http://127.0.0.1:${report}/`, {method: "POST", mode: "no-cors", headers: {"Content-Type": "text/plain"}, body: JSON.stringify(out)});

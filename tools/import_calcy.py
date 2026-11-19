@@ -103,7 +103,7 @@ def main():
     if not args:
         print(__doc__); return
     proposal, notes, skipped, seen = propose(args[0])
-    col = json.load(open(os.path.join(ROOT, 'data', 'collection', 'go.json'), encoding='utf-8'))
+    col = json.load(open(os.path.join(ROOT, 'data', 'collection', 'go.json'), encoding='utf-8-sig'))
     new = {k: [t for t in v if t not in col['have'].get(k, [])] for k, v in proposal.items()}
     new = {k: v for k, v in new.items() if v}
     out = os.path.join(ROOT, 'research', 'calcy-proposed.json')

@@ -64,7 +64,7 @@ const BIG = new Set(DATA.bigSprites || []);   // the game's full-size pictures, 
 const bigSprite = k => k && BIG.has(k) ? `sprites/big/${k}.webp` : sprite(k);
 
 // ---------- what she has ----------
-let COL = norm(DATA.collection), readOnly = true;
+let COL = norm(DATA.collection), readOnly = true, loadFailed = false;   // readOnly until the server has given her ticks
 function norm(c){ c = c || {}; return {have: c.have || {}, went: c.went || [], costumes: c.costumes || []}; }
 const has = (key, t) => (COL.have[key] || []).includes(t);
 const hasAny = (key, ts) => ts.some(t => has(key, t));
@@ -257,7 +257,8 @@ const groupKey = e => isRegional(e) ? `${e.dex}-${e.form.split(" ")[0].toLowerCa
 const pageOf = e => "#p-" + groupKey(e);
 const cosName = c => c.form ? `${c.costume} · ${c.form}` : c.costume;   // a costume on a form says which (Halloween · Small, 15 Nov)
 // a form's name; the plain form is named after its own region, not "usual" (her ask, 13 Nov: Tauros is Kanto)
-const formLabel = e => e.form || (genById[e.gen] || [])[1] || e.name;
+const formTag = e => e.form || (ENTRIES.some(x => x.dex === e.dex && isRegional(x)) && (genById[e.gen] || [])[1]) || "";   // a region name only tells apart a regional form's usual one (Tauros); 19 Nov review: plain Rotom showed "Sinnoh"
+const formLabel = e => formTag(e) || e.name;   // 19 Nov review: plain Rotom showed "Sinnoh"
 function groupByNumber(items){
   const groups = [], byDex = {};
   for (const e of items) {
@@ -413,7 +414,8 @@ function statsHtml(c){
     t("--purified", "purified", "Purified", c.pu, c.shadowOut) +
     t("--hundo", "star", "4★", c.hundo, c.out) + `</div>`;
 }
-const readOnlyNote = () => readOnly ? `<div class="notice">${ic("info")} Opened from the folder, so ticks can’t be saved here. Open it with the Jemma’s Pokédex shortcut.</div>` : "";
+const readOnlyNote = () => location.protocol === "file:" ? `<div class="notice">${ic("info")} Opened from the folder, so ticks can’t be saved here. Open it with the Jemma’s Pokédex shortcut.</div>`
+  : loadFailed ? `<div class="notice">${ic("info")} The Pokédex server couldn’t read your ticks, so nothing can be saved for now. Open the Jemma’s Pokédex shortcut again; if it keeps happening, ask Claude.</div>` : "";   // 19 Nov review: no folder notice flashing on every load
 
 // Home's Event Pokémon card (her point, 19 Nov: the two cards both opened the same page, so one card named like it):
 // three she has, and Backgrounds, Costumes and Complete events counted as the page counts them (each Pokémon once)
@@ -424,7 +426,7 @@ function setTiles(){
   const sets = allSets(), bgI = items.filter(it => it.bg), csI = items.filter(it => !it.bg), pics = [], dexes = new Set();
   for (const it of items.filter(it => has(it.key, "c"))) { if (pics.length < 3 && !dexes.has(it.e.dex) && sprite(it.img)) { dexes.add(it.e.dex); pics.push(sprite(it.img)); } }
   return `<a class="gen" href="#sets" style="grid-column:span 2"><span class="genart" aria-hidden="true">${pics.map(p => `<img src="${p}" alt="" loading="lazy">`).join("")}</span><span class="label">Your events</span><h3>Costumes and backgrounds</h3><div class="rows">` +
-    row("Backgrounds", "image", bgI.filter(it => has(it.key, "c")).length, bgI.length, "var(--caught)") + row("Costumes", "shirt", csI.filter(it => has(it.key, "c")).length, csI.length, "var(--mega)") +
+    row("Backgrounds", "image", bgI.filter(setGot).length, bgI.length, "var(--caught)") + row("Costumes", "shirt", csI.filter(setGot).length, csI.length, "var(--mega)") +
     row("Events", "ticket", sets.filter(st => st.items.every(setGot)).length, sets.length, "var(--deep-2)") + `</div></a>`;
 }
 function home(){
@@ -1039,7 +1041,7 @@ function wanted(b){
   for (const g of groupByNumber(ENTRIES.filter(e => e.released))) {
     const es = [g.lead, ...g.others];
     if (b === "mega") { for (const e of es) for (const m of e.mega || []) if (!has(dk(e), m.t)) units.push({e, t: m.t, key: FORM_SPECIES.has(e.dex) ? e.id : groupKey(e), what: m.t === "mx" ? "Mega X" : m.t === "my" ? "Mega Y" : ""}); continue; }
-    if (FORM_SPECIES.has(g.lead.dex)) { for (const e of es) if (can(e) && !has(dk(e), b)) units.push({e, t: b, key: e.id, what: formLabel(e)}); continue; }
+    if (FORM_SPECIES.has(g.lead.dex)) { for (const e of es) if (can(e) && !has(dk(e), b)) units.push({e, t: b, key: e.id, what: formTag(e)}); continue; }
     const ok = es.filter(can);
     if (ok.length && !ok.some(e => has(dk(e), b))) units.push({e: ok.includes(g.lead) ? g.lead : ok[0], t: b, key: groupKey(g.lead), what: ""});
   }
@@ -1201,7 +1203,7 @@ function comingPage(){
   let g = `<div class="calweek calhead">${["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"].map(d => `<span>${d}</span>`).join("")}</div>`;
   // a month at a time, with arrows (her point, 19 Nov: six weeks with no month named, and no way to move on)
   const m0 = new Date(today.getFullYear(), today.getMonth() + comingMonth, 1), mEnd = new Date(m0.getFullYear(), m0.getMonth() + 1, 0), mNext = new Date(m0.getFullYear(), m0.getMonth() + 1, 1);
-  const lastEv = evs.reduce((m, x) => x.i.b > m ? x.i.b : m, today), maxMonth = (lastEv.getFullYear() - today.getFullYear()) * 12 + lastEv.getMonth() - today.getMonth();
+  const lastEv = visible.reduce((m, x) => x.i.b > m ? x.i.b : m, today), maxMonth = (lastEv.getFullYear() - today.getFullYear()) * 12 + lastEv.getMonth() - today.getMonth();
   const nWeeks = Math.round((monday(mEnd) - monday(m0)) / (7 * DAY)) + 1;
   for (let w = 0; w < nWeeks; w++) {
     const ws = monday(m0); ws.setDate(ws.getDate() + 7 * w);
@@ -1227,13 +1229,14 @@ function comingPage(){
   // You need (her ask, 19 Nov), for the month shown: by box, each with its event and when; then the backgrounds coming back
   const inMonth = x => x.i.a < mNext && x.i.b >= m0;
   const items = [];
-  for (const x of evs.filter(inMonth)) for (const m of x.mons) for (const n of upNeeds(m)) items.push({x, m, n});
+  const seenNeed = new Set();   // each Pokémon and box once, at its first event, and only from the kinds shown (19 Nov review: Deoxys twice)
+  for (const x of visible.filter(inMonth)) for (const m of x.mons) for (const n of upNeeds(m)) if (!seenNeed.has(m.id + "|" + n) && seenNeed.add(m.id + "|" + n)) items.push({x, m, n});
   const whenShort = x => x.i.on ? (x.i.month || x.i.season ? `until ${shortDay(x.i.b)}` : x.i.status.replace("On now · ", "")) : x.i.len.includes("hour") || x.i.len === "All day" ? `${shortDay(x.i.a)} ${hm(x.i.a)}` : `from ${shortDay(x.i.a)}`;
   const groups = ["c", "s", "sd", "dx", "gx", "mega"].map(n => [n, items.filter(it => it.n === n)]).filter(([, its]) => its.length);
   const huntCell = it => `<a class="hunt" href="${pageOf(byId[it.m.id])}"><img src="${sprite(byId[it.m.id].img) || ""}" alt="" loading="lazy"><span class="hn">${esc(gName(byId[it.m.id]))}</span>
     <span class="hev">${esc(it.x.ev.name)}</span><span class="hw${it.x.i.on ? " on" : ""}">${esc(whenShort(it.x))}</span></a>`;
   let h = groups.map(([n, its]) => `<section class="huntset"><h3 style="--c:var(${NEED_LOOK[n][2]})"><i>${ic(NEED_LOOK[n][1])}</i>${esc(n === "c" ? "New to you" : NEED_LOOK[n][0])}<small>${num(its.length)}</small></h3><div class="huntgrid">${its.map(huntCell).join("")}</div></section>`).join("");
-  const bgEvs = evs.filter(x => inMonth(x) && x.st && x.bgs.length);
+  const bgEvs = visible.filter(x => inMonth(x) && x.st && x.bgs.length);
   if (bgEvs.length) h += `<section class="huntset"><h3 style="--c:var(--deep)"><i>${ic("ticket")}</i>Backgrounds coming back<small>${num(bgEvs.length)}</small></h3>${bgEvs.map(x => {
     const open = comingOpen.has(x.ev.id), got = x.bgAll.length - x.bgs.length;
     return `<div class="huntbg"><span class="hbart"${x.st.art ? ` style="background-image:url('${x.st.art}')"` : ""}></span><div><b>${esc(x.st.title)}</b><span class="muted"> · ${esc(x.ev.name)}, ${esc(whenShort(x))}</span>
@@ -1259,7 +1262,7 @@ function navHtml(route){
 
 function route(to){   // to: draw that page without changing the address (the tests' sweep over every page)
   const r = to || (location.hash || "#home").slice(1);
-  const term = q.value.trim().toLowerCase();
+  const term = q.value.trim().toLowerCase().replace(/[‘’]/g, "'");   // “farfetch’d” as the page shows it, or from a phone (19 Nov tests)
   const pn = /^p-(\d+(?:-[a-z]+)?)$/.exec(r), lead = pn && groupByNumber(ENTRIES.filter(e => groupKey(e) === pn[1]))[0];
   navHtml(lead ? "gen-" + lead.lead.gen : /^set-/.test(r) ? "sets" : r);   // a Pokémon's page lights up its region in the sidebar
   if (r === "costumes" || r === "events") { location.replace("#sets"); return; }   // the old pages are now Event Pokémon
@@ -1372,7 +1375,7 @@ document.addEventListener("click", ev => {
   }
   if (b.dataset.comemonth) { const v = +b.dataset.comemonth; comingMonth = v ? comingMonth + v : 0; comingSel = comingWeek = null; return rerender(); }
   if (b.hasAttribute("data-comeclose")) { comingSel = comingWeek = null; return rerender(); }
-  if (b.dataset.comekind) { const h = new Set(prefs.comingHide || []), k = b.dataset.comekind; h.has(k) ? h.delete(k) : h.add(k); prefs.comingHide = [...h]; keepPrefs(); return rerender(); }
+  if (b.dataset.comekind) { const h = new Set(prefs.comingHide || []), k = b.dataset.comekind; h.has(k) ? h.delete(k) : h.add(k); prefs.comingHide = [...h]; keepPrefs(); comingSel = comingWeek = null; return rerender(); }
   if (b.dataset.comegot) { const k = b.dataset.comegot; comingOpen.has(k) ? comingOpen.delete(k) : comingOpen.add(k); return rerender(); }
   if (b.hasAttribute("data-wantoverlap")) { prefs.wantOverlap = !prefs.wantOverlap; keepPrefs(); return rerender(); }
   if (b.dataset.fastorder) { prefs.fastOrder = b.dataset.fastorder; keepPrefs(); return rerender(); }
@@ -1400,7 +1403,7 @@ q.addEventListener("input", () => {
   }, 150);
 });
 document.getElementById("searchIco").innerHTML = ic("search");
-addEventListener("hashchange", () => { route(); scrollTo(0, 0); });
+addEventListener("hashchange", () => { if (location.hash !== "#dex" && q.value) q.value = ""; route(); scrollTo(0, 0); });   // another page clears the search (19 Nov review: Home and the regions showed an old search)
 addEventListener("keydown", ev => {   // ← and → step through the numbers on a Pokémon's page
   if (!/^#p-\d+(-[a-z]+)?$/.test(location.hash) || ev.target.closest("input,textarea,select") || ev.altKey || ev.ctrlKey || ev.metaKey) return;
   const a = document.querySelector(ev.key === "ArrowLeft" ? ".pn.prev" : ev.key === "ArrowRight" ? ".pn.next" : null);
@@ -1409,5 +1412,5 @@ addEventListener("keydown", ev => {   // ← and → step through the numbers on
 
 route();
 if (location.protocol.startsWith("http")) {
-  fetch("/api/collection").then(r => r.ok ? r.json() : Promise.reject()).then(c => { COL = norm(c); readOnly = false; rerender(); }).catch(() => {});
+  fetch("/api/collection").then(r => r.ok ? r.json() : Promise.reject()).then(c => { COL = norm(c); readOnly = false; rerender(); }).catch(() => { if (location.protocol !== "file:") { loadFailed = true; rerender(); } });
 }

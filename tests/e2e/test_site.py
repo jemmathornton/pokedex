@@ -72,6 +72,9 @@ class Site(unittest.TestCase):
             with self.subTest(r['name']):
                 self.assertTrue(r['ok'], r.get('error'))
         print(f"\n    {sum(r['ok'] for r in self.results)} of {len(self.results)} page tests passed", file=sys.stderr)
+        for r in self.results:
+            if r.get('known'):
+                print(f"    known app bug (expected failure): {r['name']}: {r['known']}", file=sys.stderr)
 
 
 if __name__ == '__main__':

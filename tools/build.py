@@ -17,7 +17,7 @@ def load(*p, default=None):
     path = os.path.join(DATA, *p)
     if not os.path.exists(path):
         return default
-    return json.load(open(path, encoding='utf-8'))
+    return json.load(open(path, encoding='utf-8-sig'))
 
 
 def main():
@@ -65,10 +65,9 @@ def main():
                 problems.append(f'upcoming-backgrounds {evid}: no Pokémon called {n}'); continue
             for i in [e['id']] + evolved(e['id']):
                 can_get.setdefault(evid, set()).add(by_id[i]['dex'])
-                if target.get('cards') is not None:
-                    if i not in target['cards']:
-                        target['cards'].append(i)
-                elif by_id[i]['name'] not in target.setdefault('backgroundPokemon', []):
+                if target.get('cards') is not None and i not in target['cards']:
+                    target['cards'].append(i)
+                if by_id[i]['name'] not in target.setdefault('backgroundPokemon', []):   # by name too: a Pokémon's page finds its backgrounds that way (19 Nov review)
                     target['backgroundPokemon'].append(by_id[i]['name'])
     for ev in events + special:   # background Pokémon by name -> dex number (so the page can show their pictures)
         for p in ev.get('backgroundPokemon') or []:
@@ -80,7 +79,7 @@ def main():
                 problems.append(f'{ev["id"]}: no entry or costume {c}')
     pics = [k for e in dex['entries'] + costumes['costumes'] for k in (e['img'], e['img'] + '.s')]
     missing = sum(1 for k in pics if k not in have)
-    upcoming = load('go', 'upcoming.json', default={}) or {}   # tools/import_events.py: the Coming up page
+    upcoming = load('go', 'upcoming.json', default={}) or {}   # tools/import_events.py: the What's on page
     # an upcoming event asking for a box the Pokédex data hasn't got (18 Nov recheck: Dynamax Espurr's debut, which its
     # page said was unavailable) -> data/go/flag-fixes.json
     flag = {'dynamax': 'dynamax', 'shadow': 'shadow', 'gmax': 'gmax', 'mega': 'mega'}

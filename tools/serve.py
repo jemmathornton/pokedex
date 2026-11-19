@@ -108,7 +108,7 @@ def change(body):
     c = read()
     if lst == 'have':
         tick = body.get('tick')
-        if not KEY.match(key) or tick not in TICKS:
+        if not KEY.match(key) or not isinstance(tick, str) or tick not in TICKS:
             return {'ok': False, 'error': 'Not a box this page has.'}
         ticks = set(c['have'].get(key, []))
         (ticks.add if on else ticks.discard)(tick)

@@ -466,7 +466,7 @@ def not_ticked(numbers, tab):
     read, never changed). None where the app has no box for the tab."""
     if tab not in TICK:
         return None
-    col = json.load(open(os.path.join(ROOT, 'data', 'collection', 'go.json'), encoding='utf-8'))
+    col = json.load(open(os.path.join(ROOT, 'data', 'collection', 'go.json'), encoding='utf-8-sig'))
     have = set()
     for key, ticks in col.get('have', {}).items():
         if key.startswith('d:') and any(t in TICK[tab] for t in ticks):
