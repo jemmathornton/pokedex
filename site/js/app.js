@@ -775,89 +775,11 @@ function setPage(id){
 }
 
 
-// ---------- Quick add (TRIAL, 10 Nov overnight: one of the ways to put her collection in) ----------
-// She types lines like "25 shiny", "1-9 caught", "alolan vulpix lucky, female", sees what would be ticked, then ticks
-// it all at once. Nothing is saved until she presses the button.
-const QBOX = [["shiny shadow", "ss"], ["mega x", "mx"], ["mega y", "my"], ["g-max", "gx"], ["gmax", "gx"], ["gigantamax", "gx"],
-  ["dynamax", "dx"], ["dmax", "dx"], ["primal", "mg"], ["mega", "mega"], ["caught", "c"], ["female", "cf"], ["male", "cm"], ["♂", "cm"],
-  ["♀", "cf"], ["shiny", "s"], ["lucky", "l"], ["xxl", "xl"], ["xxs", "xs"], ["4★", "h"], ["4*", "h"], ["hundo", "h"], ["perfect", "h"], ["shadow", "sd"], ["purified", "pu"]];
-const QNAME = {c: "Caught", cm: "Male", cf: "Female", s: "Shiny", l: "Lucky", h: "4★", sd: "Shadow", pu: "Purified", dx: "Dynamax", gx: "Gigantamax", mg: "Mega", mx: "Mega X", my: "Mega Y", ss: "Shiny Shadow", xl: "XXL", xs: "XXS"};
-let quickText = "", quickTimer;
-const quickNames = (() => {   // "vulpix" -> plain Vulpix; "alolan vulpix" and "vulpix alolan" -> Alolan Vulpix
-  const m = new Map();
-  for (const e of ENTRIES) {
-    const n = e.name.toLowerCase();
-    if (!e.form) m.set(n, e); else if (!m.has(n)) m.set(n, baseOf[e.dex]);
-    if (e.form) { const f = e.form.toLowerCase(); m.set(`${f} ${n}`, e); m.set(`${n} ${f}`, e); m.set(`${n} (${f})`, e); }
-  }
-  return m;
-})();
+// which boxes a Pokémon can have ticked (Fast tick uses it; it came with the old Quick add page)
 function canTick(e, t){
   return {c: true, cm: !!maleTick(e), cf: !!femaleTick(e), s: !!e.shiny, l: canLucky(e), h: e.released, xl: canXXL(e), xs: canXXS(e), sd: !!e.shadow, pu: !!e.shadow,
     dx: !!e.dynamax, gx: !!e.gmax, ss: !!e.shadowShiny, mg: (e.mega || []).some(m => m.t === "mg"), mx: (e.mega || []).some(m => m.t === "mx"),
     my: (e.mega || []).some(m => m.t === "my")}[t];
-}
-function quickParse(text){
-  const rows = [], problems = [];
-  for (const raw of text.split("\n")) {
-    let line = raw.toLowerCase().replace(/[“”"]/g, "").replace(/[‘’]/g, "'").trim();   // “farfetch’d” typed curly finds Farfetch'd
-    if (!line) continue;
-    const boxes = [];
-    for (const [w, t] of QBOX) {
-      const re = new RegExp(`(^|[\\s,;])${w.replace(/[*.?+]/g, "\\$&")}(?=$|[\\s,;])`, "g");
-      if (re.test(line)) { boxes.push(t); line = line.replace(re, " "); }
-    }
-    if (!boxes.length) boxes.push("c");
-    const targets = [];
-    for (let part of line.split(/[,;]+/)) {
-      part = part.trim().replace(/^#/, "");
-      if (!part) continue;
-      const range = /^(\d+)\s*[-–]\s*(\d+)$/.exec(part);
-      if (range) { for (let n = +range[1]; n <= +range[2]; n++) if (baseOf[n]) targets.push(baseOf[n]); continue; }
-      if (/^\d+$/.test(part)) { if (baseOf[+part]) targets.push(baseOf[+part]); else problems.push(`No Pokémon #${part}`); continue; }
-      const e = quickNames.get(part.replace(/\s+/g, " "));
-      if (e) targets.push(e); else problems.push(`Don’t know “${raw.trim()}”: try its number`);
-    }
-    for (const e of targets) for (const b of boxes) {
-      const ts = b === "mega" ? (e.mega || []).map(m => m.t) : [b];
-      if (!ts.length) rows.push({e, t: "mg", cant: true});
-      for (const t of ts) rows.push({e, t, cant: !canTick(e, t), have: has(dk(e), t)});
-    }
-  }
-  return {rows, problems};
-}
-function quickPage(){
-  const {rows, problems} = quickParse(quickText);
-  const todo = rows.filter(r => !r.cant && !r.have);
-  setRegion(null);
-  view.innerHTML = `<header class="hero"><span class="label">Trial</span><h1>Quick <em>add</em></h1>
-    <p>Type what you have, one line at a time: numbers, ranges or names, then the boxes. Nothing is saved until you press the button.</p></header>${readOnlyNote()}
-    <div class="quick"><div><textarea id="quickText" rows="12" spellcheck="false" placeholder="25 shiny&#10;1-9 caught&#10;alolan vulpix lucky, female&#10;charizard mega x&#10;gengar shiny shadow">${esc(quickText)}</textarea>
-      <p class="muted" style="font-size:13px">Boxes: caught, male, female, shiny, lucky, 4★ (or hundo), xxl, xxs, shadow, purified, dynamax, gigantamax (or g-max), mega (or mega x / mega y), shiny shadow. No box means caught.</p></div>
-    <div><h3>${todo.length ? `${num(todo.length)} to tick` : "Nothing new to tick yet"}</h3>
-      ${todo.length ? `<button class="chip collect" type="button" data-quickgo>${ic("check")}Tick these ${num(todo.length)}</button>` : ""}
-      ${problems.map(p => `<p class="qprob">${esc(p)}</p>`).join("")}
-      <ul class="qlist">${rows.slice(0, 400).map(r => `<li class="${r.cant ? "cant" : r.have ? "have" : ""}"><a href="${pageOf(r.e)}">#${pad(r.e.dex)} ${esc(r.e.name)}${r.e.form ? ` <small>${esc(r.e.form)}</small>` : ""}</a><span>${esc(QNAME[r.t])}${r.cant ? " · can’t be" : r.have ? " · already ticked" : ""}</span></li>`).join("")}</ul>
-      ${rows.length > 400 ? `<p class="muted">…and ${num(rows.length - 400)} more</p>` : ""}</div></div>`;
-  const ta = document.getElementById("quickText");
-  ta.addEventListener("input", () => {
-    quickText = ta.value; clearTimeout(quickTimer);
-    quickTimer = setTimeout(() => { const pos = ta.selectionStart; quickPage(); const t2 = document.getElementById("quickText"); t2.focus(); t2.setSelectionRange(pos, pos); }, 300);
-  });
-}
-async function quickGo(){
-  const todo = quickParse(quickText).rows.filter(r => !r.cant && !has(dk(r.e), r.t));
-  let done = 0;
-  for (const r of todo) {
-    const key = dk(r.e);
-    for (const t of r.t === "c" ? ["c"] : [r.t, "c"]) {   // any box ticked means caught too
-      if (has(key, t)) continue;
-      setTick(key, t, true);
-      if (!await save({list: "have", key, tick: t, on: true})) { setTick(key, t, false); toast(`Stopped after ${done}: not saved.`); return quickPage(); }
-    }
-    done++;
-  }
-  toast(`Ticked ${done}.`); quickText = ""; rerender();   // the page she's on now, in case she moved on while it was saving
 }
 
 // ---------- Fast tick (TRIAL, 11 Nov overnight: her ask for a better way to put her whole collection in) ----------
@@ -1270,7 +1192,6 @@ function route(to){   // to: draw that page without changing the address (the te
   const pn = /^p-(\d+(?:-[a-z]+)?)$/.exec(r), lead = pn && groupByNumber(ENTRIES.filter(e => groupKey(e) === pn[1]))[0];
   navHtml(lead ? "gen-" + lead.lead.gen : /^set-/.test(r) ? "sets" : r);   // a Pokémon's page lights up its region in the sidebar
   if (r === "costumes" || r === "events") { location.replace("#sets"); return; }   // the old pages are now Event Pokémon
-  if (r === "quick") return quickPage();
   if (r === "fast") return fastPage();
   if (r === "want") return wantPage();
   if (r === "coming") return comingPage();
@@ -1363,7 +1284,6 @@ document.addEventListener("click", ev => {
   if (b.hasAttribute("data-clear")) { Object.assign(prefs, {work: "all", workShow: "all"}); keepPrefs(); return rerender(); }
   if (b.hasAttribute("data-showall")) { prefs.workShow = prefs.workShow === "all" ? "need" : "all"; keepPrefs(); return rerender(); }
   if (b.dataset.work) { prefs.work = prefs.work === b.dataset.work ? "all" : b.dataset.work; prefs.workShow = prefs.work === "all" ? "all" : "need"; keepPrefs(); return rerender(); }   // click again: back to all
-  if (b.hasAttribute("data-quickgo")) return quickGo();
   if (b.dataset.fast || b.dataset.fk) return fastClick(b);
   if (b.dataset.fastkind) { prefs.fastKind = b.dataset.fastkind; keepPrefs(); return rerender(); }
   if (b.hasAttribute("data-fastall")) return fastAll();

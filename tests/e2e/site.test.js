@@ -252,26 +252,6 @@
     for (const k of Object.keys(genById)) { await go("#gen-" + k); ok(view().querySelector(".hero").classList.contains("withshot"), `${k} has a picture`); }
   });
 
-  // ---------- Quick add (trial) ----------
-  test("Quick add reads numbers, ranges, names and forms, and knows what can't be", async () => {
-    const {rows, problems} = quickParse("25 shiny\n1-3\nalolan vulpix lucky, female\nmew lucky\ncharizard mega\nnotapokemon");
-    const got = rows.map(r => `${r.e.id}:${r.t}${r.cant ? "!" : ""}`);
-    for (const want of ["25:s", "1:c", "2:c", "3:c", "37-alolan:l", "37-alolan:cf", "151:l!", "6:mx", "6:my"]) ok(got.includes(want), `missing ${want} in ${got}`);
-    eq(problems.length, 1, "one line it doesn't know");
-  });
-
-  test("Quick add ticks them all (and caught with them)", async () => {
-    for (const k of ["d:132", "d:133"]) { for (const t of ["c", "s"]) await save({list: "have", key: k, tick: t, on: false}); delete COL.have[k]; }
-    await go("#quick");
-    quickText = "132, 133 shiny"; quickPage();
-    click(view().querySelector("[data-quickgo]"));
-    await until(() => quickText === "", 8000);   // emptied once every tick is saved
-    const s = await server();
-    ok(["d:132", "d:133"].every(k => s.have[k] && s.have[k].includes("s") && s.have[k].includes("c")), "saved shiny and caught");
-    for (const k of ["d:132", "d:133"]) { for (const t of ["c", "s"]) await save({list: "have", key: k, tick: t, on: false}); delete COL.have[k]; }
-  });
-
-  // ---------- the 15 Nov review's fixes ----------
   test("a collected costume whose event has no date yet doesn't break the pages", async () => {
     const id = DATA.costumes.find(c => c.code === "ANNIVERSARY_2026_THAILAND_01").id, before = [...COL.costumes];
     try {
@@ -523,7 +503,7 @@
     ok(POSSIBLE.sd([byId["491"]]), "Darkrai can be Shadow");
   });
 
-  test("XXL and XXS: boxes on cards and the page, a filter tab, Fast tick tabs and Quick add words", async () => {
+  test("XXL and XXS: boxes on cards and the page, a filter tab, and Fast tick tabs", async () => {
     await go("#p-25");
     ok(strip().includes("XXL") && strip().includes("XXS"), "on Pikachu's page");
     prefs.work = "all"; prefs.workShow = "all"; await go("#gen-1");
@@ -532,8 +512,6 @@
     prefs.fastGen = "1"; prefs.fastBox = "xl"; await go("#fast");
     eq(view().querySelectorAll(".fastgrid button.fc").length, 151, "Fast tick XXL: all 151");
     prefs.fastBox = "c";
-    const got = quickParse("25 xxl\n26 xxs").rows.map(r => `${r.e.id}:${r.t}`);
-    ok(got.includes("25:xl") && got.includes("26:xs"), "Quick add");
   });
 
   test("Fast tick: a Caught ticked only because of Shiny comes off again with it; one she ticked herself stays", async () => {
@@ -589,16 +567,7 @@
     } finally { await clear(); }
   });
 
-  test("Quick add: ranges, en dashes, #, curly apostrophes, forms, symbols and what can't be", async () => {
-    const {rows, problems} = quickParse("4–6, 8\n#25 4*\n\n“farfetch’d” shiny\nvulpix alolan\nvulpix (alolan) lucky\nmr. mime\nnidoran♀ shiny\ngengar shiny shadow\nkyogre primal\nbulbasaur mega\ntauros female\n9999");
-    const got = rows.map(r => `${r.e.id}:${r.t}${r.cant ? "!" : ""}`);
-    for (const w of ["4:c", "5:c", "6:c", "8:c", "25:h", "83:s", "37-alolan:c", "37-alolan:l", "122:c", "29:s", "94:ss", "382:mg", "1:mg!", "128:cf!"]) ok(got.includes(w), `missing ${w} in ${got}`);
-    ok(!got.includes("7:c"), "8 is on its own, not a range");
-    ok(!got.includes("94:s") && !got.includes("94:sd"), "Shiny Shadow is one box, not Shiny and Shadow");
-    ok(!got.some(g => g.startsWith("29:cf")), "Nidoran♀'s ♀ is its name, not a box");
-    eq(problems, ["No Pokémon #9999"]);
-    eq(quickParse("").rows.length + quickParse("  \n ").problems.length, 0, "blank lines do nothing");
-  });
+
 
   test("What's on: a month at a time, You need for the month shown, kinds hidden, ended events gone, a bar clicked twice closes", async () => {
     const up0 = DATA.upcoming, hide0 = prefs.comingHide, now = new Date();

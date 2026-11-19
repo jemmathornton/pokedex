@@ -27,7 +27,7 @@ Everything waiting on you. **Do** = just do it; **Decide** = your call. Tell Cla
 - Sidebar regions without numbers, as in GO (13 Nov).
 - Pictures show the normal colours; the shiny only on the Shiny tab, in its own box, or with the ✨ button. Costume years’ tiles show four of their costumes (13 Nov).
 - Box colours checked; XXS deep sea blue (13 Nov).
-- Fast tick kept; Quick add off the sidebar (13 Nov).
+- Fast tick kept; Quick add removed (19 Nov, your word).
 - Region banners: the official painted maps, all ten picked (13 Nov).
 - XXL and XXS boxes; everything in the game’s Pokédex order; totals count only what’s possible (12–13 Nov).
 - Fast tick page and a Pokédex-recording reader (both trials, 12 Nov).

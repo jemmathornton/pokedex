@@ -29,7 +29,7 @@ e2e/site.test.js     in Chrome: every page (all ~1,000 Pokémon pages too) opens
                      link goes to a page, pictures load, the box strip (Charizard's Mega X/Y, Mew's missing Lucky,
                      Kyogre's Primal), ticking saves, Shiny Shadow and costume cards tick, ← →, card clicks, the filter
                      line on one line, the Mega tab, search, Costumes/Events only hers, the region picture switch; (19 Nov) totals for gender
-                     forms, regional forms and forms one by one, ticking any box ticks Caught, Quick add's inputs, What's on
+                     forms, regional forms and forms one by one, ticking any box ticks Caught, What's on
                      month by month, Event Pokémon and Home counts, unknown addresses, Looking for's tabs and copied list.
                      knownBug(...) marks a test for a known app bug: reported (not failed) until it passes.
 support.py           Sandbox (a full copy, ~8 s) and LightSandbox (data and code only, under a second: use it when no
