@@ -1311,13 +1311,16 @@ function comingPage(){
   }
   if (lay === "hunt" || lay === "cal") {   // B (and under the Calendar, her ask 19 Nov: "a you need section"): what to hunt first, by box, each with the event and when; backgrounds as cards; the rest folded away
     const items = [];
-    for (const x of evs) for (const m of x.mons) for (const n of upNeeds(m)) items.push({x, m, n});
+    // under the Calendar: only what's on in the month shown (her point, 19 Nov)
+    const mS = new Date(today.getFullYear(), today.getMonth() + comingMonth, 1), mE = new Date(mS.getFullYear(), mS.getMonth() + 1, 1);
+    const inMonth = x => lay !== "cal" || x.i.a < mE && x.i.b >= mS;
+    for (const x of evs.filter(inMonth)) for (const m of x.mons) for (const n of upNeeds(m)) items.push({x, m, n});
     const whenShort = x => x.i.on ? (x.i.month || x.i.season ? `until ${shortDay(x.i.b)}` : x.i.status.replace("On now · ", "")) : x.i.len.includes("hour") || x.i.len === "All day" ? `${shortDay(x.i.a)} ${hm(x.i.a)}` : `from ${shortDay(x.i.a)}`;
     const groups = ["c", "s", "sd", "dx", "gx", "mega"].map(n => [n, items.filter(it => it.n === n)]).filter(([, its]) => its.length);
     const huntCell = it => `<a class="hunt" href="${pageOf(byId[it.m.id])}"><img src="${sprite(byId[it.m.id].img) || ""}" alt="" loading="lazy"><span class="hn">${esc(gName(byId[it.m.id]))}</span>
       <span class="hev">${esc(it.x.ev.name)}</span><span class="hw${it.x.i.on ? " on" : ""}">${esc(whenShort(it.x))}</span></a>`;
     let h = groups.map(([n, its]) => `<section class="huntset"><h3 style="--c:var(${NEED_LOOK[n][2]})"><i>${ic(NEED_LOOK[n][1])}</i>${esc(n === "c" ? "New to you" : NEED_LOOK[n][0])}<small>${num(its.length)}</small></h3><div class="huntgrid">${its.map(huntCell).join("")}</div></section>`).join("");
-    const bgEvs = evs.filter(x => x.st && x.bgs.length);
+    const bgEvs = evs.filter(x => inMonth(x) && x.st && x.bgs.length);
     if (bgEvs.length) h += `<section class="huntset"><h3 style="--c:var(--deep)"><i>${ic("ticket")}</i>Backgrounds coming back<small>${num(bgEvs.length)}</small></h3>${bgEvs.map(x => {
       const open = comingOpen.has(x.ev.id), got = x.bgAll.length - x.bgs.length;
       return `<div class="huntbg"><span class="hbart" style="background-image:url('${x.st.art}')"></span><div><b>${esc(x.st.title)}</b><span class="muted"> · ${esc(x.ev.name)}, ${esc(whenShort(x))}</span>
@@ -1327,7 +1330,7 @@ function comingPage(){
     const rest = evs.filter(x => !x.full);
     const listed = rest.filter(x => x.mons.length || x.st), unlisted = rest.filter(x => !x.mons.length && !x.st);
     const mini = x => `<a href="${attr(x.ev.link)}" target="_blank" rel="noopener"><b>${esc(x.ev.name)}</b> <span class="muted">${esc(x.i.on && (x.i.month || x.i.season) ? "until " + shortDay(x.i.b) : x.i.on ? "on now" : shortDay(x.i.a))}</span></a>`;
-    if (lay === "cal") { html += `<section class="calneed"><h2>You <em>need</em></h2>${h ? `<div class="calneedgrid">${h}</div>` : `<p class="muted">Nothing new for you in what’s listed.</p>`}</section>`; h = ""; }
+    if (lay === "cal") { html += `<section class="calneed"><h2>You <em>need</em> in ${MONTHS[mS.getMonth()]}</h2>${h ? `<div class="calneedgrid">${h}</div>` : `<p class="muted">Nothing new for you in what’s listed for ${MONTHS[mS.getMonth()]}.</p>`}</section>`; h = ""; }
     else h += `<section class="huntset huntrest"><h3>Nothing new for you<small>${num(listed.length)}</small></h3><p>${listed.map(mini).join("")}</p></section>`;
     if (lay === "hunt" && unlisted.length) h += `<section class="huntset huntrest"><h3>Pokémon not listed yet<small>${num(unlisted.length)}</small></h3><p>${unlisted.map(mini).join("")}</p></section>`;
     if (lay === "hunt") html = h;
