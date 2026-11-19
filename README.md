@@ -8,7 +8,7 @@ My Pokémon GO collection: every Pokémon and form, with boxes for caught, shiny
 
 **Pages:** Every Pokémon and each region; Event Pokémon (your events’ backgrounds and the costumes you collect); Looking for (what you still need, to trade or hunt); What’s on (a calendar of GO events and what you need from them); Fast tick (a whole region at once, like the game’s Pokédex).
 
-**What happens by itself:** every Sunday at 9:40 (or when the PC is next on) the events are refreshed and everything is saved to a backup zip in Documents\PokedexBackups.
+**What happens by itself:** every Sunday at 9:40 (or when the PC is next on) the events are refreshed and everything, your ticks included, is saved and copied up to GitHub.
 
 **To change anything:** open Claude Code in this folder and ask. New Pokémon or shinies in GO: say “update the Pokédex”.
 

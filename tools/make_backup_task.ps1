@@ -8,5 +8,5 @@ $action  = New-ScheduledTaskAction -Execute $pythonw -Argument "`"$(Join-Path $r
 $trigger = New-ScheduledTaskTrigger -Weekly -DaysOfWeek Sunday -At 9:40am
 $settings = New-ScheduledTaskSettingsSet -StartWhenAvailable -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries -ExecutionTimeLimit (New-TimeSpan -Minutes 30)
 Register-ScheduledTask -TaskName "Jemma's Pokedex - weekly backup" -Action $action -Trigger $trigger -Settings $settings `
-    -Description "Saves Jemma's Pokedex to git and zips it to Documents\PokedexBackups (keeps 8)." -Force | Out-Null
+    -Description "Refreshes What's on, saves Jemma's Pokedex to git and pushes it to GitHub." -Force | Out-Null
 "Made the task: every Sunday 09:40"
