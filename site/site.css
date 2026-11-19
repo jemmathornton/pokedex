@@ -754,18 +754,10 @@ a.formsbtn{text-decoration:none}
 .evrow.on .evwhen .label{color:var(--deep-2)}
 /* Coming up by week (18 Nov, her point: a months-long event isn't a Community Day): each event's kind and length as chips;
    events running for weeks, and ones with nothing for her, one line each */
-.evweek h2{font-size:26px;margin:26px 0 2px}
 .evchips{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 6px}
 .evkind,.evlen{font-size:11.5px;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap}
 .evkind{background:var(--deep-2);color:#fff}
 .evlen{border:1px solid var(--line);opacity:.8}
-.evlines{border-top:1px solid var(--line);padding:6px 0}
-.evline{display:grid;grid-template-columns:minmax(0,1fr) 290px 200px auto;gap:6px 16px;align-items:center;padding:7px 0;font-size:13.5px}
-.evline + .evline{border-top:1px dashed var(--line)}
-.evlname{display:flex;gap:8px;align-items:center;flex-wrap:wrap;min-width:0}
-.evlname b{font-weight:700}
-.evlmons{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:6px}
-.evlmons .fc{width:76px}
 /* a background Pokémon she has: faded like the rest of the page, not picked out */
 .fc.want.done.withbg[aria-pressed="true"]{background:linear-gradient(rgba(255,255,255,.62),rgba(255,255,255,.62)),var(--card) center/cover;color:inherit;text-shadow:none;border-width:1px}
 .evwhen h3{font-size:22px;margin:2px 0 4px;line-height:1.15}
@@ -805,7 +797,6 @@ a.formsbtn{text-decoration:none}
 .calkey.off i{background:transparent;box-shadow:inset 0 0 0 2px var(--k)}
 .calkey.off i .i{display:none}
 .calkey:hover{border-color:var(--muted)}
-.calseason{font-size:13.5px;margin:0 0 10px}
 .cal{border:1px solid var(--line);border-radius:14px;background:var(--surface);padding:6px 8px 4px}
 .calweek{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));column-gap:4px;row-gap:3px;padding:2px 0 10px;border-top:1px solid var(--line)}
 .calweek.calhead{border-top:0;padding:4px 0 2px;font:700 11px/1 var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
@@ -827,43 +818,9 @@ a.formsbtn{text-decoration:none}
 .nb i{width:15px;height:15px;padding:2.5px;border-radius:4px;background:var(--c);color:#fff;box-sizing:border-box;display:block}
 .nb i .i{width:10px;height:10px;display:block}
 .nb b{font-size:11px;margin-left:2px}
-/* What's on, Calendar: the long ones (trial, 19 Nov) */
-.calsub{margin-top:-4px}
 .calbar.mini{gap:5px}
 .calbar.mini .mp{display:inline-flex;flex:none}
 .calbar.mini .mp img{width:24px;height:24px;margin:-2px -3px;object-fit:contain}
-.rboard{margin:4px 0 14px}
-.rbh{font:700 11px/1 var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:6px 0 8px}
-.rtier{display:grid;grid-template-columns:150px minmax(0,1fr);align-items:center;gap:10px;margin-bottom:8px}
-.rtier .label{margin:0}
-.rrow{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.rarrow{color:var(--muted);display:inline-flex}
-.rarrow .i{width:16px;height:16px}
-.rcard{all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;gap:8px;padding:5px 10px 5px 6px;border-radius:12px;background:var(--surface);border:1px solid var(--line);min-width:0}
-.rcard.on{border-color:color-mix(in srgb,var(--mega) 55%,var(--line))}
-.rcard.need{background:color-mix(in srgb,var(--mega) 9%,var(--surface))}
-.rcard.sel{box-shadow:inset 0 0 0 2px var(--ink)}
-.rcard:not(.need){opacity:.7}
-.rpics{display:inline-flex}
-.rpics img{width:40px;height:40px;object-fit:contain;margin-right:-8px}
-.rpics img:last-child{margin-right:0}
-.rtxt{display:flex;flex-direction:column;line-height:1.25;font-size:13.5px;min-width:0}
-.rtxt .muted{font-size:12.5px}
-.rcard .nb{margin-left:6px}
-.rruns{display:flex;flex-wrap:wrap;gap:8px}
-.rrun{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:2px;padding:8px 12px;border-radius:12px;background:var(--surface);border:1px solid var(--line);font-size:13.5px;min-width:230px}
-.rrun .muted{font-size:12.5px}
-.rrun.sel{box-shadow:inset 0 0 0 2px var(--ink)}
-.rprog{display:block;height:5px;border-radius:3px;background:color-mix(in srgb,var(--k) 18%,transparent);margin-top:5px;overflow:hidden}
-.rprog i{display:block;height:100%;background:var(--k)}
-.calside{display:grid;grid-template-columns:minmax(0,1fr) 290px;gap:16px;align-items:start}
-.calside .rboard{margin:0}
-.calside .rtier{grid-template-columns:1fr;gap:5px;margin-bottom:12px}
-.calside .rrow{flex-direction:column;align-items:stretch;gap:4px}
-.calside .rarrow{transform:rotate(90deg);align-self:center}
-.calside .rrun{min-width:0;width:100%}
-.calside .rpics img{width:30px;height:30px;margin-right:-6px}
-.calside .rruns{flex-direction:column}
 .calnav{display:flex;align-items:center;gap:10px;margin:6px 0 10px}
 .calnav h2{font-size:30px;min-width:220px;text-align:center}
 .calnav h2 em{color:var(--deep-2)}
@@ -878,7 +835,6 @@ a.formsbtn{text-decoration:none}
 .calneedgrid .huntset:has(.huntbg){grid-column:1/-1}
 .caldetail{margin-top:18px}
 .cal .caldetail{margin:2px 0 12px;padding:10px 14px 4px;border-radius:12px;background:var(--paper);border:1px solid var(--line)}
-.rboard .caldetail{margin:8px 0 4px;padding:10px 14px 4px;border-radius:12px;background:var(--surface);border:1px solid var(--line)}
 .caldetail{position:relative}
 .cdclose{position:absolute;top:10px;right:14px;z-index:1}
 .caldetail .evrow{border-top:0;padding-top:6px}
@@ -901,19 +857,3 @@ a.formsbtn{text-decoration:none}
 .hbbar i{display:block;height:100%;background:var(--deep-2)}
 .huntbg .fastgrid{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
 .huntbg .fc{width:76px}
-.huntrest h3{font-size:20px}
-.huntrest p{display:flex;flex-wrap:wrap;gap:6px 22px;margin:0;font-size:13.5px}
-.huntrest a{text-decoration:none}
-.huntrest a:hover b{text-decoration:underline}
-.split{display:grid;grid-template-columns:400px minmax(0,1fr);gap:24px;align-items:start;margin-top:10px}
-.splitlist{display:flex;flex-direction:column;gap:4px;max-height:calc(100vh - 120px);overflow:auto;position:sticky;top:12px;padding-right:6px}
-.splith{font-size:20px;margin:14px 0 4px}
-.splith:first-child{margin-top:0}
-.splititem{all:unset;box-sizing:border-box;cursor:pointer;display:block;padding:8px 10px;border-radius:9px;border-left:5px solid var(--k);background:var(--surface);box-shadow:inset 0 0 0 1px var(--line)}
-.splititem:hover{box-shadow:inset 0 0 0 1px var(--muted)}
-.splititem.sel{box-shadow:inset 0 0 0 2px var(--ink)}
-.splititem.none{opacity:.6}
-.si1{display:flex;gap:8px;align-items:center;font-size:13.5px}
-.si1 b{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
-.si2{display:block;font-size:12px;color:var(--muted)}
-.splitdetail .evrow{grid-template-columns:1fr;border-top:0;padding-top:0}

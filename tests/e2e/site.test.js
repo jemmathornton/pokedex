@@ -382,47 +382,32 @@
       const iso = d => { const t = new Date(Date.now() + d * 864e5); return new Date(t - t.getTimezoneOffset() * 6e4).toISOString().slice(0, 23); };   // dates around today, so the test never goes stale
       DATA.upcoming = {fetched: "2026-11-16", backgrounds: {"t-ev": {background: "sb-gofest2025-eternatus"}}, events: [
         {id: "t-ev", name: "Test event", type: "Event", start: iso(-2), end: iso(5), link: "https://leekduck.com/events/", mons: [{name: "Pawniard", id: "624", shiny: true, as: []}]}]};
-      await go("#coming");
-      ok(/Test event/.test(view().textContent), "the event");
-      ok(view().querySelector('.fc.want.done[href="#p-624"]'), "Pawniard faded: nothing left to get");
+      comingSel = comingWeek = null; comingMonth = 0; await go("#coming");
+      ok(view().querySelector(".calbar") && /\d{4}/.test(view().querySelector(".calnav h2").textContent), "a month of the calendar, named");
+      ok(!view().querySelector(".caldetail"), "nothing open until clicked");
+      click(view().querySelector('.calbar[data-comesel="t-ev"]')); await wait(50);
+      ok(view().querySelector(".calweek + .caldetail") && /Test event/.test(view().querySelector(".caldetail").textContent), "the details open under the week clicked");
+      ok(view().querySelector('.caldetail .fc.want.done[href="#p-624"]'), "Pawniard faded: nothing left to get");
       // the background's Pokémon still to get; the ones she has, faded, behind a button (18 Nov)
       const st = allSets().find(s => s.id === "sb-gofest2025-eternatus"), keys = st ? [...new Set(st.items.filter(i => i.bg).map(i => i.key))] : [];
       k0 = keys.find(k => !has(k, "c")); if (k0) COL.have[k0] = ["c"];   // in memory only
       await go("#coming");
       eq(view().querySelectorAll('.evmons .fc.withbg').length, keys.filter(k => !has(k, "c")).length, "the ones still to get");
-      click(view().querySelector("[data-comegot]")); await wait(50);
+      click(view().querySelector(".caldetail [data-comegot]")); await wait(50);
       eq(view().querySelectorAll('.evmons .fc.withbg').length, keys.length, "all of them once shown");
       eq(view().querySelectorAll('.evmons .fc.withbg.done').length, keys.filter(k => has(k, "c")).length, "the ones she has, faded");
       const nums = [...view().querySelectorAll('.evmons .fc.withbg')].map(a => +a.querySelector("span:not(.wb):not(.fcn)").textContent);
       ok(nums.every((n, i) => !i || n >= nums[i - 1]), "in Pokédex number order (her ask, 16 Nov)");
-      // by week, each with its kind and length; one running for weeks at the bottom, one line (her point, 18 Nov)
-      DATA.upcoming.events.push({id: "t-pass", name: "Test pass", type: "GO Pass", start: "2026-11-03T10:00:00.000", end: "2099-12-01T10:00:00.000", link: "https://leekduck.com/events/", mons: []});
-      await go("#coming");
-      const hs = [...view().querySelectorAll(".evweek h2")].map(h => h.textContent);
-      eq(hs[hs.length - 1], "This season");
-      ok(/Test pass/.test(view().querySelector(".evweek:last-child .evline").textContent), "the pass on one line at the bottom");
-      ok(view().querySelector(".evrow .evkind") && view().querySelector(".evrow .evlen"), "kind and length on each event");
-      // the layout trial (18 Nov): Calendar, Hunt list and Two panes show the same events; picking one shows it in full
-      const lay0 = prefs.comingLayout;
+      click(view().querySelector("[data-comeclose]")); await wait(50);
+      ok(!view().querySelector(".caldetail"), "Close shuts it");
+      ok(view().querySelector(".calneed .huntbg"), "You need: the background coming back");
+      // a kind for each toggle; one switched off leaves the calendar (her ask, 19 Nov)
+      eq(view().querySelectorAll(".calkey").length, 7);
+      const hide0 = prefs.comingHide;
       try {
-        prefs.comingLayout = "cal"; await go("#coming");
-        ok(view().querySelector(".calbar"), "calendar bars");
-        click(view().querySelector('.calbar[data-comesel="t-ev"]')); await wait(50);
-        ok(/Test event/.test(view().querySelector(".caldetail").textContent), "the picked event underneath");
-        ok(view().querySelector(".calweek + .caldetail"), "the details open under the week clicked");
-        ok(/\d{4}/.test(view().querySelector(".calnav h2").textContent) && view().querySelector(".calneed"), "a month with its name, and You need under it");
-        ok(view().querySelectorAll("[data-comelong]").length === 3 && view().querySelectorAll(".calkey").length === 7, "long events row and a toggle for each kind");
-        const hide0 = prefs.comingHide; prefs.comingHide = ["ev"]; comingSel = null; await go("#coming");
+        prefs.comingHide = ["ev"]; await go("#coming");
         ok(!view().querySelector('.calbar[data-comesel="t-ev"]') && view().querySelector('.calkey.off[data-comekind="ev"]'), "a kind switched off leaves the calendar");
-        prefs.comingHide = hide0;
-        const long0 = prefs.comingLong; prefs.comingLong = "beside"; await go("#coming");
-        ok(view().querySelector(".calside .rboard"), "long events beside the calendar");
-        prefs.comingLong = long0;
-        prefs.comingLayout = "split"; await go("#coming");
-        ok(view().querySelector('.splititem.sel[data-comesel="t-ev"]') && /Test event/.test(view().querySelector(".splitdetail").textContent), "two panes: the picked one in full");
-        prefs.comingLayout = "hunt"; await go("#coming");
-        ok(view().querySelector(".huntset"), "hunt list");
-      } finally { prefs.comingLayout = lay0; comingSel = null; }
+      } finally { prefs.comingHide = hide0; comingSel = comingWeek = null; }
     } finally { if (before) COL.have[key] = before; else delete COL.have[key]; DATA.upcoming = up0; comingOpen.clear(); if (k0) delete COL.have[k0]; }
   });
 

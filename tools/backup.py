@@ -2,6 +2,8 @@
 
     pythonw tools/backup.py
 
+0. Refreshes What's on (her ask, 19 Nov: a check every Sunday for new events): tools/import_events.py, then tools/build.py;
+   the new events are listed in the log. Which background an event brings back is still added by hand (upcoming-backgrounds.json).
 1. Saves any changes in the project to git (her ticks since the last save, new data).
 2. Zips the whole Pokédex (everything but git's own folder; the pictures included) to Documents\\PokedexBackups\\Pokedex backup <date>.zip,
    like the Sims site's backups, and keeps the newest 8.
@@ -27,7 +29,34 @@ def git(*args):
     return subprocess.run(['git', *args], cwd=ROOT, capture_output=True, text=True, creationflags=NO_WINDOW)
 
 
+def refresh_events():
+    """What's on: fetch the next six weeks of events again and rebuild the app. On its own: if it fails, the backup still happens."""
+    env = dict(os.environ, PYTHONUTF8='1')
+    up = os.path.join(ROOT, 'data', 'go', 'upcoming.json')
+
+    def names():
+        try:
+            import json
+            with open(up, encoding='utf-8') as fh:
+                return {e['id']: e['name'] for e in json.load(fh)['events']}
+        except Exception:
+            return {}
+    try:
+        before = names()
+        for script in ('import_events.py', 'build.py'):
+            r = subprocess.run([sys.executable, os.path.join(ROOT, 'tools', script)], cwd=ROOT, capture_output=True, text=True,
+                               encoding='utf-8', errors='replace', env=env, creationflags=NO_WINDOW, timeout=600)
+            if r.returncode:
+                log(f'events: {script} failed: ' + (r.stderr or r.stdout).strip()[-600:])
+                return
+        new = [n for i, n in names().items() if i not in before]
+        log('events: refreshed' + (f'; new: {"; ".join(new)}' if new else '; nothing new'))
+    except Exception as e:
+        log(f'events: refresh failed: {e}')
+
+
 def main():
+    refresh_events()
     try:   # on its own: if git can't run (not found, the repo busy), the zip still happens
         if git('status', '--porcelain').stdout.strip():
             git('add', '-A')
