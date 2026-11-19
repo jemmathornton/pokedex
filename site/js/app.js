@@ -422,29 +422,17 @@ function statsHtml(c){
 }
 const readOnlyNote = () => readOnly ? `<div class="notice">${ic("info")} Opened from the folder, so ticks can’t be saved here. Open it with the Jemma’s Pokédex shortcut.</div>` : "";
 
-// Home's costume and background tiles, laid out like the region tiles above them (her note, 15 Nov: they looked odd):
-// three she has, and Caught and Shiny counted as Fast tick counts them (each costume or background Pokémon once)
+// Home's Event Pokémon card (her point, 19 Nov: the two cards both opened the same page, so one card named like it):
+// three she has, and Backgrounds, Costumes and Complete events counted as the page counts them (each Pokémon once)
 function setTiles(){
   const seen = new Set(), items = [];
   for (const st of allSets()) for (const it of st.items) if (!seen.has(it.key)) { seen.add(it.key); items.push(it); }
   const row = (name, icon, have, of, col) => `<span class="rl" style="--c:${col}">${ic(icon)}${name}</span><span class="bar" style="--c:${col}"><i style="width:${of ? have / of * 100 : 0}%"></i></span><span class="v">${num(have)} / ${num(of)}</span>`;
-  const tile = (bg, label, title) => {
-    const its = items.filter(it => it.bg === bg), shinyOut = its.filter(it => it.e.shiny);
-    const got = its.filter(it => has(it.key, "c")), pics = [], dexes = new Set();
-    for (const it of got.length ? got : its) { if (pics.length < 3 && !dexes.has(it.e.dex) && sprite(it.img)) { dexes.add(it.e.dex); pics.push(sprite(it.img)); } }
-    return `<a class="gen" href="#sets"><span class="genart" aria-hidden="true">${pics.map(p => `<img src="${p}" alt="" loading="lazy">`).join("")}</span>` +
-      `<span class="label">${label}</span><h3>${title}</h3><div class="rows">` +
-      row("Caught", "poke-ball", got.length, its.length, "var(--caught)") + row("Shiny", "sparkles", shinyOut.filter(it => has(it.key, "s")).length, shinyOut.length, "var(--shiny)") +
-      (bg ? `<span class="rl" style="--c:var(--deep-2)">${ic("ticket")}Events</span><span></span><span class="v">${num(myEvents().length)}</span>` : "") + `</div></a>`;
-  };
-  if (TRY.get("home") === "one") {   // suggestion (19 Nov, her point that both cards open the same page): one card, as the page is
-    const sets = allSets(), bgI = items.filter(it => it.bg), csI = items.filter(it => !it.bg), pics = [], dexes = new Set();
-    for (const it of items.filter(it => has(it.key, "c"))) { if (pics.length < 3 && !dexes.has(it.e.dex) && sprite(it.img)) { dexes.add(it.e.dex); pics.push(sprite(it.img)); } }
-    return `<a class="gen" href="#sets" style="grid-column:span 2"><span class="genart" aria-hidden="true">${pics.map(p => `<img src="${p}" alt="" loading="lazy">`).join("")}</span><span class="label">Your events</span><h3>Events and costumes</h3><div class="rows">` +
-      row("Backgrounds", "image", bgI.filter(it => has(it.key, "c")).length, bgI.length, "var(--caught)") + row("Costumes", "shirt", csI.filter(it => has(it.key, "c")).length, csI.length, "var(--mega)") +
-      row("Complete", "ticket", sets.filter(st => st.items.every(setGot)).length, sets.length, "var(--deep-2)") + `</div></a>`;
-  }
-  return tile(false, "Collecting", "Costumes") + tile(true, "Your events", "Backgrounds");
+  const sets = allSets(), bgI = items.filter(it => it.bg), csI = items.filter(it => !it.bg), pics = [], dexes = new Set();
+  for (const it of items.filter(it => has(it.key, "c"))) { if (pics.length < 3 && !dexes.has(it.e.dex) && sprite(it.img)) { dexes.add(it.e.dex); pics.push(sprite(it.img)); } }
+  return `<a class="gen" href="#sets" style="grid-column:span 2"><span class="genart" aria-hidden="true">${pics.map(p => `<img src="${p}" alt="" loading="lazy">`).join("")}</span><span class="label">Your events</span><h3>Costumes and backgrounds</h3><div class="rows">` +
+    row("Backgrounds", "image", bgI.filter(it => has(it.key, "c")).length, bgI.length, "var(--caught)") + row("Costumes", "shirt", csI.filter(it => has(it.key, "c")).length, csI.length, "var(--mega)") +
+    row("Complete", "ticket", sets.filter(st => st.items.every(setGot)).length, sets.length, "var(--deep-2)") + `</div></a>`;
 }
 function home(){
   const c = counts(ENTRIES);
@@ -463,7 +451,7 @@ function home(){
   view.innerHTML = `<header class="hero withshot">${heroPics(ALL_MAPS())}<span class="label">Pokémon GO · ${num(c.speciesOut)} Pokémon out, plus their forms</span>
     <h1>Jemma’s <em>Pokédex</em></h1>${statsHtml(c)}</header>${readOnlyNote()}
     <section class="section"><h2>By generation</h2><div class="gens">${gens}</div></section>
-    <section class="section"><h2>Costumes and backgrounds</h2><div class="gens">${setTiles()}</div></section>
+    <section class="section"><h2>Event Pokémon</h2><div class="gens">${setTiles()}</div></section>
     <p class="muted" style="margin-top:40px;font-size:12.5px">Pokémon data from the game, checked ${dates(DATA.updated)}.</p>`;
 }
 
@@ -717,7 +705,7 @@ function eventsPage(){
 }
 
 
-// ---------- Events and costumes, one page (13 Nov, her ask: the two pages felt half done and mixed, as costumes and
+// ---------- Event Pokémon (was Events and costumes; renamed 19 Nov, her idea: all-inclusive for one page), one page (13 Nov, her ask: the two pages felt half done and mixed, as costumes and
 // backgrounds often come from the same event) ----------
 // A timeline of sets, newest first: each event she went to or took part in (its background Pokémon, plus the costumes
 // she collects that came from it) and each group of her other costumes (by the game's costume code, named with Leek
@@ -795,7 +783,7 @@ function setsPage(){
     html += setTile(st);
   }
   setRegion(null);
-  view.innerHTML = `<header class="hero withshot">${heroPics(sets.filter(st => st.art).slice(0, 6).map(st => st.art))}<span class="label">Pokémon GO</span><h1>Events and <em>costumes</em></h1>
+  view.innerHTML = `<header class="hero withshot">${heroPics(sets.filter(st => st.art).slice(0, 6).map(st => st.art))}<span class="label">Pokémon GO</span><h1>Event <em>Pokémon</em></h1>
     <div class="stats">${statTile("--deep-2", "ticket", "Complete", sets.filter(s => s.items.every(setGot)).length, sets.length)}
     ${statTile("--caught", "image", "Backgrounds", bg.filter(setGot).length, bg.length)}${statTile("--mega", "shirt", "Costumes", cs.filter(setGot).length, cs.length)}</div></header>${readOnlyNote()}
     <div class="settiles">${html || `<p class="empty">Nothing yet.</p>`}</div>`;
@@ -808,7 +796,7 @@ function setPage(id){
   setRegion(null);
   // a costume year's banner: some of its own costumes, as on its tile (13 Nov: other events' backgrounds there confused her)
   const yearMons = st.ev ? [] : [...new Map(st.items.map(i => [i.e.dex, i])).values()].slice(0, 4).map(i => bigSprite(i.img)).filter(Boolean);   // one per Pokémon
-  view.innerHTML = `<header class="hero${st.art ? " setheroart" : yearMons.length ? " withshot" : ""}"${st.art ? ` style="--shot:url('${st.art}')"` : ""}>${yearMons.length ? heroPics(yearMons, "mons") : ""}<div class="crumbs"><a href="#sets">${ic("arrow-left")}Events and costumes</a></div>
+  view.innerHTML = `<header class="hero${st.art ? " setheroart" : yearMons.length ? " withshot" : ""}"${st.art ? ` style="--shot:url('${st.art}')"` : ""}>${yearMons.length ? heroPics(yearMons, "mons") : ""}<div class="crumbs"><a href="#sets">${ic("arrow-left")}Event Pokémon</a></div>
     <span class="label">${esc(st.meta)}</span><h1>${esc(st.title)}</h1>
     <div class="stats one">${statTile("--caught", "poke-ball", "Got", got, st.items.length)}</div></header>${readOnlyNote()}
     ${st.ev && st.ev.note ? `<p class="muted setnote">${esc(st.ev.note)}</p>` : ""}
@@ -1298,7 +1286,7 @@ function navHtml(route){
   const out = ENTRIES.filter(e => e.released);
   nav.innerHTML = `<div class="nav-group">${link("#home", "house", "Home")}${link("#dex", "layout-grid", "Every Pokémon", groupByNumber(ENTRIES).length)}</div>
     <div class="nav-group"><span class="label">Regions</span>${GENS.map(([g, n]) => link("#gen-" + g, "layers", n, groupByNumber(ENTRIES.filter(e => e.gen === g)).length)).join("")}</div>
-    <div class="nav-group"><span class="label">More</span>${link("#sets", "ticket", "Events and costumes", allSets().length)}${link("#want", "search", "Looking for")}${link("#coming", "calendar", "What’s on")}${link("#fast", "layout-grid", "Fast tick")}</div>`;
+    <div class="nav-group"><span class="label">More</span>${link("#sets", "ticket", "Event Pokémon", allSets().length)}${link("#want", "search", "Looking for")}${link("#coming", "calendar", "What’s on")}${link("#fast", "layout-grid", "Fast tick")}</div>`;
 }
 
 function route(to){   // to: draw that page without changing the address (the tests' sweep over every page)
