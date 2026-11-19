@@ -401,6 +401,16 @@
       ok(view().querySelector(".calneed .huntbg"), "You need: the background coming back");
       // a kind for each toggle; one switched off leaves the calendar (her ask, 19 Nov)
       eq(view().querySelectorAll(".calkey").length, 7);
+      // just past midnight ends on the day before (her rule, 19 Nov): 20:00 to 02:00 is one day on the calendar
+      { const d = new Date(); d.setDate(d.getDate() + 1); d.setHours(20, 0, 0, 0); const e2 = new Date(d); e2.setDate(e2.getDate() + 1); e2.setHours(2, 0, 0, 0);
+        const loc = t => new Date(t - t.getTimezoneOffset() * 6e4).toISOString().slice(0, 23);
+        DATA.upcoming.events.push({id: "t-late", name: "Test late", type: "Event", start: loc(d), end: loc(e2), link: "https://leekduck.com/events/", mons: []});
+        const t0 = new Date(); comingMonth = (d.getFullYear() - t0.getFullYear()) * 12 + d.getMonth() - t0.getMonth();   // its month, even on the last day of one
+        comingSel = comingWeek = null; await go("#coming");
+        const bars = [...view().querySelectorAll('.calbar[data-comesel="t-late"]')];
+        ok(bars.length >= 1 && bars.every(b => { const [c0, c1] = b.style.gridColumn.split("/").map(n => parseInt(n)); return c1 - c0 === 1; }), "one day wide");
+        ok(/20:00/.test(bars[0].textContent), "with its start time");
+        DATA.upcoming.events.pop(); comingMonth = 0; }
       const hide0 = prefs.comingHide;
       try {
         prefs.comingHide = ["ev"]; await go("#coming");

@@ -1151,14 +1151,18 @@ function comingPage(){
   const hm = d => `${String(d.getHours()).padStart(2, "0")}:${String(d.getMinutes()).padStart(2, "0")}`;
   const today = midnight(now);
   const info = ev => {
-    const a = new Date(ev.start), b = new Date(ev.end || ev.start), days = Math.round((midnight(b) - midnight(a)) / DAY) + 1;
+    const a = new Date(ev.start), b = new Date(ev.end || ev.start);
+    // her rule (19 Nov): an event that runs just past midnight (ends before 06:00) ends on the day before, on the calendar too
+    const bd = b.getHours() < 6 && midnight(b) > midnight(a) ? new Date(midnight(b) - 1) : b;
+    const isoDay = d => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+    const days = Math.round((midnight(bd) - midnight(a)) / DAY) + 1;
     const hours = Math.round((b - a) / 36e5), oneDay = days === 1;
     const len = oneDay ? (hours <= 1 ? "1 hour" : hours < 12 ? `${hours} hours` : "All day") : days >= 14 ? `${Math.round(days / 7)} weeks` : `${days} days`;
-    const when = oneDay ? `${longDate(a)} · ${hm(a)}–${hm(b)}` : dates(day(ev.start), day(ev.end) || day(ev.start));
-    const on = a <= now, left = Math.round((midnight(b) - today) / DAY), until = Math.round((midnight(a) - today) / DAY);
+    const when = oneDay ? `${longDate(a)} · ${hm(a)}–${hm(b)}` : dates(isoDay(a), isoDay(bd));
+    const on = a <= now, left = Math.round((midnight(bd) - today) / DAY), until = Math.round((midnight(a) - today) / DAY);
     const status = on ? (left <= 0 ? "On now · ends today" : left === 1 ? "On now · ends tomorrow" : `On now · ends in ${left} days`)
       : until === 0 ? "Today" : until === 1 ? "Tomorrow" : `In ${until} days`;
-    return {a, b, on, len, when, status, month: days >= 14 && days <= 35, season: days > 35};   // her point (18 Nov): a Shadow legendary's month of raids or a GO Pass (This month) isn't a season-long Timed Research (This season)
+    return {a, b, bd, on, len, when, status, month: days >= 14 && days <= 35, season: days > 35};   // her point (18 Nov): a Shadow legendary's month of raids or a GO Pass (This month) isn't a season-long Timed Research (This season)
   };
   const kindChip = (ev, i) => `<span class="evkind">${esc(ev.type || "Event")}</span><span class="evlen">${esc(i.len)}</span>`;
   const evs = up.events.map(ev => {
@@ -1208,11 +1212,11 @@ function comingPage(){
   for (let w = 0; w < nWeeks; w++) {
     const ws = monday(m0); ws.setDate(ws.getDate() + 7 * w);
     const we = new Date(ws); we.setDate(we.getDate() + 6);
-    const inW = visible.filter(x => midnight(x.i.a) <= we && midnight(x.i.b) >= ws)
+    const inW = visible.filter(x => midnight(x.i.a) <= we && midnight(x.i.bd) >= ws)
       .sort((p, q) => isRun(q) - isRun(p) || isRaidRun(q) - isRaidRun(p) || (q.i.b - q.i.a) - (p.i.b - p.i.a) || p.i.a - q.i.a);   // GO Pass, then the raids, at the top
     const lanes = [];
     const bars = inW.map(x => {
-      const c0 = Math.max(0, Math.round((midnight(x.i.a) - ws) / DAY)), c1 = Math.min(6, Math.round((midnight(x.i.b) - ws) / DAY));
+      const c0 = Math.max(0, Math.round((midnight(x.i.a) - ws) / DAY)), c1 = Math.min(6, Math.round((midnight(x.i.bd) - ws) / DAY));
       let l = lanes.findIndex(o => o.every((v, i) => i < c0 || i > c1 || !v));
       if (l < 0) { l = lanes.length; lanes.push(Array(7).fill(false)); }
       for (let i = c0; i <= c1; i++) lanes[l][i] = true;
@@ -1227,11 +1231,11 @@ function comingPage(){
   const calNav = `<div class="calnav"><button type="button" class="iconbtn" data-comemonth="-1" ${comingMonth <= 0 ? "disabled" : ""} title="Month before">${ic("chevron-left")}</button><h2>${MONTHS[m0.getMonth()]} <em>${m0.getFullYear()}</em></h2><button type="button" class="iconbtn" data-comemonth="1" ${comingMonth >= maxMonth ? "disabled" : ""} title="Next month">${ic("chevron-right")}</button>${comingMonth ? `<button type="button" class="linkbtn" data-comemonth="0">Back to this month</button>` : ""}<span class="muted">Leek Duck lists about six weeks ahead</span></div>`;
   let html = `${legend}${calNav}<div class="cal">${g}</div>`;
   // You need (her ask, 19 Nov), for the month shown: by box, each with its event and when; then the backgrounds coming back
-  const inMonth = x => x.i.a < mNext && x.i.b >= m0;
+  const inMonth = x => x.i.a < mNext && x.i.bd >= m0;
   const items = [];
   const seenNeed = new Set();   // each Pokémon and box once, at its first event, and only from the kinds shown (19 Nov review: Deoxys twice)
   for (const x of visible.filter(inMonth)) for (const m of x.mons) for (const n of upNeeds(m)) if (!seenNeed.has(m.id + "|" + n) && seenNeed.add(m.id + "|" + n)) items.push({x, m, n});
-  const whenShort = x => x.i.on ? (x.i.month || x.i.season ? `until ${shortDay(x.i.b)}` : x.i.status.replace("On now · ", "")) : x.i.len.includes("hour") || x.i.len === "All day" ? `${shortDay(x.i.a)} ${hm(x.i.a)}` : `from ${shortDay(x.i.a)}`;
+  const whenShort = x => x.i.on ? (x.i.month || x.i.season ? `until ${shortDay(x.i.bd)}` : x.i.status.replace("On now · ", "")) : x.i.len.includes("hour") || x.i.len === "All day" ? `${shortDay(x.i.a)} ${hm(x.i.a)}` : `from ${shortDay(x.i.a)}`;
   const groups = ["c", "s", "sd", "dx", "gx", "mega"].map(n => [n, items.filter(it => it.n === n)]).filter(([, its]) => its.length);
   const huntCell = it => `<a class="hunt" href="${pageOf(byId[it.m.id])}"><img src="${sprite(byId[it.m.id].img) || ""}" alt="" loading="lazy"><span class="hn">${esc(gName(byId[it.m.id]))}</span>
     <span class="hev">${esc(it.x.ev.name)}</span><span class="hw${it.x.i.on ? " on" : ""}">${esc(whenShort(it.x))}</span></a>`;
