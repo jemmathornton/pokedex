@@ -409,6 +409,10 @@
         ok(view().querySelector(".calbar"), "calendar bars");
         click(view().querySelector('.calbar[data-comesel="t-ev"]')); await wait(50);
         ok(/Test event/.test(view().querySelector(".caldetail").textContent), "the picked event underneath");
+        ok(view().querySelectorAll("[data-comelong]").length === 3 && view().querySelector(".rboard"), "long events: a raid board above, by default");
+        const long0 = prefs.comingLong; prefs.comingLong = "beside"; await go("#coming");
+        ok(view().querySelector(".calside .rboard"), "long events beside the calendar");
+        prefs.comingLong = long0;
         prefs.comingLayout = "split"; await go("#coming");
         ok(view().querySelector('.splititem.sel[data-comesel="t-ev"]') && /Test event/.test(view().querySelector(".splitdetail").textContent), "two panes: the picked one in full");
         prefs.comingLayout = "hunt"; await go("#coming");

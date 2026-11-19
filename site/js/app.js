@@ -1252,12 +1252,24 @@ function comingPage(){
   const shortDay = d => `${WD[d.getDay()].slice(0, 3)} ${d.getDate()} ${MONTHS[d.getMonth()].slice(0, 3)}`;
   const lay = ["list", "cal", "hunt", "split"].includes(TRY.get("layout")) ? TRY.get("layout") : prefs.comingLayout || "list";
   if (lay === "cal") {   // A: a calendar, six weeks, events as bars across their days; click one for its details underneath
-    const visible = evs.filter(x => !x.i.season);
+    // her question (19 Nov): the long ones with no spawns of their own (who's in raids, the GO Pass, research) another way.
+    // Trial, picked with a Long events row (prefs.comingLong, ?long= for pictures): Above (a raid board over the calendar),
+    // Beside (the same board in a column on the right), Small (kept in the calendar as short bars of pictures)
+    const longMode = ["above", "beside", "small"].includes(TRY.get("long")) ? TRY.get("long") : prefs.comingLong || "above";
+    const isRaidRun = x => kindOf(x.ev) === "raid" && x.i.b - x.i.a >= 2 * DAY;   // a boss in raids for days (not a Raid Hour or Raid Day)
+    const isRun = x => kindOf(x.ev) === "long" || x.i.season;   // GO Pass, research
+    const tierOf = x => (/ in (.+)$/.exec(x.ev.name) || [, "Raids"])[1];   // the source's own words: "5-star Raid Battles", "Mega Raids"
+    const raids = evs.filter(isRaidRun), runs = evs.filter(x => !isRaidRun(x) && isRun(x));
+    const visible = evs.filter(x => !isRun(x) && (longMode === "small" || !isRaidRun(x)));
+    const names = x => { const n = [...new Set(x.mons.map(m => byId[m.id].name))]; return n.length > 1 ? n.slice(0, -1).join(", ") + " and " + n[n.length - 1] : n[0] || x.ev.name; };
+    const span = x => x.i.on ? `until ${shortDay(x.i.b)}` : `${shortDay(x.i.a)} – ${shortDay(x.i.b)}`;
+    const pics = x => [...new Map(x.mons.map(m => [byId[m.id].img, byId[m.id]])).values()].map(e => `<img src="${sprite(e.img) || ""}" alt="" loading="lazy" title="${attr(gName(e) + (e.form ? " · " + e.form : ""))}">`).join("");
     let g = `<div class="calweek calhead">${["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"].map(d => `<span>${d}</span>`).join("")}</div>`;
     for (let w = 0; w < 6; w++) {
       const ws = new Date(thisWeek); ws.setDate(ws.getDate() + 7 * w);
       const we = new Date(ws); we.setDate(we.getDate() + 6);
-      const inW = visible.filter(x => midnight(x.i.a) <= we && midnight(x.i.b) >= ws).sort((p, q) => (q.i.b - q.i.a) - (p.i.b - p.i.a) || p.i.a - q.i.a);
+      const inW = visible.filter(x => midnight(x.i.a) <= we && midnight(x.i.b) >= ws)
+        .sort((p, q) => isRaidRun(q) - isRaidRun(p) || (q.i.b - q.i.a) - (p.i.b - p.i.a) || p.i.a - q.i.a);   // Small: the raids together at the top
       const lanes = [];
       const bars = inW.map(x => {
         const c0 = Math.max(0, Math.round((midnight(x.i.a) - ws) / DAY)), c1 = Math.min(6, Math.round((midnight(x.i.b) - ws) / DAY));
@@ -1265,15 +1277,28 @@ function comingPage(){
         if (l < 0) { l = lanes.length; lanes.push(Array(7).fill(false)); }
         for (let i = c0; i <= c1; i++) lanes[l][i] = true;
         const one = /hour/.test(x.i.len);   // a few hours on one day: its start time
-        return `<button type="button" class="calbar${x.full ? " need" : ""}${x === sel ? " sel" : ""}" data-comesel="${attr(x.ev.id)}" style="grid-column:${c0 + 1}/${c1 + 2};grid-row:${l + 2};--k:${kcol(x.ev)}" title="${attr(x.ev.name + " · " + x.i.when)}">${one ? `<small>${hm(x.i.a)}</small>` : ""}<span class="t">${esc(x.ev.name)}</span>${badge(x)}</button>`;
+        const mini = isRaidRun(x);   // Small: the tier, the boss's pictures and names
+        return `<button type="button" class="calbar${mini ? " mini" : ""}${x.full ? " need" : ""}${x === sel ? " sel" : ""}" data-comesel="${attr(x.ev.id)}" style="grid-column:${c0 + 1}/${c1 + 2};grid-row:${l + 2};--k:${kcol(x.ev)}" title="${attr(x.ev.name + " · " + x.i.when)}">${one ? `<small>${hm(x.i.a)}</small>` : ""}${mini ? `<small>${esc(tierOf(x).replace(/ Raid Battles| Raids/, ""))}</small><span class="mp">${pics(x)}</span><span class="t">${esc(names(x))}</span>` : `<span class="t">${esc(x.ev.name)}</span>`}${badge(x)}</button>`;
       }).join("");
       const days = [...Array(7)].map((_, i) => { const d = new Date(ws); d.setDate(d.getDate() + i);
         return `<span class="calday${+d === +today ? " today" : d < today ? " past" : ""}" style="grid-column:${i + 1};grid-row:1">${d.getDate() === 1 || (w === 0 && i === 0) ? `${d.getDate()} ${MONTHS[d.getMonth()].slice(0, 3)}` : d.getDate()}</span>`; }).join("");
       g += `<div class="calweek">${days}${bars}</div>`;
     }
-    const seasonL = evs.filter(x => x.i.season);
-    html = `${legend}${seasonL.length ? `<p class="calseason"><b>All season:</b> ${seasonL.map(x => `<button type="button" class="linkbtn" data-comesel="${attr(x.ev.id)}">${esc(x.ev.name)}</button> <span class="muted">until ${shortDay(x.i.b)}</span>`).join(" · ")}</p>` : ""}
-      <div class="cal">${g}</div>${sel ? `<div class="caldetail"><span class="label">Picked</span>${row(sel)}</div>` : ""}`;
+    // the raid board: each tier, who's in it now and who comes next; then the GO Pass and research, with how far through they are
+    const tiers = [...new Set(raids.map(tierOf))];
+    const rcard = x => `<button type="button" class="rcard${x.full ? " need" : ""}${x === sel ? " sel" : ""}${x.i.on ? " on" : ""}" data-comesel="${attr(x.ev.id)}">
+      <span class="rpics">${pics(x)}</span><span class="rtxt"><b>${esc(names(x))}</b><span class="muted">${esc(x.i.on ? "Now, " + span(x) : span(x))}</span></span>${badge(x)}</button>`;
+    const prog = x => Math.max(0, Math.min(100, 100 * (now - x.i.a) / (x.i.b - x.i.a)));
+    const runCard = x => `<button type="button" class="rrun${x === sel ? " sel" : ""}" data-comesel="${attr(x.ev.id)}" style="--k:${kcol(x.ev)}"><b>${esc(x.ev.name)}</b>
+      <span class="muted">${esc(x.ev.type || "Event")} · ${esc(x.i.on ? "until " + shortDay(x.i.b) : "from " + shortDay(x.i.a))}</span><span class="rprog"><i style="width:${prog(x).toFixed(1)}%"></i></span></button>`;
+    const board = `<div class="rboard">${tiers.length ? `<h3 class="rbh">In raids</h3>${tiers.map(t => `<div class="rtier"><span class="label">${esc(t)}</span><div class="rrow">${raids.filter(x => tierOf(x) === t).map(rcard).join(`<span class="rarrow">${ic("arrow-right")}</span>`)}</div></div>`).join("")}` : ""}
+      ${runs.length ? `<h3 class="rbh">GO Pass and research</h3><div class="rruns">${runs.map(runCard).join("")}</div>` : ""}</div>`;
+    const runLine = runs.length ? `<p class="calseason"><b>Running:</b> ${runs.map(x => `<button type="button" class="linkbtn" data-comesel="${attr(x.ev.id)}">${esc(x.ev.name)}</button> <span class="muted">until ${shortDay(x.i.b)}</span>`).join(" · ")}</p>` : "";
+    const longTabs = `<div class="toolbar filters calsub"><div class="frow"><span class="label flabel">Long events</span><div class="worktabs">${[["above", "Above the calendar"], ["beside", "Beside it"], ["small", "Small, in the calendar"]].map(([k, l]) => `<button type="button" class="worktab" data-comelong="${k}" aria-pressed="${k === longMode}">${l}</button>`).join("")}</div><span class="muted" style="margin-left:auto;font-size:13px">Trial: who’s in raids, the GO Pass and research</span></div></div>`;
+    const calHtml = `<div class="cal">${g}</div>`;
+    html = `${longTabs}${legend}${longMode === "above" ? board + calHtml : longMode === "beside" ? `<div class="calside">${calHtml}${board}</div>` : runLine + calHtml}
+      ${sel ? `<div class="caldetail"><span class="label">Picked</span>${row(sel)}</div>` : ""}`;
+    html = `<div class="long-${longMode}">${html}</div>`;
   }
   if (lay === "hunt") {   // B: what to hunt first, by box, each with the event and when; backgrounds as cards; the rest folded away
     const items = [];
@@ -1436,6 +1461,7 @@ document.addEventListener("click", ev => {
   if (b.hasAttribute("data-wantcopy")) return wantCopy();
   if (b.dataset.comesel) { comingSel = b.dataset.comesel; return rerender(); }
   if (b.dataset.comelayout) { prefs.comingLayout = b.dataset.comelayout; keepPrefs(); return rerender(); }
+  if (b.dataset.comelong) { prefs.comingLong = b.dataset.comelong; keepPrefs(); return rerender(); }
   if (b.dataset.comegot) { const k = b.dataset.comegot; comingOpen.has(k) ? comingOpen.delete(k) : comingOpen.add(k); return rerender(); }
   if (b.hasAttribute("data-wantoverlap")) { prefs.wantOverlap = !prefs.wantOverlap; keepPrefs(); return rerender(); }
   if (b.dataset.fastorder) { prefs.fastOrder = b.dataset.fastorder; keepPrefs(); return rerender(); }
