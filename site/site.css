@@ -261,14 +261,14 @@ main{margin-left:var(--side);min-height:100vh;container-type:inline-size}
 .gen{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px;text-decoration:none;display:block}
 .gen:hover{border-color:color-mix(in srgb,var(--deep-2) 40%,var(--line))}
 .gen h3{font-size:24px}
-.gen .rows{display:grid;grid-template-columns:auto 1fr auto;gap:4px 10px;align-items:center;margin-top:8px;font-size:13px}
+.gen .rows{display:grid;grid-template-columns:auto 1fr auto;gap:4px 10px;align-items:center;margin-top:12px;font-size:13px}
 .bar{height:6px;border-radius:99px;background:var(--soft);overflow:hidden}
 .bar i{display:block;height:100%;border-radius:99px;background:var(--c)}
 .gen .rows span:last-child,.gen .rows .v{font-variant-numeric:tabular-nums;color:var(--muted);text-align:right}
 
 .gen{position:relative;overflow:hidden}
-.genart{position:absolute;right:8px;top:4px;display:flex}
-.genart img{width:58px;height:58px;object-fit:contain;margin-left:-12px}
+.genart{position:absolute;right:10px;top:22px;display:flex}   /* below the games' names, beside the region (19 Nov: "Ruby and Sapphire" ran into the pictures) */
+.genart img{width:50px;height:50px;object-fit:contain;margin-left:-10px}
 .gen .rl{display:inline-flex;align-items:center;gap:6px}
 .gen .rl .i{width:16px;height:16px;padding:2.5px;border-radius:5px;background:var(--c);color:#fff;box-sizing:border-box}
 .gen:hover{border-color:color-mix(in srgb,var(--rc,var(--deep-2)) 50%,var(--line))}
