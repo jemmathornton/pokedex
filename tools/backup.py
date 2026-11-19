@@ -4,7 +4,8 @@
 
 0. Refreshes What's on (her ask, 19 Nov: a check every Sunday for new events): tools/import_events.py, then tools/build.py;
    the new events are listed in the log. Which background an event brings back is still added by hand (upcoming-backgrounds.json).
-1. Saves any changes in the project to git (her ticks since the last save, new data).
+1. Saves any changes in the project to git (her ticks since the last save, new data), then pushes them to GitHub
+   (jemmathornton/pokedex, her ask 19 Nov).
 2. Zips the whole Pokédex (everything but git's own folder; the pictures included) to Documents\\PokedexBackups\\Pokedex backup <date>.zip,
    like the Sims site's backups, and keeps the newest 8.
 Run every Sunday by the Windows task "Jemma's Pokedex - weekly backup" (tools/make_backup_task.ps1); log in logs/backup.log.
@@ -57,6 +58,19 @@ def refresh_events():
         log(f'events: refresh failed: {e}')
 
 
+def push():
+    """Up to GitHub too (her ask, 19 Nov: jemmathornton/pokedex, everything, so it can run on another PC). Never asks
+    anything (no window to answer in): if GitHub can't be reached or the sign-in has gone, it says so in the log and the
+    zip still happens. Signed in through the GitHub tool (gh), which git uses for github.com."""
+    try:
+        env = dict(os.environ, GIT_TERMINAL_PROMPT='0', GCM_INTERACTIVE='never')
+        r = subprocess.run(['git', 'push', '-q', 'origin', 'HEAD'], cwd=ROOT, capture_output=True, text=True, encoding='utf-8',
+                           errors='replace', env=env, creationflags=NO_WINDOW, timeout=900)
+        log('github: pushed' if r.returncode == 0 else 'github: push failed: ' + (r.stderr or r.stdout).strip()[-400:])
+    except Exception as e:
+        log(f'github: push failed: {e}')
+
+
 def main():
     refresh_events()
     try:   # on its own: if git can't run (not found, the repo busy), the zip still happens
@@ -66,6 +80,7 @@ def main():
             log('git: saved changes' if r.returncode == 0 else 'git: ' + (r.stderr or r.stdout).strip())
     except Exception as e:
         log(f'git failed: {e}')
+    push()
     out = os.path.join(DEST, f'Pokedex backup {date.today().isoformat()}.zip')
     part = out + '.part'   # renamed once finished, so a broken zip is never kept as a backup
     try:
