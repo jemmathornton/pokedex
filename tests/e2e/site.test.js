@@ -399,6 +399,15 @@
     } finally { if (before) COL.have[key] = before; else delete COL.have[key]; DATA.upcoming = up0; comingOpen.clear(); if (k0) delete COL.have[k0]; }
   });
 
+  test("Unown's forms are A to Z, then ! and ?, everywhere: Looking for too, not F first (her note, 20 Nov)", async () => {
+    const want = ENTRIES.filter(e => e.dex === 201 && e.released).map(e => e.form);
+    for (const b of ["s", "l"]) {
+      const got = wanted(b).filter(u => u.e.dex === 201).map(u => u.e.form);
+      eq(got.join(""), want.filter(f => got.includes(f)).join(""), "Looking for " + b);
+    }
+    eq(want.slice(0, 3).join(""), "ABC", "the data's own order starts at A");
+  });
+
   // ---------- Fast tick (trial) ----------
   test("Fast tick does costumes and backgrounds, each once, under its event", async () => {
     prefs.fastKind = "cos"; prefs.fastBox = "c"; await go("#fast");

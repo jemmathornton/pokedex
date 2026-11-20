@@ -957,11 +957,12 @@ async function fastAll(){
 // tracks form by form, where each form is its own; regional forms are their own (as everywhere)
 const WANT = [["s", "Shiny", "sparkles", "--shiny"], ["l", "Lucky", "lucky", "--lucky"], ["dx", "Dynamax", "dynamax", "--dynamax"],
   ["gx", "Gigantamax", "gigantamax", "--gmax"], ["mega", "Mega", "mega", "--mega"]];
+const entryIdx = new Map(ENTRIES.map((e, i) => [e, i]));   // the data's order, the game's
 function wanted(b){
   const can = e => b === "s" ? !!e.shiny : b === "l" ? !UNTRADEABLE.has(e.dex) : b === "dx" ? !!e.dynamax : b === "gx" ? !!e.gmax : false;
   const units = [];
   for (const g of groupByNumber(ENTRIES.filter(e => e.released))) {
-    const es = [g.lead, ...g.others];
+    const es = [g.lead, ...g.others].sort((x, y) => entryIdx.get(x) - entryIdx.get(y));   // the game's order (Unown A to Z, then ! and ?), not F first (her note, 20 Nov)
     if (b === "mega") { for (const e of es) for (const m of e.mega || []) if (!has(dk(e), m.t)) units.push({e, t: m.t, key: FORM_SPECIES.has(e.dex) ? e.id : groupKey(e), what: m.t === "mx" ? "Mega X" : m.t === "my" ? "Mega Y" : ""}); continue; }
     if (FORM_SPECIES.has(g.lead.dex)) { for (const e of es) if (can(e) && !has(dk(e), b)) units.push({e, t: b, key: e.id, what: formTag(e)}); continue; }
     const ok = es.filter(can);
