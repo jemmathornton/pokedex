@@ -1129,7 +1129,7 @@ function comingPage(){
   const monday = d => { const m = midnight(d); m.setDate(m.getDate() - (m.getDay() + 6) % 7); return m; };
   // her pick (19 Nov): the Calendar, a month at a time. Kinds (her points, 19 Nov): who's in raids for days at a time (the
   // rotation) apart from one-day raid and battle events (Raid Day, Raid Hour, Max Battle Day, Max Monday); GO Pass apart from research
-  const KINDS = [["cd", "Community Day", "--lucky"], ["rot", "Raid rotation", "--mega"], ["day", "Raid and battle days", "--dynamax"], ["spot", "Spotlight Hour", "--xxl"], ["ev", "Event", "--xxs"], ["pass", "GO Pass", "--muted"], ["research", "Research", "--female"]];
+  const KINDS = [["cd", "Community Day", "--lucky"], ["rot", "Raid rotation", "--mega"], ["day", "Raid and battle days", "--dynamax"], ["spot", "Spotlight Hour", "--male"], ["ev", "Event", "--caught"], ["pass", "GO Pass", "--purified"], ["research", "Research", "--shadow"]];   // her pick E (20 Nov): Spotlight green, Event navy, GO Pass bright blue, Research plum
   const kindOf = ev => /community/i.test(ev.type) ? "cd" : /raid|max/i.test(ev.type) ? (new Date(ev.end || ev.start) - new Date(ev.start) >= 2 * DAY ? "rot" : "day") : /spotlight/i.test(ev.type) ? "spot" : /pass/i.test(ev.type) ? "pass" : /research/i.test(ev.type) ? "research" : "ev";
   const kcol = ev => `var(${KINDS.find(k => k[0] === kindOf(ev))[2]})`;
   const needSet = x => NEED_ORDER.filter(n => x.mons.some(m => upNeeds(m).includes(n)));   // the game's order
