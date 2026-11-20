@@ -161,7 +161,12 @@ em{font-style:italic}
 
 /* ---------- sidebar ---------- */
 .side{position:fixed;inset:0 auto 0 0;width:var(--side);background:var(--nav);color:var(--on-deep);display:flex;flex-direction:column;z-index:20}
+/* the way back to Jemma's Journals (her pick A, 20 Nov): tiny and quiet above the name, brighter on hover/focus */
+.home-link{align-self:flex-start;margin:14px 24px 0;font:600 10px/1.4 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--on-deep-mute);text-decoration:none;border-radius:4px}
+.home-link:hover,.home-link:focus-visible{color:var(--on-deep)}
+.home-link:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 .brand{display:block;padding:22px 24px 18px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.08)}
+.home-link + .brand{padding-top:12px}
 .brand b{font:400 32px/1 var(--display);display:block}
 .brand b em{color:var(--accent)}
 .brand small{display:block;margin-top:8px;color:var(--on-deep-mute);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
