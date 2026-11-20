@@ -408,6 +408,12 @@
     eq(want.slice(0, 3).join(""), "ABC", "the data's own order starts at A");
   });
 
+  test("a background lists one Pokémon's forms in the game's order (Toxtricity Low Key before Amped, her question 20 Nov)", async () => {
+    const ev = [...EVENTS, ...SPECIAL].find(e => e.id === "sb-gofest2025-eternatus");
+    const tox = bgMonsOf(ev).filter(e => e.dex === 849).map(e => e.form);
+    eq(tox.join(","), ENTRIES.filter(e => e.dex === 849).map(e => e.form).join(","));
+  });
+
   // ---------- Fast tick (trial) ----------
   test("Fast tick does costumes and backgrounds, each once, under its event", async () => {
     prefs.fastKind = "cos"; prefs.fastBox = "c"; await go("#fast");

@@ -671,7 +671,9 @@ const myEvents = () => [...EVENTS, ...SPECIAL].filter(ev => COL.went.includes(ev
 // first (18 Nov recheck: each background had shown just one, and not always the same one)
 const bgMonsOf = ev => { const seen = new Set();
   return (ev.cards ? ev.cards.map(id => byId[id] || costumeById[id]) : (ev.backgroundPokemon || []).map(name => baseOf[DATA.dexByName[name.toLowerCase()]])).filter(Boolean)
-    .flatMap(e => e.genderForm ? ENTRIES.filter(x => x.dex === e.dex && x.genderForm) : [e]).filter(e => !seen.has(e.id) && seen.add(e.id)); };
+    .flatMap(e => e.genderForm ? ENTRIES.filter(x => x.dex === e.dex && x.genderForm) : [e]).filter(e => !seen.has(e.id) && seen.add(e.id))
+    .map((e, i, all) => ({e, k: all.findIndex(x => x.dex === e.dex), c: e.costume ? 1 : 0, o: e.order ?? 0}))   // one Pokémon's forms in the game's order, then its costumes,
+    .sort((p, q) => p.k - q.k || p.c - q.c || p.o - q.o).map(x => x.e); };   // where the event's list put them (her question, 20 Nov: Toxtricity Amped before Low Key)
 
 
 
