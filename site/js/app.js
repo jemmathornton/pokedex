@@ -49,6 +49,7 @@ ENTRIES.forEach(e => {
 const SPRITES = new Set(DATA.sprites);
 const byId = Object.fromEntries(ENTRIES.map(e => [e.id, e]));
 const costumeById = Object.fromEntries(COSTUMES.map(c => [c.id, c]));
+const cosIdx = new Map(COSTUMES.map((c, i) => [c.id, i]));   // costumes.json is in the game's order: by number, then oldest first
 const baseOf = {};   // dex number -> its plain entry (for background Pokémon)
 ENTRIES.forEach(e => { if (!baseOf[e.dex] || (!e.form && baseOf[e.dex].form)) baseOf[e.dex] = e; });
 // Lucky comes only from trading, so a Pokémon the game won't let you trade can never be Lucky (the game's own trade flags,
@@ -727,12 +728,16 @@ function allSets(){
     groups.get(key).cs.push(c);
   }
   for (const [key, {ev, cs}] of groups) {
-    cs.sort((a, b) => a.code.localeCompare(b.code) || a.dex - b.dex);
+    cs.sort((a, b) => cosIdx.get(a.id) - cosIdx.get(b.id));   // the game's order: by number, then oldest first (her rule, 20 Nov)
     const y = ev && ev.start ? ev.start.slice(0, 4) : d0(cs) ? d0(cs).start.slice(0, 4) : (/20\d\d/.exec(key) || [])[0] || (cs.map(c => c.shiny).filter(Boolean).sort()[0] || "").slice(0, 4);
     sets.push({id: "cos-" + key.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""), title: ev ? ev.event : d0(cs) ? key : tidy(key),
       when: ev && ev.start ? ev.start : d0(cs) ? d0(cs).start : y ? `${y}-00-00` : "0000", year: y || "Other",   // an event with no date yet (the Bangkok stamp rally, "To be announced"): by year
       meta: ev ? (ev.start ? `Costumes · ${dates(ev.start, ev.end || ev.start)}` : "Costumes · dates to be announced") : d0(cs) ? "Costume · not from an event" : "Costumes", art: null,
       mosaic: cs.slice(0, 4).map(c => sprite(c.img)).filter(Boolean), items: cs.map(c => ({key: "c:" + c.id, e: c, img: c.img, bg: false})), cos: cs.map(c => c.id)});
+  }
+  for (const st of sets) {   // costumes in the game's order everywhere (her rule, 20 Nov: GO Tour 2026 X had Serena's Hat before Calem's), after the background Pokémon
+    const cs = st.items.filter(i => !i.bg).sort((a, b) => cosIdx.get(a.e.id) - cosIdx.get(b.e.id));
+    st.items = [...st.items.filter(i => i.bg), ...cs]; st.cos = cs.map(i => i.e.id);
   }
   return sets.sort((a, b) => b.when.localeCompare(a.when));
 }

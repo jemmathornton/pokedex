@@ -414,6 +414,14 @@
     eq(tox.join(","), ENTRIES.filter(e => e.dex === 849).map(e => e.form).join(","));
   });
 
+  test("costumes are in the game's order on every event (her rule, 20 Nov: Serena's Hat came before Calem's)", async () => {
+    for (const st of allSets()) {
+      const cs = st.items.filter(i => !i.bg).map(i => i.e);
+      for (let i = 1; i < cs.length; i++) ok(!(cs[i - 1].dex === cs[i].dex && cosIdx.get(cs[i - 1].id) > cosIdx.get(cs[i].id)), `${st.title}: ${cs[i - 1].id} before ${cs[i].id}`);
+      eq(st.cos.join(), cs.map(c => c.id).join(), st.title + ": its list matches");
+    }
+  });
+
   // ---------- Fast tick (trial) ----------
   test("Fast tick does costumes and backgrounds, each once, under its event", async () => {
     prefs.fastKind = "cos"; prefs.fastBox = "c"; await go("#fast");
