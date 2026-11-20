@@ -306,7 +306,7 @@ function card(e, more = "", inForms = false, forms = null){
   return `<div class="card${e.released ? "" : " out-not"}${got ? " got" : ""}${inForms ? " informs" : ""}" data-id="${attr(e.id)}"${got ? ` style="--hl:var(${HL[tab ? tab.k : "caught"]})"` : ""}>` +
     `<span class="no">#${pad(e.dex)}</span>` + (flags.length ? `<span class="flags">${flags.map(f => `<span>${esc(f)}</span>`).join("")}</span>` : "") +
     pic(e, dk(e)) +
-    `<a class="nm" href="${pageOf(e)}" title="Open ${attr(e.name)}’s page">${esc(e.name)}</a><small class="fm">${esc(e.form || "")}${e.form && gw ? " · " : ""}${gw ? `<span class="gd">${esc(gw)}</span>` : ""}</small>` +
+    `<a class="nm" href="${pageOf(e)}" title="Open ${tip(e.name)}’s page">${esc(e.name)}</a><small class="fm">${esc(e.form || "")}${e.form && gw ? " · " : ""}${gw ? `<span class="gd">${esc(gw)}</span>` : ""}</small>` +
     (byForm ? formBoxes(e, forms, onlyTicks(e)) : boxes(e)) + more + `</div>`;
 }
 
@@ -386,6 +386,17 @@ function fitLabels(){
     p.classList.add("noic");
     let f = parseFloat(getComputedStyle(p).fontSize);
     while (over() && f > 7) p.style.fontSize = (f -= 0.25) + "px";
+  }
+  // a card's box label that doesn't fit (Gigantamax, or Dynamax with a form count) gets a little smaller, then drops its
+  // icon, never cut short (rule review, 20 Nov: "Giganta…" on every card; her rule, 14 Nov: Gigantamax in full)
+  for (const sp of view.querySelectorAll(".boxgrid .tk span")) {
+    const tk = sp.closest(".tk"), over = () => sp.scrollWidth > sp.clientWidth;
+    if (sp.style.fontSize || tk.classList.contains("tight")) { sp.style.fontSize = ""; tk.classList.remove("tight", "noic"); }
+    if (!over()) continue;
+    tk.classList.add("tight");   // first a little less space around it, keeping the icon (every box has one, her rule)
+    let f = parseFloat(getComputedStyle(sp).fontSize);
+    while (over() && f > 9) sp.style.fontSize = (f -= 0.25) + "px";
+    if (over()) tk.classList.add("noic");   // only if it still can't fit (a very narrow window)
   }
 }
 new MutationObserver(fitLabels).observe(view, {childList: true});
@@ -523,7 +534,7 @@ function evoFamily(sel){
   const tree = (x, path) => {
     const byTo = new Map();   // two ways to the same Pokémon are shown together
     (x.evo || []).forEach(st => { if (byId[st.to] && !path.has(st.to)) byTo.set(st.to, [...(byTo.get(st.to) || []), st]); });
-    const kids = [...byTo].map(([to, sts]) => `<div class="evo-kid"><div class="evo-step">${ic("arrow-right")}<span>${sts.map(st => evoWays(st).map(esc).join("<br>")).join('<i class="or">or</i>')}</span></div>${tree(byId[to], new Set([...path, to]))}</div>`);
+    const kids = [...byTo].sort(([a], [b]) => entryIdx.get(byId[a]) - entryIdx.get(byId[b])).map(([to, sts]) => `<div class="evo-kid"><div class="evo-step">${ic("arrow-right")}<span>${sts.map(st => evoWays(st).map(esc).join("<br>")).join('<i class="or">or</i>')}</span></div>${tree(byId[to], new Set([...path, to]))}</div>`);
     return `<div class="evo-branch">${node(x)}${kids.length ? `<div class="evo-kids${kids.length > 3 ? " many" : ""}">${kids.join("")}</div>` : ""}</div>`;
   };
   return `<div class="evo">${roots.map(r => tree(r, new Set([r.id]))).join("")}</div>`;
@@ -596,7 +607,7 @@ function pokemonPage(key){
   const gen = genById[sel.gen] || ["", REGION_OF[sel.gen] || "", ""];
   const at = PAGE_KEYS.indexOf(key), prev = PAGE_KEYS[at - 1], next = PAGE_KEYS[at + 1];
   const step = (m, dir) => { if (!m) return `<span></span>`; const x = groupByNumber(ENTRIES.filter(e => groupKey(e) === m))[0].lead;
-    return `<a class="pn ${dir}" href="#p-${m}" title="${dir === "prev" ? "Previous" : "Next"}: ${attr(x.name)}">${dir === "prev" ? ic("chevron-left") : ""}${sprite(x.img) ? `<img src="${sprite(x.img)}" alt="">` : ""}<span><small>#${pad(x.dex)}${isRegional(x) ? " " + esc(x.form.split(" ")[0]) : ""}</small>${esc(x.name)}</span>${dir === "next" ? ic("chevron-right") : ""}</a>`; };
+    return `<a class="pn ${dir}" href="#p-${m}" title="${dir === "prev" ? "Previous" : "Next"}: ${tip(x.name)}">${dir === "prev" ? ic("chevron-left") : ""}${sprite(x.img) ? `<img src="${sprite(x.img)}" alt="">` : ""}<span><small>#${pad(x.dex)}${isRegional(x) ? " " + esc(x.form.split(" ")[0]) : ""}</small>${esc(x.name)}</span>${dir === "next" ? ic("chevron-right") : ""}</a>`; };
   const yesNo = (on, yes, no) => on ? esc(yes) : `<span class="no">${esc(no)}</span>`;   // no ticks here: they looked like "caught" (her point, 10 Nov)
   const row = (t, v) => v ? `<div><dt>${esc(t)}</dt><dd>${v}</dd></div>` : "";
   const facts = `<dl class="dfacts">` +
@@ -606,11 +617,11 @@ function pokemonPage(key){
     row("In Pokémon GO", yesNo(sel.released, "Available", "Unavailable")) +
     row("Shiny", yesNo(!!sel.shiny, "Available", "Unavailable")) +
     row("Lucky", yesNo(canLucky(sel), "Available", UNTRADEABLE.has(sel.dex) ? "Not possible" : "Unavailable")) +
-    row("Shadow and Purified", yesNo(!!sel.shadow, "Available", "Unavailable")) +
     row("Dynamax", yesNo(!!sel.dynamax, "Available", NO_DYNAMAX.has(sel.dex) ? "Not possible" : "Unavailable")) +
     row("Gigantamax", yesNo(!!sel.gmax, "Available", GMAX_SPECIES.has(sel.dex) && !isRegional(sel) ? "Unavailable" : "Not possible")) +
-    row("Mega", yesNo(!!(sel.mega || []).length, "Available", sel.megaLater ? "Unavailable" : "Not possible")) + `</dl>`;
-  const desc = sel.desc ? (sel.femaleDesc ? `<p class="dex-entry"><span class="label">Male</span>${esc(sel.desc)}</p><p class="dex-entry"><span class="label">Female</span>${esc(sel.femaleDesc)}</p>`
+    row("Mega", yesNo(!!(sel.mega || []).length, "Available", sel.megaLater ? "Unavailable" : "Not possible")) +
+    row("Shadow and Purified", yesNo(!!sel.shadow, "Available", "Unavailable")) + `</dl>`;   // the game's box order, as the strip below
+  const desc = sel.desc ? (sel.femaleDesc ? `<p class="dex-entry"><span class="label">Female</span>${esc(sel.femaleDesc)}</p><p class="dex-entry"><span class="label">Male</span>${esc(sel.desc)}</p>`
       : `<p class="dex-entry">${esc(sel.desc)}</p>`) : `<p class="dex-entry muted">No Pokédex entry for it in the game’s text yet.</p>`;
   const picker = ordered.length > 1 ? `<div class="formpick" role="group" aria-label="Which form to show">${ordered.map(e =>
     `<button type="button" data-pickform="${attr(e.id)}" aria-pressed="${e === sel}" title="${tip(e.form || e.name)}">${sprite(e.img) ? `<img src="${sprite(e.img)}" alt="" loading="lazy">` : `<span class="blank">?</span>`}<small>${esc(formLabel(e))}</small></button>`).join("")}</div>` : "";
@@ -644,7 +655,7 @@ const isSpecial = ev => ev.id.startsWith("sb-");
 const bgKey = (ev, e) => `b:${ev.id}:${e.id}`;
 function bgCard(ev, e, wentButton, showEvent = true){   // showEvent false on the event's own page (the name is in the banner)
   const went = COL.went.includes(ev.id), key = bgKey(ev, e);
-  const src = bigSprite(has(key, "s") && sprite(e.img + ".s") ? e.img + ".s" : e.img);
+  const src = bigSprite(shinyFirst() && sprite(e.img + ".s") ? e.img + ".s" : e.img);   // the normal colours; shiny only on the Shiny tab (her rule, 13 Nov; rule review 20 Nov)
   const bg = BGS.has(ev.id) ? `backgrounds/${ev.id}.webp` : null;
   return `<div class="card bgcard${went ? "" : " not-went"}" data-bg="${attr(key)}" data-event="${attr(ev.id)}" data-bgdex="${e.dex}" data-bgmon="${attr(e.id)}">` +
     `<div class="bgpic${bg ? "" : " nobg"}"${bg ? ` style="background-image:url('${bg}')"` : ""}>${bg ? "" : `<span class="nobg-note">No picture in the game files yet</span>`}${src ? `<img src="${src}" alt="" loading="lazy">` : ""}</div>` +
@@ -660,7 +671,7 @@ const myCostumes = () => COSTUMES.filter(c => COL.costumes.includes(c.id));
 function costumeCard(c){
   const key = "c:" + c.id;
   return `<div class="card" data-costume="${attr(c.id)}"><span class="no">#${pad(c.dex)}</span>` +
-    pic(c, key) + `<a class="nm" href="${pageOf(c)}" title="Open ${attr(c.name)}’s page">${esc(c.name)}</a><small class="fm">${esc(cosName(c))}</small>` +
+    pic(c, key) + `<a class="nm" href="${pageOf(c)}" title="Open ${tip(c.name)}’s page">${esc(c.name)}</a><small class="fm">${esc(cosName(c))}</small>` +
     `<div class="boxgrid"><button class="tk c" type="button" data-tick="c" aria-pressed="${has(key, "c")}" title="Caught">${ic("poke-ball")}<span>Caught</span></button>` +
     (c.shiny || has(key, "s") ? `<button class="tk s" type="button" data-tick="s" aria-pressed="${has(key, "s")}" title="Shiny: a bonus, not counted">${ic("sparkles")}<span>Shiny</span></button>` : "") + `</div></div>`;   // a costume’s shiny is a bonus, like Shiny Shadow, and only where one is out (her calls, 10 Nov)
 }
@@ -673,8 +684,7 @@ const myEvents = () => [...EVENTS, ...SPECIAL].filter(ev => COL.went.includes(ev
 const bgMonsOf = ev => { const seen = new Set();
   return (ev.cards ? ev.cards.map(id => byId[id] || costumeById[id]) : (ev.backgroundPokemon || []).map(name => baseOf[DATA.dexByName[name.toLowerCase()]])).filter(Boolean)
     .flatMap(e => e.genderForm ? ENTRIES.filter(x => x.dex === e.dex && x.genderForm) : [e]).filter(e => !seen.has(e.id) && seen.add(e.id))
-    .map((e, i, all) => ({e, k: all.findIndex(x => x.dex === e.dex), c: e.costume ? 1 : 0, o: e.order ?? 0}))   // one Pokémon's forms in the game's order, then its costumes,
-    .sort((p, q) => p.k - q.k || p.c - q.c || p.o - q.o).map(x => x.e); };   // where the event's list put them (her question, 20 Nov: Toxtricity Amped before Low Key)
+    .sort((a, b) => a.dex - b.dex || isRegional(a) - isRegional(b) || !!a.costume - !!b.costume || (a.order ?? 0) - (b.order ?? 0)); };   // by number, a regional form after the usual one, then costumes, each in the game's order (her rule; 20 Nov: Toxtricity Amped came before Low Key, and pages disagreed on the order of an event's Pokémon)
 
 
 
@@ -741,7 +751,7 @@ function allSets(){
   }
   return sets.sort((a, b) => b.when.localeCompare(a.when));
 }
-const setGot = it => hasAny(it.key, ["c", "s"]);
+const setGot = it => has(it.key, "c");   // got = Caught; a costume's Shiny is a bonus, not counted (her rule, 10 Nov; rule review 20 Nov)
 function setTile(st){
   const got = st.items.filter(setGot).length, n = st.items.length;
   return `<a class="settile${got === n ? " done" : ""}" href="#set-${attr(st.id)}">` +
@@ -1033,7 +1043,7 @@ async function wantCopy(){
   const b = wantBox(), label = WANT_TABS.find(w => w[0] === b)[1], units = wantShown(b);
   const one = u => `#${u.e.dex} ${isRegional(u.e) ? u.e.form.split(" ")[0] + " " : ""}${curly(u.e.name)}${u.what ? " (" + u.what + ")" : ""}`;
   const text = b === "bg" ? [...new Set(units.map(u => u.st))].map(st => `${st.title}: ` + units.filter(u => u.st === st).map(one).join(", ")).join("\n")
-    : `${label} I’m looking for: ` + units.map(one).join(", ");
+    : `${label} I’m looking for:\n` + GENS.map(([g, region]) => [region, units.filter(u => u.e.gen === g)]).filter(([, us]) => us.length).map(([region, us]) => `${region}: ` + us.map(one).join(", ")).join("\n");   // by region, as the page (order review, 20 Nov)
   try { await navigator.clipboard.writeText(text); toast("Copied: paste it into a message to a friend."); } catch (e) { toast("Couldn’t copy here."); }
 }
 // ---------- What’s on (was Coming up, then Events calendar; renamed 18 Nov, her point: it’s more what’s on, and “Events” clashed with Events and costumes) (TRIAL, her ask 16 Nov: upcoming events with details and what she needs to hunt) ----------
@@ -1042,6 +1052,7 @@ async function wantCopy(){
 // Gigantamax); one bringing back a background of hers lists that background's Pokémon she hasn't got with it
 const NEED_LOOK = {c: ["New", "poke-ball", "--caught"], s: ["Shiny", "sparkles", "--shiny"], mega: ["Mega", "mega", "--mega"],
   sd: ["Shadow", "shadow", "--shadow"], dx: ["Dynamax", "dynamax", "--dynamax"], gx: ["Gigantamax", "gigantamax", "--gmax"], bg: ["Background", "ticket", "--deep-2"]};
+const NEED_ORDER = ["c", "s", "dx", "gx", "mega", "sd"];   // the game's box order (her rule, 13 Nov)
 function upNeeds(m){
   const e = byId[m.id];
   if (!e) return [];
@@ -1121,7 +1132,7 @@ function comingPage(){
   const KINDS = [["cd", "Community Day", "--lucky"], ["rot", "Raid rotation", "--mega"], ["day", "Raid and battle days", "--dynamax"], ["spot", "Spotlight Hour", "--xxl"], ["ev", "Event", "--xxs"], ["pass", "GO Pass", "--muted"], ["research", "Research", "--female"]];
   const kindOf = ev => /community/i.test(ev.type) ? "cd" : /raid|max/i.test(ev.type) ? (new Date(ev.end || ev.start) - new Date(ev.start) >= 2 * DAY ? "rot" : "day") : /spotlight/i.test(ev.type) ? "spot" : /pass/i.test(ev.type) ? "pass" : /research/i.test(ev.type) ? "research" : "ev";
   const kcol = ev => `var(${KINDS.find(k => k[0] === kindOf(ev))[2]})`;
-  const needSet = x => [...new Set(x.mons.flatMap(m => upNeeds(m)))];
+  const needSet = x => NEED_ORDER.filter(n => x.mons.some(m => upNeeds(m).includes(n)));   // the game's order
   const badge = x => (needSet(x).length || x.bgs.length) ? `<span class="nb">${needSet(x).map(n => `<i style="--c:var(${NEED_LOOK[n][2]})" title="${tip(NEED_LOOK[n][0])}">${ic(NEED_LOOK[n][1])}</i>`).join("")}${x.bgs.length ? `<i style="--c:var(--deep)" title="Background">${ic("ticket")}</i><b>${num(x.bgs.length)}</b>` : ""}</span>` : "";
   const hide = new Set(prefs.comingHide || []);   // her ask (19 Nov): each kind can be shown or hidden from the row of kinds
   const legend = `<div class="callegend">${KINDS.map(([k, l, c]) => `<button type="button" class="calkey${hide.has(k) ? " off" : ""}" data-comekind="${k}" aria-pressed="${!hide.has(k)}" title="${hide.has(k) ? "Show" : "Hide"} ${attr(l)}"><i style="--k:var(${c})">${ic("check")}</i>${esc(l)}</button>`).join("")}<span class="muted">Click one to show or hide it</span></div>`;
@@ -1166,7 +1177,7 @@ function comingPage(){
   const seenNeed = new Set();   // each Pokémon and box once, at its first event, and only from the kinds shown (19 Nov review: Deoxys twice)
   for (const x of visible.filter(inMonth)) for (const m of x.mons) for (const n of upNeeds(m)) if (!seenNeed.has(m.id + "|" + n) && seenNeed.add(m.id + "|" + n)) items.push({x, m, n});
   const whenShort = x => x.i.on ? (x.i.month || x.i.season ? `until ${shortDay(x.i.bd)}` : x.i.status.replace("On now · ", "")) : x.i.len.includes("hour") || x.i.len === "All day" ? `${shortDay(x.i.a)} ${hm(x.i.a)}` : `from ${shortDay(x.i.a)}`;
-  const groups = ["c", "s", "sd", "dx", "gx", "mega"].map(n => [n, items.filter(it => it.n === n)]).filter(([, its]) => its.length);
+  const groups = NEED_ORDER.map(n => [n, items.filter(it => it.n === n)]).filter(([, its]) => its.length);
   const huntCell = it => `<a class="hunt" href="${pageOf(byId[it.m.id])}"><img src="${sprite(byId[it.m.id].img) || ""}" alt="" loading="lazy"><span class="hn">${esc(gName(byId[it.m.id]))}</span>
     <span class="hev">${esc(it.x.ev.name)}</span><span class="hw${it.x.i.on ? " on" : ""}">${esc(whenShort(it.x))}</span></a>`;
   let h = groups.map(([n, its]) => `<section class="huntset"><h3 style="--c:var(${NEED_LOOK[n][2]})"><i>${ic(NEED_LOOK[n][1])}</i>${esc(n === "c" ? "New to you" : NEED_LOOK[n][0])}<small>${num(its.length)}</small></h3><div class="huntgrid">${its.map(huntCell).join("")}</div></section>`).join("");
@@ -1227,7 +1238,7 @@ let toastTimer;
 function toast(msg){ toastEl.textContent = msg; toastEl.hidden = false; clearTimeout(toastTimer); toastTimer = setTimeout(() => toastEl.hidden = true, 3500); }
 
 async function save(body){
-  if (readOnly) { toast("Opened from the folder: open it with the shortcut to save ticks."); return false; }
+  if (readOnly) { toast(loadFailed ? "The server couldn’t read your ticks, so nothing was saved. Open the shortcut again." : "Opened from the folder: open it with the shortcut to save ticks."); return false; }
   try {
     const r = await fetch("/api/tick", {method: "POST", headers: {"Content-Type": "application/json", "X-Pokedex": "1"}, body: JSON.stringify(body)});
     const j = await r.json();

@@ -414,6 +414,14 @@
     eq(tox.join(","), ENTRIES.filter(e => e.dex === 849).map(e => e.form).join(","));
   });
 
+  test("every event's background Pokémon by number, the same on every page; Female before Male in an evolution family (order review, 20 Nov)", async () => {
+    for (const ev of myEvents()) { const ds = bgMonsOf(ev).map(e => e.dex); ok(ds.every((d, i) => !i || d >= ds[i - 1]), ev.name); }
+    await go("#p-520");
+    const fam = [...view().querySelectorAll(".evo .evo-mon")].map(a => a.getAttribute("data-goform")).filter(id => /^521/.test(id));
+    eq(fam.join(), "521-female,521", "Unfezant: Female first");
+    eq(NEED_ORDER.join(), "c,s,dx,gx,mega,sd", "What's on boxes in the game's order");
+  });
+
   test("costumes are in the game's order on every event (her rule, 20 Nov: Serena's Hat came before Calem's)", async () => {
     for (const st of allSets()) {
       const cs = st.items.filter(i => !i.bg).map(i => i.e);
@@ -705,7 +713,7 @@
       Object.defineProperty(navigator, "clipboard", {value: fake, configurable: true});
       try { prefs.wantBox = "s"; await go("#want"); click(view().querySelector("[data-wantcopy]")); await until(() => copied); }
       finally { Object.defineProperty(navigator, "clipboard", {value: cb, configurable: true}); }
-      ok(copied.startsWith("Shiny I’m looking for: ") && copied.includes("#83 Farfetch’d"), copied.slice(0, 120));
+      ok(copied.startsWith("Shiny I’m looking for:\nKanto: ") && copied.includes("#83 Farfetch’d"), copied.slice(0, 120));
     });
     prefs.wantBox = "s";
   });

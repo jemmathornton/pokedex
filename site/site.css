@@ -450,6 +450,8 @@ a.formsbtn{text-decoration:none}
 .boxgrid .tk{justify-content:flex-start;width:100%;min-width:0}
 .boxgrid .tk.wide{grid-column:1 / -1}
 .boxgrid .tk span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.boxgrid .tk.tight{padding-left:3px;padding-right:3px;gap:2px}
+.boxgrid .tk.noic .i{display:none}   /* a label that still doesn't fit drops its icon (app.js fitLabels) */
 
 /* the "Show all" check next to Clear */
 .worktabs .switches{margin-left:auto;display:grid;gap:2px;justify-items:start}
