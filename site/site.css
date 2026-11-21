@@ -1132,3 +1132,13 @@ main{background:linear-gradient(90deg,rgba(70,40,30,.18),rgba(70,40,30,0) 54px) 
 .try-gxrow .boxgrid .tk:is(.dx,.gx,[data-tick="dx"],[data-tick="gx"]){grid-column:1/-1}
 .try-gxwider .grid{grid-template-columns:repeat(auto-fill,minmax(198px,1fr))}
 .optlabel{position:fixed;top:12px;right:16px;z-index:50;background:#2B1A1C;color:#fff;font:700 15px/1.2 var(--body);padding:8px 14px;border-radius:10px;box-shadow:0 4px 14px rgba(0,0,0,.3)}
+/* options to try (her ask, 21 Nov): one panel, buttons switch each option on the page */
+#trypanel{position:fixed;right:16px;bottom:16px;z-index:60;background:#2B1A1C;color:#fff;border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,.35);padding:10px 12px;font:600 13px/1.2 var(--body);max-width:min(560px,calc(100vw - 32px))}
+#trypanel .trytoggle{all:unset;cursor:pointer;display:flex;align-items:center;gap:6px;font-weight:800;font-size:13.5px}
+#trypanel .trytoggle .i{width:15px;height:15px}
+#trypanel.closed .trybody{display:none}
+#trypanel .trybody{display:grid;gap:6px;margin-top:8px}
+#trypanel .tryrow{display:flex;flex-wrap:wrap;align-items:center;gap:5px}
+#trypanel .tryrow > span{min-width:120px;color:#E8D8D2}
+#trypanel .tryrow button{all:unset;cursor:pointer;padding:5px 10px;border-radius:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18)}
+#trypanel .tryrow button[aria-pressed="true"]{background:#F2C14E;color:#2B1A1C;border-color:#F2C14E;font-weight:800}

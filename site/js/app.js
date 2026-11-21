@@ -30,16 +30,23 @@ const prefs = Object.assign({work: "all", workShow: "need", gender: "any", forms
 if (["genders", "caught", "forms"].includes(prefs.work)) prefs.work = "all";
 if (!["need", "all"].includes(prefs.workShow)) prefs.workShow = "need";   // tabs that no longer exist
 const keepPrefs = () => store.set(PREFS_KEY, prefs);
-const TABS_TRY = new URLSearchParams(location.search).get("tabs") === "1";   // trial for pictures (her idea, 21 Nov): filter with the tabs at the top
-if (TABS_TRY) document.documentElement.classList.add("try-tabs");
-{ const opt = new URLSearchParams(location.search).get("opt");   // options shown side by side in the browser (her ask, 21 Nov): a label saying which one this is
-  if (opt) addEventListener("DOMContentLoaded", () => { const d = document.createElement("div"); d.className = "optlabel"; d.textContent = opt; document.body.append(d); document.title = opt; }); }
-if (["row", "wider"].includes(new URLSearchParams(location.search).get("gx"))) document.documentElement.classList.add("try-gx" + new URLSearchParams(location.search).get("gx"));   // trial for pictures (her point, 21 Nov: Gigantamax too small)
-// pictures of options only (21 Nov, her questions 1 and 2): ?work= and ?show= pick the tab without saving it; ?mark=edge and ?shinycol=1 the looks
-{ const T = new URLSearchParams(location.search);
-  if (T.get("work")) prefs.work = T.get("work"); if (T.get("show")) prefs.workShow = T.get("show");
-  if (T.get("mark") === "edge") document.documentElement.classList.add("try-mark");
-  if (T.get("shinycol")) document.documentElement.classList.add("try-shinycol"); }
+// options to try (her ask, 21 Nov: one page with buttons to switch them, like the Layout row before): a panel at the foot of the
+// window, each choice kept on this computer (prefs.tryOpts) until she picks; take it out once she has
+const TRY_OPTS = [["mark", "1 · With a tab on", [["now", "As now"], ["edge", "Edge in the tab’s colour"]]],
+  ["shiny", "2 · Shiny tab", [["now", "As now (grey)"], ["colour", "Shinies in colour"]]],
+  ["gx", "3 · Gigantamax", [["now", "As now"], ["row", "Full rows"], ["wider", "Wider cards"]]],
+  ["filter", "4 · Filter", [["row", "Filter row"], ["tabs", "Tabs at the top"]]]];
+prefs.tryOpts = Object.assign({mark: "now", shiny: "now", gx: "now", filter: "row"}, prefs.tryOpts || {});
+const tabsTry = () => prefs.tryOpts.filter === "tabs";
+function applyTry(){
+  const c = document.documentElement.classList, o = prefs.tryOpts;
+  c.toggle("try-mark", o.mark === "edge"); c.toggle("try-shinycol", o.shiny === "colour");
+  c.toggle("try-gxrow", o.gx === "row"); c.toggle("try-gxwider", o.gx === "wider"); c.toggle("try-tabs", tabsTry());
+  const p = document.getElementById("trypanel");
+  if (p) p.innerHTML = `<button type="button" class="trytoggle" data-trytoggle>${ic("layers")}Options to try</button><div class="trybody">` + TRY_OPTS.map(([k, label, vs]) => `<div class="tryrow"><span>${esc(label)}</span>` +
+    vs.map(([v, l]) => `<button type="button" data-tryopt="${k}:${v}" aria-pressed="${o[k] === v}">${esc(l)}</button>`).join("") + `</div>`).join("") + `</div>`;
+}
+addEventListener("DOMContentLoaded", () => { const p = document.createElement("div"); p.id = "trypanel"; if (store.get("jemmas-pokedex-try-closed", false)) p.className = "closed"; document.body.append(p); applyTry(); });
 
 // ---------- what there is ----------
 // the sections, in game order: [key, region, small label]. Hisui stands on its own between Galar and Paldea (her call, 9 Nov)
@@ -517,7 +524,7 @@ function dexPage(title, label, list, region){
   // see the ones she has too, lit up; her wording and place, 9 Nov); the not-out switch under it where there are some; how many are shown sits by the title (her layout, 9 Nov)
   setRegion(region);
   const shot = region ? regionShot(region) : {style: "", sw: heroPics(ALL_MAPS()), cls: " withshot"};
-  view.innerHTML = `<header class="hero${shot.cls || ""}"${shot.style}>${shot.sw}${heroArt(region ? firstStages(list) : STARTERS.map(d => baseOf[d]))}<span class="label">${esc(label)} · ${num(groups.length)} shown</span><h1>${title}</h1>${statsHtml(counts(list), TABS_TRY)}</header>${readOnlyNote()}
+  view.innerHTML = `<header class="hero${shot.cls || ""}"${shot.style}>${shot.sw}${heroArt(region ? firstStages(list) : STARTERS.map(d => baseOf[d]))}<span class="label">${esc(label)} · ${num(groups.length)} shown</span><h1>${title}</h1>${statsHtml(counts(list), tabsTry())}</header>${readOnlyNote()}
     <div class="toolbar filters" id="toolbar">
       <div class="frow"><span class="label flabel">Filter</span><div class="worktabs">` +
       BOXF.map(b => `<button type="button" class="worktab" data-work="${b.k}" aria-pressed="${prefs.work === b.k}">${esc(b.label)}</button>`).join("") +
@@ -1357,6 +1364,8 @@ document.addEventListener("click", ev => {
   if (b.dataset.fastbox) { prefs.fastBox = b.dataset.fastbox; keepPrefs(); return rerender(); }
   if (b.dataset.wantbox) { prefs.wantBox = b.dataset.wantbox; keepPrefs(); return rerender(); }
   if (b.hasAttribute("data-wantcopy")) return wantCopy();
+  if (b.dataset.tryopt) { const [k, v] = b.dataset.tryopt.split(":"); prefs.tryOpts[k] = v; keepPrefs(); applyTry(); return rerender(); }
+  if (b.hasAttribute("data-trytoggle")) { const p = document.getElementById("trypanel"); p.classList.toggle("closed"); store.set("jemmas-pokedex-try-closed", p.classList.contains("closed")); return; }
   if (b.dataset.comesel) {   // click again: closed; the details open under the week clicked, scrolled into view
     const wk = b.dataset.comeweek ?? null, again = comingSel === b.dataset.comesel && comingWeek === wk;
     comingSel = again ? null : b.dataset.comesel; comingWeek = again ? null : wk; rerender();
