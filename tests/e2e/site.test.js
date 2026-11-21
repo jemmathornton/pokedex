@@ -724,6 +724,29 @@
     ok(!document.getElementById("side").inert, "sidebar usable");
   });
 
+  test("review fixes (21 Nov): focus stays on the box pressed; part-caught form cards aren't faded; background cards have a number and the foil", async () => {
+    prefs.work = "all"; prefs.workShow = "all"; await go("#gen-1");
+    const b = view().querySelector('[data-work="shiny"]'); b.focus(); click(b); await wait(80);
+    ok(document.activeElement && document.activeElement.dataset.work === "shiny", "focus kept on the tab pressed");
+    prefs.work = "all"; await go("#gen-1");
+    const some = [...view().querySelectorAll(".card.some")];
+    ok(some.every(c => !c.classList.contains("got")), "some = not every form");
+    if (some.length) ok(!/grayscale/.test(getComputedStyle(some[0].querySelector(".pic img")).filter), "part-caught: picture not greyed");
+    const ev = myEvents()[0]; await go("#set-" + ev.id);
+    const bg = view().querySelector(".card.bgcard"); ok(bg && /^#\d{4}$/.test(bg.querySelector(".no").textContent), "a background card's number");
+  });
+
+  test("no box label or square name is cut short, measured to the fraction of a pixel (21 Nov review: Mega X, Gigantamax, Crabominable)", async () => {
+    prefs.work = "all"; prefs.workShow = "all";
+    for (const h of ["#dex", "#gen-9", "#p-849", "#p-150", "#want"]) {
+      await go(h); fitLabels();
+      const cut = [...view().querySelectorAll(".boxgrid .tk > span:not(.fill)")].filter(textOver).map(s => s.textContent);
+      const names = [...view().querySelectorAll(".fastset .fc .fcn")].filter(n => n.scrollWidth > n.clientWidth).map(n => n.textContent);
+      eq([...new Set(cut)].join(), "", h + " box labels");
+      eq([...new Set(names)].join(), "", h + " square names");
+    }
+  });
+
   test("on a phone (390 wide): Menu opens the drawer; Escape, tapping outside and choosing a link close it", async () => {
     const f = document.createElement("iframe");   // a phone-sized window of its own, same site
     f.style.cssText = "position:fixed;left:0;top:0;width:390px;height:844px;border:0;opacity:0;pointer-events:none";

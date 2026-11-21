@@ -3,6 +3,10 @@
 Everything waiting on you. **Do** = just do it; **Decide** = your call. Tell Claude when one’s done or decided and it comes off.
 
 ## Decide
+- **Decide: the binder look, three things the 21 Nov review found** (suggestions in brackets):
+  - With a tab on (say Lucky), a card you have isn’t marked in that box’s colour any more: the binder frame is the region colour either way, and only the ones you don’t have go grey. (Bring back a thin edge in the box’s colour? Or happy as it is.)
+  - On the Shiny tab with “Hide ones I have” on, every card you still need is grey, so the shiny colours you’re hunting can’t be seen. (Keep the grey frame but show the shiny picture in full colour on that tab?)
+  - The tiles on the Event Pokémon page are still plain panels, not collector’s cards like everywhere else. (Give them the binder look?)
 - **Looking for (trial, 15 Nov):** a page of what’s out and you still need: Shiny, Lucky (to trade for), Dynamax, Gigantamax and Mega, by region, and Backgrounds (each of your events’ background Pokémon not got yet, under its card: `looking-for-backgrounds.png`), with Copy the list; small icons show the other boxes you need for each, and Only overlaps lists just those, e.g. Lucky with Only overlaps = the best ones for a lucky trade (`for-jemma/looking-for-s.png`, `-l`, `-mega`, `-lucky-overlaps`). Keep, change or drop?
 - **Crowned Zacian and Zamazenta, and Complete Zygarde:** track them as Pokémon of their own (like Dusk Mane Necrozma and Black Kyurem) or not? They’re kept forms you make in GO; at the moment they aren’t in the app.
 - **Sinistea and Polteageist:** track their Antique forms one by one or not? (You’re undecided.) Rockruff, Scatterbug and Spewpa left off on purpose: no real difference until they evolve. Arceus when it’s out.

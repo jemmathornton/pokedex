@@ -303,7 +303,9 @@ function card(e, more = "", inForms = false, forms = null){
   const tab = !showAllBoxes && BOXF.find(x => x.k === prefs.work);
   const byForm = forms && FORM_SPECIES.has(e.dex);
   const got = byForm ? formsGot(forms, tab) : tab ? tab.applies(e) && tab.have(e) : caught(e);
-  return `<div class="card${e.released ? "" : " out-not"}${got ? " got" : ""}${inForms ? " informs" : ""}" data-id="${attr(e.id)}"${got ? ` style="--hl:var(${HL[tab ? tab.k : "caught"]})"` : ""}>` +
+  const some = byForm && !got && forms.some(f => tab ? tab.applies(f) && tab.have(f) : caught(f));   // some of its forms: not faded (binder review, 21 Nov: Floette 2/5 looked not caught)
+  const shiny = byForm ? forms.some(f => has(dk(f), "s")) : has(dk(e), "s");   // the foil shows whatever tab is on (binder review, 21 Nov)
+  return `<div class="card${e.released ? "" : " out-not"}${got ? " got" : ""}${some ? " some" : ""}${shiny ? " shiny" : ""}${inForms ? " informs" : ""}" data-id="${attr(e.id)}"${got ? ` style="--hl:var(${HL[tab ? tab.k : "caught"]})"` : ""}>` +
     `<span class="no">#${pad(e.dex)}</span>` + (flags.length ? `<span class="flags">${flags.map(f => `<span>${esc(f)}</span>`).join("")}</span>` : "") +
     pic(e, dk(e)) +
     `<a class="nm" href="${pageOf(e)}" title="Open ${tip(e.name)}’s page">${esc(e.name)}</a><small class="fm">${esc(e.form || "")}${e.form && gw ? " · " : ""}${gw ? `<span class="gd">${esc(gw)}</span>` : ""}</small>` +
@@ -394,8 +396,9 @@ function fitLabels(){
   }
   // a card's box label that doesn't fit (Gigantamax, or Dynamax with a form count) gets a little smaller, then drops its
   // icon, never cut short (rule review, 20 Nov: "Giganta…" on every card; her rule, 14 Nov: Gigantamax in full)
-  for (const sp of view.querySelectorAll(".boxgrid .tk span")) {
-    const tk = sp.closest(".tk"), over = () => sp.scrollWidth > sp.clientWidth;
+  for (const sp of view.querySelectorAll(".boxgrid .tk > span:not(.fill)")) {
+    const tk = sp.closest(".tk"), over = () => textOver(sp), copy = tk.querySelector(".fill > span");
+    if (copy) copy.style.fontSize = "";
     if (sp.style.fontSize || tk.classList.contains("tight")) { sp.style.fontSize = ""; tk.classList.remove("tight", "noic", "widefit"); }
     if (!over()) continue;
     tk.classList.add("tight");   // first a little less space around it, keeping the icon (every box has one, her rule)
@@ -404,8 +407,19 @@ function fitLabels(){
     if (over()) tk.classList.add("noic");   // only if it still can't fit (a very narrow window)
     while (over() && f > 8) sp.style.fontSize = (f -= 0.25) + "px";   // a phone: a touch smaller still, never "Dynam…" (21 Nov review)
     if (over()) { tk.classList.remove("noic"); tk.classList.add("widefit"); sp.style.fontSize = ""; f = parseFloat(getComputedStyle(sp).fontSize); while (over() && f > 9) sp.style.fontSize = (f -= 0.25) + "px"; }   // still too long: the whole row
+    if (copy) copy.style.fontSize = sp.style.fontSize;   // the white copy over the filled part, the same size
+  }
+  // a square's name too long to wrap (one long word: "Crabominable" on Looking for at 1280) gets smaller, not cut (21 Nov review)
+  for (const n of view.querySelectorAll(".fastset .fc .fcn")) {
+    n.style.fontSize = "";
+    let f = parseFloat(getComputedStyle(n).fontSize);
+    while (n.scrollWidth > n.clientWidth && f > 7) n.style.fontSize = (f -= 0.25) + "px";
   }
 }
+// overflow measured to the fraction of a pixel (scrollWidth rounds, so "Mega X" 39.4 in 39 showed "Mega…": 21 Nov review)
+const textRange = document.createRange();
+function textOver(el){ textRange.selectNodeContents(el); const cs = getComputedStyle(el);
+  return textRange.getBoundingClientRect().width > el.getBoundingClientRect().width - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight) + 0.05; }
 new MutationObserver(fitLabels).observe(view, {childList: true});
 addEventListener("resize", () => requestAnimationFrame(fitLabels));
 if (document.fonts) { document.fonts.ready.then(fitLabels); document.fonts.addEventListener("loadingdone", fitLabels); }   // the label font arriving late changes the widths
@@ -664,8 +678,9 @@ function bgCard(ev, e, wentButton, showEvent = true){   // showEvent false on th
   const went = COL.went.includes(ev.id), key = bgKey(ev, e);
   const src = bigSprite(shinyFirst() && sprite(e.img + ".s") ? e.img + ".s" : e.img);   // the normal colours; shiny only on the Shiny tab (her rule, 13 Nov; rule review 20 Nov)
   const bg = BGS.has(ev.id) ? `backgrounds/${ev.id}.webp` : null;
-  return `<div class="card bgcard${went ? "" : " not-went"}" data-bg="${attr(key)}" data-event="${attr(ev.id)}" data-bgdex="${e.dex}" data-bgmon="${attr(e.id)}">` +
+  return `<div class="card bgcard${went ? "" : " not-went"}${has(key, "s") ? " shiny" : ""}" data-bg="${attr(key)}" data-event="${attr(ev.id)}" data-bgdex="${e.dex}" data-bgmon="${attr(e.id)}">` +
     `<div class="bgpic${bg ? "" : " nobg"}"${bg ? ` style="background-image:url('${bg}')"` : ""}>${bg ? "" : `<span class="nobg-note">No picture in the game files yet</span>`}${src ? `<img src="${src}" alt="" loading="lazy">` : ""}</div>` +
+    `<span class="no">#${pad(e.dex)}</span>` +
     `<a class="nm" href="${pageOf(e)}">${esc(e.name)}</a><small class="fm">${[e.costume ? cosName(e) : e.form, showEvent ? ev.background || ev.name : ""].filter(Boolean).map(esc).join(" · ")}</small>` +
     (went ? `<div class="boxgrid"><button class="tk c" type="button" data-tick="c" aria-pressed="${has(key, "c")}" title="Have it with this background">${ic("poke-ball")}<span>Caught</span></button>` +
       `<button class="tk s" type="button" data-tick="s" aria-pressed="${has(key, "s")}" title="${e.shiny ? "Shiny with this background" : "No shiny in GO yet"}"${!e.shiny && !has(key, "s") ? " disabled" : ""}>${ic("sparkles")}<span>Shiny</span></button></div>`
@@ -1238,7 +1253,17 @@ function route(to){   // to: draw that page without changing the address (the te
   if (r === "dex") return dexPage("Every <em>Pokémon</em>", "Pokémon GO", ENTRIES);
   home();
 }
-function rerender(){ const y = scrollY; route(); scrollTo(0, y); }
+function focusKey(el){   // a way to find the same control after the page is drawn again: its data-* attributes, and its card's
+  if (!el || el === document.body || !(view.contains(el) || nav.contains(el))) return null;
+  const sel = el => el.tagName.toLowerCase() + [...el.attributes].filter(a => a.name.startsWith("data-") || a.name === "href" || a.name === "id").map(a => `[${a.name}="${CSS.escape(a.value)}"]`).join("");
+  const holder = el.parentElement && el.parentElement.closest("[data-id],[data-bg],[data-costume],[data-fk]");
+  return (holder && holder !== el ? sel(holder) + " " : "") + sel(el);
+}
+function rerender(){
+  const y = scrollY, k = focusKey(document.activeElement);
+  route(); scrollTo(0, y);
+  if (k) { try { document.querySelector(k)?.focus({preventScroll: true}); } catch (e) {} }
+}
 
 // ---------- saving ----------
 const toastEl = document.getElementById("toast");
@@ -1372,17 +1397,18 @@ function setMenu(open, refocus = true){
 menuBtn.addEventListener("click", () => setMenu(!document.body.classList.contains("nav-open")));
 document.getElementById("scrim").addEventListener("click", () => setMenu(false));
 side.addEventListener("click", ev => { if (ev.target.closest("a[href]")) setMenu(false, false); });
-q.addEventListener("keydown", ev => { if (ev.key === "Enter") setMenu(false, false); });
+q.addEventListener("keydown", ev => { if (ev.key === "Enter" && document.body.classList.contains("nav-open")) { setMenu(false, false); view.setAttribute("tabindex", "-1"); view.focus({preventScroll: true}); } });
 addEventListener("keydown", ev => {
   if (!document.body.classList.contains("nav-open")) return;
   if (ev.key === "Escape") { ev.preventDefault(); return setMenu(false); }
   if (ev.key !== "Tab") return;
   const f = [...side.querySelectorAll("a[href],input,button")].filter(x => x.offsetParent);
   if (!f.length) return;
+  if (!side.contains(document.activeElement)) { ev.preventDefault(); (ev.shiftKey ? f[f.length - 1] : f[0]).focus(); return; }   // focus lost by a redraw (code review, 21 Nov)
   if (ev.shiftKey && document.activeElement === f[0]) { ev.preventDefault(); f[f.length - 1].focus(); }
   else if (!ev.shiftKey && document.activeElement === f[f.length - 1]) { ev.preventDefault(); f[0].focus(); }
 });
-narrow.addEventListener("change", () => setMenu(false, false));
+narrow.addEventListener("change", () => { const was = side.contains(document.activeElement); setMenu(false, false); if (was && narrow.matches) menuBtn.focus({preventScroll: true}); });
 setMenu(false, false);
 
 // the foot of every page (her ask, 21 Nov, as on Jemma’s Journals): Back to top, and Dark mode. The page is light unless she
@@ -1408,9 +1434,9 @@ toTop.addEventListener("click", () => {
   scrollTo({top: 0, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"});
   document.getElementById("view").focus({preventScroll: true});   // keyboard users carry on from the top of the page
 });
-addEventListener("hashchange", () => { if (location.hash !== "#dex" && q.value) q.value = ""; route(); scrollTo(0, 0); });   // another page clears the search (19 Nov review: Home and the regions showed an old search)
+addEventListener("hashchange", () => { if (location.hash !== "#dex" && q.value) q.value = ""; if (document.body.classList.contains("nav-open")) setMenu(false); route(); scrollTo(0, 0); });   // another page clears the search (19 Nov review: Home and the regions showed an old search)
 addEventListener("keydown", ev => {   // ← and → step through the numbers on a Pokémon's page
-  if (!/^#p-\d+(-[a-z]+)?$/.test(location.hash) || ev.target.closest("input,textarea,select") || ev.altKey || ev.ctrlKey || ev.metaKey) return;
+  if (!/^#p-\d+(-[a-z]+)?$/.test(location.hash) || document.body.classList.contains("nav-open") || ev.target.closest("input,textarea,select") || ev.altKey || ev.ctrlKey || ev.metaKey) return;
   const a = document.querySelector(ev.key === "ArrowLeft" ? ".pn.prev" : ev.key === "ArrowRight" ? ".pn.next" : null);
   if (a) { ev.preventDefault(); location.hash = a.getAttribute("href"); }
 });

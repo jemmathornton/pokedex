@@ -453,7 +453,7 @@ a.formsbtn{text-decoration:none}
 .boxgrid .tk{justify-content:flex-start;width:100%;min-width:0}
 .boxgrid .tk.wide,.boxgrid .tk.widefit{grid-column:1 / -1}
 .boxgrid .tk span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.boxgrid .tk.tight{padding-left:3px;padding-right:3px;gap:2px}
+.boxgrid .tk.tight,.boxgrid .tk.tight .fill{padding-left:3px;padding-right:3px;gap:2px}
 .boxgrid .tk.noic .i{display:none}   /* a label that still doesn't fit drops its icon (app.js fitLabels) */
 
 /* the "Show all" check next to Clear */
@@ -938,18 +938,18 @@ main{background:linear-gradient(90deg,rgba(70,40,30,.18),rgba(70,40,30,0) 54px) 
 .card .formsbtn{background:var(--surface)}
 
 /* shiny ones: a foil frame round the art window and, softer (her change, 21 Nov), the pastel rainbow faint, no stripes, a faint gleam */
-.card:has(.tk.s[aria-pressed="true"]) .pic{border:3px solid;border-image:var(--foil) 1;border-radius:0}
-.card:has(.tk.s[aria-pressed="true"]) .pic::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:0;mix-blend-mode:multiply;opacity:.3;
+.card:is(.shiny,:has(.tk.s[aria-pressed="true"])) :is(.pic,.bgpic){border:3px solid;border-image:var(--foil) 1;border-radius:0}
+.card:is(.shiny,:has(.tk.s[aria-pressed="true"])) :is(.pic,.bgpic)::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:0;mix-blend-mode:multiply;opacity:.3;
   background:linear-gradient(115deg,#ffd6ec 8%,#c9ecff 30%,#fff3b8 50%,#cdf5d9 68%,#e6d3ff 88%)}
-.card:has(.tk.s[aria-pressed="true"]) .pic::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:2;
+.card:is(.shiny,:has(.tk.s[aria-pressed="true"])) :is(.pic,.bgpic)::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:2;
   background:linear-gradient(115deg,transparent 32%,rgba(255,255,255,.28) 42%,transparent 52%)}
-:root[data-mode="dark"] .card:has(.tk.s[aria-pressed="true"]) .pic::after{mix-blend-mode:screen;opacity:.16}
-:root[data-mode="dark"] .card:has(.tk.s[aria-pressed="true"]) .pic::before{background:linear-gradient(115deg,transparent 32%,rgba(255,255,255,.12) 42%,transparent 52%)}
+:root[data-mode="dark"] .card:is(.shiny,:has(.tk.s[aria-pressed="true"])) :is(.pic,.bgpic)::after{mix-blend-mode:screen;opacity:.16}
+:root[data-mode="dark"] .card:is(.shiny,:has(.tk.s[aria-pressed="true"])) :is(.pic,.bgpic)::before{background:linear-gradient(115deg,transparent 32%,rgba(255,255,255,.12) 42%,transparent 52%)}
 
 /* not caught yet (or, with a tab on, not that box): a faded print; costume and background cards go by their Caught box */
-.card[data-id]:not(.got):not(.informs),.card[data-costume]:not(:has(.tk.c[aria-pressed="true"])),.card.bgcard:not(:has(.tk.c[aria-pressed="true"])){--frame:var(--faded)}
-.card[data-id]:not(.got):not(.informs) .pic img,.card[data-costume]:not(:has(.tk.c[aria-pressed="true"])) .pic img,.card.bgcard:not(:has(.tk.c[aria-pressed="true"])) .bgpic img{filter:grayscale(1) opacity(.45)}
-.card[data-id]:not(.got):not(.informs) .nm,.card[data-costume]:not(:has(.tk.c[aria-pressed="true"])) .nm,.card.bgcard:not(:has(.tk.c[aria-pressed="true"])) .nm{color:var(--card-mute)}
+.card[data-id]:not(.got):not(.informs):not(.some),.card[data-costume]:not(:has(.tk.c[aria-pressed="true"])),.card.bgcard:not(:has(.tk.c[aria-pressed="true"])){--frame:var(--faded)}
+.card[data-id]:not(.got):not(.informs):not(.some) .pic img,.card[data-costume]:not(:has(.tk.c[aria-pressed="true"])) .pic img,.card.bgcard:not(:has(.tk.c[aria-pressed="true"])) .bgpic img{filter:grayscale(1) opacity(.45)}
+.card[data-id]:not(.got):not(.informs):not(.some) .nm,.card[data-costume]:not(:has(.tk.c[aria-pressed="true"])) .nm,.card.bgcard:not(:has(.tk.c[aria-pressed="true"])) .nm{color:var(--card-mute)}
 
 /* background cards: the game’s location card is the art window */
 .card.bgcard{padding-top:8px}
@@ -1100,3 +1100,5 @@ main{background:linear-gradient(90deg,rgba(70,40,30,.18),rgba(70,40,30,0) 54px) 
 .foot-links button svg.i{width:14px;height:14px}
 .foot-links button:hover{text-decoration:underline;text-underline-offset:3px}
 .foot-links button:focus-visible{outline:2px solid var(--focus);outline-offset:2px;border-radius:4px}
+/* a banner's words stay on the plain part, clear of the map (21 Nov review: Fast tick and Looking for ran onto it at 1600) */
+.hero.withshot > p{max-width:340px !important}
