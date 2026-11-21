@@ -818,7 +818,8 @@
       if (!name || name.textContent !== "Jemma’s Pokédex" || getComputedStyle(name).fontStyle !== "normal") problems.push(`${h}: the name`);
       if (lines.length !== 2 || lines[0].textContent !== "No cookies, no tracking, no ads. Made with plain HTML and CSS, kept on GitHub.") problems.push(`${h}: line 1`);
       const credits = [...foot.querySelectorAll(".about-site .cr")].map(c => c.textContent);
-      if (credits.join(" | ") !== "Pokémon pictures, backgrounds and region maps from the Pokémon games | Fonts: Instrument Serif and Manrope | Icons by Lucide and Phosphor") problems.push(`${h}: credits ${credits.join(" | ")}`);
+      if (credits.join(" | ") !== "Pokémon pictures, backgrounds and region maps from the Pokémon games | Fonts: Instrument Serif and Manrope | Icons by Lucide, Phosphor, MingCute and Solar (480 Design)") problems.push(`${h}: credits ${credits.join(" | ")}`);
+      { const cl = foot.querySelector(".about-site p:last-child"); if (cl.scrollWidth > cl.clientWidth + 1) problems.push(`${h}: the credits line can’t wrap`); }   // round-2 review: it couldn’t, so pages scrolled sideways at 601–1113
       const order = [name, lines[0], lines[1], top].map(x => x && x.getBoundingClientRect().top);
       if (!order.every((t, i) => i === 0 || t > order[i - 1])) problems.push(`${h}: not in the family order`);
       if (Math.abs(top.getBoundingClientRect().top - md.getBoundingClientRect().top) > 1 || Math.abs(top.offsetHeight - md.offsetHeight) > 1) problems.push(`${h}: Back to top and Dark mode not level`);
