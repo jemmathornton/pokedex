@@ -32,6 +32,8 @@ if (!["need", "all"].includes(prefs.workShow)) prefs.workShow = "need";   // tab
 const keepPrefs = () => store.set(PREFS_KEY, prefs);
 const TABS_TRY = new URLSearchParams(location.search).get("tabs") === "1";   // trial for pictures (her idea, 21 Nov): filter with the tabs at the top
 if (TABS_TRY) document.documentElement.classList.add("try-tabs");
+{ const opt = new URLSearchParams(location.search).get("opt");   // options shown side by side in the browser (her ask, 21 Nov): a label saying which one this is
+  if (opt) addEventListener("DOMContentLoaded", () => { const d = document.createElement("div"); d.className = "optlabel"; d.textContent = opt; document.body.append(d); document.title = opt; }); }
 if (["row", "wider"].includes(new URLSearchParams(location.search).get("gx"))) document.documentElement.classList.add("try-gx" + new URLSearchParams(location.search).get("gx"));   // trial for pictures (her point, 21 Nov: Gigantamax too small)
 // pictures of options only (21 Nov, her questions 1 and 2): ?work= and ?show= pick the tab without saving it; ?mark=edge and ?shinycol=1 the looks
 { const T = new URLSearchParams(location.search);

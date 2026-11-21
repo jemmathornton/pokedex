@@ -1131,3 +1131,4 @@ main{background:linear-gradient(90deg,rgba(70,40,30,.18),rgba(70,40,30,0) 54px) 
 /* trial (her point, 21 Nov: Gigantamax looks too small): Dynamax and Gigantamax each a full row, or slightly wider cards */
 .try-gxrow .boxgrid .tk:is(.dx,.gx,[data-tick="dx"],[data-tick="gx"]){grid-column:1/-1}
 .try-gxwider .grid{grid-template-columns:repeat(auto-fill,minmax(198px,1fr))}
+.optlabel{position:fixed;top:12px;right:16px;z-index:50;background:#2B1A1C;color:#fff;font:700 15px/1.2 var(--body);padding:8px 14px;border-radius:10px;box-shadow:0 4px 14px rgba(0,0,0,.3)}
