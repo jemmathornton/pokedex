@@ -1422,11 +1422,11 @@ addEventListener("keydown", ev => {
 narrow.addEventListener("change", () => { const was = side.contains(document.activeElement); setMenu(false, false); if (was && narrow.matches) menuBtn.focus({preventScroll: true}); });
 setMenu(false, false);
 
-// the foot of every page (family rules, 21 Nov: the same on all her sites): Back to top, and Dark mode. The page is light unless she
-// presses Dark mode (never by the device's setting). jj-mode is the one setting every site in the family shares, so once they share
-// one address online the choice carries across (index.html reads it before drawing, and moves the old jemmas-pokedex-mode over once).
-const MODE_KEY = "jj-mode", modeBtn = document.getElementById("modeBtn"), toTop = document.getElementById("toTop");
-let mode = document.documentElement.getAttribute("data-mode") === "dark" ? "dark" : "light";
+// the foot of every page (her ask, 21 Nov, as on Jemma’s Journals): Back to top, and Dark mode. The page is light unless she
+// presses Dark mode (never by the device's setting); her choice is remembered on this computer (index.html sets it before drawing).
+const MODE_KEY = "jemmas-pokedex-mode", modeBtn = document.getElementById("modeBtn"), toTop = document.getElementById("toTop");
+let mode = "light";
+try { if (localStorage.getItem(MODE_KEY) === "dark") mode = "dark"; } catch {}
 function applyMode(){
   const dark = mode === "dark";
   document.documentElement.setAttribute("data-mode", mode);

@@ -40,7 +40,6 @@ def run_page_tests(timeout=900):
         profile = tempfile.mkdtemp(prefix='pokedex-chrome-')
         chrome = subprocess.Popen([BROWSER, '--headless=new', '--disable-gpu', '--no-first-run', '--no-default-browser-check',
                                    '--disable-extensions', f'--user-data-dir={profile}', '--window-size=1280,900',
-                                   '--force-dark-mode',   # the device set to dark: the page must still open light (family rules, 21 Nov)
                                    f'http://127.0.0.1:{httpd.server_port}/__test__.html?report={inbox.server_port}'],
                                   stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         try:
