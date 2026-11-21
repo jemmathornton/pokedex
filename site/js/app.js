@@ -1346,6 +1346,36 @@ q.addEventListener("input", () => {
   }, 150);
 });
 document.getElementById("searchIco").innerHTML = ic("search");
+// narrow windows and phones (21 Nov, her note: “Other apps have hamburger no sidebar in condensed browser”): a top bar with a Menu button, the
+// sidebar a drawer over the page, as on her Sim World. It closes on choosing a link, on Escape, on tapping outside it and on
+// Enter in the search box; while it is shut it is out of the Tab order (inert), and while open Tab stays inside it.
+const side = document.getElementById("side"), menuBtn = document.getElementById("menuBtn"), narrow = matchMedia("(max-width:900px)");
+document.getElementById("menuIco").innerHTML = ic("menu");
+function setMenu(open, refocus = true){
+  open = open && narrow.matches;
+  const wasIn = side.contains(document.activeElement);
+  document.body.classList.toggle("nav-open", open);
+  menuBtn.setAttribute("aria-expanded", open);
+  menuBtn.setAttribute("aria-label", open ? "Close the menu" : "Open the menu");
+  side.inert = narrow.matches && !open;
+  if (open) side.querySelector("a,input,button")?.focus({preventScroll: true});
+  else if (wasIn && refocus && narrow.matches) menuBtn.focus({preventScroll: true});
+}
+menuBtn.addEventListener("click", () => setMenu(!document.body.classList.contains("nav-open")));
+document.getElementById("scrim").addEventListener("click", () => setMenu(false));
+side.addEventListener("click", ev => { if (ev.target.closest("a[href]")) setMenu(false, false); });
+q.addEventListener("keydown", ev => { if (ev.key === "Enter") setMenu(false, false); });
+addEventListener("keydown", ev => {
+  if (!document.body.classList.contains("nav-open")) return;
+  if (ev.key === "Escape") { ev.preventDefault(); return setMenu(false); }
+  if (ev.key !== "Tab") return;
+  const f = [...side.querySelectorAll("a[href],input,button")].filter(x => x.offsetParent);
+  if (!f.length) return;
+  if (ev.shiftKey && document.activeElement === f[0]) { ev.preventDefault(); f[f.length - 1].focus(); }
+  else if (!ev.shiftKey && document.activeElement === f[f.length - 1]) { ev.preventDefault(); f[0].focus(); }
+});
+narrow.addEventListener("change", () => setMenu(false, false));
+setMenu(false, false);
 addEventListener("hashchange", () => { if (location.hash !== "#dex" && q.value) q.value = ""; route(); scrollTo(0, 0); });   // another page clears the search (19 Nov review: Home and the regions showed an old search)
 addEventListener("keydown", ev => {   // ← and → step through the numbers on a Pokémon's page
   if (!/^#p-\d+(-[a-z]+)?$/.test(location.hash) || ev.target.closest("input,textarea,select") || ev.altKey || ev.ctrlKey || ev.metaKey) return;

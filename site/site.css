@@ -129,7 +129,7 @@
    Its colours: a deep Pokédex red sidebar on warm cream paper; gold for lucky, violet for shiny, red for 4★.
    Pictures are the game's own; icons are Lucide (ISC). */
 :root{
-  --paper:#FAF5EE; --surface:#FFFDF9; --ink:#2B1A1C; --muted:#7A6563; --line:#EADFD3; --soft:#F2E8DD;
+  --paper:#ECE7E0; --surface:#FFFDF9; --ink:#2B1A1C; --muted:#7A6563; --line:#DCD3C8; --soft:#F2E8DD;   /* paper and lines a little deeper for the binder look (her pick P3b, 21 Nov) */
   --nav:#5A1820; --deep:#5A1820; --deep-2:#7E2530; --on-deep:#FFF4EE; --on-deep-mute:color-mix(in srgb,#fff 62%,var(--deep));
   --accent:#F2C14E;
   --caught:#315686; --male:#078E5A; --female:#6A5DCF; --shiny:#7C8795; --lucky:#D09B00; --hundo:#D14186; --shadow:#4D2D5F; --purified:#0082C5; --dynamax:#B6285A; --gmax:#80183B; --mega:#C2571A;   /* Mega: burnt orange (her pick, 10 Nov) */
@@ -479,11 +479,9 @@ a.formsbtn{text-decoration:none}
 .heroart{position:absolute;inset:0;pointer-events:none;display:none;z-index:0}
 .heroart img{position:absolute;object-fit:contain}
 
-/* Region colours: each region's own colour in the banner with its starters in it; a dark sidebar that takes the region's colour for the page you're on */
+/* Region colours: each region's own colour in the banner with its starters in it; the sidebar is the binder look's red cover (21 Nov, at the end) */
 :root{--rc:#7E2530}
 :root[data-look="region"] .hero,:root[data-look="mix"] .hero{background:radial-gradient(110% 150% at 88% -20%,color-mix(in srgb,var(--rc) 78%,#fff),var(--rc) 46%,color-mix(in srgb,var(--rc) 72%,#000) 100%)}
-:root[data-look="region"] .side,:root[data-look="mix"] .side{background:#1E1A21}
-:root[data-look="region"] .nav a.on,:root[data-look="mix"] .nav a.on{background:color-mix(in srgb,var(--rc) 75%,#1E1A21);box-shadow:inset 3px 0 0 color-mix(in srgb,var(--rc) 55%,#fff)}
 :root[data-look="region"] .heroart{display:block}
 :root[data-look="region"] .heroart img{width:150px;height:150px;top:18px;right:calc(36px + (2 - var(--i)) * 128px);filter:drop-shadow(0 8px 16px rgba(0,0,0,.28))}
 :root[data-look="region"] .heroart img:nth-child(n+4){display:none}
@@ -497,7 +495,7 @@ a.formsbtn{text-decoration:none}
 :root[data-look="parade"] .heroart img,:root[data-look="mix"] .heroart img{width:70px;height:70px;bottom:6px;left:calc(max(clamp(16px,3vw,40px),(100cqw - 100%) / 2) + var(--i) * 76px);opacity:calc(1 - var(--i) * .055)}
 :root[data-look="parade"] .heroart::after,:root[data-look="mix"] .heroart::after{content:"";position:absolute;left:0;right:0;bottom:0;height:22px;background:linear-gradient(transparent,rgba(0,0,0,.18))}
 :root[data-look="parade"] .side{background:linear-gradient(180deg,var(--deep) 0%,color-mix(in srgb,var(--deep) 82%,#000) 100%);overflow:hidden}
-:root[data-look="parade"] .side::after,:root[data-look="mix"] .side::after{content:"";position:absolute;left:-90px;bottom:-90px;width:260px;height:260px;border-radius:50%;border:26px solid rgba(255,255,255,.05);
+:root[data-look="parade"] .side::after{content:"";position:absolute;left:-90px;bottom:-90px;width:260px;height:260px;border-radius:50%;border:26px solid rgba(255,255,255,.05);
   background:linear-gradient(transparent calc(50% - 13px),rgba(255,255,255,.05) calc(50% - 13px) calc(50% + 13px),transparent calc(50% + 13px));pointer-events:none}
 
 /* ---------- toast ---------- */
@@ -505,12 +503,8 @@ a.formsbtn{text-decoration:none}
 
 /* ---------- phone ---------- */
 @media (max-width:700px){
-  :root{--side:0px}
-  .side{position:static;width:auto}
-  .nav{max-height:none}
-  main{margin-left:0}
   .grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
-}
+}   /* the sidebar on narrow windows: a drawer, under "the binder look" at the end */
 
 /* dark mode: the box icons on a Pokémon's page lighter, so the dark ones (Shadow, Gigantamax) still show */
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .bb:not([aria-pressed="true"]):not(:disabled) > .i{color:color-mix(in srgb,var(--bc) 55%,#fff);background:color-mix(in srgb,var(--bc) 32%,var(--surface))}}
@@ -860,3 +854,200 @@ a.formsbtn{text-decoration:none}
 .hbbar i{display:block;height:100%;background:var(--deep-2)}
 .huntbg .fastgrid{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
 .huntbg .fc{width:76px}
+
+/* ======================================================================================================================
+   The binder look (her pick, 21 Nov: "P3b · Cards in a binder", with the softer shiny window). The Pokémon as collector’s
+   cards framed in the page’s region colour, the regions on Home as set cards; a padded red cover for the sidebar with a
+   soft binder gap where it meets the page, and the totals as index tabs hanging from the banner. No line ever crosses the
+   sidebar’s items (her note on P3): the padded feel is shading only. Dark mode (the device’s setting) keeps the same look
+   on dark card stock.
+   ====================================================================================================================== */
+:root{
+  --stock:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .27 0 0 0 0 .18 0 0 0 .11 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .22 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --foil:linear-gradient(115deg,#d8dde6 0%,#f6d7ec 18%,#cfe9f7 34%,#f3f0c9 50%,#d6f0de 66%,#e4d3f5 82%,#d8dde6 100%);
+  --cover:#7A1E2A; --cover-hi:#8A2A35; --cover-lo:#62161F;
+  --card-stock:#FFFBF2;                                                   /* the cards’ paper */
+  --card-ink:#2B1A1C; --card-mute:#8a7671;
+  --frame-mix:#2B1A1C; --frame-amt:82%;                                   /* frame = the region colour, a little darker */
+  --win-edge:#C9A85A; --win-lo:#F7EFE2; --win-hi:#fff;                    /* the art window */
+  --win-dots:rgba(0,0,0,.07); --win-rim:rgba(255,255,255,.7);
+  --faded:#BDB3AA;                                                        /* not caught yet */
+  --tab-bg:#FFFDF9; --tab-ink:#2B1A1C; --tab-mute:#5d4a47;                /* the index tabs */
+  --page-hi:#EFEAE3; --page-lo:#E8E2DA;
+  --card-shadow:0 10px 18px -12px rgba(40,20,10,.55),0 1px 2px rgba(40,20,10,.25);
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --cover:#661823; --cover-hi:#76222D; --cover-lo:#4E1018;
+  --card-stock:#261C1E; --card-ink:#F3E8E4; --card-mute:#B8A29F;
+  --frame-mix:#F3E8E4; --frame-amt:84%;
+  --win-edge:#8F7A4A; --win-lo:#2A2022; --win-hi:#4A3E3D; --win-dots:rgba(255,255,255,.05); --win-rim:rgba(255,255,255,.08);
+  --faded:#4A4042;
+  --tab-bg:#21171A; --tab-ink:#F3E8E4; --tab-mute:#CDB9B5;
+  --page-hi:#1A1214; --page-lo:#150E10;
+  --card-shadow:0 10px 18px -12px rgba(0,0,0,.8),0 1px 2px rgba(0,0,0,.5) }}
+:root[data-theme="dark"]{
+  --cover:#661823; --cover-hi:#76222D; --cover-lo:#4E1018;
+  --card-stock:#261C1E; --card-ink:#F3E8E4; --card-mute:#B8A29F;
+  --frame-mix:#F3E8E4; --frame-amt:84%;
+  --win-edge:#8F7A4A; --win-lo:#2A2022; --win-hi:#4A3E3D; --win-dots:rgba(255,255,255,.05); --win-rim:rgba(255,255,255,.08);
+  --faded:#4A4042;
+  --tab-bg:#21171A; --tab-ink:#F3E8E4; --tab-mute:#CDB9B5;
+  --page-hi:#1A1214; --page-lo:#150E10;
+  --card-shadow:0 10px 18px -12px rgba(0,0,0,.8),0 1px 2px rgba(0,0,0,.5) }
+body{background:var(--stock),linear-gradient(var(--page-hi),var(--page-lo));background-attachment:fixed}
+
+/* the sidebar: a padded red cover (grain and soft shading, never a line); the hinge shadow in its last 6px, clear of the
+   search box (ends 240px) and the links (end 244px) */
+.side,:root[data-look] .side{background:var(--grain),radial-gradient(140% 90% at 30% 10%,var(--cover-hi),var(--cover) 55%,var(--cover-lo));
+  box-shadow:inset 0 0 18px rgba(0,0,0,.16);overflow:hidden}
+.side::after{content:"";position:absolute;right:0;top:0;bottom:0;width:6px;pointer-events:none;background:linear-gradient(90deg,rgba(0,0,0,0),rgba(0,0,0,.3))}
+.brand{border-bottom:0;background:linear-gradient(rgba(255,226,210,.14),rgba(255,226,210,.14)) 24px 100%/calc(100% - 48px) 1px no-repeat}
+.nav a.on,:root[data-look] .nav a.on{background:rgba(255,240,230,.16);box-shadow:inset 3px 0 0 var(--accent)}
+.search input{background:rgba(0,0,0,.18);border-color:rgba(255,226,210,.22)}
+
+/* the binder gap: a soft shadow where the page meets the cover, over the banner too */
+main{background:linear-gradient(90deg,rgba(70,40,30,.18),rgba(70,40,30,0) 54px) no-repeat}
+.hero::before{content:"";position:absolute;top:0;bottom:0;left:0;width:54px;z-index:2;pointer-events:none;background:linear-gradient(90deg,rgba(0,0,0,.28),transparent)}
+
+/* the totals: index tabs hanging along the banner’s bottom edge */
+:root[data-look] .hero.withshot{padding-bottom:0}
+.hero .stats{align-items:end}
+.hero .stat,.hero.withshot .stat{background:color-mix(in srgb,var(--sc) 16%,var(--tab-bg));border:0;border-radius:10px 10px 0 0;backdrop-filter:none;
+  box-shadow:inset 0 3px 0 var(--sc),0 -2px 6px rgba(0,0,0,.18);padding-bottom:9px}
+.hero .stat .sl,.hero .stat b small,.hero.withshot .stat .sl,.hero.withshot .stat b small{color:var(--tab-mute)}
+.hero .stat b{color:var(--tab-ink)}
+.hero .sbar{background:color-mix(in srgb,var(--tab-ink) 9%,transparent)}
+.hero .sbar i{filter:none}
+
+/* Pokémon cards: a frame in the region’s colour, the name across the top, the picture in an art window, the number
+   printed bottom right like a set number */
+.grid{grid-template-columns:repeat(auto-fill,minmax(176px,1fr));gap:16px}
+.card{--frame:color-mix(in srgb,var(--rc) var(--frame-amt),var(--frame-mix));color:var(--card-ink);
+  background:var(--stock),var(--card-stock);border:7px solid var(--frame);border-radius:12px;padding:8px 8px 26px;align-items:stretch;text-align:left;
+  box-shadow:0 1px 0 rgba(255,255,255,.6) inset,var(--card-shadow)}
+.card.got,.card.informs{background:var(--stock),var(--card-stock);border:7px solid var(--frame);box-shadow:var(--card-shadow)}
+.card[data-id]:hover,.card:hover{border-color:var(--frame)}
+.card .nm,.card b.nm{order:-2;margin:0 0 0 2px;font:400 21px/1.05 var(--display);letter-spacing:-.01em;padding-right:64px;min-height:22px}
+.card small.fm{order:-1;margin:0 0 4px 2px;font-size:11px;font-weight:700;letter-spacing:.04em;min-height:0;color:var(--card-mute)}
+.card .flags{top:5px;right:6px}
+.card .flags span{background:var(--foil);color:#4b3b45;border:1px solid rgba(0,0,0,.08)}
+.card .pic,.card .bgpic{border:2px solid color-mix(in srgb,var(--frame) 30%,var(--win-edge));border-radius:4px;
+  box-shadow:inset 0 0 0 1px var(--win-rim),inset 0 4px 10px rgba(0,0,0,.08)}
+.card .pic{width:auto;height:124px;margin:2px 0 0;display:grid;place-items:center;overflow:hidden;
+  background:radial-gradient(circle,var(--win-dots) 1px,transparent 1.4px) 0 0/6px 6px,radial-gradient(circle at 50% 60%,var(--win-hi),color-mix(in srgb,var(--rc) 16%,var(--win-lo)))}
+.card .pic img{position:relative;z-index:1;width:120px;height:120px;filter:drop-shadow(0 4px 4px rgba(0,0,0,.18))}
+.card .pic .blank{width:120px;height:120px}
+.card .pic .flips{right:4px;top:4px;z-index:3}
+.card .pic .flip{width:22px;height:22px}
+.card .pic .flip:not([aria-pressed="true"]){background:color-mix(in srgb,var(--surface) 85%,transparent)}
+.card .no{left:auto;right:6px;top:auto;bottom:4px;font:700 10px/1 var(--body);letter-spacing:.12em;color:var(--card-mute);display:flex;align-items:center;gap:5px}
+.card .no::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--card-ink);opacity:.7}
+.card:has(.flags span) .no::before{border-radius:0;width:8px;height:8px;clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);opacity:.85}
+.card .boxgrid{margin-top:8px}
+.card .tk{border-radius:5px}
+.card .formsbtn,.card .collect{align-self:center}
+.card .formsbtn{background:var(--surface)}
+
+/* shiny ones: a foil frame round the art window and, softer (her change, 21 Nov), the pastel rainbow faint, no stripes, a faint gleam */
+.card:has(.tk.s[aria-pressed="true"]) .pic{border:3px solid;border-image:var(--foil) 1;border-radius:0}
+.card:has(.tk.s[aria-pressed="true"]) .pic::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:0;mix-blend-mode:multiply;opacity:.3;
+  background:linear-gradient(115deg,#ffd6ec 8%,#c9ecff 30%,#fff3b8 50%,#cdf5d9 68%,#e6d3ff 88%)}
+.card:has(.tk.s[aria-pressed="true"]) .pic::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:2;
+  background:linear-gradient(115deg,transparent 32%,rgba(255,255,255,.28) 42%,transparent 52%)}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .card:has(.tk.s[aria-pressed="true"]) .pic::after{mix-blend-mode:screen;opacity:.16}
+  :root:not([data-theme="light"]) .card:has(.tk.s[aria-pressed="true"]) .pic::before{background:linear-gradient(115deg,transparent 32%,rgba(255,255,255,.12) 42%,transparent 52%)}}
+:root[data-theme="dark"] .card:has(.tk.s[aria-pressed="true"]) .pic::after{mix-blend-mode:screen;opacity:.16}
+:root[data-theme="dark"] .card:has(.tk.s[aria-pressed="true"]) .pic::before{background:linear-gradient(115deg,transparent 32%,rgba(255,255,255,.12) 42%,transparent 52%)}
+
+/* not caught yet (or, with a tab on, not that box): a faded print; costume and background cards go by their Caught box */
+.card[data-id]:not(.got):not(.informs),.card[data-costume]:not(:has(.tk.c[aria-pressed="true"])),.card.bgcard:not(:has(.tk.c[aria-pressed="true"])){--frame:var(--faded)}
+.card[data-id]:not(.got):not(.informs) .pic img,.card[data-costume]:not(:has(.tk.c[aria-pressed="true"])) .pic img,.card.bgcard:not(:has(.tk.c[aria-pressed="true"])) .bgpic img{filter:grayscale(1) opacity(.45)}
+.card[data-id]:not(.got):not(.informs) .nm,.card[data-costume]:not(:has(.tk.c[aria-pressed="true"])) .nm,.card.bgcard:not(:has(.tk.c[aria-pressed="true"])) .nm{color:var(--card-mute)}
+
+/* background cards: the game’s location card is the art window */
+.card.bgcard{padding-top:8px}
+.card.bgcard .bgpic{order:0;margin-top:2px;width:100%}
+.card.bgcard .nm{margin-top:0}
+
+/* Home: each region a set card, framed in its colour, its three Pokémon in an art window */
+.gens{gap:16px}
+.gen{--frame:color-mix(in srgb,var(--rc,#7E2530) var(--frame-amt),var(--frame-mix));color:var(--card-ink);
+  background:var(--stock),var(--card-stock);border:7px solid var(--frame);border-radius:12px;padding:10px 12px 12px;display:flex;flex-direction:column;box-shadow:var(--card-shadow)}
+.gen:hover{border-color:var(--frame)}
+.gen h3{order:-1;font-size:26px;line-height:1.05}
+.gen .label{order:-1;margin-top:2px;color:var(--card-mute)}
+.genart{position:static;order:0;justify-content:center;margin-top:8px;height:84px;align-items:center;overflow:hidden;border:2px solid color-mix(in srgb,var(--frame) 30%,var(--win-edge));border-radius:4px;
+  background:radial-gradient(circle,var(--win-dots) 1px,transparent 1.4px) 0 0/6px 6px,radial-gradient(circle at 50% 60%,var(--win-hi),color-mix(in srgb,var(--rc,#7E2530) 16%,var(--win-lo)))}
+.genart img{width:76px;height:76px;margin:0 2px;filter:drop-shadow(0 3px 3px rgba(0,0,0,.18))}
+.gen .rows{order:1}
+.gen[style*="span 2"] .genart{justify-content:flex-start;padding-left:12px}
+.section h2{font-size:32px}
+
+/* the filter line: tabs like card edges */
+.worktab{border-radius:5px;background:var(--card-stock)}
+
+/* a Pokémon’s page: its big picture as a card in the region’s colour, the picture in an art window */
+.monpic{--frame:color-mix(in srgb,var(--rc) var(--frame-amt),var(--frame-mix));background:var(--stock),var(--card-stock);border:7px solid var(--frame);border-radius:12px;
+  padding:12px 12px 14px;box-shadow:var(--card-shadow)}
+.monpic .pic{width:100%;height:250px;border-radius:4px;border:2px solid color-mix(in srgb,var(--frame) 30%,var(--win-edge));
+  background:radial-gradient(circle,var(--win-dots) 1px,transparent 1.4px) 0 0/6px 6px,radial-gradient(circle at 50% 60%,var(--win-hi),color-mix(in srgb,var(--rc) 16%,var(--win-lo)));
+  box-shadow:inset 0 0 0 1px var(--win-rim),inset 0 4px 10px rgba(0,0,0,.08)}
+.monpic .pic img{filter:drop-shadow(0 6px 6px rgba(0,0,0,.18))}
+.monpic .flips{right:8px;top:8px}
+.monpic .formpick{border-top:0;padding-top:0}
+.formpick button{background:var(--surface)}
+
+/* Event Pokémon: each set a card on the card stock, its picture in an art window */
+.settile{background:var(--stock),var(--card-stock);border-color:color-mix(in srgb,var(--card-ink) 10%,transparent);border-radius:12px;box-shadow:var(--card-shadow)}
+.settile.done{background:var(--stock),color-mix(in srgb,var(--caught) 6%,var(--card-stock))}
+.setart{border-radius:4px;border:2px solid color-mix(in srgb,var(--card-ink) 10%,var(--win-edge))}
+.setart.mosaic{background:radial-gradient(circle,var(--win-dots) 1px,transparent 1.4px) 0 0/6px 6px,radial-gradient(circle at 50% 50%,var(--win-hi),var(--win-lo))}
+/* every banner with totals: the tabs hang from its bottom edge (a set’s page has one tab) */
+:root[data-look] .hero:has(> .stats){padding-bottom:0}
+.evo,.cal,.bgrow,.event{background:var(--stock),var(--card-stock);box-shadow:var(--card-shadow)}
+
+/* ---------- narrow windows and phones: a top bar with a Menu button, the sidebar a drawer over the page (her ask, 21 Nov,
+   like Sim World); app.js opens and closes it ---------- */
+.topbar,.scrim{display:none}
+@media (max-width:900px){
+  :root{--side:0px}
+  main{margin-left:0;background:none}
+  .hero::before{display:none}
+  .side{width:min(300px,86vw);transform:translateX(-104%);visibility:hidden;transition:transform .25s ease,visibility 0s .25s;box-shadow:0 0 40px rgba(0,0,0,.35)}
+  body.nav-open .side{transform:none;visibility:visible;transition:transform .25s ease}
+  body.nav-open .scrim{display:block;position:fixed;inset:0;background:rgba(20,8,10,.45);z-index:15}
+  .topbar{display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:10;height:52px;padding:env(safe-area-inset-top,0px) 16px 0;box-sizing:content-box;
+    color:var(--on-deep);background:var(--grain),linear-gradient(var(--cover-hi),var(--cover));box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  .topbar button{display:inline-flex;align-items:center;gap:8px;padding:7px 14px 7px 12px;border-radius:99px;border:1px solid rgba(255,226,210,.3);background:rgba(0,0,0,.12);cursor:pointer;font-weight:700;font-size:14px;color:var(--on-deep)}
+  .topbar button:hover{background:rgba(255,240,230,.12)}
+  .topbar button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .topbar button .i{width:18px;height:18px}
+  .topname{font:400 22px/1 var(--display);color:var(--on-deep);text-decoration:none;white-space:nowrap}
+  .topname em{color:var(--accent)}
+  .toolbar{top:calc(52px + env(safe-area-inset-top,0px))}
+  /* a Pokémon’s page: the picture card above the text and facts */
+  .mondetail{grid-template-columns:minmax(0,1fr);gap:22px}
+  .monpic{width:min(100%,360px);justify-self:center}
+}
+@media (prefers-reduced-motion:reduce){ .side,body.nav-open .side{transition:none} }
+
+@media (max-width:700px){
+  .grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+  .hero .stat,.hero.withshot .stat{padding:5px 3px 6px}
+  .hero .stat b,.hero.withshot .stat b{font-size:15px}
+  .hero .stat b small,.hero.withshot .stat b small{font-size:9px}
+  /* the index tabs in two rows of seven, so “of 1,080” fits (thirteen in one row cut it short) */
+  .hero .stats,.hero.withshot .stats,.hero.setheroart .stats,.hero.withshot .stats.one{grid-auto-flow:row;grid-template-columns:repeat(7,minmax(0,1fr));
+    grid-auto-rows:auto;gap:5px 4px;margin-right:0}
+  .hero .stat,.hero.withshot .stat{min-height:62px}
+  /* a Pokémon’s page on a phone: Previous / Next on their own line, the facts one column, the picture boxes three a row */
+  .toolbar{position:static}   /* the filter line wraps to a third of a phone’s screen, so it scrolls away with the page */
+  .montop{flex-wrap:wrap}
+  .prevnext{margin-left:0;width:100%;justify-content:space-between}
+  .dfacts{grid-template-columns:minmax(0,1fr)}
+  .dex-entry{font-size:19px}
+  .pcs-strip,.ssbox{grid-auto-flow:row;grid-template-columns:repeat(3,minmax(0,1fr))}
+  .bigboxes{grid-template-columns:repeat(2,minmax(0,1fr))}
+}

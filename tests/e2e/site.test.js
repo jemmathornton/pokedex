@@ -718,6 +718,41 @@
     prefs.wantBox = "s";
   });
 
+  // ---------- narrow windows and phones (21 Nov, her ask): a top bar with a Menu button, the sidebar a drawer ----------
+  test("in a wide window the sidebar is there and there's no top bar", async () => {
+    eq(getComputedStyle(document.getElementById("topbar")).display, "none", "top bar");
+    ok(!document.getElementById("side").inert, "sidebar usable");
+  });
+
+  test("on a phone (390 wide): Menu opens the drawer; Escape, tapping outside and choosing a link close it", async () => {
+    const f = document.createElement("iframe");   // a phone-sized window of its own, same site
+    f.style.cssText = "position:fixed;left:0;top:0;width:390px;height:844px;border:0;opacity:0;pointer-events:none";
+    f.src = "index.html#gen-8";
+    document.body.append(f);
+    try {
+      await until(() => f.contentDocument && f.contentDocument.getElementById("menuBtn") && f.contentDocument.querySelector("#view .card"), 15000);
+      const w = f.contentWindow, d = f.contentDocument, btn = d.getElementById("menuBtn"), side = d.getElementById("side");
+      const isOpen = () => d.body.classList.contains("nav-open");
+      const key = k => w.dispatchEvent(new w.KeyboardEvent("keydown", {key: k, bubbles: true}));
+      ok(w.getComputedStyle(d.getElementById("topbar")).display !== "none", "top bar shown");
+      ok(side.inert && !isOpen(), "drawer shut and out of the Tab order");
+      eq(btn.getAttribute("aria-expanded"), "false");
+      ok(d.documentElement.scrollWidth <= 390, `no sideways scrolling (page ${d.documentElement.scrollWidth} wide)`);
+      btn.click();
+      ok(isOpen() && !side.inert, "opens"); eq(btn.getAttribute("aria-expanded"), "true");
+      ok(side.contains(d.activeElement), "focus goes into the drawer");
+      ok(side.querySelector(".home-link"), "the way back to Jemma’s Journals is in it");
+      key("Escape");
+      ok(!isOpen(), "Escape shuts it"); eq(btn.getAttribute("aria-expanded"), "false");
+      ok(d.activeElement === btn, "focus back on Menu");
+      btn.click(); d.getElementById("scrim").click();
+      ok(!isOpen(), "tapping outside shuts it");
+      btn.click(); side.querySelector('.nav a[href="#gen-1"]').click();
+      ok(!isOpen(), "choosing a link shuts it");
+      await until(() => w.location.hash === "#gen-1");
+    } finally { f.remove(); }
+  });
+
   // ---------- run ----------
   addEventListener("load", async () => {
     await wait(500);

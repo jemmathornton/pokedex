@@ -10,10 +10,13 @@
 <link rel="icon" href="icon-48.png" sizes="48x48" type="image/png">
 <link rel="icon" href="icon-192.png" sizes="192x192" type="image/png">
 <link rel="apple-touch-icon" href="icon-192.png">
-<meta name="theme-color" content="#5A1820">
-<link rel="stylesheet" href="site.css?v=dbf340a6">
+<meta name="theme-color" content="#7A1E2A">
+<link rel="stylesheet" href="site.css?v=5664659c">
 </head>
 <body>
+<!-- narrow windows and phones (21 Nov, her ask: like her other apps): a slim top bar with a Menu button; the sidebar opens as a drawer -->
+<div class="topbar" id="topbar"><button id="menuBtn" type="button" aria-controls="side" aria-expanded="false" aria-label="Open the menu"><span id="menuIco"></span>Menu</button><a class="topname" href="#home">Jemma’s <em>Pokédex</em></a></div>
+<div class="scrim" id="scrim"></div>
 <aside class="side" id="side" aria-label="Pokédex">
   <!-- HOME LINK: back to Jemma’s Journals, her home site (her pick A, 20 Nov). The address is this href alone: "/" is home
        once the sites share one address online (home at the root, the apps under it); locally it opens this app’s own start. -->
@@ -25,8 +28,8 @@
 <main id="main"><div class="wrap" id="view"></div></main>
 <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
 
-<script src="js/icons.js?v=de29d06d"></script>
+<script src="js/icons.js?v=045cc5e4"></script>
 <script src="js/data.js?v=83b82c96"></script>
-<script src="js/app.js?v=de1d56b7"></script>
+<script src="js/app.js?v=780d041a"></script>
 </body>
 </html>
