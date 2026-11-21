@@ -1510,20 +1510,3 @@ route();
 if (location.protocol.startsWith("http")) {
   fetch("/api/collection").then(r => r.ok ? r.json() : Promise.reject()).then(c => { COL = norm(c); readOnly = false; rerender(); }).catch(() => { if (location.protocol !== "file:") { loadFailed = true; rerender(); } });
 }
-
-// ===== TRIAL: Try switch (21 Nov, her “show me both”), START. Remove this block, the TRIAL block at the end of site.css and the
-// data-t1 attributes in card() and pokemonPage() once she has picked. Bottom right: Lucky box text White / Dark, and the card
-// art behind the Pokémon in the Region colour / the Type colour (the Pokémon’s first type). Kept in this browser only.
-(function tryPanel(){
-  const KEY = "jemmas-pokedex-try", ROWS = [["lucky", "Lucky box text", [["white", "White"], ["dark", "Dark"]]], ["art", "Card art", [["region", "Region colour"], ["type", "Type colour"]]]];
-  const st = Object.assign({lucky: "white", art: "region"}, store.get(KEY, {}));
-  const box = document.createElement("div"); box.className = "trybox"; box.setAttribute("role", "group"); box.setAttribute("aria-label", "Try");
-  const draw = () => {
-    for (const [k] of ROWS) document.documentElement.dataset["try" + k[0].toUpperCase() + k.slice(1)] = st[k];
-    box.innerHTML = `<b>Try</b>` + ROWS.map(([k, label, opts]) => `<div class="tryrow"><span>${label}</span>` +
-      opts.map(([v, l]) => `<button type="button" data-try="${k}" data-v="${v}" aria-pressed="${st[k] === v}">${l}</button>`).join("") + `</div>`).join("");
-  };
-  box.addEventListener("click", ev => { const b = ev.target.closest("[data-try]"); if (!b) return; st[b.dataset.try] = b.dataset.v; store.set(KEY, st); draw(); });
-  draw(); document.body.append(box);
-})();
-// ===== TRIAL: Try switch, END

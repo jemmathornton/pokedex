@@ -15,7 +15,7 @@
 <!-- light unless she has pressed Dark mode (family rules, 21 Nov: never by the device's setting); jj-mode is the one setting every
      site in the family shares (the old jemmas-pokedex-mode is read once if jj-mode is missing, then removed). Set before the page draws, so it never flashes -->
 <script>(function(){var m="light";try{var v=localStorage.getItem("jj-mode");if(v===null){v=localStorage.getItem("jemmas-pokedex-mode");if(v==="dark"||v==="light")localStorage.setItem("jj-mode",v)}localStorage.removeItem("jemmas-pokedex-mode");if(v==="dark")m="dark"}catch(e){}document.documentElement.setAttribute("data-mode",m);if(m==="dark")document.querySelector('meta[name="theme-color"]').setAttribute("content","#4E1018")})()</script>
-<link rel="stylesheet" href="site.css?v=7703ac96">
+<link rel="stylesheet" href="site.css?v=3e3965a9">
 </head>
 <body>
 <!-- narrow windows and phones (21 Nov, her ask: like her other apps): a slim top bar with a Menu button; the sidebar opens as a drawer -->
@@ -41,6 +41,6 @@
 
 <script src="js/icons.js?v=58749ce0"></script>
 <script src="js/data.js?v=83b82c96"></script>
-<script src="js/app.js?v=1b98ff70"></script>
+<script src="js/app.js?v=d17ebf09"></script>
 </body>
 </html>

@@ -331,21 +331,12 @@
     }
   });
 
-  test("TRIAL Try switch (21 Nov): Lucky box text White / Dark and card art Region / Type colour", async () => {
-    const box = document.querySelector(".trybox"); ok(box, "the Try switch is there");
-    const key = "d:1", before = COL.have[key];
-    try {
-      COL.have[key] = ["c", "l"]; prefs.work = "all"; prefs.workShow = "all"; await go("#gen-1");
-      click(box.querySelector('[data-try="lucky"][data-v="dark"]')); await wait(20);
-      eq(getComputedStyle(view().querySelector('.card[data-id="1"] .tk.l[aria-pressed="true"]')).color, "rgb(43, 33, 8)", "dark text on the Lucky box");
-      click(box.querySelector('[data-try="lucky"][data-v="white"]')); await wait(20);
-      eq(getComputedStyle(view().querySelector('.card[data-id="1"] .tk.l[aria-pressed="true"]')).color, "rgb(255, 255, 255)", "white again");
-      const pic = () => getComputedStyle(view().querySelector('.card[data-id="1"] .pic')).backgroundImage;
-      const region = pic(); click(box.querySelector('[data-try="art"][data-v="type"]')); await wait(20);
-      ok(pic() !== region, "Bulbasaur's art in its type's tint");
-      click(box.querySelector('[data-try="art"][data-v="region"]')); await wait(20);
-      eq(pic(), region, "back to the region colour");
-    } finally { if (before) COL.have[key] = before; else delete COL.have[key]; }
+  test("the art window is tinted by the Pokémon's first type (her pick, 21 Nov); no Try switch left", async () => {
+    ok(!document.querySelector(".trybox"), "the Try switch is gone");
+    prefs.work = "all"; prefs.workShow = "all"; await go("#gen-1");
+    const art = id => { const c = view().querySelector(`.card[data-id="${id}"]`); return c && getComputedStyle(c.querySelector(".pic")).backgroundImage; };
+    eq(view().querySelector('.card[data-id="1"]').dataset.t1, "Grass", "Bulbasaur: Grass");
+    ok(art("1") && art("4") && art("1") !== art("4"), "Grass and Fire tints differ");
   });
 
   test("male and female fully different (Frillish…) are two forms with their own boxes and no ♂/♀ box", async () => {

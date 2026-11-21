@@ -1173,23 +1173,12 @@ main{background:linear-gradient(90deg,rgba(70,40,30,.18),rgba(70,40,30,0) 54px) 
 .evo.stack .evo-step{flex-direction:column;min-width:0;max-width:260px;text-align:center;gap:4px}
 .evo.stack .evo-step > .i{transform:rotate(90deg)}
 
-/* ===== TRIAL: Try switch (21 Nov), START: remove with the TRIAL block at the end of app.js once she has picked =====
-   Lucky box text: White (as now) or Dark (#2B2108 on the gold #D09B00: 6.3:1; white is 2.5:1).
-   Card art: Region colour (as now) or a pale tint of the Pokémon's first type (the usual game type colours: a suggestion). */
-.trybox{position:fixed;right:12px;bottom:12px;z-index:60;display:grid;gap:6px;padding:8px 10px;border-radius:10px;background:var(--surface,#fff);color:var(--ink,#222);
-  border:1px solid var(--line,#ccc);box-shadow:0 4px 16px rgba(0,0,0,.2);font:600 12px var(--body,sans-serif)}
-.trybox > b{font-size:11px;letter-spacing:.08em;text-transform:uppercase}
-.tryrow{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
-.tryrow span{min-width:92px}
-.tryrow button{font:inherit;padding:3px 8px;border-radius:6px;border:1px solid var(--line,#ccc);background:transparent;color:inherit;cursor:pointer}
-.tryrow button[aria-pressed="true"]{background:var(--ink,#222);color:var(--surface,#fff);border-color:transparent}
-:root[data-try-lucky="dark"] .tk.l[aria-pressed="true"],:root[data-try-lucky="dark"] .tk.fb.l .fill{color:#2B2108}
+/* The art window behind the Pokémon: a pale tint of its first type (her pick, 21 Nov, from the Try switch; the usual game type colours).
+   data-t1 is set in card() and pokemonPage(); the card frame keeps the region colour. */
 [data-t1="Normal"]{--tc:#A8A77A}[data-t1="Fire"]{--tc:#EE8130}[data-t1="Water"]{--tc:#6390F0}[data-t1="Electric"]{--tc:#F7D02C}[data-t1="Grass"]{--tc:#7AC74C}
 [data-t1="Ice"]{--tc:#96D9D6}[data-t1="Fighting"]{--tc:#C22E28}[data-t1="Poison"]{--tc:#A33EA1}[data-t1="Ground"]{--tc:#E2BF65}[data-t1="Flying"]{--tc:#A98FF3}
 [data-t1="Psychic"]{--tc:#F95587}[data-t1="Bug"]{--tc:#A6B91A}[data-t1="Rock"]{--tc:#B6A136}[data-t1="Ghost"]{--tc:#735797}[data-t1="Dragon"]{--tc:#6F35FC}
 [data-t1="Dark"]{--tc:#705746}[data-t1="Steel"]{--tc:#B7B7CE}[data-t1="Fairy"]{--tc:#D685AD}
-:root[data-try-art="type"] :is(.card,.monpic)[data-t1]:not([data-t1=""]) .pic{
+:is(.card,.monpic)[data-t1]:not([data-t1=""]) .pic{
   background:radial-gradient(circle,var(--win-dots) 1px,transparent 1.4px) 0 0/6px 6px,radial-gradient(circle at 50% 60%,var(--win-hi),color-mix(in srgb,var(--tc) 30%,var(--win-lo)))}
-@media print{.trybox{display:none}}
-/* ===== TRIAL: Try switch, END ===== */
 
