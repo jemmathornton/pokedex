@@ -299,6 +299,55 @@
     } finally { keys.forEach((k, i) => { if (before[i]) COL.have[k] = before[i]; else delete COL.have[k]; }); prefs.workShow = "all"; }
   });
 
+  test("her answers (21 Nov): Hide ones I have is off when the app opens; a search shows everything matching; foil only with Shiny ticked", async () => {
+    const saved = localStorage.getItem(PREFS_KEY);
+    localStorage.setItem(PREFS_KEY, JSON.stringify(Object.assign({}, prefs, {workShow: "need"})));
+    const f = document.createElement("iframe");
+    f.style.cssText = "position:fixed;left:0;top:0;width:1280px;height:800px;border:0;opacity:0;pointer-events:none";
+    f.src = "index.html#gen-1"; document.body.append(f);
+    try {
+      await until(() => f.contentDocument && f.contentDocument.querySelector("#view [data-showall]"), 15000);
+      eq(f.contentDocument.querySelector("#view [data-showall]").getAttribute("aria-checked"), "false", "the switch off on opening, whatever was kept");
+    } finally { f.remove(); if (saved === null) localStorage.removeItem(PREFS_KEY); else localStorage.setItem(PREFS_KEY, saved); }
+    const key = "d:25", before = COL.have[key];
+    try {
+      COL.have[key] = ["c"]; prefs.work = "all"; prefs.workShow = "need";
+      await go("#dex"); q.value = "pikachu"; route(); await wait(30);
+      ok(view().querySelector('.card[data-id="25"]'), "Pikachu caught, Hide ones I have on: still found by the search");
+      ok(!view().querySelector("[data-showall]"), "no Hide ones I have switch on a search");
+      q.value = ""; prefs.workShow = "all"; await go("#gen-1");
+      const pika = view().querySelector('.card[data-id="25"]');
+      ok(pika && !pika.classList.contains("shiny") && getComputedStyle(pika.querySelector(".pic")).borderImageSource === "none", "caught, Shiny not ticked: no foil");
+      ok([...view().querySelectorAll(".card")].filter(c => c.classList.contains("shiny")).every(c => c.querySelector('.tk.s[aria-pressed="true"]') || c.querySelector(".tk.fb.s")), "every foil card has its Shiny box ticked");
+    } finally { q.value = ""; if (before) COL.have[key] = before; else delete COL.have[key]; prefs.workShow = "all"; }
+  });
+
+  test("a Pokémon page's banner has room under its chips, as much as above (her note, 21 Nov: Fire, Female… sat on the edge)", async () => {
+    for (const h of ["#p-6", "#p-201", "#p-25"]) {
+      await go(h);
+      const hero = view().querySelector(".hero"), chips = hero.querySelector(".chips");
+      const below = hero.getBoundingClientRect().bottom - chips.getBoundingClientRect().bottom;
+      ok(below >= 24, `${h}: ${below}px under the chips`);
+    }
+  });
+
+  test("TRIAL Try switch (21 Nov): Lucky box text White / Dark and card art Region / Type colour", async () => {
+    const box = document.querySelector(".trybox"); ok(box, "the Try switch is there");
+    const key = "d:1", before = COL.have[key];
+    try {
+      COL.have[key] = ["c", "l"]; prefs.work = "all"; prefs.workShow = "all"; await go("#gen-1");
+      click(box.querySelector('[data-try="lucky"][data-v="dark"]')); await wait(20);
+      eq(getComputedStyle(view().querySelector('.card[data-id="1"] .tk.l[aria-pressed="true"]')).color, "rgb(43, 33, 8)", "dark text on the Lucky box");
+      click(box.querySelector('[data-try="lucky"][data-v="white"]')); await wait(20);
+      eq(getComputedStyle(view().querySelector('.card[data-id="1"] .tk.l[aria-pressed="true"]')).color, "rgb(255, 255, 255)", "white again");
+      const pic = () => getComputedStyle(view().querySelector('.card[data-id="1"] .pic')).backgroundImage;
+      const region = pic(); click(box.querySelector('[data-try="art"][data-v="type"]')); await wait(20);
+      ok(pic() !== region, "Bulbasaur's art in its type's tint");
+      click(box.querySelector('[data-try="art"][data-v="region"]')); await wait(20);
+      eq(pic(), region, "back to the region colour");
+    } finally { if (before) COL.have[key] = before; else delete COL.have[key]; }
+  });
+
   test("male and female fully different (Frillish…) are two forms with their own boxes and no ♂/♀ box", async () => {
     const m = ENTRIES.find(e => e.id === "592"), f = ENTRIES.find(e => e.id === "592-female");
     ok(m && f && m.form === "Male" && f.form === "Female" && f.img !== m.img, "two entries, each its own picture");
@@ -755,7 +804,7 @@
     }
   });
 
-  test("the banner tabs are never cut, never under 10px, keep their icons and never slide sideways, at 1600, 1280, 1000, 901 and 390 (second review, 21 Nov)", async () => {
+  test("the banner tabs are never cut, never under 8.5px (other tiles 10px), keep their icons and never slide sideways, at 1600, 1280, 1000, 901 and 390 (second review, 21 Nov)", async () => {
     const problems = [];
     for (const width of [1600, 1280, 1000, 901, 390]) {
       const f = document.createElement("iframe");
@@ -771,7 +820,7 @@
             const l = t.querySelector(".slt"); if (!l) continue;
             const icon = t.querySelector(".sl > svg, .sl > .i");
             if (w.textOver(l)) problems.push(`${width} ${h}: “${l.textContent}” cut`);
-            if (parseFloat(w.getComputedStyle(l).fontSize) < 10) problems.push(`${width} ${h}: “${l.textContent}” ${w.getComputedStyle(l).fontSize}`);
+            if (parseFloat(w.getComputedStyle(l).fontSize) < (t.classList.contains("stattab") ? 8.5 : 10)) problems.push(`${width} ${h}: “${l.textContent}” ${w.getComputedStyle(l).fontSize}`);
             if (t.getBoundingClientRect().right > hero.right + .5) problems.push(`${width} ${h}: “${l.textContent}” past the banner's edge`);
             if (!icon || w.getComputedStyle(icon).display === "none") problems.push(`${width} ${h}: “${l.textContent}” lost its icon`);
           }
@@ -788,7 +837,7 @@
     eq(problems, [], "problems:");
   });
 
-  test("every region page and Every Pokémon have tabs of the same size, in the same rows, at 1600 and 1280 (her note, 21 Nov: Kanto's were bigger and didn't fit in a line)", async () => {
+  test("every region page and Every Pokémon have tabs of the same size, in one row, at 1600 and 1280 (her note, 21 Nov: Kanto's were bigger and didn't fit in a line)", async () => {
     const problems = [];
     for (const width of [1600, 1584, 1280]) {   // 1584: her 1600 window less its scrollbar
       const f = document.createElement("iframe");
@@ -805,7 +854,9 @@
         }
         const k = seen.find(x => x.h === "#gen-1");
         for (const x of seen) if (x.w !== k.w || x.ht !== k.ht || x.row !== k.row) problems.push(`${width}: ${x.h} ${x.w}×${x.ht} (${x.row}) but Kanto ${k.w}×${k.ht} (${k.row})`);
-        if (width >= 1584 && k.row !== "one") problems.push(`${width}: Kanto's tabs not in one line`);
+        if (k.row !== "one") problems.push(`${width}: Kanto's tabs not in one line`);   // 1280 too: smaller writing rather than two rows (her answer, 21 Nov)
+        const sizes = new Set([...d.querySelectorAll("#view .hero .stattab .slt")].map(l => w.getComputedStyle(l).fontSize));
+        if (sizes.size !== 1) problems.push(`${width}: tab writing in ${[...sizes].join(", ")}`);
       } finally { f.remove(); }
     }
     eq(problems, [], "problems:");
@@ -908,7 +959,7 @@
       if (!name || name.textContent !== "Jemma’s Pokédex" || getComputedStyle(name).fontStyle !== "normal" || getComputedStyle(name).fontSize !== "24px") problems.push(`${h}: the name`);
       if ([...foot.querySelectorAll(".about-site .dot")].some(x => x.textContent !== "\u00a0·" || !/^ /.test(x.nextSibling?.textContent || ""))) problems.push(`${h}: a “·” could start or end a line (credit&nbsp;· credit)`);
       if (!/balance/.test(getComputedStyle(lines[1]).textWrap || getComputedStyle(lines[1]).textWrapStyle || "")) problems.push(`${h}: the credits not balanced`);
-      if (lines.length !== 2 || lines[0].textContent !== "No cookies, no tracking, no ads. Made with plain HTML and CSS, kept on GitHub.") problems.push(`${h}: line 1`);
+      if (lines.length !== 2 || lines[0].textContent !== "No cookies, no tracking, no ads. Made with HTML, CSS and JavaScript, kept on GitHub.") problems.push(`${h}: line 1`);
       const credits = [...foot.querySelectorAll(".about-site .cr")].map(c => c.textContent);
       if (credits.join(" | ") !== "Pokémon pictures, backgrounds and region maps from the Pokémon games | Fonts: Instrument Serif and Manrope | Icons by Lucide, Phosphor, MingCute and Solar (480 Design)") problems.push(`${h}: credits ${credits.join(" | ")}`);
       { const cl = foot.querySelector(".about-site p:last-child"); if (cl.scrollWidth > cl.clientWidth + 1) problems.push(`${h}: the credits line can’t wrap`); }   // round-2 review: it couldn’t, so pages scrolled sideways at 601–1113

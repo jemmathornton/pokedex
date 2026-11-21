@@ -25,10 +25,10 @@ const store = {
   set(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch {} },
 };
 const PREFS_KEY = "jemmas-pokedex-view";
-const prefs = Object.assign({work: "all", workShow: "need", gender: "any", forms: "all", type: "any", kind: "any",
+const prefs = Object.assign({work: "all", workShow: "all", gender: "any", forms: "all", type: "any", kind: "any",
   unreleased: false, costumes: "auto", events: "all", comingHide: ["research"]}, store.get(PREFS_KEY, {}));   // What's on: research off to begin with (her point, 19 Nov: barely an in-game event)
 if (["genders", "caught", "forms"].includes(prefs.work)) prefs.work = "all";
-if (!["need", "all"].includes(prefs.workShow)) prefs.workShow = "need";   // tabs that no longer exist
+prefs.workShow = "all";   // "Hide ones I have" is always off when the app opens, not remembered (her answer, 21 Nov)
 const keepPrefs = () => store.set(PREFS_KEY, prefs);
 
 // ---------- what there is ----------
@@ -151,10 +151,10 @@ const BOXF = [   // each box as a filter: which Pokémon it applies to, and whet
   {k: "hundo", label: "4★", applies: e => e.released, have: e => has(dk(e), "h"), ticks: ["h"]},
 ];
 const boxPass = (b, val, e) => val === "have" ? b.applies(e) && b.have(e) : val === "need" ? b.applies(e) && !b.have(e) : true;
-function boxFilter(e){
+function boxFilter(e, show = prefs.workShow){
   const b = BOXF.find(x => x.k === prefs.work);
-  if (!b) return prefs.workShow !== "need" || !caught(e);   // no tab: "Not caught" shows the ones not caught at all
-  return b.applies(e) && boxPass(b, prefs.workShow, e);
+  if (!b) return show !== "need" || !caught(e);   // no tab: "Not caught" shows the ones not caught at all
+  return b.applies(e) && boxPass(b, show, e);
 }
 let showAllBoxes = false;   // the Pokémon page shows every box, whatever tab is picked
 function onlyTicks(e){   // cards show only the box she's working on
@@ -305,7 +305,7 @@ function card(e, more = "", inForms = false, forms = null){
   const got = byForm ? formsGot(forms, tab) : tab ? tab.applies(e) && tab.have(e) : caught(e);
   const some = byForm && !got && forms.some(f => tab ? tab.applies(f) && tab.have(f) : caught(f));   // some of its forms: not faded (binder review, 21 Nov: Floette 2/5 looked not caught)
   const shiny = byForm ? forms.some(f => has(dk(f), "s")) : has(dk(e), "s");   // the foil shows whatever tab is on (binder review, 21 Nov)
-  return `<div class="card${e.released ? "" : " out-not"}${got ? " got" : ""}${some ? " some" : ""}${shiny ? " shiny" : ""}${inForms ? " informs" : ""}" data-id="${attr(e.id)}"${got ? ` style="--hl:var(${HL[tab ? tab.k : "caught"]})"` : ""}>` +
+  return `<div class="card${e.released ? "" : " out-not"}${got ? " got" : ""}${some ? " some" : ""}${shiny ? " shiny" : ""}${inForms ? " informs" : ""}" data-id="${attr(e.id)}" data-t1="${attr((e.types || [])[0] || "")}"${got ? ` style="--hl:var(${HL[tab ? tab.k : "caught"]})"` : ""}>` +
     `<span class="no">#${pad(e.dex)}</span>` + (flags.length ? `<span class="flags">${flags.map(f => `<span>${esc(f)}</span>`).join("")}</span>` : "") +
     pic(e, dk(e)) +
     `<a class="nm" href="${pageOf(e)}" title="Open ${tip(e.name)}’s page">${esc(e.name)}</a><small class="fm">${esc(e.form || "")}${e.form && gw ? " · " : ""}${gw ? `<span class="gd">${esc(gw)}</span>` : ""}</small>` +
@@ -411,18 +411,20 @@ function fitLabels(){
   }
 }
 // the banner's tabs (her note, 21 Nov: the writing shrinks, the icon stays, in line with the rest): every label whole, at
-// 10px or more beside its icon, in one row where that fits; otherwise in even rows (13 as 7 + 6, then 5 + 5 + 3 …) rather
-// than sliding sideways or cut at the banner's edge (second review, 21 Nov: at 1280 "4★" was cut in half and Gigantamax was
-// 7.5px). A single row of a few tiles (a set's page: Backgrounds) keeps the tiles' usual size (her rule, 13 Nov) unless a label
-// needs more, then they widen just enough. Only if nothing fits does a label go under 10px (never under 7px). Measured to the
+// TAB_MIN (8.5px) or more beside its icon, in one row where that fits; otherwise in even rows (13 as 7 + 6, then 5 + 5 + 3 …)
+// rather than sliding sideways or cut at the banner's edge (second review, 21 Nov: at 1280 "4★" was cut in half and Gigantamax
+// was 7.5px). Her answer (21 Nov): at 1280 one row with smaller writing rather than two rows, the same on every region and
+// Every Pokémon; rows only where even TAB_MIN won't fit (phones). Tiles that aren't tabs (Home, a set's page) keep 10px. A single row of a few tiles (a set's page: Backgrounds) keeps the tiles' usual size (her rule, 13 Nov) unless a label
+// needs more, then they widen just enough. Only if nothing fits does a label go under that floor (never under 7px). Measured to the
 // fraction of a pixel (textOver), since scrollWidth rounds. Tab rows are laid out for the longest label any page can have
 // ("Gigantamax"), so every region page and Every Pokémon have tabs of the same size, in one row or in the same rows (her note,
 // 21 Nov: Kanto's tabs came out bigger than the rest and didn't fit in a line, because only regions with a Gigantamax tab
 // were sent to rows).
 const tabCanvas = document.createElement("canvas").getContext("2d");
-function longestFits(t){   // would "Gigantamax" fit whole at 10px beside its icon in this tile?
+const TAB_MIN = 8.5;   // the smallest writing on a banner tab before they go into rows (her answer, 21 Nov: smaller rather than two rows)
+function longestFits(t, px){   // would "Gigantamax" fit whole at px beside its icon in this tile?
   const l = t.querySelector(".slt"), sl = l.parentElement, ic = sl.querySelector(":scope > svg, :scope > .i"), cs = getComputedStyle(t), ls = getComputedStyle(l);
-  tabCanvas.font = `${ls.fontWeight} 10px ${ls.fontFamily}`;
+  tabCanvas.font = `${ls.fontWeight} ${px}px ${ls.fontFamily}`;
   const room = t.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight) - (ic ? ic.getBoundingClientRect().width + (parseFloat(getComputedStyle(sl).columnGap) || 0) : 0);
   return tabCanvas.measureText("Gigantamax").width <= room - 1;   // a pixel to spare, as the page measures a hair wider
 }
@@ -432,7 +434,7 @@ function fitTabs(st){
   for (const l of labs) l.style.fontSize = "";
   if (!labs.length || !st.offsetParent) return;
   const n = tiles.length, top = tiles[0].offsetTop, c0 = tiles.filter(t => t.offsetTop === top).length;
-  const tabs = !!st.querySelector(".stattab"), most = tabs ? 13 : n;   // tab rows: always as for the thirteen tabs of Kanto or Galar
+  const tabs = !!st.querySelector(".stattab"), most = tabs ? 13 : n, least = tabs ? TAB_MIN : 10;   // tab rows: always as for the thirteen tabs of Kanto or Galar
   const cols = [c0];   // as laid out, then fewer columns: even rows, or (a few tiles in one row) a little wider each
   if (tabs || c0 < n) for (let r = 2; r <= most; r++) { const c = Math.ceil(most / r); if (c < cols[cols.length - 1]) cols.push(c); if (c <= 3) break; }
   else { const gap = parseFloat(getComputedStyle(st).columnGap) || 0, w = tiles[0].getBoundingClientRect().width;
@@ -440,7 +442,12 @@ function fitTabs(st){
   const fit = least => labs.every(l => { let f = parseFloat(getComputedStyle(l).fontSize); while (textOver(l) && f > least) l.style.fontSize = (f -= 0.25) + "px"; return !textOver(l); });
   for (let i = 0; i < cols.length; i++) {
     if (i) { st.classList.add("rows"); st.style.gridTemplateColumns = `repeat(${cols[i]},minmax(0,1fr))`; for (const l of labs) l.style.fontSize = ""; }
-    if ((!tabs || longestFits(tiles[0])) && fit(10)) return;
+    if (tabs && longestFits(tiles[0], least)) {   // every tab's writing the size "Gigantamax" needs, so every region and Every Pokémon match (her note, 21 Nov)
+      let f = parseFloat(getComputedStyle(labs[0]).fontSize);
+      while (f > least && !longestFits(tiles[0], f)) f -= 0.25;
+      for (const l of labs) if (parseFloat(getComputedStyle(l).fontSize) > f) l.style.fontSize = f + "px";
+    }
+    if ((!tabs || longestFits(tiles[0], least)) && fit(least)) return;
   }
   fit(7);
 }
@@ -521,10 +528,11 @@ function home(){
     <p class="muted" style="margin-top:40px;font-size:12.5px">Pokémon data from the game, checked ${dates(DATA.updated)}.</p>`;
 }
 
-function dexPage(title, label, list, region){
+function dexPage(title, label, list, region, search = false){
   const shown = list.filter(e => prefs.unreleased || e.released);
-  let items = shown.filter(boxFilter);
-  if (prefs.workShow === "need") {   // a Pokémon is got when any of its forms has it, as the totals count (15 Nov review: Scatterbug,
+  const hide = prefs.workShow === "need" && !search;   // a search shows everything matching, even with "Hide ones I have" on (her answer, 21 Nov)
+  let items = shown.filter(e => boxFilter(e, hide ? "need" : "all"));
+  if (hide) {   // a Pokémon is got when any of its forms has it, as the totals count (15 Nov review: Scatterbug,
     // Rockruff, Sinistea and Paldean Tauros stayed on "Hide ones I have" with a different form caught); not the ones she tracks form by form
     const b = BOXF.find(x => x.k === prefs.work);
     const got = new Set(shown.filter(e => !FORM_SPECIES.has(e.dex) && (b ? b.applies(e) && b.have(e) : caught(e))).map(groupKey));
@@ -545,8 +553,8 @@ function dexPage(title, label, list, region){
   view.innerHTML = `<header class="hero${shot.cls || ""}"${shot.style}>${shot.sw}${heroArt(region ? firstStages(list) : STARTERS.map(d => baseOf[d]))}<span class="label">${esc(label)} · ${num(groups.length)} shown</span><h1>${title}</h1>${statsHtml(counts(list), true)}</header>${readOnlyNote()}
     <div class="toolbar filters" id="toolbar">
       <div class="frow"><div class="worktabs">` +
-      (picked || prefs.workShow === "need" ? `<button class="linkbtn" type="button" data-clear>${ic("x")}Clear</button>` : "") +
-      `<span class="switches"><button class="switchbtn" type="button" role="switch" data-showall aria-checked="${prefs.workShow === "need"}"><span class="track"></span>Hide ones I have</button>` +
+      (picked || hide ? `<button class="linkbtn" type="button" data-clear>${ic("x")}Clear</button>` : "") +
+      `<span class="switches">` + (search ? "" : `<button class="switchbtn" type="button" role="switch" data-showall aria-checked="${hide}"><span class="track"></span>Hide ones I have</button>`) +
       (notOut ? `<button class="switchbtn" type="button" role="switch" data-notout="${prefs.unreleased ? "no" : "yes"}" aria-checked="${prefs.unreleased}"><span class="track"></span>Not in GO</button>` : "") +
       `</span></div></div></div>
     ${items.length ? `<div class="grid" id="grid">${groupCards(groups)}</div>` : `<p class="empty">Nothing here.</p>`}`;
@@ -699,7 +707,7 @@ function pokemonPage(key){
       <nav class="prevnext" aria-label="Previous and next Pokémon">${step(prev, "prev")}${step(next, "next")}</nav></div>
     <div class="monhead"><div><span class="label">#${pad(n)}${sel.category ? " · " + esc(sel.category) : ""}</span><h1>${esc(sel.name)}${sel.form ? ` <em>${esc(sel.form)}</em>` : ""}</h1>
       <div class="chips">${sel.types.map(t => `<span class="type">${esc(t)}</span>`).join("")}${{both: ["Female", "Male"], male: ["Male"], female: ["Female"], none: ["Genderless"]}[sel.gender].map(g => `<span class="type">${g}</span>`).join("")}${kind ? `<span class="type">${esc(kind)}</span>` : ""}${sel.released ? "" : `<span class="type">Unavailable in GO</span>`}</div></div></div></header>${readOnlyNote()}
-    <div class="mondetail"><div class="monpic">${pic(sel, dk(sel), true)}${picker}</div>
+    <div class="mondetail"><div class="monpic" data-t1="${attr((sel.types || [])[0] || "")}">${pic(sel, dk(sel), true)}${picker}</div>
       <div>${desc}${facts}</div></div>
     <section class="section"><div class="boxhead"><h2>Your <em>boxes</em>${ordered.length > 1 ? ` <span class="muted">for ${esc(formLabel(sel))}</span>` : ""}</h2></div>${bigBoxes(sel)}</section>
     ${family ? `<section class="section"><h2>Evolution <em>family</em></h2>${family}</section>` : ""}
@@ -1286,7 +1294,7 @@ function route(to){   // to: draw that page without changing the address (the te
   if (term) {
     const n = parseInt(term.replace(/^#/, ""), 10);
     const list = ENTRIES.filter(e => (e.name + " " + (e.form || "")).toLowerCase().includes(term) || e.dex === n);
-    return dexPage(`“${esc(q.value.trim())}”`, "Search", list);
+    return dexPage(`“${esc(q.value.trim())}”`, "Search", list, undefined, true);
   }
   const g = /^gen-(\w+)$/.exec(r);
   if (g && genById[g[1]]) return dexPage(esc(genById[g[1]][1]), genById[g[1]][2], ENTRIES.filter(e => e.gen === g[1]), g[1]);
@@ -1502,3 +1510,20 @@ route();
 if (location.protocol.startsWith("http")) {
   fetch("/api/collection").then(r => r.ok ? r.json() : Promise.reject()).then(c => { COL = norm(c); readOnly = false; rerender(); }).catch(() => { if (location.protocol !== "file:") { loadFailed = true; rerender(); } });
 }
+
+// ===== TRIAL: Try switch (21 Nov, her “show me both”), START. Remove this block, the TRIAL block at the end of site.css and the
+// data-t1 attributes in card() and pokemonPage() once she has picked. Bottom right: Lucky box text White / Dark, and the card
+// art behind the Pokémon in the Region colour / the Type colour (the Pokémon’s first type). Kept in this browser only.
+(function tryPanel(){
+  const KEY = "jemmas-pokedex-try", ROWS = [["lucky", "Lucky box text", [["white", "White"], ["dark", "Dark"]]], ["art", "Card art", [["region", "Region colour"], ["type", "Type colour"]]]];
+  const st = Object.assign({lucky: "white", art: "region"}, store.get(KEY, {}));
+  const box = document.createElement("div"); box.className = "trybox"; box.setAttribute("role", "group"); box.setAttribute("aria-label", "Try");
+  const draw = () => {
+    for (const [k] of ROWS) document.documentElement.dataset["try" + k[0].toUpperCase() + k.slice(1)] = st[k];
+    box.innerHTML = `<b>Try</b>` + ROWS.map(([k, label, opts]) => `<div class="tryrow"><span>${label}</span>` +
+      opts.map(([v, l]) => `<button type="button" data-try="${k}" data-v="${v}" aria-pressed="${st[k] === v}">${l}</button>`).join("") + `</div>`).join("");
+  };
+  box.addEventListener("click", ev => { const b = ev.target.closest("[data-try]"); if (!b) return; st[b.dataset.try] = b.dataset.v; store.set(KEY, st); draw(); });
+  draw(); document.body.append(box);
+})();
+// ===== TRIAL: Try switch, END

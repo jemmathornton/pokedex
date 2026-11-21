@@ -899,7 +899,9 @@ main{background:linear-gradient(90deg,rgba(70,40,30,.18),rgba(70,40,30,0) 54px) 
 .hero::before{content:"";position:absolute;top:0;bottom:0;left:0;width:54px;z-index:2;pointer-events:none;background:linear-gradient(90deg,rgba(0,0,0,.28),transparent)}
 
 /* the totals: index tabs hanging along the banner’s bottom edge */
-:root[data-look] .hero.withshot{padding-bottom:0}
+:root[data-look] .hero.withshot:has(> .stats){padding-bottom:0}   /* the tabs hang from the bottom edge */
+/* no tabs (a Pokémon’s page): the chips under the name get the same room below as the banner has above (her note, 21 Nov: Fire, Female… sat on the edge) */
+:root[data-look] .hero.withshot:not(:has(> .stats)){padding-bottom:32px}
 .hero .stats{align-items:end}
 .hero .stat,.hero.withshot .stat{background:color-mix(in srgb,var(--sc) 16%,var(--tab-bg));border:0;border-radius:10px 10px 0 0;backdrop-filter:none;
   box-shadow:inset 0 3px 0 var(--sc),0 -2px 6px rgba(0,0,0,.18);padding-bottom:9px}
@@ -1143,12 +1145,20 @@ main{background:linear-gradient(90deg,rgba(70,40,30,.18),rgba(70,40,30,0) 54px) 
   .hero .stats:has(.stattab) .stat b{font-size:15px}
   .hero .stats:has(.stattab) .stat b small{font-size:10px}
 }
-/* one row of tabs where every label fits whole at 10px or more beside its icon; where it doesn't, app.js fitLabels puts them in
+/* one row of tabs where every label fits whole at 8.5px or more beside its icon (app.js TAB_MIN; was 10px until her answer, 21 Nov); where it doesn't, app.js fitLabels puts them in
    even rows instead (13 as 7 + 6, then 5 + 5 + 3 …), never sliding sideways or cut at the banner's edge (second review, 21 Nov:
    at 1280 "4★" was cut in half and Gigantamax was 7.5px). In rows the chosen tab stays in place, filled in its colour */
 /* wide windows: the thirteenths a little less padded inside, so "Gigantamax" fits whole at 10px in one row down to 1451px,
    on every page alike (her note, 21 Nov: Kanto's tabs went to bigger rows in her window, the rest stayed in one line) */
 @media (min-width:1451px){ .hero .stat,.hero.withshot .stat{padding-inline:3px} .hero .stat .sl,.hero.withshot .stat .sl{gap:2px} }
+/* 901–1450 (1280): still one row (her answer, 21 Nov: smaller writing rather than two rows, down to 8.5px, app.js TAB_MIN), so the
+   tiles a little closer together and less padded, the icons a touch smaller; every banner the same */
+@media (min-width:901px) and (max-width:1450px){
+  .hero .stats,.hero.withshot .stats,.hero.setheroart .stats,.hero.withshot .stats.one{grid-auto-columns:calc((100% - 36px) / 13);column-gap:3px}
+  .hero .stat,.hero.withshot .stat,.hero .stats:has(.stattab) .stat{padding-inline:3px}
+  .hero .stat .sl,.hero.withshot .stat .sl,.hero .stats:has(.stattab) .stat .sl{gap:2px}
+  .hero .stat .sl .i,.hero.withshot .stat .sl .i,.hero .stats:has(.stattab) .stat .sl .i{width:11px;height:11px;padding:1.5px}
+}
 .hero .stats.rows{grid-auto-flow:row;grid-auto-rows:auto;justify-content:stretch}
 .hero .stats.rows .stat.stattab[aria-pressed="true"]{transform:none}
 @media (max-width:700px){ .hero .stats:has(.stattab) .stat{padding-inline:4px} }   /* phones: four tabs a row, not three */
@@ -1162,3 +1172,24 @@ main{background:linear-gradient(90deg,rgba(70,40,30,.18),rgba(70,40,30,0) 54px) 
 .evo.stack .evo-kids:has(> .evo-kid + .evo-kid) > .evo-kid{border:1px solid var(--line);border-radius:12px;padding:6px 4px 4px;min-width:0}
 .evo.stack .evo-step{flex-direction:column;min-width:0;max-width:260px;text-align:center;gap:4px}
 .evo.stack .evo-step > .i{transform:rotate(90deg)}
+
+/* ===== TRIAL: Try switch (21 Nov), START: remove with the TRIAL block at the end of app.js once she has picked =====
+   Lucky box text: White (as now) or Dark (#2B2108 on the gold #D09B00: 6.3:1; white is 2.5:1).
+   Card art: Region colour (as now) or a pale tint of the Pokémon's first type (the usual game type colours: a suggestion). */
+.trybox{position:fixed;right:12px;bottom:12px;z-index:60;display:grid;gap:6px;padding:8px 10px;border-radius:10px;background:var(--surface,#fff);color:var(--ink,#222);
+  border:1px solid var(--line,#ccc);box-shadow:0 4px 16px rgba(0,0,0,.2);font:600 12px var(--body,sans-serif)}
+.trybox > b{font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.tryrow{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+.tryrow span{min-width:92px}
+.tryrow button{font:inherit;padding:3px 8px;border-radius:6px;border:1px solid var(--line,#ccc);background:transparent;color:inherit;cursor:pointer}
+.tryrow button[aria-pressed="true"]{background:var(--ink,#222);color:var(--surface,#fff);border-color:transparent}
+:root[data-try-lucky="dark"] .tk.l[aria-pressed="true"],:root[data-try-lucky="dark"] .tk.fb.l .fill{color:#2B2108}
+[data-t1="Normal"]{--tc:#A8A77A}[data-t1="Fire"]{--tc:#EE8130}[data-t1="Water"]{--tc:#6390F0}[data-t1="Electric"]{--tc:#F7D02C}[data-t1="Grass"]{--tc:#7AC74C}
+[data-t1="Ice"]{--tc:#96D9D6}[data-t1="Fighting"]{--tc:#C22E28}[data-t1="Poison"]{--tc:#A33EA1}[data-t1="Ground"]{--tc:#E2BF65}[data-t1="Flying"]{--tc:#A98FF3}
+[data-t1="Psychic"]{--tc:#F95587}[data-t1="Bug"]{--tc:#A6B91A}[data-t1="Rock"]{--tc:#B6A136}[data-t1="Ghost"]{--tc:#735797}[data-t1="Dragon"]{--tc:#6F35FC}
+[data-t1="Dark"]{--tc:#705746}[data-t1="Steel"]{--tc:#B7B7CE}[data-t1="Fairy"]{--tc:#D685AD}
+:root[data-try-art="type"] :is(.card,.monpic)[data-t1]:not([data-t1=""]) .pic{
+  background:radial-gradient(circle,var(--win-dots) 1px,transparent 1.4px) 0 0/6px 6px,radial-gradient(circle at 50% 60%,var(--win-hi),color-mix(in srgb,var(--tc) 30%,var(--win-lo)))}
+@media print{.trybox{display:none}}
+/* ===== TRIAL: Try switch, END ===== */
+
