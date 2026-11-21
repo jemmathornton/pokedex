@@ -140,10 +140,7 @@
   --body:"Manrope","Segoe UI",system-ui,sans-serif;
   --side:256px; color-scheme:light;
 }
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --paper:#171012; --surface:#21171A; --ink:#F3E8E4; --muted:#B8A29F; --line:#352629; --soft:#2B1E21;
-  --focus:var(--accent); --deep-text:#E48A96; color-scheme:dark }}
-:root[data-theme="dark"]{ --paper:#171012; --surface:#21171A; --ink:#F3E8E4; --muted:#B8A29F; --line:#352629; --soft:#2B1E21;
+:root[data-mode="dark"]{ --paper:#171012; --surface:#21171A; --ink:#F3E8E4; --muted:#B8A29F; --line:#352629; --soft:#2B1E21;
   --focus:var(--accent); --deep-text:#E48A96; color-scheme:dark }
 
 *{box-sizing:border-box}
@@ -186,7 +183,8 @@ em{font-style:italic}
 
 /* ---------- main ---------- */
 main{margin-left:var(--side);min-height:100vh;container-type:inline-size}
-.wrap{max-width:1240px;margin:0 auto;padding-inline:clamp(16px,3vw,40px);padding-block:0 110px}
+.wrap{max-width:1240px;margin:0 auto;padding-inline:clamp(16px,3vw,40px);padding-block:0 40px}
+.wrap:focus{outline:none}   /* Back to top moves focus here; the page itself needs no ring */
 .hero{margin-inline:min(calc(-1 * clamp(16px,3vw,40px)),calc((100% - 100cqw) / 2));padding:56px max(clamp(16px,3vw,40px),calc((100cqw - 100%) / 2)) 34px;
   color:var(--on-deep);background:radial-gradient(120% 140% at 85% -10%,var(--deep-2),var(--deep) 60%);position:relative;overflow:hidden}
 .hero::after{content:"";position:absolute;right:-70px;top:-70px;width:300px;height:300px;border-radius:50%;
@@ -507,8 +505,7 @@ a.formsbtn{text-decoration:none}
 }   /* the sidebar on narrow windows: a drawer, under "the binder look" at the end */
 
 /* dark mode: the box icons on a Pokémon's page lighter, so the dark ones (Shadow, Gigantamax) still show */
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .bb:not([aria-pressed="true"]):not(:disabled) > .i{color:color-mix(in srgb,var(--bc) 55%,#fff);background:color-mix(in srgb,var(--bc) 32%,var(--surface))}}
-:root[data-theme="dark"] .bb:not([aria-pressed="true"]):not(:disabled) > .i{color:color-mix(in srgb,var(--bc) 55%,#fff);background:color-mix(in srgb,var(--bc) 32%,var(--surface))}
+:root[data-mode="dark"] .bb:not([aria-pressed="true"]):not(:disabled) > .i{color:color-mix(in srgb,var(--bc) 55%,#fff);background:color-mix(in srgb,var(--bc) 32%,var(--surface))}
 
 :root[data-look="mix"] .side{overflow:hidden}
 
@@ -859,7 +856,7 @@ a.formsbtn{text-decoration:none}
    The binder look (her pick, 21 Nov: "P3b · Cards in a binder", with the softer shiny window). The Pokémon as collector’s
    cards framed in the page’s region colour, the regions on Home as set cards; a padded red cover for the sidebar with a
    soft binder gap where it meets the page, and the totals as index tabs hanging from the banner. No line ever crosses the
-   sidebar’s items (her note on P3): the padded feel is shading only. Dark mode (the device’s setting) keeps the same look
+   sidebar’s items (her note on P3): the padded feel is shading only. Dark mode (the button at the foot of each page) keeps the same look
    on dark card stock.
    ====================================================================================================================== */
 :root{
@@ -877,16 +874,7 @@ a.formsbtn{text-decoration:none}
   --page-hi:#EFEAE3; --page-lo:#E8E2DA;
   --card-shadow:0 10px 18px -12px rgba(40,20,10,.55),0 1px 2px rgba(40,20,10,.25);
 }
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --cover:#661823; --cover-hi:#76222D; --cover-lo:#4E1018;
-  --card-stock:#261C1E; --card-ink:#F3E8E4; --card-mute:#B8A29F;
-  --frame-mix:#F3E8E4; --frame-amt:84%;
-  --win-edge:#8F7A4A; --win-lo:#2A2022; --win-hi:#4A3E3D; --win-dots:rgba(255,255,255,.05); --win-rim:rgba(255,255,255,.08);
-  --faded:#4A4042;
-  --tab-bg:#21171A; --tab-ink:#F3E8E4; --tab-mute:#CDB9B5;
-  --page-hi:#1A1214; --page-lo:#150E10;
-  --card-shadow:0 10px 18px -12px rgba(0,0,0,.8),0 1px 2px rgba(0,0,0,.5) }}
-:root[data-theme="dark"]{
+:root[data-mode="dark"]{
   --cover:#661823; --cover-hi:#76222D; --cover-lo:#4E1018;
   --card-stock:#261C1E; --card-ink:#F3E8E4; --card-mute:#B8A29F;
   --frame-mix:#F3E8E4; --frame-amt:84%;
@@ -955,11 +943,8 @@ main{background:linear-gradient(90deg,rgba(70,40,30,.18),rgba(70,40,30,0) 54px) 
   background:linear-gradient(115deg,#ffd6ec 8%,#c9ecff 30%,#fff3b8 50%,#cdf5d9 68%,#e6d3ff 88%)}
 .card:has(.tk.s[aria-pressed="true"]) .pic::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:2;
   background:linear-gradient(115deg,transparent 32%,rgba(255,255,255,.28) 42%,transparent 52%)}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]) .card:has(.tk.s[aria-pressed="true"]) .pic::after{mix-blend-mode:screen;opacity:.16}
-  :root:not([data-theme="light"]) .card:has(.tk.s[aria-pressed="true"]) .pic::before{background:linear-gradient(115deg,transparent 32%,rgba(255,255,255,.12) 42%,transparent 52%)}}
-:root[data-theme="dark"] .card:has(.tk.s[aria-pressed="true"]) .pic::after{mix-blend-mode:screen;opacity:.16}
-:root[data-theme="dark"] .card:has(.tk.s[aria-pressed="true"]) .pic::before{background:linear-gradient(115deg,transparent 32%,rgba(255,255,255,.12) 42%,transparent 52%)}
+:root[data-mode="dark"] .card:has(.tk.s[aria-pressed="true"]) .pic::after{mix-blend-mode:screen;opacity:.16}
+:root[data-mode="dark"] .card:has(.tk.s[aria-pressed="true"]) .pic::before{background:linear-gradient(115deg,transparent 32%,rgba(255,255,255,.12) 42%,transparent 52%)}
 
 /* not caught yet (or, with a tab on, not that box): a faded print; costume and background cards go by their Caught box */
 .card[data-id]:not(.got):not(.informs),.card[data-costume]:not(:has(.tk.c[aria-pressed="true"])),.card.bgcard:not(:has(.tk.c[aria-pressed="true"])){--frame:var(--faded)}
@@ -1105,3 +1090,13 @@ main{background:linear-gradient(90deg,rgba(70,40,30,.18),rgba(70,40,30,0) 54px) 
   .card .tk{min-height:24px}
   .card .pic .flip{width:24px;height:24px}
 }
+
+/* the foot of every page (her ask, 21 Nov, as on Jemma’s Journals): Back to top and Dark mode / Light mode, small link-style
+   buttons in the red text colour, centred; 44px tall to tap. Light unless she presses Dark mode (remembered on this computer). */
+.foot{padding:4px 16px 64px}
+.foot-links{display:flex;gap:26px;justify-content:center;align-items:center;flex-wrap:wrap}
+.foot-links button{display:inline-flex;align-items:center;gap:6px;min-height:44px;margin:0;padding:4px 2px;border:0;background:none;
+  font:700 13px/1 var(--body);color:var(--deep-text);cursor:pointer}
+.foot-links button svg.i{width:14px;height:14px}
+.foot-links button:hover{text-decoration:underline;text-underline-offset:3px}
+.foot-links button:focus-visible{outline:2px solid var(--focus);outline-offset:2px;border-radius:4px}

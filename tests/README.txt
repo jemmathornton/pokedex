@@ -31,6 +31,9 @@ e2e/site.test.js     in Chrome: every page (all ~1,000 Pokémon pages too) opens
                      line on one line, the Mega tab, search, Costumes/Events only hers, the region picture switch; (19 Nov) totals for gender
                      forms, regional forms and forms one by one, ticking any box ticks Caught, What's on
                      month by month, Event Pokémon and Home counts, unknown addresses, Looking for's tabs and copied list.
+                     (21 Nov) the foot of every page: Back to top and Dark mode on every page, Back to top scrolls up and
+                     moves focus, Dark mode opens light, switches and is remembered after reloading, no follow-the-device
+                     dark rules, text contrast 4.5:1 in light and dark.
                      knownBug(...) marks a test for a known app bug: reported (not failed) until it passes.
 support.py           Sandbox (a full copy, ~8 s) and LightSandbox (data and code only, under a second: use it when no
                      pictures are needed).

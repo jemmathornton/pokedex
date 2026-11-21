@@ -1384,6 +1384,30 @@ addEventListener("keydown", ev => {
 });
 narrow.addEventListener("change", () => setMenu(false, false));
 setMenu(false, false);
+
+// the foot of every page (her ask, 21 Nov, as on Jemma’s Journals): Back to top, and Dark mode. The page is light unless she
+// presses Dark mode (never by the device's setting); her choice is remembered on this computer (index.html sets it before drawing).
+const MODE_KEY = "jemmas-pokedex-mode", modeBtn = document.getElementById("modeBtn"), toTop = document.getElementById("toTop");
+let mode = "light";
+try { if (localStorage.getItem(MODE_KEY) === "dark") mode = "dark"; } catch {}
+function applyMode(){
+  const dark = mode === "dark";
+  document.documentElement.setAttribute("data-mode", mode);
+  modeBtn.innerHTML = ic(dark ? "sun" : "moon") + (dark ? "Light mode" : "Dark mode");
+  modeBtn.setAttribute("aria-pressed", dark);
+  document.querySelector('meta[name="theme-color"]')?.setAttribute("content", dark ? "#4E1018" : "#7A1E2A");
+}
+modeBtn.addEventListener("click", () => {
+  mode = mode === "dark" ? "light" : "dark";
+  try { localStorage.setItem(MODE_KEY, mode); } catch {}
+  applyMode();
+});
+applyMode();
+toTop.innerHTML = ic("arrow-up") + "Back to top";
+toTop.addEventListener("click", () => {
+  scrollTo({top: 0, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"});
+  document.getElementById("view").focus({preventScroll: true});   // keyboard users carry on from the top of the page
+});
 addEventListener("hashchange", () => { if (location.hash !== "#dex" && q.value) q.value = ""; route(); scrollTo(0, 0); });   // another page clears the search (19 Nov review: Home and the regions showed an old search)
 addEventListener("keydown", ev => {   // ← and → step through the numbers on a Pokémon's page
   if (!/^#p-\d+(-[a-z]+)?$/.test(location.hash) || ev.target.closest("input,textarea,select") || ev.altKey || ev.ctrlKey || ev.metaKey) return;

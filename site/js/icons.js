@@ -1,5 +1,7 @@
 // Icons from Lucide (https://lucide.dev), ISC licence: see LICENSE-lucide.txt next to this file.
 const ICON_PATHS = {
+ "arrow-up": '<path d="m5 12 7-7 7 7"/><path d="M12 19V5"/>',
+ "moon": '<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>',
  "calendar": '<path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/>',
  "chart-no-axes-column": '<line x1="18" x2="18" y1="20" y2="10"/><line x1="12" x2="12" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="14"/>',
  "check": '<path d="M20 6 9 17l-5-5"/>',

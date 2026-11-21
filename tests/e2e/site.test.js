@@ -753,6 +753,94 @@
     } finally { f.remove(); }
   });
 
+  // ---------- the foot of every page (21 Nov, her ask for all her sites): Back to top and Dark mode ----------
+  const MODE_KEY = "jemmas-pokedex-mode";
+  test("Back to top and Dark mode are at the foot of every page", async () => {
+    const routes = ["#home", "#dex", "#sets", "#want", "#coming", "#fast", "#p-6", "#p-58-hisuian", ...Object.keys(genById).map(g => "#gen-" + g), ...allSets().slice(0, 3).map(st => "#set-" + st.id)];
+    const problems = [];
+    for (const h of routes) {
+      await show(h);
+      const top = document.getElementById("toTop"), md = document.getElementById("modeBtn"), foot = top && top.closest("footer");
+      if (!top || !md || !foot || foot !== md.closest("footer")) { problems.push(`${h}: buttons missing`); continue; }
+      if (!/Back to top/.test(top.textContent) || !/(Dark|Light) mode/.test(md.textContent)) problems.push(`${h}: words “${top.textContent}”, “${md.textContent}”`);
+      if (!top.querySelector("svg") || !md.querySelector("svg")) problems.push(`${h}: an icon missing`);
+      if (top.offsetHeight < 44 || md.offsetHeight < 44) problems.push(`${h}: under 44px to tap`);
+      if (foot.getBoundingClientRect().top < view().getBoundingClientRect().bottom - 1) problems.push(`${h}: not below the page`);
+      if (getComputedStyle(foot).display === "none") problems.push(`${h}: hidden`);
+    }
+    eq(problems, [], "problems:");
+  });
+
+  test("Back to top scrolls to the top and moves focus to the top of the page", async () => {
+    await go("#dex");
+    scrollTo(0, document.documentElement.scrollHeight); await wait(50);
+    ok(scrollY > 500, `the page should be scrolled down first (${scrollY})`);
+    document.getElementById("toTop").click();
+    await until(() => scrollY === 0, 4000);
+    ok(document.activeElement === view(), `focus on the page (it's on ${document.activeElement.id || document.activeElement.tagName})`);
+  });
+
+  test("Dark mode: opens light, the button switches it, and it’s remembered after reloading", async () => {
+    let saved = null; try { saved = localStorage.getItem(MODE_KEY); localStorage.removeItem(MODE_KEY); } catch {}
+    const f = document.createElement("iframe");   // a window of its own on the same site, so it can be reloaded
+    f.style.cssText = "position:fixed;left:0;top:0;width:1280px;height:800px;border:0;opacity:0;pointer-events:none";
+    f.src = "index.html#home";
+    document.body.append(f);
+    const loaded = () => until(() => f.contentDocument && f.contentDocument.readyState === "complete" && f.contentDocument.getElementById("modeBtn")?.textContent, 15000);
+    try {
+      await loaded();
+      let d = f.contentDocument, btn = d.getElementById("modeBtn");
+      const paper = () => f.contentWindow.getComputedStyle(f.contentDocument.documentElement).getPropertyValue("--paper").trim().toUpperCase();
+      eq(d.documentElement.dataset.mode, "light", "opens light");
+      eq(btn.textContent, "Dark mode"); eq(btn.getAttribute("aria-pressed"), "false"); eq(paper(), "#ECE7E0", "light paper");
+      btn.click();
+      eq(d.documentElement.dataset.mode, "dark", "switched to dark");
+      eq(btn.textContent, "Light mode"); eq(btn.getAttribute("aria-pressed"), "true"); eq(paper(), "#171012", "dark paper");
+      ok(btn.querySelector("svg"), "a sun icon");
+      eq(localStorage.getItem(MODE_KEY), "dark", "remembered");
+      f.contentWindow.location.reload(); await wait(300); await loaded();
+      d = f.contentDocument; btn = d.getElementById("modeBtn");
+      eq(d.documentElement.dataset.mode, "dark", "still dark after reloading"); eq(btn.textContent, "Light mode"); eq(paper(), "#171012");
+      btn.click();
+      eq(d.documentElement.dataset.mode, "light", "back to light"); eq(localStorage.getItem(MODE_KEY), "light");
+      f.contentWindow.location.reload(); await wait(300); await loaded();
+      eq(f.contentDocument.documentElement.dataset.mode, "light", "still light after reloading");
+    } finally {
+      f.remove();
+      try { if (saved === null) localStorage.removeItem(MODE_KEY); else localStorage.setItem(MODE_KEY, saved); } catch {}
+    }
+  });
+
+  test("the device's dark setting never switches dark mode on by itself (her rule: light unless pressed)", async () => {
+    const found = [];
+    const walk = rules => { for (const r of rules) { if (r.media && /prefers-color-scheme/.test(r.conditionText || r.media.mediaText)) found.push(r.conditionText || r.media.mediaText); if (r.cssRules) walk(r.cssRules); } };
+    for (const s of document.styleSheets) { try { walk(s.cssRules); } catch {} }
+    eq(found, [], "rules that follow the device:");
+    const css = [...document.styleSheets].flatMap(s => { try { return [...s.cssRules].map(r => r.cssText); } catch { return []; } }).join("\n");
+    ok(!/data-theme/.test(css), "no old data-theme switch left");
+    ok(/data-mode="dark"/.test(css), "the dark colours are under data-mode");
+  });
+
+  test("text contrast is at least 4.5:1 in light and in dark", async () => {
+    const root = document.documentElement, before = root.dataset.mode;
+    const probe = document.createElement("div"); document.body.append(probe);
+    const rgb = v => { probe.style.color = ""; probe.style.color = v; return getComputedStyle(probe).color.match(/[\d.]+/g).slice(0, 3).map(Number); };
+    const lum = c => { const [r, g, b] = c.map(x => { x /= 255; return x <= .03928 ? x / 12.92 : ((x + .055) / 1.055) ** 2.4; }); return .2126 * r + .7152 * g + .0722 * b; };
+    const ratio = (a, b) => { const [x, y] = [lum(rgb(a)), lum(rgb(b))].sort((p, q) => q - p); return (x + .05) / (y + .05); };
+    const pairs = [["--ink", "--paper"], ["--ink", "--surface"], ["--muted", "--paper"], ["--muted", "--surface"], ["--deep-text", "--paper"], ["--deep-text", "--surface"],
+      ["--deep-text", "--page-hi"], ["--deep-text", "--page-lo"], ["--card-ink", "--card-stock"], ["--card-mute", "--card-stock"], ["--tab-ink", "--tab-bg"], ["--tab-mute", "--tab-bg"]];
+    const low = [];
+    try {
+      for (const m of ["light", "dark"]) {
+        root.dataset.mode = m;
+        for (const [fg, bg] of pairs) { const r = ratio(`var(${fg})`, `var(${bg})`); if (r < 4.5) low.push(`${m}: ${fg} on ${bg} ${r.toFixed(2)}`); }
+        const btn = getComputedStyle(document.getElementById("modeBtn")).color;
+        for (const bg of ["--page-hi", "--page-lo"]) { const r = ratio(btn, `var(${bg})`); if (r < 4.5) low.push(`${m}: the foot buttons on ${bg} ${r.toFixed(2)}`); }
+      }
+    } finally { root.dataset.mode = before; probe.remove(); }
+    eq(low, [], "too faint:");
+  });
+
   // ---------- run ----------
   addEventListener("load", async () => {
     await wait(500);
