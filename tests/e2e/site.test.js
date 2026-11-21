@@ -179,12 +179,16 @@
     eq(location.hash, "#p-4");
   });
 
-  test("the tabs at the top are the filter, in the game's order, one row (her pick, 21 Nov)", async () => {
+  test("the tabs at the top are the filter, in the game's order, in even rows where one row would cut them (her pick, 21 Nov; second review)", async () => {
     prefs.work = "all"; await go("#gen-1");
     const tabs = [...view().querySelectorAll(".hero .stattab .slt")].map(b => b.textContent);
     eq(tabs, ["Pokémon", "Female", "Male", "Shiny", "Lucky", "XXL", "XXS", "Dynamax", "Gigantamax", "Mega", "Shadow", "Purified", "4★"]);   // the game's Pokédex order (her ask, 12 Nov)
-    const top = [...view().querySelectorAll('.hero .stattab:not([aria-pressed="true"])')].map(b => b.getBoundingClientRect().top);   // the chosen one drops down
-    ok(Math.max(...top) - Math.min(...top) < 12, "the tabs wrapped onto a second line: " + top.map(Math.round).join());
+    fitLabels();
+    const rows = new Map();
+    for (const t of view().querySelectorAll(".hero .stattab")) rows.set(t.offsetTop, (rows.get(t.offsetTop) || 0) + 1);
+    const sizes = [...rows.values()];
+    ok(sizes.length === 1 || Math.max(...sizes) - Math.min(...sizes) <= Math.ceil(13 / sizes.length), "even rows: " + sizes.join(" + "));
+    ok(sizes.length === 1 || view().querySelector(".hero .stats.rows"), "rows only when one row doesn't fit");
     ok(!view().querySelector("#toolbar .worktab"), "no Filter row of buttons any more");
     const sw = view().querySelector("[data-showall]"); ok(sw && /Hide ones I have/.test(sw.textContent), "the Hide ones I have switch");
     click(view().querySelector('.hero .stattab[data-work="shiny"]')); await wait(30);
@@ -751,6 +755,83 @@
     }
   });
 
+  test("the banner tabs are never cut, never under 10px, keep their icons and never slide sideways, at 1600, 1280, 1000, 901 and 390 (second review, 21 Nov)", async () => {
+    const problems = [];
+    for (const width of [1600, 1280, 1000, 901, 390]) {
+      const f = document.createElement("iframe");
+      f.style.cssText = `position:fixed;left:0;top:0;width:${width}px;height:800px;border:0;opacity:0;pointer-events:none`;
+      f.src = "index.html#gen-1"; document.body.append(f);
+      try {
+        await until(() => f.contentDocument && f.contentDocument.querySelector("#view .hero .stattab") && f.contentDocument.querySelector("#view .card"), 15000);
+        const w = f.contentWindow, d = f.contentDocument;
+        for (const h of ["#gen-1", "#dex", "#gen-4", "#home", "#sets"]) {
+          w.location.hash = h; await until(() => w.location.hash === h && d.querySelector("#view .hero .stats")); await wait(80); w.fitLabels();
+          const st = d.querySelector("#view .hero .stats"), hero = st.closest(".hero").getBoundingClientRect();
+          for (const t of st.querySelectorAll(":scope > .stat")) {
+            const l = t.querySelector(".slt"); if (!l) continue;
+            const icon = t.querySelector(".sl > svg, .sl > .i");
+            if (w.textOver(l)) problems.push(`${width} ${h}: “${l.textContent}” cut`);
+            if (parseFloat(w.getComputedStyle(l).fontSize) < 10) problems.push(`${width} ${h}: “${l.textContent}” ${w.getComputedStyle(l).fontSize}`);
+            if (t.getBoundingClientRect().right > hero.right + .5) problems.push(`${width} ${h}: “${l.textContent}” past the banner's edge`);
+            if (!icon || w.getComputedStyle(icon).display === "none") problems.push(`${width} ${h}: “${l.textContent}” lost its icon`);
+          }
+          if (st.scrollWidth > st.clientWidth + 1) problems.push(`${width} ${h}: the tab row slides sideways`);
+          if (d.documentElement.scrollWidth > width) problems.push(`${width} ${h}: the page is ${d.documentElement.scrollWidth} wide`);
+        }
+        w.footDots();
+        for (const x of d.querySelectorAll(".foot .about-site .dot")) {   // the footer: a “·” never ends a line (family rules)
+          const next = x.nextElementSibling, shown = w.getComputedStyle(x).display !== "none" && w.getComputedStyle(x).visibility !== "hidden";
+          if (shown && next.getBoundingClientRect().top > x.getBoundingClientRect().top + 2) problems.push(`${width}: a “·” ends a line in the footer`);
+        }
+      } finally { f.remove(); }
+    }
+    eq(problems, [], "problems:");
+  });
+
+  test("every region page and Every Pokémon have tabs of the same size, in the same rows, at 1600 and 1280 (her note, 21 Nov: Kanto's were bigger and didn't fit in a line)", async () => {
+    const problems = [];
+    for (const width of [1600, 1584, 1280]) {   // 1584: her 1600 window less its scrollbar
+      const f = document.createElement("iframe");
+      f.style.cssText = `position:fixed;left:0;top:0;width:${width}px;height:800px;border:0;opacity:0;pointer-events:none`;
+      f.src = "index.html#gen-1"; document.body.append(f);
+      try {
+        await until(() => f.contentDocument && f.contentDocument.querySelector("#view .hero .stattab"), 15000);
+        const w = f.contentWindow, d = f.contentDocument, seen = [];
+        for (const h of ["#dex", ...Object.keys(genById).map(g => "#gen-" + g)]) {
+          w.location.hash = h; await until(() => w.location.hash === h && d.querySelector("#view .hero .stattab")); await wait(80); w.fitLabels();
+          const t = [...d.querySelectorAll("#view .hero .stats > .stat")], first = t[0].getBoundingClientRect();
+          const perRow = t.filter(x => x.offsetTop === t[0].offsetTop).length;
+          seen.push({h, w: Math.round(first.width * 10) / 10, ht: Math.round(first.height), row: Math.min(perRow, 13) === t.length ? "one" : perRow});
+        }
+        const k = seen.find(x => x.h === "#gen-1");
+        for (const x of seen) if (x.w !== k.w || x.ht !== k.ht || x.row !== k.row) problems.push(`${width}: ${x.h} ${x.w}×${x.ht} (${x.row}) but Kanto ${k.w}×${k.ht} (${k.row})`);
+        if (width >= 1584 && k.row !== "one") problems.push(`${width}: Kanto's tabs not in one line`);
+      } finally { f.remove(); }
+    }
+    eq(problems, [], "problems:");
+  });
+
+  test("the family of evolutions never slides sideways: on a phone and at 940 it stacks downwards (second review, 21 Nov)", async () => {
+    const problems = [];
+    for (const width of [390, 940]) {
+      const f = document.createElement("iframe");
+      f.style.cssText = `position:fixed;left:0;top:0;width:${width}px;height:800px;border:0;opacity:0;pointer-events:none`;
+      f.src = "index.html#p-6"; document.body.append(f);
+      try {
+        await until(() => f.contentDocument && f.contentDocument.querySelector("#view .evo"), 15000);
+        const w = f.contentWindow, d = f.contentDocument;
+        for (const h of ["#p-6", "#p-133", "#p-265", "#p-236"]) {
+          w.location.hash = h; await until(() => w.location.hash === h && d.querySelector("#view .evo .evo-mon.here")); await wait(80); w.fitLabels();
+          const e = d.querySelector("#view .evo");
+          if (e.scrollWidth > e.clientWidth + 1) problems.push(`${width} ${h}: ${e.scrollWidth} in ${e.clientWidth}`);
+          const here = e.querySelector(".evo-mon.here").getBoundingClientRect(), box = e.getBoundingClientRect();
+          if (here.left < box.left - 1 || here.right > box.right + 1) problems.push(`${width} ${h}: this Pokémon out of sight`);
+        }
+      } finally { f.remove(); }
+    }
+    eq(problems, [], "problems:");
+  });
+
   test("on a phone (390 wide): Menu opens the drawer; Escape, tapping outside and choosing a link close it", async () => {
     const f = document.createElement("iframe");   // a phone-sized window of its own, same site
     f.style.cssText = "position:fixed;left:0;top:0;width:390px;height:844px;border:0;opacity:0;pointer-events:none";
@@ -772,20 +853,29 @@
       ok(isOpen() && !side.inert, "opens"); eq(btn.getAttribute("aria-expanded"), "true");
       ok(side.contains(d.activeElement), "focus goes into the drawer");
       ok(side.querySelector(".home-link"), "the way back to Jemma’s Journals is in it");
-      ok(d.activeElement === side.querySelector(".home-link"), "focus on the first link, ← Jemma’s Journals at the very top");
+      ok(d.activeElement === side.querySelector('.nav a[href="#gen-8"]'), "focus on this page's link (Galar), never ← Jemma’s Journals (family rules)");
+      eq(side.querySelector('.nav a[href="#gen-8"]').getAttribute("aria-current"), "page", "this page's link says so");
+      ok(d.getElementById("main").inert && d.getElementById("topbar").inert, "everything outside the open drawer is inert, so Tab stays inside");
+      eq(w.getComputedStyle(d.getElementById("scrim")).backgroundColor, "rgba(0, 0, 0, 0.45)", "the scrim black at 45%");
+      ok(side.querySelector(".home-link").getBoundingClientRect().height >= 24, "← Jemma’s Journals at least 24px tall to tap");
       eq(w.getComputedStyle(d.body).overflow, "hidden", "the page behind doesn't scroll");
       ok(w.getComputedStyle(d.getElementById("scrim")).display !== "none", "a dimmed scrim behind");
       key("Escape");
       ok(!isOpen(), "Escape shuts it"); eq(btn.getAttribute("aria-expanded"), "false");
       ok(d.activeElement === btn, "focus back on Menu");
-      btn.click(); d.getElementById("scrim").click();
+      ok(!d.getElementById("main").inert && !d.getElementById("topbar").inert, "the page reachable again once shut");
+      btn.click(); d.activeElement.blur(); d.getElementById("scrim").click();   // a real tap takes focus out of the drawer first
       ok(!isOpen(), "tapping outside shuts it");
+      ok(d.activeElement === btn, "and focus goes back to Menu (second review: it was left on the page)");
       btn.click(); side.querySelector('.nav a[href="#gen-1"]').click();
       ok(!isOpen(), "choosing a link shuts it");
+      ok(d.activeElement === d.getElementById("view"), "then focus on the page");
       await until(() => w.location.hash === "#gen-1");
       // the family rules (21 Nov): the same menu on every site
       eq(btn.getAttribute("aria-controls"), "side", "aria-controls"); eq(btn.textContent.trim(), "Menu", "the word Menu");
       ok(btn.querySelector("svg"), "the Lucide menu icon");
+      ok(btn.getBoundingClientRect().height >= 44, `Menu at least 44px tall (${btn.getBoundingClientRect().height})`);
+      eq(w.getComputedStyle(d.querySelector("#topbar .topname")).fontSize, "26px", "the name in the bar 26px, as on every site");
       const nm = d.querySelector("#topbar .topname"); eq(nm.getAttribute("href"), "#home", "the name goes home"); eq(nm.querySelector("em")?.textContent, "Pokédex", "Jemma’s *Pokédex*");
       ok(side.firstElementChild === side.querySelector(".home-link"), "← Jemma’s Journals first in the drawer");
       // crossing the 900px line resets it: at 901 the sidebar, the open state gone; back at 899 the Menu bar, shut
@@ -815,7 +905,9 @@
       if (foot.getBoundingClientRect().top < view().getBoundingClientRect().bottom - 1) problems.push(`${h}: not below the page`);
       if (getComputedStyle(foot).display === "none") problems.push(`${h}: hidden`);
       const name = foot.querySelector(".foot-name"), lines = foot.querySelectorAll(".about-site p");
-      if (!name || name.textContent !== "Jemma’s Pokédex" || getComputedStyle(name).fontStyle !== "normal") problems.push(`${h}: the name`);
+      if (!name || name.textContent !== "Jemma’s Pokédex" || getComputedStyle(name).fontStyle !== "normal" || getComputedStyle(name).fontSize !== "24px") problems.push(`${h}: the name`);
+      if ([...foot.querySelectorAll(".about-site .dot")].some(x => x.textContent !== "\u00a0·" || !/^ /.test(x.nextSibling?.textContent || ""))) problems.push(`${h}: a “·” could start or end a line (credit&nbsp;· credit)`);
+      if (!/balance/.test(getComputedStyle(lines[1]).textWrap || getComputedStyle(lines[1]).textWrapStyle || "")) problems.push(`${h}: the credits not balanced`);
       if (lines.length !== 2 || lines[0].textContent !== "No cookies, no tracking, no ads. Made with plain HTML and CSS, kept on GitHub.") problems.push(`${h}: line 1`);
       const credits = [...foot.querySelectorAll(".about-site .cr")].map(c => c.textContent);
       if (credits.join(" | ") !== "Pokémon pictures, backgrounds and region maps from the Pokémon games | Fonts: Instrument Serif and Manrope | Icons by Lucide, Phosphor, MingCute and Solar (480 Design)") problems.push(`${h}: credits ${credits.join(" | ")}`);
@@ -870,10 +962,15 @@
       // her old Pokédex-only choice is kept once, moved over to jj-mode
       localStorage.removeItem(MODE_KEY); localStorage.setItem(OLD_KEY, "dark"); f.contentWindow.location.reload(); await wait(300); await loaded();
       eq(f.contentDocument.documentElement.dataset.mode, "dark", "the old key read when jj-mode is missing"); eq(localStorage.getItem(MODE_KEY), "dark", "and saved as jj-mode");
+      eq(localStorage.getItem(OLD_KEY), null, "the old key removed once copied (family rules)");
     } finally {
       f.remove();
       try { if (saved === null) localStorage.removeItem(MODE_KEY); else localStorage.setItem(MODE_KEY, saved); if (savedOld === null) localStorage.removeItem(OLD_KEY); else localStorage.setItem(OLD_KEY, savedOld); } catch {}
     }
+  });
+
+  test("kept out of search engines and AI (family rules): robots noindex, noai, noimageai", async () => {
+    eq(document.querySelector('meta[name="robots"]')?.getAttribute("content"), "noindex, noai, noimageai");
   });
 
   test("the device's dark setting never switches dark mode on by itself (her rule: light unless pressed)", async () => {
@@ -889,7 +986,7 @@
   test("text contrast is at least 4.5:1 in light and in dark", async () => {
     const root = document.documentElement, before = root.dataset.mode;
     const probe = document.createElement("div"); document.body.append(probe);
-    const rgb = v => { probe.style.color = ""; probe.style.color = v; return getComputedStyle(probe).color.match(/[\d.]+/g).slice(0, 3).map(Number); };
+    const rgb = v => { probe.style.color = ""; probe.style.color = v; const c = getComputedStyle(probe).color, n = c.match(/[\d.]+/g).slice(0, 3).map(Number); return /^color\(srgb/.test(c) ? n.map(x => x * 255) : n; };   // color-mix() comes back as color(srgb 0–1)
     const lum = c => { const [r, g, b] = c.map(x => { x /= 255; return x <= .03928 ? x / 12.92 : ((x + .055) / 1.055) ** 2.4; }); return .2126 * r + .7152 * g + .0722 * b; };
     const ratio = (a, b) => { const [x, y] = [lum(rgb(a)), lum(rgb(b))].sort((p, q) => q - p); return (x + .05) / (y + .05); };
     const pairs = [["--ink", "--paper"], ["--ink", "--surface"], ["--muted", "--paper"], ["--muted", "--surface"], ["--deep-text", "--paper"], ["--deep-text", "--surface"],
@@ -899,7 +996,8 @@
       for (const m of ["light", "dark"]) {
         root.dataset.mode = m;
         for (const [fg, bg] of pairs) { const r = ratio(`var(${fg})`, `var(${bg})`); if (r < 4.5) low.push(`${m}: ${fg} on ${bg} ${r.toFixed(2)}`); }
-        const btn = getComputedStyle(document.getElementById("modeBtn")).color;
+        const btn = getComputedStyle(document.getElementById("modeBtn")).color, footText = "color-mix(in srgb,var(--muted) 70%,var(--ink))";   // the footer lines' colour (site.css .foot .about-site)
+        for (const bg of ["--page-hi", "--page-lo", ...(m === "light" ? ["#CFC5BC"] : [])]) { const r = ratio(footText, bg.startsWith("#") ? bg : `var(${bg})`); if (r < 4.5) low.push(`${m}: the foot lines on ${bg} ${r.toFixed(2)}`); }   // #CFC5BC: the darkest of the shaded band behind them (second review)
         for (const bg of ["--page-hi", "--page-lo"]) { const r = ratio(btn, `var(${bg})`); if (r < 4.5) low.push(`${m}: the foot buttons on ${bg} ${r.toFixed(2)}`); }
       }
     } finally { root.dataset.mode = before; probe.remove(); }

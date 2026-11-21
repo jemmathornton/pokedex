@@ -159,11 +159,11 @@ em{font-style:italic}
 /* ---------- sidebar ---------- */
 .side{position:fixed;inset:0 auto 0 0;width:var(--side);background:var(--nav);color:var(--on-deep);display:flex;flex-direction:column;z-index:20}
 /* the way back to Jemma's Journals (her pick A, 20 Nov): tiny and quiet above the name, brighter on hover/focus */
-.home-link{align-self:flex-start;margin:14px 24px 0;font:600 10px/1.4 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--on-deep-mute);text-decoration:none;border-radius:4px}
+.home-link{align-self:flex-start;display:inline-flex;align-items:center;min-height:24px;margin:9px 24px 0;font:600 10px/1.4 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--on-deep-mute);text-decoration:none;border-radius:4px}
 .home-link:hover,.home-link:focus-visible{color:var(--on-deep)}
 .home-link:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 .brand{display:block;padding:22px 24px 18px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.08)}
-.home-link + .brand{padding-top:12px}
+.home-link + .brand{padding-top:7px}
 .brand b{font:400 32px/1 var(--display);display:block}
 .brand b em{color:var(--accent)}
 .brand small{display:block;margin-top:8px;color:var(--on-deep-mute);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
@@ -1002,14 +1002,14 @@ main{background:linear-gradient(90deg,rgba(70,40,30,.18),rgba(70,40,30,0) 54px) 
   .hero::before{display:none}
   .side{width:min(300px,86vw);transform:translateX(-104%);visibility:hidden;transition:transform .25s ease,visibility 0s .25s;box-shadow:0 0 40px rgba(0,0,0,.35)}
   body.nav-open .side{transform:none;visibility:visible;transition:transform .25s ease}
-  body.nav-open .scrim{display:block;position:fixed;inset:0;background:rgba(20,8,10,.45);z-index:15}
+  body.nav-open .scrim{display:block;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:15}   /* black at 45% (family rules) */
   .topbar{display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:10;height:52px;padding:env(safe-area-inset-top,0px) 16px 0;box-sizing:content-box;
     color:var(--on-deep);background:var(--grain),linear-gradient(var(--cover-hi),var(--cover));box-shadow:0 2px 8px rgba(0,0,0,.25)}
-  .topbar button{display:inline-flex;align-items:center;gap:8px;padding:7px 14px 7px 12px;border-radius:99px;border:1px solid rgba(255,226,210,.3);background:rgba(0,0,0,.12);cursor:pointer;font-weight:700;font-size:14px;color:var(--on-deep)}
+  .topbar button{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:7px 14px 7px 12px;border-radius:99px;border:1px solid rgba(255,226,210,.3);background:rgba(0,0,0,.12);cursor:pointer;font-weight:700;font-size:14px;color:var(--on-deep)}
   .topbar button:hover{background:rgba(255,240,230,.12)}
   .topbar button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
   .topbar button .i{width:18px;height:18px}
-  .topname{font:400 22px/1 var(--display);color:var(--on-deep);text-decoration:none;white-space:nowrap}
+  .topname{font:400 26px/1 var(--display);color:var(--on-deep);text-decoration:none;white-space:nowrap}
   .topname em{color:var(--accent)}
   .toolbar{top:calc(52px + env(safe-area-inset-top,0px))}
 }
@@ -1042,8 +1042,8 @@ main{background:linear-gradient(90deg,rgba(70,40,30,.18),rgba(70,40,30,0) 54px) 
   .mondetail{grid-template-columns:minmax(0,1fr);gap:22px}
   .monpic{width:min(100%,360px);justify-self:center}
 }
-/* the index tabs: labels never under 10px and never cut short (app.js fitLabels drops the icon, then wraps); thirteen in
-   one row only where they fit, otherwise rows of seven (five on phones) */
+/* the index tabs: labels never cut short; thirteen in one row only where they fit, otherwise rows of seven (five on phones),
+   and fewer where a label still needs it (app.js fitTabs) */
 .hero .stat .sl,.hero.withshot .stat .sl{font-size:10.5px}
 .hero .stat .sl.noic > .i{display:none}
 .hero .stat .sl.wrap .slt{white-space:normal;overflow-wrap:anywhere}
@@ -1096,10 +1096,11 @@ main{background:linear-gradient(90deg,rgba(70,40,30,.18),rgba(70,40,30,0) 54px) 
    mode, link-style buttons in the red text colour, 44px tall to tap and level. Credits one per line on phones. */
 .foot{padding:28px 16px 56px;text-align:center}
 .foot-rule{width:120px;margin:0 auto 14px;border-top:2px dashed color-mix(in srgb,var(--deep-text) 45%,transparent)}
-.foot-name{display:block;font:400 22px/1.2 var(--display);letter-spacing:-.01em;color:var(--ink);margin-bottom:6px}
-.foot .about-site{font-size:12.5px;line-height:1.7;color:var(--muted)}
+.foot-name{display:block;font:400 24px/1.2 var(--display);letter-spacing:-.01em;color:var(--ink);margin-bottom:6px}
+.foot .about-site{font-size:12.5px;line-height:1.7;color:color-mix(in srgb,var(--muted) 70%,var(--ink))}   /* a little deeper than the muted colour: at least 4.5:1 on the darker shaded band behind the footer (second review: 4.5–4.9) */
 .foot .about-site p{margin:0}
-.foot .about-site .dot{margin:0 6px;color:color-mix(in srgb,var(--deep-text) 60%,transparent)}
+.foot .about-site p + p{text-wrap:balance}
+.foot .about-site .dot{margin:0 4px 0 2px;color:color-mix(in srgb,var(--deep-text) 60%,transparent)}
 .foot .about-site .cr{white-space:nowrap}
 @media (max-width:600px){ .foot .about-site .dot{display:none} .foot .about-site .cr{display:block;white-space:normal} }
 .foot-links{display:flex;gap:26px;justify-content:center;align-items:center;flex-wrap:wrap;margin-top:6px}
@@ -1125,8 +1126,8 @@ main{background:linear-gradient(90deg,rgba(70,40,30,.18),rgba(70,40,30,0) 54px) 
 .settile.none .setart{filter:grayscale(1) opacity(.55)}
 .settile.none .setbody b{color:var(--card-mute)}
 /* the tabs at the top are the filter (her pick, 21 Nov): click one for that box, again (or Pokémon) for every box; the one
-   picked drops down, filled in its colour. Always one small row (her note: "meant to be small and a single row"), sliding
-   sideways where the window is too narrow for all of them */
+   picked drops down, filled in its colour. One small row (her note: "meant to be small and a single row") wherever every label
+   fits; rows only where it doesn't (below) */
 .stat.stattab{font:inherit;text-align:left;cursor:pointer;color:inherit}
 .stat.stattab:hover{filter:brightness(1.05)}
 .hero .stat.stattab[aria-pressed="true"]{background:var(--sc);transform:translateY(8px);box-shadow:0 -2px 8px rgba(0,0,0,.25)}
@@ -1135,12 +1136,29 @@ main{background:linear-gradient(90deg,rgba(70,40,30,.18),rgba(70,40,30,0) 54px) 
 .hero .stat.stattab[aria-pressed="true"] .sbar i{background:#fff}
 #toolbar .worktabs{justify-content:flex-end;width:100%}
 @media (max-width:1450px){
-  .hero .stats:has(.stattab){grid-auto-flow:column;grid-template-columns:none;grid-auto-columns:minmax(72px,1fr);grid-auto-rows:auto;overflow-x:auto;overflow-y:hidden;padding-top:8px;scrollbar-width:none}
-  .hero .stats:has(.stattab)::-webkit-scrollbar{display:none}
+  .hero .stats:has(.stattab){grid-auto-flow:row;grid-template-columns:repeat(13,minmax(0,1fr));grid-auto-rows:auto;padding-top:8px}
   .hero .stats:has(.stattab) .stat{padding:4px 6px 5px;gap:1px}
   .hero .stats:has(.stattab) .stat .sl{font-size:10px;gap:3px}
   .hero .stats:has(.stattab) .stat .sl .i{width:13px;height:13px;padding:2px}
   .hero .stats:has(.stattab) .stat b{font-size:15px}
   .hero .stats:has(.stattab) .stat b small{font-size:10px}
-  .hero .stats:has(.stattab) .stat.stattab[aria-pressed="true"]{transform:none}   /* sliding row: the chosen one stays whole, filled in its colour */
 }
+/* one row of tabs where every label fits whole at 10px or more beside its icon; where it doesn't, app.js fitLabels puts them in
+   even rows instead (13 as 7 + 6, then 5 + 5 + 3 …), never sliding sideways or cut at the banner's edge (second review, 21 Nov:
+   at 1280 "4★" was cut in half and Gigantamax was 7.5px). In rows the chosen tab stays in place, filled in its colour */
+/* wide windows: the thirteenths a little less padded inside, so "Gigantamax" fits whole at 10px in one row down to 1451px,
+   on every page alike (her note, 21 Nov: Kanto's tabs went to bigger rows in her window, the rest stayed in one line) */
+@media (min-width:1451px){ .hero .stat,.hero.withshot .stat{padding-inline:3px} .hero .stat .sl,.hero.withshot .stat .sl{gap:2px} }
+.hero .stats.rows{grid-auto-flow:row;grid-auto-rows:auto;justify-content:stretch}
+.hero .stats.rows .stat.stattab[aria-pressed="true"]{transform:none}
+@media (max-width:700px){ .hero .stats:has(.stattab) .stat{padding-inline:4px} }   /* phones: four tabs a row, not three */
+/* the family of evolutions, stacked downwards with down arrows where it is wider than the page (second review: on a phone
+   Charizard's own picture was off to the side); app.js fitLabels adds .stack */
+.evo.stack .evo-branch,.evo.stack .evo-kid{flex-direction:column;align-items:center}
+.evo.stack .evo-kids{justify-items:center;width:100%}
+/* two or more ways to go: side by side where they fit, each in its own light frame so one way never reads as following on from
+   the one above it (Wurmple to Silcoon or Cascoon; Eevee's eight) */
+.evo.stack .evo-kids:has(> .evo-kid + .evo-kid){grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;justify-items:stretch}
+.evo.stack .evo-kids:has(> .evo-kid + .evo-kid) > .evo-kid{border:1px solid var(--line);border-radius:12px;padding:6px 4px 4px;min-width:0}
+.evo.stack .evo-step{flex-direction:column;min-width:0;max-width:260px;text-align:center;gap:4px}
+.evo.stack .evo-step > .i{transform:rotate(90deg)}

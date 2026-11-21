@@ -372,18 +372,13 @@ function firstStages(list){   // a region's starters (first stages that aren't r
 
 // ---------- pages ----------
 const view = document.getElementById("view"), nav = document.getElementById("nav"), q = document.getElementById("q");
-// a banner tile's label that is too long to sit whole beside its icon (Backgrounds) gets slightly smaller text, measured in
-// her own window, so every tile looks the same (her ask, 13 Nov)
+// labels that don't fit get smaller writing (never cut short), the banner tabs go into rows, and a wide family of evolutions
+// stacks downwards; run after every page is drawn and on every resize
 function fitLabels(){
-  // never below 10px and never cut short (21 Nov review: 7px and "Giganta" at 1280): a little smaller, then without its
-  // icon (the tab's colour still says which), then on two lines; the tabs themselves wrap into more rows (site.css)
-  for (const l of view.querySelectorAll(".hero .stat .slt")) {
-    const sl = l.parentElement, over = () => l.scrollWidth > l.clientWidth;
-    l.style.fontSize = ""; sl.classList.remove("noic", "wrap");
-    let f = parseFloat(getComputedStyle(l).fontSize);
-    while (over() && f > 7) l.style.fontSize = (f -= 0.25) + "px";   // her note (21 Nov): the writing shrinks, the icon stays, in line with the rest
-  }
-  // a picture box's label too long for its box (Gigantamax) drops its icon (the picture shows what it is), then shrinks to fit
+  for (const st of view.querySelectorAll(".hero .stats")) fitTabs(st);
+  // the family of evolutions wider than the page stacks downwards (second review, 21 Nov: it slid sideways on a phone and at 901–960)
+  for (const e of view.querySelectorAll(".evo")) { e.classList.remove("stack"); if (e.scrollWidth > e.clientWidth + 1) e.classList.add("stack"); }
+  // a picture box's label too long for its box (Gigantamax) shrinks to fit, keeping its icon
   for (const p of view.querySelectorAll(".pc.small .pclab")) {
     const box = p.closest(".pc"), over = () => box.scrollWidth > box.clientWidth;
     p.style.fontSize = ""; p.classList.remove("noic");
@@ -414,6 +409,40 @@ function fitLabels(){
     let f = parseFloat(getComputedStyle(n).fontSize);
     while (n.scrollWidth > n.clientWidth && f > 7) n.style.fontSize = (f -= 0.25) + "px";
   }
+}
+// the banner's tabs (her note, 21 Nov: the writing shrinks, the icon stays, in line with the rest): every label whole, at
+// 10px or more beside its icon, in one row where that fits; otherwise in even rows (13 as 7 + 6, then 5 + 5 + 3 …) rather
+// than sliding sideways or cut at the banner's edge (second review, 21 Nov: at 1280 "4★" was cut in half and Gigantamax was
+// 7.5px). A single row of a few tiles (a set's page: Backgrounds) keeps the tiles' usual size (her rule, 13 Nov) unless a label
+// needs more, then they widen just enough. Only if nothing fits does a label go under 10px (never under 7px). Measured to the
+// fraction of a pixel (textOver), since scrollWidth rounds. Tab rows are laid out for the longest label any page can have
+// ("Gigantamax"), so every region page and Every Pokémon have tabs of the same size, in one row or in the same rows (her note,
+// 21 Nov: Kanto's tabs came out bigger than the rest and didn't fit in a line, because only regions with a Gigantamax tab
+// were sent to rows).
+const tabCanvas = document.createElement("canvas").getContext("2d");
+function longestFits(t){   // would "Gigantamax" fit whole at 10px beside its icon in this tile?
+  const l = t.querySelector(".slt"), sl = l.parentElement, ic = sl.querySelector(":scope > svg, :scope > .i"), cs = getComputedStyle(t), ls = getComputedStyle(l);
+  tabCanvas.font = `${ls.fontWeight} 10px ${ls.fontFamily}`;
+  const room = t.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight) - (ic ? ic.getBoundingClientRect().width + (parseFloat(getComputedStyle(sl).columnGap) || 0) : 0);
+  return tabCanvas.measureText("Gigantamax").width <= room - 1;   // a pixel to spare, as the page measures a hair wider
+}
+function fitTabs(st){
+  const tiles = [...st.querySelectorAll(":scope > .stat")], labs = tiles.map(t => t.querySelector(".slt")).filter(Boolean);
+  st.classList.remove("rows"); st.style.gridTemplateColumns = "";
+  for (const l of labs) l.style.fontSize = "";
+  if (!labs.length || !st.offsetParent) return;
+  const n = tiles.length, top = tiles[0].offsetTop, c0 = tiles.filter(t => t.offsetTop === top).length;
+  const tabs = !!st.querySelector(".stattab"), most = tabs ? 13 : n;   // tab rows: always as for the thirteen tabs of Kanto or Galar
+  const cols = [c0];   // as laid out, then fewer columns: even rows, or (a few tiles in one row) a little wider each
+  if (tabs || c0 < n) for (let r = 2; r <= most; r++) { const c = Math.ceil(most / r); if (c < cols[cols.length - 1]) cols.push(c); if (c <= 3) break; }
+  else { const gap = parseFloat(getComputedStyle(st).columnGap) || 0, w = tiles[0].getBoundingClientRect().width;
+    for (let k = Math.round((st.clientWidth + gap) / (w + gap)) - 1; k >= Math.max(n, 2); k--) cols.push(k); }
+  const fit = least => labs.every(l => { let f = parseFloat(getComputedStyle(l).fontSize); while (textOver(l) && f > least) l.style.fontSize = (f -= 0.25) + "px"; return !textOver(l); });
+  for (let i = 0; i < cols.length; i++) {
+    if (i) { st.classList.add("rows"); st.style.gridTemplateColumns = `repeat(${cols[i]},minmax(0,1fr))`; for (const l of labs) l.style.fontSize = ""; }
+    if ((!tabs || longestFits(tiles[0])) && fit(10)) return;
+  }
+  fit(7);
 }
 // a set of labels all at the size the smallest of them needed (fitLabels shrinks one at a time; this evens them out)
 function sameSize(els, withCopy = false){
@@ -1231,7 +1260,7 @@ const comingOpen = new Set();   // What's on: backgrounds showing the ones she h
 let comingSel = null, comingWeek = null, comingMonth = 0;   // What's on: the event opened, the week it was clicked in, months on from this one
 
 function navHtml(route){
-  const link = (href, icon, text, n) => `<a href="${href}" class="${route === href.slice(1) ? "on" : ""}">${ic(icon)}${esc(text)}${n !== undefined ? `<span class="n">${num(n)}</span>` : ""}</a>`;
+  const link = (href, icon, text, n) => `<a href="${href}" class="${route === href.slice(1) ? "on" : ""}"${route === href.slice(1) ? ' aria-current="page"' : ""}>${ic(icon)}${esc(text)}${n !== undefined ? `<span class="n">${num(n)}</span>` : ""}</a>`;
   const out = ENTRIES.filter(e => e.released);
   nav.innerHTML = `<div class="nav-group">${link("#home", "house", "Home")}${link("#dex", "layout-grid", "Every Pokémon", groupByNumber(ENTRIES).length)}</div>
     <div class="nav-group"><span class="label">Regions</span>${GENS.map(([g, n]) => link("#gen-" + g, "layers", n, groupByNumber(ENTRIES.filter(e => e.gen === g)).length)).join("")}</div>
@@ -1392,8 +1421,11 @@ q.addEventListener("input", () => {
 document.getElementById("searchIco").innerHTML = ic("search");
 // narrow windows and phones (21 Nov, her note: “Other apps have hamburger no sidebar in condensed browser”): a top bar with a Menu button, the
 // sidebar a drawer over the page, as on her Sim World. It closes on choosing a link, on Escape, on tapping outside it and on
-// Enter in the search box; while it is shut it is out of the Tab order (inert), and while open Tab stays inside it.
+// Enter in the search box; while it is shut it is out of the Tab order (inert); while open everything else is inert (family
+// rules, 21 Nov), so Tab stays inside it. Opening puts focus on this page's link (Home if it has none), never on
+// "← Jemma’s Journals", so one Enter never leaves the site; closing puts it back on Menu.
 const side = document.getElementById("side"), menuBtn = document.getElementById("menuBtn"), narrow = matchMedia("(max-width:900px)");
+const behind = [document.getElementById("topbar"), document.getElementById("main")];
 document.getElementById("menuIco").innerHTML = ic("menu");
 function setMenu(open, refocus = true){
   open = open && narrow.matches;
@@ -1402,12 +1434,13 @@ function setMenu(open, refocus = true){
   menuBtn.setAttribute("aria-expanded", open);
   menuBtn.setAttribute("aria-label", open ? "Close the menu" : "Open the menu");
   side.inert = narrow.matches && !open;
-  if (open) side.querySelector("a,input,button")?.focus({preventScroll: true});
+  for (const el of behind) el.inert = open;
+  if (open) (nav.querySelector("a.on") || nav.querySelector('a[href="#home"]'))?.focus({preventScroll: true});
   else if (wasIn && refocus && narrow.matches) menuBtn.focus({preventScroll: true});
 }
 menuBtn.addEventListener("click", () => setMenu(!document.body.classList.contains("nav-open")));
-document.getElementById("scrim").addEventListener("click", () => setMenu(false));
-side.addEventListener("click", ev => { if (ev.target.closest("a[href]")) setMenu(false, false); });
+document.getElementById("scrim").addEventListener("click", () => { setMenu(false); menuBtn.focus({preventScroll: true}); });   // the tap has already taken focus out of the drawer (second review)
+side.addEventListener("click", ev => { if (!ev.target.closest("a[href]")) return; const was = document.body.classList.contains("nav-open"); setMenu(false, false); if (was) view.focus({preventScroll: true}); });   // after a link, on to the page (family rules)
 q.addEventListener("keydown", ev => { if (ev.key === "Enter" && document.body.classList.contains("nav-open")) { setMenu(false, false); view.setAttribute("tabindex", "-1"); view.focus({preventScroll: true}); } });
 addEventListener("keydown", ev => {
   if (!document.body.classList.contains("nav-open")) return;
@@ -1421,6 +1454,19 @@ addEventListener("keydown", ev => {
 });
 narrow.addEventListener("change", () => { const was = side.contains(document.activeElement); setMenu(false, false); if (was && narrow.matches) menuBtn.focus({preventScroll: true}); });
 setMenu(false, false);
+
+// the footer's credits: a "·" never starts or ends a line (family rules). The no-break space keeps it off the start of a line;
+// where the line wraps after it, it is hidden (kept in place, so the wrapping doesn't change)
+function footDots(){
+  for (const d of document.querySelectorAll(".foot .about-site .dot")) {
+    d.style.visibility = "";
+    const next = d.nextElementSibling;
+    if (next && next.getBoundingClientRect().top > d.getBoundingClientRect().top + 2) d.style.visibility = "hidden";
+  }
+}
+addEventListener("resize", () => requestAnimationFrame(footDots));
+if (document.fonts) document.fonts.ready.then(footDots);
+footDots();
 
 // the foot of every page (family rules, 21 Nov: the same on all her sites): Back to top, and Dark mode. The page is light unless she
 // presses Dark mode (never by the device's setting). jj-mode is the one setting every site in the family shares, so once they share
