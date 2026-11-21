@@ -30,6 +30,14 @@ const prefs = Object.assign({work: "all", workShow: "need", gender: "any", forms
 if (["genders", "caught", "forms"].includes(prefs.work)) prefs.work = "all";
 if (!["need", "all"].includes(prefs.workShow)) prefs.workShow = "need";   // tabs that no longer exist
 const keepPrefs = () => store.set(PREFS_KEY, prefs);
+const TABS_TRY = new URLSearchParams(location.search).get("tabs") === "1";   // trial for pictures (her idea, 21 Nov): filter with the tabs at the top
+if (TABS_TRY) document.documentElement.classList.add("try-tabs");
+if (["row", "wider"].includes(new URLSearchParams(location.search).get("gx"))) document.documentElement.classList.add("try-gx" + new URLSearchParams(location.search).get("gx"));   // trial for pictures (her point, 21 Nov: Gigantamax too small)
+// pictures of options only (21 Nov, her questions 1 and 2): ?work= and ?show= pick the tab without saving it; ?mark=edge and ?shinycol=1 the looks
+{ const T = new URLSearchParams(location.search);
+  if (T.get("work")) prefs.work = T.get("work"); if (T.get("show")) prefs.workShow = T.get("show");
+  if (T.get("mark") === "edge") document.documentElement.classList.add("try-mark");
+  if (T.get("shinycol")) document.documentElement.classList.add("try-shinycol"); }
 
 // ---------- what there is ----------
 // the sections, in game order: [key, region, small label]. Hisui stands on its own between Galar and Paldea (her call, 9 Nov)
@@ -424,14 +432,17 @@ new MutationObserver(fitLabels).observe(view, {childList: true});
 addEventListener("resize", () => requestAnimationFrame(fitLabels));
 if (document.fonts) { document.fonts.ready.then(fitLabels); document.fonts.addEventListener("loadingdone", fitLabels); }   // the label font arriving late changes the widths
 
-function statTile(colour, icon, label, have, of, extra = ""){
+function statTile(colour, icon, label, have, of, extra = "", work = null){
+  if (work) return `<button type="button" class="stat stattab" data-work="${work}" aria-pressed="${prefs.work === work}" title="${tip(work === "all" ? "Show every box" : "Show only " + label)}" style="--sc:var(${colour})"><span class="sl">${ic(icon)}<span class="slt">${esc(label)}</span></span><b>${num(have)}<small> of ${num(of)}</small></b>
+    <span class="sbar"><i style="width:${of ? have / of * 100 : 0}%"></i></span>${extra}</button>`;   // trial (her idea, 21 Nov): the tabs at the top are the filter
   return `<div class="stat" style="--sc:var(${colour})"><span class="sl">${ic(icon)}<span class="slt">${esc(label)}</span></span><b>${num(have)}<small> of ${num(of)}</small></b>
     <span class="sbar"><i style="width:${of ? have / of * 100 : 0}%"></i></span>${extra}</div>`;
 }
-function statsHtml(c){
+function statsHtml(c, tabs = false){
   // the counts at the top: an even grid of tiles, each with its box's icon and colour, "3 of 151" and a bar (her point:
   // the old row of uneven tiles looked bad). Forms sit inside the Pokémon tile.
-  const t = (colour, icon, label, have, of, extra = "") => of ? statTile(colour, icon, label, have, of, extra) : "";
+  const K = {Pokémon: "all", Female: "female", Male: "male", Shiny: "shiny", Lucky: "lucky", XXL: "xxl", XXS: "xxs", Dynamax: "dynamax", Gigantamax: "gmax", Mega: "mega", Shadow: "shadow", Purified: "purified", "4★": "hundo"};
+  const t = (colour, icon, label, have, of, extra = "") => of ? statTile(colour, icon, label, have, of, extra, tabs ? K[label] : null) : "";
   return `<div class="stats">` +
     t("--caught", "poke-ball", "Pokémon", c.species, c.speciesAll) +
     t("--female", "venus", "Female", c.female, c.femaleOut) +
@@ -504,7 +515,7 @@ function dexPage(title, label, list, region){
   // see the ones she has too, lit up; her wording and place, 9 Nov); the not-out switch under it where there are some; how many are shown sits by the title (her layout, 9 Nov)
   setRegion(region);
   const shot = region ? regionShot(region) : {style: "", sw: heroPics(ALL_MAPS()), cls: " withshot"};
-  view.innerHTML = `<header class="hero${shot.cls || ""}"${shot.style}>${shot.sw}${heroArt(region ? firstStages(list) : STARTERS.map(d => baseOf[d]))}<span class="label">${esc(label)} · ${num(groups.length)} shown</span><h1>${title}</h1>${statsHtml(counts(list))}</header>${readOnlyNote()}
+  view.innerHTML = `<header class="hero${shot.cls || ""}"${shot.style}>${shot.sw}${heroArt(region ? firstStages(list) : STARTERS.map(d => baseOf[d]))}<span class="label">${esc(label)} · ${num(groups.length)} shown</span><h1>${title}</h1>${statsHtml(counts(list), TABS_TRY)}</header>${readOnlyNote()}
     <div class="toolbar filters" id="toolbar">
       <div class="frow"><span class="label flabel">Filter</span><div class="worktabs">` +
       BOXF.map(b => `<button type="button" class="worktab" data-work="${b.k}" aria-pressed="${prefs.work === b.k}">${esc(b.label)}</button>`).join("") +
@@ -776,7 +787,7 @@ function allSets(){
 const setGot = it => has(it.key, "c");   // got = Caught; a costume's Shiny is a bonus, not counted (her rule, 10 Nov; rule review 20 Nov)
 function setTile(st){
   const got = st.items.filter(setGot).length, n = st.items.length;
-  return `<a class="settile${got === n ? " done" : ""}" href="#set-${attr(st.id)}">` +
+  return `<a class="settile${got === n ? " done" : ""}${got ? "" : " none"}" href="#set-${attr(st.id)}">` +   // a collector's card (her ask, 21 Nov): grey frame until she has one from it, foil once complete
     (st.mosaic ? `<span class="setart mosaic">${st.mosaic.map(m => `<img src="${m}" alt="">`).join("")}</span>`
       : `<span class="setart${st.art ? "" : " noart"}"${st.art ? ` style="background-image:url('${st.art}')"` : ""}>${st.art ? "" : (sprite((st.items[0] || {}).img) ? `<img src="${sprite((st.items[0] || {}).img)}" alt="">` : "")}</span>`) +
     `<span class="setbody"><b>${esc(st.title)}</b><small>${esc(st.meta)}</small>` +
@@ -1230,6 +1241,7 @@ function navHtml(route){
 
 function route(to){   // to: draw that page without changing the address (the tests' sweep over every page)
   const r = to || (location.hash || "#home").slice(1);
+  document.documentElement.classList.toggle("tab-shiny", prefs.work === "shiny");
   const term = q.value.trim().toLowerCase().replace(/[‘’]/g, "'");   // “farfetch’d” as the page shows it, or from a phone (19 Nov tests)
   const pn = /^p-(\d+(?:-[a-z]+)?)$/.exec(r), lead = pn && groupByNumber(ENTRIES.filter(e => groupKey(e) === pn[1]))[0];
   navHtml(lead ? "gen-" + lead.lead.gen : /^set-/.test(r) ? "sets" : r);   // a Pokémon's page lights up its region in the sidebar

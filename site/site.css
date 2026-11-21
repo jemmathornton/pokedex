@@ -1102,3 +1102,32 @@ main{background:linear-gradient(90deg,rgba(70,40,30,.18),rgba(70,40,30,0) 54px) 
 .foot-links button:focus-visible{outline:2px solid var(--focus);outline-offset:2px;border-radius:4px}
 /* a banner's words stay on the plain part, clear of the map (21 Nov review: Fast tick and Looking for ran onto it at 1600) */
 .hero.withshot > p{max-width:340px !important}
+/* Event Pokémon: each event a collector’s card too (her ask, 21 Nov): a frame in the app’s deep red (grey until she has
+   something from it), the name across the top, the background or costumes in an art window, foil round it once complete */
+.settile{--frame:color-mix(in srgb,var(--deep-2) var(--frame-amt),var(--frame-mix));color:var(--card-ink);
+  background:var(--stock),var(--card-stock);border:7px solid var(--frame);border-radius:12px;padding:10px 12px 12px;box-shadow:var(--card-shadow)}
+.settile:hover{border-color:var(--frame)}
+.settile.none{--frame:var(--faded)}
+.settile.done{background:var(--stock),var(--card-stock);border-color:var(--frame)}
+.settile .setbody b{font:400 21px/1.08 var(--display);letter-spacing:-.01em}
+.settile .setbody small{color:var(--card-mute)}
+.settile .setbody .setn{color:var(--card-ink)}
+.settile .setart{border:2px solid color-mix(in srgb,var(--frame) 30%,var(--win-edge));border-radius:4px;box-shadow:inset 0 0 0 1px var(--win-rim),inset 0 4px 10px rgba(0,0,0,.08)}
+.settile.done .setart{border:3px solid;border-image:var(--foil) 1;border-radius:0}
+.settile.none .setart{filter:grayscale(1) opacity(.55)}
+.settile.none .setbody b{color:var(--card-mute)}
+/* options for her (21 Nov, pictures only): a card she has, marked in the tab's box colour inside its frame; the Shiny tab showing the shiny in full colour */
+.try-mark .card.got{box-shadow:inset 0 0 0 4px var(--hl),var(--card-shadow)}
+.try-shinycol.tab-shiny .card[data-id]:not(.got):not(.informs):not(.some) .pic img{filter:drop-shadow(0 4px 4px rgba(0,0,0,.18))}
+/* trial (her idea, 21 Nov): the tabs at the top are the filter; the row of filter buttons goes, Clear and the switches stay */
+.stat.stattab{font:inherit;text-align:left;cursor:pointer;color:inherit}
+.stat.stattab:hover{filter:brightness(1.05)}
+.hero .stat.stattab[aria-pressed="true"]{background:var(--sc);transform:translateY(8px);box-shadow:0 -2px 8px rgba(0,0,0,.25)}
+.hero .stat.stattab[aria-pressed="true"] :is(.sl,b,b small,.slt){color:#fff}
+.hero .stat.stattab[aria-pressed="true"] .sbar{background:rgba(255,255,255,.3)}
+.hero .stat.stattab[aria-pressed="true"] .sbar i{background:#fff}
+.try-tabs #toolbar .flabel,.try-tabs #toolbar .worktab{display:none}
+.try-tabs #toolbar .worktabs{justify-content:flex-end;width:100%}
+/* trial (her point, 21 Nov: Gigantamax looks too small): Dynamax and Gigantamax each a full row, or slightly wider cards */
+.try-gxrow .boxgrid .tk:is(.dx,.gx,[data-tick="dx"],[data-tick="gx"]){grid-column:1/-1}
+.try-gxwider .grid{grid-template-columns:repeat(auto-fill,minmax(198px,1fr))}
