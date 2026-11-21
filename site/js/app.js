@@ -30,7 +30,6 @@ const prefs = Object.assign({work: "all", workShow: "need", gender: "any", forms
 if (["genders", "caught", "forms"].includes(prefs.work)) prefs.work = "all";
 if (!["need", "all"].includes(prefs.workShow)) prefs.workShow = "need";   // tabs that no longer exist
 const keepPrefs = () => store.set(PREFS_KEY, prefs);
-if (new URLSearchParams(location.search).get("gx") === "row") document.documentElement.classList.add("try-gxrow");   // picture only (her question, 21 Nov): Gigantamax a full row
 
 // ---------- what there is ----------
 // the sections, in game order: [key, region, small label]. Hisui stands on its own between Galar and Paldea (her call, 9 Nov)
@@ -190,7 +189,7 @@ function formBoxes(lead, forms, only){
     [B("cf", "f", "venus", "Female", femaleTick), B("cm", "m", "mars", "Male", maleTick)],
     [B("s", "s", "sparkles", "Shiny", f => !!f.shiny), B("l", "l", "lucky", "Lucky", canLucky)],
     [B("xl", "xl", "expand", "XXL", f => !neverXXL(f)), B("xs", "xs", "shrink", "XXS", f => !neverXXS(f))],
-    [B("dx", "dx", "dynamax", "Dynamax", f => !!f.dynamax), B("gx", "gx", "gigantamax", "Gigantamax", f => !!f.gmax)],
+    [B("dx", "dx", "dynamax", "Dynamax", f => !!f.dynamax)], [B("gx", "gx", "gigantamax", "Gigantamax", f => !!f.gmax)],   // a full row each, so Gigantamax is the same size as the rest (her pick, 21 Nov)
     megaT.map(t => B(t, "mg", "mega", t === "mx" ? "Mega X" : t === "my" ? "Mega Y" : "Mega", f => (f.mega || []).some(m => m.t === t))),
     [B("sd", "sd", "shadow", "Shadow", f => !!f.shadow), B("pu", "pu", "purified", "Purified", f => !!f.shadow)],
     [B("h", "h", "star", "4★", () => true)],
@@ -221,7 +220,7 @@ function boxes(e){
     [btn("s", "s", "sparkles", "Shiny", e.shiny ? "Shiny" : "No shiny in GO yet", !e.shiny),
      UNTRADEABLE.has(e.dex) && !has(k, "l") ? "" : btn("l", "l", "lucky", "Lucky", "Lucky", !canLucky(e))],   // a box that can never be (a mythical’s Lucky) isn’t shown (her call, 10 Nov)
     [neverXXL(e) && !has(k, "xl") ? "" : btn("xl", "xl", "expand", "XXL", "XXL", !e.released), neverXXS(e) && !has(k, "xs") ? "" : btn("xs", "xs", "shrink", "XXS", "XXS", !e.released)],
-    [extra("dx"), extra("gx")],
+    [extra("dx")], [extra("gx")],   // a full row each (her pick, 21 Nov: Gigantamax was squeezed into smaller writing)
     megas.length > 1 ? megas : [megas[0] || ""],
     [extra("sd"), extra("pu")],
     [btn("h", "h", "star", "4★", "4★ (perfect IVs)", !e.released)],
@@ -1423,11 +1422,11 @@ addEventListener("keydown", ev => {
 narrow.addEventListener("change", () => { const was = side.contains(document.activeElement); setMenu(false, false); if (was && narrow.matches) menuBtn.focus({preventScroll: true}); });
 setMenu(false, false);
 
-// the foot of every page (her ask, 21 Nov, as on Jemma’s Journals): Back to top, and Dark mode. The page is light unless she
-// presses Dark mode (never by the device's setting); her choice is remembered on this computer (index.html sets it before drawing).
-const MODE_KEY = "jemmas-pokedex-mode", modeBtn = document.getElementById("modeBtn"), toTop = document.getElementById("toTop");
-let mode = "light";
-try { if (localStorage.getItem(MODE_KEY) === "dark") mode = "dark"; } catch {}
+// the foot of every page (family rules, 21 Nov: the same on all her sites): Back to top, and Dark mode. The page is light unless she
+// presses Dark mode (never by the device's setting). jj-mode is the one setting every site in the family shares, so once they share
+// one address online the choice carries across (index.html reads it before drawing, and moves the old jemmas-pokedex-mode over once).
+const MODE_KEY = "jj-mode", modeBtn = document.getElementById("modeBtn"), toTop = document.getElementById("toTop");
+let mode = document.documentElement.getAttribute("data-mode") === "dark" ? "dark" : "light";
 function applyMode(){
   const dark = mode === "dark";
   document.documentElement.setAttribute("data-mode", mode);

@@ -765,10 +765,16 @@
       ok(side.inert && !isOpen(), "drawer shut and out of the Tab order");
       eq(btn.getAttribute("aria-expanded"), "false");
       ok(d.documentElement.scrollWidth <= 390, `no sideways scrolling (page ${d.documentElement.scrollWidth} wide)`);
+      const crs = [...d.querySelectorAll(".foot .about-site .cr")], dots = [...d.querySelectorAll(".foot .about-site .dot")];
+      ok(crs.length === 3 && crs.every((c, i) => i === 0 || c.getBoundingClientRect().top >= crs[i - 1].getBoundingClientRect().bottom - 1), "credits one per line on a phone");
+      ok(dots.every(x => w.getComputedStyle(x).display === "none"), "no · at line ends on a phone");
       btn.click();
       ok(isOpen() && !side.inert, "opens"); eq(btn.getAttribute("aria-expanded"), "true");
       ok(side.contains(d.activeElement), "focus goes into the drawer");
       ok(side.querySelector(".home-link"), "the way back to Jemma’s Journals is in it");
+      ok(d.activeElement === side.querySelector(".home-link"), "focus on the first link, ← Jemma’s Journals at the very top");
+      eq(w.getComputedStyle(d.body).overflow, "hidden", "the page behind doesn't scroll");
+      ok(w.getComputedStyle(d.getElementById("scrim")).display !== "none", "a dimmed scrim behind");
       key("Escape");
       ok(!isOpen(), "Escape shuts it"); eq(btn.getAttribute("aria-expanded"), "false");
       ok(d.activeElement === btn, "focus back on Menu");
@@ -777,11 +783,25 @@
       btn.click(); side.querySelector('.nav a[href="#gen-1"]').click();
       ok(!isOpen(), "choosing a link shuts it");
       await until(() => w.location.hash === "#gen-1");
+      // the family rules (21 Nov): the same menu on every site
+      eq(btn.getAttribute("aria-controls"), "side", "aria-controls"); eq(btn.textContent.trim(), "Menu", "the word Menu");
+      ok(btn.querySelector("svg"), "the Lucide menu icon");
+      const nm = d.querySelector("#topbar .topname"); eq(nm.getAttribute("href"), "#home", "the name goes home"); eq(nm.querySelector("em")?.textContent, "Pokédex", "Jemma’s *Pokédex*");
+      ok(side.firstElementChild === side.querySelector(".home-link"), "← Jemma’s Journals first in the drawer");
+      // crossing the 900px line resets it: at 901 the sidebar, the open state gone; back at 899 the Menu bar, shut
+      btn.click(); ok(isOpen(), "open before widening");
+      f.style.width = "901px"; await until(() => !w.matchMedia("(max-width:900px)").matches); await wait(50);
+      ok(!isOpen() && !side.inert, "at 901 the sidebar shows, reachable, and the drawer state is reset");
+      eq(w.getComputedStyle(d.getElementById("topbar")).display, "none", "no Menu bar at 901");
+      f.style.width = "899px"; await until(() => w.matchMedia("(max-width:900px)").matches); await wait(50);
+      ok(w.getComputedStyle(d.getElementById("topbar")).display !== "none", "Menu bar at 899");
+      ok(side.inert && !isOpen(), "shut and out of the Tab order at 899");
+      eq(btn.getAttribute("aria-expanded"), "false");
     } finally { f.remove(); }
   });
 
-  // ---------- the foot of every page (21 Nov, her ask for all her sites): Back to top and Dark mode ----------
-  const MODE_KEY = "jemmas-pokedex-mode";
+  // ---------- the foot of every page (21 Nov, the family rules for all her sites): name, two lines, Back to top and Dark mode ----------
+  const MODE_KEY = "jj-mode", OLD_KEY = "jemmas-pokedex-mode";
   test("Back to top and Dark mode are at the foot of every page", async () => {
     const routes = ["#home", "#dex", "#sets", "#want", "#coming", "#fast", "#p-6", "#p-58-hisuian", ...Object.keys(genById).map(g => "#gen-" + g), ...allSets().slice(0, 3).map(st => "#set-" + st.id)];
     const problems = [];
@@ -794,6 +814,14 @@
       if (top.offsetHeight < 44 || md.offsetHeight < 44) problems.push(`${h}: under 44px to tap`);
       if (foot.getBoundingClientRect().top < view().getBoundingClientRect().bottom - 1) problems.push(`${h}: not below the page`);
       if (getComputedStyle(foot).display === "none") problems.push(`${h}: hidden`);
+      const name = foot.querySelector(".foot-name"), lines = foot.querySelectorAll(".about-site p");
+      if (!name || name.textContent !== "Jemma’s Pokédex" || getComputedStyle(name).fontStyle !== "normal") problems.push(`${h}: the name`);
+      if (lines.length !== 2 || lines[0].textContent !== "No cookies, no tracking, no ads. Made with plain HTML and CSS, kept on GitHub.") problems.push(`${h}: line 1`);
+      const credits = [...foot.querySelectorAll(".about-site .cr")].map(c => c.textContent);
+      if (credits.join(" | ") !== "Pokémon pictures, backgrounds and region maps from the Pokémon games | Fonts: Instrument Serif and Manrope | Icons by Lucide and Phosphor") problems.push(`${h}: credits ${credits.join(" | ")}`);
+      const order = [name, lines[0], lines[1], top].map(x => x && x.getBoundingClientRect().top);
+      if (!order.every((t, i) => i === 0 || t > order[i - 1])) problems.push(`${h}: not in the family order`);
+      if (Math.abs(top.getBoundingClientRect().top - md.getBoundingClientRect().top) > 1 || Math.abs(top.offsetHeight - md.offsetHeight) > 1) problems.push(`${h}: Back to top and Dark mode not level`);
     }
     eq(problems, [], "problems:");
   });
@@ -808,7 +836,7 @@
   });
 
   test("Dark mode: opens light, the button switches it, and it’s remembered after reloading", async () => {
-    let saved = null; try { saved = localStorage.getItem(MODE_KEY); localStorage.removeItem(MODE_KEY); } catch {}
+    let saved = null, savedOld = null; try { saved = localStorage.getItem(MODE_KEY); savedOld = localStorage.getItem(OLD_KEY); localStorage.removeItem(MODE_KEY); localStorage.removeItem(OLD_KEY); } catch {}
     const f = document.createElement("iframe");   // a window of its own on the same site, so it can be reloaded
     f.style.cssText = "position:fixed;left:0;top:0;width:1280px;height:800px;border:0;opacity:0;pointer-events:none";
     f.src = "index.html#home";
@@ -818,13 +846,16 @@
       await loaded();
       let d = f.contentDocument, btn = d.getElementById("modeBtn");
       const paper = () => f.contentWindow.getComputedStyle(f.contentDocument.documentElement).getPropertyValue("--paper").trim().toUpperCase();
-      eq(d.documentElement.dataset.mode, "light", "opens light");
+      ok(f.contentWindow.matchMedia("(prefers-color-scheme: dark)").matches, "the test browser is set to dark (--force-dark-mode)");
+      eq(d.documentElement.dataset.mode, "light", "opens light, with the device set to dark");
+      const bar = () => f.contentDocument.querySelector('meta[name="theme-color"]').getAttribute("content");
+      eq(bar(), "#7A1E2A", "light bar colour");
       eq(btn.textContent, "Dark mode"); eq(btn.getAttribute("aria-pressed"), "false"); eq(paper(), "#ECE7E0", "light paper");
       btn.click();
       eq(d.documentElement.dataset.mode, "dark", "switched to dark");
       eq(btn.textContent, "Light mode"); eq(btn.getAttribute("aria-pressed"), "true"); eq(paper(), "#171012", "dark paper");
       ok(btn.querySelector("svg"), "a sun icon");
-      eq(localStorage.getItem(MODE_KEY), "dark", "remembered");
+      eq(localStorage.getItem(MODE_KEY), "dark", "remembered in jj-mode, the key every site shares"); eq(bar(), "#4E1018", "dark bar colour");
       f.contentWindow.location.reload(); await wait(300); await loaded();
       d = f.contentDocument; btn = d.getElementById("modeBtn");
       eq(d.documentElement.dataset.mode, "dark", "still dark after reloading"); eq(btn.textContent, "Light mode"); eq(paper(), "#171012");
@@ -832,9 +863,15 @@
       eq(d.documentElement.dataset.mode, "light", "back to light"); eq(localStorage.getItem(MODE_KEY), "light");
       f.contentWindow.location.reload(); await wait(300); await loaded();
       eq(f.contentDocument.documentElement.dataset.mode, "light", "still light after reloading");
+      // another site in the family chose dark (the same key): this one opens dark too
+      localStorage.setItem(MODE_KEY, "dark"); f.contentWindow.location.reload(); await wait(300); await loaded();
+      eq(f.contentDocument.documentElement.dataset.mode, "dark", "dark set by another site carries here"); eq(bar(), "#4E1018", "dark bar colour from the start");
+      // her old Pokédex-only choice is kept once, moved over to jj-mode
+      localStorage.removeItem(MODE_KEY); localStorage.setItem(OLD_KEY, "dark"); f.contentWindow.location.reload(); await wait(300); await loaded();
+      eq(f.contentDocument.documentElement.dataset.mode, "dark", "the old key read when jj-mode is missing"); eq(localStorage.getItem(MODE_KEY), "dark", "and saved as jj-mode");
     } finally {
       f.remove();
-      try { if (saved === null) localStorage.removeItem(MODE_KEY); else localStorage.setItem(MODE_KEY, saved); } catch {}
+      try { if (saved === null) localStorage.removeItem(MODE_KEY); else localStorage.setItem(MODE_KEY, saved); if (savedOld === null) localStorage.removeItem(OLD_KEY); else localStorage.setItem(OLD_KEY, savedOld); } catch {}
     }
   });
 

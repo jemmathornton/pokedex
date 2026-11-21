@@ -1091,10 +1091,18 @@ main{background:linear-gradient(90deg,rgba(70,40,30,.18),rgba(70,40,30,0) 54px) 
   .card .pic .flip{width:24px;height:24px}
 }
 
-/* the foot of every page (her ask, 21 Nov, as on Jemma’s Journals): Back to top and Dark mode / Light mode, small link-style
-   buttons in the red text colour, centred; 44px tall to tap. Light unless she presses Dark mode (remembered on this computer). */
-.foot{padding:4px 16px 64px}
-.foot-links{display:flex;gap:26px;justify-content:center;align-items:center;flex-wrap:wrap}
+/* the foot of every page, the family layout (her rules, 21 Nov: the same on all her sites): a short stitched rule as on the
+   binder, the name in the display font (plain), two small lines in the muted colour, then Back to top and Dark mode / Light
+   mode, link-style buttons in the red text colour, 44px tall to tap and level. Credits one per line on phones. */
+.foot{padding:28px 16px 56px;text-align:center}
+.foot-rule{width:120px;margin:0 auto 14px;border-top:2px dashed color-mix(in srgb,var(--deep-text) 45%,transparent)}
+.foot-name{display:block;font:400 22px/1.2 var(--display);letter-spacing:-.01em;color:var(--ink);margin-bottom:6px}
+.foot .about-site{font-size:12.5px;line-height:1.7;color:var(--muted)}
+.foot .about-site p{margin:0}
+.foot .about-site .dot{margin:0 6px;color:color-mix(in srgb,var(--deep-text) 60%,transparent)}
+.foot .about-site .cr{white-space:nowrap}
+@media (max-width:600px){ .foot .about-site .dot{display:none} .foot .about-site .cr{display:block;white-space:normal} }
+.foot-links{display:flex;gap:26px;justify-content:center;align-items:center;flex-wrap:wrap;margin-top:6px}
 .foot-links button{display:inline-flex;align-items:center;gap:6px;min-height:44px;margin:0;padding:4px 2px;border:0;background:none;
   font:700 13px/1 var(--body);color:var(--deep-text);cursor:pointer}
 .foot-links button svg.i{width:14px;height:14px}
@@ -1136,5 +1144,3 @@ main{background:linear-gradient(90deg,rgba(70,40,30,.18),rgba(70,40,30,0) 54px) 
   .hero .stats:has(.stattab) .stat b small{font-size:10px}
   .hero .stats:has(.stattab) .stat.stattab[aria-pressed="true"]{transform:none}   /* sliding row: the chosen one stays whole, filled in its colour */
 }
-/* picture only (her question, 21 Nov): Dynamax and Gigantamax each a full row */
-.try-gxrow .boxgrid .tk:is([data-tick="dx"],[data-tick="gx"],.dx,.gx){grid-column:1/-1}
