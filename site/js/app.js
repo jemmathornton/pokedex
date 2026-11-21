@@ -1321,7 +1321,7 @@ function toast(msg){ toastEl.textContent = msg; toastEl.hidden = false; clearTim
 async function save(body){
   if (readOnly) { toast(loadFailed ? "The server couldn’t read your ticks, so nothing was saved. Open the shortcut again." : "Opened from the folder: open it with the shortcut to save ticks."); return false; }
   try {
-    const r = await fetch("/api/tick", {method: "POST", headers: {"Content-Type": "application/json", "X-Pokedex": "1"}, body: JSON.stringify(body)});
+    const r = await fetch("api/tick", {method: "POST", headers: {"Content-Type": "application/json", "X-Pokedex": "1"}, body: JSON.stringify(body)});
     const j = await r.json();
     if (!j.ok && r.status >= 500) throw new Error(j.error);
     if (!j.ok) { toast(`Not saved: ${curly(j.error || "the server said no")}`); return false; }   // the server's own reason (15 Nov review: it always said "isn't answering")
@@ -1508,5 +1508,5 @@ addEventListener("keydown", ev => {   // ← and → step through the numbers on
 
 route();
 if (location.protocol.startsWith("http")) {
-  fetch("/api/collection").then(r => r.ok ? r.json() : Promise.reject()).then(c => { COL = norm(c); readOnly = false; rerender(); }).catch(() => { if (location.protocol !== "file:") { loadFailed = true; rerender(); } });
+  fetch("api/collection").then(r => r.ok ? r.json() : Promise.reject()).then(c => { COL = norm(c); readOnly = false; rerender(); }).catch(() => { if (location.protocol !== "file:") { loadFailed = true; rerender(); } });
 }

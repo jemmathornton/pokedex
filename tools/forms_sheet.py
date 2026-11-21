@@ -1,7 +1,7 @@
 """Picture sheet + markdown list of every non-regional multi-form Pokémon, for her to decide which get their own cards."""
 import json, os, collections
 from PIL import Image, ImageDraw, ImageFont
-R = r'C:/Users/Jemma/Documents/Pokedex'
+R = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))   # this project's folder (was a fixed path to Documents/Pokedex)
 d = json.load(open(R + '/data/go/dex.json', encoding='utf8')); d = d if isinstance(d, list) else d['entries']
 REG = ('Alolan', 'Galarian', 'Hisuian', 'Paldean')
 isreg = lambda e: (e.get('form') or '').split(' ')[0] in REG
