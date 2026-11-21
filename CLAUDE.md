@@ -59,7 +59,7 @@ Each region page's banner is an official painted region map (her switch from sce
 
 ## The family rules (her decision, 21 Nov)
 
-All her sites share three things, written in `Documents\JemmasJournalsesearchamily-rules.md`: dark mode works the same and carries across (opens light; the footer's Dark mode button; one shared `localStorage` key `jj-mode`, the old `jemmas-pokedex-mode` moved over once), the same footer (the name, “No cookies, no tracking, no ads. Made with plain HTML and CSS, kept on GitHub.”, the credits, then Back to top and Dark mode), and the same Menu drawer under 900px. Checked in `tests/e2e/site.test.js`.
+All her sites share three things, written in `Documents/JemmasJournals/research/family-rules.md`: dark mode works the same and carries across (opens light; the footer's Dark mode button; one shared `localStorage` key `jj-mode`, the old `jemmas-pokedex-mode` moved over once), the same footer (the name, “No cookies, no tracking, no ads. Made with plain HTML and CSS, kept on GitHub.”, the credits, then Back to top and Dark mode), and the same Menu drawer under 900px. Checked in `tests/e2e/site.test.js`.
 
 ## The look: Cards in a binder (her pick, 21 Nov)
 
