@@ -129,22 +129,22 @@
    Its colours: a deep Pokédex red sidebar on warm cream paper; gold for lucky, violet for shiny, red for 4★.
    Pictures are the game's own; icons are Lucide (ISC). */
 :root{
-  --paper:#ECE7E0; --surface:#FFFDF9; --ink:#2B1A1C; --muted:#7A6563; --line:#DCD3C8; --soft:#F2E8DD;   /* paper and lines a little deeper for the binder look (her pick P3b, 21 Nov) */
+  --paper:#ECE7E0; --surface:#FFFDF9; --ink:#2B1A1C; --muted:#6E5A58; --line:#DCD3C8; --soft:#F2E8DD;   /* paper and lines a little deeper for the binder look (her pick P3b, 21 Nov) */
   --nav:#5A1820; --deep:#5A1820; --deep-2:#7E2530; --on-deep:#FFF4EE; --on-deep-mute:color-mix(in srgb,#fff 62%,var(--deep));
   --accent:#F2C14E;
   --caught:#315686; --male:#078E5A; --female:#6A5DCF; --shiny:#7C8795; --lucky:#D09B00; --hundo:#D14186; --shadow:#4D2D5F; --purified:#0082C5; --dynamax:#B6285A; --gmax:#80183B; --mega:#C2571A;   /* Mega: burnt orange (her pick, 10 Nov) */
   --xxl:#0E8A84; --xxs:#1B5C9E;   /* XXL teal (12 Nov), XXS deep sea blue (her pick 3, 13 Nov: coral was too close to Dynamax) */
   /* box colours: her picks after several rounds (9 Nov), balanced to one palette; white text on every box (her rule) */
-  --focus:var(--deep-2);
+  --focus:var(--deep-2); --deep-text:var(--deep-2);   /* red text; a light rose in dark mode (the dark red was 1.8:1 there) */
   --display:"Instrument Serif","Iowan Old Style","Palatino Linotype",Georgia,serif;
   --body:"Manrope","Segoe UI",system-ui,sans-serif;
   --side:256px; color-scheme:light;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --paper:#171012; --surface:#21171A; --ink:#F3E8E4; --muted:#B8A29F; --line:#352629; --soft:#2B1E21;
-  --focus:var(--accent); color-scheme:dark }}
+  --focus:var(--accent); --deep-text:#E48A96; color-scheme:dark }}
 :root[data-theme="dark"]{ --paper:#171012; --surface:#21171A; --ink:#F3E8E4; --muted:#B8A29F; --line:#352629; --soft:#2B1E21;
-  --focus:var(--accent); color-scheme:dark }
+  --focus:var(--accent); --deep-text:#E48A96; color-scheme:dark }
 
 *{box-sizing:border-box}
 [hidden]{display:none!important}
@@ -216,7 +216,7 @@ main{margin-left:var(--side);min-height:100vh;container-type:inline-size}
 .sel select{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:8px;padding:5px 8px;font-size:13.5px;font-weight:600;cursor:pointer}
 .check{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:600;color:var(--muted);cursor:pointer}
 .check input{accent-color:var(--deep-2)}
-.linkbtn{border:0;background:none;padding:0;font-size:13.5px;font-weight:700;color:var(--deep-2);text-decoration:underline;cursor:pointer}
+.linkbtn{border:0;background:none;padding:0;font-size:13.5px;font-weight:700;color:var(--deep-text);text-decoration:underline;cursor:pointer}
 .shown{font-size:13.5px;color:var(--muted);font-variant-numeric:tabular-nums}
 .toolbar .sep{width:1px;height:22px;background:var(--line);margin:0 4px}
 
@@ -337,7 +337,7 @@ main{margin-left:var(--side);min-height:100vh;container-type:inline-size}
 
 /* forms: one card per number, the rest open from it */
 .morebtn{margin-top:8px;border:1px solid color-mix(in srgb,var(--deep-2) 35%,var(--line));background:color-mix(in srgb,var(--deep-2) 7%,var(--surface));
-  color:var(--deep-2);border-radius:999px;padding:3px 12px;font-size:12.5px;font-weight:700;cursor:pointer}
+  color:var(--deep-text);border-radius:999px;padding:3px 12px;font-size:12.5px;font-weight:700;cursor:pointer}
 .morebtn:hover{background:color-mix(in srgb,var(--deep-2) 14%,var(--surface))}
 .morebtn[aria-expanded="true"]{background:var(--deep-2);color:var(--on-deep);border-color:var(--deep-2)}
 .card.informs{background:color-mix(in srgb,var(--deep-2) 5%,var(--surface));border-color:color-mix(in srgb,var(--deep-2) 30%,var(--line));border-style:dashed}
@@ -453,7 +453,7 @@ a.formsbtn{text-decoration:none}
 /* boxes on a card: a fixed two-column grid */
 .boxgrid{display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-top:8px;width:100%}
 .boxgrid .tk{justify-content:flex-start;width:100%;min-width:0}
-.boxgrid .tk.wide{grid-column:1 / -1}
+.boxgrid .tk.wide,.boxgrid .tk.widefit{grid-column:1 / -1}
 .boxgrid .tk span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .boxgrid .tk.tight{padding-left:3px;padding-right:3px;gap:2px}
 .boxgrid .tk.noic .i{display:none}   /* a label that still doesn't fit drops its icon (app.js fitLabels) */
@@ -663,7 +663,7 @@ a.formsbtn{text-decoration:none}
 .fc .xy button[aria-pressed="true"]{background:var(--bc);border-color:transparent;color:#fff}
 
 /* Event Pokémon (was Events and costumes, 13 Nov): a timeline of sets, each a tile with its picture, progress and Pokémon */
-.settiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(460px,1fr));gap:12px;margin-top:8px}
+.settiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(460px,100%),1fr));gap:12px;margin-top:8px}
 .settiles .yearhead{grid-column:1/-1;margin:22px 0 2px}
 .settile{display:grid;grid-template-columns:120px 1fr;grid-template-rows:auto auto;gap:8px 14px;padding:12px;border:1px solid var(--line);border-radius:16px;background:var(--surface);color:inherit;text-decoration:none}
 .settile:hover{border-color:var(--muted)}
@@ -749,7 +749,7 @@ a.formsbtn{text-decoration:none}
 /* What’s on: an opened event, its dates and link on the left, what it has on the right */
 .evlist{margin-top:8px}
 .evrow{display:grid;grid-template-columns:270px 1fr;gap:20px;padding:18px 0;border-top:1px solid var(--line)}
-.evrow.on .evwhen .label{color:var(--deep-2)}
+.evrow.on .evwhen .label{color:var(--deep-text)}
 /* What’s on: each event’s kind and length as chips (her point, 18 Nov: a months-long event isn’t a Community Day) */
 .evchips{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 6px}
 .evkind,.evlen{font-size:11.5px;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap}
@@ -799,7 +799,7 @@ a.formsbtn{text-decoration:none}
 .calweek.calhead{border-top:0;padding:4px 0 2px;font:700 11px/1 var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
 .calweek.calhead span{padding:0 6px}
 .calday{font-size:12.5px;font-weight:700;padding:5px 6px 1px;color:var(--muted)}
-.calday.today{color:var(--deep-2)}
+.calday.today{color:var(--deep-text)}
 .calday.today::after{content:" · today";font-weight:600}
 .calday.past{opacity:.45}
 .calbar{all:unset;box-sizing:border-box;cursor:pointer;display:flex;gap:6px;align-items:center;min-width:0;height:26px;padding:0 7px;border-radius:7px;font-size:12.5px;
@@ -820,14 +820,14 @@ a.formsbtn{text-decoration:none}
 .calbar.mini .mp img{width:24px;height:24px;margin:-2px -3px;object-fit:contain}
 .calnav{display:flex;align-items:center;gap:10px;margin:6px 0 10px}
 .calnav h2{font-size:30px;min-width:220px;text-align:center}
-.calnav h2 em{color:var(--deep-2)}
+.calnav h2 em{color:var(--deep-text)}
 .calnav .muted{margin-left:auto;font-size:12.5px}
 .calnav .iconbtn{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;border:1px solid var(--line);background:var(--surface);cursor:pointer;color:var(--ink)}
 .calnav .iconbtn:disabled{opacity:.35;cursor:default}
 .calday.out{opacity:.4}
 .calneed{margin-top:26px}
 .calneed h2{font-size:30px;margin-bottom:6px}
-.calneed h2 em{color:var(--deep-2)}
+.calneed h2 em{color:var(--deep-text)}
 .calneedgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:4px 20px;align-items:start}
 .calneedgrid .huntset:has(.huntbg){grid-column:1/-1}
 .caldetail{margin-top:18px}
@@ -847,7 +847,7 @@ a.formsbtn{text-decoration:none}
 .hunt .hn{font-weight:700}
 .hunt .hev{font-size:13px;line-height:1.3}
 .hunt .hw{font-size:12.5px;color:var(--muted);align-self:end}
-.hunt .hw.on{color:var(--deep-2);font-weight:700}
+.hunt .hw.on{color:var(--deep-text);font-weight:700}
 .huntbg{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:12px;border:1px solid var(--line);border-radius:12px;background:var(--surface);margin-bottom:10px;font-size:13.5px}
 .hbart{display:block;height:100px;border-radius:9px;background:center/cover}
 .hbbar{height:8px;border-radius:9px;background:var(--soft);margin:8px 0 4px;overflow:hidden;max-width:420px}
@@ -868,7 +868,7 @@ a.formsbtn{text-decoration:none}
   --foil:linear-gradient(115deg,#d8dde6 0%,#f6d7ec 18%,#cfe9f7 34%,#f3f0c9 50%,#d6f0de 66%,#e4d3f5 82%,#d8dde6 100%);
   --cover:#7A1E2A; --cover-hi:#8A2A35; --cover-lo:#62161F;
   --card-stock:#FFFBF2;                                                   /* the cards’ paper */
-  --card-ink:#2B1A1C; --card-mute:#8a7671;
+  --card-ink:#2B1A1C; --card-mute:#776460;
   --frame-mix:#2B1A1C; --frame-amt:82%;                                   /* frame = the region colour, a little darker */
   --win-edge:#C9A85A; --win-lo:#F7EFE2; --win-hi:#fff;                    /* the art window */
   --win-dots:rgba(0,0,0,.07); --win-rim:rgba(255,255,255,.7);
@@ -1027,9 +1027,6 @@ main{background:linear-gradient(90deg,rgba(70,40,30,.18),rgba(70,40,30,0) 54px) 
   .topname{font:400 22px/1 var(--display);color:var(--on-deep);text-decoration:none;white-space:nowrap}
   .topname em{color:var(--accent)}
   .toolbar{top:calc(52px + env(safe-area-inset-top,0px))}
-  /* a Pokémon’s page: the picture card above the text and facts */
-  .mondetail{grid-template-columns:minmax(0,1fr);gap:22px}
-  .monpic{width:min(100%,360px);justify-self:center}
 }
 @media (prefers-reduced-motion:reduce){ .side,body.nav-open .side{transition:none} }
 
@@ -1050,4 +1047,61 @@ main{background:linear-gradient(90deg,rgba(70,40,30,.18),rgba(70,40,30,0) 54px) 
   .dex-entry{font-size:19px}
   .pcs-strip,.ssbox{grid-auto-flow:row;grid-template-columns:repeat(3,minmax(0,1fr))}
   .bigboxes{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+
+/* ---------- fixes after the review (21 Nov) ---------- */
+.side :focus-visible{outline-color:var(--accent)}   /* the red focus ring didn't show on the red cover */
+/* a Pokémon’s page: one column up to 1000px (901–965 scrolled sideways with the sidebar showing) */
+.mondetail{grid-template-columns:300px minmax(0,1fr)}
+@media (max-width:1000px){
+  .mondetail{grid-template-columns:minmax(0,1fr);gap:22px}
+  .monpic{width:min(100%,360px);justify-self:center}
+}
+/* the index tabs: labels never under 10px and never cut short (app.js fitLabels drops the icon, then wraps); thirteen in
+   one row only where they fit, otherwise rows of seven (five on phones) */
+.hero .stat .sl,.hero.withshot .stat .sl{font-size:10.5px}
+.hero .stat .sl.noic > .i{display:none}
+.hero .stat .sl.wrap .slt{white-space:normal;overflow-wrap:anywhere}
+@media (max-width:1450px){
+  .hero .stats,.hero.withshot .stats,.hero.setheroart .stats,.hero.withshot .stats.one{grid-auto-flow:row;grid-template-columns:repeat(7,minmax(0,1fr));grid-auto-rows:auto;gap:5px}
+  .hero .stat,.hero.withshot .stat{min-height:62px}
+  .hero .stat .sl,.hero.withshot .stat .sl{font-size:10.5px}
+}
+@media (max-width:700px){
+  .hero .stats,.hero.withshot .stats,.hero.setheroart .stats,.hero.withshot .stats.one{grid-template-columns:repeat(5,minmax(0,1fr))}
+}
+/* banner words never under the map: below 1500px the map starts after the words; a soft shadow keeps them readable on its
+   faded edge. On phones the map is a band across the top, the words below it on the region colour */
+.hero.withshot :is(h1,p,.label),.hero.setheroart :is(h1,p,.label){text-shadow:0 1px 3px rgba(0,0,0,.5)}
+@media (max-width:1500px) and (min-width:701px){
+  .hero.withshot::after,.hero.withshot > .heropics{width:min(var(--shotw,70%),calc(100% - (100cqw - min(1240px,100cqw)) / 2 - clamp(16px,3vw,40px) - 380px))}
+}
+@media (max-width:700px){
+  .hero.withshot,.hero.setheroart{padding-top:168px}
+  .hero.withshot::after,.hero.withshot > .heropics,.hero.setheroart::after{inset:0 0 auto 0;width:100%;height:150px;
+    -webkit-mask:linear-gradient(#000 70%,transparent);mask:linear-gradient(#000 70%,transparent)}
+  .heropics.mons{padding:0 4%}
+}
+/* What’s on: the bars placed by app.js; on phones the bars run the full width with their days on them, short day names */
+.calday{grid-column:var(--c0);grid-row:1}
+.calbar{grid-column:var(--c0)/var(--c1);grid-row:var(--r)}
+.calbar .cdays{display:none}
+@media (max-width:700px){
+  .calweek.calhead span{font-size:0;padding:0 2px}
+  .calweek.calhead span::before{content:attr(data-short);font-size:11px}
+  .calweek{column-gap:2px}
+  .calday{padding:5px 2px 1px}
+  .calbar{grid-column:1/-1;grid-row:auto;height:30px}
+  .calbar .cdays{display:inline;flex:none;opacity:.9}
+  .calnav{flex-wrap:wrap}
+  .calnav h2{min-width:0;font-size:26px}
+  .calnav .muted{flex-basis:100%;margin-left:0}
+}
+/* phones: the page stays put behind the open drawer; card boxes at least 24px tall, with a little more room for words */
+@media (max-width:900px){ body.nav-open{overflow:hidden} }
+@media (max-width:700px){
+  .card,.card.got,.card.informs{border-width:5px}
+  .card{padding:6px 6px 24px}
+  .card .tk{min-height:24px}
+  .card .pic .flip{width:24px;height:24px}
 }

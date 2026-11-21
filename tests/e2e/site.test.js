@@ -388,7 +388,7 @@
         const t0 = new Date(); comingMonth = (d.getFullYear() - t0.getFullYear()) * 12 + d.getMonth() - t0.getMonth();   // its month, even on the last day of one
         comingSel = comingWeek = null; await go("#coming");
         const bars = [...view().querySelectorAll('.calbar[data-comesel="t-late"]')];
-        ok(bars.length >= 1 && bars.every(b => { const [c0, c1] = b.style.gridColumn.split("/").map(n => parseInt(n)); return c1 - c0 === 1; }), "one day wide");
+        ok(bars.length >= 1 && bars.every(b => +b.style.getPropertyValue("--c1") - +b.style.getPropertyValue("--c0") === 1), "one day wide");
         ok(/20:00/.test(bars[0].textContent), "with its start time");
         DATA.upcoming.events.pop(); comingMonth = 0; }
       const hide0 = prefs.comingHide;

@@ -373,10 +373,15 @@ const view = document.getElementById("view"), nav = document.getElementById("nav
 // a banner tile's label that is too long to sit whole beside its icon (Backgrounds) gets slightly smaller text, measured in
 // her own window, so every tile looks the same (her ask, 13 Nov)
 function fitLabels(){
+  // never below 10px and never cut short (21 Nov review: 7px and "Giganta" at 1280): a little smaller, then without its
+  // icon (the tab's colour still says which), then on two lines; the tabs themselves wrap into more rows (site.css)
   for (const l of view.querySelectorAll(".hero .stat .slt")) {
-    l.style.fontSize = "";
+    const sl = l.parentElement, over = () => l.scrollWidth > l.clientWidth;
+    l.style.fontSize = ""; sl.classList.remove("noic", "wrap");
     let f = parseFloat(getComputedStyle(l).fontSize);
-    while (l.scrollWidth > l.clientWidth && f > 7) l.style.fontSize = (f -= 0.25) + "px";
+    while (over() && f > 10) l.style.fontSize = (f -= 0.25) + "px";
+    if (over()) sl.classList.add("noic");
+    if (over()) sl.classList.add("wrap");
   }
   // a picture box's label too long for its box (Gigantamax) drops its icon (the picture shows what it is), then shrinks to fit
   for (const p of view.querySelectorAll(".pc.small .pclab")) {
@@ -391,12 +396,14 @@ function fitLabels(){
   // icon, never cut short (rule review, 20 Nov: "Giganta…" on every card; her rule, 14 Nov: Gigantamax in full)
   for (const sp of view.querySelectorAll(".boxgrid .tk span")) {
     const tk = sp.closest(".tk"), over = () => sp.scrollWidth > sp.clientWidth;
-    if (sp.style.fontSize || tk.classList.contains("tight")) { sp.style.fontSize = ""; tk.classList.remove("tight", "noic"); }
+    if (sp.style.fontSize || tk.classList.contains("tight")) { sp.style.fontSize = ""; tk.classList.remove("tight", "noic", "widefit"); }
     if (!over()) continue;
     tk.classList.add("tight");   // first a little less space around it, keeping the icon (every box has one, her rule)
     let f = parseFloat(getComputedStyle(sp).fontSize);
     while (over() && f > 9) sp.style.fontSize = (f -= 0.25) + "px";
     if (over()) tk.classList.add("noic");   // only if it still can't fit (a very narrow window)
+    while (over() && f > 8) sp.style.fontSize = (f -= 0.25) + "px";   // a phone: a touch smaller still, never "Dynam…" (21 Nov review)
+    if (over()) { tk.classList.remove("noic"); tk.classList.add("widefit"); sp.style.fontSize = ""; f = parseFloat(getComputedStyle(sp).fontSize); while (over() && f > 9) sp.style.fontSize = (f -= 0.25) + "px"; }   // still too long: the whole row
   }
 }
 new MutationObserver(fitLabels).observe(view, {childList: true});
@@ -1145,7 +1152,8 @@ function comingPage(){
   const visible = evs.filter(x => !hide.has(kindOf(x.ev)));
   const names = x => { const n = [...new Set(x.mons.map(m => byId[m.id].name))]; return n.length > 1 ? n.slice(0, -1).join(", ") + " and " + n[n.length - 1] : n[0] || x.ev.name; };
   const pics = x => [...new Map(x.mons.map(m => [byId[m.id].img, byId[m.id]])).values()].map(e => `<img src="${sprite(e.img) || ""}" alt="" loading="lazy" title="${tip(gName(e) + (e.form ? " · " + e.form : ""))}">`).join("");
-  let g = `<div class="calweek calhead">${["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"].map(d => `<span>${d}</span>`).join("")}</div>`;
+  const DSHORT = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];   // a bar's days, shown on phones, where the bars run the full width (21 Nov)
+  let g = `<div class="calweek calhead">${["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"].map(d => `<span data-short="${d.slice(0, 3)}">${d}</span>`).join("")}</div>`;
   // a month at a time, with arrows (her point, 19 Nov: six weeks with no month named, and no way to move on)
   const m0 = new Date(today.getFullYear(), today.getMonth() + comingMonth, 1), mEnd = new Date(m0.getFullYear(), m0.getMonth() + 1, 0), mNext = new Date(m0.getFullYear(), m0.getMonth() + 1, 1);
   const lastEv = visible.reduce((m, x) => x.i.b > m ? x.i.b : m, today), maxMonth = (lastEv.getFullYear() - today.getFullYear()) * 12 + lastEv.getMonth() - today.getMonth();
@@ -1163,10 +1171,10 @@ function comingPage(){
       for (let i = c0; i <= c1; i++) lanes[l][i] = true;
       const one = /hour/.test(x.i.len);   // a few hours on one day: its start time
       const mini = isRaidRun(x);
-      return `<button type="button" class="calbar${mini ? " mini" : ""}${x.full ? " need" : ""}${x === cs && comingWeek === String(w) ? " sel" : ""}" data-comesel="${attr(x.ev.id)}" data-comeweek="${w}" style="grid-column:${c0 + 1}/${c1 + 2};grid-row:${l + 2};--k:${kcol(x.ev)}" title="${tip(x.ev.name + " · " + x.i.when)}">${one ? `<small>${hm(x.i.a)}</small>` : ""}${mini ? `<small>${esc(tierOf(x).replace(/ Raid Battles| Raids/, ""))}</small><span class="mp">${pics(x)}</span><span class="t">${esc(names(x))}</span>` : `<span class="t">${esc(x.ev.name)}</span>`}${badge(x)}</button>`;
+      return `<button type="button" class="calbar${mini ? " mini" : ""}${x.full ? " need" : ""}${x === cs && comingWeek === String(w) ? " sel" : ""}" data-comesel="${attr(x.ev.id)}" data-comeweek="${w}" style="--c0:${c0 + 1};--c1:${c1 + 2};--r:${l + 2};--k:${kcol(x.ev)}" title="${tip(x.ev.name + " · " + x.i.when)}"><small class="cdays">${DSHORT[c0]}${c1 > c0 ? "–" + DSHORT[c1] : ""}</small>${one ? `<small>${hm(x.i.a)}</small>` : ""}${mini ? `<small>${esc(tierOf(x).replace(/ Raid Battles| Raids/, ""))}</small><span class="mp">${pics(x)}</span><span class="t">${esc(names(x))}</span>` : `<span class="t">${esc(x.ev.name)}</span>`}${badge(x)}</button>`;
     }).join("");
     const days = [...Array(7)].map((_, i) => { const d = new Date(ws); d.setDate(d.getDate() + i);
-      return `<span class="calday${+d === +today ? " today" : d < today ? " past" : ""}${d.getMonth() !== m0.getMonth() ? " out" : ""}" style="grid-column:${i + 1};grid-row:1">${d.getDate() === 1 ? `${d.getDate()} ${MONTHS[d.getMonth()].slice(0, 3)}` : d.getDate()}</span>`; }).join("");
+      return `<span class="calday${+d === +today ? " today" : d < today ? " past" : ""}${d.getMonth() !== m0.getMonth() ? " out" : ""}" style="--c0:${i + 1}">${d.getDate() === 1 ? `${d.getDate()} ${MONTHS[d.getMonth()].slice(0, 3)}` : d.getDate()}</span>`; }).join("");
     g += `<div class="calweek">${days}${bars}</div>${comingWeek === String(w) ? detail : ""}`;   // the details open under the week clicked
   }
   const calNav = `<div class="calnav"><button type="button" class="iconbtn" data-comemonth="-1" ${comingMonth <= 0 ? "disabled" : ""} title="Month before">${ic("chevron-left")}</button><h2>${MONTHS[m0.getMonth()]} <em>${m0.getFullYear()}</em></h2><button type="button" class="iconbtn" data-comemonth="1" ${comingMonth >= maxMonth ? "disabled" : ""} title="Next month">${ic("chevron-right")}</button>${comingMonth ? `<button type="button" class="linkbtn" data-comemonth="0">Back to this month</button>` : ""}<span class="muted">Leek Duck lists about six weeks ahead</span></div>`;
