@@ -409,6 +409,9 @@
   "b:sb-community-2026:570": [
    "c"
   ],
+  "b:sb-community-2026:624": [
+   "c"
+  ],
   "b:sb-community-2026:633": [
    "c"
   ],
@@ -497,6 +500,15 @@
   "b:sb-gofest2024-wormhole:800": [
    "c"
   ],
+  "b:sb-gofest2025-eternatus:10": [
+   "c"
+  ],
+  "b:sb-gofest2025-eternatus:125": [
+   "c"
+  ],
+  "b:sb-gofest2025-eternatus:129": [
+   "c"
+  ],
   "b:sb-gofest2025-eternatus:138": [
    "c"
   ],
@@ -504,6 +516,9 @@
    "c"
   ],
   "b:sb-gofest2025-eternatus:143": [
+   "c"
+  ],
+  "b:sb-gofest2025-eternatus:215": [
    "c"
   ],
   "b:sb-gofest2025-eternatus:25": [
@@ -548,7 +563,13 @@
   "b:sb-gofest2025-eternatus:849-low-key": [
    "c"
   ],
+  "b:sb-gofest2025-eternatus:870": [
+   "c"
+  ],
   "b:sb-gofest2025-eternatus:9": [
+   "c"
+  ],
+  "b:sb-gofest2025-eternatus:92": [
    "c"
   ],
   "b:sb-gofest2025:377": [
@@ -4207,7 +4228,8 @@
    "cm",
    "dx",
    "s",
-   "sd"
+   "sd",
+   "xl"
   ],
   "d:35": [
    "c",
