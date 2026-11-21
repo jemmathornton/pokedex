@@ -30,23 +30,7 @@ const prefs = Object.assign({work: "all", workShow: "need", gender: "any", forms
 if (["genders", "caught", "forms"].includes(prefs.work)) prefs.work = "all";
 if (!["need", "all"].includes(prefs.workShow)) prefs.workShow = "need";   // tabs that no longer exist
 const keepPrefs = () => store.set(PREFS_KEY, prefs);
-// options to try (her ask, 21 Nov: one page with buttons to switch them, like the Layout row before): a panel at the foot of the
-// window, each choice kept on this computer (prefs.tryOpts) until she picks; take it out once she has
-const TRY_OPTS = [["mark", "1 · With a tab on", [["now", "As now"], ["edge", "Edge in the tab’s colour"]]],
-  ["shiny", "2 · Shiny tab", [["now", "As now (grey)"], ["colour", "Shinies in colour"]]],
-  ["gx", "3 · Gigantamax", [["now", "As now"], ["row", "Full rows"], ["wider", "Wider cards"]]],
-  ["filter", "4 · Filter", [["row", "Filter row"], ["tabs", "Tabs at the top"]]]];
-prefs.tryOpts = Object.assign({mark: "now", shiny: "now", gx: "now", filter: "row"}, prefs.tryOpts || {});
-const tabsTry = () => prefs.tryOpts.filter === "tabs";
-function applyTry(){
-  const c = document.documentElement.classList, o = prefs.tryOpts;
-  c.toggle("try-mark", o.mark === "edge"); c.toggle("try-shinycol", o.shiny === "colour");
-  c.toggle("try-gxrow", o.gx === "row"); c.toggle("try-gxwider", o.gx === "wider"); c.toggle("try-tabs", tabsTry());
-  const p = document.getElementById("trypanel");
-  if (p) p.innerHTML = `<button type="button" class="trytoggle" data-trytoggle>${ic("layers")}Options to try</button><div class="trybody">` + TRY_OPTS.map(([k, label, vs]) => `<div class="tryrow"><span>${esc(label)}</span>` +
-    vs.map(([v, l]) => `<button type="button" data-tryopt="${k}:${v}" aria-pressed="${o[k] === v}">${esc(l)}</button>`).join("") + `</div>`).join("") + `</div>`;
-}
-addEventListener("DOMContentLoaded", () => { const p = document.createElement("div"); p.id = "trypanel"; if (store.get("jemmas-pokedex-try-closed", false)) p.className = "closed"; document.body.append(p); applyTry(); });
+if (new URLSearchParams(location.search).get("gx") === "row") document.documentElement.classList.add("try-gxrow");   // picture only (her question, 21 Nov): Gigantamax a full row
 
 // ---------- what there is ----------
 // the sections, in game order: [key, region, small label]. Hisui stands on its own between Galar and Paldea (her call, 9 Nov)
@@ -398,18 +382,15 @@ function fitLabels(){
     const sl = l.parentElement, over = () => l.scrollWidth > l.clientWidth;
     l.style.fontSize = ""; sl.classList.remove("noic", "wrap");
     let f = parseFloat(getComputedStyle(l).fontSize);
-    while (over() && f > 10) l.style.fontSize = (f -= 0.25) + "px";
-    if (over()) sl.classList.add("noic");
-    if (over()) sl.classList.add("wrap");
+    while (over() && f > 7) l.style.fontSize = (f -= 0.25) + "px";   // her note (21 Nov): the writing shrinks, the icon stays, in line with the rest
   }
   // a picture box's label too long for its box (Gigantamax) drops its icon (the picture shows what it is), then shrinks to fit
   for (const p of view.querySelectorAll(".pc.small .pclab")) {
     const box = p.closest(".pc"), over = () => box.scrollWidth > box.clientWidth;
     p.style.fontSize = ""; p.classList.remove("noic");
     if (!over()) continue;
-    p.classList.add("noic");
     let f = parseFloat(getComputedStyle(p).fontSize);
-    while (over() && f > 7) p.style.fontSize = (f -= 0.25) + "px";
+    while (over() && f > 6.5) p.style.fontSize = (f -= 0.25) + "px";   // smaller writing, icon kept (her note, 21 Nov)
   }
   // a card's box label that doesn't fit (Gigantamax, or Dynamax with a form count) gets a little smaller, then drops its
   // icon, never cut short (rule review, 20 Nov: "Giganta…" on every card; her rule, 14 Nov: Gigantamax in full)
@@ -420,18 +401,27 @@ function fitLabels(){
     if (!over()) continue;
     tk.classList.add("tight");   // first a little less space around it, keeping the icon (every box has one, her rule)
     let f = parseFloat(getComputedStyle(sp).fontSize);
-    while (over() && f > 9) sp.style.fontSize = (f -= 0.25) + "px";
-    if (over()) tk.classList.add("noic");   // only if it still can't fit (a very narrow window)
-    while (over() && f > 8) sp.style.fontSize = (f -= 0.25) + "px";   // a phone: a touch smaller still, never "Dynam…" (21 Nov review)
-    if (over()) { tk.classList.remove("noic"); tk.classList.add("widefit"); sp.style.fontSize = ""; f = parseFloat(getComputedStyle(sp).fontSize); while (over() && f > 9) sp.style.fontSize = (f -= 0.25) + "px"; }   // still too long: the whole row
+    while (over() && f > 7.5) sp.style.fontSize = (f -= 0.25) + "px";   // smaller writing, the icon always kept (her note, 21 Nov)
+    if (over()) { tk.classList.add("widefit"); sp.style.fontSize = ""; f = parseFloat(getComputedStyle(sp).fontSize); while (over() && f > 9) sp.style.fontSize = (f -= 0.25) + "px"; }   // still too long: the whole row
     if (copy) copy.style.fontSize = sp.style.fontSize;   // the white copy over the filled part, the same size
   }
+  // the same word the same size on every card (her note, 21 Nov: Gigantamax kept coming out a different size)
+  const byWord = new Map();
+  for (const sp of view.querySelectorAll(".boxgrid .tk > span:not(.fill)")) { const w = sp.textContent; if (!byWord.has(w)) byWord.set(w, []); byWord.get(w).push(sp); }
+  for (const els of byWord.values()) if (els.length > 1) sameSize(els, true);
   // a square's name too long to wrap (one long word: "Crabominable" on Looking for at 1280) gets smaller, not cut (21 Nov review)
   for (const n of view.querySelectorAll(".fastset .fc .fcn")) {
     n.style.fontSize = "";
     let f = parseFloat(getComputedStyle(n).fontSize);
     while (n.scrollWidth > n.clientWidth && f > 7) n.style.fontSize = (f -= 0.25) + "px";
   }
+}
+// a set of labels all at the size the smallest of them needed (fitLabels shrinks one at a time; this evens them out)
+function sameSize(els, withCopy = false){
+  const list = [...els].filter(e => e.offsetParent); if (!list.length) return;
+  const m = Math.min(...list.map(e => parseFloat(getComputedStyle(e).fontSize)));
+  for (const e of list) { if (Math.abs(parseFloat(getComputedStyle(e).fontSize) - m) > .01) e.style.fontSize = m + "px";
+    if (withCopy) { const c = e.closest(".tk").querySelector(".fill > span"); if (c) c.style.fontSize = e.style.fontSize; } }
 }
 // overflow measured to the fraction of a pixel (scrollWidth rounds, so "Mega X" 39.4 in 39 showed "Mega…": 21 Nov review)
 const textRange = document.createRange();
@@ -443,7 +433,7 @@ if (document.fonts) { document.fonts.ready.then(fitLabels); document.fonts.addEv
 
 function statTile(colour, icon, label, have, of, extra = "", work = null){
   if (work) return `<button type="button" class="stat stattab" data-work="${work}" aria-pressed="${prefs.work === work}" title="${tip(work === "all" ? "Show every box" : "Show only " + label)}" style="--sc:var(${colour})"><span class="sl">${ic(icon)}<span class="slt">${esc(label)}</span></span><b>${num(have)}<small> of ${num(of)}</small></b>
-    <span class="sbar"><i style="width:${of ? have / of * 100 : 0}%"></i></span>${extra}</button>`;   // trial (her idea, 21 Nov): the tabs at the top are the filter
+    <span class="sbar"><i style="width:${of ? have / of * 100 : 0}%"></i></span>${extra}</button>`;   // the tabs at the top are the filter (her pick, 21 Nov): click one for that box, again (or Pokémon) for every box
   return `<div class="stat" style="--sc:var(${colour})"><span class="sl">${ic(icon)}<span class="slt">${esc(label)}</span></span><b>${num(have)}<small> of ${num(of)}</small></b>
     <span class="sbar"><i style="width:${of ? have / of * 100 : 0}%"></i></span>${extra}</div>`;
 }
@@ -524,15 +514,16 @@ function dexPage(title, label, list, region){
   // see the ones she has too, lit up; her wording and place, 9 Nov); the not-out switch under it where there are some; how many are shown sits by the title (her layout, 9 Nov)
   setRegion(region);
   const shot = region ? regionShot(region) : {style: "", sw: heroPics(ALL_MAPS()), cls: " withshot"};
-  view.innerHTML = `<header class="hero${shot.cls || ""}"${shot.style}>${shot.sw}${heroArt(region ? firstStages(list) : STARTERS.map(d => baseOf[d]))}<span class="label">${esc(label)} · ${num(groups.length)} shown</span><h1>${title}</h1>${statsHtml(counts(list), tabsTry())}</header>${readOnlyNote()}
+  view.innerHTML = `<header class="hero${shot.cls || ""}"${shot.style}>${shot.sw}${heroArt(region ? firstStages(list) : STARTERS.map(d => baseOf[d]))}<span class="label">${esc(label)} · ${num(groups.length)} shown</span><h1>${title}</h1>${statsHtml(counts(list), true)}</header>${readOnlyNote()}
     <div class="toolbar filters" id="toolbar">
-      <div class="frow"><span class="label flabel">Filter</span><div class="worktabs">` +
-      BOXF.map(b => `<button type="button" class="worktab" data-work="${b.k}" aria-pressed="${prefs.work === b.k}">${esc(b.label)}</button>`).join("") +
+      <div class="frow"><div class="worktabs">` +
       (picked || prefs.workShow === "need" ? `<button class="linkbtn" type="button" data-clear>${ic("x")}Clear</button>` : "") +
       `<span class="switches"><button class="switchbtn" type="button" role="switch" data-showall aria-checked="${prefs.workShow === "need"}"><span class="track"></span>Hide ones I have</button>` +
       (notOut ? `<button class="switchbtn" type="button" role="switch" data-notout="${prefs.unreleased ? "no" : "yes"}" aria-checked="${prefs.unreleased}"><span class="track"></span>Not in GO</button>` : "") +
       `</span></div></div></div>
     ${items.length ? `<div class="grid" id="grid">${groupCards(groups)}</div>` : `<p class="empty">Nothing here.</p>`}`;
+  const picked1 = view.querySelector(".hero .stattab[aria-pressed=true]");   // a narrow window: the chosen tab slid into view
+  if (picked1) { const row = picked1.parentElement; if (row.scrollWidth > row.clientWidth) row.scrollLeft = picked1.offsetLeft - row.clientWidth / 2 + picked1.clientWidth / 2; }
 }
 
 // one Pokémon's page (#p-201), laid out like a Sim's page on her Sims site (her ask, 9 Nov): the picture and GO's own
@@ -1364,8 +1355,6 @@ document.addEventListener("click", ev => {
   if (b.dataset.fastbox) { prefs.fastBox = b.dataset.fastbox; keepPrefs(); return rerender(); }
   if (b.dataset.wantbox) { prefs.wantBox = b.dataset.wantbox; keepPrefs(); return rerender(); }
   if (b.hasAttribute("data-wantcopy")) return wantCopy();
-  if (b.dataset.tryopt) { const [k, v] = b.dataset.tryopt.split(":"); prefs.tryOpts[k] = v; keepPrefs(); applyTry(); return rerender(); }
-  if (b.hasAttribute("data-trytoggle")) { const p = document.getElementById("trypanel"); p.classList.toggle("closed"); store.set("jemmas-pokedex-try-closed", p.classList.contains("closed")); return; }
   if (b.dataset.comesel) {   // click again: closed; the details open under the week clicked, scrolled into view
     const wk = b.dataset.comeweek ?? null, again = comingSel === b.dataset.comesel && comingWeek === wk;
     comingSel = again ? null : b.dataset.comesel; comingWeek = again ? null : wk; rerender();

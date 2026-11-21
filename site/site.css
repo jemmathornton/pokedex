@@ -1116,29 +1116,25 @@ main{background:linear-gradient(90deg,rgba(70,40,30,.18),rgba(70,40,30,0) 54px) 
 .settile.done .setart{border:3px solid;border-image:var(--foil) 1;border-radius:0}
 .settile.none .setart{filter:grayscale(1) opacity(.55)}
 .settile.none .setbody b{color:var(--card-mute)}
-/* options for her (21 Nov, pictures only): a card she has, marked in the tab's box colour inside its frame; the Shiny tab showing the shiny in full colour */
-.try-mark .card.got{box-shadow:inset 0 0 0 4px var(--hl),var(--card-shadow)}
-.try-shinycol.tab-shiny .card[data-id]:not(.got):not(.informs):not(.some) .pic img{filter:drop-shadow(0 4px 4px rgba(0,0,0,.18))}
-/* trial (her idea, 21 Nov): the tabs at the top are the filter; the row of filter buttons goes, Clear and the switches stay */
+/* the tabs at the top are the filter (her pick, 21 Nov): click one for that box, again (or Pokémon) for every box; the one
+   picked drops down, filled in its colour. Always one small row (her note: "meant to be small and a single row"), sliding
+   sideways where the window is too narrow for all of them */
 .stat.stattab{font:inherit;text-align:left;cursor:pointer;color:inherit}
 .stat.stattab:hover{filter:brightness(1.05)}
 .hero .stat.stattab[aria-pressed="true"]{background:var(--sc);transform:translateY(8px);box-shadow:0 -2px 8px rgba(0,0,0,.25)}
 .hero .stat.stattab[aria-pressed="true"] :is(.sl,b,b small,.slt){color:#fff}
 .hero .stat.stattab[aria-pressed="true"] .sbar{background:rgba(255,255,255,.3)}
 .hero .stat.stattab[aria-pressed="true"] .sbar i{background:#fff}
-.try-tabs #toolbar .flabel,.try-tabs #toolbar .worktab{display:none}
-.try-tabs #toolbar .worktabs{justify-content:flex-end;width:100%}
-/* trial (her point, 21 Nov: Gigantamax looks too small): Dynamax and Gigantamax each a full row, or slightly wider cards */
-.try-gxrow .boxgrid .tk:is(.dx,.gx,[data-tick="dx"],[data-tick="gx"]){grid-column:1/-1}
-.try-gxwider .grid{grid-template-columns:repeat(auto-fill,minmax(198px,1fr))}
-.optlabel{position:fixed;top:12px;right:16px;z-index:50;background:#2B1A1C;color:#fff;font:700 15px/1.2 var(--body);padding:8px 14px;border-radius:10px;box-shadow:0 4px 14px rgba(0,0,0,.3)}
-/* options to try (her ask, 21 Nov): one panel, buttons switch each option on the page */
-#trypanel{position:fixed;right:16px;bottom:16px;z-index:60;background:#2B1A1C;color:#fff;border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,.35);padding:10px 12px;font:600 13px/1.2 var(--body);max-width:min(560px,calc(100vw - 32px))}
-#trypanel .trytoggle{all:unset;cursor:pointer;display:flex;align-items:center;gap:6px;font-weight:800;font-size:13.5px}
-#trypanel .trytoggle .i{width:15px;height:15px}
-#trypanel.closed .trybody{display:none}
-#trypanel .trybody{display:grid;gap:6px;margin-top:8px}
-#trypanel .tryrow{display:flex;flex-wrap:wrap;align-items:center;gap:5px}
-#trypanel .tryrow > span{min-width:120px;color:#E8D8D2}
-#trypanel .tryrow button{all:unset;cursor:pointer;padding:5px 10px;border-radius:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18)}
-#trypanel .tryrow button[aria-pressed="true"]{background:#F2C14E;color:#2B1A1C;border-color:#F2C14E;font-weight:800}
+#toolbar .worktabs{justify-content:flex-end;width:100%}
+@media (max-width:1450px){
+  .hero .stats:has(.stattab){grid-auto-flow:column;grid-template-columns:none;grid-auto-columns:minmax(72px,1fr);grid-auto-rows:auto;overflow-x:auto;overflow-y:hidden;padding-top:8px;scrollbar-width:none}
+  .hero .stats:has(.stattab)::-webkit-scrollbar{display:none}
+  .hero .stats:has(.stattab) .stat{padding:4px 6px 5px;gap:1px}
+  .hero .stats:has(.stattab) .stat .sl{font-size:10px;gap:3px}
+  .hero .stats:has(.stattab) .stat .sl .i{width:13px;height:13px;padding:2px}
+  .hero .stats:has(.stattab) .stat b{font-size:15px}
+  .hero .stats:has(.stattab) .stat b small{font-size:10px}
+  .hero .stats:has(.stattab) .stat.stattab[aria-pressed="true"]{transform:none}   /* sliding row: the chosen one stays whole, filled in its colour */
+}
+/* picture only (her question, 21 Nov): Dynamax and Gigantamax each a full row */
+.try-gxrow .boxgrid .tk:is([data-tick="dx"],[data-tick="gx"],.dx,.gx){grid-column:1/-1}

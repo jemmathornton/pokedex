@@ -179,20 +179,24 @@
     eq(location.hash, "#p-4");
   });
 
-  test("the filter line: tabs, Hide ones I have, all on one line", async () => {
-    await go("#gen-1");
-    const tabs = [...view().querySelectorAll(".worktab")].map(b => b.textContent);
-    eq(tabs, ["Female", "Male", "Shiny", "Lucky", "XXL", "XXS", "Dynamax", "Gigantamax", "Mega", "Shadow", "Purified", "4★"]);   // the game's Pokédex order (her ask, 12 Nov)
-    const row = view().querySelector(".frow"), top = [...row.querySelectorAll(".worktab")].map(b => b.getBoundingClientRect().top);
-    ok(Math.max(...top) - Math.min(...top) < 4, "the tabs wrapped onto a second line");
-    const sw = view().querySelector("[data-showall]"); ok(sw, "the Hide ones I have switch"); ok(/Hide ones I have/.test(sw.textContent));
-    ok(Math.abs(sw.getBoundingClientRect().top - top[0]) < 30, "the switch is on the same line as the tabs");
+  test("the tabs at the top are the filter, in the game's order, one row (her pick, 21 Nov)", async () => {
+    prefs.work = "all"; await go("#gen-1");
+    const tabs = [...view().querySelectorAll(".hero .stattab .slt")].map(b => b.textContent);
+    eq(tabs, ["Pokémon", "Female", "Male", "Shiny", "Lucky", "XXL", "XXS", "Dynamax", "Gigantamax", "Mega", "Shadow", "Purified", "4★"]);   // the game's Pokédex order (her ask, 12 Nov)
+    const top = [...view().querySelectorAll('.hero .stattab:not([aria-pressed="true"])')].map(b => b.getBoundingClientRect().top);   // the chosen one drops down
+    ok(Math.max(...top) - Math.min(...top) < 12, "the tabs wrapped onto a second line: " + top.map(Math.round).join());
+    ok(!view().querySelector("#toolbar .worktab"), "no Filter row of buttons any more");
+    const sw = view().querySelector("[data-showall]"); ok(sw && /Hide ones I have/.test(sw.textContent), "the Hide ones I have switch");
+    click(view().querySelector('.hero .stattab[data-work="shiny"]')); await wait(30);
+    eq(prefs.work, "shiny"); ok(view().querySelector('.hero .stattab[data-work="shiny"][aria-pressed="true"]'), "Shiny picked");
+    click(view().querySelector('.hero .stattab[data-work="shiny"]')); await wait(30);
+    eq(prefs.work, "all", "clicking it again: every box");
   });
 
   test("the Mega tab shows only Pokémon with a Mega, each card with only its Mega boxes", async () => {
     prefs.work = "all"; prefs.workShow = "all";
     await go("#gen-1");
-    click([...view().querySelectorAll(".worktab")].find(b => b.textContent === "Mega"));
+    click(view().querySelector('.hero .stattab[data-work="mega"]'));
     await wait(30);
     const cards = [...view().querySelectorAll("#grid .card")];
     ok(cards.length > 5 && cards.length < 40, `${cards.length} cards`);
@@ -200,7 +204,7 @@
       const labels = [...c.querySelectorAll(".tk span")].map(s => s.textContent);
       ok(labels.length && labels.every(l => /^(Mega( X| Y)?|Primal)$/.test(l)), `${c.dataset.id}: ${labels}`);
     }
-    click([...view().querySelectorAll(".worktab")].find(b => b.textContent === "Mega"));   // click again: back to all
+    click(view().querySelector('.hero .stattab[data-work="mega"]'));   // click again: back to all
     prefs.work = "all"; prefs.workShow = "all"; keepPrefs();
   });
 
