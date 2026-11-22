@@ -35,9 +35,9 @@ test("Tab and Shift+Tab stay inside the open drawer, 30 presses each way (899 wi
 });
 
 test("at 1280, choosing a sidebar link by keyboard keeps focus on that link", async browser => {
-  const page = await open(browser, BASE + "#home", 1280);
+  const page = await open(browser, BASE + "#go", 1280);   // GO's sidebar (HOME, the default game, has only Home and Every Pokémon so far)
   try {
-    for (const h of ["#gen-1", "#fast", "#sets", "#home", "#gen-hisui", "#want", "#dex"]) {
+    for (const h of ["#gen-1", "#fast", "#sets", "#go", "#gen-hisui", "#want", "#dex"]) {
       await page.focus(`#nav a[href="${h}"]`);
       await page.keyboard.press("Enter");
       await page.waitForFunction(x => location.hash === x, h);

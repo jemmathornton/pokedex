@@ -1384,10 +1384,127 @@ let comingSel = null, comingWeek = null, comingMonth = 0;   // What's on: the ev
 
 function navHtml(route){
   const link = (href, icon, text, n) => `<a href="${href}" class="${route === href.slice(1) ? "on" : ""}"${route === href.slice(1) ? ' aria-current="page"' : ""}>${ic(icon)}${esc(text)}${n !== undefined ? `<span class="n">${num(n)}</span>` : ""}</a>`;
-  const out = ENTRIES.filter(e => e.released);
-  nav.innerHTML = `<div class="nav-group">${link("#home", "house", "Home")}${link("#dex", "layout-grid", "Every Pokémon", groupByNumber(ENTRIES).length)}</div>
-    <div class="nav-group"><span class="label">Regions</span>${GENS.map(([g, n]) => link("#gen-" + g, "layers", n, groupByNumber(ENTRIES.filter(e => e.gen === g)).length)).join("")}</div>
-    <div class="nav-group"><span class="label">More</span>${link("#sets", "ticket", "Event Pokémon", allSets().length)}${link("#want", "search", "Looking for")}${link("#coming", "calendar", "What’s on")}${link("#fast", "layout-grid", "Fast tick")}</div>`;
+  const regions = `<div class="nav-group"><span class="label">Regions</span>${GENS.map(([g, n]) => link("#gen-" + g, "layers", n, groupByNumber(ENTRIES.filter(e => e.gen === g)).length)).join("")}</div>`;
+  const more = `<div class="nav-group"><span class="label">More</span>${link("#sets", "ticket", "Event Pokémon", allSets().length)}${link("#want", "search", "Looking for")}${link("#coming", "calendar", "What’s on")}${link("#fast", "layout-grid", "Fast tick")}</div>`;
+  nav.innerHTML = gameNavHtml(route, link, regions, more);   // the game shown: HOME (the default) or GO (games, below)
+}
+
+// ---------- games: Pokémon HOME and Pokémon GO (her decisions, 22 Nov) ----------
+// The Pokédex covers Pokémon GO and Pokémon HOME; HOME’s main box will mean “you have it in HOME now”. HOME is the default game:
+// the Pokédex opens on HOME (#home). A small two-option switch under “Jemma’s Pokédex” in the sidebar changes game (her pick
+// from the Try switch, 22 Nov: “Sidebar switch”), and the sidebar shows only that game’s pages, otherwise as it was. GO’s pages
+// and addresses are unchanged, except its Home is #go. HOME has no data yet: its pages (#home, #hm-dex) are a marked Placeholder.
+const HOME_COLOUR = "#2E6A72";   // my suggestion (not decided): a quiet teal for HOME beside GO’s binder red
+const GAMES = [
+  {id: "home", name: "Pokémon HOME", short: "HOME", colour: HOME_COLOUR, href: "#home"},
+  {id: "go", name: "Pokémon GO", short: "GO", colour: "#7E2530", href: "#go"},
+];
+const isHmRoute = r => r === "home" || r === "hm-dex";
+const gameOf = r => isHmRoute(r) ? "home" : "go";
+let navRoute = "home", wasHm = false;
+const brandSmall = document.querySelector(".brand small");
+const gameSwitch = document.createElement("div"); gameSwitch.className = "games";
+document.querySelector(".brand").after(gameSwitch);
+function gameNavHtml(route, link, regions, more){
+  if (wasHm && !isHmRoute(route)) setRegion(null);   // back from HOME’s teal
+  wasHm = isHmRoute(route); navRoute = route;
+  const game = gameOf(route);
+  brandSmall.textContent = GAMES.find(g => g.id === game).name; brandSmall.hidden = true;   // the switch shows the game
+  const all = route === "games", ag = allGames();   // ag: TRIAL (the All games page row)
+  gameSwitch.innerHTML = (ag === "link" ? `<a class="allgames${all ? " on" : ""}" href="#games"${all ? ' aria-current="page"' : ""}>${ic("layers")}All games</a>` : "") +
+    `<div class="game-switch${ag === "tab" ? " three" : ""}" role="group" aria-label="Game">${ag === "tab" ? `<a href="#games" style="--gc:#5B4B44"${all ? ' aria-current="true"' : ""}>All</a>` : ""}${GAMES.map(g => `<a href="${g.href}" style="--gc:${g.colour}"${g.id === game && !all ? ' aria-current="true"' : ""}>${esc(g.short)}</a>`).join("")}</div>`;
+  if (game === "home") return `<div class="nav-group">${link("#home", "house", "Home")}${link("#hm-dex", "layout-grid", "Every Pokémon")}</div><p class="phnote">Placeholder: Pokémon HOME will be here.</p>`;
+  return `<div class="nav-group">${link("#go", "house", "Home")}${link("#dex", "layout-grid", "Every Pokémon", groupByNumber(ENTRIES).length)}</div>${regions}${more}`;
+}
+// the National Pokédex’s numbers for each region (the games’ own; Meltan and Melmetal in Alola, her call)
+const DEX_RANGE = {"1": [1, 151], "2": [152, 251], "3": [252, 386], "4": [387, 493], "5": [494, 649], "6": [650, 721], "7": [722, 809], "8": [810, 898], "hisui": [899, 905], "9": [906, 1025]};
+const NATIONAL = 1025;
+const dexNo = n => "#" + String(n).padStart(4, "0");
+
+// ===== TRIAL: Try switch "Home page" (22 Nov, her ask), START. Ideas for each game’s Home, from research/pokedex-home-comparison.md
+// in Jemma’s Journals (how Serebii, PokémonDB, Pokémon HOME and living-dex trackers lay out a game’s overview). Bottom right,
+// kept in this browser only: As now / Region hub / Progress panel / Box view. Each works for GO (her counts) and for HOME (the
+// same layout, every figure a marked Placeholder). No Pokémon pictures on any of them. Remove this block, the homeLook() calls
+// in gameHome(), the TRIAL block at the end of site.css, and the localStorage key (clear it once on opening).
+const TRY_ROWS = [
+  {name: "home", key: "jemmas-pokedex-try-homepage", label: "Home page", def: "now",
+   opts: [["now", "As now"], ["hub", "Region hub"], ["panel", "Progress panel"], ["boxes", "Box view"]]},
+  {name: "all", key: "jemmas-pokedex-try-allgames", label: "All games page", def: "none",
+   opts: [["none", "None"], ["link", "Link above the switch"], ["tab", "A third choice in the switch"]]},
+];
+for (const r of TRY_ROWS) { r.v = store.get(r.key, r.def); if (!r.opts.some(([k]) => k === r.v)) r.v = r.def; }
+try { for (const k of ["jemmas-pokedex-try-gameswitch", "jemmas-pokedex-try-lastgame"]) localStorage.removeItem(k); } catch {}   // the Game switch row (removed: her pick, Sidebar switch)
+const homeLook = () => TRY_ROWS[0].v, allGames = () => TRY_ROWS[1].v;
+const PH = `<span class="stamp">Placeholder</span>`;
+function regionRows(game){   // each region: name, its games, the National Pokédex numbers, her count (GO) or Placeholder (HOME)
+  return GENS.map(([g, n, small]) => { const [a, b] = DEX_RANGE[g];
+    const k = game === "go" ? counts(ENTRIES.filter(e => e.gen === g)) : null;
+    return {g, n, small, a, b, have: k ? k.species : null, of: k ? k.speciesAll : null, href: game === "go" ? "#gen-" + g : null}; });
+}
+const tryHero = (game, label) => `<header class="hero${game === "go" ? " withshot" : " hmhero"}">${game === "go" ? heroPics(homeMaps()) : ""}<span class="label">${game === "go" ? "Pokémon GO" : "Pokémon HOME"} · ${label}</span><h1>Jemma’s <em>Pokédex</em></h1></header>${readOnlyNote()}`;
+function tryHub(game){   // Region hub (Serebii’s GO and HOME pages): a tile per region with its map, name and Pokédex numbers
+  return tryHero(game, "Regions") + `<section class="section"><div class="hub">` + regionRows(game).map(r => {
+    const inner = `<span class="hubmap" style="--pic:url('regions/home/${REGION_CHOSEN[r.g].replace(/\.\w+$/, "")}.webp')"></span>
+      <span class="hubtext"><b>${esc(r.n)}</b><span class="hubno">${dexNo(r.a)}–${dexNo(r.b)}</span><span class="hubv">${r.of != null ? `${num(r.have)} of ${num(r.of)}` : PH}</span></span>`;
+    return r.href ? `<a class="hubtile" href="${r.href}" style="--rc:${REGION_COLOURS[r.g]}">${inner}</a>` : `<div class="hubtile" style="--rc:${REGION_COLOURS[r.g]}">${inner}</div>`; }).join("") + `</div></section>`;
+}
+function tryPanel(game){   // Progress panel (PokéTools’ living dex): the total at the top, then a row per region with a bar
+  const all = game === "go" ? counts(ENTRIES) : null, rows = regionRows(game);
+  return tryHero(game, "Progress") + `<section class="section"><div class="panel">
+    <div class="paneltop"><span class="label">Every Pokémon</span><b>${all ? `${num(all.species)} <small>of ${num(all.speciesAll)}</small>` : PH}</b>${all ? `<span class="pbar"><i style="width:${all.species / all.speciesAll * 100}%"></i></span>` : ""}</div>
+    <div class="panelrows">${rows.map(r => `<div class="prow" style="--rc:${REGION_COLOURS[r.g]}">${r.href ? `<a href="${r.href}">${esc(r.n)}</a>` : `<span>${esc(r.n)}</span>`}<span class="psmall">${esc(r.small)}</span>
+      ${r.of != null ? `<span class="pbar"><i style="width:${r.have / r.of * 100}%"></i></span><span class="pv">${num(r.have)} / ${num(r.of)}</span>` : `<span class="pbar"></span><span class="pv">${PH}</span>`}</div>`).join("")}</div></div></section>`;
+}
+function tryBoxes(game){   // Box view (HOME’s boxes of 30, as living-dex trackers lay out a living dex): the National Pokédex in boxes
+  const got = new Set(), inGame = new Set();
+  if (game === "go") for (const e of ENTRIES) { inGame.add(e.dex); if (caught(e)) got.add(e.dex); }
+  let html = "";
+  for (let b = 0; b * 30 < NATIONAL; b++) {
+    const a = b * 30 + 1, z = Math.min(NATIONAL, a + 29), nums = Array.from({length: z - a + 1}, (_, i) => a + i);
+    const of = game === "go" ? nums.filter(n => inGame.has(n)).length : null, have = game === "go" ? nums.filter(n => got.has(n)).length : null;
+    html += `<div class="dbox"><div class="dboxhead"><b>Box ${b + 1}</b><span>${dexNo(a)}–${dexNo(z)}</span></div><div class="dots" aria-hidden="true">${nums.map(n =>
+      `<i class="${got.has(n) ? "on" : game === "go" && !inGame.has(n) ? "none" : ""}"></i>`).join("")}</div><div class="dboxv">${of != null ? `${num(have)} of ${num(of)}` : PH}</div></div>`;
+  }
+  return tryHero(game, "Boxes") + `<section class="section"><div class="dboxes">${html}</div></section>`;
+}
+(function tryBox(){
+  const box = document.createElement("div"); box.className = "trybox"; box.setAttribute("role", "group"); box.setAttribute("aria-label", "Try");
+  const draw = () => {
+    box.innerHTML = `<b>Try</b>` + TRY_ROWS.map(r => `<div class="tryrow" role="group" aria-label="${r.label}" data-row="${r.name}"><span>${r.label}</span>` +
+      r.opts.map(([k, l]) => `<button type="button" data-v="${k}" aria-pressed="${r.v === k}">${l}</button>`).join("") + `</div>`).join("");
+  };
+  const pad = () => document.documentElement.style.setProperty("--trypad", box.offsetHeight + 24 + "px");   // room under the page on phones (site.css)
+  box.addEventListener("click", ev => { const b = ev.target.closest("[data-v]"); if (!b) return;
+    const r = TRY_ROWS.find(x => x.name === b.closest("[data-row]").dataset.row); r.v = b.dataset.v; store.set(r.key, r.v); draw(); rerender();
+    box.querySelector(`[data-row="${r.name}"] [data-v="${r.v}"]`)?.focus(); pad(); });
+  draw(); document.body.append(box);
+  pad(); addEventListener("resize", pad);
+})();
+function allGamesPage(){   // All games (her note, 22 Nov: an overview above the games; every Pokémon list stays inside its own game): each game's totals side by side, no Pokémon pictures
+  setRegion(null);
+  const c = counts(ENTRIES);
+  const row = (name, icon, have, of, col) => `<span class="rl" style="--c:${col}">${ic(icon)}${name}</span><span class="bar" style="--c:${col}"><i style="width:${of ? have / of * 100 : 0}%"></i></span><span class="v">${num(have)} / ${num(of)}</span>`;
+  view.innerHTML = `<header class="hero withshot">${heroPics(homeMaps())}<span class="label">All games</span><h1>Jemma’s <em>Pokédex</em></h1></header>${readOnlyNote()}
+    <section class="section"><div class="allg">` + GAMES.map(g => `<article class="allgame" style="--gc:${g.colour}"><h2>${esc(g.name)}</h2>${g.id === "go"
+      ? `<div class="gen-rows rows">${row("Pokémon", "poke-ball", c.species, c.speciesAll, "var(--caught)")}${row("Shiny", "sparkles", c.shiny, c.shinyOut, "var(--shiny)")}${row("Lucky", "lucky", c.lucky, c.luckyOut, "var(--lucky)")}${row("4★", "star", c.hundo, c.out, "var(--hundo)")}</div>`
+      : `<p class="allph">${PH} Pokémon HOME will be here.</p>`}<a class="allopen" href="${g.href}">Open ${esc(g.name)}</a></article>`).join("") + `</div></section>`;
+}
+// ===== TRIAL: Try switch "Home page", END
+
+function hmPage(r){   // Pokémon HOME: a marked Placeholder until its data is added
+  document.documentElement.style.setProperty("--rc", HOME_COLOUR);
+  const look = r === "home" ? homeLook() : "now";
+  if (look === "hub") { view.innerHTML = tryHub("home"); return; }   // TRIAL
+  if (look === "panel") { view.innerHTML = tryPanel("home"); return; }   // TRIAL
+  if (look === "boxes") { view.innerHTML = tryBoxes("home"); return; }   // TRIAL
+  view.innerHTML = `<header class="hero hmhero"><span class="label">Pokémon HOME · Placeholder</span><h1>${r === "hm-dex" ? "Every <em>Pokémon</em>" : "Jemma’s <em>Pokédex</em>"}</h1></header>${readOnlyNote()}
+    <section class="section"><div class="phbox"><span class="stamp">Placeholder</span><p>Pokémon HOME will be here.</p></div></section>`;
+}
+function goHome(){   // GO’s Home (#go): today’s Home, or a Try switch idea
+  const look = homeLook();
+  if (look === "now") return home();
+  setRegion(null);
+  view.innerHTML = look === "hub" ? tryHub("go") : look === "panel" ? tryPanel("go") : tryBoxes("go");   // TRIAL
 }
 
 // view only (no save server): every box that would save is marked aria-disabled, so the keyboard and screen readers know
@@ -1419,7 +1536,10 @@ function drawRoute(to){   // to: draw that page without changing the address (th
   const g = /^gen-(\w+)$/.exec(r);
   if (g && genById[g[1]]) return dexPage(esc(genById[g[1]][1]), genById[g[1]][2], ENTRIES.filter(e => e.gen === g[1]), g[1]);
   if (r === "dex") return dexPage("Every <em>Pokémon</em>", "Pokémon GO", ENTRIES);
-  home();
+  if (r === "go") return goHome();   // GO's Home (today's Home)
+  if (r === "games") return allGamesPage();   // TRIAL (All games page row)
+  if (r === "hm") { location.replace("#home"); return; }
+  hmPage(isHmRoute(r) ? r : "home");   // Pokémon HOME, the default game (her decision, 22 Nov): a Placeholder for now
 }
 function focusKey(el){   // a way to find the same control after the page is drawn again: its data-* attributes, and its card's
   if (!el || el === document.body || !(view.contains(el) || nav.contains(el))) return null;
@@ -1506,7 +1626,7 @@ document.addEventListener("click", ev => {
   if (b.dataset.pickform) { const e = byId[b.dataset.pickform]; pageForm[groupKey(e)] = e.id; return rerender(); }
   if (b.hasAttribute("data-clear")) { Object.assign(prefs, {work: "all", workShow: "all"}); keepPrefs(); return rerender(); }
   if (b.hasAttribute("data-showall")) { prefs.workShow = prefs.workShow === "all" ? "need" : "all"; keepPrefs(); return rerender(); }
-  if (b.dataset.work) { prefs.work = prefs.work === b.dataset.work ? "all" : b.dataset.work; prefs.workShow = prefs.work === "all" ? "all" : "need"; keepPrefs(); return rerender(); }   // click again: back to all
+  if (b.dataset.work) { prefs.work = prefs.work === b.dataset.work ? "all" : b.dataset.work; keepPrefs(); return rerender(); }   // click again: back to all; "Hide ones I have" stays as it is, off unless she turns it on (her ask, 22 Nov: off by default for all)
   if (b.dataset.fast || b.dataset.fk) return fastClick(b);
   if (b.dataset.fastkind) { prefs.fastKind = b.dataset.fastkind; keepPrefs(); return rerender(); }
   if (b.hasAttribute("data-fastall")) return fastAll();
@@ -1568,7 +1688,7 @@ function startFamily(){
   menu = JJFamily.menu({
     button: menuBtn, drawer: side, scrim: document.getElementById("scrim"),
     outside: () => [document.getElementById("topbar"), document.getElementById("main")],
-    current: () => nav.querySelector("a.on") || nav.querySelector('a[href="#home"]'),   // this page's link (aria-current), Home if none
+    current: () => nav.querySelector("a.on") || nav.querySelector("a"),   // this page's link (aria-current), the game's Home if none
     main: () => view,
   });
 }

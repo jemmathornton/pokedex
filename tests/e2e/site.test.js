@@ -33,7 +33,7 @@
   test("every page opens with no errors, blanks or leftovers, and every link on them goes somewhere", async () => {
     const problems = [], errs = [], seen = new Set(), links = new Set();
     const onErr = e => errs.push(e.message || String(e.reason)); addEventListener("error", onErr);
-    const routes = ["#home", "#dex", "#costumes", "#events", "#fast", "#want", "#coming", "#sets", ...allSets().map(st => "#set-" + st.id), ...Object.keys(genById).map(g => "#gen-" + g), ...PAGE_KEYS.map(k => "#p-" + k)];
+    const routes = ["#home", "#go", "#hm-dex", "#games", "#dex", "#costumes", "#events", "#fast", "#want", "#coming", "#sets", ...allSets().map(st => "#set-" + st.id), ...Object.keys(genById).map(g => "#gen-" + g), ...PAGE_KEYS.map(k => "#p-" + k)];
     try {
       for (const h of routes) {
         if (seen.has(h)) continue; seen.add(h);
@@ -59,7 +59,7 @@
 
   test("every picture the main pages use is there", async () => {
     const srcs = new Set(), missing = [];
-    for (const h of ["#home", "#dex", "#costumes", "#events", "#p-6", "#p-25", "#p-94", "#p-382", "#gen-8"]) {
+    for (const h of ["#home", "#go", "#dex", "#costumes", "#events", "#p-6", "#p-25", "#p-94", "#p-382", "#gen-8"]) {
       await go(h); view().querySelectorAll("img[src]").forEach(i => srcs.add(i.getAttribute("src")));
       [...view().querySelectorAll("[style*='url(']")].forEach(el => { const m = /url\('?([^')]+)'?\)/.exec(el.getAttribute("style")); if (m) srcs.add(m[1]); });
     }
@@ -295,6 +295,54 @@
     } finally { keys.forEach((k, i) => { if (before[i]) COL.have[k] = before[i]; else delete COL.have[k]; }); prefs.workShow = "all"; }
   });
 
+  test("her ask (22 Nov): Hide ones I have is off by default for all: picking a tab leaves it off, in every region and on Every Pokémon", async () => {
+    try {
+      prefs.work = "all"; prefs.workShow = "all";
+      for (const page of ["#dex", "#gen-1", "#gen-9"]) {
+        await go(page);
+        view().querySelector('[data-work="shiny"]').click(); await wait(30);
+        eq(prefs.work, "shiny", page + ": the Shiny tab picked");
+        eq(view().querySelector("[data-showall]").getAttribute("aria-checked"), "false", page + ": Hide ones I have still off");
+        view().querySelector('[data-work="shiny"]').click(); await wait(30);
+      }
+    } finally { prefs.work = "all"; prefs.workShow = "all"; keepPrefs(); }
+  });
+
+  test("games (her decisions, 22 Nov): HOME is the default and a Placeholder; the sidebar switch changes game; GO's Home is #go", async () => {
+    await go("#home");
+    eq(document.querySelector('.game-switch a[aria-current]').textContent, "HOME", "opens on HOME");
+    ok(/Placeholder/.test(view().textContent) && /Pokémon HOME will be here/.test(view().textContent), "HOME's page is a marked Placeholder");
+    ok(!nav.querySelector('a[href="#gen-1"]'), "HOME's sidebar has no GO pages");
+    await go("#go");
+    eq(document.querySelector('.game-switch a[aria-current]').textContent, "GO", "GO chosen");
+    ok(nav.querySelector('a[href="#gen-1"]') && nav.querySelector('a[href="#go"].on'), "GO's sidebar as before, its Home lit");
+    if (homeLook() === "now") ok(view().querySelector(".hero .stats") && view().querySelector(".gens"), "GO's Home as before");
+    await go("#gen-1");
+    eq(document.querySelector('.game-switch a[aria-current]').textContent, "GO", "a GO page shows GO");
+    eq(getComputedStyle(document.querySelector(".brand b em")).color, getComputedStyle(document.querySelector(".brand b")).color, "the italic Pokédex not yellow (her note, 22 Nov)");
+    // the TEMPORARY Home page Try row: every idea draws for both games, HOME's figures marked Placeholder, no Pokémon pictures
+    const was = TRY_ROWS[0].v;
+    try {
+      for (const [v] of TRY_ROWS[0].opts) {
+        TRY_ROWS[0].v = v;
+        await go("#go"); ok(view().querySelector("h1"), v + ": GO's Home draws");
+        if (v !== "now") ok(!view().querySelector('img[src*="sprites/"]'), v + ": no Pokémon pictures on GO's Home");
+        await go("#home"); ok(/Placeholder/.test(view().textContent), v + ": HOME marked Placeholder");
+        ok(!view().querySelector('img[src*="sprites/"]'), v + ": no Pokémon pictures on HOME's Home");
+      }
+    } finally { TRY_ROWS[0].v = was; }
+    // the TEMPORARY All games row: a page above the games, each game's totals side by side, no Pokémon lists or pictures
+    const wasAll = TRY_ROWS[1].v;
+    try {
+      TRY_ROWS[1].v = "link"; await go("#games");
+      ok(document.querySelector(".games a.allgames.on"), "All games lit above the switch"); ok(!document.querySelector(".game-switch a[aria-current]"), "no game chosen there");
+      eq(view().querySelectorAll(".allgame").length, GAMES.length, "a card per game"); ok(!view().querySelector(".card, img[src*='sprites/']"), "no Pokémon on it");
+      TRY_ROWS[1].v = "tab"; await go("#games");
+      eq(document.querySelector(".game-switch a[aria-current]").textContent, "All", "the third choice chosen");
+      TRY_ROWS[1].v = "none"; await go("#home"); ok(!document.querySelector('.games a[href="#games"]'), "None: no way to it");
+    } finally { TRY_ROWS[1].v = wasAll; }
+  });
+
   test("her answers (21 Nov): Hide ones I have is off when the app opens; a search shows everything matching; foil only with Shiny ticked", async () => {
     const saved = localStorage.getItem(PREFS_KEY);
     localStorage.setItem(PREFS_KEY, JSON.stringify(Object.assign({}, prefs, {workShow: "need"})));
@@ -328,12 +376,12 @@
   });
 
   test("no date on Home (her decision, 22 Nov: the “Pokémon data from the game, checked …” line is gone)", async () => {
-    await go("#home");
+    await go("#go");
     ok(!/checked|Pokémon data from the game/.test(view().textContent), "no checked line on Home");
   });
 
   test("Home's banner uses the smaller copies in regions/home/ (her pick, 22 Nov: Smaller)", async () => {
-    await go("#home");
+    await go("#go");
     const small = [...view().querySelectorAll(".hero .heropics i")].map(i => i.style.getPropertyValue("--pic"));
     eq(small.length, 10, "ten maps"); ok(small.every(u => /regions\/home\/[a-z]+-map-\d\.webp/.test(u)), `Home: ${small[0]}`);
     for (const u of small) { const r = await fetch(u.match(/url\('?([^')]+)/)[1]); ok(r.ok, `${u} is there`); }
@@ -381,7 +429,7 @@
 
   test("her picks from the Try switch (22 Nov): Card art in dark mode Brighter; Shiny #6C7786 and Lucky #B48600; the switch gone", async () => {
     const root = document.documentElement;
-    ok(!document.querySelector(".trybox") && !("tryArt" in root.dataset) && !("tryBoxes" in root.dataset), "no Try switch left");
+    ok(!document.querySelector('.trybox [data-row="art"],.trybox [data-row="boxes"]') && !("tryArt" in root.dataset) && !("tryBoxes" in root.dataset), "no Try switch row of hers left (the 22 Nov Home page row is the only one)");
     const hex = n => getComputedStyle(root).getPropertyValue(`--${n}`).trim().toUpperCase();
     eq(hex("shiny"), "#6C7786", "Shiny a little deeper"); eq(hex("lucky"), "#B48600", "Lucky a little deeper (a middle gold)");
     eq(hex("male"), "#078E5A", "the other boxes as they were"); eq(hex("hundo"), "#D14186"); eq(hex("mega"), "#C2571A");
@@ -398,7 +446,7 @@
   });
 
   test("the art window is tinted by the Pokémon's first type (her pick, 21 Nov); the 21 Nov Try switch is gone", async () => {
-    ok(!document.querySelector(".trybox"), "no Try switch");
+    ok([...document.querySelectorAll(".trybox [data-row]")].every(r => ["home", "all"].includes(r.dataset.row)), "no Try switch but the Home page and All games rows (22 Nov)");
     prefs.work = "all"; prefs.workShow = "all"; await go("#gen-1");
     const art = id => { const c = view().querySelector(`.card[data-id="${id}"]`); return c && getComputedStyle(c.querySelector(".pic")).backgroundImage; };
     eq(view().querySelector('.card[data-id="1"]').dataset.t1, "Grass", "Bulbasaur: Grass");
@@ -768,12 +816,12 @@
     eq(view().querySelector(`.settile[href="#set-${st.id}"] .setn`).textContent, `${st.items.filter(setGot).length} of ${st.items.length}`);
     await go("#set-" + st.id); ok(view().querySelector("h1").textContent === curly(st.title), "the set's own page");
     await go("#set-no-such-set"); eq(view().querySelector("h1").textContent, "Event Pokémon", "an unknown set: the list");
-    await go("#home");
+    await go("#go");
     eq([...view().querySelector('.gen[href="#sets"]').querySelectorAll(".v")].map(v => v.textContent.split(" / ").map(x => +x.replace(/,/g, ""))), [want[1], want[2], want[0]], "Home's card (Backgrounds, Costumes, Events)");
   });
 
   test("Home's region cards count as the region pages do", async () => {
-    await go("#home");
+    await go("#go");
     for (const [g] of GENS) {
       const k = counts(ENTRIES.filter(e => e.gen === g)), v = [...view().querySelector(`.gen[href="#gen-${g}"]`).querySelectorAll(".v")].map(x => x.textContent);
       eq(v, [[k.species, k.speciesAll], [k.shiny, k.shinyOut], [k.lucky, k.luckyOut], [k.hundo, k.out]].map(([a, b]) => `${num(a)} / ${num(b)}`), g);
@@ -866,7 +914,7 @@
       try {
         await until(() => f.contentDocument && f.contentDocument.querySelector("#view .hero .stattab") && f.contentDocument.querySelector("#view .card"), 15000);
         const w = f.contentWindow, d = f.contentDocument;
-        for (const h of ["#gen-1", "#dex", "#gen-4", "#home", "#sets"]) {
+        for (const h of ["#gen-1", "#dex", "#gen-4", "#go", "#sets"]) {
           w.location.hash = h; await until(() => w.location.hash === h && d.querySelector("#view .hero .stats")); await wait(80); w.fitLabels();
           const st = d.querySelector("#view .hero .stats"), hero = st.closest(".hero").getBoundingClientRect();
           for (const t of st.querySelectorAll(":scope > .stat")) {
@@ -1059,7 +1107,7 @@
 
   // ---------- the foot of every page (21 Nov, the family rules for all her sites): name, two lines, Back to top and Dark mode ----------
   test("Back to top and Dark mode are at the foot of every page, with the Pokédex's own line 1 and credits (the footer's looks: the parent's family suite)", async () => {
-    const routes = ["#home", "#dex", "#sets", "#want", "#coming", "#fast", "#p-6", "#p-58-hisuian", ...Object.keys(genById).map(g => "#gen-" + g), ...allSets().slice(0, 3).map(st => "#set-" + st.id)];
+    const routes = ["#home", "#go", "#hm-dex", "#games", "#dex", "#sets", "#want", "#coming", "#fast", "#p-6", "#p-58-hisuian", ...Object.keys(genById).map(g => "#gen-" + g), ...allSets().slice(0, 3).map(st => "#set-" + st.id)];
     const problems = [];
     for (const h of routes) {
       await show(h);
@@ -1124,7 +1172,7 @@
     try {
       for (const mode of ["light", "dark"]) {
         root.dataset.mode = mode;
-        for (const h of ["#home", "#dex", "#gen-1", "#gen-8", "#gen-hisui", "#p-6", "#p-201", "#p-58-hisuian", "#sets", "#want", "#coming", "#fast", "#nothing-here"]) { await show(h); await wait(30); }
+        for (const h of ["#home", "#go", "#hm-dex", "#games", "#dex", "#gen-1", "#gen-8", "#gen-hisui", "#p-6", "#p-201", "#p-58-hisuian", "#sets", "#want", "#coming", "#fast", "#nothing-here"]) { await show(h); await wait(30); }
       }
     } finally { root.dataset.mode = before; }
     await wait(200);

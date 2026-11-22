@@ -168,7 +168,7 @@ em{font-style:italic}
 .brand{display:block;padding:22px 24px 18px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.08)}
 .home-link + .brand{padding-top:7px}
 .brand b{font:400 32px/1 var(--display);display:block}
-.brand b em{color:var(--accent)}
+.brand b em{color:inherit}   /* the italic word in the title’s own colour, not yellow (her note, 22 Nov: “no yellow is anywhere else for dex”) */
 .brand small{display:block;margin-top:8px;color:var(--on-deep-mute);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
 .search{position:relative;margin:16px 16px 4px}
 .search input{width:100%;padding:9px 12px 9px 36px;border-radius:10px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.07);color:var(--on-deep);outline:none}
@@ -196,7 +196,7 @@ main{margin-left:var(--side);min-height:100vh;container-type:inline-size}
   background:linear-gradient(transparent calc(50% - 14px),rgba(255,255,255,.06) calc(50% - 14px) calc(50% + 14px),transparent calc(50% + 14px))}
 .hero .label{color:var(--on-deep-mute)}
 .hero h1{font-size:clamp(40px,5vw,58px);line-height:1;margin-top:10px}
-.hero h1 em{color:var(--accent)}
+.hero h1 em{color:inherit}   /* not yellow: her note, 22 Nov */
 .hero p{margin:12px 0 0;color:var(--on-deep-mute);max-width:62ch}
 
 .section{margin-top:34px}
@@ -1006,7 +1006,7 @@ main{background:linear-gradient(90deg,rgba(70,40,30,.18),rgba(70,40,30,0) 54px) 
   .topbar button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
   .topbar button .i{width:18px;height:18px}
   .topname{font:400 26px/1 var(--display);color:var(--on-deep);text-decoration:none;white-space:nowrap}
-  .topname em{color:var(--accent)}
+  .topname em{color:inherit}   /* not yellow: her note, 22 Nov */
   .toolbar{top:calc(52px + env(safe-area-inset-top,0px))}
 }
 @media (prefers-reduced-motion:reduce){ .side,.side.jj-open{transition:none} }
@@ -1232,3 +1232,95 @@ main{background:linear-gradient(90deg,rgba(70,40,30,.18),rgba(70,40,30,0) 54px) 
 :root:root[data-mode="dark"] :is(.card .pic,.monpic .pic,.genart){--wc:var(--tc,var(--rc,#7E2530));
   background:radial-gradient(circle,rgba(0,0,0,.08) 1px,transparent 1.4px) 0 0/6px 6px,
     radial-gradient(circle at 50% 60%,color-mix(in srgb,var(--wc) 42%,#F6EEEA),color-mix(in srgb,var(--wc) 62%,#2A2022))}
+
+/* ---------- games: Pokémon HOME (the default) and Pokémon GO (her decisions, 22 Nov); app.js “games” ---------- */
+/* the switch under the name in the sidebar: two options, the game shown raised */
+.games{padding:12px 16px 2px}
+.game-switch{display:grid;grid-template-columns:1fr 1fr;padding:3px;border-radius:999px;background:rgba(0,0,0,.2);box-shadow:inset 0 1px 3px rgba(0,0,0,.25)}
+.game-switch a{text-align:center;padding:7px 6px;border-radius:999px;color:var(--on-deep-mute);text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.game-switch a:hover{color:var(--on-deep)}
+.game-switch a[aria-current]{background:#FFFBF2;color:#2B1A1C;box-shadow:0 1px 3px rgba(0,0,0,.3),inset 0 -2px 0 var(--gc)}
+/* the stamp on every placeholder */
+.stamp{display:inline-block;padding:2px 7px;border:1.5px dashed currentColor;border-radius:4px;font:800 10px/1.3 var(--body);letter-spacing:.14em;text-transform:uppercase;vertical-align:middle}
+.phbox{padding:28px;border:2px dashed color-mix(in srgb,var(--rc) 45%,var(--line));border-radius:12px;background:var(--stock),var(--card-stock);color:var(--card-ink);text-align:center}
+.phbox .stamp{color:var(--rc)}
+:root[data-mode="dark"] .phbox .stamp{color:color-mix(in srgb,var(--rc) 45%,#fff)}
+.phbox p{margin:10px 0 0;font:400 28px/1.2 var(--display)}
+.phnote{margin:4px 12px 0;padding:8px 10px;border:1px dashed rgba(255,226,210,.35);border-radius:8px;color:var(--on-deep-mute);font-size:12.5px;line-height:1.4}
+/* HOME's banner: plain, in HOME's colour (--rc) */
+.hmhero{padding-bottom:40px}
+
+/* ===== TRIAL: Try switch "Home page" (22 Nov), START: remove with the TRIAL block in app.js (games) once she has picked =====
+   As now / Region hub / Progress panel / Box view, for GO's Home (#go) and HOME's (#home); research/pokedex-home-comparison.md. */
+.trybox{position:fixed;right:12px;bottom:12px;z-index:60;display:grid;gap:6px;padding:8px 10px;border-radius:10px;background:var(--surface,#fff);color:var(--ink,#222);
+  border:1px solid var(--line,#ccc);box-shadow:0 4px 16px rgba(0,0,0,.2);font:600 12px var(--body,sans-serif);max-width:calc(100vw - 24px);box-sizing:border-box}
+.trybox > b{font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.tryrow{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+.tryrow span{margin-right:4px}
+.tryrow button{font:inherit;padding:3px 8px;border-radius:6px;border:1px solid var(--line,#ccc);background:transparent;color:inherit;cursor:pointer}
+.tryrow button[aria-pressed="true"]{background:var(--ink,#222);color:var(--surface,#fff);border-color:transparent}
+@media print{.trybox{display:none}}
+.jj-menu-open .trybox{display:none}   /* never over the Menu drawer */
+@media (max-width:900px){ body{padding-bottom:var(--trypad,0px)} .tryrow button{padding:5px 8px} }
+/* Region hub: a tile per region, its map, name, National Pokédex numbers and count */
+.hub{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,210px),1fr));gap:16px}
+.hubtile{--frame:color-mix(in srgb,var(--rc) var(--frame-amt),var(--frame-mix));display:flex;flex-direction:column;background:var(--stock),var(--card-stock);color:var(--card-ink);
+  border:6px solid var(--frame);border-radius:12px;padding:8px;text-decoration:none;box-shadow:var(--card-shadow)}
+.hubmap{display:block;aspect-ratio:2/1;border-radius:4px;border:2px solid color-mix(in srgb,var(--frame) 30%,var(--win-edge));background:var(--pic) center/cover no-repeat}
+.hubtext{display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:2px 8px;padding:8px 4px 2px}
+.hubtext b{font:400 24px/1.05 var(--display)}
+.hubno{font:700 11px/1 var(--body);letter-spacing:.08em;color:var(--card-mute);font-variant-numeric:tabular-nums}
+.hubv{grid-column:1 / -1;font-size:13px;color:var(--card-mute);font-variant-numeric:tabular-nums}
+.hubv .stamp,.pv .stamp,.dboxv .stamp,.paneltop .stamp{font-size:9px}
+/* Progress panel: the total, then a row per region with a bar */
+.panel{max-width:860px;padding:20px 24px;border-radius:12px;background:var(--stock),var(--card-stock);color:var(--card-ink);box-shadow:var(--card-shadow)}
+.paneltop{display:grid;grid-template-columns:auto 1fr;align-items:baseline;gap:6px 16px;padding-bottom:16px;border-bottom:1px solid var(--line)}
+.paneltop b{font:400 40px/1 var(--display);justify-self:end}
+.paneltop b small{font:600 14px var(--body);color:var(--card-mute)}
+.paneltop .pbar{grid-column:1 / -1}
+.pbar{display:block;height:8px;border-radius:99px;background:color-mix(in srgb,var(--card-ink) 9%,transparent);overflow:hidden}
+.pbar i{display:block;height:100%;border-radius:inherit;background:var(--rc,var(--caught))}
+.paneltop .pbar i{background:var(--caught)}
+.panelrows{display:grid;gap:2px;margin-top:10px}
+.prow{display:grid;grid-template-columns:120px 170px 1fr 90px;align-items:center;gap:14px;padding:7px 0;border-bottom:1px solid color-mix(in srgb,var(--line) 60%,transparent)}
+.prow > a,.prow > span:first-child{font-weight:700;color:var(--card-ink);text-decoration:none}
+.prow > a:hover{text-decoration:underline}
+.psmall{font-size:12px;color:var(--card-mute)}
+.pv{text-align:right;font-size:13px;color:var(--card-mute);font-variant-numeric:tabular-nums}
+/* Box view: the National Pokédex in boxes of 30 (HOME's boxes), each number a dot: filled = got, faint = not in the game */
+.dboxes{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,190px),1fr));gap:14px}
+.dbox{padding:10px 12px 10px;border-radius:10px;background:var(--stock),var(--card-stock);color:var(--card-ink);box-shadow:var(--card-shadow)}
+.dboxhead{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.dboxhead b{font:400 20px/1 var(--display)}
+.dboxhead span{font:700 10.5px/1 var(--body);letter-spacing:.06em;color:var(--card-mute);font-variant-numeric:tabular-nums}
+.dots{display:grid;grid-template-columns:repeat(6,13px);justify-content:space-between;row-gap:6px;margin:12px 2px 10px}
+.dots i{aspect-ratio:1;border-radius:50%;border:1.5px solid color-mix(in srgb,var(--card-ink) 28%,transparent)}
+.dots i.on{background:var(--caught);border-color:var(--caught)}
+.dots i.none{border-style:dashed;opacity:.4}
+.dboxv{font-size:12.5px;color:var(--card-mute);font-variant-numeric:tabular-nums}
+@media (max-width:700px){
+  .prow{grid-template-columns:1fr auto;gap:4px 10px}
+  .prow .psmall{display:none}
+  .prow .pbar{grid-column:1 / -1;grid-row:2}
+  .dboxes{grid-template-columns:repeat(2,1fr)}
+}
+/* All games page (TRIAL row): each game side by side, reached by a link above the switch or a third choice in it */
+.allgames{display:flex;align-items:center;gap:8px;margin:0 0 8px;padding:6px 10px;border-radius:8px;color:var(--on-deep);text-decoration:none;font-size:13.5px;font-weight:700}
+.allgames .i{width:16px;height:16px;color:var(--on-deep-mute)}
+.allgames:hover{background:rgba(255,255,255,.07)}
+.allgames.on{background:rgba(255,240,230,.16);box-shadow:inset 3px 0 0 var(--accent)}
+.game-switch.three{grid-template-columns:1fr 1fr 1fr}
+.allg{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:20px;max-width:1000px}
+.allgame{padding:16px 20px 18px;border-radius:12px;background:var(--stock),var(--card-stock);color:var(--card-ink);box-shadow:inset 0 5px 0 var(--gc),var(--card-shadow)}
+.allgame h2{font-size:30px;margin:4px 0 10px}
+.allgame .rows{display:grid;grid-template-columns:auto 1fr auto;gap:6px 10px;align-items:center;font-size:13px}
+.allgame .rl{display:inline-flex;align-items:center;gap:6px}
+.allgame .rl .i{width:16px;height:16px;padding:2.5px;border-radius:5px;background:var(--c);color:#fff;box-sizing:border-box}
+.allgame .bar{height:6px;border-radius:99px;background:color-mix(in srgb,var(--card-ink) 9%,transparent);overflow:hidden}
+.allgame .bar i{display:block;height:100%;background:var(--c)}
+.allgame .v{color:var(--card-mute);font-variant-numeric:tabular-nums;text-align:right}
+.allph{margin:0;color:var(--card-mute)}
+.allph .stamp{color:var(--card-ink);margin-right:6px}
+.allopen{display:inline-block;margin-top:14px;font-weight:700;font-size:14px;color:var(--deep-text);text-decoration:underline;text-underline-offset:3px}
+/* ===== TRIAL: Try switch "Home page", END ===== */
+
