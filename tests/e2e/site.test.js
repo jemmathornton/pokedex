@@ -967,11 +967,57 @@
         eq(d.querySelector('#view .bigboxes [data-tick]').getAttribute("aria-pressed"), was, `${label}: a click changes nothing`);
         ok(d.getElementById("toast").hidden, `${label}: and says nothing`);
         eq(w.__posts, [], `${label}: nothing sent`);
+        const unmarked = p => [...d.querySelectorAll("#view button:is([data-tick],[data-fast],[data-fk],[data-went],[data-fastall])")].filter(x => x.getAttribute("aria-disabled") !== "true").length;
+        ok(d.querySelectorAll("#view [data-tick]").length > 5, `${label}: boxes on the page`);
+        eq(unmarked(), 0, `${label}: every box on a Pokémon's page is aria-disabled (round 4 review)`);
+        eq(w.getComputedStyle(b).cursor, "default", `${label}: no hand cursor on a box`);
         w.route("fast"); await wait(50);
         ok(!d.querySelector("#view [data-fastall]") || w.getComputedStyle(d.querySelector("#view [data-fastall]")).display === "none", `${label}: no Tick all`);
+        ok(d.querySelectorAll("#view [data-fast],#view [data-fk]").length > 5, `${label}: squares on Fast tick`);
+        eq(unmarked(), 0, `${label}: every Fast tick square is aria-disabled`);
+        w.route("sets"); await wait(50); eq(unmarked(), 0, `${label}: Event Pokémon's boxes too`);
+        w.route("gen-1"); await wait(50); eq(unmarked(), 0, `${label}: a region's cards too`);
       } finally { f.remove(); }
     }
   });
+  test("with her server the boxes aren't marked disabled (view only is only for no server)", async () => {
+    await until(() => !readOnly, 5000);
+    await go("#p-6");
+    ok(view().querySelectorAll("[data-tick]").length > 5, "boxes");
+    eq([...view().querySelectorAll("[aria-disabled]")].length, 0, "no aria-disabled with a save server");
+  });
+
+  // ---------- links made by someone else (round 4 review, 22 Nov): nothing from the address may reach the page as markup ----------
+  test("a crafted ?pic=, ?fit=, ?ratio= or ?boxes= can't add attributes or run script; good values still work", async () => {
+    const bad = ['x" data-pwn="yes', "x' data-pwn='yes", '"><img src=x onerror="parent.__pwned=1">', "x');}</style><img src=x onerror=parent.__pwned=1>",
+      "x;--shot:url(javascript:parent.__pwned=1)", "center/cover\" data-pwn=\"1", "1/1\"><b data-pwn>"];
+    const frame = async (qs, h) => {
+      const f = document.createElement("iframe");
+      f.style.cssText = "position:fixed;left:0;top:0;width:1280px;height:800px;border:0;opacity:0;pointer-events:none";
+      f.src = "index.html?" + qs + h; document.body.append(f);
+      await until(() => f.contentDocument && f.contentDocument.querySelector("#view .hero"), 15000);
+      await wait(200); return f;
+    };
+    window.__pwned = 0;
+    for (const v of bad) for (const k of ["pic", "fit", "ratio", "boxes"]) {
+      const f = await frame(`${k}=${encodeURIComponent(v)}`, k === "boxes" ? "#p-6" : "#gen-1");
+      try {
+        const d = f.contentDocument, hero = d.querySelector("#view .hero");
+        eq(d.querySelectorAll("[data-pwn], #view img[onerror], #view b[data-pwn]").length, 0, `${k}=${v}: no attribute or element added`);
+        ok(!(hero.getAttribute("style") || "").includes("pwn") && !(hero.getAttribute("style") || "").includes("javascript"), `${k}=${v}: the banner's style is untouched`);
+        if (k === "pic") ok((hero.getAttribute("style") || "").includes("regions/kanto-map-2.jpg"), `${k}=${v}: her picked map is used instead`);
+        if (k === "boxes") ok(d.querySelector("#view .bigboxes.pcs-strip"), `${k}=${v}: the usual strip`);
+      } finally { f.remove(); }
+    }
+    await wait(200);
+    eq(window.__pwned, 0, "no script ran");
+    const f = await frame("pic=johto-map-1.jpg&fit=center%2045%25%2Fcover&ratio=16%2F9", "#gen-1");   // pictures of options still work
+    try {
+      const st = f.contentDocument.querySelector("#view .hero").getAttribute("style");
+      ok(st.includes("regions/johto-map-1.jpg") && st.includes("--shotfit:center 45%/cover") && st.includes("--shotratio:16/9"), `good values used: ${st}`);
+    } finally { f.remove(); }
+  });
+
   test("her own server failing (a 500, or a broken answer) still says so", async () => {
     for (const answer of ["500", "broken", "503"]) {
       const f = await stubWindow(answer);

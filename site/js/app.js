@@ -333,9 +333,15 @@ const SHOT_FIT = {"kanto-15.jpg": "50% 100%/150% auto", "kanto-map-2.jpg": "cent
 // a narrower picture shown less zoomed in: the banner's picture area takes this shape (width / height), so more of it shows and
 // it still blends softly into the colour on the left (12 Nov: Johto looked too zoomed in)
 const SHOT_RATIO = {};
-const TRY = new URLSearchParams(location.search), FIT_TRY = TRY.get("fit"), RATIO_TRY = TRY.get("ratio");   // ?fit= and ?ratio= for pictures of options only
+// ?fit=, ?ratio= and ?pic= are for pictures of options only. Anything from the address is checked against a strict format before
+// it is used, and escaped too (round 4 review, 22 Nov: a crafted link could break out of the style attribute and run script)
+const TRY = new URLSearchParams(location.search);
+const tryVal = (k, re) => { const v = TRY.get(k); return v && v.length <= 80 && re.test(v) ? v : null; };
+const FIT_TRY = tryVal("fit", /^[a-z0-9%. ]+(\/[a-z0-9%. ]+)?$/i);   // background position[/size]: "center 45%/cover", "50% 50%/112% auto"
+const RATIO_TRY = tryVal("ratio", /^\d{1,4}(\.\d{1,3})?( ?\/ ?\d{1,4}(\.\d{1,3})?)?$/);   // "16/9" or "1.6"
+const PIC_TRY = tryVal("pic", /^[a-z0-9][a-z0-9_-]{0,60}\.(jpg|jpeg|png|webp)$/i);   // a file name in site/regions, nothing else
 const shotStyle = f => { const fit = FIT_TRY || SHOT_FIT[f], ratio = RATIO_TRY || SHOT_RATIO[f];
-  return ` style="--shot:url('regions/${f}')${fit ? `;--shotfit:${fit}` : ""}${ratio ? `;--shotratio:${ratio}` : ""}"`; };
+  return ` style="${attr(`--shot:url('regions/${f}')${fit ? `;--shotfit:${fit}` : ""}${ratio ? `;--shotratio:${ratio}` : ""}`)}"`; };
 const shotCls = f => RATIO_TRY || SHOT_RATIO[f] ? " ratio" : "";
 // banners for the other pages (13 Nov, her ask: no plain colour or parade anywhere): a row of pictures filling the banner's
 // right side like the region maps; Home and Every Pokémon: all ten region maps side by side; Event Pokémon: her
@@ -344,7 +350,7 @@ const regionMap = g => REGION_CHOSEN[g] ? `regions/${REGION_CHOSEN[g]}` : null;
 const heroPics = (srcs, cls = "") => srcs.length ? `<span class="heropics${cls ? " " + cls : ""}">${srcs.map(f => `<i style="background-image:url('${f}')"></i>`).join("")}</span>` : "";
 const ALL_MAPS = () => GENS.map(([g]) => regionMap(g)).filter(Boolean);
 function regionShot(g){   // style for a region page's banner: her picked map (12 Nov; the scenery trial and its switch were removed 22 Nov)
-  const f = TRY.get("pic") || REGION_CHOSEN[g];   // ?pic= for pictures of options only
+  const f = PIC_TRY || REGION_CHOSEN[g];   // ?pic= for pictures of options only
   return f ? {style: shotStyle(f), cls: " withshot" + shotCls(f), sw: ""} : {style: "", sw: ""};
 }
 function firstStages(list){   // a region's starters (first stages that aren't regional forms), then the rest of the page
@@ -591,7 +597,8 @@ function evoFamily(sel){
 }
 // the Pokémon page's boxes are a strip of pictures, the Pokémon as it looks that way (her pick of three, 10 Nov);
 // ?boxes=cards or ?boxes=now still shows the other two, for pictures only
-const boxLook = () => new URLSearchParams(location.search).get("boxes") || "strip";
+const BOX_LOOK = ["strip", "cards", "now"].find(k => k === TRY.get("boxes")) || "strip";   // only these three (round 4 review)
+const boxLook = () => BOX_LOOK;
 const DEMO = new Set((new URLSearchParams(location.search).get("demo") || "").split(",").filter(Boolean));   // pictures only: shows these boxes ticked, saves nothing
 function boxPic(e, t){   // the picture for one box: the game's own pictures and looks (G-Max picture, Lucky sparkles, Shadow flames)
   const fem = e.femaleImg && BIG.has(e.femaleImg) ? e.femaleImg : e.img;
@@ -1258,7 +1265,12 @@ function navHtml(route){
     <div class="nav-group"><span class="label">More</span>${link("#sets", "ticket", "Event Pokémon", allSets().length)}${link("#want", "search", "Looking for")}${link("#coming", "calendar", "What’s on")}${link("#fast", "layout-grid", "Fast tick")}</div>`;
 }
 
-function route(to){   // to: draw that page without changing the address (the tests' sweep over every page)
+// view only (no save server): every box that would save is marked aria-disabled, so the keyboard and screen readers know
+// pressing it does nothing (round 4 review, 22 Nov); it still shows ticked or not by aria-pressed
+const SAVE_BOXES = "button[data-tick],button[data-fast],button[data-fk],button[data-went],button[data-fastall]";
+function lockBoxes(){ if (viewOnly) view.querySelectorAll(SAVE_BOXES).forEach(b => b.setAttribute("aria-disabled", "true")); }
+function route(to){ const out = drawRoute(to); lockBoxes(); return out; }
+function drawRoute(to){   // to: draw that page without changing the address (the tests' sweep over every page)
   const r = to || (location.hash || "#home").slice(1);
   document.documentElement.classList.toggle("tab-shiny", prefs.work === "shiny");
   const term = q.value.trim().toLowerCase().replace(/[‘’]/g, "'");   // “farfetch’d” as the page shows it, or from a phone (19 Nov tests)
@@ -1423,7 +1435,11 @@ document.getElementById("menuIco").innerHTML = ic("menu");
 let menu = null;
 const menuOpen = () => !!(menu && menu.isOpen());
 function startFamily(){
-  if (menu || !window.JJFamily) return;   // the shared code missing (opened without Jemma's Journals): no drawer, no footer buttons
+  if (menu) return;
+  if (!window.JJFamily) {   // the shared code missing (opened as a file, or without Jemma's Journals): no drawer, no footer buttons;
+    document.documentElement.classList.add("no-family");   // site.css then puts the sidebar at the top of the page under 900px
+    return;
+  }
   menu = JJFamily.menu({
     button: menuBtn, drawer: side, scrim: document.getElementById("scrim"),
     outside: () => [document.getElementById("topbar"), document.getElementById("main")],
@@ -1432,17 +1448,22 @@ function startFamily(){
   });
 }
 if (window.JJFamily) startFamily(); else document.addEventListener("DOMContentLoaded", startFamily);
+// opened as a file: "← Jemma’s Journals" goes to the home site's own file beside this one (pokedex/site → site), like her other apps
+const HOME_LOCAL = "../../site/index.html";
+if (location.protocol === "file:") document.getElementById("homeLink").setAttribute("href", HOME_LOCAL);
 // Pokédex-only: Enter in the search box closes the drawer and goes on to the results
 q.addEventListener("keydown", ev => { if (ev.key === "Enter" && menuOpen()) menu.close("link"); });
-// a redraw while the drawer is open (the page redraws its sidebar) can lose the focus: Tab brings it back inside (code review, 21 Nov)
-addEventListener("keydown", ev => {
-  if (ev.key !== "Tab" || !menuOpen() || side.contains(document.activeElement)) return;
-  const f = [...side.querySelectorAll("a[href],input,button")].filter(x => x.offsetParent);
-  if (f.length) { ev.preventDefault(); (ev.shiftKey ? f[f.length - 1] : f[0]).focus(); }
-});
+// Tab and Shift+Tab stay inside the open drawer: the family's menu() does that (round 4; it also brings back focus a redraw lost)
 // the foot of every page (family rules, 21 Nov) is the family's too: Back to top, Dark mode / Light mode (the shared jj-mode, set
 // before the page draws by /family/mode.js), footer line 1 and the credits' dots are all done by /family/family.js
-addEventListener("hashchange", () => { if (location.hash !== "#dex" && q.value) q.value = ""; if (menuOpen() && document.activeElement !== q) menu.close(); route(); scrollTo(0, 0); });   // another page clears the search (19 Nov review: Home and the regions showed an old search)
+addEventListener("hashchange", () => {
+  const a = document.activeElement, fromNav = nav.contains(a) ? a.getAttribute("href") : null;   // a sidebar link chosen (keyboard or mouse)
+  if (location.hash !== "#dex" && q.value) q.value = ""; if (menuOpen() && document.activeElement !== q) menu.close(); route(); scrollTo(0, 0);
+  // the sidebar is drawn again, so the chosen link is new: on wide screens focus goes back to it, not to the page's body (round 4
+  // review, 22 Nov); in the drawer (900px and under) the family's menu puts it on the page instead
+  if (fromNav && !menuOpen() && !matchMedia("(max-width: 900px)").matches && (document.activeElement === document.body || !document.contains(a)))
+    (nav.querySelector(`a[href="${CSS.escape(fromNav)}"]`) || nav.querySelector("a.on") || view).focus({preventScroll: true});
+});   // another page clears the search (19 Nov review: Home and the regions showed an old search)
 addEventListener("keydown", ev => {   // ← and → step through the numbers on a Pokémon's page
   if (!/^#p-\d+(-[a-z]+)?$/.test(location.hash) || menuOpen() || ev.target.closest("input,textarea,select") || ev.altKey || ev.ctrlKey || ev.metaKey) return;
   const a = document.querySelector(ev.key === "ArrowLeft" ? ".pn.prev" : ev.key === "ArrowRight" ? ".pn.next" : null);

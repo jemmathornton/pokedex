@@ -28,6 +28,9 @@ unit/test_calcy.py   the Calcy IV importer: the right boxes from a row, ancestor
 unit/test_pokedex_reader.py  the game's-Pokédex reader on real screenshots (fixtures/pokedex/): every cell it reads is
                      right, covered cells skipped, region/count/tab read, misread numbers dropped, the Quick add line,
                      never writes her ticks; with "slow" also its self-test (a made-up screen recording).
+e2e/test_keys.py     (22 Nov, round 4) real key presses in Edge through Jemma's Journals' Playwright (keys.test.js; skipped
+                     without it): Tab stays in the open drawer, focus stays on a sidebar link chosen at 1280, the page
+                     opened as a file (no family code) still usable. Every POST blocked.
 e2e/site.test.js     in Chrome: every page (all ~1,000 Pokémon pages too) opens with no errors or "undefined", every
                      link goes to a page, pictures load, the box strip (Charizard's Mega X/Y, Mew's missing Lucky,
                      Kyogre's Primal), ticking saves, Shiny Shadow and costume cards tick, ← →, card clicks, the filter

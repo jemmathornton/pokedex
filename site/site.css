@@ -995,6 +995,14 @@ main{background:linear-gradient(90deg,rgba(70,40,30,.18),rgba(70,40,30,0) 54px) 
   .toolbar{top:calc(52px + env(safe-area-inset-top,0px))}
 }
 @media (prefers-reduced-motion:reduce){ .side,.side.jj-open{transition:none} }
+/* the family's code missing (opened as a file, without Jemma's Journals; app.js adds .no-family): the scrim stays hidden, the
+   footer's empty buttons go, and under 900px the sidebar sits at the top of the page instead of in a drawer (round 4 review) */
+.scrim[hidden]{display:none!important}
+.no-family .jj-foot-links{display:none}
+@media (max-width:900px){
+  .no-family #menuBtn{display:none}
+  .no-family .side{position:relative;inset:auto;width:auto;transform:none;visibility:visible;transition:none;box-shadow:none;z-index:auto}
+}
 
 @media (max-width:700px){
   .grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
@@ -1155,4 +1163,7 @@ main{background:linear-gradient(90deg,rgba(70,40,30,.18),rgba(70,40,30,0) 54px) 
 /* view only (22 Nov): no save server at this address (plain web hosting once online), so the boxes only show her ticks as at the
    last build: they don't react to clicks (app.js viewOnly) and don't look clickable; no Tick all */
 .view-only :is([data-tick],[data-fast],[data-fk],[data-went]){cursor:default}
+/* view only: the boxes are marked aria-disabled (app.js lockBoxes, round 4 review) and don't react to hover either */
+.view-only [aria-disabled="true"]:is(.pc,.bb,.fc,.chip):not([aria-pressed="true"]):hover{border-color:var(--line)}
+.view-only .tk[aria-disabled="true"]:not([aria-pressed="true"]):hover{border-color:transparent}
 .view-only [data-fastall]{display:none!important}
