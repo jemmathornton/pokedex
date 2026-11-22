@@ -964,7 +964,6 @@ main{background:linear-gradient(90deg,rgba(70,40,30,.18),rgba(70,40,30,0) 54px) 
   background:radial-gradient(circle,var(--win-dots) 1px,transparent 1.4px) 0 0/6px 6px,radial-gradient(circle at 50% 60%,var(--win-hi),color-mix(in srgb,var(--rc,#7E2530) 16%,var(--win-lo)))}
 .genart img{width:76px;height:76px;margin:0 2px;filter:drop-shadow(0 3px 3px rgba(0,0,0,.18))}
 .gen .rows{order:1}
-.gen[style*="span 2"] .genart{justify-content:flex-start;padding-left:12px}
 .section h2{font-size:32px}
 
 /* the filter line: tabs like card edges */

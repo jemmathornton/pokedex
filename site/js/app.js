@@ -613,7 +613,7 @@ function setTiles(){
   const row = (name, icon, have, of, col) => `<span class="rl" style="--c:${col}">${ic(icon)}${name}</span><span class="bar" style="--c:${col}"><i style="width:${of ? have / of * 100 : 0}%"></i></span><span class="v">${num(have)} / ${num(of)}</span>`;
   const sets = allSets(), bgI = items.filter(it => it.bg), csI = items.filter(it => !it.bg), pics = [], dexes = new Set();
   for (const it of items.filter(it => has(it.key, "c"))) { if (pics.length < 3 && !dexes.has(it.e.dex) && sprite(it.img)) { dexes.add(it.e.dex); pics.push(sprite(it.img)); } }
-  return `<a class="gen" href="#sets" style="grid-column:span 2"><span class="genart" aria-hidden="true">${pics.map(p => `<img src="${p}" alt="" loading="lazy">`).join("")}</span><span class="label">Your events</span><h3>Costumes and backgrounds</h3><div class="rows">` +
+  return `<a class="gen" href="#sets"><span class="genart" aria-hidden="true">${pics.map(p => `<img src="${p}" alt="" loading="lazy">`).join("")}</span><span class="label">Your events</span><h3>Costumes and backgrounds</h3><div class="rows">` +
     row("Backgrounds", "image", bgI.filter(setGot).length, bgI.length, "var(--caught)") + row("Costumes", "shirt", csI.filter(setGot).length, csI.length, "var(--mega)") +
     row("Events", "ticket", sets.filter(st => st.items.every(setGot)).length, sets.length, "var(--deep-2)") + `</div></a>`;
 }
