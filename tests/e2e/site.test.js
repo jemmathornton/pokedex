@@ -327,8 +327,22 @@
     }
   });
 
-  test("the art window is tinted by the Pokémon's first type (her pick, 21 Nov); no Try switch left", async () => {
-    ok(!document.querySelector(".trybox"), "the Try switch is gone");
+  test("TEMPORARY Try switch (22 Nov): Pictures on Home, As now / Smaller; Smaller uses the copies in regions/home/", async () => {
+    const box = document.querySelector(".trybox");
+    ok(box && box.textContent.includes("Pictures on Home") && !box.textContent.includes("Lucky"), "only the new switch, bottom right");
+    const was = document.documentElement.dataset.tryPics, pics = () => [...view().querySelectorAll(".hero .heropics i")].map(i => i.style.backgroundImage);
+    try {
+      box.querySelector('[data-v="small"]').click(); await go("#home");
+      const small = pics();
+      eq(small.length, 10, "ten maps"); ok(small.every(u => /regions\/home\/[a-z]+-map-\d\.webp/.test(u)), `Smaller: ${small[0]}`);
+      for (const u of small) { const r = await fetch(u.slice(5, -2)); ok(r.ok, `${u} is there`); }
+      box.querySelector('[data-v="now"]').click(); await go("#home");
+      ok(pics().every(u => /regions\/[a-z]+-map-\d\.jpg/.test(u)), "As now: the full maps");
+    } finally { box.querySelector(`[data-v="${was === "small" ? "small" : "now"}"]`).click(); }
+  });
+
+  test("the art window is tinted by the Pokémon's first type (her pick, 21 Nov); the 21 Nov Try switch is gone", async () => {
+    ok(!document.querySelector('.trybox [data-try]'), "the old Try switch is gone");
     prefs.work = "all"; prefs.workShow = "all"; await go("#gen-1");
     const art = id => { const c = view().querySelector(`.card[data-id="${id}"]`); return c && getComputedStyle(c.querySelector(".pic")).backgroundImage; };
     eq(view().querySelector('.card[data-id="1"]').dataset.t1, "Grass", "Bulbasaur: Grass");

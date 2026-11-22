@@ -752,6 +752,7 @@ a.formsbtn{text-decoration:none}
 .tk.fb.c{--bc:var(--caught)}.tk.fb.f{--bc:var(--female)}.tk.fb.m{--bc:var(--male)}.tk.fb.s{--bc:var(--shiny)}.tk.fb.l{--bc:var(--lucky)}
 .tk.fb.h{--bc:var(--hundo)}.tk.fb.sd{--bc:var(--shadow)}.tk.fb.pu{--bc:var(--purified)}.tk.fb.dx{--bc:var(--dynamax)}.tk.fb.gx{--bc:var(--gmax)}
 .tk.fb.mg{--bc:var(--mega)}.tk.fb.xl{--bc:var(--xxl)}.tk.fb.xs{--bc:var(--xxs)}
+.tk.fb[data-all="true"]{color:#fff;border-color:transparent;background:var(--bc)}   /* every form got: filled like a ticked box (a link, so data-all, not aria-pressed) */
 .tk.fb .fill{position:absolute;inset:0;display:flex;align-items:center;gap:2px;padding:2px 4px;background:var(--bc);color:#fff;
   clip-path:inset(0 calc(100% - var(--p)) 0 0);pointer-events:none}
 .tk.fb .fill span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -919,13 +920,13 @@ main{background:linear-gradient(90deg,rgba(70,40,30,.18),rgba(70,40,30,0) 54px) 
 .card .formsbtn{background:var(--surface)}
 
 /* shiny ones: a foil frame round the art window and, softer (her change, 21 Nov), the pastel rainbow faint, no stripes, a faint gleam */
-.card:is(.shiny,:has(.tk.s[aria-pressed="true"])) :is(.pic,.bgpic){border:3px solid;border-image:var(--foil) 1;border-radius:0}
-.card:is(.shiny,:has(.tk.s[aria-pressed="true"])) :is(.pic,.bgpic)::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:0;mix-blend-mode:multiply;opacity:.3;
+.card:is(.shiny,:has(.tk.s:is([aria-pressed="true"],[data-all="true"]))) :is(.pic,.bgpic){border:3px solid;border-image:var(--foil) 1;border-radius:0}
+.card:is(.shiny,:has(.tk.s:is([aria-pressed="true"],[data-all="true"]))) :is(.pic,.bgpic)::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:0;mix-blend-mode:multiply;opacity:.3;
   background:linear-gradient(115deg,#ffd6ec 8%,#c9ecff 30%,#fff3b8 50%,#cdf5d9 68%,#e6d3ff 88%)}
-.card:is(.shiny,:has(.tk.s[aria-pressed="true"])) :is(.pic,.bgpic)::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:2;
+.card:is(.shiny,:has(.tk.s:is([aria-pressed="true"],[data-all="true"]))) :is(.pic,.bgpic)::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:2;
   background:linear-gradient(115deg,transparent 32%,rgba(255,255,255,.28) 42%,transparent 52%)}
-:root[data-mode="dark"] .card:is(.shiny,:has(.tk.s[aria-pressed="true"])) :is(.pic,.bgpic)::after{mix-blend-mode:screen;opacity:.16}
-:root[data-mode="dark"] .card:is(.shiny,:has(.tk.s[aria-pressed="true"])) :is(.pic,.bgpic)::before{background:linear-gradient(115deg,transparent 32%,rgba(255,255,255,.12) 42%,transparent 52%)}
+:root[data-mode="dark"] .card:is(.shiny,:has(.tk.s:is([aria-pressed="true"],[data-all="true"]))) :is(.pic,.bgpic)::after{mix-blend-mode:screen;opacity:.16}
+:root[data-mode="dark"] .card:is(.shiny,:has(.tk.s:is([aria-pressed="true"],[data-all="true"]))) :is(.pic,.bgpic)::before{background:linear-gradient(115deg,transparent 32%,rgba(255,255,255,.12) 42%,transparent 52%)}
 
 /* not caught yet (or, with a tab on, not that box): a faded print; costume and background cards go by their Caught box */
 .card[data-id]:not(.got):not(.informs):not(.some),.card[data-costume]:not(:has(.tk.c[aria-pressed="true"])),.card.bgcard:not(:has(.tk.c[aria-pressed="true"])){--frame:var(--faded)}
@@ -1167,3 +1168,15 @@ main{background:linear-gradient(90deg,rgba(70,40,30,.18),rgba(70,40,30,0) 54px) 
 .view-only [aria-disabled="true"]:is(.pc,.bb,.fc,.chip):not([aria-pressed="true"]):hover{border-color:var(--line)}
 .view-only .tk[aria-disabled="true"]:not([aria-pressed="true"]):hover{border-color:transparent}
 .view-only [data-fastall]{display:none!important}
+
+/* ===== TRIAL: Try switch (22 Nov), START: remove with the TRIAL block in app.js (after ALL_MAPS) once she has picked =====
+   Pictures on Home: As now (the full region maps) or Smaller (copies at twice the size shown, site/regions/home/). */
+.trybox{position:fixed;right:12px;bottom:12px;z-index:60;display:grid;gap:6px;padding:8px 10px;border-radius:10px;background:var(--surface,#fff);color:var(--ink,#222);
+  border:1px solid var(--line,#ccc);box-shadow:0 4px 16px rgba(0,0,0,.2);font:600 12px var(--body,sans-serif)}
+.trybox > b{font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.tryrow{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+.tryrow span{margin-right:4px}
+.tryrow button{font:inherit;padding:3px 8px;border-radius:6px;border:1px solid var(--line,#ccc);background:transparent;color:inherit;cursor:pointer}
+.tryrow button[aria-pressed="true"]{background:var(--ink,#222);color:var(--surface,#fff);border-color:transparent}
+@media print{.trybox{display:none}}
+/* ===== TRIAL: Try switch, END ===== */

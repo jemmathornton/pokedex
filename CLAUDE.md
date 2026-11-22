@@ -75,3 +75,7 @@ Her pick P3b (“Cards in a binder”, with the softer shiny window), chosen fro
 
 The art window behind a Pokémon is a pale tint of its **first type** (the usual game type colours; site.css “The art window behind the Pokémon”, `data-t1` in `card()` and `pokemonPage()`); the card frame keeps the region colour. The Lucky box keeps **white** text.
 
+
+## TEMPORARY: Try switch “Pictures on Home” (22 Nov, her ask)
+
+A small Try switch bottom right (one marked TRIAL block in app.js after `ALL_MAPS`, one at the end of site.css): **As now** (Home’s banner shows the ten full region maps) or **Smaller** (copies 660 px tall, twice the 330 px shown, WebP, in `site/regions/home/`, made by `tools/make_home_maps.py` from `REGION_CHOSEN`; only Home uses them). Kept in this browser only (`jemmas-pokedex-try-pics`). Remove the switch once she picks; if she keeps As now, delete `site/regions/home/` and the script too. The unused scenery pictures in site/regions were deleted 22 Nov (her yes); only the maps are left, plus kanto-15.jpg, still named in `SHOT_FIT`.

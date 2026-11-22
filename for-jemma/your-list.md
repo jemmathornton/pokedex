@@ -9,9 +9,8 @@ Everything waiting on you. **Do** = just do it; **Decide** = your call. Tell Cla
 - **Event Pokémon (trial, 13 Nov):** one page instead of two: a timeline of sets with progress (`for-jemma/page-events-and-costumes.png`, one set: `page-one-event.png`). Keep, change or go back?
 - **Banners on every page (trial, 13 Nov):** maps on Home, Every Pokémon, Fast tick and each Pokémon page; event backgrounds on Event Pokémon (`for-jemma/page-banners.png`).
 - **Which game to add after GO**, when you want it.
-- **A search with a tab on (round 3 review, 22 Nov):** a search still lists only Pokémon the chosen tab can have: with Lucky on, “mew” shows Mewtwo but not Mew (Mew can’t be Lucky); “zacian” with Dynamax on shows nothing. Should a search show every match whatever the tab (the tab then only choosing which box the cards show), or say why some are missing? Left as it is for you to choose.
 - **Footer line 1 (round 3 review):** “Made with HTML, CSS and JavaScript, kept on GitHub” is true of the page, but the Pokédex also needs its small Python server to save your ticks. Keep the family’s words, or change them for the Pokédex? Left as it is.
-- **Old scenery pictures:** the region scenery screenshots in `site/regions/` from the November trial are no longer used by anything (every region shows its map). Delete them or keep them?
+- **Pictures on Home (Try switch, bottom right, 22 Nov):** As now (the full region maps in the banner) or Smaller (copies at twice the size shown, a much smaller download; it should look the same). Pick one and the switch comes off.
 
 ## Do
 - **Try getting your collection in:** easiest is **Fast tick → Kanto → Lucky** next to your phone’s Pokédex on the Lucky tab. Or one short screen recording of the Pokédex’s Lucky tab (Kanto only) and, if you have one, a Calcy IV export, into the Pokédex folder’s `imports` folder. Then Claude checks the reader works on your phone’s screens.
@@ -19,6 +18,8 @@ Everything waiting on you. **Do** = just do it; **Decide** = your call. Tell Cla
 - **Dynamax Trails (16–23 Nov):** Max Battle catches get a background, probably the Dark Skies one again (Serebii); tell Claude once you’ve seen it, and Sneasel, Mawile and the rest go on it.
 
 ## Done
+- A search with a tab on keeps listing only Pokémon that tab can have (your answer, 22 Nov: no change).
+- Old scenery pictures in `site/regions/` deleted (your yes, 22 Nov).
 - Online check (15 Nov): nothing new in the game since 9 Nov, no costume or background missing. Fixed: Minior only Green and Yellow cores out so far; Fancy and Poké Ball Vivillon not out yet; Mega Zygarde and Mega Tatsugiri “Unavailable” (not “Not possible”); Wobbuffet’s costume called Party Hat. Mega Clefable comes on 28 Nov.
 - Backgrounds and costumes all ticked and checked (15 Nov).
 - Full review (15 Nov): ticks can no longer be lost when both server copies save at once, and a spare copy is kept; XXL/XXS totals leave out the fixed Pumpkaboo sizes; Mega cards in burnt orange; “Hide ones I have” hides Pokémon caught in another form; unticking Shiny anywhere unticks a Caught that came with it; Pumpkaboo’s Halloween costumes under Halloween 2022.

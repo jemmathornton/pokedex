@@ -185,7 +185,8 @@ function formBoxes(lead, forms, only){
     const fs = out.filter(can); if (!fs.length) return "";
     const got = fs.filter(f => has(dk(f), t)).length, all = got === fs.length;
     const inner = `${ic(icon)}<span>${esc(label)}</span><b>${got}/${fs.length}</b>`;
-    return `<a class="tk fb ${cls}" href="${pageOf(lead)}" aria-pressed="${all}" title="${tip(`${label}: ${got} of ${fs.length} forms`)}" style="--p:${Math.round(got / fs.length * 100)}%">` +
+    // a link, so no aria-pressed (axe, 22 Nov: not allowed on <a>); data-all fills it, and the count is in its text and title
+    return `<a class="tk fb ${cls}" href="${pageOf(lead)}" data-all="${all}" title="${tip(`${label}: ${got} of ${fs.length} forms`)}" style="--p:${Math.round(got / fs.length * 100)}%">` +
       inner + (got && !all ? `<span class="fill" aria-hidden="true">${inner}</span>` : "") + `</a>`;
   };
   const megaT = [...new Set(out.flatMap(f => (f.mega || []).map(m => m.t)))];
@@ -349,6 +350,29 @@ const shotCls = f => RATIO_TRY || SHOT_RATIO[f] ? " ratio" : "";
 const regionMap = g => REGION_CHOSEN[g] ? `regions/${REGION_CHOSEN[g]}` : null;
 const heroPics = (srcs, cls = "") => srcs.length ? `<span class="heropics${cls ? " " + cls : ""}">${srcs.map(f => `<i style="background-image:url('${f}')"></i>`).join("")}</span>` : "";
 const ALL_MAPS = () => GENS.map(([g]) => regionMap(g)).filter(Boolean);
+
+// ===== TRIAL: Try switch (22 Nov, her ask), START. Remove this block, the TRIAL block at the end of site.css and the
+// homeMaps() call in homePage once she has picked (and site/regions/home/ plus tools/make_home_maps.py if she keeps As now).
+// Bottom right: "Pictures on Home: As now / Smaller". Smaller = Home's banner uses the copies in site/regions/home/, WebP 660 px
+// tall (twice the 330 px shown), made by tools/make_home_maps.py; it should look the same. Kept in this browser only.
+const TRY_KEY = "jemmas-pokedex-try-pics";
+const homeMaps = () => document.documentElement.dataset.tryPics === "small"
+  ? GENS.map(([g]) => REGION_CHOSEN[g] ? `regions/home/${REGION_CHOSEN[g].replace(/\.\w+$/, "")}.webp` : null).filter(Boolean)
+  : ALL_MAPS();
+(function tryPanel(){
+  const OPTS = [["now", "As now"], ["small", "Smaller"]];
+  let v = store.get(TRY_KEY, "now"); if (!OPTS.some(([k]) => k === v)) v = "now";
+  const box = document.createElement("div"); box.className = "trybox"; box.setAttribute("role", "group"); box.setAttribute("aria-label", "Try");
+  const draw = () => {
+    document.documentElement.dataset.tryPics = v;
+    box.innerHTML = `<b>Try</b><div class="tryrow"><span>Pictures on Home</span>` +
+      OPTS.map(([k, l]) => `<button type="button" data-v="${k}" aria-pressed="${v === k}">${l}</button>`).join("") + `</div>`;
+  };
+  box.addEventListener("click", ev => { const b = ev.target.closest("[data-v]"); if (!b) return; v = b.dataset.v; store.set(TRY_KEY, v); draw();
+    if (!location.hash || location.hash === "#home") route(); });
+  draw(); document.body.append(box);
+})();
+// ===== TRIAL: Try switch, END
 function regionShot(g){   // style for a region page's banner: her picked map (12 Nov; the scenery trial and its switch were removed 22 Nov)
   const f = PIC_TRY || REGION_CHOSEN[g];   // ?pic= for pictures of options only
   return f ? {style: shotStyle(f), cls: " withshot" + shotCls(f), sw: ""} : {style: "", sw: ""};
@@ -509,7 +533,7 @@ function home(){
   }
   const went = EVENTS.filter(e => COL.went.includes(e.id)).length;
   setRegion(null);
-  view.innerHTML = `<header class="hero withshot">${heroPics(ALL_MAPS())}<span class="label">Pokémon GO · ${num(c.speciesOut)} Pokémon out, plus their forms</span>
+  view.innerHTML = `<header class="hero withshot">${heroPics(homeMaps())}<span class="label">Pokémon GO · ${num(c.speciesOut)} Pokémon out, plus their forms</span>
     <h1>Jemma’s <em>Pokédex</em></h1>${statsHtml(c)}</header>${readOnlyNote()}
     <section class="section"><h2>By region</h2><div class="gens">${gens}</div></section>
     <section class="section"><h2>Event Pokémon</h2><div class="gens">${setTiles()}</div></section>
