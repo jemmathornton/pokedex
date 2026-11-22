@@ -1,5 +1,5 @@
 {
- "fetched": "2026-11-19",
+ "fetched": "2026-11-22",
  "source": "Leek Duck (leekduck.com/events), via ScrapedDuck",
  "events": [
   {
@@ -21,24 +21,6 @@
    "end": "2026-12-01T10:00:00.000",
    "link": "https://leekduck.com/events/go-pass-november-2026/",
    "mons": []
-  },
-  {
-   "id": "minior-showers-leonids-2026",
-   "name": "Minior Showers: Leonids 2026",
-   "type": "Event",
-   "kind": "event",
-   "start": "2026-11-14T17:00:00.000",
-   "end": "2026-11-19T23:59:00.000",
-   "link": "https://leekduck.com/events/minior-showers-leonids-2026/",
-   "mons": [
-    {
-     "name": "Minior",
-     "key": null,
-     "shiny": null,
-     "id": "774-green",
-     "as": []
-    }
-   ]
   },
   {
    "id": "cresselia-darkrai-in-5-star-raid-battles-november-2026",
@@ -126,64 +108,14 @@
    "mons": []
   },
   {
-   "id": "pokemonspotlighthour2026-11-19",
-   "name": "Grookey, Scorbunny, and Sobble Spotlight Hour",
-   "type": "Pokémon Spotlight Hour",
-   "kind": "pokemon-spotlight-hour",
-   "start": "2026-11-19T18:00:00.000",
-   "end": "2026-11-19T19:00:00.000",
-   "link": "https://leekduck.com/events/pokemonspotlighthour2026-11-19/",
-   "mons": [
-    {
-     "name": "Grookey",
-     "key": "pm810",
-     "shiny": true,
-     "id": "810",
-     "as": []
-    },
-    {
-     "name": "Scorbunny",
-     "key": "pm813",
-     "shiny": true,
-     "id": "813",
-     "as": []
-    },
-    {
-     "name": "Sobble",
-     "key": "pm816",
-     "shiny": true,
-     "id": "816",
-     "as": []
-    }
-   ]
-  },
-  {
-   "id": "eternamax-eternatus-max-battles-2026",
-   "name": "Eternamax Eternatus Returns",
-   "type": "Max Battles",
-   "kind": "max-battles",
-   "start": "2026-11-21T11:00:00.000",
-   "end": "2026-11-21T14:00:00.000",
-   "link": "https://leekduck.com/events/eternamax-eternatus-max-battles-2026/",
+   "id": "pokemon-latin-america-international-championships-2027-timed-research-twitch-drops",
+   "name": "Twitch Drops for 2027 Pokémon Latin America International Championships",
+   "type": "Twitch Drops",
+   "kind": "twitch-drops",
+   "start": "2026-11-20T12:00:00.000Z",
+   "end": "2026-11-22T23:00:00.000Z",
+   "link": "https://leekduck.com/events/pokemon-latin-america-international-championships-2027-timed-research-twitch-drops/",
    "mons": []
-  },
-  {
-   "id": "november-communityday2026",
-   "name": "Pawniard Community Day",
-   "type": "Community Day",
-   "kind": "community-day",
-   "start": "2026-11-21T14:00:00.000",
-   "end": "2026-11-21T17:00:00.000",
-   "link": "https://leekduck.com/events/november-communityday2026/",
-   "mons": [
-    {
-     "name": "Pawniard",
-     "key": "624_00",
-     "shiny": true,
-     "id": "624",
-     "as": []
-    }
-   ]
   },
   {
    "id": "max-mondays-2026-11-23",
@@ -380,13 +312,105 @@
   },
   {
    "id": "december-communityday2026",
-   "name": "December Community Day",
+   "name": "December Community Day 2026",
    "type": "Community Day",
    "kind": "community-day",
    "start": "2026-12-12T14:00:00.000",
    "end": "2026-12-13T17:00:00.000",
    "link": "https://leekduck.com/events/december-communityday2026/",
-   "mons": []
+   "mons": [
+    {
+     "name": "Vulpix",
+     "key": "037_00",
+     "shiny": true,
+     "id": "37",
+     "as": []
+    },
+    {
+     "name": "Grookey",
+     "key": "pm810",
+     "shiny": true,
+     "id": "810",
+     "as": []
+    },
+    {
+     "name": "Scorbunny",
+     "key": "pm813",
+     "shiny": true,
+     "id": "813",
+     "as": []
+    },
+    {
+     "name": "Lechonk",
+     "key": "pm915",
+     "shiny": true,
+     "id": "915",
+     "as": []
+    },
+    {
+     "name": "Tinkatink",
+     "key": "pm957",
+     "shiny": true,
+     "id": "957",
+     "as": []
+    },
+    {
+     "name": "Piplup",
+     "key": "393_00",
+     "shiny": true,
+     "id": "393",
+     "as": []
+    },
+    {
+     "name": "Zorua",
+     "key": "pm570",
+     "shiny": true,
+     "id": "570",
+     "as": []
+    },
+    {
+     "name": "Pawniard",
+     "key": "624_00",
+     "shiny": true,
+     "id": "624",
+     "as": []
+    },
+    {
+     "name": "Sobble",
+     "key": "pm816",
+     "shiny": true,
+     "id": "816",
+     "as": []
+    },
+    {
+     "name": "Nickit",
+     "key": "pm827",
+     "shiny": true,
+     "id": "827",
+     "as": []
+    },
+    {
+     "name": "Frigibax",
+     "key": "pm996",
+     "shiny": true,
+     "id": "996",
+     "as": []
+    },
+    {
+     "name": "Gible",
+     "key": "443_00",
+     "shiny": true,
+     "id": "443",
+     "as": []
+    },
+    {
+     "name": "Deino",
+     "key": "633_00",
+     "shiny": true,
+     "id": "633",
+     "as": []
+    }
+   ]
   },
   {
    "id": "raid-day-december-2026",
@@ -406,6 +430,16 @@
    "start": "2026-12-26T11:00:00.000",
    "end": "2026-12-26T17:00:00.000",
    "link": "https://leekduck.com/events/hatch-day-december-2026/",
+   "mons": []
+  },
+  {
+   "id": "january-communitydayclassic2027",
+   "name": "January Community Day Classic",
+   "type": "Community Day",
+   "kind": "community-day",
+   "start": "2027-01-02T14:00:00.000",
+   "end": "2027-01-02T17:00:00.000",
+   "link": "https://leekduck.com/events/january-communitydayclassic2027/",
    "mons": []
   }
  ]
