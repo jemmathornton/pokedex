@@ -1480,14 +1480,15 @@ function tryBoxes(game){   // Box view (HOME’s boxes of 30, as living-dex trac
   draw(); document.body.append(box);
   pad(); addEventListener("resize", pad);
 })();
-function allGamesPage(){   // All games (her note, 22 Nov: an overview above the games; every Pokémon list stays inside its own game): each game's totals side by side, no Pokémon pictures
+function allGamesPage(){   // All games (her note, 22 Nov: an overview above the games; every Pokémon list stays inside its own game): each game's totals side by side, no Pokémon pictures.
+  // HOME shows only what HOME has (her note, 22 Nov: no Lucky there): Pokémon and Shiny, each a Placeholder until HOME's data is added
   setRegion(null);
   const c = counts(ENTRIES);
   const row = (name, icon, have, of, col) => `<span class="rl" style="--c:${col}">${ic(icon)}${name}</span><span class="bar" style="--c:${col}"><i style="width:${of ? have / of * 100 : 0}%"></i></span><span class="v">${num(have)} / ${num(of)}</span>`;
   view.innerHTML = `<header class="hero withshot">${heroPics(homeMaps())}<span class="label">All games</span><h1>Jemma’s <em>Pokédex</em></h1></header>${readOnlyNote()}
     <section class="section"><div class="allg">` + GAMES.map(g => `<article class="allgame" style="--gc:${g.colour}"><h2>${esc(g.name)}</h2>${g.id === "go"
       ? `<div class="gen-rows rows">${row("Pokémon", "poke-ball", c.species, c.speciesAll, "var(--caught)")}${row("Shiny", "sparkles", c.shiny, c.shinyOut, "var(--shiny)")}${row("Lucky", "lucky", c.lucky, c.luckyOut, "var(--lucky)")}${row("4★", "star", c.hundo, c.out, "var(--hundo)")}</div>`
-      : `<p class="allph">${PH} Pokémon HOME will be here.</p>`}<a class="allopen" href="${g.href}">Open ${esc(g.name)}</a></article>`).join("") + `</div></section>`;
+      : `<div class="gen-rows rows">${["Pokémon", "Shiny"].map(n => `<span class="rl" style="--c:var(${n === "Shiny" ? "--shiny" : "--caught"})">${ic(n === "Shiny" ? "sparkles" : "poke-ball")}${n}</span><span class="bar"></span><span class="v">${PH}</span>`).join("")}</div>`}<a class="allopen" href="${g.href}">Open ${esc(g.name)}</a></article>`).join("") + `</div></section>`;
 }
 // ===== TRIAL: Try switch "Home page", END
 

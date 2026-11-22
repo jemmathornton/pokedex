@@ -328,6 +328,7 @@
         await go("#go"); ok(view().querySelector("h1"), v + ": GO's Home draws");
         if (v !== "now") ok(!view().querySelector('img[src*="sprites/"]'), v + ": no Pokémon pictures on GO's Home");
         await go("#home"); ok(/Placeholder/.test(view().textContent), v + ": HOME marked Placeholder");
+        ok(!/Lucky|4★|Dynamax|Shadow|XXL/.test(view().textContent), v + ": nothing on HOME's Home that HOME doesn't have");
         ok(!view().querySelector('img[src*="sprites/"]'), v + ": no Pokémon pictures on HOME's Home");
       }
     } finally { TRY_ROWS[0].v = was; }
@@ -336,7 +337,8 @@
     try {
       TRY_ROWS[1].v = "link"; await go("#games");
       ok(document.querySelector(".games a.allgames.on"), "All games lit above the switch"); ok(!document.querySelector(".game-switch a[aria-current]"), "no game chosen there");
-      eq(view().querySelectorAll(".allgame").length, GAMES.length, "a card per game"); ok(!view().querySelector(".card, img[src*='sprites/']"), "no Pokémon on it");
+      eq(view().querySelectorAll(".allgame").length, GAMES.length, "a card per game");
+      ok(!/Lucky|4★/.test(view().querySelector(".allgame").textContent), "HOME's card has no Lucky or 4★ (not in HOME, her note 22 Nov)"); ok(!view().querySelector(".card, img[src*='sprites/']"), "no Pokémon on it");
       TRY_ROWS[1].v = "tab"; await go("#games");
       eq(document.querySelector(".game-switch a[aria-current]").textContent, "All", "the third choice chosen");
       TRY_ROWS[1].v = "none"; await go("#home"); ok(!document.querySelector('.games a[href="#games"]'), "None: no way to it");
