@@ -6,6 +6,8 @@
    the new events are listed in the log. Which background an event brings back is still added by hand (upcoming-backgrounds.json).
 1. Saves any changes in the project to git (her ticks since the last save, new data), then pushes them to GitHub
    (jemmathornton/pokedex, her ask 19 Nov).
+2. After a push that worked, records this version in Jemma's Journals, the parent (its tools/record_apps.py, if it is there;
+   since 22 Nov). Its output goes in the log; if it fails, the backup has still happened.
 No zips any more (her call, 19 Nov): GitHub has everything, every version, off this PC.
 Run every Sunday by the Windows task "Jemma's Pokedex - weekly backup" (tools/make_backup_task.ps1); log in logs/backup.log.
 """
@@ -64,8 +66,26 @@ def push():
         r = subprocess.run(['git', 'push', '-q', 'origin', 'HEAD'], cwd=ROOT, capture_output=True, text=True, encoding='utf-8',
                            errors='replace', env=env, creationflags=NO_WINDOW, timeout=900)
         log('github: pushed' if r.returncode == 0 else 'github: push failed: ' + (r.stderr or r.stdout).strip()[-400:])
+        return r.returncode == 0
     except Exception as e:
         log(f'github: push failed: {e}')
+        return False
+
+
+def record_in_parent():
+    """The parent (Jemma's Journals) points at a version of this app: record the one just pushed (her layout, 21 Nov; its
+    tools/record_apps.py does it, for every app). Only if the parent is there; never fails the backup."""
+    script = os.path.join(ROOT, '..', 'tools', 'record_apps.py')
+    if not os.path.exists(script):
+        return
+    try:
+        env = dict(os.environ, GIT_TERMINAL_PROMPT='0', GCM_INTERACTIVE='never', PYTHONUTF8='1')
+        r = subprocess.run([sys.executable, script], cwd=os.path.dirname(os.path.dirname(os.path.abspath(script))), capture_output=True,
+                           text=True, encoding='utf-8', errors='replace', env=env, creationflags=NO_WINDOW, timeout=900)
+        out = ' '.join((r.stdout + ' ' + r.stderr).split())[-600:]
+        log(('parent: recorded' if r.returncode == 0 else 'parent: record_apps.py failed') + (f': {out}' if out else ''))
+    except Exception as e:
+        log(f'parent: record_apps.py failed: {e}')
 
 
 def main():
@@ -77,7 +97,8 @@ def main():
             log('git: saved changes' if r.returncode == 0 else 'git: ' + (r.stderr or r.stdout).strip())
     except Exception as e:
         log(f'git failed: {e}')
-    push()
+    if push():
+        record_in_parent()
 
 
 if __name__ == '__main__':

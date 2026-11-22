@@ -1,15 +1,20 @@
 ﻿# Shortcuts that open Jemma's Pokédex in its own app window (no tabs or address bar), like her other apps.
-# Run:  powershell -ExecutionPolicy Bypass -File tools\make_shortcuts.ps1            (Desktop, Start menu, project folder)
-#       powershell -ExecutionPolicy Bypass -File tools\make_shortcuts.ps1 -Startup   (also starts the server at login)
-# - "Jemma's Pokédex" on the Desktop, in the Start menu and in the project folder runs tools/open_app.pyw: it starts the
-#   server (tools/serve.py, http://localhost:8030, this computer only) if it isn't running, then opens the app window in
-#   its own Chrome profile, so Windows gives it its own taskbar button, apart from her other apps.
+# Run:  powershell -ExecutionPolicy Bypass -File tools\make_shortcuts.ps1                (Desktop, Start menu, project folder)
+#       powershell -ExecutionPolicy Bypass -File tools\make_shortcuts.ps1 -ProjectOnly   (only the one in the project folder)
+#       powershell -ExecutionPolicy Bypass -File tools\make_shortcuts.ps1 -Startup       (also starts the server at login)
+# - "Jemma's Pokédex" on the Desktop, in the Start menu and in the project folder runs Jemma's Journals'
+#   tools/open_site.pyw pokedex (since 22 Nov, her choice: the Pokédex loads the family's shared code from Jemma's Journals,
+#   so it opens through the family server, http://localhost:8050/pokedex/, which starts this app's own save server,
+#   tools/serve.py on 8030). It opens the app window in its own Chrome profile, so Windows gives it its own taskbar button.
 # - With -Startup only: "Jemma's Pokedex server" in her Startup folder, as for the Library (not made on 9 Nov: Windows'
 #   safety check stopped Claude, and the shortcuts start the server anyway).
 # Delete them any time.
-param([switch]$Startup)
+param([switch]$Startup, [switch]$ProjectOnly)
 
 $root       = Split-Path -Parent $PSScriptRoot
+$family     = Split-Path -Parent $root   # Jemma's Journals, the parent: this folder is its submodule
+$openSite   = Join-Path $family 'tools\open_site.pyw'
+if (-not (Test-Path $openSite)) { throw "Jemma's Journals' tools\open_site.pyw not found at $openSite" }
 $pythonw    = "$env:LOCALAPPDATA\Programs\Python\Python313\pythonw.exe"
 $profileDir = Join-Path $env:LOCALAPPDATA "Jemmas Pokedex\Chrome"
 $icon       = Join-Path $root 'site\app-v1.ico'   # a new name for each new picture: Windows keeps old icons by file name
@@ -60,12 +65,13 @@ public static class ShortcutAppId {
 }
 '@
 
-foreach ($dir in @($root, [Environment]::GetFolderPath('Desktop'), [Environment]::GetFolderPath('Programs'))) {
+$dirs = if ($ProjectOnly) { @($root) } else { @($root, [Environment]::GetFolderPath('Desktop'), [Environment]::GetFolderPath('Programs')) }
+foreach ($dir in $dirs) {
     $lnk = $shell.CreateShortcut((Join-Path $dir "$name.lnk"))
     $lnk.TargetPath       = $pythonw
-    $lnk.Arguments        = "`"$(Join-Path $root 'tools\open_app.pyw')`""
+    $lnk.Arguments        = "`"$openSite`" pokedex"
     $lnk.IconLocation     = "$icon,0"
-    $lnk.WorkingDirectory = $root
+    $lnk.WorkingDirectory = $family
     $lnk.Description      = $name
     $lnk.Save()
     [ShortcutAppId]::Set($lnk.FullName, $appId)

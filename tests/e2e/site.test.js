@@ -247,17 +247,13 @@
     }
   });
 
-  test("the region picture switch changes the banner", async () => {
-    const g = Object.keys(REGION_SHOTS).find(k => !REGION_CHOSEN[k] && REGION_SHOTS[k].length > 1);   // a region she hasn't picked yet
-    if (g) {
-      await go("#gen-" + g);
-      const two = view().querySelector(`[data-shotg="${g}"][data-shot="2"]`); ok(two, `picture 2 on ${g}`);
-      click(two); await wait(30);
-      ok((view().querySelector(".hero").getAttribute("style") || "").includes("regions/" + REGION_SHOTS[g][1]), `${g} shows picture 2`);
-      ok(!view().querySelector(`[data-shotg="${g}"][data-shot="0"]`), "no plain-colour choice (her call)");
-      click(view().querySelector(`[data-shotg="${g}"][data-shot="1"]`)); await wait(30);
+  test("every region has its picked map, and the scenery trial is gone (22 Nov)", async () => {
+    ok(typeof REGION_SHOTS === "undefined" && typeof PIXEL_SHOTS === "undefined" && typeof heroArt === "undefined", "the trial's code is gone");
+    for (const k of Object.keys(genById)) {
+      await go("#gen-" + k);
+      ok(view().querySelector(".hero").classList.contains("withshot"), `${k} has a picture`);
+      ok(!view().querySelector(".shotsw, [data-shotg], .heroart"), `${k}: no switch or hidden parade left`);
     }
-    for (const k of Object.keys(genById)) { await go("#gen-" + k); ok(view().querySelector(".hero").classList.contains("withshot"), `${k} has a picture`); }
   });
 
   test("a collected costume whose event has no date yet doesn't break the pages", async () => {
@@ -818,8 +814,8 @@
           if (st.scrollWidth > st.clientWidth + 1) problems.push(`${width} ${h}: the tab row slides sideways`);
           if (d.documentElement.scrollWidth > width) problems.push(`${width} ${h}: the page is ${d.documentElement.scrollWidth} wide`);
         }
-        w.footDots();
-        for (const x of d.querySelectorAll(".foot .about-site .dot")) {   // the footer: a “·” never ends a line (family rules)
+        w.JJFamily.fitCredits();
+        for (const x of d.querySelectorAll(".jj-foot [data-jj-credits] .dot")) {   // the footer: a “·” never ends a line (family rules)
           const next = x.nextElementSibling, shown = w.getComputedStyle(x).display !== "none" && w.getComputedStyle(x).visibility !== "hidden";
           if (shown && next.getBoundingClientRect().top > x.getBoundingClientRect().top + 2) problems.push(`${width}: a “·” ends a line in the footer`);
         }
@@ -880,15 +876,15 @@
     f.src = "index.html#gen-8";
     document.body.append(f);
     try {
-      await until(() => f.contentDocument && f.contentDocument.getElementById("menuBtn") && f.contentDocument.querySelector("#view .card"), 15000);
+      await until(() => f.contentDocument && f.contentDocument.getElementById("menuBtn") && f.contentDocument.querySelector("#view .card") && f.contentWindow.JJFamily && f.contentDocument.getElementById("side").inert, 15000);
       const w = f.contentWindow, d = f.contentDocument, btn = d.getElementById("menuBtn"), side = d.getElementById("side");
-      const isOpen = () => d.body.classList.contains("nav-open");
-      const key = k => w.dispatchEvent(new w.KeyboardEvent("keydown", {key: k, bubbles: true}));
+      const isOpen = () => d.documentElement.classList.contains("jj-menu-open") && side.classList.contains("jj-open");   // the family drawer (/family/family.js)
+      const key = k => (d.activeElement || d.body).dispatchEvent(new w.KeyboardEvent("keydown", {key: k, bubbles: true}));   // from where the focus is, as a real key
       ok(w.getComputedStyle(d.getElementById("topbar")).display !== "none", "top bar shown");
       ok(side.inert && !isOpen(), "drawer shut and out of the Tab order");
       eq(btn.getAttribute("aria-expanded"), "false");
       ok(d.documentElement.scrollWidth <= 390, `no sideways scrolling (page ${d.documentElement.scrollWidth} wide)`);
-      const crs = [...d.querySelectorAll(".foot .about-site .cr")], dots = [...d.querySelectorAll(".foot .about-site .dot")];
+      const crs = [...d.querySelectorAll(".jj-foot [data-jj-credits] .cr")], dots = [...d.querySelectorAll(".jj-foot [data-jj-credits] .dot")];
       ok(crs.length === 3 && crs.every((c, i) => i === 0 || c.getBoundingClientRect().top >= crs[i - 1].getBoundingClientRect().bottom - 1), "credits one per line on a phone");
       ok(dots.every(x => w.getComputedStyle(x).display === "none"), "no · at line ends on a phone");
       btn.click();
@@ -911,7 +907,7 @@
       ok(d.activeElement === btn, "and focus goes back to Menu (second review: it was left on the page)");
       btn.click(); side.querySelector('.nav a[href="#gen-1"]').click();
       ok(!isOpen(), "choosing a link shuts it");
-      ok(d.activeElement === d.getElementById("view"), "then focus on the page");
+      await until(() => d.activeElement === d.getElementById("view"));   // then focus on the page (the family drawer moves it just after closing)
       await until(() => w.location.hash === "#gen-1");
       // the family rules (21 Nov): the same menu on every site
       eq(btn.getAttribute("aria-controls"), "side", "aria-controls"); eq(btn.textContent.trim(), "Menu", "the word Menu");
@@ -932,6 +928,61 @@
     } finally { f.remove(); }
   });
 
+  // ---------- the family's shared code (22 Nov, her decision: it lives in Jemma's Journals, loaded at /family/) ----------
+  test("the family's shared code loads from /family/ (mode.js, family.css, family.js) and runs", async () => {
+    for (const f of ["mode.js", "family.js", "family.css"]) {
+      const r = await realFetch("/family/" + f, {cache: "no-store"});
+      eq(r.status, 200, f); ok((await r.text()).length > 200, `${f} has its code`);
+    }
+    ok(window.JJFamily && typeof JJFamily.menu === "function" && typeof JJFamily.mode.onChange === "function", "window.JJFamily");
+    ok(document.querySelector('script[src="/family/mode.js"]') && document.querySelector('link[href="/family/family.css"]') && document.querySelector('script[src="/family/family.js"][defer]'), "the page asks for all three");
+    ok([...document.styleSheets].some(x => /\/family\/family\.css$/.test(x.href || "")), "family.css applied");
+    eq(document.querySelector("[data-jj-line1]").textContent, JJFamily.LINE1, "footer line 1, the family's words");
+    ok(["light", "dark"].includes(document.documentElement.dataset.mode), "data-mode always set");
+    eq(document.querySelector('meta[name="theme-color"]').getAttribute("data-dark"), "#4E1018", "the dark bar colour for family.js");
+  });
+
+  // a window whose api/collection answers as given (no server, a web host's 404, her server failing): __stub__.html, the page
+  // with a stand-in fetch put in before its own scripts (tests/e2e/test_site.py); nothing reaches the server, no POST is sent
+  const stubWindow = async answer => {
+    const f = document.createElement("iframe");
+    f.style.cssText = "position:fixed;left:0;top:0;width:1280px;height:800px;border:0;opacity:0;pointer-events:none";
+    f.src = "__stub__.html?answer=" + answer + "#home";
+    document.body.append(f);
+    await until(() => f.contentDocument && f.contentDocument.querySelector("#view .hero") && f.contentWindow.JJFamily && f.contentWindow.__answered, 15000);
+    await wait(300);   // the redraw after the answer
+    return f;
+  };
+  test("online with no save server (a web host's 404, no answer, its page instead): view only, quietly (like her Library)", async () => {
+    for (const answer of ["404", "405", "none", "html"]) {
+      const f = await stubWindow(answer);
+      try {
+        const w = f.contentWindow, d = f.contentDocument, label = answer;
+        ok(d.documentElement.classList.contains("view-only"), `${label}: view only`);
+        ok(!d.querySelector("#view .notice"), `${label}: no error note`);
+        w.route("p-6"); await wait(50);
+        const b = d.querySelector('#view .bigboxes [data-tick]'); ok(b, `${label}: the boxes still show her ticks`);
+        const was = b.getAttribute("aria-pressed");
+        b.dispatchEvent(new w.MouseEvent("click", {bubbles: true})); await wait(100);
+        eq(d.querySelector('#view .bigboxes [data-tick]').getAttribute("aria-pressed"), was, `${label}: a click changes nothing`);
+        ok(d.getElementById("toast").hidden, `${label}: and says nothing`);
+        eq(w.__posts, [], `${label}: nothing sent`);
+        w.route("fast"); await wait(50);
+        ok(!d.querySelector("#view [data-fastall]") || w.getComputedStyle(d.querySelector("#view [data-fastall]")).display === "none", `${label}: no Tick all`);
+      } finally { f.remove(); }
+    }
+  });
+  test("her own server failing (a 500, or a broken answer) still says so", async () => {
+    for (const answer of ["500", "broken", "503"]) {
+      const f = await stubWindow(answer);
+      try {
+        const d = f.contentDocument, label = answer;
+        ok(!d.documentElement.classList.contains("view-only"), `${label}: not view only`);
+        ok(/couldn’t read your ticks/.test(d.querySelector("#view .notice")?.textContent || ""), `${label}: the note says the server couldn’t read her ticks`);
+      } finally { f.remove(); }
+    }
+  });
+
   // ---------- the foot of every page (21 Nov, the family rules for all her sites): name, two lines, Back to top and Dark mode ----------
   const MODE_KEY = "jj-mode", OLD_KEY = "jemmas-pokedex-mode";
   test("Back to top and Dark mode are at the foot of every page", async () => {
@@ -939,21 +990,21 @@
     const problems = [];
     for (const h of routes) {
       await show(h);
-      const top = document.getElementById("toTop"), md = document.getElementById("modeBtn"), foot = top && top.closest("footer");
+      const top = document.querySelector("[data-jj-top]"), md = document.querySelector("[data-jj-mode]"), foot = top && top.closest("footer.jj-foot");   // the family footer (/family/family.js fills the buttons)
       if (!top || !md || !foot || foot !== md.closest("footer")) { problems.push(`${h}: buttons missing`); continue; }
       if (!/Back to top/.test(top.textContent) || !/(Dark|Light) mode/.test(md.textContent)) problems.push(`${h}: words “${top.textContent}”, “${md.textContent}”`);
       if (!top.querySelector("svg") || !md.querySelector("svg")) problems.push(`${h}: an icon missing`);
       if (top.offsetHeight < 44 || md.offsetHeight < 44) problems.push(`${h}: under 44px to tap`);
       if (foot.getBoundingClientRect().top < view().getBoundingClientRect().bottom - 1) problems.push(`${h}: not below the page`);
       if (getComputedStyle(foot).display === "none") problems.push(`${h}: hidden`);
-      const name = foot.querySelector(".foot-name"), lines = foot.querySelectorAll(".about-site p");
+      const name = foot.querySelector(".jj-name"), lines = foot.querySelectorAll("p[data-jj-line1], p[data-jj-credits]");
       if (!name || name.textContent !== "Jemma’s Pokédex" || getComputedStyle(name).fontStyle !== "normal" || getComputedStyle(name).fontSize !== "24px") problems.push(`${h}: the name`);
-      if ([...foot.querySelectorAll(".about-site .dot")].some(x => x.textContent !== "\u00a0·" || !/^ /.test(x.nextSibling?.textContent || ""))) problems.push(`${h}: a “·” could start or end a line (credit&nbsp;· credit)`);
+      if ([...foot.querySelectorAll("[data-jj-credits] .dot")].some(x => x.textContent !== "\u00a0·" || !/^ /.test(x.nextSibling?.textContent || ""))) problems.push(`${h}: a “·” could start or end a line (credit&nbsp;· credit)`);
       if (!/balance/.test(getComputedStyle(lines[1]).textWrap || getComputedStyle(lines[1]).textWrapStyle || "")) problems.push(`${h}: the credits not balanced`);
       if (lines.length !== 2 || lines[0].textContent !== "No cookies, no tracking, no ads. Made with HTML, CSS and JavaScript, kept on GitHub.") problems.push(`${h}: line 1`);
-      const credits = [...foot.querySelectorAll(".about-site .cr")].map(c => c.textContent);
-      if (credits.join(" | ") !== "Pokémon pictures, backgrounds and region maps from the Pokémon games | Fonts: Instrument Serif and Manrope | Icons by Lucide, Phosphor, MingCute and Solar (480 Design)") problems.push(`${h}: credits ${credits.join(" | ")}`);
-      { const cl = foot.querySelector(".about-site p:last-child"); if (cl.scrollWidth > cl.clientWidth + 1) problems.push(`${h}: the credits line can’t wrap`); }   // round-2 review: it couldn’t, so pages scrolled sideways at 601–1113
+      const credits = [...foot.querySelectorAll("[data-jj-credits] .cr")].map(c => c.textContent);
+      if (credits.join(" | ") !== "Pokémon pictures, backgrounds and region maps from the Pokémon games | Fonts: Instrument Serif and Manrope | Icons by Lucide, Phosphor, Tabler, MingCute and Solar (480 Design)") problems.push(`${h}: credits ${credits.join(" | ")}`);
+      { const cl = foot.querySelector("p[data-jj-credits]"); if (cl.scrollWidth > cl.clientWidth + 1) problems.push(`${h}: the credits line can’t wrap`); }   // round-2 review: it couldn’t, so pages scrolled sideways at 601–1113
       const order = [name, lines[0], lines[1], top].map(x => x && x.getBoundingClientRect().top);
       if (!order.every((t, i) => i === 0 || t > order[i - 1])) problems.push(`${h}: not in the family order`);
       if (Math.abs(top.getBoundingClientRect().top - md.getBoundingClientRect().top) > 1 || Math.abs(top.offsetHeight - md.offsetHeight) > 1) problems.push(`${h}: Back to top and Dark mode not level`);
@@ -965,7 +1016,7 @@
     await go("#dex");
     scrollTo(0, document.documentElement.scrollHeight); await wait(50);
     ok(scrollY > 500, `the page should be scrolled down first (${scrollY})`);
-    document.getElementById("toTop").click();
+    document.querySelector("[data-jj-top]").click();
     await until(() => scrollY === 0, 4000);
     ok(document.activeElement === view(), `focus on the page (it's on ${document.activeElement.id || document.activeElement.tagName})`);
   });
@@ -976,10 +1027,10 @@
     f.style.cssText = "position:fixed;left:0;top:0;width:1280px;height:800px;border:0;opacity:0;pointer-events:none";
     f.src = "index.html#home";
     document.body.append(f);
-    const loaded = () => until(() => f.contentDocument && f.contentDocument.readyState === "complete" && f.contentDocument.getElementById("modeBtn")?.textContent, 15000);
+    const loaded = () => until(() => f.contentDocument && f.contentDocument.readyState === "complete" && f.contentDocument.querySelector("[data-jj-mode]")?.textContent, 15000);
     try {
       await loaded();
-      let d = f.contentDocument, btn = d.getElementById("modeBtn");
+      let d = f.contentDocument, btn = d.querySelector("[data-jj-mode]");
       const paper = () => f.contentWindow.getComputedStyle(f.contentDocument.documentElement).getPropertyValue("--paper").trim().toUpperCase();
       // (headless Chrome can’t be made to report a dark device reliably, so this test can’t prove that part; the page never reads it anyway)
       eq(d.documentElement.dataset.mode, "light", "opens light, with the device set to dark");
@@ -992,7 +1043,7 @@
       ok(btn.querySelector("svg"), "a sun icon");
       eq(localStorage.getItem(MODE_KEY), "dark", "remembered in jj-mode, the key every site shares"); eq(bar(), "#4E1018", "dark bar colour");
       f.contentWindow.location.reload(); await wait(300); await loaded();
-      d = f.contentDocument; btn = d.getElementById("modeBtn");
+      d = f.contentDocument; btn = d.querySelector("[data-jj-mode]");
       eq(d.documentElement.dataset.mode, "dark", "still dark after reloading"); eq(btn.textContent, "Light mode"); eq(paper(), "#171012");
       btn.click();
       eq(d.documentElement.dataset.mode, "light", "back to light"); eq(localStorage.getItem(MODE_KEY), "light");
@@ -1038,7 +1089,7 @@
       for (const m of ["light", "dark"]) {
         root.dataset.mode = m;
         for (const [fg, bg] of pairs) { const r = ratio(`var(${fg})`, `var(${bg})`); if (r < 4.5) low.push(`${m}: ${fg} on ${bg} ${r.toFixed(2)}`); }
-        const btn = getComputedStyle(document.getElementById("modeBtn")).color, footText = "color-mix(in srgb,var(--muted) 70%,var(--ink))";   // the footer lines' colour (site.css .foot .about-site)
+        const btn = getComputedStyle(document.querySelector("[data-jj-mode]")).color, footText = "var(--jj-muted)";   // the footer lines' colour (site.css --jj-muted)
         for (const bg of ["--page-hi", "--page-lo", ...(m === "light" ? ["#CFC5BC"] : [])]) { const r = ratio(footText, bg.startsWith("#") ? bg : `var(${bg})`); if (r < 4.5) low.push(`${m}: the foot lines on ${bg} ${r.toFixed(2)}`); }   // #CFC5BC: the darkest of the shaded band behind them (second review)
         for (const bg of ["--page-hi", "--page-lo"]) { const r = ratio(btn, `var(${bg})`); if (r < 4.5) low.push(`${m}: the foot buttons on ${bg} ${r.toFixed(2)}`); }
       }

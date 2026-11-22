@@ -15,6 +15,9 @@ unit/test_server.py  the server on a spare port: saves, unticks, every box, cost
                      posts without the header or from another site, many ticks at once.
 unit/test_server_edges.py  (19 Nov) the saving itself: a missing, broken or BOM ticks file, the .bak copy, bad keys and
                      ticks refused with nothing written, lists sorted, the lock between the two copies, the API's refusals.
+unit/test_family.py  (22 Nov) the family’s shared code: the server hands out Jemma’s Journals’ site/family/ files at /family/
+                     and nothing else (no ../, other folders or other hosts), the page asks for all three; the weekly backup
+                     records the version in the parent after a push that worked, and a failure there is only logged.
 unit/test_build.py   the build: everything the page reads is in data.js, fingerprints stamped, stops on bad data.
 unit/test_build_more.py  (19 Nov) backgrounds an upcoming event brings back (Pokémon, evolutions, `dex` lists), the
                      flag check, data.js's shape, optional files missing.
@@ -34,8 +37,11 @@ e2e/site.test.js     in Chrome: every page (all ~1,000 Pokémon pages too) opens
                      (21 Nov) the foot of every page: Back to top and Dark mode on every page, Back to top scrolls up and
                      moves focus, Dark mode opens light, switches and is remembered after reloading, no follow-the-device
                      dark rules, text contrast 4.5:1 in light and dark.
+                     (22 Nov) the family’s shared code loads from /family/ and runs (window.JJFamily); with no save server
+                     (a web host’s 404/405, its page, no answer) the page is view only, quietly; her server failing (500, 503,
+                     a broken answer) still says so (__stub__.html, a stand-in fetch, from test_site.py).
                      knownBug(...) marks a test for a known app bug: reported (not failed) until it passes.
-support.py           Sandbox (a full copy, ~8 s) and LightSandbox (data and code only, under a second: use it when no
+support.py           Sandbox (a full copy, ~8 s, inside a temporary Jemma’s Journals with site/family/ copied) and LightSandbox (data and code only, under a second: use it when no
                      pictures are needed).
 
 Run them after any change to the page or the tools, and before committing.

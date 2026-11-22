@@ -29,6 +29,8 @@ const prefs = Object.assign({work: "all", workShow: "all", gender: "any", forms:
   unreleased: false, costumes: "auto", events: "all", comingHide: ["research"]}, store.get(PREFS_KEY, {}));   // What's on: research off to begin with (her point, 19 Nov: barely an in-game event)
 if (["genders", "caught", "forms"].includes(prefs.work)) prefs.work = "all";
 prefs.workShow = "all";   // "Hide ones I have" is always off when the app opens, not remembered (her answer, 21 Nov)
+delete prefs.regionShot;   // left from the scenery trial (removed 22 Nov)
+try { localStorage.removeItem("jemmas-pokedex-try"); } catch {}   // left from the Try switch (removed 21 Nov)
 const keepPrefs = () => store.set(PREFS_KEY, prefs);
 
 // ---------- what there is ----------
@@ -65,7 +67,10 @@ const BIG = new Set(DATA.bigSprites || []);   // the game's full-size pictures, 
 const bigSprite = k => k && BIG.has(k) ? `sprites/big/${k}.webp` : sprite(k);
 
 // ---------- what she has ----------
-let COL = norm(DATA.collection), readOnly = true, loadFailed = false;   // readOnly until the server has given her ticks
+let COL = norm(DATA.collection), readOnly = true, loadFailed = false, viewOnly = false;   // readOnly until the server has given her ticks
+// viewOnly (22 Nov, like her Library's read-only mode): no save server at this address at all (plain web hosting once it's online:
+// api/collection missing, refused or not JSON), so the page just shows her ticks as at the last build, quietly: no banner, and the
+// boxes don't react to clicks. A real failure of her own server (a 500, a broken answer) still shows loadFailed's note.
 function norm(c){ c = c || {}; return {have: c.have || {}, went: c.went || [], costumes: c.costumes || []}; }
 const has = (key, t) => (COL.have[key] || []).includes(t);
 const hasAny = (key, ts) => ts.some(t => has(key, t));
@@ -132,8 +137,8 @@ function counts(list){
   return r;
 }
 
-// the filters (9 Nov, her pick of three tried): choose the box she's working on (tabs), then Still need / Have / All;
-// the cards then show only that box. Every box works the same way, Male, Female and Forms included (her rule).
+// the filters (9 Nov, her pick of three tried; since 21 Nov the banner's tabs): choose the box she's working on, and the "Hide ones
+// I have" switch; the cards then show only that box. Every box works the same way, Male, Female and Forms included (her rule).
 const BOXF = [   // each box as a filter: which Pokémon it applies to, and whether she has it
   {k: "female", label: "Female", applies: e => !!femaleTick(e), have: gotFemale, ticks: e => [femaleTick(e)]},
   {k: "male", label: "Male", applies: e => !!maleTick(e), have: gotMale, ticks: e => [maleTick(e)]},
@@ -153,7 +158,7 @@ const BOXF = [   // each box as a filter: which Pokémon it applies to, and whet
 const boxPass = (b, val, e) => val === "have" ? b.applies(e) && b.have(e) : val === "need" ? b.applies(e) && !b.have(e) : true;
 function boxFilter(e, show = prefs.workShow){
   const b = BOXF.find(x => x.k === prefs.work);
-  if (!b) return show !== "need" || !caught(e);   // no tab: "Not caught" shows the ones not caught at all
+  if (!b) return show !== "need" || !caught(e);   // no tab: "Hide ones I have" shows the ones not caught at all
   return b.applies(e) && boxPass(b, show, e);
 }
 let showAllBoxes = false;   // the Pokémon page shows every box, whatever tab is picked
@@ -321,12 +326,6 @@ const REGION_COLOURS = {"1": "#A3302A", "2": "#8E6A0E", "3": "#16618A", "4": "#5
   "7": "#B5531C", "8": "#6E2D82", "hisui": "#3C6150", "9": "#952F57"};
 document.documentElement.dataset.look = "mix";
 const setRegion = g => document.documentElement.style.setProperty("--rc", REGION_COLOURS[g] || "#7E2530");
-// TRIAL (10 Nov, her idea): a real in-game screenshot of the region behind its banner; she flicks between them with the
-// switch on the banner (0 = plain colour). Official press screenshots, sources in research/data/region-screenshots.json
-const REGION_SHOTS = {"1": ["kanto-15.jpg", "kanto-4.jpg"], "2": ["johto-1.png", "johto-3.jpg", "johto-6.png"], "3": ["hoenn-19.jpg", "hoenn-16.jpg", "hoenn-21.jpg", "hoenn-25.jpg", "hoenn-22.jpg", "hoenn-13.png"], "4": ["sinnoh-14.jpg", "sinnoh-8.jpg", "sinnoh-15.jpg"], "5": ["unova-12.png", "unova-13.png"], "6": ["kalos-1.jpg", "kalos-14.jpg", "kalos-16.jpg", "kalos-17.jpg"], "7": ["alola-14.png", "alola-13.png", "alola-17.png", "alola-16.png", "alola-18.png"], "8": ["galar-1.jpg", "galar-16.jpg", "galar-22.jpg", "galar-19.jpg", "galar-23.jpg"], "hisui": ["hisui-8.jpg", "hisui-14.jpg", "hisui-15.jpg", "hisui-16.jpg"], "9": ["paldea-1.jpg", "paldea-11.jpg", "paldea-12.jpg", "paldea-16.jpg", "paldea-17.jpg", "paldea-18.jpg"]};   // only pictures with no people in them (her ask, 11 Nov)
-const shotPick = g => Math.max(1, Math.min(+(new URLSearchParams(location.search).get("shot") ?? (prefs.regionShot || {})[g] ?? 1), (REGION_SHOTS[g] || []).length));   // never plain colour (her call, 11 Nov: every region a picture, so they match)   // ?shot= for pictures only
-// her picks (11 Nov): these regions keep their picture and lose the switch; the rest still have one while she chooses
-const PIXEL_SHOTS = new Set(["kalos-map-4.png", "alola-13.png", "alola-14.png", "alola-16.png", "alola-17.png", "alola-18.png", "unova-12.png", "unova-13.png", "alola-1.jpg", "alola-7.jpg", "alola-8.jpg", "hoenn-1.jpg", "hoenn-10.png", "hoenn-11.png", "hoenn-12.png", "hoenn-13.png", "hoenn-14.png", "hoenn-15.png", "hoenn-2.jpg", "hoenn-3.jpg", "hoenn-4.jpg", "hoenn-5.jpg", "hoenn-6.jpg", "hoenn-7.jpg", "hoenn-8.jpg", "hoenn-9.png", "johto-1.png", "johto-2.jpg", "johto-3.jpg", "johto-4.jpg", "johto-5.jpg", "johto-6.png", "kalos-10.jpg", "kalos-11.jpg", "kalos-12.jpg", "kalos-13.jpg", "kalos-4.jpg", "unova-1.jpg", "unova-10.png", "unova-11.png", "unova-2.jpg", "unova-3.jpg", "unova-4.png", "unova-5.png", "unova-6.png", "unova-7.jpg", "unova-8.jpg", "unova-9.jpg"]);
 const REGION_CHOSEN = {"1": "kanto-map-2.jpg", "2": "johto-map-1.jpg", "3": "hoenn-map-2.jpg", "4": "sinnoh-map-3.jpg", "5": "unova-map-2.jpg", "6": "kalos-map-2.jpg", "7": "alola-map-1.jpg", "8": "galar-map-1.jpg", "hisui": "hisui-map-1.jpg", "9": "paldea-map-1.jpg"};   // her picks: the official painted region maps (12 Nov; she switched from scenery)
 // which part of a picture the banner shows, where the middle isn't the best part (12 Nov: Kanto's Route 1 was nearly all sky):
 // a closer crop towards the ground; the picture itself is unchanged
@@ -337,33 +336,16 @@ const SHOT_RATIO = {};
 const TRY = new URLSearchParams(location.search), FIT_TRY = TRY.get("fit"), RATIO_TRY = TRY.get("ratio");   // ?fit= and ?ratio= for pictures of options only
 const shotStyle = f => { const fit = FIT_TRY || SHOT_FIT[f], ratio = RATIO_TRY || SHOT_RATIO[f];
   return ` style="--shot:url('regions/${f}')${fit ? `;--shotfit:${fit}` : ""}${ratio ? `;--shotratio:${ratio}` : ""}"`; };
-const shotCls = f => (PIXEL_SHOTS.has(f) ? " pixel" : "") + (RATIO_TRY || SHOT_RATIO[f] ? " ratio" : "");
+const shotCls = f => RATIO_TRY || SHOT_RATIO[f] ? " ratio" : "";
 // banners for the other pages (13 Nov, her ask: no plain colour or parade anywhere): a row of pictures filling the banner's
 // right side like the region maps; Home and Every Pokémon: all ten region maps side by side; Event Pokémon: her
 // events' background cards; Fast tick and a Pokémon's page: its region's map
 const regionMap = g => REGION_CHOSEN[g] ? `regions/${REGION_CHOSEN[g]}` : null;
 const heroPics = (srcs, cls = "") => srcs.length ? `<span class="heropics${cls ? " " + cls : ""}">${srcs.map(f => `<i style="background-image:url('${f}')"></i>`).join("")}</span>` : "";
 const ALL_MAPS = () => GENS.map(([g]) => regionMap(g)).filter(Boolean);
-function regionShot(g){   // style and switch for a region page's banner
-  // tiny DS/3DS pictures (under 500 px wide) are enlarged as sharp pixels, not a blur (her pick, 11 Nov, for Johto)
-  const pic = TRY.get("pic");   // ?pic= for pictures of options only
-  if (pic) return {style: shotStyle(pic), cls: " withshot" + shotCls(pic), sw: ""};
-  if (REGION_CHOSEN[g]) return {style: shotStyle(REGION_CHOSEN[g]), cls: " withshot" + shotCls(REGION_CHOSEN[g]), sw: ""};
-  const shots = REGION_SHOTS[g] || [], k = shotPick(g);
-  if (!shots.length) return {style: "", sw: ""};
-  return {style: k ? shotStyle(shots[k - 1]) : "", cls: k ? " withshot" + shotCls(shots[k - 1]) : "",   // the picture always fills the banner (10 Nov: the uncropped and blurred tries confused; wide shots instead)
-    sw: `<span class="shotsw"><span class="label">Try a picture</span><span class="opts">${shots.map((_, i) =>
-      `<button type="button" data-shot="${i + 1}" data-shotg="${g}" aria-pressed="${i + 1 === k}">${i + 1}</button>`).join("")}</span></span>`};
-}
-const STARTERS = [1, 4, 7, 152, 155, 158, 252, 255, 258, 387, 390, 393, 495, 498, 501, 650, 653, 656, 722, 725, 728, 810, 813, 816, 906, 909, 912];
-function heroArt(list){   // a few of the page's Pokémon, for the looks that show them (big ones first, then a parade)
-  const seen = new Set(), keys = [];
-  for (const e of list) {
-    if (keys.length >= 14) break;
-    if (!e || e.released === false || seen.has(e.img) || !sprite(e.img)) continue;
-    seen.add(e.img); keys.push(e.img);
-  }
-  return `<div class="heroart" aria-hidden="true">${keys.map((k, i) => `<img src="${i < 3 ? bigSprite(k) : sprite(k)}" alt="" style="--i:${i}" loading="lazy">`).join("")}</div>`;
+function regionShot(g){   // style for a region page's banner: her picked map (12 Nov; the scenery trial and its switch were removed 22 Nov)
+  const f = TRY.get("pic") || REGION_CHOSEN[g];   // ?pic= for pictures of options only
+  return f ? {style: shotStyle(f), cls: " withshot" + shotCls(f), sw: ""} : {style: "", sw: ""};
 }
 function firstStages(list){   // a region's starters (first stages that aren't regional forms), then the rest of the page
   const firsts = list.filter(e => e.released && !isRegional(e) && !(EVO_IN[e.id] || []).length && (e.evo || []).length);
@@ -381,17 +363,17 @@ function fitLabels(){
   // a picture box's label too long for its box (Gigantamax) shrinks to fit, keeping its icon
   for (const p of view.querySelectorAll(".pc.small .pclab")) {
     const box = p.closest(".pc"), over = () => box.scrollWidth > box.clientWidth;
-    p.style.fontSize = ""; p.classList.remove("noic");
+    p.style.fontSize = "";
     if (!over()) continue;
     let f = parseFloat(getComputedStyle(p).fontSize);
     while (over() && f > 6.5) p.style.fontSize = (f -= 0.25) + "px";   // smaller writing, icon kept (her note, 21 Nov)
   }
-  // a card's box label that doesn't fit (Gigantamax, or Dynamax with a form count) gets a little smaller, then drops its
+  // a card's box label that doesn't fit (Gigantamax, or Dynamax with a form count) gets a little smaller, always keeping its
   // icon, never cut short (rule review, 20 Nov: "Giganta…" on every card; her rule, 14 Nov: Gigantamax in full)
   for (const sp of view.querySelectorAll(".boxgrid .tk > span:not(.fill)")) {
     const tk = sp.closest(".tk"), over = () => textOver(sp), copy = tk.querySelector(".fill > span");
     if (copy) copy.style.fontSize = "";
-    if (sp.style.fontSize || tk.classList.contains("tight")) { sp.style.fontSize = ""; tk.classList.remove("tight", "noic", "widefit"); }
+    if (sp.style.fontSize || tk.classList.contains("tight")) { sp.style.fontSize = ""; tk.classList.remove("tight", "widefit"); }
     if (!over()) continue;
     tk.classList.add("tight");   // first a little less space around it, keeping the icon (every box has one, her rule)
     let f = parseFloat(getComputedStyle(sp).fontSize);
@@ -546,11 +528,11 @@ function dexPage(title, label, list, region, search = false){
   const groups = groupByNumber(items);
   const seg = (attrName, cur, rows) => `<span class="opts">${rows.map(([v, l]) => `<button type="button" ${attrName}="${v}" aria-pressed="${v === cur}">${l}</button>`).join("")}</span>`;
   const picked = prefs.work !== "all";
-  // one line: the tabs, Clear, and on the far right a "Not caught" toggle, always there (no tab: not caught at all; a tab: missing that box), on when a tab is picked (untick it to
-  // see the ones she has too, lit up; her wording and place, 9 Nov); the not-out switch under it where there are some; how many are shown sits by the title (her layout, 9 Nov)
+  // one line: the tabs, Clear, and on the far right the "Hide ones I have" switch (was "Not caught"; no tab: not caught at all; a tab: missing that box), on when a tab is picked (untick it to
+  // see the ones she has too, lit up; her place, 9 Nov; hidden during a search); the not-out switch under it where there are some; how many are shown sits by the title (her layout, 9 Nov)
   setRegion(region);
   const shot = region ? regionShot(region) : {style: "", sw: heroPics(ALL_MAPS()), cls: " withshot"};
-  view.innerHTML = `<header class="hero${shot.cls || ""}"${shot.style}>${shot.sw}${heroArt(region ? firstStages(list) : STARTERS.map(d => baseOf[d]))}<span class="label">${esc(label)} · ${num(groups.length)} shown</span><h1>${title}</h1>${statsHtml(counts(list), true)}</header>${readOnlyNote()}
+  view.innerHTML = `<header class="hero${shot.cls || ""}"${shot.style}>${shot.sw}<span class="label">${esc(label)} · ${num(groups.length)} shown</span><h1>${title}</h1>${statsHtml(counts(list), true)}</header>${readOnlyNote()}
     <div class="toolbar filters" id="toolbar">
       <div class="frow"><div class="worktabs">` +
       (picked || hide ? `<button class="linkbtn" type="button" data-clear>${ic("x")}Clear</button>` : "") +
@@ -1015,6 +997,7 @@ async function fastClick(btn){
   await tick(key, t, on);   // tick() looks after a Caught that came with another box
 }
 async function fastAll(){
+  if (viewOnly) return;
   const left = [...document.querySelectorAll('.fastgrid [data-fast][aria-pressed="false"], .fastgrid [data-fk][aria-pressed="false"]')];   // Mega X and Y count as one each here
   if (!left.length || !confirm(`Tick all ${left.length} left on this page? You can untick any afterwards.`)) return;
   // each one lights up as it's saved, with a running count, so it's clear it's working (12 Nov: she saw nothing happen
@@ -1319,6 +1302,7 @@ let toastTimer;
 function toast(msg){ toastEl.textContent = msg; toastEl.hidden = false; clearTimeout(toastTimer); toastTimer = setTimeout(() => toastEl.hidden = true, 3500); }
 
 async function save(body){
+  if (viewOnly) return false;
   if (readOnly) { toast(loadFailed ? "The server couldn’t read your ticks, so nothing was saved. Open the shortcut again." : "Opened from the folder: open it with the shortcut to save ticks."); return false; }
   try {
     const r = await fetch("api/tick", {method: "POST", headers: {"Content-Type": "application/json", "X-Pokedex": "1"}, body: JSON.stringify(body)});
@@ -1337,6 +1321,7 @@ function setTick(key, t, on){
   if (s.size) COL.have[key] = [...s]; else delete COL.have[key];
 }
 async function tick(key, t, on){
+  if (viewOnly) return;   // nothing to save to: the boxes only show
   const alsoCaught = on && t !== "c" && !has(key, "c");   // a ♂, ♀, shiny, lucky… one is caught too
   // a Caught ticked only because of another box goes again when that box is unticked, unless something else is still
   // ticked (her note, 12 Nov, for Fast tick; everywhere since the 15 Nov review); ticking Caught by hand keeps it
@@ -1354,6 +1339,7 @@ async function tick(key, t, on){
   }
 }
 async function toggleList(list, id){
+  if (viewOnly) return;
   const on = !COL[list].includes(id);
   const apply = v => { COL[list] = v ? [...COL[list], id] : COL[list].filter(x => x !== id); };
   apply(on); rerender();
@@ -1403,7 +1389,6 @@ document.addEventListener("click", ev => {
   if (b.dataset.comegot) { const k = b.dataset.comegot; comingOpen.has(k) ? comingOpen.delete(k) : comingOpen.add(k); return rerender(); }
   if (b.hasAttribute("data-wantoverlap")) { prefs.wantOverlap = !prefs.wantOverlap; keepPrefs(); return rerender(); }
   if (b.dataset.fastorder) { prefs.fastOrder = b.dataset.fastorder; keepPrefs(); return rerender(); }
-  if (b.dataset.shotg) { prefs.regionShot = {...(prefs.regionShot || {}), [b.dataset.shotg]: +b.dataset.shot}; keepPrefs(); return rerender(); }   // trial, 10 Nov
   if (b.dataset.notout) { prefs.unreleased = b.dataset.notout === "yes"; keepPrefs(); return rerender(); }
   if (b.dataset.flip) {
     const k = b.dataset.pic, item = byId[k.slice(2)] || costumeById[k.slice(2)];
@@ -1427,86 +1412,51 @@ q.addEventListener("input", () => {
   }, 150);
 });
 document.getElementById("searchIco").innerHTML = ic("search");
-// narrow windows and phones (21 Nov, her note: “Other apps have hamburger no sidebar in condensed browser”): a top bar with a Menu button, the
-// sidebar a drawer over the page, as on her Sim World. It closes on choosing a link, on Escape, on tapping outside it and on
-// Enter in the search box; while it is shut it is out of the Tab order (inert); while open everything else is inert (family
-// rules, 21 Nov), so Tab stays inside it. Opening puts focus on this page's link (Home if it has none), never on
-// "← Jemma’s Journals", so one Enter never leaves the site; closing puts it back on Menu.
-const side = document.getElementById("side"), menuBtn = document.getElementById("menuBtn"), narrow = matchMedia("(max-width:900px)");
-const behind = [document.getElementById("topbar"), document.getElementById("main")];
+// narrow windows and phones (21 Nov, her note: “Other apps have hamburger no sidebar in condensed browser”): a top bar with a Menu
+// button, the sidebar a drawer over the page. Since 22 Nov the family's shared Menu drawer (Jemma's Journals' /family/family.js,
+// JJFamily.menu; her decision: all shared code lives there): it closes on choosing a link, on Escape and on tapping outside it;
+// while shut it is inert; while open everything else is inert, so Tab stays inside it. Opening puts focus on this page's link
+// (Home if it has none), never on "← Jemma’s Journals"; closing puts it back on Menu, or on the page after a link. The bar and
+// drawer keep the Pokédex's own look (site.css). family.js is loaded with defer, so this starts once it has run.
+const side = document.getElementById("side"), menuBtn = document.getElementById("menuBtn");
 document.getElementById("menuIco").innerHTML = ic("menu");
-function setMenu(open, refocus = true){
-  open = open && narrow.matches;
-  const wasIn = side.contains(document.activeElement);
-  document.body.classList.toggle("nav-open", open);
-  menuBtn.setAttribute("aria-expanded", open);
-  menuBtn.setAttribute("aria-label", open ? "Close the menu" : "Open the menu");
-  side.inert = narrow.matches && !open;
-  for (const el of behind) el.inert = open;
-  if (open) (nav.querySelector("a.on") || nav.querySelector('a[href="#home"]'))?.focus({preventScroll: true});
-  else if (wasIn && refocus && narrow.matches) menuBtn.focus({preventScroll: true});
+let menu = null;
+const menuOpen = () => !!(menu && menu.isOpen());
+function startFamily(){
+  if (menu || !window.JJFamily) return;   // the shared code missing (opened without Jemma's Journals): no drawer, no footer buttons
+  menu = JJFamily.menu({
+    button: menuBtn, drawer: side, scrim: document.getElementById("scrim"),
+    outside: () => [document.getElementById("topbar"), document.getElementById("main")],
+    current: () => nav.querySelector("a.on") || nav.querySelector('a[href="#home"]'),   // this page's link (aria-current), Home if none
+    main: () => view,
+  });
 }
-menuBtn.addEventListener("click", () => setMenu(!document.body.classList.contains("nav-open")));
-document.getElementById("scrim").addEventListener("click", () => { setMenu(false); menuBtn.focus({preventScroll: true}); });   // the tap has already taken focus out of the drawer (second review)
-side.addEventListener("click", ev => { if (!ev.target.closest("a[href]")) return; const was = document.body.classList.contains("nav-open"); setMenu(false, false); if (was) view.focus({preventScroll: true}); });   // after a link, on to the page (family rules)
-q.addEventListener("keydown", ev => { if (ev.key === "Enter" && document.body.classList.contains("nav-open")) { setMenu(false, false); view.setAttribute("tabindex", "-1"); view.focus({preventScroll: true}); } });
+if (window.JJFamily) startFamily(); else document.addEventListener("DOMContentLoaded", startFamily);
+// Pokédex-only: Enter in the search box closes the drawer and goes on to the results
+q.addEventListener("keydown", ev => { if (ev.key === "Enter" && menuOpen()) menu.close("link"); });
+// a redraw while the drawer is open (the page redraws its sidebar) can lose the focus: Tab brings it back inside (code review, 21 Nov)
 addEventListener("keydown", ev => {
-  if (!document.body.classList.contains("nav-open")) return;
-  if (ev.key === "Escape") { ev.preventDefault(); return setMenu(false); }
-  if (ev.key !== "Tab") return;
+  if (ev.key !== "Tab" || !menuOpen() || side.contains(document.activeElement)) return;
   const f = [...side.querySelectorAll("a[href],input,button")].filter(x => x.offsetParent);
-  if (!f.length) return;
-  if (!side.contains(document.activeElement)) { ev.preventDefault(); (ev.shiftKey ? f[f.length - 1] : f[0]).focus(); return; }   // focus lost by a redraw (code review, 21 Nov)
-  if (ev.shiftKey && document.activeElement === f[0]) { ev.preventDefault(); f[f.length - 1].focus(); }
-  else if (!ev.shiftKey && document.activeElement === f[f.length - 1]) { ev.preventDefault(); f[0].focus(); }
+  if (f.length) { ev.preventDefault(); (ev.shiftKey ? f[f.length - 1] : f[0]).focus(); }
 });
-narrow.addEventListener("change", () => { const was = side.contains(document.activeElement); setMenu(false, false); if (was && narrow.matches) menuBtn.focus({preventScroll: true}); });
-setMenu(false, false);
-
-// the footer's credits: a "·" never starts or ends a line (family rules). The no-break space keeps it off the start of a line;
-// where the line wraps after it, it is hidden (kept in place, so the wrapping doesn't change)
-function footDots(){
-  for (const d of document.querySelectorAll(".foot .about-site .dot")) {
-    d.style.visibility = "";
-    const next = d.nextElementSibling;
-    if (next && next.getBoundingClientRect().top > d.getBoundingClientRect().top + 2) d.style.visibility = "hidden";
-  }
-}
-addEventListener("resize", () => requestAnimationFrame(footDots));
-if (document.fonts) document.fonts.ready.then(footDots);
-footDots();
-
-// the foot of every page (family rules, 21 Nov: the same on all her sites): Back to top, and Dark mode. The page is light unless she
-// presses Dark mode (never by the device's setting). jj-mode is the one setting every site in the family shares, so once they share
-// one address online the choice carries across (index.html reads it before drawing, and moves the old jemmas-pokedex-mode over once).
-const MODE_KEY = "jj-mode", modeBtn = document.getElementById("modeBtn"), toTop = document.getElementById("toTop");
-let mode = document.documentElement.getAttribute("data-mode") === "dark" ? "dark" : "light";
-function applyMode(){
-  const dark = mode === "dark";
-  document.documentElement.setAttribute("data-mode", mode);
-  modeBtn.innerHTML = ic(dark ? "sun" : "moon") + (dark ? "Light mode" : "Dark mode");
-  modeBtn.setAttribute("aria-pressed", dark);
-  document.querySelector('meta[name="theme-color"]')?.setAttribute("content", dark ? "#4E1018" : "#7A1E2A");
-}
-modeBtn.addEventListener("click", () => {
-  mode = mode === "dark" ? "light" : "dark";
-  try { localStorage.setItem(MODE_KEY, mode); } catch {}
-  applyMode();
-});
-applyMode();
-toTop.innerHTML = ic("arrow-up") + "Back to top";
-toTop.addEventListener("click", () => {
-  scrollTo({top: 0, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"});
-  document.getElementById("view").focus({preventScroll: true});   // keyboard users carry on from the top of the page
-});
-addEventListener("hashchange", () => { if (location.hash !== "#dex" && q.value) q.value = ""; if (document.body.classList.contains("nav-open")) setMenu(false); route(); scrollTo(0, 0); });   // another page clears the search (19 Nov review: Home and the regions showed an old search)
+// the foot of every page (family rules, 21 Nov) is the family's too: Back to top, Dark mode / Light mode (the shared jj-mode, set
+// before the page draws by /family/mode.js), footer line 1 and the credits' dots are all done by /family/family.js
+addEventListener("hashchange", () => { if (location.hash !== "#dex" && q.value) q.value = ""; if (menuOpen() && document.activeElement !== q) menu.close(); route(); scrollTo(0, 0); });   // another page clears the search (19 Nov review: Home and the regions showed an old search)
 addEventListener("keydown", ev => {   // ← and → step through the numbers on a Pokémon's page
-  if (!/^#p-\d+(-[a-z]+)?$/.test(location.hash) || document.body.classList.contains("nav-open") || ev.target.closest("input,textarea,select") || ev.altKey || ev.ctrlKey || ev.metaKey) return;
+  if (!/^#p-\d+(-[a-z]+)?$/.test(location.hash) || menuOpen() || ev.target.closest("input,textarea,select") || ev.altKey || ev.ctrlKey || ev.metaKey) return;
   const a = document.querySelector(ev.key === "ArrowLeft" ? ".pn.prev" : ev.key === "ArrowRight" ? ".pn.next" : null);
   if (a) { ev.preventDefault(); location.hash = a.getAttribute("href"); }
 });
 
 route();
 if (location.protocol.startsWith("http")) {
-  fetch("api/collection").then(r => r.ok ? r.json() : Promise.reject()).then(c => { COL = norm(c); readOnly = false; rerender(); }).catch(() => { if (location.protocol !== "file:") { loadFailed = true; rerender(); } });
+  // her server answers with JSON; no server at all (online: a 404 or 405 from the web host, its page instead of JSON, or no
+  // answer) means view only, quietly; anything else (a 500, a refusal, broken JSON from her server) is a real failure
+  const noServer = () => { viewOnly = true; document.documentElement.classList.add("view-only"); rerender(); };
+  fetch("api/collection", {cache: "no-store"}).then(r => {
+    if ([404, 405, 501].includes(r.status) || (r.ok && !/json/i.test(r.headers.get("Content-Type") || ""))) return noServer();
+    if (!r.ok) throw new Error(r.status);
+    return r.json().then(c => { COL = norm(c); readOnly = false; rerender(); });
+  }, noServer).catch(() => { loadFailed = true; rerender(); });
 }

@@ -4,6 +4,9 @@ A sandbox is a temporary folder laid out like the project: data/ copied (her tic
 data), and site/ with its pictures linked rather than copied (hard links: instant and take no space; nothing in the code
 writes into a picture). index.html and js/ are real copies because the build writes them. The scripts in tools/ are
 loaded fresh with POKEDEX_ROOT pointing at the sandbox.
+
+Laid out as on her PC (22 Nov): the copy is a "pokedex" folder inside a temporary "Jemma's Journals" with the family's
+shared code beside it (site/family/, copied from the real parent), so the server serves /family/ there too.
 """
 import hashlib, importlib.util, json, os, shutil, sys, tempfile
 
@@ -14,6 +17,17 @@ PYTHON = sys.executable
 if TOOLS not in sys.path:
     sys.path.insert(0, TOOLS)
 REAL_TICKS = os.path.join(REAL, 'data', 'collection', 'go.json')
+REAL_FAMILY = os.path.join(os.path.dirname(REAL), 'site', 'family')   # Jemma's Journals' shared code
+
+
+def _new_root():
+    """A temporary Jemma's Journals: returns (its folder, the pokedex folder inside it), with site/family/ copied in."""
+    base = tempfile.mkdtemp(prefix='pokedex-test-')
+    if os.path.isdir(REAL_FAMILY):
+        shutil.copytree(REAL_FAMILY, os.path.join(base, 'site', 'family'))
+    root = os.path.join(base, 'pokedex')
+    os.makedirs(root)
+    return base, root
 
 
 def fingerprint(path=REAL_TICKS):
@@ -41,7 +55,7 @@ class Sandbox:
         self.imports = imports   # link the saved GO downloads too (only the import test needs them)
 
     def __enter__(self):
-        self.root = tempfile.mkdtemp(prefix='pokedex-test-')
+        self.base, self.root = _new_root()
         shutil.copytree(os.path.join(REAL, 'data'), os.path.join(self.root, 'data'), ignore=shutil.ignore_patterns('*.tmp'))
         os.makedirs(os.path.join(self.root, 'logs'))
         if self.imports and os.path.isdir(os.path.join(REAL, 'imports')):
@@ -63,7 +77,7 @@ class Sandbox:
             os.environ.pop('POKEDEX_ROOT', None)
         else:
             os.environ['POKEDEX_ROOT'] = self._env
-        shutil.rmtree(self.root, ignore_errors=True)
+        shutil.rmtree(self.base, ignore_errors=True)
 
     def path(self, *parts):
         return os.path.join(self.root, *parts)
@@ -90,7 +104,7 @@ class LightSandbox(Sandbox):
         self.with_data = with_data
 
     def __enter__(self):
-        self.root = tempfile.mkdtemp(prefix='pokedex-test-')
+        self.base, self.root = _new_root()
         if self.with_data:
             shutil.copytree(os.path.join(REAL, 'data'), os.path.join(self.root, 'data'), ignore=shutil.ignore_patterns('*.tmp', '*.bak', '*.lock'))
         else:

@@ -7,18 +7,22 @@ Library's server. Only this computer can reach it. If it's already running, a se
     python  tools/serve.py --port 8031  (a second copy for checking changes in the preview; same data)
 
     GET  /api/collection   everything she has ticked (data/collection/go.json)
+    GET  /family/<file>    the family's shared code (mode.js, family.js, family.css), from Jemma's Journals, the parent
+                           folder (its site/family/; her decision, 22 Nov: all shared code lives there and every app
+                           loads it at /family/, as the family server on 8050 and, online, the one address do)
     POST /api/tick         {list: "have", key, tick, on}   a box on a Pokémon, costume or background Pokémon
                            {list: "went" | "costumes", key, on}   an event she went to / a costume she's collecting
 Posts need the header "X-Pokedex: 1", which only the site itself sends, so a page from anywhere else can't change it.
 Each change is written straight away (to a temporary file, then swapped in), so nothing is lost if the PC goes off.
 The weekly backup (tools/backup.py) saves it to git and zips it.
 """
-import contextlib, functools, http.server, json, os, re, shutil, sys, threading, time
+import contextlib, functools, http.server, json, os, re, shutil, sys, threading, time, urllib.parse
 
 PORT = int(sys.argv[sys.argv.index('--port') + 1]) if '--port' in sys.argv else 8030
 ROOT = os.environ.get('POKEDEX_ROOT') or os.path.dirname(os.path.dirname(os.path.abspath(__file__)))   # POKEDEX_ROOT: the tests' throwaway copy
 SITE = os.path.join(ROOT, 'site')
 FILE = os.path.join(ROOT, 'data', 'collection', 'go.json')
+FAMILY = os.path.normpath(os.path.join(ROOT, '..', 'site', 'family'))   # Jemma's Journals' shared code (the tests' copy has one beside it too)
 THREADS = threading.Lock()
 
 
@@ -149,7 +153,26 @@ class Handler(http.server.SimpleHTTPRequestHandler):
     def host_ok(self):
         return (self.headers.get('Host') or '').split(':')[0] in ('localhost', '127.0.0.1')
 
+    def family(self):
+        """/family/<file>: a file from Jemma's Journals' site/family/, only an existing file inside that folder."""
+        if not self.host_ok():
+            return self.reply({'error': 'not allowed'}, 403)
+        name = urllib.parse.unquote(self.path.split('?', 1)[0].split('#', 1)[0][len('/family/'):])
+        path = os.path.realpath(os.path.join(FAMILY, *[p for p in name.split('/') if p]))
+        base = os.path.realpath(FAMILY)
+        if not name or '\\' in name or ':' in name or '..' in name.split('/') or os.path.commonpath([path, base]) != base or not os.path.isfile(path):
+            return self.send_error(404)
+        with open(path, 'rb') as fh:
+            data = fh.read()
+        self.send_response(200)
+        self.send_header('Content-Type', self.guess_type(path))
+        self.send_header('Content-Length', str(len(data)))
+        self.end_headers()
+        self.wfile.write(data)
+
     def do_GET(self):
+        if self.path.startswith('/family/'):
+            return self.family()
         if self.path.startswith('/api/'):
             if not self.host_ok():
                 return self.reply({'error': 'not allowed'}, 403)
@@ -174,6 +197,8 @@ class Handler(http.server.SimpleHTTPRequestHandler):
 
 class Server(http.server.ThreadingHTTPServer):
     allow_reuse_address = False   # on Windows "reuse" lets a second copy share the port; it must fail and stop instead
+    request_queue_size = 64   # a page asks for many pictures at once: Python's default queue of 5 refused some (round 3 review)
+    daemon_threads = True
 
 
 def main():

@@ -10,17 +10,20 @@
 <link rel="icon" href="icon-48.png" sizes="48x48" type="image/png">
 <link rel="icon" href="icon-192.png" sizes="192x192" type="image/png">
 <link rel="apple-touch-icon" href="icon-192.png">
-<meta name="theme-color" content="#7A1E2A">
+<meta name="theme-color" content="#7A1E2A" data-dark="#4E1018">
 <meta name="robots" content="noindex, noai, noimageai">
-<!-- light unless she has pressed Dark mode (family rules, 21 Nov: never by the device's setting); jj-mode is the one setting every
-     site in the family shares (the old jemmas-pokedex-mode is read once if jj-mode is missing, then removed). Set before the page draws, so it never flashes -->
-<script>(function(){var m="light";try{var v=localStorage.getItem("jj-mode");if(v===null){v=localStorage.getItem("jemmas-pokedex-mode");if(v==="dark"||v==="light")localStorage.setItem("jj-mode",v)}localStorage.removeItem("jemmas-pokedex-mode");if(v==="dark")m="dark"}catch(e){}document.documentElement.setAttribute("data-mode",m);if(m==="dark")document.querySelector('meta[name="theme-color"]').setAttribute("content","#4E1018")})()</script>
-<link rel="stylesheet" href="site.css?v=3e3965a9">
+<!-- the family's shared code, from Jemma's Journals (her decision, 22 Nov: one copy for every site, at /family/; tools/serve.py
+     serves it here, the family server on 8050 too): dark mode set before the page draws (light unless she has pressed Dark
+     mode on any of her sites; the old jemmas-pokedex-mode is read once, then removed), the footer's buttons, the Menu drawer -->
+<script src="/family/mode.js" data-old-key="jemmas-pokedex-mode"></script>
+<link rel="stylesheet" href="/family/family.css">
+<script src="/family/family.js" defer></script>
+<link rel="stylesheet" href="site.css?v=44c56b07">
 </head>
 <body>
 <!-- narrow windows and phones (21 Nov, her ask: like her other apps): a slim top bar with a Menu button; the sidebar opens as a drawer -->
-<div class="topbar" id="topbar"><button id="menuBtn" type="button" aria-controls="side" aria-expanded="false" aria-label="Open the menu"><span id="menuIco"></span>Menu</button><a class="topname" href="#home">Jemma’s <em>Pokédex</em></a></div>
-<div class="scrim" id="scrim"></div>
+<div class="topbar" id="topbar"><button id="menuBtn" type="button" aria-controls="side" aria-expanded="false"><span id="menuIco"></span>Menu</button><a class="topname" href="#home">Jemma’s <em>Pokédex</em></a></div>
+<div class="scrim jj-scrim" id="scrim" hidden></div>
 <aside class="side" id="side" aria-label="Pokédex">
   <!-- HOME LINK: back to Jemma’s Journals, her home site (her pick A, 20 Nov). The address is this href alone: "/" is home
        once the sites share one address online (home at the root, the apps under it); locally it opens this app’s own start. -->
@@ -30,17 +33,18 @@
   <nav class="nav" id="nav"></nav>
 </aside>
 <main id="main"><div class="wrap" id="view" tabindex="-1"></div>
-  <!-- the foot of every page, the family layout (her rules, 21 Nov: the same on all her sites): the name, what the site is, its
-       credits (a no-break space before each “·”, so a “·” never starts or ends a line), then Back to top and Dark mode / Light mode -->
-  <footer class="foot"><div class="foot-rule" aria-hidden="true"></div><b class="foot-name">Jemma’s Pokédex</b>
-    <div class="about-site"><p>No cookies, no tracking, no ads. Made with HTML, CSS and JavaScript, kept on GitHub.</p>
-      <p><span class="cr">Pokémon pictures, backgrounds and region maps from the Pokémon games</span><span class="dot" aria-hidden="true">&nbsp;·</span> <span class="cr">Fonts: Instrument Serif and Manrope</span><span class="dot" aria-hidden="true">&nbsp;·</span> <span class="cr">Icons by Lucide, Phosphor, MingCute and Solar (480 Design)</span></p></div>
-    <div class="foot-links"><button type="button" class="totop" id="toTop"></button><button type="button" class="mode-text" id="modeBtn" aria-pressed="false"></button></div></footer>
+  <!-- the foot of every page, the family's markup (her rules, 21 Nov: the same on all her sites; /family/family.js fills line 1
+       and the two buttons): the name, what the site is, its credits (the no-break space inside each “·”, so a “·” never starts
+       a line), then Back to top and Dark mode / Light mode -->
+  <footer class="jj-foot"><div class="foot-rule" aria-hidden="true"></div><b class="jj-name">Jemma’s Pokédex</b>
+    <p data-jj-line1>No cookies, no tracking, no ads. Made with HTML, CSS and JavaScript, kept on GitHub.</p>
+    <p data-jj-credits><span class="cr">Pokémon pictures, backgrounds and region maps from the Pokémon games</span><span class="dot" aria-hidden="true">&nbsp;·</span> <span class="cr">Fonts: Instrument Serif and Manrope</span><span class="dot" aria-hidden="true">&nbsp;·</span> <span class="cr">Icons by Lucide, Phosphor, Tabler, MingCute and Solar (480 Design)</span></p>
+    <div class="jj-foot-links"><a href="#top" data-jj-top="#view"></a><button type="button" data-jj-mode aria-pressed="false"></button></div></footer>
 </main>
 <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
 
-<script src="js/icons.js?v=58749ce0"></script>
+<script src="js/icons.js?v=fe9b7d5a"></script>
 <script src="js/data.js?v=83b82c96"></script>
-<script src="js/app.js?v=6619f6db"></script>
+<script src="js/app.js?v=d9f614aa"></script>
 </body>
 </html>

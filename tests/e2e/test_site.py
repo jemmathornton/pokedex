@@ -9,6 +9,23 @@ BROWSERS = [r'C:\Program Files\Google\Chrome\Application\chrome.exe', r'C:\Progr
 BROWSER = next((b for b in BROWSERS if os.path.exists(b)), None)
 
 
+# __stub__.html: the page with a stand-in fetch before its own scripts, so api/collection answers as ?answer= says (the
+# view-only and server-failure tests, 22 Nov); POSTs are never sent
+STUB_HEAD = r"""<head><script>(function(){ var rf = window.fetch.bind(window), a = new URLSearchParams(location.search).get("answer"); window.__posts = [];
+  var json = {"Content-Type": "application/json"}, answers = {
+    "404": function(){ return Promise.resolve(new Response("Not found", {status: 404})); },
+    "405": function(){ return Promise.resolve(new Response("", {status: 405})); },
+    "none": function(){ return Promise.reject(new TypeError("Failed to fetch")); },
+    "html": function(){ return Promise.resolve(new Response("<!doctype html><p>a web host's page", {status: 200, headers: {"Content-Type": "text/html"}})); },
+    "500": function(){ return Promise.resolve(new Response(JSON.stringify({error: "x"}), {status: 500, headers: json})); },
+    "broken": function(){ return Promise.resolve(new Response("{broken", {status: 200, headers: json})); },
+    "503": function(){ return Promise.resolve(new Response("The pokedex server (port 8030) is not running", {status: 503})); } };
+  window.fetch = function(u, o){ u = String(u);
+    if (o && o.method && o.method !== "GET") { window.__posts.push(u); return Promise.reject(new TypeError("blocked in the test")); }
+    if (/api\/collection/.test(u) && answers[a]) { window.__answered = true; return answers[a](); }
+    return rf(u, o); }; })();</script>"""
+
+
 class _Results(http.server.BaseHTTPRequestHandler):
     """Receives the page's results (the page sends them here when it's done)."""
     box = None
@@ -28,6 +45,7 @@ def run_page_tests(timeout=900):
         page = open(os.path.join(site, 'index.html'), encoding='utf-8').read()
         page = page.replace('</body>', '<script src="__tests__/site.test.js"></script></body>')
         open(os.path.join(site, '__test__.html'), 'w', encoding='utf-8').write(page)
+        open(os.path.join(site, '__stub__.html'), 'w', encoding='utf-8').write(STUB_HEAD.join(open(os.path.join(site, 'index.html'), encoding='utf-8').read().split('<head>', 1)))
         os.makedirs(os.path.join(site, '__tests__'))
         shutil.copy(os.path.join(HERE, 'e2e', 'site.test.js'), os.path.join(site, '__tests__', 'site.test.js'))
         serve = load('serve')

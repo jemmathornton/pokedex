@@ -139,6 +139,9 @@
   --display:"Instrument Serif","Iowan Old Style","Palatino Linotype",Georgia,serif;
   --body:"Manrope","Segoe UI",system-ui,sans-serif;
   --side:256px; color-scheme:light;
+  /* the family's shared footer and drawer (Jemma's Journals' /family/family.css) in the Pokédex's own fonts and colours */
+  --jj-display:var(--display); --jj-body:var(--body); --jj-ink:var(--ink); --jj-accent:var(--deep-text);
+  --jj-muted:color-mix(in srgb,var(--muted) 70%,var(--ink));   /* a little deeper than the muted colour: at least 4.5:1 on the darker shaded band behind the footer (second review: 4.5–4.9) */
 }
 :root[data-mode="dark"]{ --paper:#171012; --surface:#21171A; --ink:#F3E8E4; --muted:#B8A29F; --line:#352629; --soft:#2B1E21;
   --focus:var(--accent); --deep-text:#E48A96; color-scheme:dark }
@@ -454,7 +457,6 @@ a.formsbtn{text-decoration:none}
 .boxgrid .tk.wide,.boxgrid .tk.widefit{grid-column:1 / -1}
 .boxgrid .tk span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .boxgrid .tk.tight,.boxgrid .tk.tight .fill{padding-left:3px;padding-right:3px;gap:2px}
-.boxgrid .tk.noic .i{display:none}   /* a label that still doesn't fit drops its icon (app.js fitLabels) */
 
 /* the "Show all" check next to Clear */
 .worktabs .switches{margin-left:auto;display:grid;gap:2px;justify-items:start}
@@ -474,24 +476,15 @@ a.formsbtn{text-decoration:none}
 
 /* ---------- the look (her pick, 10 Nov: “Colours + parade”, data-look="mix"); the region and parade rules below are what it is made of ---------- */
 .hero > :not(.heroart){position:relative;z-index:1}
-.heroart{position:absolute;inset:0;pointer-events:none;display:none;z-index:0}
-.heroart img{position:absolute;object-fit:contain}
 
 /* Region colours: each region's own colour in the banner with its starters in it; the sidebar is the binder look's red cover (21 Nov, at the end) */
 :root{--rc:#7E2530}
 :root[data-look="region"] .hero,:root[data-look="mix"] .hero{background:radial-gradient(110% 150% at 88% -20%,color-mix(in srgb,var(--rc) 78%,#fff),var(--rc) 46%,color-mix(in srgb,var(--rc) 72%,#000) 100%)}
-:root[data-look="region"] .heroart{display:block}
-:root[data-look="region"] .heroart img{width:150px;height:150px;top:18px;right:calc(36px + (2 - var(--i)) * 128px);filter:drop-shadow(0 8px 16px rgba(0,0,0,.28))}
-:root[data-look="region"] .heroart img:nth-child(n+4){display:none}
 :root[data-look="region"] .hero::after,:root[data-look="mix"] .hero::after{opacity:.6}
-:root[data-look="region"] .hero.mon .heroart{display:none}   /* the page has its own big picture */
 
 /* Parade: the red kept, with the page's Pokémon walking along the bottom of the banner; a Poké Ball ring low in the sidebar */
 :root[data-look="parade"] .hero,:root[data-look="mix"] .hero{padding-bottom:92px}
 :root[data-look="parade"] .hero.mon,:root[data-look="mix"] .hero.mon{padding-bottom:88px}
-:root[data-look="parade"] .heroart,:root[data-look="mix"] .heroart{display:block}
-:root[data-look="parade"] .heroart img,:root[data-look="mix"] .heroart img{width:70px;height:70px;bottom:6px;left:calc(max(clamp(16px,3vw,40px),(100cqw - 100%) / 2) + var(--i) * 76px);opacity:calc(1 - var(--i) * .055)}
-:root[data-look="parade"] .heroart::after,:root[data-look="mix"] .heroart::after{content:"";position:absolute;left:0;right:0;bottom:0;height:22px;background:linear-gradient(transparent,rgba(0,0,0,.18))}
 :root[data-look="parade"] .side{background:linear-gradient(180deg,var(--deep) 0%,color-mix(in srgb,var(--deep) 82%,#000) 100%);overflow:hidden}
 :root[data-look="parade"] .side::after{content:"";position:absolute;left:-90px;bottom:-90px;width:260px;height:260px;border-radius:50%;border:26px solid rgba(255,255,255,.05);
   background:linear-gradient(transparent calc(50% - 13px),rgba(255,255,255,.05) calc(50% - 13px) calc(50% + 13px),transparent calc(50% + 13px));pointer-events:none}
@@ -521,7 +514,6 @@ a.formsbtn{text-decoration:none}
 .bggrid{margin-top:12px}
 
 /* no parade on a Pokémon's page (her call, 10 Nov: good on regions, odd there) */
-:root[data-look="mix"] .hero.mon .heroart,:root[data-look="parade"] .hero.mon .heroart{display:none}
 :root[data-look="mix"] .hero.mon,:root[data-look="parade"] .hero.mon{padding-bottom:30px}
 
 /* a background with no picture in the game files yet (10 Nov): said so, rather than an empty box */
@@ -584,32 +576,19 @@ a.formsbtn{text-decoration:none}
 .hero.withshot::after{content:"";position:absolute;inset:0 0 0 auto;width:var(--shotw,70%);height:auto;border:0;border-radius:0;box-shadow:none;opacity:1;z-index:0;   /* the map fills most of the banner, the same for every region, with only a short fade on its left (her ask, 12 Nov: over half map, all the same) */
   background:linear-gradient(transparent 70%,rgba(0,0,0,.25)),var(--shot) var(--shotfit,center 40%/cover) no-repeat;
   -webkit-mask:linear-gradient(90deg,transparent,#000 16%);mask:linear-gradient(90deg,transparent,#000 16%)}
-.hero > .shotsw{position:absolute;left:auto;right:24px;top:18px;z-index:3;display:inline-flex;align-items:center;gap:8px}
 .withshot .stat{background:color-mix(in srgb,var(--rc) 55%,rgba(0,0,0,.55));border-color:rgba(255,255,255,.18);backdrop-filter:blur(6px)}
 .withshot .stat .sl,.withshot .stat b small,.withshot .stat .sx{color:rgba(255,255,255,.85)}
-.shotsw .label{margin:0;text-shadow:0 1px 3px rgba(0,0,0,.6);color:#fff}
-.shotsw .opts{background:rgba(255,255,255,.92)}
-.shotsw .opts button[aria-pressed="true"]{background:var(--rc);color:#fff}
 /* Mega: the GO Tour 2026 Mega background (Serebii's full picture), with white instead of black (her ask; fetch_sprites.py --extras makes variants/mega-light.webp) */
 .pc-mg .pcpic{background:#fff}
 .pc-mg .pcpic::before{content:"";position:absolute;inset:0;background:url(variants/mega-light.webp) center/cover}
 .pc-mg .pcpic img{filter:grayscale(1) brightness(1.12) contrast(.7)}
 .pc-mg[aria-pressed="true"] .pcpic img{filter:drop-shadow(0 0 6px rgba(0,0,0,.18))}
 .pc.small .pclab{white-space:nowrap;font-size:11.5px}
-.pc.small .pclab.noic .i{display:none}
 .pc:not([aria-pressed="true"]) .pcpic{filter:grayscale(.6) opacity(.85)}   /* not got yet: the background part-greyed too (her call, 10 Nov) */
-/* Quick add (trial) */
-.qlist{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:4px;max-height:560px;overflow:auto}
-.qlist li{display:flex;justify-content:space-between;gap:12px;padding:6px 10px;border:1px solid var(--line);border-radius:9px;background:var(--surface);font-size:14px}
-.qlist li a{color:inherit;text-decoration:none;font-weight:700}
-.qlist li.have{opacity:.55}.qlist li.cant{opacity:.55;border-style:dashed}
-.qprob{margin:6px 0;color:#b3261e;font-weight:600;font-size:14px}
-.hero.withshot.pixel::after{image-rendering:pixelated}
-:root[data-look] .hero.withshot::after{opacity:1}   /* the map at full strength: the looks' see-through circle rule made it 60%, washing it in the region colour */   /* a tiny DS picture enlarged as sharp pixels instead of a blur */
+:root[data-look] .hero.withshot::after{opacity:1}   /* the map at full strength: the looks' see-through circle rule made it 60%, washing it in the region colour */
 /* banners with a scenery picture (her ask, 11 Nov): no Pokémon parade, and the totals as one row of small tiles along the
    bottom, so the picture shows */
 :root[data-look] .hero.withshot{min-height:330px;display:flex;flex-direction:column;padding-bottom:22px}
-:root[data-look] .hero.withshot .heroart{display:none}
 .hero.withshot .stats{margin-top:auto;grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:minmax(max-content,1fr);gap:6px}
 .hero.withshot .stat{padding:6px 8px 7px;border-radius:10px;gap:2px}
 .hero.withshot .stat .sl{font-size:11px;gap:4px;white-space:nowrap}
@@ -996,15 +975,15 @@ main{background:linear-gradient(90deg,rgba(70,40,30,.18),rgba(70,40,30,0) 54px) 
 .evo,.cal,.bgrow,.event{background:var(--stock),var(--card-stock);box-shadow:var(--card-shadow)}
 
 /* ---------- narrow windows and phones: a top bar with a Menu button, the sidebar a drawer over the page (her ask, 21 Nov,
-   like Sim World); app.js opens and closes it ---------- */
+   like Sim World); the family's shared drawer (JJFamily.menu) opens and closes it, this is its look ---------- */
 .topbar,.scrim{display:none}
 @media (max-width:900px){
   :root{--side:0px}
   main{margin-left:0;background:none}
   .hero::before{display:none}
   .side{width:min(300px,86vw);transform:translateX(-104%);visibility:hidden;transition:transform .25s ease,visibility 0s .25s;box-shadow:0 0 40px rgba(0,0,0,.35)}
-  body.nav-open .side{transform:none;visibility:visible;transition:transform .25s ease}
-  body.nav-open .scrim{display:block;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:15}   /* black at 45% (family rules) */
+  .side.jj-open{transform:none;visibility:visible;transition:transform .25s ease}
+  .scrim{display:block;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:15}   /* black at 45% (family rules); under the drawer; [hidden] while shut */
   .topbar{display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:10;height:52px;padding:env(safe-area-inset-top,0px) 16px 0;box-sizing:content-box;
     color:var(--on-deep);background:var(--grain),linear-gradient(var(--cover-hi),var(--cover));box-shadow:0 2px 8px rgba(0,0,0,.25)}
   .topbar button{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:7px 14px 7px 12px;border-radius:99px;border:1px solid rgba(255,226,210,.3);background:rgba(0,0,0,.12);cursor:pointer;font-weight:700;font-size:14px;color:var(--on-deep)}
@@ -1015,7 +994,7 @@ main{background:linear-gradient(90deg,rgba(70,40,30,.18),rgba(70,40,30,0) 54px) 
   .topname em{color:var(--accent)}
   .toolbar{top:calc(52px + env(safe-area-inset-top,0px))}
 }
-@media (prefers-reduced-motion:reduce){ .side,body.nav-open .side{transition:none} }
+@media (prefers-reduced-motion:reduce){ .side,.side.jj-open{transition:none} }
 
 @media (max-width:700px){
   .grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
@@ -1047,7 +1026,6 @@ main{background:linear-gradient(90deg,rgba(70,40,30,.18),rgba(70,40,30,0) 54px) 
 /* the index tabs: labels never cut short; thirteen in one row only where they fit, otherwise rows of seven (five on phones),
    and fewer where a label still needs it (app.js fitTabs) */
 .hero .stat .sl,.hero.withshot .stat .sl{font-size:10.5px}
-.hero .stat .sl.noic > .i{display:none}
 .hero .stat .sl.wrap .slt{white-space:normal;overflow-wrap:anywhere}
 @media (max-width:1450px){
   .hero .stats,.hero.withshot .stats,.hero.setheroart .stats,.hero.withshot .stats.one{grid-auto-flow:row;grid-template-columns:repeat(7,minmax(0,1fr));grid-auto-rows:auto;gap:5px}
@@ -1084,8 +1062,7 @@ main{background:linear-gradient(90deg,rgba(70,40,30,.18),rgba(70,40,30,0) 54px) 
   .calnav h2{min-width:0;font-size:26px}
   .calnav .muted{flex-basis:100%;margin-left:0}
 }
-/* phones: the page stays put behind the open drawer; card boxes at least 24px tall, with a little more room for words */
-@media (max-width:900px){ body.nav-open{overflow:hidden} }
+/* phones: card boxes at least 24px tall, with a little more room for words (the page behind the open drawer stays put: family.css) */
 @media (max-width:700px){
   .card,.card.got,.card.informs{border-width:5px}
   .card{padding:6px 6px 24px}
@@ -1093,24 +1070,16 @@ main{background:linear-gradient(90deg,rgba(70,40,30,.18),rgba(70,40,30,0) 54px) 
   .card .pic .flip{width:24px;height:24px}
 }
 
-/* the foot of every page, the family layout (her rules, 21 Nov: the same on all her sites): a short stitched rule as on the
-   binder, the name in the display font (plain), two small lines in the muted colour, then Back to top and Dark mode / Light
-   mode, link-style buttons in the red text colour, 44px tall to tap and level. Credits one per line on phones. */
-.foot{padding:28px 16px 56px;text-align:center}
+/* the foot of every page, the family's layout (her rules, 21 Nov: the same on all her sites; /family/family.css, with the --jj-*
+   colours and fonts set in :root): a short stitched rule as on the binder, the name in the display font (plain), two small lines,
+   then Back to top and Dark mode / Light mode, link-style in the red text colour, 44px tall to tap and level. Credits one per line
+   on phones. Only what differs from the family's is here (the page's own a and button rules would otherwise win over it). */
+.jj-foot{padding:28px 16px 56px}
 .foot-rule{width:120px;margin:0 auto 14px;border-top:2px dashed color-mix(in srgb,var(--deep-text) 45%,transparent)}
-.foot-name{display:block;font:400 24px/1.2 var(--display);letter-spacing:-.01em;color:var(--ink);margin-bottom:6px}
-.foot .about-site{font-size:12.5px;line-height:1.7;color:color-mix(in srgb,var(--muted) 70%,var(--ink))}   /* a little deeper than the muted colour: at least 4.5:1 on the darker shaded band behind the footer (second review: 4.5–4.9) */
-.foot .about-site p{margin:0}
-.foot .about-site p + p{text-wrap:balance}
-.foot .about-site .dot{margin:0 4px 0 2px;color:color-mix(in srgb,var(--deep-text) 60%,transparent)}
-.foot .about-site .cr{white-space:nowrap}
-@media (max-width:600px){ .foot .about-site .dot{display:none} .foot .about-site .cr{display:block;white-space:normal} }
-.foot-links{display:flex;gap:26px;justify-content:center;align-items:center;flex-wrap:wrap;margin-top:6px}
-.foot-links button{display:inline-flex;align-items:center;gap:6px;min-height:44px;margin:0;padding:4px 2px;border:0;background:none;
-  font:700 13px/1 var(--body);color:var(--deep-text);cursor:pointer}
-.foot-links button svg.i{width:14px;height:14px}
-.foot-links button:hover{text-decoration:underline;text-underline-offset:3px}
-.foot-links button:focus-visible{outline:2px solid var(--focus);outline-offset:2px;border-radius:4px}
+.jj-foot .jj-name{letter-spacing:-.01em}
+.jj-foot .dot{margin:0 4px 0 2px}
+.jj-foot-links :is(a,button){font:700 13px/1 var(--body);color:var(--deep-text)}
+.jj-foot-links :is(a,button):focus-visible{outline:2px solid var(--focus);outline-offset:2px;border-radius:4px}
 /* a banner's words stay on the plain part, clear of the map (21 Nov review: Fast tick and Looking for ran onto it at 1600) */
 .hero.withshot > p{max-width:340px !important}
 /* Event Pokémon: each event a collector’s card too (her ask, 21 Nov): a frame in the app’s deep red (grey until she has
@@ -1182,3 +1151,8 @@ main{background:linear-gradient(90deg,rgba(70,40,30,.18),rgba(70,40,30,0) 54px) 
 :is(.card,.monpic)[data-t1]:not([data-t1=""]) .pic{
   background:radial-gradient(circle,var(--win-dots) 1px,transparent 1.4px) 0 0/6px 6px,radial-gradient(circle at 50% 60%,var(--win-hi),color-mix(in srgb,var(--tc) 30%,var(--win-lo)))}
 
+
+/* view only (22 Nov): no save server at this address (plain web hosting once online), so the boxes only show her ticks as at the
+   last build: they don't react to clicks (app.js viewOnly) and don't look clickable; no Tick all */
+.view-only :is([data-tick],[data-fast],[data-fk],[data-went]){cursor:default}
+.view-only [data-fastall]{display:none!important}
