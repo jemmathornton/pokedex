@@ -1,15 +1,17 @@
-"""Weekly backup of Jemma's Pokédex (as for Jemma's Library).
+"""Daily backup of Jemma's Pokédex (as for Jemma's Library).
 
     pythonw tools/backup.py
 
-0. Refreshes What's on (her ask, 19 Nov: a check every Sunday for new events): tools/import_events.py, then tools/build.py;
+0. Refreshes What's on (her ask, 19 Nov: a check for new events; daily since 22 Nov): tools/import_events.py, then tools/build.py;
    the new events are listed in the log. Which background an event brings back is still added by hand (upcoming-backgrounds.json).
 1. Saves any changes in the project to git (her ticks since the last save, new data), then pushes them to GitHub
    (jemmathornton/pokedex, her ask 19 Nov).
 2. After a push that worked, records this version in Jemma's Journals, the parent (its tools/record_apps.py, if it is there;
    since 22 Nov). Its output goes in the log; if it fails, the backup has still happened.
 No zips any more (her call, 19 Nov): GitHub has everything, every version, off this PC.
-Run every Sunday by the Windows task "Jemma's Pokedex - weekly backup" (tools/make_backup_task.ps1); log in logs/backup.log.
+Run every day at 09:30 by Jemma's Journals' one backup job (the parent's tools/weekly.py, the Windows task "Jemma's Journals -
+backup", 22 Nov; it catches up after the PC has been off). The old task "Jemma's Pokedex - weekly backup"
+(tools/make_backup_task.ps1) is disabled. Log in logs/backup.log.
 """
 import os, subprocess, sys
 from datetime import date, datetime

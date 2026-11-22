@@ -174,7 +174,8 @@ em{font-style:italic}
 .search input{width:100%;padding:9px 12px 9px 36px;border-radius:10px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.07);color:var(--on-deep);outline:none}
 .search input::placeholder{color:var(--on-deep-mute)}
 .search input:focus{border-color:var(--accent);background:rgba(255,255,255,.1)}
-.search-ico{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--on-deep-mute);display:flex}
+.search input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}   /* the 2px ring every other stop has (round 5 review) */
+.search-ico{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--on-deep-mute);display:flex;pointer-events:none}   /* a tap on the magnifier lands in the box (phone review) */
 .nav{overflow-y:auto;padding:10px 12px 16px;flex:1;display:flex;flex-direction:column;gap:14px;scrollbar-color:rgba(255,255,255,.2) transparent}
 .nav-group{display:grid;gap:1px}
 .nav-group .label{padding:6px 12px 8px;color:var(--on-deep-mute)}
@@ -372,8 +373,8 @@ a.formsbtn{text-decoration:none}
 .pn.next{padding:3px 6px 3px 10px;text-align:right}
 .pn:hover{background:rgba(255,255,255,.1)}
 .pn img{width:34px;height:34px;object-fit:contain}
-.pn small{display:block;font-size:11px;color:var(--on-deep-mute);font-weight:700}
-.pn .i{color:var(--on-deep-mute)}
+.pn small{display:block;font-size:11px;color:var(--on-deep);font-weight:700}   /* round 5 review: the paler colour was 2.97:1 on Johto's gold */
+.pn .i{color:var(--on-deep)}
 .monhead{display:flex;align-items:center;gap:20px;margin-top:22px;position:relative;z-index:1}
 .monhead h1 em{font-size:.6em}
 .mondetail{display:grid;grid-template-columns:300px minmax(0,1fr);gap:32px;margin-top:30px;align-items:start}
@@ -538,6 +539,9 @@ a.formsbtn{text-decoration:none}
 .pc.small{padding:5px 5px 7px;gap:4px;border-radius:13px}
 .pc.small .pclab{font-size:12px;gap:4px;justify-content:center}
 .pc.small .pclab .i{width:13px;height:13px}
+/* the strip in two even rows where one row would leave boxes under 72px (app.js fitStrips; round 5 review: at 1000-1300 wide the
+   boxes were 41-48px, the tick circle hid the picture and the labels ran into the border at 6.5px) */
+@media (min-width:701px){ .pcs-strip.two{grid-auto-flow:row;grid-template-columns:repeat(var(--half,7),minmax(0,1fr))} }
 /* each look, from the game's own pictures where it has one */
 .pc-sd .pcpic{background:radial-gradient(circle at 50% 55%,color-mix(in srgb,var(--shadow) 30%,#fff),#f4eef9 80%)}   /* light like the others (her note), the game's Shadow flames in purples */
 .pc-sd .pcpic::before,.pc-sd .pcpic::after{content:"";position:absolute;inset:0}
@@ -578,7 +582,15 @@ a.formsbtn{text-decoration:none}
   -webkit-mask:linear-gradient(90deg,transparent,#000 16%);mask:linear-gradient(90deg,transparent,#000 16%)}
 /* a map with plain white sky at its top (Kanto) is lifted that much out of the top of the banner (app.js SHOT_LIFT; her note,
    22 Nov: a white haze top right at about 1000 wide); phones show the map in a band of their own, unchanged */
-@media (min-width:901px){ .hero.withshot::after{top:calc(-1 * var(--shotlift,0px))} }
+@media (min-width:701px){ .hero.withshot::after{top:calc(-1 * var(--shotlift,0px))} }   /* 701-900 too (round 5: an iPad showed the sky); phones have their own band */
+/* the same lift for one region's map drawn as a picture strip (Fast tick for a region, a Pokémon's page: app.js regionPics; round 5
+   review, the white sky still showed there) */
+@media (min-width:701px){ .hero.withshot > .heropics.one{top:calc(-1 * var(--shotlift,0px))} }
+/* narrow windows and phones: the 1200 px copies of the maps (site/regions/phone/; round 5 phone review: 1.76 MB for Kanto's strip) */
+@media (max-width:900px){
+  .hero.withshot::after{background-image:linear-gradient(transparent 70%,rgba(0,0,0,.25)),var(--shotsm,var(--shot))}
+  .hero .heropics i{background-image:var(--picsm,var(--pic))}   /* (.hero: it must beat the .heropics i rule further down) */
+}
 .withshot .stat{background:color-mix(in srgb,var(--rc) 55%,rgba(0,0,0,.55));border-color:rgba(255,255,255,.18);backdrop-filter:blur(6px)}
 .withshot .stat .sl,.withshot .stat b small,.withshot .stat .sx{color:rgba(255,255,255,.85)}
 /* Mega: the GO Tour 2026 Mega background (Serebii's full picture), with white instead of black (her ask; fetch_sprites.py --extras makes variants/mega-light.webp) */
@@ -667,12 +679,12 @@ a.formsbtn{text-decoration:none}
 /* banners made of pictures (13 Nov): the same place and fade as the region maps */
 .heropics{position:absolute;inset:0 0 0 auto;width:70%;display:flex;gap:0;z-index:0;pointer-events:none;
   -webkit-mask:linear-gradient(90deg,transparent,#000 16%);mask:linear-gradient(90deg,transparent,#000 16%)}
-.heropics i{flex:1;background:center/cover no-repeat}
+.heropics i{flex:1;background:var(--pic) var(--fit,center/cover) no-repeat}
 .heropics::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 70%,rgba(0,0,0,.25))}
 .hero.withshot > *:not(.heropics){position:relative;z-index:1}
 :root[data-look] .hero.mon.withshot{min-height:0}
 .heropics.mons{width:56%;background:linear-gradient(90deg,transparent,var(--soft,#F3EEE6) 18%);padding:0 3% 0 11%}
-.heropics.mons i{background:center 60%/contain no-repeat;margin:6px -18px 0}
+.heropics.mons i{background:var(--pic) center 60%/contain no-repeat;margin:6px -18px 0}
 .heropics.mons::after{display:none}
 .stats.one,.hero.withshot .stats.one{grid-template-columns:minmax(0,190px);grid-auto-flow:row}
 .hero.withshot > .heropics{position:absolute;inset:0 0 0 auto;height:auto}
@@ -1184,6 +1196,33 @@ main{background:linear-gradient(90deg,rgba(70,40,30,.18),rgba(70,40,30,0) 54px) 
 .view-only .tk[aria-disabled="true"]:not([aria-pressed="true"]):hover{border-color:transparent}
 .view-only [data-fastall]{display:none!important}
 
+/* ---------- round 5 fixes (22 Nov): phones and touch ---------- */
+/* phones: the search box's writing 16px, so an iPhone doesn't zoom in when it's tapped; the notch kept clear in landscape */
+@media (max-width:900px){
+  .search input{font-size:16px}
+  main{padding-left:env(safe-area-inset-left,0px);padding-right:env(safe-area-inset-right,0px)}
+  .topbar{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+  .side{padding-left:env(safe-area-inset-left,0px)}
+  /* the way home in the drawer 44px tall with 12.5px writing (the family's jj-home-link, index.html); the space round it
+     trimmed by as much, so the drawer looks the same (phone review: it was 24px tall, 10px writing) */
+  .home-link{margin-top:0}
+  .home-link + .brand{padding-top:0}
+}
+.toast{bottom:calc(22px + env(safe-area-inset-bottom,0px))}
+/* touch screens (a finger, not a mouse): a card's boxes 34px tall with more room between them, so a slip doesn't tick the next
+   one (phone review: 24px with 4px gaps, 23px on an iPad); the laptop look is unchanged */
+@media (pointer:coarse){
+  .boxgrid{gap:6px}
+  .boxgrid .tk{min-height:34px}
+  .card .pic .flip{width:32px;height:32px}
+}
+/* Fast tick's squares say only the number; the name is in the tooltip, which a finger never sees: on touch screens it's
+   written under the number, small (phone review) */
+.fc .fcname{display:none}
+@media (pointer:coarse){
+  .fc .fcname{display:block;max-width:100%;padding:0 3px;font-size:9px;font-weight:700;line-height:1.15;text-align:center;overflow-wrap:anywhere;color:inherit}
+}
+
 /* ===== TRIAL: Try switch (22 Nov), START: remove with the TRIAL block in app.js (after homeMaps) once she has picked =====
    Card art in dark mode: As now / Brighter / Glow / Light window; Box colours: As now / Deeper. */
 .trybox{position:fixed;right:12px;bottom:12px;z-index:60;display:grid;gap:6px;padding:8px 10px;border-radius:10px;background:var(--surface,#fff);color:var(--ink,#222);
@@ -1194,6 +1233,10 @@ main{background:linear-gradient(90deg,rgba(70,40,30,.18),rgba(70,40,30,0) 54px) 
 .tryrow button{font:inherit;padding:3px 8px;border-radius:6px;border:1px solid var(--line,#ccc);background:transparent;color:inherit;cursor:pointer}
 .tryrow button[aria-pressed="true"]{background:var(--ink,#222);color:var(--surface,#fff);border-color:transparent}
 @media print{.trybox{display:none}}
+/* phones: never over the Menu drawer (phone review: drawer links under it couldn't be tapped), and room at the foot of the page
+   so it doesn't cover the end of every page (--trypad: its height, app.js) */
+.jj-menu-open .trybox{display:none}
+@media (max-width:900px){ body{padding-bottom:var(--trypad,0px)} }
 /* Card art in dark mode (22 Nov, her ask: the type tint looked muddy, Charizard a dull brown); dark mode only, light mode
    unchanged. app.js sets data-try-art on <html>: now (as now), bright, glow, light. Every art window: Pokémon cards and a
    Pokémon's page (type colour, --tc), costume cards and Home's region sets (no type: the region colour, --rc). */

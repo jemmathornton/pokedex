@@ -20,6 +20,13 @@ class ImportEvents(unittest.TestCase):
         self.assertEqual(t('Clefable Super Mega Raid Day'), 'Clefable Super Mega Raid Day')
         self.assertEqual(t('Bonus during the event'), 'Bonus during the event', 'only “during” before Max Monday goes')
 
+    def test_event_links_only_plain_https(self):   # round 5 review: the feed's link went into the page unchecked
+        s = self.ie.safe_link
+        self.assertEqual(s('https://leekduck.com/events/x/'), 'https://leekduck.com/events/x/')
+        for bad in ('javascript:alert(1)', 'http://leekduck.com/', 'data:text/html,x', '//leekduck.com/', 'https://x.com/"><b>', None, 42, ''):
+            with self.subTest(bad):
+                self.assertEqual(s(bad), 'https://leekduck.com/events/')
+
     def test_when_turns_utc_into_this_computers_time(self):
         w = self.ie.when
         self.assertIsNone(w(None)); self.assertIsNone(w(''))

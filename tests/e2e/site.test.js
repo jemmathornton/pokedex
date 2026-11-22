@@ -334,9 +334,49 @@
 
   test("Home's banner uses the smaller copies in regions/home/ (her pick, 22 Nov: Smaller)", async () => {
     await go("#home");
-    const small = [...view().querySelectorAll(".hero .heropics i")].map(i => i.style.backgroundImage);
+    const small = [...view().querySelectorAll(".hero .heropics i")].map(i => i.style.getPropertyValue("--pic"));
     eq(small.length, 10, "ten maps"); ok(small.every(u => /regions\/home\/[a-z]+-map-\d\.webp/.test(u)), `Home: ${small[0]}`);
-    for (const u of small) { const r = await fetch(u.slice(5, -2)); ok(r.ok, `${u} is there`); }
+    for (const u of small) { const r = await fetch(u.match(/url\('?([^')]+)/)[1]); ok(r.ok, `${u} is there`); }
+    // the same small copies wherever the ten maps make a strip (round 5 review: about 13 MB of full maps on each of these pages)
+    for (const h of ["#dex", "#want", "#coming"]) { await go(h);
+      const pics = [...view().querySelectorAll(".hero .heropics i")].map(i => i.style.getPropertyValue("--pic"));
+      ok(pics.length === 10 && pics.every(u => /regions\/home\//.test(u)), `${h}: ${pics[0]}`); }
+    // one region's map: the full map, its phone copy and Kanto's lift (round 5 review: the white sky on Fast tick and Pokémon pages)
+    await go("#p-6");
+    const one = view().querySelector(".hero .heropics.one"), i = one && one.querySelector("i");
+    ok(i && /regions\/kanto-map-2\.jpg/.test(i.style.getPropertyValue("--pic")) && /regions\/phone\/kanto-map-2\.webp/.test(i.style.getPropertyValue("--picsm")), "Charizard: Kanto's map and its phone copy");
+    eq(one.style.getPropertyValue("--shotlift"), "10%", "Kanto's sky lifted out");
+    ok((await fetch("regions/phone/kanto-map-2.webp")).ok, "the phone copy is there");
+  });
+
+  test("a tick on a list page redraws only what changed (round 5 review: Every Pokémon froze 5–6 s after every tick)", async () => {
+    prefs.work = "all"; prefs.workShow = "all"; await go("#dex");
+    const cards = view().querySelectorAll("#grid > .card"), first = cards[0], other = cards[5], hero = view().querySelector(".hero");
+    const t0 = performance.now(); rerender(); const ms = performance.now() - t0;
+    ok(view().querySelector("#grid > .card") === first && view().querySelectorAll("#grid > .card")[5] === other && view().querySelector(".hero") === hero, "nothing changed, nothing redrawn");
+    ok(ms < 1500, `drawn again in ${Math.round(ms)} ms`);
+    // a card whose ticks change is drawn again, the rest are kept (her ticks file is the throwaway copy's)
+    const id = first.dataset.id, key = "d:" + id, had = has(key, "s");
+    setTick(key, "s", !had); rerender();
+    ok(view().querySelector("#grid > .card") !== first && view().querySelectorAll("#grid > .card")[5] === other, "only the changed card drawn again");
+    eq(view().querySelector("#grid > .card").dataset.id, id);
+    setTick(key, "s", had); rerender();
+  });
+
+  test("the picture strip: two even rows where one row is too tight, every label one size, at least 8px, none cut (round 5 review)", async () => {
+    for (const width of [1600, 1280, 1000, 901]) {
+      const f = document.createElement("iframe");
+      f.style.cssText = `position:fixed;left:0;top:0;width:${width}px;height:800px;border:0;opacity:0;pointer-events:none`;
+      f.src = "index.html#p-6"; document.body.append(f);
+      try {
+        await until(() => f.contentDocument && f.contentDocument.querySelector("#view .pcs-strip .pclab"), 15000); await wait(150);
+        const w = f.contentWindow, d = f.contentDocument; w.fitLabels();
+        const labs = [...d.querySelectorAll("#view .pcs-strip .pclab")], sizes = new Set(labs.map(l => w.getComputedStyle(l).fontSize));
+        eq(sizes.size, 1, `${width}: one size (${[...sizes]})`); ok(parseFloat([...sizes][0]) >= 8, `${width}: ${[...sizes][0]}`);
+        eq(labs.filter(l => w.textOver(l)).map(l => l.textContent).join(), "", `${width}: none cut`);
+        const pc = d.querySelector("#view .pcs-strip .pc").getBoundingClientRect().width; ok(pc >= 72, `${width}: boxes ${Math.round(pc)}px wide`);
+      } finally { f.remove(); }
+    }
   });
 
   test("TEMPORARY Try switch (22 Nov): Card art in dark mode, As now / Brighter / Glow / Light window; dark only", async () => {
@@ -972,10 +1012,10 @@
       ok(side.firstElementChild === side.querySelector(".home-link"), "← Jemma’s Journals first in the drawer");
       // crossing the 900px line resets it: at 901 the sidebar, the open state gone; back at 899 the Menu bar, shut
       btn.click(); ok(isOpen(), "open before widening");
-      f.style.width = "901px"; await until(() => !w.matchMedia("(max-width:900px)").matches); await wait(50);
+      f.style.width = "901px"; await until(() => !w.matchMedia("(max-width:900px)").matches); await until(() => !isOpen() && !side.inert, 5000);   // waits for the family's reset, not a fixed 50 ms (round 5 review: it failed once on a busy machine)
       ok(!isOpen() && !side.inert, "at 901 the sidebar shows, reachable, and the drawer state is reset");
       eq(w.getComputedStyle(d.getElementById("topbar")).display, "none", "no Menu bar at 901");
-      f.style.width = "899px"; await until(() => w.matchMedia("(max-width:900px)").matches); await wait(50);
+      f.style.width = "899px"; await until(() => w.matchMedia("(max-width:900px)").matches); await until(() => side.inert && !isOpen() && w.getComputedStyle(d.getElementById("topbar")).display !== "none", 5000);
       ok(w.getComputedStyle(d.getElementById("topbar")).display !== "none", "Menu bar at 899");
       ok(side.inert && !isOpen(), "shut and out of the Tab order at 899");
       eq(btn.getAttribute("aria-expanded"), "false");

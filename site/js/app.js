@@ -67,7 +67,7 @@ const BIG = new Set(DATA.bigSprites || []);   // the game's full-size pictures, 
 const bigSprite = k => k && BIG.has(k) ? `sprites/big/${k}.webp` : sprite(k);
 
 // ---------- what she has ----------
-let COL = norm(DATA.collection), readOnly = true, loadFailed = false, viewOnly = false;   // readOnly until the server has given her ticks
+let COL = norm(DATA.collection), readOnly = true, loadFailed = false, viewOnly = false, loading = location.protocol.startsWith("http");   // readOnly until the server has given her ticks
 // viewOnly (22 Nov, like her Library's read-only mode): no save server at this address at all (plain web hosting once it's online:
 // api/collection missing, refused or not JSON), so the page just shows her ticks as at the last build, quietly: no banner, and the
 // boxes don't react to clicks. A real failure of her own server (a 500, a broken answer) still shows loadFailed's note.
@@ -290,10 +290,45 @@ function formsButton(lead, others){
   const all = [lead, ...others];
   return `<a class="formsbtn" href="${pageOf(lead)}">${ic("layers")}Forms ${all.filter(formGot).length}/${all.length}</a>`;
 }
-function groupCards(groups){
+// a card's HTML is kept and used again while nothing it shows has changed (her ticks on that number's entries, its picture
+// flips, the tab picked): drawing 1,000 cards for one tick took about 50 ms of the time a tick takes on Every Pokémon
+const BY_GROUP = {};
+ENTRIES.forEach(e => (BY_GROUP[groupKey(e)] = BY_GROUP[groupKey(e)] || []).push(e));
+const cardMemo = new Map();
+let cardMemoFor = "";
+function groupCardList(groups){
   for (const k in groupsByDex) delete groupsByDex[k];
   groups.forEach(g => { groupsByDex[groupKey(g.lead)] = g; });
-  return groups.map(({lead, others}) => card(lead, formsButton(lead, others), false, FORM_SPECIES.has(lead.dex) ? ENTRIES.filter(x => groupKey(x) === groupKey(lead)) : null)).join("");
+  const now = JSON.stringify([prefs.work, showAllBoxes, viewOnly]);
+  if (now !== cardMemoFor || cardMemo.size > 5000) { cardMemo.clear(); cardMemoFor = now; }
+  return groups.map(({lead, others}) => {
+    const all = BY_GROUP[groupKey(lead)];
+    const k = lead.id + "|" + others.map(o => o.id).join() + "|" + all.map(e => (COL.have[dk(e)] || []).join()).join(";") + "|" + JSON.stringify(picFlip.get(dk(lead)) || null);
+    let h = cardMemo.get(k);
+    if (h === undefined) { h = card(lead, formsButton(lead, others), false, FORM_SPECIES.has(lead.dex) ? all : null); cardMemo.set(k, h); }
+    return h;
+  });
+}
+const groupCards = groups => groupCardList(groups).join("");
+// a list page (Every Pokémon, a region, a search) drawn again with the same cards in the same order (a tick, mostly) changes only
+// what is different: the banner's totals and the one card ticked, not all 1,000 cards (round 5 review, 22 Nov: every tick on
+// Every Pokémon froze the page for 5–6 s; drawing it all again takes about a second even before the labels are fitted)
+let lastList = null;
+function drawList(hero, mid, cards, ids){
+  const L = lastList, grid = view.querySelector(":scope > #grid"), where = location.hash + "|" + q.value;
+  if (L && L.first === view.firstElementChild && L.where === where && L.mid === mid && cards && L.cards && grid && grid.children.length === cards.length && ids.join() === L.ids.join()) {
+    const heroEl = view.firstElementChild, changed = [];
+    if (L.hero !== hero) {   // the banner: the same element, new insides (so the page isn't redrawn and nothing jumps)
+      const t = document.createElement("template"); t.innerHTML = hero; const h = t.content.firstElementChild;
+      for (const a of [...heroEl.attributes]) if (!h.hasAttribute(a.name)) heroEl.removeAttribute(a.name);
+      for (const a of h.attributes) if (heroEl.getAttribute(a.name) !== a.value) heroEl.setAttribute(a.name, a.value);
+      heroEl.replaceChildren(...h.childNodes);
+    }
+    cards.forEach((c, i) => { if (c !== L.cards[i]) { grid.children[i].outerHTML = c; changed.push(grid.children[i]); } });
+    if (L.hero !== hero) for (const st of heroEl.querySelectorAll(".stats")) fitTabs(st);
+    if (changed.length) fitCardLabels(changed);
+  } else view.innerHTML = hero + mid + (cards ? `<div class="grid" id="grid">${cards.join("")}</div>` : `<p class="empty">Nothing here.</p>`);
+  lastList = {hero, mid, cards, ids, where, first: view.firstElementChild};
 }
 
 const HL = {caught: "--caught", female: "--female", male: "--male", shiny: "--shiny", lucky: "--lucky", hundo: "--hundo",
@@ -330,7 +365,7 @@ const setRegion = g => document.documentElement.style.setProperty("--rc", REGION
 const REGION_CHOSEN = {"1": "kanto-map-2.jpg", "2": "johto-map-1.jpg", "3": "hoenn-map-2.jpg", "4": "sinnoh-map-3.jpg", "5": "unova-map-2.jpg", "6": "kalos-map-2.jpg", "7": "alola-map-1.jpg", "8": "galar-map-1.jpg", "hisui": "hisui-map-1.jpg", "9": "paldea-map-1.jpg"};   // her picks: the official painted region maps (12 Nov; she switched from scenery)
 // which part of a picture the banner shows, where the middle isn't the best part (12 Nov: Kanto's Route 1 was nearly all sky):
 // a closer crop towards the ground; the picture itself is unchanged
-const SHOT_FIT = {"kanto-15.jpg": "50% 100%/150% auto", "kanto-map-2.jpg": "center/cover", "johto-map-1.jpg": "center/cover", "hoenn-map-2.jpg": "center/cover", "unova-map-2.jpg": "center/cover", "kalos-map-3.jpg": "center/cover", "galar-map-1.jpg": "center 45%/cover", "hisui-map-1.jpg": "50% 50%/112% auto", "paldea-map-1.jpg": "center/cover", "sinnoh-map-1.jpg": "center/cover", "sinnoh-map-3.jpg": "50% 48%/118% auto", "kalos-map-4.png": "center/cover", "kalos-map-2.jpg": "center/cover", "alola-map-1.jpg": "center 45%/cover"};   // maps: the middle; Hisui closer, so its parchment edge is cut off (her ask, 12 Nov)   // maps: the middle
+const SHOT_FIT = {"kanto-map-2.jpg": "center/cover", "johto-map-1.jpg": "center/cover", "hoenn-map-2.jpg": "center/cover", "unova-map-2.jpg": "center/cover", "galar-map-1.jpg": "center 45%/cover", "hisui-map-1.jpg": "50% 50%/112% auto", "paldea-map-1.jpg": "center/cover", "sinnoh-map-3.jpg": "50% 48%/118% auto", "kalos-map-2.jpg": "center/cover", "alola-map-1.jpg": "center 45%/cover"};   // maps: the middle; Hisui closer, so its parchment edge is cut off (her ask, 12 Nov)   // maps: the middle
 // a narrower picture shown less zoomed in: the banner's picture area takes this shape (width / height), so more of it shows and
 // it still blends softly into the colour on the left (12 Nov: Johto looked too zoomed in)
 const SHOT_RATIO = {};
@@ -344,15 +379,26 @@ const PIC_TRY = tryVal("pic", /^[a-z0-9][a-z0-9_-]{0,60}\.(jpg|jpeg|png|webp)$/i
 // a map whose top is plain white sky gets it lifted out of the banner (her note, 22 Nov: in dark mode at about 1000 wide the top
 // of Kanto's map showed as a white haze, top right; at narrow banners the whole height of the map shows): site.css --shotlift
 const SHOT_LIFT = {"kanto-map-2.jpg": "10%"};
-const shotStyle = f => { const fit = FIT_TRY || SHOT_FIT[f], ratio = RATIO_TRY || SHOT_RATIO[f], lift = PIC_TRY ? null : SHOT_LIFT[f];
-  return ` style="${attr(`--shot:url('regions/${f}')${fit ? `;--shotfit:${fit}` : ""}${ratio ? `;--shotratio:${ratio}` : ""}${lift ? `;--shotlift:${lift}` : ""}`)}"`; };
+const shotStyle = f => { const fit = FIT_TRY || SHOT_FIT[f], ratio = RATIO_TRY || SHOT_RATIO[f], lift = PIC_TRY ? null : SHOT_LIFT[f], sm = PIC_TRY ? null : phoneMap(f);
+  return ` style="${attr(`--shot:url('regions/${f}')${sm ? `;--shotsm:url('${sm}')` : ""}${fit ? `;--shotfit:${fit}` : ""}${ratio ? `;--shotratio:${ratio}` : ""}${lift ? `;--shotlift:${lift}` : ""}`)}"`; };
+// phones and narrow windows (900px and under) get a copy of the map 1200 px wide (round 5 phone review: Kanto's banner was a
+// 1.76 MB picture for a strip 390 px wide): site/regions/phone/, made by tools/make_home_maps.py with Home's copies
+const phoneMap = f => Object.values(REGION_CHOSEN).includes(f) ? `regions/phone/${f.replace(/\.\w+$/, "")}.webp` : null;
 const shotCls = f => RATIO_TRY || SHOT_RATIO[f] ? " ratio" : "";
 // banners for the other pages (13 Nov, her ask: no plain colour or parade anywhere): a row of pictures filling the banner's
 // right side like the region maps; Home and Every Pokémon: all ten region maps side by side; Event Pokémon: her
 // events' background cards; Fast tick and a Pokémon's page: its region's map
-const regionMap = g => REGION_CHOSEN[g] ? `regions/${REGION_CHOSEN[g]}` : null;
-const heroPics = (srcs, cls = "") => srcs.length ? `<span class="heropics${cls ? " " + cls : ""}">${srcs.map(f => `<i style="background-image:url('${f}')"></i>`).join("")}</span>` : "";
-const ALL_MAPS = () => GENS.map(([g]) => regionMap(g)).filter(Boolean);
+const heroPics = (srcs, cls = "") => srcs.length ? `<span class="heropics${cls ? " " + cls : ""}">${srcs.map(f => `<i style="--pic:url('${f}')"></i>`).join("")}</span>` : "";
+// one region's map (Fast tick for a region, a Pokémon's page), cropped and lifted like the region page's own banner (round 5
+// review: Kanto's white sky still showed at the top right of these at about 1000 wide), the phone copy on narrow windows
+function regionPics(g){
+  const f = REGION_CHOSEN[g]; if (!f) return "";
+  const sm = phoneMap(f), fit = SHOT_FIT[f], lift = SHOT_LIFT[f];
+  return `<span class="heropics one"${lift ? ` style="--shotlift:${lift}"` : ""}><i style="${attr(`--pic:url('regions/${f}')${sm ? `;--picsm:url('${sm}')` : ""}${fit ? `;--fit:${fit}` : ""}`)}"></i></span>`;
+}
+// the ten maps side by side (Every Pokémon, Fast tick, Looking for, What's on): Home's smaller copies, the strip being the same
+// size there (round 5 review: each of those pages downloaded about 13 MB of full-size maps)
+const ALL_MAPS = () => homeMaps();
 
 // Home's banner: smaller copies of the region maps (her pick, 22 Nov, from the Try switch: "Smaller"): site/regions/home/,
 // WebP 660 px tall (twice the 330 px shown), made by tools/make_home_maps.py from REGION_CHOSEN (run it after changing a map).
@@ -379,6 +425,8 @@ const homeMaps = () => GENS.map(([g]) => REGION_CHOSEN[g] ? `regions/home/${REGI
   box.addEventListener("click", ev => { const b = ev.target.closest("[data-v]"); if (!b) return;
     const r = ROWS.find(x => x.name === b.closest("[data-row]").dataset.row); r.v = b.dataset.v; store.set(r.key, r.v); draw(); });
   draw(); document.body.append(box);
+  const pad = () => document.documentElement.style.setProperty("--trypad", box.offsetHeight + 24 + "px");   // room under the page on phones (site.css)
+  pad(); addEventListener("resize", pad); box.addEventListener("click", pad);
 })();
 // ===== TRIAL: Try switch, END
 function regionShot(g){   // style for a region page's banner: her picked map (12 Nov; the scenery trial and its switch were removed 22 Nov)
@@ -393,42 +441,97 @@ function firstStages(list){   // a region's starters (first stages that aren't r
 // ---------- pages ----------
 const view = document.getElementById("view"), nav = document.getElementById("nav"), q = document.getElementById("q");
 // labels that don't fit get smaller writing (never cut short), the banner tabs go into rows, and a wide family of evolutions
-// stacks downwards; run after every page is drawn and on every resize
+// stacks downwards; run after every page is drawn and on every resize. Fast (round 5 review, 22 Nov: Every Pokémon froze for
+// 5–6 s after every tick, measuring 9,000 labels one at a time): every label is read first, then written; the same word in a box
+// of the same width needs the same size, so each is measured once (fitMemo) and that size given to all of them.
+const fitMemo = new Map();   // label text | count | box width -> how it fitted; emptied when the window or the font changes
 function fitLabels(){
   for (const st of view.querySelectorAll(".hero .stats")) fitTabs(st);
   // the family of evolutions wider than the page stacks downwards (second review, 21 Nov: it slid sideways on a phone and at 901–960)
   for (const e of view.querySelectorAll(".evo")) { e.classList.remove("stack"); if (e.scrollWidth > e.clientWidth + 1) e.classList.add("stack"); }
-  // a picture box's label too long for its box (Gigantamax) shrinks to fit, keeping its icon
-  for (const p of view.querySelectorAll(".pc.small .pclab")) {
-    const box = p.closest(".pc"), over = () => box.scrollWidth > box.clientWidth;
-    p.style.fontSize = "";
-    if (!over()) continue;
-    let f = parseFloat(getComputedStyle(p).fontSize);
-    while (over() && f > 6.5) p.style.fontSize = (f -= 0.25) + "px";   // smaller writing, icon kept (her note, 21 Nov)
+  fitStrips();
+  fitCardLabels();
+  fitSquareNames();
+}
+// a Pokémon page's picture boxes: every label in the strip one size, the size the longest needs, never under 8px, icon kept (her
+// note, 21 Nov; round 5 review: the check measured the box, not the label, so labels ran into the border, mixed sizes down to 6.5px)
+// One row while every box is at least STRIP_BOX wide, otherwise two even rows (.two, site.css; phones have their rows of three).
+const STRIP_FLOOR = 8, STRIP_BOX = 72;   // 72: her 1600 window keeps Charizard’s 14 in one row (75px each)
+function fitStrips(){
+  for (const strip of view.querySelectorAll(".pcs-strip")) {
+    const labs = [...strip.querySelectorAll(".pc.small .pclab")];
+    for (const l of labs) l.style.fontSize = "";
+    strip.classList.remove("two");
+    const first = strip.querySelector(".pc");
+    if (first && strip.children.length > 3 && first.getBoundingClientRect().width < STRIP_BOX && innerWidth > 700) strip.classList.add("two");
+    if (!labs.length || !labs.some(textOver)) continue;
+    let f = parseFloat(getComputedStyle(labs[0]).fontSize);
+    do { f -= 0.25; for (const l of labs) l.style.fontSize = f + "px"; } while (f > STRIP_FLOOR && labs.some(textOver));
   }
-  // a card's box label that doesn't fit (Gigantamax, or Dynamax with a form count) gets a little smaller, always keeping its
-  // icon, never cut short (rule review, 20 Nov: "Giganta…" on every card; her rule, 14 Nov: Gigantamax in full)
-  for (const sp of view.querySelectorAll(".boxgrid .tk > span:not(.fill)")) {
-    const tk = sp.closest(".tk"), over = () => textOver(sp), copy = tk.querySelector(".fill > span");
-    if (copy) copy.style.fontSize = "";
-    if (sp.style.fontSize || tk.classList.contains("tight")) { sp.style.fontSize = ""; tk.classList.remove("tight", "widefit"); }
-    if (!over()) continue;
-    tk.classList.add("tight");   // first a little less space around it, keeping the icon (every box has one, her rule)
-    let f = parseFloat(getComputedStyle(sp).fontSize);
+}
+// a card's box label that doesn't fit (Gigantamax, or Dynamax with a form count) gets a little smaller, always keeping its
+// icon, never cut short (rule review, 20 Nov: "Giganta…" on every card; her rule, 14 Nov: Gigantamax in full); the same word
+// the same size on every card (her note, 21 Nov: Gigantamax kept coming out a different size)
+function fitCardLabels(only = null){   // only: just these cards (one ticked), the page's sizes kept from its last fit
+  const sps = (only || [view]).flatMap(r => [...r.querySelectorAll(".boxgrid .tk > span:not(.fill)")]);
+  if (!sps.length) return;
+  const items = [];
+  for (const sp of sps) {   // 1. undo an earlier fit (writes only)
+    const tk = sp.parentElement;
+    if (sp.style.fontSize) sp.style.fontSize = "";
+    if (tk.classList.contains("tight") || tk.classList.contains("widefit")) tk.classList.remove("tight", "widefit");
+    items.push({sp, tk});
+  }
+  for (const it of items) {   // 2. read every box's width (one layout for all of them)
+    const w = it.tk.getBoundingClientRect().width;
+    it.word = it.sp.textContent;
+    it.key = w ? `${it.word}|${it.tk.querySelector(":scope > b")?.textContent || ""}|${w.toFixed(2)}` : null;   // 0 wide: not shown
+    if (it.key && !fitMemo.has(it.key)) it.gw = it.tk.parentElement.getBoundingClientRect().width;
+  }
+  for (const it of items) if (it.gw && !fitMemo.has(it.key)) fitMemo.set(it.key, fitOneLabel(it));   // 3. each new kind once
+  const least = only ? fitLeast : (fitLeast = new Map());   // 4. the same word the same size: the smallest any of its boxes needed
+  for (const it of items) if (it.key) least.set(it.word, Math.min(least.get(it.word) ?? Infinity, fitMemo.get(it.key).size));
+  for (const it of items) {   // 5. write, only where something changes
+    if (!it.key) continue;
+    const r = fitMemo.get(it.key), f = least.get(it.word), copy = it.tk.querySelector(".fill > span");
+    if (r.tight) it.tk.classList.add("tight");
+    if (r.widefit) it.tk.classList.add("widefit");
+    const size = f < r.natural - .01 ? f + "px" : "";
+    if (size) it.sp.style.fontSize = size;
+    if (copy && copy.style.fontSize !== size) copy.style.fontSize = size;   // the white copy over the filled part, the same size
+  }
+}
+let fitLeast = new Map();   // word -> the size every box with it has on this page
+// one label measured on a copy of its box, off the page and walled in (contain:strict), so trying sizes never makes the browser
+// lay out the whole page again (that was the 5-second freeze: each try re-laid out 1,000 cards)
+let fitBox = null;
+function fitOneLabel(it){   // how one label fits: a little less space round it, then smaller writing, then the whole row
+  if (!fitBox) { fitBox = document.createElement("div"); fitBox.setAttribute("aria-hidden", "true"); document.getElementById("main").append(fitBox); }
+  fitBox.style.cssText = "position:fixed;left:-10000px;top:0;width:2000px;height:400px;visibility:hidden;contain:strict;pointer-events:none;margin:0";
+  fitBox.className = it.tk.closest(".card")?.className || "";
+  fitBox.innerHTML = `<div class="${attr(it.tk.parentElement.className)}" style="width:${it.gw}px;margin:0">${it.tk.outerHTML}</div>`;
+  const tk = fitBox.querySelector(".tk"), sp = tk.querySelector(":scope > span:not(.fill)");
+  const over = () => textOver(sp), natural = parseFloat(getComputedStyle(sp).fontSize);
+  let tight = false, widefit = false, f = natural;
+  if (over()) {
+    tk.classList.add("tight"); tight = true;   // first a little less space around it, keeping the icon (every box has one, her rule)
     while (over() && f > 7.5) sp.style.fontSize = (f -= 0.25) + "px";   // smaller writing, the icon always kept (her note, 21 Nov)
-    if (over()) { tk.classList.add("widefit"); sp.style.fontSize = ""; f = parseFloat(getComputedStyle(sp).fontSize); while (over() && f > 9) sp.style.fontSize = (f -= 0.25) + "px"; }   // still too long: the whole row
-    if (copy) copy.style.fontSize = sp.style.fontSize;   // the white copy over the filled part, the same size
+    if (over()) { tk.classList.add("widefit"); widefit = true; sp.style.fontSize = ""; f = natural; while (over() && f > 9) sp.style.fontSize = (f -= 0.25) + "px"; }   // still too long: the whole row
   }
-  // the same word the same size on every card (her note, 21 Nov: Gigantamax kept coming out a different size)
-  const byWord = new Map();
-  for (const sp of view.querySelectorAll(".boxgrid .tk > span:not(.fill)")) { const w = sp.textContent; if (!byWord.has(w)) byWord.set(w, []); byWord.get(w).push(sp); }
-  for (const els of byWord.values()) if (els.length > 1) sameSize(els, true);
-  // a square's name too long to wrap (one long word: "Crabominable" on Looking for at 1280) gets smaller, not cut (21 Nov review)
-  for (const n of view.querySelectorAll(".fastset .fc .fcn")) {
-    n.style.fontSize = "";
-    let f = parseFloat(getComputedStyle(n).fontSize);
+  fitBox.innerHTML = ""; fitBox.className = "";
+  return {tight, widefit, size: f, natural};
+}
+// a square's name too long to wrap (one long word: "Crabominable" on Looking for at 1280) gets smaller, not cut (21 Nov review)
+function fitSquareNames(){
+  const ns = [...view.querySelectorAll(".fastset .fc .fcn")];
+  for (const n of ns) if (n.style.fontSize) n.style.fontSize = "";
+  const items = ns.map(n => ({n, key: "fcn|" + n.textContent + "|" + n.clientWidth}));
+  for (const it of items) if (!fitMemo.has(it.key)) {
+    const n = it.n; let f = parseFloat(getComputedStyle(n).fontSize); const natural = f;
     while (n.scrollWidth > n.clientWidth && f > 7) n.style.fontSize = (f -= 0.25) + "px";
+    fitMemo.set(it.key, {size: f, natural});
   }
+  for (const it of items) { const r = fitMemo.get(it.key); it.n.style.fontSize = r.size < r.natural ? r.size + "px" : ""; }
 }
 // the banner's tabs (her note, 21 Nov: the writing shrinks, the icon stays, in line with the rest): every label whole, at
 // TAB_MIN (8.5px) or more beside its icon, in one row where that fits; otherwise in even rows (13 as 7 + 6, then 5 + 5 + 3 …)
@@ -488,20 +591,14 @@ function fitTabs(st){
   }
   fit(7);
 }
-// a set of labels all at the size the smallest of them needed (fitLabels shrinks one at a time; this evens them out)
-function sameSize(els, withCopy = false){
-  const list = [...els].filter(e => e.offsetParent); if (!list.length) return;
-  const m = Math.min(...list.map(e => parseFloat(getComputedStyle(e).fontSize)));
-  for (const e of list) { if (Math.abs(parseFloat(getComputedStyle(e).fontSize) - m) > .01) e.style.fontSize = m + "px";
-    if (withCopy) { const c = e.closest(".tk").querySelector(".fill > span"); if (c) c.style.fontSize = e.style.fontSize; } }
-}
 // overflow measured to the fraction of a pixel (scrollWidth rounds, so "Mega X" 39.4 in 39 showed "Mega…": 21 Nov review)
 const textRange = document.createRange();
 function textOver(el){ textRange.selectNodeContents(el); const cs = getComputedStyle(el);
   return textRange.getBoundingClientRect().width > el.getBoundingClientRect().width - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight) + 0.05; }
 new MutationObserver(fitLabels).observe(view, {childList: true});
-addEventListener("resize", () => requestAnimationFrame(fitLabels));
-if (document.fonts) { document.fonts.ready.then(fitLabels); document.fonts.addEventListener("loadingdone", fitLabels); }   // the label font arriving late changes the widths
+let fitTimer;   // a resize refits once the window has stopped changing (round 5 review: every resize frame refitted the page)
+addEventListener("resize", () => { clearTimeout(fitTimer); fitTimer = setTimeout(() => { fitMemo.clear(); fitLabels(); }, 120); });
+if (document.fonts) { const refit = () => { fitMemo.clear(); fitLabels(); }; document.fonts.ready.then(refit); document.fonts.addEventListener("loadingdone", refit); }   // the label font arriving late changes the widths
 
 function statTile(colour, icon, label, have, of, extra = "", work = null){
   if (work) return `<button type="button" class="stat stattab" data-work="${work}" aria-pressed="${prefs.work === work}" title="${tip(work === "all" ? "Show every box" : "Show only " + label)}" style="--sc:var(${colour})"><span class="sl">${ic(icon)}<span class="slt">${esc(label)}</span></span><b>${num(have)}<small> of ${num(of)}</small></b>
@@ -586,14 +683,15 @@ function dexPage(title, label, list, region, search = false){
   // see the ones she has too, lit up; her place, 9 Nov; hidden during a search); the not-out switch under it where there are some; how many are shown sits by the title (her layout, 9 Nov)
   setRegion(region);
   const shot = region ? regionShot(region) : {style: "", sw: heroPics(ALL_MAPS()), cls: " withshot"};
-  view.innerHTML = `<header class="hero${shot.cls || ""}"${shot.style}>${shot.sw}<span class="label">${esc(label)} · ${num(groups.length)} shown</span><h1>${title}</h1>${statsHtml(counts(list), true)}</header>${readOnlyNote()}
+  const hero = `<header class="hero${shot.cls || ""}"${shot.style}>${shot.sw}<span class="label">${esc(label)} · ${num(groups.length)} shown</span><h1>${title}</h1>${statsHtml(counts(list), true)}</header>`;
+  const mid = `${readOnlyNote()}
     <div class="toolbar filters" id="toolbar">
       <div class="frow"><div class="worktabs">` +
       (picked || hide ? `<button class="linkbtn" type="button" data-clear>${ic("x")}Clear</button>` : "") +
       `<span class="switches">` + (search ? "" : `<button class="switchbtn" type="button" role="switch" data-showall aria-checked="${hide}"><span class="track"></span>Hide ones I have</button>`) +
       (notOut ? `<button class="switchbtn" type="button" role="switch" data-notout="${prefs.unreleased ? "no" : "yes"}" aria-checked="${prefs.unreleased}"><span class="track"></span>Not in GO</button>` : "") +
-      `</span></div></div></div>
-    ${items.length ? `<div class="grid" id="grid">${groupCards(groups)}</div>` : `<p class="empty">Nothing here.</p>`}`;
+      `</span></div></div></div>`;
+  drawList(hero, mid, items.length ? groupCardList(groups) : null, groups.map(g => g.lead.id));
   const picked1 = view.querySelector(".hero .stattab[aria-pressed=true]");   // a narrow window: the chosen tab slid into view
   if (picked1) { const row = picked1.parentElement; if (row.scrollWidth > row.clientWidth) row.scrollLeft = picked1.offsetLeft - row.clientWidth / 2 + picked1.clientWidth / 2; }
 }
@@ -669,20 +767,23 @@ function bigBoxes(e){
     }
     return `<button class="bb" type="button" data-tick="${t}" aria-pressed="${on}" style="--bc:var(${col})"${!applies && !on ? " disabled" : ""}>${ic(icon)}<span><b>${esc(label)}</b><small>${esc(on ? "Got it" : applies ? "Not yet" : why)}</small></span></button>`;
   };
-  return `<div class="bigboxes${boxLook() !== "now" ? " pcs pcs-" + boxLook() : ""}" data-id="${attr(e.id)}">` +
-    B("c", "--caught", "poke-ball", "Caught", true) +
-    B("cf", "--female", "venus", "Female", !!femaleTick(e)) +   // a gender it can't be isn't shown (genderless, male only…)
-    B("cm", "--male", "mars", "Male", !!maleTick(e)) +
-    B("s", "--shiny", "sparkles", "Shiny", !!e.shiny, "Unavailable") +
-    B("l", "--lucky", "lucky", "Lucky", canLucky(e), UNTRADEABLE.has(e.dex) ? null : "Unavailable") +
-    B("xl", "--xxl", "expand", "XXL", canXXL(e), neverXXL(e) ? null : "Unavailable") +
-    B("xs", "--xxs", "shrink", "XXS", canXXS(e), neverXXS(e) ? null : "Unavailable") +
-    B("dx", "--dynamax", "dynamax", "Dynamax", !!e.dynamax) +
-    B("gx", "--gmax", "gigantamax", "Gigantamax", !!e.gmax) +
-    (e.mega || []).map(m => B(m.t, "--mega", "mega", m.label, true)).join("") +
-    B("sd", "--shadow", "shadow", "Shadow", !!e.shadow) +
-    B("pu", "--purified", "purified", "Purified", !!e.shadow) +
-    B("h", "--hundo", "star", "4★", e.released, "Unavailable") + `</div>`;
+  const bs = [
+    B("c", "--caught", "poke-ball", "Caught", true),
+    B("cf", "--female", "venus", "Female", !!femaleTick(e)),   // a gender it can't be isn't shown (genderless, male only…)
+    B("cm", "--male", "mars", "Male", !!maleTick(e)),
+    B("s", "--shiny", "sparkles", "Shiny", !!e.shiny, "Unavailable"),
+    B("l", "--lucky", "lucky", "Lucky", canLucky(e), UNTRADEABLE.has(e.dex) ? null : "Unavailable"),
+    B("xl", "--xxl", "expand", "XXL", canXXL(e), neverXXL(e) ? null : "Unavailable"),
+    B("xs", "--xxs", "shrink", "XXS", canXXS(e), neverXXS(e) ? null : "Unavailable"),
+    B("dx", "--dynamax", "dynamax", "Dynamax", !!e.dynamax),
+    B("gx", "--gmax", "gigantamax", "Gigantamax", !!e.gmax),
+    ...(e.mega || []).map(m => B(m.t, "--mega", "mega", m.label, true)),
+    B("sd", "--shadow", "shadow", "Shadow", !!e.shadow),
+    B("pu", "--purified", "purified", "Purified", !!e.shadow),
+    B("h", "--hundo", "star", "4★", e.released, "Unavailable")].filter(Boolean);
+  // --half: under about 1300 wide the strip goes into two even rows (round 5 review: 14 in one row left 41 px boxes, the tick
+  // circle over the picture and labels shrunk to 6.5px); site.css "the strip in two rows"
+  return `<div class="bigboxes${boxLook() !== "now" ? " pcs pcs-" + boxLook() : ""}" data-id="${attr(e.id)}" style="--half:${Math.ceil(bs.length / 2)}">` + bs.join("") + `</div>`;
 }
 // Shiny Shadow: a bonus, like a costume (her ask, 10 Nov): not counted anywhere and not on the list cards; its own card with
 // the shiny picture, under the evolution family (her call)
@@ -739,7 +840,7 @@ function pokemonPage(key){
   showAllBoxes = false;
   setRegion(sel.gen);
   const kin = ENTRIES.filter(x => x.family && x.family === sel.family && x !== sel);
-  view.innerHTML = `<header class="hero mon withshot">${heroPics([regionMap(sel.gen)].filter(Boolean))}<div class="montop"><div class="crumbs"><a href="#dex">${ic("layout-grid")}Every Pokémon</a>` +
+  view.innerHTML = `<header class="hero mon withshot">${regionPics(sel.gen)}<div class="montop"><div class="crumbs"><a href="#dex">${ic("layout-grid")}Every Pokémon</a>` +
       (gen[0] ? `<a href="#gen-${gen[0]}">${ic("layers")}${esc(gen[1])}</a>` : "") + `</div>
       <nav class="prevnext" aria-label="Previous and next Pokémon">${step(prev, "prev")}${step(next, "next")}</nav></div>
     <div class="monhead"><div><span class="label">#${pad(n)}${sel.category ? " · " + esc(sel.category) : ""}</span><h1>${esc(sel.name)}${sel.form ? ` <em>${esc(sel.form)}</em>` : ""}</h1>
@@ -927,7 +1028,7 @@ function fastPic(e, t){
 }
 function fastCell(e, t, on, n, other){
   return `<button class="fc" type="button" data-fast="${attr(e.id)}" data-t="${t}" aria-pressed="${on}"${other ? ` data-other="${attr(other)}"` : ""} title="${isRegional(e) ? esc(e.form.split(" ")[0]) + " " : ""}${esc(e.name)}${t === "mx" ? " Mega X" : t === "my" ? " Mega Y" : ""}">` +
-    `<img src="${fastPic(e, t)}" alt="" loading="lazy"><span>${pad(n)}${t === "mx" ? " X" : t === "my" ? " Y" : ""}</span></button>`;
+    `<img src="${fastPic(e, t)}" alt="" loading="lazy"><span>${pad(n)}${t === "mx" ? " X" : t === "my" ? " Y" : ""}</span><span class="fcname" aria-hidden="true">${isRegional(e) ? esc(e.form.split(" ")[0]) + " " : ""}${esc(e.name)}</span></button>`;   // the name, shown on touch screens only (site.css)
 }
 // what to tick: the game's Pokédex region by region, or her costumes or background Pokémon, under their events (her ask, 14 Nov)
 const FAST_KINDS = [["dex", "Pokédex"], ["cos", "Costumes"], ["bg", "Backgrounds"], ["forms", "Forms check"]];   // Forms check: TEMPORARY (her ask, 15 Nov), take it out when she has been through
@@ -1023,7 +1124,7 @@ function fastPage(){
     if (ts.length > 1) {   // Charizard and Mewtwo: one square (one Pokémon, as the game counts), with Mega X and Mega Y to tick inside it
       const on = ts.map(t => has(dk(main), t));
       if (on.some(Boolean)) got++;
-      return `<span class="fc two${on.some(Boolean) ? " lit" : ""}"><img src="${fastPic(main, ts[0])}" alt="" loading="lazy"><span>${pad(sp.dex)}</span><span class="xy">` +
+      return `<span class="fc two${on.some(Boolean) ? " lit" : ""}"><img src="${fastPic(main, ts[0])}" alt="" loading="lazy"><span>${pad(sp.dex)}</span><span class="fcname" aria-hidden="true">${esc(main.name)}</span><span class="xy">` +
         ts.map((t, k) => `<button type="button" data-fast="${attr(main.id)}" data-t="${t}" aria-pressed="${on[k]}" title="${esc(main.name)} ${t === "mx" ? "Mega X" : "Mega Y"}">${t === "mx" ? "X" : "Y"}</button>`).join("") + `</span></span>`;
     }
     const t = ts[0];
@@ -1033,7 +1134,7 @@ function fastPage(){
     return fastCell(main, t, on, sp.dex, !mine && elsewhere ? (elsewhere.form || elsewhere.name) : "");
   }).join("");
   setRegion(g);
-  view.innerHTML = `<header class="hero withshot">${heroPics([regionMap(g)].filter(Boolean))}<h1>Fast <em>tick</em></h1>
+  view.innerHTML = `<header class="hero withshot">${regionPics(g)}<h1>Fast <em>tick</em></h1>
     <p style="max-width:380px">A whole region at once, laid out like the game’s Pokédex. Open the same tab on your phone (${b in FAST_GAME ? `the game calls it <b>${esc(FAST_GAME[b])}</b>` : "the game’s Pokédex has no tab for this one, so use the storage search instead"}) and click every Pokémon that’s in colour there. Regional forms have their own squares here, in their own region (Hisuian Growlithe under Hisui); the game puts them with the usual one.</p></header>${readOnlyNote()}
     <div class="toolbar filters">${fastKindRow("dex")}<div class="frow"><span class="label flabel">Region</span><div class="worktabs">${GENS.map(([id, n]) => `<button type="button" class="worktab" data-fastgen="${id}" aria-pressed="${id === g}">${esc(n)}</button>`).join("")}</div></div>
     <div class="frow"><span class="label flabel">Box</span><div class="worktabs">${FAST.map(([t, l]) => `<button type="button" class="worktab" data-fastbox="${t}" aria-pressed="${t === b}">${esc(l)}</button>`).join("")}</div></div></div>
@@ -1363,7 +1464,7 @@ function toast(msg){ toastEl.textContent = msg; toastEl.hidden = false; clearTim
 
 async function save(body){
   if (viewOnly) return false;
-  if (readOnly) { toast(loadFailed ? "The server couldn’t read your ticks, so nothing was saved. Open the shortcut again." : "Opened from the folder: open it with the shortcut to save ticks."); return false; }
+  if (readOnly) { toast(loadFailed ? "The server couldn’t read your ticks, so nothing was saved. Open the shortcut again." : loading ? "Still reading your ticks from the server: try again in a moment." : "Opened from the folder: open it with the shortcut to save ticks."); return false; }   // loading: clicked before the server's answer came (round 5 review: it said "Opened from the folder")
   try {
     const r = await fetch("api/tick", {method: "POST", headers: {"Content-Type": "application/json", "X-Pokedex": "1"}, body: JSON.stringify(body)});
     const j = await r.json();
@@ -1504,9 +1605,18 @@ q.addEventListener("keydown", ev => { if (ev.key === "Enter" && menuOpen()) menu
 // Tab and Shift+Tab stay inside the open drawer: the family's menu() does that (round 4; it also brings back focus a redraw lost)
 // the foot of every page (family rules, 21 Nov) is the family's too: Back to top, Dark mode / Light mode (the shared jj-mode, set
 // before the page draws by /family/mode.js), footer line 1 and the credits' dots are all done by /family/family.js
+// Back (or Forward) goes back to where she was on that page (phone review: back from a Pokémon put Kanto at the top again, 151
+// cards to scroll through once more): each history entry keeps its place, saved as she scrolls and before a click opens a page
+history.scrollRestoration = "manual";
+const saveScroll = () => { try { history.replaceState({...(history.state || {}), y: scrollY}, ""); } catch (e) {} };   // no address given: it stays as it is
+let scrollTimer;
+addEventListener("scroll", () => { clearTimeout(scrollTimer); scrollTimer = setTimeout(saveScroll, 150); }, {passive: true});
+document.addEventListener("click", saveScroll, true);
 addEventListener("hashchange", () => {
   const a = document.activeElement, fromNav = nav.contains(a) ? a.getAttribute("href") : null;   // a sidebar link chosen (keyboard or mouse)
-  if (location.hash !== "#dex" && q.value) q.value = ""; if (menuOpen() && document.activeElement !== q) menu.close(); route(); scrollTo(0, 0);
+  const y = (history.state && history.state.y) || 0;   // a page gone back to: its place; a new page: the top
+  if (location.hash !== "#dex" && q.value) q.value = ""; if (menuOpen() && document.activeElement !== q) menu.close(); route(); scrollTo(0, y);
+  if (y) requestAnimationFrame(() => scrollTo(0, y));   // again once the labels are fitted (a long one can make a card taller)
   // the sidebar is drawn again, so the chosen link is new: on wide screens focus goes back to it, not to the page's body (round 4
   // review, 22 Nov); in the drawer (900px and under) the family's menu puts it on the page instead
   if (fromNav && !menuOpen() && !matchMedia("(max-width: 900px)").matches && (document.activeElement === document.body || !document.contains(a)))
@@ -1522,10 +1632,10 @@ route();
 if (location.protocol.startsWith("http")) {
   // her server answers with JSON; no server at all (online: a 404 or 405 from the web host, its page instead of JSON, or no
   // answer) means view only, quietly; anything else (a 500, a refusal, broken JSON from her server) is a real failure
-  const noServer = () => { viewOnly = true; document.documentElement.classList.add("view-only"); rerender(); };
+  const noServer = () => { loading = false; viewOnly = true; document.documentElement.classList.add("view-only"); rerender(); };
   fetch("api/collection", {cache: "no-store"}).then(r => {
     if ([404, 405, 501].includes(r.status) || (r.ok && !/json/i.test(r.headers.get("Content-Type") || ""))) return noServer();
     if (!r.ok) throw new Error(r.status);
-    return r.json().then(c => { COL = norm(c); readOnly = false; rerender(); });
-  }, noServer).catch(() => { loadFailed = true; rerender(); });
+    return r.json().then(c => { COL = norm(c); readOnly = false; loading = false; rerender(); });
+  }, noServer).catch(() => { loading = false; loadFailed = true; rerender(); });
 }

@@ -1,7 +1,9 @@
 """Serve site/ at http://localhost:8030 for the Pokédex's app window, and save her ticks.
 
-Started at login with no window by the shortcut tools/make_shortcuts.ps1 puts in her Startup folder, like Jemma's
-Library's server. Only this computer can reach it. If it's already running, a second copy just stops.
+Started with no window by Jemma's Journals' family server (tools/serve_all.py in the parent, http://localhost:8050), which
+passes /pokedex/api/* on to it and starts it if it's down; her shortcuts open the Pokédex there. (There is no Startup-folder
+copy; tools/make_shortcuts.ps1 -Startup would make one.) Only this computer can reach it. If it's already running, a second
+copy just stops.
 
     pythonw tools/serve.py              (port 8030, her app)
     python  tools/serve.py --port 8031  (a second copy for checking changes in the preview; same data)
@@ -14,7 +16,7 @@ Library's server. Only this computer can reach it. If it's already running, a se
                            {list: "went" | "costumes", key, on}   an event she went to / a costume she's collecting
 Posts need the header "X-Pokedex: 1", which only the site itself sends, so a page from anywhere else can't change it.
 Each change is written straight away (to a temporary file, then swapped in), so nothing is lost if the PC goes off.
-The weekly backup (tools/backup.py) saves it to git and zips it.
+The daily backup (tools/backup.py, run by the parent's tools/weekly.py) commits it and pushes it to GitHub.
 """
 import contextlib, functools, http.server, json, os, re, shutil, sys, threading, time, urllib.parse
 

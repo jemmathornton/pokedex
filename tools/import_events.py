@@ -19,6 +19,18 @@ SKIP = {'go-battle-league', 'season'}
 AHEAD = 42   # days
 
 
+EVENTS_PAGE = 'https://leekduck.com/events/'
+
+
+def safe_link(link):
+    """An event's link as the page will use it: only a plain https:// address (round 5 review, 22 Nov: the feed's link went
+    into the page unchecked, so a javascript: or other odd address could have reached it); anything else, or none, is Leek
+    Duck's events page."""
+    if isinstance(link, str) and re.fullmatch(r'https://[A-Za-z0-9.-]+(?::\d+)?(?:/[^\s"\x27<>]*)?', link.strip()):
+        return link.strip()
+    return EVENTS_PAGE
+
+
 def when(s):
     # a time with Z is UTC: turned into this computer's time, not just stripped (19 Nov review: an hour out in summer)
     if not s:
@@ -96,7 +108,7 @@ def main():
             continue
         ms = resolve(ev['name'], mons(ev.get('extraData') or {}), dex)
         events.append({'id': ev['eventID'], 'name': tidy(ev['name']), 'type': ev.get('heading') or ev.get('eventType'), 'kind': ev.get('eventType'),
-                       'start': ev.get('start'), 'end': ev.get('end'), 'link': ev.get('link') or 'https://leekduck.com/events/', 'mons': ms})   # one event with no link mustn't stop the refresh
+                       'start': ev.get('start'), 'end': ev.get('end'), 'link': safe_link(ev.get('link')), 'mons': ms})   # one event with no link mustn't stop the refresh
         print(f'{(ev.get("start") or "")[:10]}  {ev["name"]}: {len(ms)} Pokémon listed')
     events.sort(key=lambda e: e['start'] or '')
     tmp = OUT + '.tmp'   # written whole, then swapped in, so a failure halfway never leaves a broken file
