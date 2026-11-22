@@ -10,7 +10,8 @@ Everything waiting on you. **Do** = just do it; **Decide** = your call. Tell Cla
 - **Banners on every page (trial, 13 Nov):** maps on Home, Every Pokémon, Fast tick and each Pokémon page; event backgrounds on Event Pokémon (`for-jemma/page-banners.png`).
 - **Which game to add after GO**, when you want it.
 - **Footer line 1 (round 3 review):** “Made with HTML, CSS and JavaScript, kept on GitHub” is true of the page, but the Pokédex also needs its small Python server to save your ticks. Keep the family’s words, or change them for the Pokédex? Left as it is.
-- **Pictures on Home (Try switch, bottom right, 22 Nov):** As now (the full region maps in the banner) or Smaller (copies at twice the size shown, a much smaller download; it should look the same). Pick one and the switch comes off.
+- **Card art in dark mode (Try switch, bottom right, 22 Nov; temporary):** in dark mode, the window behind each Pokémon: As now, Brighter (the type colour stronger, round a light centre), Glow (dark, with a soft glow of the type colour behind the Pokémon) or Light window (the pale window of light mode). Switch Dark mode on and try them on a region page (Kanto) or a Pokémon’s page (Charizard). Pick one and the switch comes off.
+- **Box colours (Try switch, bottom right, 22 Nov; temporary):** As now or Deeper: the boxes whose white writing is hard to read (Lucky most, then Shiny, Male, Purified, XXL, 4★, Mega) made just dark enough for white to read well, same colours otherwise. Compare on a region page, a Pokémon’s page and Fast tick. Pick one and that row comes off.
 
 ## Do
 - **Try getting your collection in:** easiest is **Fast tick → Kanto → Lucky** next to your phone’s Pokédex on the Lucky tab. Or one short screen recording of the Pokédex’s Lucky tab (Kanto only) and, if you have one, a Calcy IV export, into the Pokédex folder’s `imports` folder. Then Claude checks the reader works on your phone’s screens.
@@ -18,6 +19,8 @@ Everything waiting on you. **Do** = just do it; **Decide** = your call. Tell Cla
 - **Dynamax Trails (16–23 Nov):** Max Battle catches get a background, probably the Dark Skies one again (Serebii); tell Claude once you’ve seen it, and Sneasel, Mawile and the rest go on it.
 
 ## Done
+- Banner tabs in one smaller row at every width over 900; Kanto's white sky gone from its banner; no date on Home; a Content Security Policy, so only the Pokédex's own code runs (your decisions, 22 Nov).
+- Pictures on Home: Smaller, the lighter copies of the maps (your pick, 22 Nov); the Try row is gone.
 - A search with a tab on keeps listing only Pokémon that tab can have (your answer, 22 Nov: no change).
 - Old scenery pictures in `site/regions/` deleted (your yes, 22 Nov).
 - Online check (15 Nov): nothing new in the game since 9 Nov, no costume or background missing. Fixed: Minior only Green and Yellow cores out so far; Fancy and Poké Ball Vivillon not out yet; Mega Zygarde and Mega Tatsugiri “Unavailable” (not “Not possible”); Wobbuffet’s costume called Party Hat. Mega Clefable comes on 28 Nov.

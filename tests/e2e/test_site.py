@@ -10,8 +10,9 @@ BROWSER = next((b for b in BROWSERS if os.path.exists(b)), None)
 
 
 # __stub__.html: the page with a stand-in fetch before its own scripts, so api/collection answers as ?answer= says (the
-# view-only and server-failure tests, 22 Nov); POSTs are never sent
-STUB_HEAD = r"""<head><script>(function(){ var rf = window.fetch.bind(window), a = new URLSearchParams(location.search).get("answer"); window.__posts = [];
+# view-only and server-failure tests, 22 Nov); POSTs are never sent. A file of its own, __tests__/stub.js, as the page's
+# Content Security Policy (22 Nov) runs only the site's own files, never inline code.
+STUB_JS = r"""(function(){ var rf = window.fetch.bind(window), a = new URLSearchParams(location.search).get("answer"); window.__posts = [];
   var json = {"Content-Type": "application/json"}, answers = {
     "404": function(){ return Promise.resolve(new Response("Not found", {status: 404})); },
     "405": function(){ return Promise.resolve(new Response("", {status: 405})); },
@@ -23,7 +24,14 @@ STUB_HEAD = r"""<head><script>(function(){ var rf = window.fetch.bind(window), a
   window.fetch = function(u, o){ u = String(u);
     if (o && o.method && o.method !== "GET") { window.__posts.push(u); return Promise.reject(new TypeError("blocked in the test")); }
     if (/api\/collection/.test(u) && answers[a]) { window.__answered = true; return answers[a](); }
-    return rf(u, o); }; })();</script>"""
+    return rf(u, o); }; })();"""
+# __tests__/csp-watch.js, first in <head> of the throwaway copy's index.html (so every window the tests open has it):
+# notes every Content Security Policy violation, in this window and in the test page's list (the CSP test, 22 Nov)
+CSP_WATCH = r"""(function(){ window.__csp = [];
+  document.addEventListener("securitypolicyviolation", function(e){ var t = e.violatedDirective + " " + e.blockedURI + " " + (e.sourceFile || "") + ":" + e.lineNumber + " (" + location.pathname + ")";
+    window.__csp.push(t); try { if (window.top !== window && window.top.__csp) window.top.__csp.push(t); } catch (x) {} }); })();"""
+WATCH_TAG = '<script src="__tests__/csp-watch.js"></script>'
+
 
 
 class _Results(http.server.BaseHTTPRequestHandler):
@@ -42,17 +50,25 @@ def run_page_tests(timeout=900):
     with Sandbox() as box:
         col = box.read('collection', 'go.json'); col['have'] = {}; box.write(col, 'collection', 'go.json')   # start with no ticks (the copy only), whatever she has ticked
         site = box.path('site')
-        page = open(os.path.join(site, 'index.html'), encoding='utf-8').read()
+        _Results.box = queue.Queue()
+        inbox = http.server.ThreadingHTTPServer(('127.0.0.1', 0), _Results)
+        os.makedirs(os.path.join(site, '__tests__'))
+        for name, text in (('csp-watch.js', CSP_WATCH), ('stub.js', STUB_JS)):
+            open(os.path.join(site, '__tests__', name), 'w', encoding='utf-8').write(text)
+        shutil.copy(os.path.join(HERE, 'e2e', 'site.test.js'), os.path.join(site, '__tests__', 'site.test.js'))
+        real = open(os.path.join(site, 'index.html'), encoding='utf-8').read()
+        assert 'http-equiv="Content-Security-Policy"' in real, 'index.html has no Content Security Policy'
+        index = real.replace('<head>', '<head>' + WATCH_TAG, 1)   # the copy only
+        open(os.path.join(site, 'index.html'), 'w', encoding='utf-8').write(index)
+        # the test page: the same policy, except that it may send its results to the inbox (another port) and open the
+        # site in frames of its own (same site), as the tests do; every window it opens keeps the real policy
+        page = index.replace("connect-src 'self'", f"connect-src 'self' http://127.0.0.1:{inbox.server_port}").replace("frame-src 'none'", "frame-src 'self'")
         page = page.replace('</body>', '<script src="__tests__/site.test.js"></script></body>')
         open(os.path.join(site, '__test__.html'), 'w', encoding='utf-8').write(page)
-        open(os.path.join(site, '__stub__.html'), 'w', encoding='utf-8').write(STUB_HEAD.join(open(os.path.join(site, 'index.html'), encoding='utf-8').read().split('<head>', 1)))
-        os.makedirs(os.path.join(site, '__tests__'))
-        shutil.copy(os.path.join(HERE, 'e2e', 'site.test.js'), os.path.join(site, '__tests__', 'site.test.js'))
+        open(os.path.join(site, '__stub__.html'), 'w', encoding='utf-8').write(index.replace(WATCH_TAG, WATCH_TAG + '<script src="__tests__/stub.js"></script>', 1))
         serve = load('serve')
         assert serve.FILE.startswith(box.root)
         httpd = serve.Server(('127.0.0.1', 0), functools.partial(serve.Handler, directory=serve.SITE))
-        _Results.box = queue.Queue()
-        inbox = http.server.ThreadingHTTPServer(('127.0.0.1', 0), _Results)
         for srv in (httpd, inbox):
             threading.Thread(target=srv.serve_forever, daemon=True).start()
         profile = tempfile.mkdtemp(prefix='pokedex-chrome-')

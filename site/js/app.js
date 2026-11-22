@@ -341,8 +341,11 @@ const tryVal = (k, re) => { const v = TRY.get(k); return v && v.length <= 80 && 
 const FIT_TRY = tryVal("fit", /^[a-z0-9%. ]+(\/[a-z0-9%. ]+)?$/i);   // background position[/size]: "center 45%/cover", "50% 50%/112% auto"
 const RATIO_TRY = tryVal("ratio", /^\d{1,4}(\.\d{1,3})?( ?\/ ?\d{1,4}(\.\d{1,3})?)?$/);   // "16/9" or "1.6"
 const PIC_TRY = tryVal("pic", /^[a-z0-9][a-z0-9_-]{0,60}\.(jpg|jpeg|png|webp)$/i);   // a file name in site/regions, nothing else
-const shotStyle = f => { const fit = FIT_TRY || SHOT_FIT[f], ratio = RATIO_TRY || SHOT_RATIO[f];
-  return ` style="${attr(`--shot:url('regions/${f}')${fit ? `;--shotfit:${fit}` : ""}${ratio ? `;--shotratio:${ratio}` : ""}`)}"`; };
+// a map whose top is plain white sky gets it lifted out of the banner (her note, 22 Nov: in dark mode at about 1000 wide the top
+// of Kanto's map showed as a white haze, top right; at narrow banners the whole height of the map shows): site.css --shotlift
+const SHOT_LIFT = {"kanto-map-2.jpg": "10%"};
+const shotStyle = f => { const fit = FIT_TRY || SHOT_FIT[f], ratio = RATIO_TRY || SHOT_RATIO[f], lift = PIC_TRY ? null : SHOT_LIFT[f];
+  return ` style="${attr(`--shot:url('regions/${f}')${fit ? `;--shotfit:${fit}` : ""}${ratio ? `;--shotratio:${ratio}` : ""}${lift ? `;--shotlift:${lift}` : ""}`)}"`; };
 const shotCls = f => RATIO_TRY || SHOT_RATIO[f] ? " ratio" : "";
 // banners for the other pages (13 Nov, her ask: no plain colour or parade anywhere): a row of pictures filling the banner's
 // right side like the region maps; Home and Every Pokémon: all ten region maps side by side; Event Pokémon: her
@@ -351,25 +354,30 @@ const regionMap = g => REGION_CHOSEN[g] ? `regions/${REGION_CHOSEN[g]}` : null;
 const heroPics = (srcs, cls = "") => srcs.length ? `<span class="heropics${cls ? " " + cls : ""}">${srcs.map(f => `<i style="background-image:url('${f}')"></i>`).join("")}</span>` : "";
 const ALL_MAPS = () => GENS.map(([g]) => regionMap(g)).filter(Boolean);
 
-// ===== TRIAL: Try switch (22 Nov, her ask), START. Remove this block, the TRIAL block at the end of site.css and the
-// homeMaps() call in homePage once she has picked (and site/regions/home/ plus tools/make_home_maps.py if she keeps As now).
-// Bottom right: "Pictures on Home: As now / Smaller". Smaller = Home's banner uses the copies in site/regions/home/, WebP 660 px
-// tall (twice the 330 px shown), made by tools/make_home_maps.py; it should look the same. Kept in this browser only.
-const TRY_KEY = "jemmas-pokedex-try-pics";
-const homeMaps = () => document.documentElement.dataset.tryPics === "small"
-  ? GENS.map(([g]) => REGION_CHOSEN[g] ? `regions/home/${REGION_CHOSEN[g].replace(/\.\w+$/, "")}.webp` : null).filter(Boolean)
-  : ALL_MAPS();
+// Home's banner: smaller copies of the region maps (her pick, 22 Nov, from the Try switch: "Smaller"): site/regions/home/,
+// WebP 660 px tall (twice the 330 px shown), made by tools/make_home_maps.py from REGION_CHOSEN (run it after changing a map).
+const homeMaps = () => GENS.map(([g]) => REGION_CHOSEN[g] ? `regions/home/${REGION_CHOSEN[g].replace(/\.\w+$/, "")}.webp` : null).filter(Boolean);
+
+// ===== TRIAL: Try switch (22 Nov, her ask), START. Remove this block and the TRIAL block at the end of site.css once she has
+// picked both rows. Bottom right, each row kept in this browser only:
+// "Card art in dark mode: As now / Brighter / Glow / Light window" (her note: the type tint looked muddy in dark mode, Charizard
+//   a dull brown). Sets data-try-art on <html>; site.css does the rest, dark mode only (light mode unchanged).
+// "Box colours: As now / Deeper" (her ask). Deeper = each box colour whose white writing is under 4.5:1 made just dark enough
+//   to reach it, same hue, light and dark mode. Sets data-try-boxes on <html>; site.css redefines the colour variables.
 (function tryPanel(){
-  const OPTS = [["now", "As now"], ["small", "Smaller"]];
-  let v = store.get(TRY_KEY, "now"); if (!OPTS.some(([k]) => k === v)) v = "now";
+  const ROWS = [
+    {name: "art", key: "jemmas-pokedex-try-art", label: "Card art in dark mode", ds: "tryArt", opts: [["now", "As now"], ["bright", "Brighter"], ["glow", "Glow"], ["light", "Light window"]]},
+    {name: "boxes", key: "jemmas-pokedex-try-boxes", label: "Box colours", ds: "tryBoxes", opts: [["now", "As now"], ["deeper", "Deeper"]]},
+  ];
+  for (const r of ROWS) { r.v = store.get(r.key, "now"); if (!r.opts.some(([k]) => k === r.v)) r.v = "now"; }
   const box = document.createElement("div"); box.className = "trybox"; box.setAttribute("role", "group"); box.setAttribute("aria-label", "Try");
   const draw = () => {
-    document.documentElement.dataset.tryPics = v;
-    box.innerHTML = `<b>Try</b><div class="tryrow"><span>Pictures on Home</span>` +
-      OPTS.map(([k, l]) => `<button type="button" data-v="${k}" aria-pressed="${v === k}">${l}</button>`).join("") + `</div>`;
+    for (const r of ROWS) document.documentElement.dataset[r.ds] = r.v;
+    box.innerHTML = `<b>Try</b>` + ROWS.map(r => `<div class="tryrow" role="group" aria-label="${r.label}" data-row="${r.name}"><span>${r.label}</span>` +
+      r.opts.map(([k, l]) => `<button type="button" data-v="${k}" aria-pressed="${r.v === k}">${l}</button>`).join("") + `</div>`).join("");
   };
-  box.addEventListener("click", ev => { const b = ev.target.closest("[data-v]"); if (!b) return; v = b.dataset.v; store.set(TRY_KEY, v); draw();
-    if (!location.hash || location.hash === "#home") route(); });
+  box.addEventListener("click", ev => { const b = ev.target.closest("[data-v]"); if (!b) return;
+    const r = ROWS.find(x => x.name === b.closest("[data-row]").dataset.row); r.v = b.dataset.v; store.set(r.key, r.v); draw(); });
   draw(); document.body.append(box);
 })();
 // ===== TRIAL: Try switch, END
@@ -434,17 +442,34 @@ function fitLabels(){
 // were sent to rows).
 const tabCanvas = document.createElement("canvas").getContext("2d");
 const TAB_MIN = 8.5;   // the smallest writing on a banner tab before they go into rows (her answer, 21 Nov: smaller rather than two rows)
-function longestFits(t, px){   // would "Gigantamax" fit whole at px beside its icon in this tile?
-  const l = t.querySelector(".slt"), sl = l.parentElement, ic = sl.querySelector(":scope > svg, :scope > .i"), cs = getComputedStyle(t), ls = getComputedStyle(l);
+// windows wider than 900 (her decision, 22 Nov: at 901-1450 the tabs went into 7 + 6 and covered more of the map): always one
+// row, smaller. The usual tabs (icon beside the label) at TAB_MIN or more, else down to TAB_FLOOR; only where even that won't
+// fit (under about 1180 wide) the icon goes above the label (.stacked, tighter, site.css), down to TAB_FLOOR. Phones (900 and
+// under) keep their rows.
+const TAB_FLOOR = 7;
+function longestFits(t, px){   // would "Gigantamax" fit whole at px beside its icon in this tile (above it, in .stacked)?
+  const l = t.querySelector(".slt"), sl = l.parentElement, ic = t.parentElement.classList.contains("stacked") ? null : sl.querySelector(":scope > svg, :scope > .i"), cs = getComputedStyle(t), ls = getComputedStyle(l);
   tabCanvas.font = `${ls.fontWeight} ${px}px ${ls.fontFamily}`;
   const room = t.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight) - (ic ? ic.getBoundingClientRect().width + (parseFloat(getComputedStyle(sl).columnGap) || 0) : 0);
   return tabCanvas.measureText("Gigantamax").width <= room - 1;   // a pixel to spare, as the page measures a hair wider
 }
 function fitTabs(st){
   const tiles = [...st.querySelectorAll(":scope > .stat")], labs = tiles.map(t => t.querySelector(".slt")).filter(Boolean);
-  st.classList.remove("rows"); st.style.gridTemplateColumns = "";
+  st.classList.remove("rows", "stacked"); st.style.gridTemplateColumns = "";
   for (const l of labs) l.style.fontSize = "";
   if (!labs.length || !st.offsetParent) return;
+  if (st.querySelector(".stattab") && innerWidth > 900) {   // one row, smaller (her decision, 22 Nov)
+    const oneRow = least => { for (const l of labs) l.style.fontSize = "";
+      if (!longestFits(tiles[0], least)) return false;
+      let f = parseFloat(getComputedStyle(labs[0]).fontSize);
+      while (f > least && !longestFits(tiles[0], f)) f -= 0.25;
+      for (const l of labs) if (parseFloat(getComputedStyle(l).fontSize) > f) l.style.fontSize = f + "px";
+      return labs.every(l => { let g = parseFloat(getComputedStyle(l).fontSize); while (textOver(l) && g > least) l.style.fontSize = (g -= 0.25) + "px"; return !textOver(l); }); };
+    if (oneRow(TAB_MIN) || oneRow(TAB_FLOOR)) return;
+    st.classList.add("stacked"); if (oneRow(TAB_FLOOR)) return;
+    st.classList.remove("stacked");
+    for (const l of labs) l.style.fontSize = "";
+  }
   const n = tiles.length, top = tiles[0].offsetTop, c0 = tiles.filter(t => t.offsetTop === top).length;
   const tabs = !!st.querySelector(".stattab"), most = tabs ? 13 : n, least = tabs ? TAB_MIN : 10;   // tab rows: always as for the thirteen tabs of Kanto or Galar
   const cols = [c0];   // as laid out, then fewer columns: even rows, or (a few tiles in one row) a little wider each
@@ -536,8 +561,7 @@ function home(){
   view.innerHTML = `<header class="hero withshot">${heroPics(homeMaps())}<span class="label">Pokémon GO · ${num(c.speciesOut)} Pokémon out, plus their forms</span>
     <h1>Jemma’s <em>Pokédex</em></h1>${statsHtml(c)}</header>${readOnlyNote()}
     <section class="section"><h2>By region</h2><div class="gens">${gens}</div></section>
-    <section class="section"><h2>Event Pokémon</h2><div class="gens">${setTiles()}</div></section>
-    <p class="muted" style="margin-top:40px;font-size:12.5px">Pokémon data from the game, checked ${dates(DATA.updated)}.</p>`;
+    <section class="section"><h2>Event Pokémon</h2><div class="gens">${setTiles()}</div></section>`;
 }
 
 function dexPage(title, label, list, region, search = false){

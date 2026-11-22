@@ -179,7 +179,7 @@
     eq(location.hash, "#p-4");
   });
 
-  test("the tabs at the top are the filter, in the game's order, in even rows where one row would cut them (her pick, 21 Nov; second review)", async () => {
+  test("the tabs at the top are the filter, in the game's order, in even rows where one row would cut them (phones; her pick, 21 Nov; second review)", async () => {
     prefs.work = "all"; await go("#gen-1");
     const tabs = [...view().querySelectorAll(".hero .stattab .slt")].map(b => b.textContent);
     eq(tabs, ["Pokémon", "Female", "Male", "Shiny", "Lucky", "XXL", "XXS", "Dynamax", "Gigantamax", "Mega", "Shadow", "Purified", "4★"]);   // the game's Pokédex order (her ask, 12 Nov)
@@ -327,18 +327,57 @@
     }
   });
 
-  test("TEMPORARY Try switch (22 Nov): Pictures on Home, As now / Smaller; Smaller uses the copies in regions/home/", async () => {
-    const box = document.querySelector(".trybox");
-    ok(box && box.textContent.includes("Pictures on Home") && !box.textContent.includes("Lucky"), "only the new switch, bottom right");
-    const was = document.documentElement.dataset.tryPics, pics = () => [...view().querySelectorAll(".hero .heropics i")].map(i => i.style.backgroundImage);
+  test("no date on Home (her decision, 22 Nov: the “Pokémon data from the game, checked …” line is gone)", async () => {
+    await go("#home");
+    ok(!/checked|Pokémon data from the game/.test(view().textContent), "no checked line on Home");
+  });
+
+  test("Home's banner uses the smaller copies in regions/home/ (her pick, 22 Nov: Smaller)", async () => {
+    await go("#home");
+    const small = [...view().querySelectorAll(".hero .heropics i")].map(i => i.style.backgroundImage);
+    eq(small.length, 10, "ten maps"); ok(small.every(u => /regions\/home\/[a-z]+-map-\d\.webp/.test(u)), `Home: ${small[0]}`);
+    for (const u of small) { const r = await fetch(u.slice(5, -2)); ok(r.ok, `${u} is there`); }
+  });
+
+  test("TEMPORARY Try switch (22 Nov): Card art in dark mode, As now / Brighter / Glow / Light window; dark only", async () => {
+    const box = document.querySelector(".trybox"), root = document.documentElement;
+    ok(box && box.textContent.includes("Card art in dark mode") && !box.textContent.includes("Pictures on Home"), "the card art row; Pictures on Home gone");
+    eq(box.querySelectorAll('[data-row="art"] [data-v]').length, 4, "four options");
+    const wasArt = root.dataset.tryArt, wasMode = root.dataset.mode;
+    prefs.work = "all"; prefs.workShow = "all"; await go("#gen-1");
+    const art = () => getComputedStyle(view().querySelector('.card[data-id="6"] .pic')).backgroundImage;
+    const nm = () => getComputedStyle(view().querySelector('.card[data-id="6"] .nm')).color;
     try {
-      box.querySelector('[data-v="small"]').click(); await go("#home");
-      const small = pics();
-      eq(small.length, 10, "ten maps"); ok(small.every(u => /regions\/home\/[a-z]+-map-\d\.webp/.test(u)), `Smaller: ${small[0]}`);
-      for (const u of small) { const r = await fetch(u.slice(5, -2)); ok(r.ok, `${u} is there`); }
-      box.querySelector('[data-v="now"]').click(); await go("#home");
-      ok(pics().every(u => /regions\/[a-z]+-map-\d\.jpg/.test(u)), "As now: the full maps");
-    } finally { box.querySelector(`[data-v="${was === "small" ? "small" : "now"}"]`).click(); }
+      root.dataset.mode = "light";
+      box.querySelector('[data-v="now"]').click(); const light = art();
+      box.querySelector('[data-v="glow"]').click(); eq(art(), light, "light mode unchanged by the switch");
+      root.dataset.mode = "dark";
+      const seen = {};
+      for (const k of ["now", "bright", "glow", "light"]) { box.querySelector(`[data-v="${k}"]`).click(); eq(root.dataset.tryArt, k, k); seen[k] = art(); }
+      eq(new Set(Object.values(seen)).size, 4, "each option looks different in dark mode");
+      box.querySelector('[data-v="bright"]').click(); const n1 = nm(); box.querySelector('[data-v="now"]').click();
+      eq(nm(), n1, "the name's colour is not affected");
+    } finally {
+      if (wasMode) root.dataset.mode = wasMode; else delete root.dataset.mode;
+      box.querySelector(`[data-row="art"] [data-v="${wasArt || "now"}"]`).click();
+    }
+  });
+
+  test("TEMPORARY Try switch (22 Nov): Box colours, As now / Deeper; Deeper gives white writing 4.5:1 on every box colour", async () => {
+    const box = document.querySelector(".trybox"), root = document.documentElement, was = root.dataset.tryBoxes;
+    const row = () => box.querySelector('[data-row="boxes"]'); ok(row() && row().textContent.includes("Box colours"), "the row is there");
+    const hex = n => getComputedStyle(root).getPropertyValue(`--${n}`).trim();
+    const lum = h => { const c = [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16) / 255).map(v => v <= 0.04045 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4);
+      return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2]; };
+    const NAMES = ["lucky", "shiny", "male", "purified", "xxl", "hundo", "mega"];
+    try {
+      row().querySelector('[data-v="now"]').click(); eq(hex("lucky").toUpperCase(), "#D09B00", "As now: her colours");
+      row().querySelector('[data-v="deeper"]').click(); eq(root.dataset.tryBoxes, "deeper");
+      for (const n of NAMES) ok(1.05 / (lum(hex(n)) + 0.05) >= 4.5, `${n} ${hex(n)}: white at 4.5:1 or more`);
+      prefs.work = "all"; prefs.workShow = "all"; await go("#gen-1");
+      const on = view().querySelector('.tk.l[aria-pressed="true"], .tk.c[aria-pressed="true"]');
+      if (on && on.classList.contains("l")) eq(getComputedStyle(on).backgroundColor, "rgb(151, 112, 0)", "a ticked Lucky box follows it");
+    } finally { row().querySelector(`[data-v="${was === "deeper" ? "deeper" : "now"}"]`).click(); }
   });
 
   test("the art window is tinted by the Pokémon's first type (her pick, 21 Nov); the 21 Nov Try switch is gone", async () => {
@@ -805,9 +844,9 @@
     }
   });
 
-  test("the banner tabs are never cut, never under 8.5px (other tiles 10px), keep their icons and never slide sideways, at 1600, 1280, 1000, 901 and 390 (second review, 21 Nov)", async () => {
+  test("the banner tabs are never cut, never under 7px over 900 wide and 8.5px on phones (other tiles 10px), keep their icons and never slide sideways, at 1600, 1450, 1280, 1100, 1000, 901 and 390 (second review, 21 Nov; her decision, 22 Nov)", async () => {
     const problems = [];
-    for (const width of [1600, 1280, 1000, 901, 390]) {
+    for (const width of [1600, 1450, 1280, 1100, 1000, 901, 390]) {
       const f = document.createElement("iframe");
       f.style.cssText = `position:fixed;left:0;top:0;width:${width}px;height:800px;border:0;opacity:0;pointer-events:none`;
       f.src = "index.html#gen-1"; document.body.append(f);
@@ -821,7 +860,7 @@
             const l = t.querySelector(".slt"); if (!l) continue;
             const icon = t.querySelector(".sl > svg, .sl > .i");
             if (w.textOver(l)) problems.push(`${width} ${h}: “${l.textContent}” cut`);
-            if (parseFloat(w.getComputedStyle(l).fontSize) < (t.classList.contains("stattab") ? 8.5 : 10)) problems.push(`${width} ${h}: “${l.textContent}” ${w.getComputedStyle(l).fontSize}`);
+            if (parseFloat(w.getComputedStyle(l).fontSize) < (t.classList.contains("stattab") ? (width > 900 ? 7 : 8.5) : 10)) problems.push(`${width} ${h}: “${l.textContent}” ${w.getComputedStyle(l).fontSize}`);
             if (t.getBoundingClientRect().right > hero.right + .5) problems.push(`${width} ${h}: “${l.textContent}” past the banner's edge`);
             if (!icon || w.getComputedStyle(icon).display === "none") problems.push(`${width} ${h}: “${l.textContent}” lost its icon`);
           }
@@ -838,9 +877,9 @@
     eq(problems, [], "problems:");
   });
 
-  test("every region page and Every Pokémon have tabs of the same size, in one row, at 1600 and 1280 (her note, 21 Nov: Kanto's were bigger and didn't fit in a line)", async () => {
+  test("every region page and Every Pokémon have tabs of the same size, in one row, at every width over 900 (her note, 21 Nov: Kanto's were bigger and didn't fit in a line; her decision, 22 Nov: one smaller row at 901-1450 too)", async () => {
     const problems = [];
-    for (const width of [1600, 1584, 1280]) {   // 1584: her 1600 window less its scrollbar
+    for (const width of [1600, 1584, 1450, 1280, 1100, 1000, 901]) {   // 1584: her 1600 window less its scrollbar
       const f = document.createElement("iframe");
       f.style.cssText = `position:fixed;left:0;top:0;width:${width}px;height:800px;border:0;opacity:0;pointer-events:none`;
       f.src = "index.html#gen-1"; document.body.append(f);
@@ -855,7 +894,8 @@
         }
         const k = seen.find(x => x.h === "#gen-1");
         for (const x of seen) if (x.w !== k.w || x.ht !== k.ht || x.row !== k.row) problems.push(`${width}: ${x.h} ${x.w}×${x.ht} (${x.row}) but Kanto ${k.w}×${k.ht} (${k.row})`);
-        if (k.row !== "one") problems.push(`${width}: Kanto's tabs not in one line`);   // 1280 too: smaller writing rather than two rows (her answer, 21 Nov)
+        if (k.row !== "one") problems.push(`${width}: Kanto's tabs not in one line`);   // 1280 too: smaller writing rather than two rows (her answer, 21 Nov), and down to 901 (22 Nov)
+        if (d.querySelector("#view .hero .stats.rows")) problems.push(`${width}: tabs in rows`);
         const sizes = new Set([...d.querySelectorAll("#view .hero .stattab .slt")].map(l => w.getComputedStyle(l).fontSize));
         if (sizes.size !== 1) problems.push(`${width}: tab writing in ${[...sizes].join(", ")}`);
       } finally { f.remove(); }
@@ -1155,6 +1195,36 @@
       }
     } finally { root.dataset.mode = before; probe.remove(); }
     eq(low, [], "too faint:");
+  });
+
+  // last of all: nothing the tests did (this page and every window they opened) broke the Content Security Policy
+  test("Content Security Policy (her decision, 22 Nov): only the site's own code runs, and nothing on any page breaks the policy", async () => {
+    const POLICY = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-src 'none'";
+    const real = await realFetch("index.html").then(r => r.text());
+    const m = real.match(/<meta http-equiv="Content-Security-Policy" content="([^"]*)">/);
+    ok(m, "index.html has the policy"); eq(m[1], POLICY, "the policy");
+    ok(real.indexOf(m[0]) < real.indexOf('<script src="/family/mode.js"'), "the policy comes before any of the site's scripts");
+    ok(!/<script(?![^>]*\bsrc=)[^>]*>/.test(real.replace('<script src="__tests__/csp-watch.js"></script>', "")), "no inline script in index.html");
+    ok(!/\son[a-z]+=/i.test(real), "no inline handlers in index.html");
+    // the policy is on: inline code is refused
+    const n = window.__csp.length; window.__inlineRan = false;
+    const s = document.createElement("script"); s.textContent = "window.__inlineRan = true"; document.head.append(s); await wait(50); s.remove();
+    ok(!window.__inlineRan, "an inline script didn't run"); ok(window.__csp.length > n, "and was reported");
+    window.__csp.splice(n);
+    const b = document.createElement("button"); b.setAttribute("onclick", "window.__inlineRan = true"); document.body.append(b); b.click(); b.remove(); await wait(20);
+    ok(!window.__inlineRan, "an inline handler didn't run"); window.__csp.splice(n);
+    // every kind of page, light and dark, Try switch rows included
+    const root = document.documentElement, before = root.dataset.mode;
+    try {
+      for (const mode of ["light", "dark"]) {
+        root.dataset.mode = mode;
+        for (const h of ["#home", "#dex", "#gen-1", "#gen-8", "#gen-hisui", "#p-6", "#p-201", "#p-58-hisuian", "#sets", "#want", "#coming", "#fast", "#nothing-here"]) { await show(h); await wait(30); }
+        for (const b of document.querySelectorAll(".trybox [data-v]")) { b.click(); await wait(10); }
+      }
+    } finally { root.dataset.mode = before;
+      document.querySelector('.trybox [data-row="art"] [data-v="now"]')?.click(); document.querySelector('.trybox [data-row="boxes"] [data-v="now"]')?.click(); }
+    await wait(200);
+    eq(window.__csp, [], "Content Security Policy violations:");
   });
 
   // ---------- run ----------

@@ -576,6 +576,9 @@ a.formsbtn{text-decoration:none}
 .hero.withshot::after{content:"";position:absolute;inset:0 0 0 auto;width:var(--shotw,70%);height:auto;border:0;border-radius:0;box-shadow:none;opacity:1;z-index:0;   /* the map fills most of the banner, the same for every region, with only a short fade on its left (her ask, 12 Nov: over half map, all the same) */
   background:linear-gradient(transparent 70%,rgba(0,0,0,.25)),var(--shot) var(--shotfit,center 40%/cover) no-repeat;
   -webkit-mask:linear-gradient(90deg,transparent,#000 16%);mask:linear-gradient(90deg,transparent,#000 16%)}
+/* a map with plain white sky at its top (Kanto) is lifted that much out of the top of the banner (app.js SHOT_LIFT; her note,
+   22 Nov: a white haze top right at about 1000 wide); phones show the map in a band of their own, unchanged */
+@media (min-width:901px){ .hero.withshot::after{top:calc(-1 * var(--shotlift,0px))} }
 .withshot .stat{background:color-mix(in srgb,var(--rc) 55%,rgba(0,0,0,.55));border-color:rgba(255,255,255,.18);backdrop-filter:blur(6px)}
 .withshot .stat .sl,.withshot .stat b small,.withshot .stat .sx{color:rgba(255,255,255,.85)}
 /* Mega: the GO Tour 2026 Mega background (Serebii's full picture), with white instead of black (her ask; fetch_sprites.py --extras makes variants/mega-light.webp) */
@@ -1138,6 +1141,18 @@ main{background:linear-gradient(90deg,rgba(70,40,30,.18),rgba(70,40,30,0) 54px) 
   .hero .stat .sl .i,.hero.withshot .stat .sl .i,.hero .stats:has(.stattab) .stat .sl .i{width:11px;height:11px;padding:1.5px}
 }
 .hero .stats.rows{grid-auto-flow:row;grid-auto-rows:auto;justify-content:stretch}
+/* 901-1450 where the usual tabs don't fit in one row (her decision, 22 Nov: one row, smaller, rather than 7 + 6 over the map):
+   app.js fitTabs adds .stacked: each tab's icon above its label, the tiles closer and less padded, the numbers smaller; writing
+   down to 7px (TAB_FLOOR). Just under 1000 wide the row also reaches 20px into the banner's side padding (room for a scrollbar at 901) */
+@media (min-width:901px){
+  .hero .stats.stacked,.hero.withshot .stats.stacked{grid-auto-columns:calc((100% - 24px) / 13);column-gap:2px;grid-auto-rows:auto}
+  :root .hero .stats.stacked .stat,:root .hero.withshot .stats.stacked .stat{padding:4px 1px 5px 2px;gap:1px}
+  :root .hero .stats.stacked .stat .sl,:root .hero.withshot .stats.stacked .stat .sl{flex-direction:column;align-items:flex-start;gap:1px}
+  :root .hero .stats.stacked .stat .sl .i,:root .hero.withshot .stats.stacked .stat .sl .i{width:11px;height:11px;padding:1.5px}
+  :root .hero .stats.stacked .stat b,:root .hero.withshot .stats.stacked .stat b{font-size:13px}
+  :root .hero .stats.stacked .stat b small,:root .hero.withshot .stats.stacked .stat b small{font-size:8.5px;display:block}
+}
+@media (min-width:901px) and (max-width:1000px){ .hero .stats.stacked,.hero.withshot .stats.stacked{margin-inline:-20px} }
 .hero .stats.rows .stat.stattab[aria-pressed="true"]{transform:none}
 @media (max-width:700px){ .hero .stats:has(.stattab) .stat{padding-inline:4px} }   /* phones: four tabs a row, not three */
 /* the family of evolutions, stacked downwards with down arrows where it is wider than the page (second review: on a phone
@@ -1169,8 +1184,8 @@ main{background:linear-gradient(90deg,rgba(70,40,30,.18),rgba(70,40,30,0) 54px) 
 .view-only .tk[aria-disabled="true"]:not([aria-pressed="true"]):hover{border-color:transparent}
 .view-only [data-fastall]{display:none!important}
 
-/* ===== TRIAL: Try switch (22 Nov), START: remove with the TRIAL block in app.js (after ALL_MAPS) once she has picked =====
-   Pictures on Home: As now (the full region maps) or Smaller (copies at twice the size shown, site/regions/home/). */
+/* ===== TRIAL: Try switch (22 Nov), START: remove with the TRIAL block in app.js (after homeMaps) once she has picked =====
+   Card art in dark mode: As now / Brighter / Glow / Light window; Box colours: As now / Deeper. */
 .trybox{position:fixed;right:12px;bottom:12px;z-index:60;display:grid;gap:6px;padding:8px 10px;border-radius:10px;background:var(--surface,#fff);color:var(--ink,#222);
   border:1px solid var(--line,#ccc);box-shadow:0 4px 16px rgba(0,0,0,.2);font:600 12px var(--body,sans-serif)}
 .trybox > b{font-size:11px;letter-spacing:.08em;text-transform:uppercase}
@@ -1179,4 +1194,30 @@ main{background:linear-gradient(90deg,rgba(70,40,30,.18),rgba(70,40,30,0) 54px) 
 .tryrow button{font:inherit;padding:3px 8px;border-radius:6px;border:1px solid var(--line,#ccc);background:transparent;color:inherit;cursor:pointer}
 .tryrow button[aria-pressed="true"]{background:var(--ink,#222);color:var(--surface,#fff);border-color:transparent}
 @media print{.trybox{display:none}}
+/* Card art in dark mode (22 Nov, her ask: the type tint looked muddy, Charizard a dull brown); dark mode only, light mode
+   unchanged. app.js sets data-try-art on <html>: now (as now), bright, glow, light. Every art window: Pokémon cards and a
+   Pokémon's page (type colour, --tc), costume cards and Home's region sets (no type: the region colour, --rc). */
+:root[data-mode="dark"]:is([data-try-art="bright"],[data-try-art="glow"]) :is(.card .pic,.monpic .pic,.genart){--wc:var(--tc,var(--rc,#7E2530))}
+/* Brighter: the same type tint, about half type colour, round a light centre */
+:root[data-mode="dark"][data-try-art="bright"] :is(.card .pic,.monpic .pic,.genart){
+  background:radial-gradient(circle,rgba(0,0,0,.08) 1px,transparent 1.4px) 0 0/6px 6px,
+    radial-gradient(circle at 50% 60%,color-mix(in srgb,var(--wc) 42%,#F6EEEA),color-mix(in srgb,var(--wc) 62%,#2A2022))}
+/* Glow: a dark window with a soft glow of the type colour behind the Pokémon, bright in the middle fading to the dark card */
+:root[data-mode="dark"][data-try-art="glow"] :is(.card .pic,.monpic .pic,.genart){
+  background:radial-gradient(circle,rgba(255,255,255,.05) 1px,transparent 1.4px) 0 0/6px 6px,
+    radial-gradient(closest-side circle at 50% 58%,color-mix(in srgb,var(--wc) 80%,#fff) 0%,color-mix(in srgb,var(--wc) 75%,transparent) 38%,color-mix(in srgb,var(--wc) 22%,transparent) 72%,transparent 100%),
+    #1C1416}
+:root[data-mode="dark"][data-try-art="glow"] .genart{background:radial-gradient(circle,rgba(255,255,255,.05) 1px,transparent 1.4px) 0 0/6px 6px,
+    radial-gradient(farthest-side ellipse at 50% 58%,color-mix(in srgb,var(--wc) 70%,#fff) 0%,color-mix(in srgb,var(--wc) 45%,transparent) 55%,transparent 100%),#1C1416}
+/* Light window: the same pale tinted window as in light mode */
+:root[data-mode="dark"][data-try-art="light"] :is(.card .pic,.monpic .pic,.genart){--win-hi:#fff;--win-lo:#F7EFE2;--win-dots:rgba(0,0,0,.07);--win-rim:rgba(255,255,255,.7)}
+:root[data-mode="dark"][data-try-art="light"] :is(.card .pic,.monpic .pic){box-shadow:inset 0 0 0 1px var(--win-rim),inset 0 4px 10px rgba(0,0,0,.08)}
+/* the shiny's faint rainbow as in light mode on the light window (screen on a light window would vanish) */
+:root[data-mode="dark"][data-try-art="light"] .card:is(.shiny,:has(.tk.s:is([aria-pressed="true"],[data-all="true"]))) :is(.pic,.bgpic)::after{mix-blend-mode:multiply;opacity:.3}
+:root[data-mode="dark"][data-try-art="light"] .card:is(.shiny,:has(.tk.s:is([aria-pressed="true"],[data-all="true"]))) :is(.pic,.bgpic)::before{background:linear-gradient(115deg,transparent 32%,rgba(255,255,255,.28) 42%,transparent 52%)}
+/* Box colours: Deeper (22 Nov, her ask): each box colour whose white writing was under 4.5:1 made just dark enough to reach it,
+   same hue (HSL lightness only), light and dark mode; everywhere the colour shows (cards, the page strip, tabs, Fast tick…),
+   as every use goes through these variables. White on: Lucky 2.51 -> 4.53, Shiny 3.65 -> 4.54, Male 4.18 -> 4.50,
+   Purified 4.20 -> 4.56, XXL 4.21 -> 4.54, 4★ 4.36 -> 4.51, Mega (X and Y too) 4.49 -> 4.52. */
+:root[data-try-boxes="deeper"]{--lucky:#977000;--shiny:#6C7786;--male:#078856;--purified:#007CBC;--xxl:#0D847F;--hundo:#D03C83;--mega:#C1571A}
 /* ===== TRIAL: Try switch, END ===== */
