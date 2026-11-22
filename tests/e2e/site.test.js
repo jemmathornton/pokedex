@@ -1047,7 +1047,7 @@
       if (!name || name.textContent !== "Jemma’s Pokédex" || getComputedStyle(name).fontStyle !== "normal" || getComputedStyle(name).fontSize !== "24px") problems.push(`${h}: the name`);
       if ([...foot.querySelectorAll("[data-jj-credits] .dot")].some(x => x.textContent !== "\u00a0·" || !/^ /.test(x.nextSibling?.textContent || ""))) problems.push(`${h}: a “·” could start or end a line (credit&nbsp;· credit)`);
       if (!/balance/.test(getComputedStyle(lines[1]).textWrap || getComputedStyle(lines[1]).textWrapStyle || "")) problems.push(`${h}: the credits not balanced`);
-      if (lines.length !== 2 || lines[0].textContent !== "No cookies, no tracking, no ads. Made with HTML, CSS and JavaScript, kept on GitHub.") problems.push(`${h}: line 1`);
+      if (lines.length !== 2 || lines[0].textContent !== "No cookies, no tracking, no ads. Made with HTML, CSS, JavaScript and Python, kept on GitHub.") problems.push(`${h}: line 1`);
       const credits = [...foot.querySelectorAll("[data-jj-credits] .cr")].map(c => c.textContent);
       if (credits.join(" | ") !== "Pokémon pictures, backgrounds and region maps from the Pokémon games | Fonts: Instrument Serif and Manrope | Icons by Lucide, Phosphor, Tabler, MingCute and Solar (480 Design)") problems.push(`${h}: credits ${credits.join(" | ")}`);
       { const cl = foot.querySelector("p[data-jj-credits]"); if (cl.scrollWidth > cl.clientWidth + 1) problems.push(`${h}: the credits line can’t wrap`); }   // round-2 review: it couldn’t, so pages scrolled sideways at 601–1113

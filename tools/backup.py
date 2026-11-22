@@ -63,6 +63,9 @@ def push():
     next week's push catches up. Signed in through the GitHub tool (gh), which git uses for github.com."""
     try:
         env = dict(os.environ, GIT_TERMINAL_PROMPT='0', GCM_INTERACTIVE='never')
+        gh = 'C:/Program Files/GitHub CLI/gh.exe'   # sign in through the GitHub CLI, never Windows' sign-in window (her ask, 22 Nov)
+        if os.path.exists(gh):   # git reads these as config: no helper from Windows, then the GitHub CLI's
+            env.update(GIT_CONFIG_COUNT='2', GIT_CONFIG_KEY_0='credential.helper', GIT_CONFIG_VALUE_0='', GIT_CONFIG_KEY_1='credential.helper', GIT_CONFIG_VALUE_1=f"!'{gh}' auth git-credential")
         r = subprocess.run(['git', 'push', '-q', 'origin', 'HEAD'], cwd=ROOT, capture_output=True, text=True, encoding='utf-8',
                            errors='replace', env=env, creationflags=NO_WINDOW, timeout=900)
         log('github: pushed' if r.returncode == 0 else 'github: push failed: ' + (r.stderr or r.stdout).strip()[-400:])
