@@ -24,6 +24,12 @@ unit/test_build_more.py  (19 Nov) backgrounds an upcoming event brings back (Pok
 unit/test_importers.py  (19 Nov) import_events.py offline (names, UTC times, picture keys, matching, a refresh from a
                      made-up feed) and import_go.py's helpers (codes, form names, slugs, Dittobase and Serebii matching).
 unit/test_import.py  (slow) re-running the import from the saved downloads gives the same data.
+unit/test_home_tools.py  (22 Nov) Pokémon HOME's tools: import_home.py re-run from imports/home-* gives the same
+                     data/home/; fetch_home_sprites.py fetches only HOME's pictures (never a shiny of one that can't be
+                     shiny) and every one it wants is in the project. Also for HOME: test_data.py HomeData (every species,
+                     ids, shiny and Gigantamax as Serebii lists them, GO's forms HOME doesn't keep left out),
+                     test_server.py (home.json apart from go.json, only HOME's boxes, unknown games refused),
+                     test_build_more.py (DATA.home, a broken HOME list stops the build, HOME's picture only where GO has none).
 unit/test_calcy.py   the Calcy IV importer: the right boxes from a row, ancestor rows skipped, never an impossible box.
 unit/test_pokedex_reader.py  the game's-Pokédex reader on real screenshots (fixtures/pokedex/): every cell it reads is
                      right, covered cells skipped, region/count/tab read, misread numbers dropped, the Quick add line,
@@ -37,6 +43,10 @@ e2e/site.test.js     in Chrome: every page (all ~1,000 Pokémon pages too) opens
                      line on one line, the Mega tab, search, Costumes/Events only hers, the region picture switch; (19 Nov) totals for gender
                      forms, regional forms and forms one by one, ticking any box ticks Caught, What's on
                      month by month, Event Pokémon and Home counts, unknown addresses, Looking for's tabs and copied list.
+                     (22 Nov) Pokémon HOME: every HOME page in the sweep, only HOME's boxes, ticks saved to HOME's file
+                     and never GO's (and refused on a server from before HOME), HOME's Fast tick, search and ← → in HOME,
+                     no shiny or Gigantamax where HOME has none, HOME's own forms, a GO-only tab left in GO, view only,
+                     one picture for a Pokémon in both games, Alcremie form by form.
                      (21 Nov) the foot of every page: Back to top and Dark mode on every page, Back to top scrolls up and
                      moves focus, Dark mode opens light, switches and is remembered after reloading, no follow-the-device
                      dark rules, text contrast 4.5:1 in light and dark.

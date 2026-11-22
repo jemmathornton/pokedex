@@ -98,5 +98,39 @@ class BuildMore(unittest.TestCase):
         self.assertEqual((d['special'], d['costumeEvents']), ([], {}))
 
 
+    # ---------- Pokémon HOME (22 Nov) ----------
+    def test_home_goes_in_as_data_home_with_her_home_ticks(self):
+        self.box.write({'have': {'d:25': ['c', 's']}, 'went': [], 'costumes': []}, 'collection', 'home.json')
+        d = self.ok()
+        self.assertEqual(d['home']['entries'], self.box.read('home', 'dex.json')['entries'])
+        self.assertEqual(d['home']['collection']['have'], {'d:25': ['c', 's']})
+        self.assertEqual(pathlib.Path(self.box.path('data', 'collection', 'go.json')).read_bytes(), self.ticks, 'GO’s ticks file untouched')
+
+    def test_builds_without_home_and_its_ticks(self):
+        os.remove(self.box.path('data', 'home', 'dex.json'))
+        if os.path.exists(self.box.path('data', 'collection', 'home.json')):
+            os.remove(self.box.path('data', 'collection', 'home.json'))
+        d = self.ok()
+        self.assertEqual(d['home'], {'entries': [], 'collection': {}})
+
+    def test_stops_when_home_names_a_go_entry_that_isnt_there_or_an_id_twice(self):
+        home = self.box.read('home', 'dex.json')
+        self.box.write({**home, 'entries': home['entries'] + [{'id': '99999', 'go': True, 'shiny': True, 'gmax': False}]}, 'home', 'dex.json')
+        self.fails('99999', 'hasn’t got')
+        self.box.write({**home, 'entries': home['entries'] + [home['entries'][0]]}, 'home', 'dex.json')
+        self.fails('id is there twice')
+
+    def test_homes_picture_only_where_go_has_none_and_only_if_it_is_there(self):
+        sprites = pathlib.Path(self.box.path('site', 'sprites')); (sprites / 'big').mkdir(parents=True)
+        al = 'hm.869-vanilla-cream-strawberry-sweet'   # GO's plain Alcremie is HOME's Vanilla Cream Strawberry Sweet
+        for name in (al, al + '.s', 'hm.1025'):   # stand-ins: the build only reads the names
+            (sprites / f'{name}.webp').write_bytes(b'')
+        (sprites / 'pm1025.webp').write_bytes(b'')   # say GO's files had a Pecharunt
+        alt = self.ok()['picAlt']
+        self.assertEqual((alt.get('pm869'), alt.get('pm869.s')), (al, al + '.s'), 'Alcremie: HOME’s picture')
+        self.assertNotIn('pm1025', alt, 'GO’s own picture wins')
+        self.assertFalse([k for k, v in alt.items() if not (sprites / f'{v}.webp').exists()], 'only pictures that are there')
+
+
 if __name__ == '__main__':
     unittest.main()

@@ -192,6 +192,7 @@ const GENDER_WORDS = {male: "♂ only", female: "♀ only", none: "Genderless"};
 // forms (Shiny 3/6) and the card opens its page (Pumpkaboo and Urshifu added 15 Nov; Sinistea and Polteageist undecided), where every form has its own boxes. Arceus left for when it's out (her call).
 const FORM_SPECIES = new Set([150, 351, 386, 413, 479, 483, 484, 487, 492, 550, 641, 642, 645, 646, 649, 710, 711, 718, 720, 741, 745, 774, 800, 849, 892, 905,
   201, 327, 412, 421, 422, 423, 585, 586, 647, 666, 669, 670, 671, 676, 925, 931, 978, 982,
+  869,   // Alcremie, like Vivillon (her answer, 22 Nov evening): its 63 flavours in Pokémon HOME (GO has one Alcremie)
   449, 450, 521, 592, 593, 668, 678, 876, 902, 916]);   // male and female fully different (her pick, 18 Nov)
 // her pick of the looks (15 Nov, her idea): each box fills up in its colour as she gets its forms, with the count (Shiny 1/4);
 // the filled part is a copy of the box in white words, clipped; every form got = the full box. With a filter tab on, just that box.

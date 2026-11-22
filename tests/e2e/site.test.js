@@ -141,6 +141,11 @@
     eq(location.hash, "#p-26");
     document.body.dispatchEvent(new KeyboardEvent("keydown", {key: "ArrowLeft", bubbles: true})); await wait(50);
     eq(location.hash, "#p-25");
+    await go("#hm-p-25");   // in Pokémon HOME, HOME's pages
+    document.body.dispatchEvent(new KeyboardEvent("keydown", {key: "ArrowRight", bubbles: true})); await wait(50);
+    eq(location.hash, "#hm-p-26");
+    document.body.dispatchEvent(new KeyboardEvent("keydown", {key: "ArrowLeft", bubbles: true})); await wait(50);
+    eq(location.hash, "#hm-p-25");
   });
 
   test("a Pokémon whose forms she tracks one by one: one card whose boxes count her forms and fill up (her pick, 15 Nov)", async () => {
@@ -1055,6 +1060,9 @@
         eq(unmarked(), 0, `${label}: every Fast tick square is aria-disabled`);
         w.route("sets"); await wait(50); eq(unmarked(), 0, `${label}: Event Pokémon's boxes too`);
         w.route("gen-1"); await wait(50); eq(unmarked(), 0, `${label}: a region's cards too`);
+        w.route("hm-p-6"); await wait(50); ok(d.querySelectorAll("#view [data-tick]").length >= 5, `${label}: HOME's boxes show`); eq(unmarked(), 0, `${label}: HOME's boxes aria-disabled too`);
+        w.route("hm-fast"); await wait(50); eq(unmarked(), 0, `${label}: HOME's Fast tick too`);
+        eq(w.__posts, [], `${label}: still nothing sent`);
       } finally { f.remove(); }
     }
   });
@@ -1224,13 +1232,14 @@
     await go("#hm-p-1");
     try {
       click(box("Shiny")); await until(() => box("Shiny").getAttribute("aria-pressed") === "true");
-      await wait(300);
-      const h = await server("home");
+      let h = null;   // the Caught that comes with it is saved just after the Shiny
+      for (let t = 0; t < 5000 && !(h && (h.have["d:1"] || []).length === 2); t += 200) { await wait(200); h = await server("home"); }
       eq(h.have["d:1"], ["c", "s"], "Shiny and Caught with it, in HOME");
       eq(JSON.stringify((await server("go")).have), goBefore, "GO's ticks unchanged");
       await go("#p-1"); eq(box("Shiny").getAttribute("aria-pressed"), "false", "GO's Bulbasaur not shiny");
       await go("#hm-p-1"); eq(box("Shiny").getAttribute("aria-pressed"), "true", "HOME's still is");
-      click(box("Shiny")); await until(() => box("Shiny").getAttribute("aria-pressed") === "false"); await wait(300);
+      click(box("Shiny")); await until(() => box("Shiny").getAttribute("aria-pressed") === "false");
+      for (let t = 0; t < 5000 && (await server("home")).have["d:1"]; t += 200) await wait(200);
       eq((await server("home")).have["d:1"], undefined, "unticking Shiny unticks the Caught that came with it");
     } finally {
       for (const t of ["s", "c"]) await save({game: "home", list: "have", key: "d:1", tick: t, on: false});
@@ -1245,10 +1254,19 @@
     ok(/Pokémon HOME/.test(view().querySelector(".hero p").textContent), "says to use HOME");
     const cell = view().querySelector('.fastgrid [data-fast="4"]');
     try {
-      click(cell); await until(() => view().querySelector('.fastgrid [data-fast="4"]').getAttribute("aria-pressed") === "true"); await wait(300);
+      click(cell); await until(() => view().querySelector('.fastgrid [data-fast="4"]').getAttribute("aria-pressed") === "true");
+      for (let t = 0; t < 5000 && !(await server("home")).have["d:4"]; t += 200) await wait(200);
       eq((await server("home")).have["d:4"], ["c"], "saved in HOME");
       ok(!(await server("go")).have["d:4"], "not in GO");
     } finally { await save({game: "home", list: "have", key: "d:4", tick: "c", on: false}); COLS.home.have = {}; }
+  });
+
+  test("Alcremie tracked form by form in HOME, like Vivillon (her answer, 22 Nov evening)", async () => {
+    await go("#hm-gen-8");
+    const al = view().querySelector('.card[data-id="869"]');
+    ok(al && al.querySelector(".fbs") && /0\/63/.test(al.textContent), "its card counts its 63 flavours");
+    ok(FORM_SPECIES.has(666) && FORM_SPECIES.has(869), "beside Vivillon");
+    await go("#gen-8"); ok(!view().querySelector('.card[data-id="869"] .fbs'), "GO's one Alcremie: a plain card");
   });
 
   test("one picture for a Pokémon in both games (her question, 22 Nov): GO's own, HOME's only where GO's files have none", async () => {
@@ -1256,6 +1274,61 @@
     ok(goAl && !SPRITES.has(goAl.img) && sprite(goAl.img) && /sprites\/hm\./.test(sprite(goAl.img)), "Alcremie: no picture in GO's files, so HOME's, in GO too");
     ok(SPRITES.has("pm25") && sprite("pm25") === "sprites/pm25.webp", "Pikachu: GO's own picture");
     await go("#hm-p-869"); ok(view().querySelector(".monpic img").getAttribute("src").includes("sprites/big/hm."), "Alcremie's big picture in HOME");
+  });
+
+  test("a GO-only tab picked in GO is no tab in HOME, and is still picked back in GO", async () => {
+    try {
+      prefs.work = "lucky"; keepPrefs();
+      await go("#hm-gen-1");
+      ok(!view().querySelector("[data-clear]"), "no Clear in HOME");
+      ok(!view().querySelector('.stattab[aria-pressed="true"]'), "no tab lit in HOME");
+      ok(view().querySelector('.card[data-id="1"] .tk.s'), "HOME's cards show every HOME box, not only one");
+      await go("#gen-1");
+      ok(view().querySelector('.stattab[data-work="lucky"][aria-pressed="true"]'), "Lucky still picked in GO");
+    } finally { prefs.work = "all"; prefs.workShow = "all"; keepPrefs(); }
+  });
+
+  test("HOME's ticks on a server from before HOME: refused with a note, nothing saved to either file", async () => {
+    const goBefore = JSON.stringify((await server("go")).have), homeBefore = JSON.stringify((await server("home")).have);
+    let msg = ""; const t0 = window.toast; window.toast = m => { msg = m; };
+    try {
+      READY.home = false;
+      await go("#hm-p-1");
+      click(box("Caught")); await until(() => msg);
+      ok(/can’t save Pokémon HOME/.test(msg), msg);
+      await until(() => box("Caught").getAttribute("aria-pressed") === "false");
+      eq(JSON.stringify((await server("go")).have), goBefore, "GO's file unchanged");
+      eq(JSON.stringify((await server("home")).have), homeBefore, "HOME's file unchanged");
+    } finally { READY.home = true; window.toast = t0; }
+  });
+
+  test("HOME's own facts: no shiny where HOME has none, Gigantamax only where it can be, its own forms", async () => {
+    await go("#hm-p-494");   // Victini: can't be shiny in HOME
+    eq(fact("Shiny"), "Unavailable"); ok(box("Shiny").disabled, "Victini's Shiny box can't be ticked");
+    await go("#hm-p-25"); click(view().querySelector('[data-pickform="25-original-cap"]')); await wait(50);
+    ok(box("Shiny").disabled && !strip().includes("G-Max"), "a cap Pikachu: no shiny, no Gigantamax");
+    click(view().querySelector('[data-pickform="25"]')); await wait(50);
+    ok(!box("Shiny").disabled && strip().includes("G-Max"), "plain Pikachu: shiny and Gigantamax");
+    await go("#hm-p-52-galarian"); ok(!strip().includes("G-Max"), "no regional form can Gigantamax");
+    await go("#hm-p-892"); eq([...view().querySelectorAll("[data-pickform]")].map(b => byId[b.dataset.pickform].gmax), [true, true], "both Urshifu styles Gigantamax");
+    const h = countsIn("home"), noShinyGroups = new Set(HOME_DATA.entries.filter(e => !e.shiny).map(e => groupKey({...WORLDS.home.byId[e.id]})));
+    ok(h.shinyOut < h.speciesAll && h.speciesAll - h.shinyOut <= noShinyGroups.size, `Shiny out of ${h.shinyOut} of ${h.speciesAll}`);
+    await go("#hm-p-327"); ok(!view().querySelector(".formpick") && !byId["327-1"].form, "one Spinda in HOME, no numbered patterns");
+    await go("#hm-p-487"); ok(!view().querySelector('[data-pickform="487-origin"]'), "no Origin Giratina in HOME");
+    await go("#hm-p-999"); eq([...view().querySelectorAll("[data-pickform]")].map(b => b.dataset.pickform), ["999-chest", "999"], "Gimmighoul: Chest, then Roaming (GO's coin one)");
+    await go("#hm-p-902"); ok(view().querySelector('[data-pickform="902-female"]') && byId["902"].genderForm && byId["902-female"].genderForm, "Basculegion: Female and Male, like the other nine");
+    await go("#hm-p-774"); eq(view().querySelectorAll("[data-pickform]").length, 7, "Minior: its seven cores, no Meteor Form");
+  });
+
+  test("the HOME | GO switch: each game lights its own pages, and All games counts both", async () => {
+    await go("#hm-p-25");
+    eq(document.querySelector('.game-switch a[aria-current]').textContent, "HOME"); eq(nav.querySelector("a.on").getAttribute("href"), "#hm-gen-1", "its region lit in HOME");
+    click(document.querySelector('.game-switch a[href="#go"]')); await until(() => location.hash === "#go");  await wait(50);
+    eq(document.querySelector('.game-switch a[aria-current]').textContent, "GO"); ok(view().querySelector('.gen[href="#gen-1"]'), "GO's Home");
+    eq(+nav.querySelector('a[href="#dex"] .n').textContent.replace(/,/g, ""), groupByNumber(WORLDS.go.ENTRIES).length, "GO's Every Pokémon count");
+    await go("#home");
+    eq(+nav.querySelector('a[href="#hm-dex"] .n').textContent.replace(/,/g, ""), groupByNumber(WORLDS.home.ENTRIES).length, "HOME's Every Pokémon count");
+    for (const [g] of GENS) eq(+nav.querySelector(`a[href="#hm-gen-${g}"] .n`).textContent.replace(/,/g, ""), groupByNumber(WORLDS.home.ENTRIES.filter(e => e.gen === g)).length, `HOME's ${g}`);
   });
 
   // ---------- run ----------
