@@ -8,7 +8,6 @@ Everything waiting on you. **Do** = just do it; **Decide** = your call. Tell Cla
 - **Sinistea and Polteageist:** track their Antique forms one by one or not? (You’re undecided.) Rockruff, Scatterbug and Spewpa left off on purpose: no real difference until they evolve. Arceus when it’s out.
 - **Event Pokémon (trial, 13 Nov):** one page instead of two: a timeline of sets with progress (`for-jemma/page-events-and-costumes.png`, one set: `page-one-event.png`). Keep, change or go back?
 - **Banners on every page (trial, 13 Nov):** maps on Home, Every Pokémon, Fast tick and each Pokémon page; event backgrounds on Event Pokémon (`for-jemma/page-banners.png`).
-- **Try switch (22 Nov, temporary, bottom right):** **Home page** (for GO’s Home and HOME’s): As now · Region hub · Progress panel · Box view. **All games page** (an overview above the games, each game’s totals side by side, no Pokémon): None · Link above the switch · A third choice in the switch. Ideas from how Serebii, PokémonDB, Pokémon HOME and living-dex trackers do it (Jemma’s Journals `research/pokedex-home-comparison.md`). Pictures (record only): `Documents\JemmasJournals\for-jemma\concepts\pokedex-games\round2\`. Tell Claude your pick in each row.
 - **Footer line 1 (round 3 review):** “Made with HTML, CSS and JavaScript, kept on GitHub” is true of the page, but the Pokédex also needs its small Python server to save your ticks. Keep the family’s words, or change them for the Pokédex? Left as it is.
 
 ## Do
@@ -18,6 +17,7 @@ Everything waiting on you. **Do** = just do it; **Decide** = your call. Tell Cla
 
 ## Done
 - **Decided (22 Nov):** the Pokédex will cover Pokémon GO and Pokémon HOME first; HOME’s main box means “you have it in HOME now”.
+- **Your picks (22 Nov evening):** each game’s Home is its totals at the top with the regions below, each region with its map, its Pokédex numbers and your counts (HOME: Pokémon and Shiny only, Placeholders for now); a small “All games” link above the HOME | GO switch shows both games’ totals side by side. The Try switch is gone. Pictures: `Documents\JemmasJournals\for-jemma\concepts\pokedex-games\chosen\`.
 - **Built (22 Nov, your picks):** the game switch in the sidebar (HOME | GO); HOME is the default, so the Pokédex opens on HOME (a marked Placeholder until its data is in); GO’s Home is under GO. The italic “Pokédex” in the title is no longer yellow. “Hide ones I have” is off unless you turn it on (picking a tab no longer turns it on).
 - Card art in dark mode: Brighter; Shiny a little deeper and Lucky a little deeper (a middle gold, not the mustard); the other boxes as they were (your picks, 22 Nov). The Try switch is gone.
 - Banner tabs in one smaller row at every width over 900; Kanto's white sky gone from its banner; no date on Home; a Content Security Policy, so only the Pokédex's own code runs (your decisions, 22 Nov).

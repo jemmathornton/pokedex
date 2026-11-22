@@ -311,38 +311,27 @@
   test("games (her decisions, 22 Nov): HOME is the default and a Placeholder; the sidebar switch changes game; GO's Home is #go", async () => {
     await go("#home");
     eq(document.querySelector('.game-switch a[aria-current]').textContent, "HOME", "opens on HOME");
-    ok(/Placeholder/.test(view().textContent) && /Pokémon HOME will be here/.test(view().textContent), "HOME's page is a marked Placeholder");
+    ok(/Placeholder/.test(view().textContent), "HOME's page is a marked Placeholder");
     ok(!nav.querySelector('a[href="#gen-1"]'), "HOME's sidebar has no GO pages");
     await go("#go");
     eq(document.querySelector('.game-switch a[aria-current]').textContent, "GO", "GO chosen");
     ok(nav.querySelector('a[href="#gen-1"]') && nav.querySelector('a[href="#go"].on'), "GO's sidebar as before, its Home lit");
-    if (homeLook() === "now") ok(view().querySelector(".hero .stats") && view().querySelector(".gens"), "GO's Home as before");
-    await go("#gen-1");
+    ok(view().querySelector(".hero .stats") && view().querySelectorAll(".gen .genmap").length === 10, "GO's Home: the totals, then the region hub with a map on each region");
+    ok(!view().querySelector('.gen[href^="#gen-"] img'), "no Pokémon pictures on the region hub");
+    eq(view().querySelector('.gen[href="#gen-1"] .genno').textContent, "#0001–#0151", "Kanto's National Pokédex numbers");
+    await go("#home");
+    eq([...view().querySelectorAll(".hero .stats .slt")].map(x => x.textContent), ["Pokémon", "Shiny"], "HOME's totals: only Pokémon and Shiny (no Lucky in HOME, her note 22 Nov)");
+    eq(view().querySelectorAll(".gen .genmap").length, 10, "HOME's region hub");
+    ok(!/Lucky|4★|Dynamax|Shadow|XXL/.test(view().textContent), "nothing on HOME's Home that HOME doesn't have");
+    ok(!view().querySelector('img[src*="sprites/"]'), "no Pokémon pictures on HOME's Home");
+    await go("#games");
+    ok(document.querySelector(".games a.allgames.on"), "All games lit above the switch (her pick, 22 Nov evening)"); ok(!document.querySelector(".game-switch a[aria-current]"), "no game chosen there");
+    eq(view().querySelectorAll(".allgame").length, GAMES.length, "a card per game");
+    ok(!/Lucky|4★/.test(view().querySelector(".allgame").textContent), "HOME's card has no Lucky or 4★");
+    ok(!view().querySelector(".card, img[src*='sprites/']"), "no Pokémon on All games");
+    await go("#gen-1"); ok(document.querySelector('.games a.allgames[href="#games"]:not(.on)'), "the link is there on every page");
     eq(document.querySelector('.game-switch a[aria-current]').textContent, "GO", "a GO page shows GO");
     eq(getComputedStyle(document.querySelector(".brand b em")).color, getComputedStyle(document.querySelector(".brand b")).color, "the italic Pokédex not yellow (her note, 22 Nov)");
-    // the TEMPORARY Home page Try row: every idea draws for both games, HOME's figures marked Placeholder, no Pokémon pictures
-    const was = TRY_ROWS[0].v;
-    try {
-      for (const [v] of TRY_ROWS[0].opts) {
-        TRY_ROWS[0].v = v;
-        await go("#go"); ok(view().querySelector("h1"), v + ": GO's Home draws");
-        if (v !== "now") ok(!view().querySelector('img[src*="sprites/"]'), v + ": no Pokémon pictures on GO's Home");
-        await go("#home"); ok(/Placeholder/.test(view().textContent), v + ": HOME marked Placeholder");
-        ok(!/Lucky|4★|Dynamax|Shadow|XXL/.test(view().textContent), v + ": nothing on HOME's Home that HOME doesn't have");
-        ok(!view().querySelector('img[src*="sprites/"]'), v + ": no Pokémon pictures on HOME's Home");
-      }
-    } finally { TRY_ROWS[0].v = was; }
-    // the TEMPORARY All games row: a page above the games, each game's totals side by side, no Pokémon lists or pictures
-    const wasAll = TRY_ROWS[1].v;
-    try {
-      TRY_ROWS[1].v = "link"; await go("#games");
-      ok(document.querySelector(".games a.allgames.on"), "All games lit above the switch"); ok(!document.querySelector(".game-switch a[aria-current]"), "no game chosen there");
-      eq(view().querySelectorAll(".allgame").length, GAMES.length, "a card per game");
-      ok(!/Lucky|4★/.test(view().querySelector(".allgame").textContent), "HOME's card has no Lucky or 4★ (not in HOME, her note 22 Nov)"); ok(!view().querySelector(".card, img[src*='sprites/']"), "no Pokémon on it");
-      TRY_ROWS[1].v = "tab"; await go("#games");
-      eq(document.querySelector(".game-switch a[aria-current]").textContent, "All", "the third choice chosen");
-      TRY_ROWS[1].v = "none"; await go("#home"); ok(!document.querySelector('.games a[href="#games"]'), "None: no way to it");
-    } finally { TRY_ROWS[1].v = wasAll; }
   });
 
   test("her answers (21 Nov): Hide ones I have is off when the app opens; a search shows everything matching; foil only with Shiny ticked", async () => {
@@ -431,7 +420,7 @@
 
   test("her picks from the Try switch (22 Nov): Card art in dark mode Brighter; Shiny #6C7786 and Lucky #B48600; the switch gone", async () => {
     const root = document.documentElement;
-    ok(!document.querySelector('.trybox [data-row="art"],.trybox [data-row="boxes"]') && !("tryArt" in root.dataset) && !("tryBoxes" in root.dataset), "no Try switch row of hers left (the 22 Nov Home page row is the only one)");
+    ok(!document.querySelector(".trybox") && !("tryArt" in root.dataset) && !("tryBoxes" in root.dataset), "no Try switch left");
     const hex = n => getComputedStyle(root).getPropertyValue(`--${n}`).trim().toUpperCase();
     eq(hex("shiny"), "#6C7786", "Shiny a little deeper"); eq(hex("lucky"), "#B48600", "Lucky a little deeper (a middle gold)");
     eq(hex("male"), "#078E5A", "the other boxes as they were"); eq(hex("hundo"), "#D14186"); eq(hex("mega"), "#C2571A");
@@ -448,7 +437,8 @@
   });
 
   test("the art window is tinted by the Pokémon's first type (her pick, 21 Nov); the 21 Nov Try switch is gone", async () => {
-    ok([...document.querySelectorAll(".trybox [data-row]")].every(r => ["home", "all"].includes(r.dataset.row)), "no Try switch but the Home page and All games rows (22 Nov)");
+    ok(!document.querySelector(".trybox"), "no Try switch (the games one removed, her picks 22 Nov evening)");
+    ok(["jemmas-pokedex-try-homepage", "jemmas-pokedex-try-allgames", "jemmas-pokedex-try-gameswitch", "jemmas-pokedex-try-lastgame"].every(k => localStorage.getItem(k) === null), "its kept choices cleared");
     prefs.work = "all"; prefs.workShow = "all"; await go("#gen-1");
     const art = id => { const c = view().querySelector(`.card[data-id="${id}"]`); return c && getComputedStyle(c.querySelector(".pic")).backgroundImage; };
     eq(view().querySelector('.card[data-id="1"]').dataset.t1, "Grass", "Bulbasaur: Grass");
