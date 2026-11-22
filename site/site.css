@@ -132,7 +132,7 @@
   --paper:#ECE7E0; --surface:#FFFDF9; --ink:#2B1A1C; --muted:#6E5A58; --line:#DCD3C8; --soft:#F2E8DD;   /* paper and lines a little deeper for the binder look (her pick P3b, 21 Nov) */
   --nav:#5A1820; --deep:#5A1820; --deep-2:#7E2530; --on-deep:#FFF4EE; --on-deep-mute:color-mix(in srgb,#fff 62%,var(--deep));
   --accent:#F2C14E;
-  --caught:#315686; --male:#078E5A; --female:#6A5DCF; --shiny:#7C8795; --lucky:#D09B00; --hundo:#D14186; --shadow:#4D2D5F; --purified:#0082C5; --dynamax:#B6285A; --gmax:#80183B; --mega:#C2571A;   /* Mega: burnt orange (her pick, 10 Nov) */
+  --caught:#315686; --male:#078E5A; --female:#6A5DCF; --shiny:#6C7786; --lucky:#B48600; --hundo:#D14186; --shadow:#4D2D5F; --purified:#0082C5; --dynamax:#B6285A; --gmax:#80183B; --mega:#C2571A;   /* Mega: burnt orange (her pick, 10 Nov). Shiny and Lucky a little deeper (her picks, 22 Nov): Shiny #6C7786 (white 4.54:1, was #7C8795), Lucky #B48600 (white 3.31:1, halfway to #977000, which was too dark; was #D09B00) */
   --xxl:#0E8A84; --xxs:#1B5C9E;   /* XXL teal (12 Nov), XXS deep sea blue (her pick 3, 13 Nov: coral was too close to Dynamax) */
   /* box colours: her picks after several rounds (9 Nov), balanced to one palette; white text on every box (her rule) */
   --focus:var(--deep-2); --deep-text:var(--deep-2);   /* red text; a light rose in dark mode (the dark red was 1.8:1 there) */
@@ -1210,8 +1210,11 @@ main{background:linear-gradient(90deg,rgba(70,40,30,.18),rgba(70,40,30,0) 54px) 
 }
 .toast{bottom:calc(22px + env(safe-area-inset-bottom,0px))}
 /* touch screens (a finger, not a mouse): a card's boxes 34px tall with more room between them, so a slip doesn't tick the next
-   one (phone review: 24px with 4px gaps, 23px on an iPad); the laptop look is unchanged */
-@media (pointer:coarse){
+   one (phone review: 24px with 4px gaps, 23px on an iPad); the laptop look is unchanged. Only where nothing can hover
+   (any-hover:none: a phone or tablet), never on a laptop with a touch screen as well as a touchpad or mouse (22 Nov, her
+   note "the cards are weirdly long now": (pointer:coarse) alone can match a touch-screen laptop, and with these rules every
+   card grows, a Kanto card from 393 to 482px tall at 1600) */
+@media (pointer:coarse) and (any-hover:none){
   .boxgrid{gap:6px}
   .boxgrid .tk{min-height:34px}
   .card .pic .flip{width:32px;height:32px}
@@ -1219,48 +1222,14 @@ main{background:linear-gradient(90deg,rgba(70,40,30,.18),rgba(70,40,30,0) 54px) 
 /* Fast tick's squares say only the number; the name is in the tooltip, which a finger never sees: on touch screens it's
    written under the number, small (phone review) */
 .fc .fcname{display:none}
-@media (pointer:coarse){
+@media (pointer:coarse) and (any-hover:none){
   .fc .fcname{display:block;max-width:100%;padding:0 3px;font-size:9px;font-weight:700;line-height:1.15;text-align:center;overflow-wrap:anywhere;color:inherit}
 }
 
-/* ===== TRIAL: Try switch (22 Nov), START: remove with the TRIAL block in app.js (after homeMaps) once she has picked =====
-   Card art in dark mode: As now / Brighter / Glow / Light window; Box colours: As now / Deeper. */
-.trybox{position:fixed;right:12px;bottom:12px;z-index:60;display:grid;gap:6px;padding:8px 10px;border-radius:10px;background:var(--surface,#fff);color:var(--ink,#222);
-  border:1px solid var(--line,#ccc);box-shadow:0 4px 16px rgba(0,0,0,.2);font:600 12px var(--body,sans-serif)}
-.trybox > b{font-size:11px;letter-spacing:.08em;text-transform:uppercase}
-.tryrow{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
-.tryrow span{margin-right:4px}
-.tryrow button{font:inherit;padding:3px 8px;border-radius:6px;border:1px solid var(--line,#ccc);background:transparent;color:inherit;cursor:pointer}
-.tryrow button[aria-pressed="true"]{background:var(--ink,#222);color:var(--surface,#fff);border-color:transparent}
-@media print{.trybox{display:none}}
-/* phones: never over the Menu drawer (phone review: drawer links under it couldn't be tapped), and room at the foot of the page
-   so it doesn't cover the end of every page (--trypad: its height, app.js) */
-.jj-menu-open .trybox{display:none}
-@media (max-width:900px){ body{padding-bottom:var(--trypad,0px)} }
-/* Card art in dark mode (22 Nov, her ask: the type tint looked muddy, Charizard a dull brown); dark mode only, light mode
-   unchanged. app.js sets data-try-art on <html>: now (as now), bright, glow, light. Every art window: Pokémon cards and a
-   Pokémon's page (type colour, --tc), costume cards and Home's region sets (no type: the region colour, --rc). */
-:root[data-mode="dark"]:is([data-try-art="bright"],[data-try-art="glow"]) :is(.card .pic,.monpic .pic,.genart){--wc:var(--tc,var(--rc,#7E2530))}
-/* Brighter: the same type tint, about half type colour, round a light centre */
-:root[data-mode="dark"][data-try-art="bright"] :is(.card .pic,.monpic .pic,.genart){
+/* Card art in dark mode: "Brighter" (her pick, 22 Nov, from the Try switch; the type tint had looked muddy, Charizard a dull brown):
+   the same type tint, about half type colour, round a light centre; dark mode only, light mode unchanged. Every art window:
+   Pokémon cards and a Pokémon's page (type colour, --tc), costume cards and Home's region sets (no type: the region colour, --rc).
+   :root:root keeps it above the type-tint rule. */
+:root:root[data-mode="dark"] :is(.card .pic,.monpic .pic,.genart){--wc:var(--tc,var(--rc,#7E2530));
   background:radial-gradient(circle,rgba(0,0,0,.08) 1px,transparent 1.4px) 0 0/6px 6px,
     radial-gradient(circle at 50% 60%,color-mix(in srgb,var(--wc) 42%,#F6EEEA),color-mix(in srgb,var(--wc) 62%,#2A2022))}
-/* Glow: a dark window with a soft glow of the type colour behind the Pokémon, bright in the middle fading to the dark card */
-:root[data-mode="dark"][data-try-art="glow"] :is(.card .pic,.monpic .pic,.genart){
-  background:radial-gradient(circle,rgba(255,255,255,.05) 1px,transparent 1.4px) 0 0/6px 6px,
-    radial-gradient(closest-side circle at 50% 58%,color-mix(in srgb,var(--wc) 80%,#fff) 0%,color-mix(in srgb,var(--wc) 75%,transparent) 38%,color-mix(in srgb,var(--wc) 22%,transparent) 72%,transparent 100%),
-    #1C1416}
-:root[data-mode="dark"][data-try-art="glow"] .genart{background:radial-gradient(circle,rgba(255,255,255,.05) 1px,transparent 1.4px) 0 0/6px 6px,
-    radial-gradient(farthest-side ellipse at 50% 58%,color-mix(in srgb,var(--wc) 70%,#fff) 0%,color-mix(in srgb,var(--wc) 45%,transparent) 55%,transparent 100%),#1C1416}
-/* Light window: the same pale tinted window as in light mode */
-:root[data-mode="dark"][data-try-art="light"] :is(.card .pic,.monpic .pic,.genart){--win-hi:#fff;--win-lo:#F7EFE2;--win-dots:rgba(0,0,0,.07);--win-rim:rgba(255,255,255,.7)}
-:root[data-mode="dark"][data-try-art="light"] :is(.card .pic,.monpic .pic){box-shadow:inset 0 0 0 1px var(--win-rim),inset 0 4px 10px rgba(0,0,0,.08)}
-/* the shiny's faint rainbow as in light mode on the light window (screen on a light window would vanish) */
-:root[data-mode="dark"][data-try-art="light"] .card:is(.shiny,:has(.tk.s:is([aria-pressed="true"],[data-all="true"]))) :is(.pic,.bgpic)::after{mix-blend-mode:multiply;opacity:.3}
-:root[data-mode="dark"][data-try-art="light"] .card:is(.shiny,:has(.tk.s:is([aria-pressed="true"],[data-all="true"]))) :is(.pic,.bgpic)::before{background:linear-gradient(115deg,transparent 32%,rgba(255,255,255,.28) 42%,transparent 52%)}
-/* Box colours: Deeper (22 Nov, her ask): each box colour whose white writing was under 4.5:1 made just dark enough to reach it,
-   same hue (HSL lightness only), light and dark mode; everywhere the colour shows (cards, the page strip, tabs, Fast tick…),
-   as every use goes through these variables. White on: Lucky 2.51 -> 4.53, Shiny 3.65 -> 4.54, Male 4.18 -> 4.50,
-   Purified 4.20 -> 4.56, XXL 4.21 -> 4.54, 4★ 4.36 -> 4.51, Mega (X and Y too) 4.49 -> 4.52. */
-:root[data-try-boxes="deeper"]{--lucky:#977000;--shiny:#6C7786;--male:#078856;--purified:#007CBC;--xxl:#0D847F;--hundo:#D03C83;--mega:#C1571A}
-/* ===== TRIAL: Try switch, END ===== */

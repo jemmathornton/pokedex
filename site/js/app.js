@@ -31,6 +31,7 @@ if (["genders", "caught", "forms"].includes(prefs.work)) prefs.work = "all";
 prefs.workShow = "all";   // "Hide ones I have" is always off when the app opens, not remembered (her answer, 21 Nov)
 delete prefs.regionShot;   // left from the scenery trial (removed 22 Nov)
 try { localStorage.removeItem("jemmas-pokedex-try"); } catch {}   // left from the Try switch (removed 21 Nov)
+for (const k of ["jemmas-pokedex-try-art", "jemmas-pokedex-try-boxes"]) { try { localStorage.removeItem(k); } catch {} }   // left from the 22 Nov Try switch (removed: her picks, Brighter and the deeper Shiny and Lucky, are in site.css)
 const keepPrefs = () => store.set(PREFS_KEY, prefs);
 
 // ---------- what there is ----------
@@ -404,31 +405,6 @@ const ALL_MAPS = () => homeMaps();
 // WebP 660 px tall (twice the 330 px shown), made by tools/make_home_maps.py from REGION_CHOSEN (run it after changing a map).
 const homeMaps = () => GENS.map(([g]) => REGION_CHOSEN[g] ? `regions/home/${REGION_CHOSEN[g].replace(/\.\w+$/, "")}.webp` : null).filter(Boolean);
 
-// ===== TRIAL: Try switch (22 Nov, her ask), START. Remove this block and the TRIAL block at the end of site.css once she has
-// picked both rows. Bottom right, each row kept in this browser only:
-// "Card art in dark mode: As now / Brighter / Glow / Light window" (her note: the type tint looked muddy in dark mode, Charizard
-//   a dull brown). Sets data-try-art on <html>; site.css does the rest, dark mode only (light mode unchanged).
-// "Box colours: As now / Deeper" (her ask). Deeper = each box colour whose white writing is under 4.5:1 made just dark enough
-//   to reach it, same hue, light and dark mode. Sets data-try-boxes on <html>; site.css redefines the colour variables.
-(function tryPanel(){
-  const ROWS = [
-    {name: "art", key: "jemmas-pokedex-try-art", label: "Card art in dark mode", ds: "tryArt", opts: [["now", "As now"], ["bright", "Brighter"], ["glow", "Glow"], ["light", "Light window"]]},
-    {name: "boxes", key: "jemmas-pokedex-try-boxes", label: "Box colours", ds: "tryBoxes", opts: [["now", "As now"], ["deeper", "Deeper"]]},
-  ];
-  for (const r of ROWS) { r.v = store.get(r.key, "now"); if (!r.opts.some(([k]) => k === r.v)) r.v = "now"; }
-  const box = document.createElement("div"); box.className = "trybox"; box.setAttribute("role", "group"); box.setAttribute("aria-label", "Try");
-  const draw = () => {
-    for (const r of ROWS) document.documentElement.dataset[r.ds] = r.v;
-    box.innerHTML = `<b>Try</b>` + ROWS.map(r => `<div class="tryrow" role="group" aria-label="${r.label}" data-row="${r.name}"><span>${r.label}</span>` +
-      r.opts.map(([k, l]) => `<button type="button" data-v="${k}" aria-pressed="${r.v === k}">${l}</button>`).join("") + `</div>`).join("");
-  };
-  box.addEventListener("click", ev => { const b = ev.target.closest("[data-v]"); if (!b) return;
-    const r = ROWS.find(x => x.name === b.closest("[data-row]").dataset.row); r.v = b.dataset.v; store.set(r.key, r.v); draw(); });
-  draw(); document.body.append(box);
-  const pad = () => document.documentElement.style.setProperty("--trypad", box.offsetHeight + 24 + "px");   // room under the page on phones (site.css)
-  pad(); addEventListener("resize", pad); box.addEventListener("click", pad);
-})();
-// ===== TRIAL: Try switch, END
 function regionShot(g){   // style for a region page's banner: her picked map (12 Nov; the scenery trial and its switch were removed 22 Nov)
   const f = PIC_TRY || REGION_CHOSEN[g];   // ?pic= for pictures of options only
   return f ? {style: shotStyle(f), cls: " withshot" + shotCls(f), sw: ""} : {style: "", sw: ""};

@@ -379,49 +379,26 @@
     }
   });
 
-  test("TEMPORARY Try switch (22 Nov): Card art in dark mode, As now / Brighter / Glow / Light window; dark only", async () => {
-    const box = document.querySelector(".trybox"), root = document.documentElement;
-    ok(box && box.textContent.includes("Card art in dark mode") && !box.textContent.includes("Pictures on Home"), "the card art row; Pictures on Home gone");
-    eq(box.querySelectorAll('[data-row="art"] [data-v]').length, 4, "four options");
-    const wasArt = root.dataset.tryArt, wasMode = root.dataset.mode;
+  test("her picks from the Try switch (22 Nov): Card art in dark mode Brighter; Shiny #6C7786 and Lucky #B48600; the switch gone", async () => {
+    const root = document.documentElement;
+    ok(!document.querySelector(".trybox") && !("tryArt" in root.dataset) && !("tryBoxes" in root.dataset), "no Try switch left");
+    const hex = n => getComputedStyle(root).getPropertyValue(`--${n}`).trim().toUpperCase();
+    eq(hex("shiny"), "#6C7786", "Shiny a little deeper"); eq(hex("lucky"), "#B48600", "Lucky a little deeper (a middle gold)");
+    eq(hex("male"), "#078E5A", "the other boxes as they were"); eq(hex("hundo"), "#D14186"); eq(hex("mega"), "#C2571A");
+    const wasMode = root.dataset.mode;
     prefs.work = "all"; prefs.workShow = "all"; await go("#gen-1");
     const art = () => getComputedStyle(view().querySelector('.card[data-id="6"] .pic')).backgroundImage;
-    const nm = () => getComputedStyle(view().querySelector('.card[data-id="6"] .nm')).color;
     try {
-      root.dataset.mode = "light";
-      box.querySelector('[data-v="now"]').click(); const light = art();
-      box.querySelector('[data-v="glow"]').click(); eq(art(), light, "light mode unchanged by the switch");
-      root.dataset.mode = "dark";
-      const seen = {};
-      for (const k of ["now", "bright", "glow", "light"]) { box.querySelector(`[data-v="${k}"]`).click(); eq(root.dataset.tryArt, k, k); seen[k] = art(); }
-      eq(new Set(Object.values(seen)).size, 4, "each option looks different in dark mode");
-      box.querySelector('[data-v="bright"]').click(); const n1 = nm(); box.querySelector('[data-v="now"]').click();
-      eq(nm(), n1, "the name's colour is not affected");
-    } finally {
-      if (wasMode) root.dataset.mode = wasMode; else delete root.dataset.mode;
-      box.querySelector(`[data-row="art"] [data-v="${wasArt || "now"}"]`).click();
-    }
-  });
-
-  test("TEMPORARY Try switch (22 Nov): Box colours, As now / Deeper; Deeper gives white writing 4.5:1 on every box colour", async () => {
-    const box = document.querySelector(".trybox"), root = document.documentElement, was = root.dataset.tryBoxes;
-    const row = () => box.querySelector('[data-row="boxes"]'); ok(row() && row().textContent.includes("Box colours"), "the row is there");
-    const hex = n => getComputedStyle(root).getPropertyValue(`--${n}`).trim();
-    const lum = h => { const c = [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16) / 255).map(v => v <= 0.04045 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4);
-      return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2]; };
-    const NAMES = ["lucky", "shiny", "male", "purified", "xxl", "hundo", "mega"];
-    try {
-      row().querySelector('[data-v="now"]').click(); eq(hex("lucky").toUpperCase(), "#D09B00", "As now: her colours");
-      row().querySelector('[data-v="deeper"]').click(); eq(root.dataset.tryBoxes, "deeper");
-      for (const n of NAMES) ok(1.05 / (lum(hex(n)) + 0.05) >= 4.5, `${n} ${hex(n)}: white at 4.5:1 or more`);
-      prefs.work = "all"; prefs.workShow = "all"; await go("#gen-1");
-      const on = view().querySelector('.tk.l[aria-pressed="true"], .tk.c[aria-pressed="true"]');
-      if (on && on.classList.contains("l")) eq(getComputedStyle(on).backgroundColor, "rgb(151, 112, 0)", "a ticked Lucky box follows it");
-    } finally { row().querySelector(`[data-v="${was === "deeper" ? "deeper" : "now"}"]`).click(); }
+      root.dataset.mode = "light"; const light = art();
+      root.dataset.mode = "dark"; const dark = art();
+      ok(dark !== light && (dark.match(/radial-gradient/g) || []).length === 2, `dark mode: Brighter, its own type-tinted window (${dark})`);
+      const on = view().querySelector('.tk.l[aria-pressed="true"]');
+      if (on) eq(getComputedStyle(on).backgroundColor, "rgb(180, 134, 0)", "a ticked Lucky box in the new gold");
+    } finally { if (wasMode) root.dataset.mode = wasMode; else delete root.dataset.mode; }
   });
 
   test("the art window is tinted by the Pokémon's first type (her pick, 21 Nov); the 21 Nov Try switch is gone", async () => {
-    ok(!document.querySelector('.trybox [data-try]'), "the old Try switch is gone");
+    ok(!document.querySelector(".trybox"), "no Try switch");
     prefs.work = "all"; prefs.workShow = "all"; await go("#gen-1");
     const art = id => { const c = view().querySelector(`.card[data-id="${id}"]`); return c && getComputedStyle(c.querySelector(".pic")).backgroundImage; };
     eq(view().querySelector('.card[data-id="1"]').dataset.t1, "Grass", "Bulbasaur: Grass");
@@ -856,10 +833,6 @@
   });
 
   // ---------- narrow windows and phones (21 Nov, her ask): a top bar with a Menu button, the sidebar a drawer ----------
-  test("in a wide window the sidebar is there and there's no top bar", async () => {
-    eq(getComputedStyle(document.getElementById("topbar")).display, "none", "top bar");
-    ok(!document.getElementById("side").inert, "sidebar usable");
-  });
 
   test("review fixes (21 Nov): focus stays on the box pressed; part-caught form cards aren't faded; background cards have a number and the foil", async () => {
     prefs.work = "all"; prefs.workShow = "all"; await go("#gen-1");
@@ -964,7 +937,7 @@
     eq(problems, [], "problems:");
   });
 
-  test("on a phone (390 wide): Menu opens the drawer; Escape, tapping outside and choosing a link close it", async () => {
+  test("on a phone (390 wide), the Pokédex's own part of the drawer: it opens on this region's link, which says so; a link goes there, focus to the page; the bar name goes home (the rest: the parent's family suite)", async () => {
     const f = document.createElement("iframe");   // a phone-sized window of its own, same site
     f.style.cssText = "position:fixed;left:0;top:0;width:390px;height:844px;border:0;opacity:0;pointer-events:none";
     f.src = "index.html#gen-8";
@@ -972,68 +945,29 @@
     try {
       await until(() => f.contentDocument && f.contentDocument.getElementById("menuBtn") && f.contentDocument.querySelector("#view .card") && f.contentWindow.JJFamily && f.contentDocument.getElementById("side").inert, 15000);
       const w = f.contentWindow, d = f.contentDocument, btn = d.getElementById("menuBtn"), side = d.getElementById("side");
-      const isOpen = () => d.documentElement.classList.contains("jj-menu-open") && side.classList.contains("jj-open");   // the family drawer (/family/family.js)
-      const key = k => (d.activeElement || d.body).dispatchEvent(new w.KeyboardEvent("keydown", {key: k, bubbles: true}));   // from where the focus is, as a real key
-      ok(w.getComputedStyle(d.getElementById("topbar")).display !== "none", "top bar shown");
-      ok(side.inert && !isOpen(), "drawer shut and out of the Tab order");
-      eq(btn.getAttribute("aria-expanded"), "false");
-      ok(d.documentElement.scrollWidth <= 390, `no sideways scrolling (page ${d.documentElement.scrollWidth} wide)`);
-      const crs = [...d.querySelectorAll(".jj-foot [data-jj-credits] .cr")], dots = [...d.querySelectorAll(".jj-foot [data-jj-credits] .dot")];
-      ok(crs.length === 3 && crs.every((c, i) => i === 0 || c.getBoundingClientRect().top >= crs[i - 1].getBoundingClientRect().bottom - 1), "credits one per line on a phone");
-      ok(dots.every(x => w.getComputedStyle(x).display === "none"), "no · at line ends on a phone");
-      btn.click();
-      ok(isOpen() && !side.inert, "opens"); eq(btn.getAttribute("aria-expanded"), "true");
-      ok(side.contains(d.activeElement), "focus goes into the drawer");
-      ok(side.querySelector(".home-link"), "the way back to Jemma’s Journals is in it");
-      ok(d.activeElement === side.querySelector('.nav a[href="#gen-8"]'), "focus on this page's link (Galar), never ← Jemma’s Journals (family rules)");
+      const isOpen = () => d.documentElement.classList.contains("jj-menu-open") && side.classList.contains("jj-open");
+      btn.click(); ok(isOpen(), "opens");
+      ok(d.activeElement === side.querySelector('.nav a[href="#gen-8"]'), "focus on this page's link (Galar)");
       eq(side.querySelector('.nav a[href="#gen-8"]').getAttribute("aria-current"), "page", "this page's link says so");
-      ok(d.getElementById("main").inert && d.getElementById("topbar").inert, "everything outside the open drawer is inert, so Tab stays inside");
-      eq(w.getComputedStyle(d.getElementById("scrim")).backgroundColor, "rgba(0, 0, 0, 0.45)", "the scrim black at 45%");
-      ok(side.querySelector(".home-link").getBoundingClientRect().height >= 24, "← Jemma’s Journals at least 24px tall to tap");
-      eq(w.getComputedStyle(d.body).overflow, "hidden", "the page behind doesn't scroll");
-      ok(w.getComputedStyle(d.getElementById("scrim")).display !== "none", "a dimmed scrim behind");
-      key("Escape");
-      ok(!isOpen(), "Escape shuts it"); eq(btn.getAttribute("aria-expanded"), "false");
-      ok(d.activeElement === btn, "focus back on Menu");
-      ok(!d.getElementById("main").inert && !d.getElementById("topbar").inert, "the page reachable again once shut");
-      btn.click(); d.activeElement.blur(); d.getElementById("scrim").click();   // a real tap takes focus out of the drawer first
-      ok(!isOpen(), "tapping outside shuts it");
-      ok(d.activeElement === btn, "and focus goes back to Menu (second review: it was left on the page)");
-      btn.click(); side.querySelector('.nav a[href="#gen-1"]').click();
+      side.querySelector('.nav a[href="#gen-1"]').click();
       ok(!isOpen(), "choosing a link shuts it");
       await until(() => d.activeElement === d.getElementById("view"));   // then focus on the page (the family drawer moves it just after closing)
       await until(() => w.location.hash === "#gen-1");
-      // the family rules (21 Nov): the same menu on every site
-      eq(btn.getAttribute("aria-controls"), "side", "aria-controls"); eq(btn.textContent.trim(), "Menu", "the word Menu");
-      ok(btn.querySelector("svg"), "the Lucide menu icon");
-      ok(btn.getBoundingClientRect().height >= 44, `Menu at least 44px tall (${btn.getBoundingClientRect().height})`);
-      eq(w.getComputedStyle(d.querySelector("#topbar .topname")).fontSize, "26px", "the name in the bar 26px, as on every site");
-      const nm = d.querySelector("#topbar .topname"); eq(nm.getAttribute("href"), "#home", "the name goes home"); eq(nm.querySelector("em")?.textContent, "Pokédex", "Jemma’s *Pokédex*");
-      ok(side.firstElementChild === side.querySelector(".home-link"), "← Jemma’s Journals first in the drawer");
-      // crossing the 900px line resets it: at 901 the sidebar, the open state gone; back at 899 the Menu bar, shut
-      btn.click(); ok(isOpen(), "open before widening");
-      f.style.width = "901px"; await until(() => !w.matchMedia("(max-width:900px)").matches); await until(() => !isOpen() && !side.inert, 5000);   // waits for the family's reset, not a fixed 50 ms (round 5 review: it failed once on a busy machine)
-      ok(!isOpen() && !side.inert, "at 901 the sidebar shows, reachable, and the drawer state is reset");
-      eq(w.getComputedStyle(d.getElementById("topbar")).display, "none", "no Menu bar at 901");
-      f.style.width = "899px"; await until(() => w.matchMedia("(max-width:900px)").matches); await until(() => side.inert && !isOpen() && w.getComputedStyle(d.getElementById("topbar")).display !== "none", 5000);
-      ok(w.getComputedStyle(d.getElementById("topbar")).display !== "none", "Menu bar at 899");
-      ok(side.inert && !isOpen(), "shut and out of the Tab order at 899");
-      eq(btn.getAttribute("aria-expanded"), "false");
+      eq(d.querySelector("#topbar .topname").getAttribute("href"), "#home", "the name goes home");
     } finally { f.remove(); }
   });
 
   // ---------- the family's shared code (22 Nov, her decision: it lives in Jemma's Journals, loaded at /family/) ----------
-  test("the family's shared code loads from /family/ (mode.js, family.css, family.js) and runs", async () => {
-    for (const f of ["mode.js", "family.js", "family.css"]) {
-      const r = await realFetch("/family/" + f, {cache: "no-store"});
-      eq(r.status, 200, f); ok((await r.text()).length > 200, `${f} has its code`);
-    }
-    ok(window.JJFamily && typeof JJFamily.menu === "function" && typeof JJFamily.mode.onChange === "function", "window.JJFamily");
-    ok(document.querySelector('script[src="/family/mode.js"]') && document.querySelector('link[href="/family/family.css"]') && document.querySelector('script[src="/family/family.js"][defer]'), "the page asks for all three");
-    ok([...document.styleSheets].some(x => /\/family\/family\.css$/.test(x.href || "")), "family.css applied");
-    eq(document.querySelector("[data-jj-line1]").textContent, JJFamily.LINE1, "footer line 1, the family's words");
-    ok(["light", "dark"].includes(document.documentElement.dataset.mode), "data-mode always set");
+  test("the Pokédex's own colours for the family's dark mode: the bar colour (light and dark) and the page's paper (the rest of /family/: the parent's family suite)", async () => {
+    const root = document.documentElement, before = root.dataset.mode;
     eq(document.querySelector('meta[name="theme-color"]').getAttribute("data-dark"), "#4E1018", "the dark bar colour for family.js");
+    const paper = () => getComputedStyle(root).getPropertyValue("--paper").trim().toUpperCase();
+    try {
+      root.dataset.mode = "light"; eq(paper(), "#ECE7E0", "light paper");
+      root.dataset.mode = "dark"; eq(paper(), "#171012", "dark paper");
+    } finally { root.dataset.mode = before; }
+    const html = await (await realFetch("index.html", {cache: "no-store"})).text();
+    ok(/<meta name="theme-color" content="#7A1E2A"/.test(html), "the light bar colour");
   });
 
   // a window whose api/collection answers as given (no server, a web host's 404, her server failing): __stub__.html, the page
@@ -1124,8 +1058,7 @@
   });
 
   // ---------- the foot of every page (21 Nov, the family rules for all her sites): name, two lines, Back to top and Dark mode ----------
-  const MODE_KEY = "jj-mode", OLD_KEY = "jemmas-pokedex-mode";
-  test("Back to top and Dark mode are at the foot of every page", async () => {
+  test("Back to top and Dark mode are at the foot of every page, with the Pokédex's own line 1 and credits (the footer's looks: the parent's family suite)", async () => {
     const routes = ["#home", "#dex", "#sets", "#want", "#coming", "#fast", "#p-6", "#p-58-hisuian", ...Object.keys(genById).map(g => "#gen-" + g), ...allSets().slice(0, 3).map(st => "#set-" + st.id)];
     const problems = [];
     for (const h of routes) {
@@ -1133,88 +1066,21 @@
       const top = document.querySelector("[data-jj-top]"), md = document.querySelector("[data-jj-mode]"), foot = top && top.closest("footer.jj-foot");   // the family footer (/family/family.js fills the buttons)
       if (!top || !md || !foot || foot !== md.closest("footer")) { problems.push(`${h}: buttons missing`); continue; }
       if (!/Back to top/.test(top.textContent) || !/(Dark|Light) mode/.test(md.textContent)) problems.push(`${h}: words “${top.textContent}”, “${md.textContent}”`);
-      if (!top.querySelector("svg") || !md.querySelector("svg")) problems.push(`${h}: an icon missing`);
-      if (top.offsetHeight < 44 || md.offsetHeight < 44) problems.push(`${h}: under 44px to tap`);
       if (foot.getBoundingClientRect().top < view().getBoundingClientRect().bottom - 1) problems.push(`${h}: not below the page`);
       if (getComputedStyle(foot).display === "none") problems.push(`${h}: hidden`);
       const name = foot.querySelector(".jj-name"), lines = foot.querySelectorAll("p[data-jj-line1], p[data-jj-credits]");
-      if (!name || name.textContent !== "Jemma’s Pokédex" || getComputedStyle(name).fontStyle !== "normal" || getComputedStyle(name).fontSize !== "24px") problems.push(`${h}: the name`);
-      if ([...foot.querySelectorAll("[data-jj-credits] .dot")].some(x => x.textContent !== "\u00a0·" || !/^ /.test(x.nextSibling?.textContent || ""))) problems.push(`${h}: a “·” could start or end a line (credit&nbsp;· credit)`);
-      if (!/balance/.test(getComputedStyle(lines[1]).textWrap || getComputedStyle(lines[1]).textWrapStyle || "")) problems.push(`${h}: the credits not balanced`);
+      if (!name || name.textContent !== "Jemma’s Pokédex") problems.push(`${h}: the name`);
       if (lines.length !== 2 || lines[0].textContent !== "No cookies, no tracking, no ads. Made with HTML, CSS, JavaScript and Python, kept on GitHub.") problems.push(`${h}: line 1`);
       const credits = [...foot.querySelectorAll("[data-jj-credits] .cr")].map(c => c.textContent);
       if (credits.join(" | ") !== "Pokémon pictures, backgrounds and region maps from the Pokémon games | Fonts: Instrument Serif and Manrope | Icons by Lucide, Phosphor, Tabler, MingCute and Solar (480 Design)") problems.push(`${h}: credits ${credits.join(" | ")}`);
       { const cl = foot.querySelector("p[data-jj-credits]"); if (cl.scrollWidth > cl.clientWidth + 1) problems.push(`${h}: the credits line can’t wrap`); }   // round-2 review: it couldn’t, so pages scrolled sideways at 601–1113
-      const order = [name, lines[0], lines[1], top].map(x => x && x.getBoundingClientRect().top);
-      if (!order.every((t, i) => i === 0 || t > order[i - 1])) problems.push(`${h}: not in the family order`);
-      if (Math.abs(top.getBoundingClientRect().top - md.getBoundingClientRect().top) > 1 || Math.abs(top.offsetHeight - md.offsetHeight) > 1) problems.push(`${h}: Back to top and Dark mode not level`);
     }
     eq(problems, [], "problems:");
   });
 
-  test("Back to top scrolls to the top and moves focus to the top of the page", async () => {
-    await go("#dex");
-    scrollTo(0, document.documentElement.scrollHeight); await wait(50);
-    ok(scrollY > 500, `the page should be scrolled down first (${scrollY})`);
-    document.querySelector("[data-jj-top]").click();
-    await until(() => scrollY === 0, 4000);
-    ok(document.activeElement === view(), `focus on the page (it's on ${document.activeElement.id || document.activeElement.tagName})`);
-  });
 
-  test("Dark mode: opens light, the button switches it, and it’s remembered after reloading", async () => {
-    let saved = null, savedOld = null; try { saved = localStorage.getItem(MODE_KEY); savedOld = localStorage.getItem(OLD_KEY); localStorage.removeItem(MODE_KEY); localStorage.removeItem(OLD_KEY); } catch {}
-    const f = document.createElement("iframe");   // a window of its own on the same site, so it can be reloaded
-    f.style.cssText = "position:fixed;left:0;top:0;width:1280px;height:800px;border:0;opacity:0;pointer-events:none";
-    f.src = "index.html#home";
-    document.body.append(f);
-    const loaded = () => until(() => f.contentDocument && f.contentDocument.readyState === "complete" && f.contentDocument.querySelector("[data-jj-mode]")?.textContent, 15000);
-    try {
-      await loaded();
-      let d = f.contentDocument, btn = d.querySelector("[data-jj-mode]");
-      const paper = () => f.contentWindow.getComputedStyle(f.contentDocument.documentElement).getPropertyValue("--paper").trim().toUpperCase();
-      // (headless Chrome can’t be made to report a dark device reliably, so this test can’t prove that part; the page never reads it anyway)
-      eq(d.documentElement.dataset.mode, "light", "opens light, with the device set to dark");
-      const bar = () => f.contentDocument.querySelector('meta[name="theme-color"]').getAttribute("content");
-      eq(bar(), "#7A1E2A", "light bar colour");
-      eq(btn.textContent, "Dark mode"); eq(btn.getAttribute("aria-pressed"), "false"); eq(paper(), "#ECE7E0", "light paper");
-      btn.click();
-      eq(d.documentElement.dataset.mode, "dark", "switched to dark");
-      eq(btn.textContent, "Light mode"); eq(btn.getAttribute("aria-pressed"), "true"); eq(paper(), "#171012", "dark paper");
-      ok(btn.querySelector("svg"), "a sun icon");
-      eq(localStorage.getItem(MODE_KEY), "dark", "remembered in jj-mode, the key every site shares"); eq(bar(), "#4E1018", "dark bar colour");
-      f.contentWindow.location.reload(); await wait(300); await loaded();
-      d = f.contentDocument; btn = d.querySelector("[data-jj-mode]");
-      eq(d.documentElement.dataset.mode, "dark", "still dark after reloading"); eq(btn.textContent, "Light mode"); eq(paper(), "#171012");
-      btn.click();
-      eq(d.documentElement.dataset.mode, "light", "back to light"); eq(localStorage.getItem(MODE_KEY), "light");
-      f.contentWindow.location.reload(); await wait(300); await loaded();
-      eq(f.contentDocument.documentElement.dataset.mode, "light", "still light after reloading");
-      // another site in the family chose dark (the same key): this one opens dark too
-      localStorage.setItem(MODE_KEY, "dark"); f.contentWindow.location.reload(); await wait(300); await loaded();
-      eq(f.contentDocument.documentElement.dataset.mode, "dark", "dark set by another site carries here"); eq(bar(), "#4E1018", "dark bar colour from the start");
-      // her old Pokédex-only choice is kept once, moved over to jj-mode
-      localStorage.removeItem(MODE_KEY); localStorage.setItem(OLD_KEY, "dark"); f.contentWindow.location.reload(); await wait(300); await loaded();
-      eq(f.contentDocument.documentElement.dataset.mode, "dark", "the old key read when jj-mode is missing"); eq(localStorage.getItem(MODE_KEY), "dark", "and saved as jj-mode");
-      eq(localStorage.getItem(OLD_KEY), null, "the old key removed once copied (family rules)");
-    } finally {
-      f.remove();
-      try { if (saved === null) localStorage.removeItem(MODE_KEY); else localStorage.setItem(MODE_KEY, saved); if (savedOld === null) localStorage.removeItem(OLD_KEY); else localStorage.setItem(OLD_KEY, savedOld); } catch {}
-    }
-  });
 
-  test("kept out of search engines and AI (family rules): robots noindex, noai, noimageai", async () => {
-    eq(document.querySelector('meta[name="robots"]')?.getAttribute("content"), "noindex, noai, noimageai");
-  });
 
-  test("the device's dark setting never switches dark mode on by itself (her rule: light unless pressed)", async () => {
-    const found = [];
-    const walk = rules => { for (const r of rules) { if (r.media && /prefers-color-scheme/.test(r.conditionText || r.media.mediaText)) found.push(r.conditionText || r.media.mediaText); if (r.cssRules) walk(r.cssRules); } };
-    for (const s of document.styleSheets) { try { walk(s.cssRules); } catch {} }
-    eq(found, [], "rules that follow the device:");
-    const css = [...document.styleSheets].flatMap(s => { try { return [...s.cssRules].map(r => r.cssText); } catch { return []; } }).join("\n");
-    ok(!/data-theme/.test(css), "no old data-theme switch left");
-    ok(/data-mode="dark"/.test(css), "the dark colours are under data-mode");
-  });
 
   test("text contrast is at least 4.5:1 in light and in dark", async () => {
     const root = document.documentElement, before = root.dataset.mode;
@@ -1253,16 +1119,14 @@
     window.__csp.splice(n);
     const b = document.createElement("button"); b.setAttribute("onclick", "window.__inlineRan = true"); document.body.append(b); b.click(); b.remove(); await wait(20);
     ok(!window.__inlineRan, "an inline handler didn't run"); window.__csp.splice(n);
-    // every kind of page, light and dark, Try switch rows included
+    // every kind of page, light and dark
     const root = document.documentElement, before = root.dataset.mode;
     try {
       for (const mode of ["light", "dark"]) {
         root.dataset.mode = mode;
         for (const h of ["#home", "#dex", "#gen-1", "#gen-8", "#gen-hisui", "#p-6", "#p-201", "#p-58-hisuian", "#sets", "#want", "#coming", "#fast", "#nothing-here"]) { await show(h); await wait(30); }
-        for (const b of document.querySelectorAll(".trybox [data-v]")) { b.click(); await wait(10); }
       }
-    } finally { root.dataset.mode = before;
-      document.querySelector('.trybox [data-row="art"] [data-v="now"]')?.click(); document.querySelector('.trybox [data-row="boxes"] [data-v="now"]')?.click(); }
+    } finally { root.dataset.mode = before; }
     await wait(200);
     eq(window.__csp, [], "Content Security Policy violations:");
   });
