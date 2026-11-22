@@ -394,6 +394,7 @@ a.formsbtn{text-decoration:none}
 .formpick small{font-size:10.5px;font-weight:700;line-height:1.2;color:var(--muted);max-width:53px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .dex-entry{font:400 22px/1.45 var(--display);margin:0 0 16px;max-width:60ch;text-wrap:pretty}
 .dex-entry .label{display:block;margin-bottom:4px}
+.label.dexfrom{display:block;margin:0 0 6px}   /* Pokémon HOME: the Pokédex text is GO's, and says so */
 .dfacts{display:grid;grid-template-columns:1fr 1fr;column-gap:28px;margin:6px 0 0;border-top:1px solid var(--line)}
 .dfacts div{display:flex;justify-content:space-between;gap:16px;padding:10px 2px;border-bottom:1px solid var(--line);font-size:14.5px}
 .dfacts dt{color:var(--muted)}
@@ -1268,7 +1269,7 @@ main{background:linear-gradient(90deg,rgba(70,40,30,.18),rgba(70,40,30,0) 54px) 
 .allgame .v .stamp,.gen .v .stamp{font-size:9px;color:var(--card-mute)}
 /* each game’s Home: the totals, then the region hub (her pick, 22 Nov evening): each region card with its map in the art window
    (in place of three Pokémon), its games, name and National Pokédex numbers, then her counts */
-.genmap{display:block;order:0;margin-top:8px;aspect-ratio:2.4/1;border-radius:4px;border:2px solid color-mix(in srgb,var(--frame) 30%,var(--win-edge));background:var(--pic) center/cover no-repeat}
+.genmap{display:block;order:0;margin-top:8px;aspect-ratio:2.4/1;border-radius:4px;border:2px solid var(--frame);background:var(--pic) center/cover no-repeat}   /* the line round the map in the card's own region colour (her note, 22 Nov: the gold art-window edge didn't match the region's frame) */
 .gen .genno{order:-1;margin-top:3px;font:700 11px/1 var(--body);letter-spacing:.08em;color:var(--card-mute);font-variant-numeric:tabular-nums}
 .gen.hm{text-decoration:none}
 /* HOME’s totals: two Placeholder tabs (only what HOME has: Pokémon and Shiny) */

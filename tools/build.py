@@ -5,7 +5,9 @@
 The page itself (site/index.html, site.css, js/app.js) is hand-written and never generated; this only refreshes what it
 shows. Run it after tools/import_go.py, after changing data/events.json, or after changing the page's code.
 Her ticks (data/collection/go.json) are written by tools/serve.py as she clicks; a copy goes into data.js too, so the
-page still shows them (read only) if it's opened straight from the folder.
+page still shows them (read only) if it's opened straight from the folder. Pokémon HOME (22 Nov): its list from
+data/home/dex.json (tools/import_home.py) and her HOME ticks (data/collection/home.json) go in as DATA.home; where a picture
+key has no picture of its own (a Pokémon not in GO's files yet), data/home/pictures.json names HOME's picture of it (DATA.picAlt).
 """
 import hashlib, json, os, re, sys
 
@@ -27,6 +29,8 @@ def main():
     # special backgrounds (global, not tied to a place), with their notes; sources and doubts stay in the data file
     special = [{k: v for k, v in x.items() if k not in ('sources', 'unsure')} for x in (load('special-backgrounds.json', default={}) or {}).get('special', [])]
     collection = load('collection', 'go.json', default={})
+    home = load('home', 'dex.json', default={'entries': []}) or {'entries': []}
+    home_collection = load('collection', 'home.json', default={}) or {}
     # which event each costume code came from (data/costume-events.json, from research/data/costume-events.json): name and dates only
     keep = lambda v: {f: v[f] for f in ('event', 'start', 'end') if v.get(f)}
     cev = {k: {**keep(v), **({'parts': {n: keep(p) for n, p in v['parts'].items()}} if v.get('parts') else {})}
@@ -77,8 +81,16 @@ def main():
         for c in ev.get('cards') or []:   # the exact forms/costumes the background's cards show
             if c not in ids:
                 problems.append(f'{ev["id"]}: no entry or costume {c}')
+    # one picture for a Pokémon in both games: a key with no picture of its own uses HOME's (only where that one is here)
+    alt = {k: v for k, v in (load('home', 'pictures.json', default={}) or {}).items() if not k.startswith('_') and k not in have and (v in have or v in big)}
+    home_ids = {e['id'] for e in home['entries']}
+    for e in home['entries']:
+        if e.get('go') and (e['id'] if e['go'] is True else e['go']) not in by_id:
+            problems.append(f'home/dex.json: {e["id"]} names GO entry {e["go"]}, which dex.json hasn’t got')
+    if len(home_ids) != len(home['entries']):
+        problems.append('home/dex.json: an id is there twice')
     pics = [k for e in dex['entries'] + costumes['costumes'] for k in (e['img'], e['img'] + '.s')]
-    missing = sum(1 for k in pics if k not in have)
+    missing = sum(1 for k in pics if k not in have and k not in alt)
     upcoming = load('go', 'upcoming.json', default={}) or {}   # tools/import_events.py: the What's on page
     # an upcoming event asking for a box the Pokédex data hasn't got (18 Nov recheck: Dynamax Espurr's debut, which its
     # page said was unavailable) -> data/go/flag-fixes.json
@@ -91,12 +103,14 @@ def main():
     upbg = {k: {'background': v['background'], 'dex': sorted(can_get.get(k, []))} for k, v in (load('go', 'upcoming-backgrounds.json', default={}) or {}).items() if not k.startswith('_')}
     out = {'game': 'go', 'updated': dex['updated'], 'entries': dex['entries'], 'costumes': costumes['costumes'],
            'upcoming': {'fetched': upcoming.get('fetched'), 'events': upcoming.get('events', []), 'backgrounds': upbg},
-           'events': events, 'special': special, 'costumeEvents': cev, 'dexByName': names, 'sprites': sorted(have), 'bigSprites': sorted(big), 'backgrounds': sorted(bgs), 'collection': collection}
+           'events': events, 'special': special, 'costumeEvents': cev, 'dexByName': names, 'sprites': sorted(have), 'bigSprites': sorted(big), 'backgrounds': sorted(bgs), 'collection': collection,
+           'picAlt': alt, 'home': {'entries': home['entries'], 'collection': home_collection}}
     js = 'const DATA = ' + json.dumps(out, ensure_ascii=False, separators=(',', ':')) + ';\n'
     write(os.path.join(SITE, 'js', 'data.js'), js)
     stamp()
     print(f'Built site/js/data.js: {len(dex["entries"])} entries, {len(costumes["costumes"])} costumes, {len(events)} events; '
-          f'{len(have)} pictures ({missing} missing: new ones need tools/fetch_sprites.py; the rest have no picture in the game yet)')
+          f'{len(have)} pictures ({missing} missing: new ones need tools/fetch_sprites.py; the rest have no picture in the game yet); '
+          f'Pokémon HOME: {len(home["entries"])} entries')
     for p in problems:
         print('  check:', p)
     if problems:

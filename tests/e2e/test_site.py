@@ -49,6 +49,7 @@ class _Results(http.server.BaseHTTPRequestHandler):
 def run_page_tests(timeout=900):
     with Sandbox() as box:
         col = box.read('collection', 'go.json'); col['have'] = {}; box.write(col, 'collection', 'go.json')   # start with no ticks (the copy only), whatever she has ticked
+        box.write({'have': {}, 'went': [], 'costumes': []}, 'collection', 'home.json')   # and none in Pokémon HOME
         site = box.path('site')
         _Results.box = queue.Queue()
         inbox = http.server.ThreadingHTTPServer(('127.0.0.1', 0), _Results)

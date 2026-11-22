@@ -22,7 +22,7 @@
   const strip = () => [...view().querySelectorAll(".bigboxes:not(.ssbox) .pc")].map(b => b.querySelector(".pclab b").textContent);
   const box = label => [...view().querySelectorAll(".bigboxes:not(.ssbox) .pc")].find(b => b.querySelector(".pclab b").textContent === label);
   const fact = name => { const dt = [...view().querySelectorAll("dt")].find(d => d.textContent === name); return dt && dt.nextElementSibling.textContent; };
-  const server = () => fetch("/api/collection").then(r => r.json());
+  const server = (game = "go") => fetch("/api/collection" + (game === "go" ? "" : "?game=" + game)).then(r => r.json());
   const realFetch = window.fetch.bind(window);
 
   // ---------- every page ----------
@@ -33,7 +33,10 @@
   test("every page opens with no errors, blanks or leftovers, and every link on them goes somewhere", async () => {
     const problems = [], errs = [], seen = new Set(), links = new Set();
     const onErr = e => errs.push(e.message || String(e.reason)); addEventListener("error", onErr);
-    const routes = ["#home", "#go", "#hm-dex", "#games", "#dex", "#costumes", "#events", "#fast", "#want", "#coming", "#sets", ...allSets().map(st => "#set-" + st.id), ...Object.keys(genById).map(g => "#gen-" + g), ...PAGE_KEYS.map(k => "#p-" + k)];
+    await go("#go"); await show("#home");   // both games' lists made
+    const routes = ["#home", "#go", "#hm-dex", "#hm-fast", "#games", "#dex", "#costumes", "#events", "#fast", "#want", "#coming", "#sets", ...(useGame("go"), allSets()).map(st => "#set-" + st.id),
+      ...Object.keys(genById).map(g => "#gen-" + g), ...WORLDS.go.PAGE_KEYS.map(k => "#p-" + k),
+      ...Object.keys(genById).map(g => "#hm-gen-" + g), ...WORLDS.home.PAGE_KEYS.map(k => "#hm-p-" + k)];   // Pokémon HOME's pages too (22 Nov)
     try {
       for (const h of routes) {
         if (seen.has(h)) continue; seen.add(h);
@@ -50,8 +53,8 @@
         if (seen.has(h) || h === "#") continue; seen.add(h);
         await show(h);
         const r = h.slice(1);
-        if (!/^(home|dex|costumes|events|gen-\w+|p-\d+(-[a-z]+)?)$/.test(r)) problems.push(`a link to ${h}, which isn’t a page`);
-        if (/^p-\d+$/.test(r) && !view().querySelector(".mondetail")) problems.push(`link to ${h}: no Pokémon page`);
+        if (!/^(home|(hm-)?(dex|gen-\w+|p-\d+(-[a-z]+)?)|costumes|events)$/.test(r)) problems.push(`a link to ${h}, which isn’t a page`);
+        if (/^(hm-)?p-\d+$/.test(r) && !view().querySelector(".mondetail")) problems.push(`link to ${h}: no Pokémon page`);
       }
     } finally { removeEventListener("error", onErr); }
     eq(problems, [], "problems:");
@@ -59,7 +62,7 @@
 
   test("every picture the main pages use is there", async () => {
     const srcs = new Set(), missing = [];
-    for (const h of ["#home", "#go", "#dex", "#costumes", "#events", "#p-6", "#p-25", "#p-94", "#p-382", "#gen-8"]) {
+    for (const h of ["#home", "#go", "#dex", "#costumes", "#events", "#p-6", "#p-25", "#p-94", "#p-382", "#gen-8", "#hm-p-25", "#hm-p-869", "#hm-gen-9", "#hm-fast"]) {
       await go(h); view().querySelectorAll("img[src]").forEach(i => srcs.add(i.getAttribute("src")));
       [...view().querySelectorAll("[style*='url(']")].forEach(el => { const m = /url\('?([^')]+)'?\)/.exec(el.getAttribute("style")); if (m) srcs.add(m[1]); });
     }
@@ -308,11 +311,12 @@
     } finally { prefs.work = "all"; prefs.workShow = "all"; keepPrefs(); }
   });
 
-  test("games (her decisions, 22 Nov): HOME is the default and a Placeholder; the sidebar switch changes game; GO's Home is #go", async () => {
+  test("games (her decisions, 22 Nov): HOME is the default; the sidebar switch changes game; GO's Home is #go", async () => {
     await go("#home");
     eq(document.querySelector('.game-switch a[aria-current]').textContent, "HOME", "opens on HOME");
-    ok(/Placeholder/.test(view().textContent), "HOME's page is a marked Placeholder");
-    ok(!nav.querySelector('a[href="#gen-1"]'), "HOME's sidebar has no GO pages");
+    ok(!/Placeholder/.test(view().textContent), "HOME is built: no Placeholder (her ask, 22 Nov)");
+    ok(!nav.querySelector('a[href="#gen-1"]') && nav.querySelector('a[href="#hm-gen-1"]') && nav.querySelector('a[href="#hm-fast"]'), "HOME's sidebar: its own regions and Fast tick, no GO pages");
+    ok(!nav.querySelector('a[href="#sets"], a[href="#want"], a[href="#coming"]'), "no events, Looking for or What’s on in HOME");
     await go("#go");
     eq(document.querySelector('.game-switch a[aria-current]').textContent, "GO", "GO chosen");
     ok(nav.querySelector('a[href="#gen-1"]') && nav.querySelector('a[href="#go"].on'), "GO's sidebar as before, its Home lit");
@@ -320,14 +324,17 @@
     ok(!view().querySelector('.gen[href^="#gen-"] img'), "no Pokémon pictures on the region hub");
     eq(view().querySelector('.gen[href="#gen-1"] .genno').textContent, "#0001–#0151", "Kanto's National Pokédex numbers");
     await go("#home");
-    eq([...view().querySelectorAll(".hero .stats .slt")].map(x => x.textContent), ["Pokémon", "Shiny"], "HOME's totals: only Pokémon and Shiny (no Lucky in HOME, her note 22 Nov)");
-    eq(view().querySelectorAll(".gen .genmap").length, 10, "HOME's region hub");
-    ok(!/Lucky|4★|Dynamax|Shadow|XXL/.test(view().textContent), "nothing on HOME's Home that HOME doesn't have");
+    eq([...view().querySelectorAll(".hero .stats .slt")].map(x => x.textContent), ["Pokémon", "Female", "Male", "Shiny", "Gigantamax"], "HOME's totals: only what HOME has (her notes, 22 Nov)");
+    eq(view().querySelectorAll('.gen[href^="#hm-gen-"] .genmap').length, 10, "HOME's region hub, linking to HOME's regions");
+    ok(!/Lucky|4★|Dynamax|Shadow|Purified|XXL|XXS|Mega|Placeholder/.test(view().textContent), "nothing on HOME's Home that HOME doesn't have");
     ok(!view().querySelector('img[src*="sprites/"]'), "no Pokémon pictures on HOME's Home");
+    const hk = countsIn("home");
+    eq(view().querySelector(".hero .stats .stat b").textContent.replace(/\s+/g, " ").trim(), `${num(hk.species)} of ${num(hk.speciesAll)}`, "HOME's Pokémon total");
     await go("#games");
     ok(document.querySelector(".games a.allgames.on"), "All games lit above the switch (her pick, 22 Nov evening)"); ok(!document.querySelector(".game-switch a[aria-current]"), "no game chosen there");
     eq(view().querySelectorAll(".allgame").length, GAMES.length, "a card per game");
-    ok(!/Lucky|4★/.test(view().querySelector(".allgame").textContent), "HOME's card has no Lucky or 4★");
+    ok(!/Lucky|4★|Placeholder/.test(view().querySelector(".allgame").textContent), "HOME's card has real figures and no Lucky or 4★");
+    eq(view().querySelector(".allgame .v").textContent, `${num(hk.species)} / ${num(hk.speciesAll)}`, "HOME's card counts as HOME's Home");
     ok(!view().querySelector(".card, img[src*='sprites/']"), "no Pokémon on All games");
     await go("#gen-1"); ok(document.querySelector('.games a.allgames[href="#games"]:not(.on)'), "the link is there on every page");
     eq(document.querySelector('.game-switch a[aria-current]').textContent, "GO", "a GO page shows GO");
@@ -838,9 +845,12 @@
       ok(nms.length > 10 && nms.every(id => /-alolan$/.test(id)), `only Alolan forms: ${nms.slice(0, 5)}`);
       await search("zzzz"); ok(view().querySelector(".empty"), "Nothing here.");
       await search("farfetch'd"); ok(view().querySelector('.card[data-id="83"]'), "Farfetch’d typed straight");
-      await search(""); await go("#home");
+      await search(""); await go("#go");
       await search("pikachu"); await until(() => location.hash === "#dex");
       ok(view().querySelector('.card[data-id="25"]'), "Pikachu on Every Pokémon");
+      await search(""); await go("#home");   // in Pokémon HOME: HOME's own Every Pokémon
+      await search("pikachu"); await until(() => location.hash === "#hm-dex");
+      ok(view().querySelector('.card[data-id="25"]') && GAME === "home" && view().querySelector('.card a.nm[href="#hm-p-25"]'), "Pikachu found in HOME, its card opening HOME's page");
     } finally { q.value = ""; route(); }
   });
 
@@ -1164,11 +1174,88 @@
     try {
       for (const mode of ["light", "dark"]) {
         root.dataset.mode = mode;
-        for (const h of ["#home", "#go", "#hm-dex", "#games", "#dex", "#gen-1", "#gen-8", "#gen-hisui", "#p-6", "#p-201", "#p-58-hisuian", "#sets", "#want", "#coming", "#fast", "#nothing-here"]) { await show(h); await wait(30); }
+        for (const h of ["#home", "#go", "#hm-dex", "#hm-gen-1", "#hm-p-25", "#hm-fast", "#games", "#dex", "#gen-1", "#gen-8", "#gen-hisui", "#p-6", "#p-201", "#p-58-hisuian", "#sets", "#want", "#coming", "#fast", "#nothing-here"]) { await show(h); await wait(30); }
       }
     } finally { root.dataset.mode = before; }
     await wait(200);
     eq(window.__csp, [], "Content Security Policy violations:");
+  });
+
+  // ---------- Pokémon HOME (built 22 Nov, her ask: “Home needs to be fully built… Used shared stuff between games”) ----------
+  const NOT_HOME = /\b(Lucky|4★|XXL|XXS|Dynamax|Mega|Shadow|Purified|Costumes?|Event backgrounds|Buddy distance)\b/;
+  test("HOME: every species #0001–#1025, each with a picture; GO's entry shared wherever HOME has the same Pokémon", async () => {
+    await go("#hm-dex");
+    const dexes = new Set(ENTRIES.map(e => e.dex));
+    eq(dexes.size, 1025, "every species"); ok([...dexes].every(n => n >= 1 && n <= 1025), "#0001–#1025");
+    const noPic = ENTRIES.filter(e => !sprite(e.img)).map(e => e.id);
+    eq(noPic, [], "every HOME entry has a picture (GO's, or HOME's own where GO has none)");
+    const shared = HOME_DATA.entries.filter(h => h.go).length;
+    ok(shared > 1000, `most entries are GO's own: ${shared}`);
+    const pika = WORLDS.go.byId["25"], hp = byId["25"];
+    eq([hp.name, hp.img, hp.desc], [pika.name, pika.img, pika.desc], "Pikachu shares GO's name, picture and Pokédex text");
+    ok(!WORLDS.go.byId["25-original-cap"] && byId["25-original-cap"], "HOME's own forms (Pikachu in a cap) only in HOME");
+    ok(!byId["150-armored"] && WORLDS.go.byId["150-armored"], "GO's own forms (Armored Mewtwo) only in GO");
+    ok(ENTRIES.every(e => e.released && !e.shadow && !e.dynamax && !(e.mega || []).length), "no GO-only boxes on any HOME entry");
+  });
+
+  test("HOME pages show only HOME's boxes (her notes, 22 Nov): Caught, Female, Male, Shiny, Gigantamax", async () => {
+    await go("#hm-gen-1");
+    const labels = new Set([...view().querySelectorAll(".card .tk span:not(.fill)")].map(x => x.textContent));
+    ok([...labels].every(l => ["Caught", "Female", "Male", "Shiny", "Gigantamax"].includes(l)), `card boxes: ${[...labels]}`);
+    eq([...view().querySelectorAll(".hero .stattab .slt")].map(x => x.textContent), ["Pokémon", "Female", "Male", "Shiny", "Gigantamax"], "the tabs");
+    ok(!view().querySelector("[data-notout]"), "no Not in GO switch");
+    await go("#hm-p-6");
+    eq(strip(), ["Caught", "Female", "Male", "Shiny", "G-Max"], "Charizard's strip in HOME");
+    ok(!NOT_HOME.test(view().querySelector(".mondetail").textContent), "facts: nothing HOME hasn't got");
+    eq(fact("Shiny"), "Available"); eq(fact("Gigantamax"), "Available");
+    ok(/From Pokémon GO’s Pokédex/.test(view().querySelector(".dexfrom").textContent), "GO's Pokédex text says it's GO's");
+    ok(!/Candy/.test(view().querySelector(".evo").textContent), "the evolution family without GO's candy");
+    ok(view().querySelector('.evo a[href="#hm-p-4"]') && view().querySelector('.crumbs a[href="#hm-dex"]') && view().querySelector('.crumbs a[href="#hm-gen-1"]'), "links stay in HOME");
+    ok(view().querySelector('.prevnext a[href="#hm-p-5"]') && view().querySelector('.prevnext a[href="#hm-p-7"]'), "Previous and Next in HOME");
+    await go("#hm-p-25");
+    ok(!/Costumes|backgrounds/i.test([...view().querySelectorAll(".section h2")].map(h => h.textContent).join(" ")), "no costumes or backgrounds in HOME");
+    ok(view().querySelector('.formpick [data-pickform="25-original-cap"]'), "Pikachu's caps among its forms");
+    await go("#p-25");
+    ok(strip().includes("Lucky") && strip().includes("4★"), "GO's Pikachu keeps every GO box");
+  });
+
+  test("HOME's ticks save to HOME's own file, never GO's; each game keeps its own", async () => {
+    const goBefore = JSON.stringify((await server("go")).have);
+    await go("#hm-p-1");
+    try {
+      click(box("Shiny")); await until(() => box("Shiny").getAttribute("aria-pressed") === "true");
+      await wait(300);
+      const h = await server("home");
+      eq(h.have["d:1"], ["c", "s"], "Shiny and Caught with it, in HOME");
+      eq(JSON.stringify((await server("go")).have), goBefore, "GO's ticks unchanged");
+      await go("#p-1"); eq(box("Shiny").getAttribute("aria-pressed"), "false", "GO's Bulbasaur not shiny");
+      await go("#hm-p-1"); eq(box("Shiny").getAttribute("aria-pressed"), "true", "HOME's still is");
+      click(box("Shiny")); await until(() => box("Shiny").getAttribute("aria-pressed") === "false"); await wait(300);
+      eq((await server("home")).have["d:1"], undefined, "unticking Shiny unticks the Caught that came with it");
+    } finally {
+      for (const t of ["s", "c"]) await save({game: "home", list: "have", key: "d:1", tick: t, on: false});
+      COLS.home.have = {};
+    }
+  });
+
+  test("HOME's Fast tick: a whole region, only HOME's boxes, saving to HOME", async () => {
+    await go("#hm-fast");
+    eq([...view().querySelectorAll("[data-fastbox]")].map(b => b.textContent), ["Caught", "Female", "Male", "Shiny", "Gigantamax"], "HOME's boxes");
+    eq([...view().querySelectorAll("[data-fastkind]")].map(b => b.textContent), ["Pokédex", "Forms check"], "no costumes or backgrounds");
+    ok(/Pokémon HOME/.test(view().querySelector(".hero p").textContent), "says to use HOME");
+    const cell = view().querySelector('.fastgrid [data-fast="4"]');
+    try {
+      click(cell); await until(() => view().querySelector('.fastgrid [data-fast="4"]').getAttribute("aria-pressed") === "true"); await wait(300);
+      eq((await server("home")).have["d:4"], ["c"], "saved in HOME");
+      ok(!(await server("go")).have["d:4"], "not in GO");
+    } finally { await save({game: "home", list: "have", key: "d:4", tick: "c", on: false}); COLS.home.have = {}; }
+  });
+
+  test("one picture for a Pokémon in both games (her question, 22 Nov): GO's own, HOME's only where GO's files have none", async () => {
+    const goAl = WORLDS.go.byId["869"];
+    ok(goAl && !SPRITES.has(goAl.img) && sprite(goAl.img) && /sprites\/hm\./.test(sprite(goAl.img)), "Alcremie: no picture in GO's files, so HOME's, in GO too");
+    ok(SPRITES.has("pm25") && sprite("pm25") === "sprites/pm25.webp", "Pikachu: GO's own picture");
+    await go("#hm-p-869"); ok(view().querySelector(".monpic img").getAttribute("src").includes("sprites/big/hm."), "Alcremie's big picture in HOME");
   });
 
   // ---------- run ----------
@@ -1176,7 +1263,7 @@
     await wait(500);
     const out = [];
     for (const [name, fn, known] of tests) {
-      try { await fn(); out.push(known ? {name, ok: false, error: `passes now: take it off knownBug (${known})`} : {name, ok: true}); }
+      try { useGame("go"); await fn(); out.push(known ? {name, ok: false, error: `passes now: take it off knownBug (${known})`} : {name, ok: true}); }
       catch (e) {
         if (known) out.push({name, ok: true, known: `${known} [${String(e && e.message || e).slice(0, 200)}]`});
         else out.push({name, ok: false, error: `${String(e && e.stack || e).slice(0, 800)}\n  (page then: ${location.hash})`});

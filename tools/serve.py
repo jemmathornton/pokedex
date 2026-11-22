@@ -8,12 +8,14 @@ copy just stops.
     pythonw tools/serve.py              (port 8030, her app)
     python  tools/serve.py --port 8031  (a second copy for checking changes in the preview; same data)
 
-    GET  /api/collection   everything she has ticked (data/collection/go.json)
+    GET  /api/collection   everything she has ticked in Pokémon GO (data/collection/go.json)
+    GET  /api/collection?game=home   her Pokémon HOME ticks (data/collection/home.json; 22 Nov, her ask: HOME fully built)
     GET  /family/<file>    the family's shared code (mode.js, family.js, family.css), from Jemma's Journals, the parent
                            folder (its site/family/; her decision, 22 Nov: all shared code lives there and every app
                            loads it at /family/, as the family server on 8050 and, online, the one address do)
     POST /api/tick         {list: "have", key, tick, on}   a box on a Pokémon, costume or background Pokémon
                            {list: "went" | "costumes", key, on}   an event she went to / a costume she's collecting
+                           {game: "home", list: "have", key, tick, on}   a box in Pokémon HOME (home.json; only HOME's boxes)
 Posts need the header "X-Pokedex: 1", which only the site itself sends, so a page from anywhere else can't change it.
 Each change is written straight away (to a temporary file, then swapped in), so nothing is lost if the PC goes off.
 The daily backup (tools/backup.py, run by the parent's tools/weekly.py) commits it and pushes it to GitHub.
@@ -24,17 +26,20 @@ PORT = int(sys.argv[sys.argv.index('--port') + 1]) if '--port' in sys.argv else 
 ROOT = os.environ.get('POKEDEX_ROOT') or os.path.dirname(os.path.dirname(os.path.abspath(__file__)))   # POKEDEX_ROOT: the tests' throwaway copy
 SITE = os.path.join(ROOT, 'site')
 FILE = os.path.join(ROOT, 'data', 'collection', 'go.json')
+# each game its own ticks file (her decision, 22 Nov: GO's file and its keys never change; HOME's ticks beside it)
+FILES = {'go': FILE, 'home': os.path.join(ROOT, 'data', 'collection', 'home.json')}
 FAMILY = os.path.normpath(os.path.join(ROOT, '..', 'site', 'family'))   # Jemma's Journals' shared code (the tests' copy has one beside it too)
 THREADS = threading.Lock()
 
 
 @contextlib.contextmanager
-def LOCK():
+def LOCK(file=None):
     """One change at a time, across this server's threads and across both copies (8030 and 8031 save to the same file;
-    the 15 Nov review showed 5 of 200 ticks lost when the two saved at once): a lock on go.json.lock as well."""
+    the 15 Nov review showed 5 of 200 ticks lost when the two saved at once): a lock on go.json.lock (home.json.lock) as well."""
+    file = file or FILE
     with THREADS:
-        os.makedirs(os.path.dirname(FILE), exist_ok=True)
-        fh = open(FILE + '.lock', 'a+b')
+        os.makedirs(os.path.dirname(file), exist_ok=True)
+        fh = open(file + '.lock', 'a+b')
         try:
             for n in range(200):   # up to 20 seconds
                 try:
@@ -64,57 +69,74 @@ def LOCK():
             fh.close()
 KEY = re.compile(r'^[a-z]:[\w:.!?#\'’-]{1,120}$', re.I)   # d:<entry> c:<costume> b:<event>:<pokemon>
 TICKS = {'c', 'cm', 'cf', 's', 'l', 'h', 'sd', 'pu', 'dx', 'gx', 'ss', 'mg', 'mx', 'my', 'xl', 'xs'}   # caught, male, female, shiny, lucky, 4★, shadow, purified, Dynamax, Gigantamax, shiny shadow (a bonus), Mega (or Primal), Mega X, Mega Y, XXL, XXS
+# Pokémon HOME's boxes: only what HOME has (her note, 22 Nov: no Lucky there; research/home-tracking.md): in HOME now, female,
+# male, shiny, and Gigantamax (a Pokémon with the Gigantamax Factor kept in HOME)
+HOME_TICKS = {'c', 'cm', 'cf', 's', 'gx'}
+GAME_TICKS = {'go': TICKS, 'home': HOME_TICKS}
 
 
-def read():
+def read(file=None):
     # utf-8-sig: a file saved by Notepad or PowerShell starts with a BOM, which isn't a broken file (19 Nov review)
+    file = file or FILE
     try:
-        with open(FILE, encoding='utf-8-sig') as fh:
+        with open(file, encoding='utf-8-sig') as fh:
             c = json.load(fh)
     except (FileNotFoundError, ValueError):
         # missing (moved for a moment, a git checkout) or broken (the PC went off mid-save): the copy before the last
         # change. Missing too: a first start, so empty. Never start from empty while a .bak exists, or the next two
         # saves would replace both files with almost nothing (19 Nov review)
-        if not os.path.exists(FILE + '.bak'):
-            if os.path.exists(FILE):
-                raise RuntimeError(f'{FILE} is broken and there is no .bak copy: nothing saved, fix it by hand')
+        if not os.path.exists(file + '.bak'):
+            if os.path.exists(file):
+                raise RuntimeError(f'{file} is broken and there is no .bak copy: nothing saved, fix it by hand')
             return {'have': {}, 'went': [], 'costumes': []}
-        with open(FILE + '.bak', encoding='utf-8-sig') as fh:
+        with open(file + '.bak', encoding='utf-8-sig') as fh:
             c = json.load(fh)
     for k, v in (('have', {}), ('went', []), ('costumes', [])):
         c.setdefault(k, v)
     return c
 
 
-def write(obj):
-    os.makedirs(os.path.dirname(FILE), exist_ok=True)
-    tmp = f'{FILE}.{os.getpid()}.tmp'
+def write(obj, file=None):
+    file = file or FILE
+    os.makedirs(os.path.dirname(file), exist_ok=True)
+    tmp = f'{file}.{os.getpid()}.tmp'
     with open(tmp, 'w', encoding='utf-8', newline='\n') as fh:
         json.dump(obj, fh, ensure_ascii=False, indent=1, sort_keys=True)
         fh.write('\n')
         fh.flush()
         os.fsync(fh.fileno())   # on the disk before it's swapped in, so a power cut can't leave an empty file
     try:
-        with open(FILE, encoding='utf-8-sig') as fh:
+        with open(file, encoding='utf-8-sig') as fh:
             json.load(fh)
-        shutil.copyfile(FILE, FILE + '.bak')   # the copy before this change, only if it's whole
+        shutil.copyfile(file, file + '.bak')   # the copy before this change, only if it's whole
     except (OSError, ValueError):
         pass
     for n in range(10):   # Windows refuses the swap while the file is being read: try again for a moment
         try:
-            return os.replace(tmp, FILE)
+            return os.replace(tmp, file)
         except PermissionError:
             if n == 9:
                 raise
             time.sleep(.2)
 
 
-def change(body):
+def game_file(game):
+    """The ticks file for a game: GO's when none is given (every GO save as before), HOME's own; None for anything else."""
+    if game is None:
+        game = 'go'
+    return FILES.get(game) if isinstance(game, str) else None
+
+
+def change(body, file=None):
     lst, key, on = body.get('list'), str(body.get('key', '')), bool(body.get('on'))
-    c = read()
+    game = body.get('game') or 'go'
+    file = file or game_file(game)
+    if not file:
+        return {'ok': False, 'error': 'Unknown game.'}
+    c = read(file)
     if lst == 'have':
         tick = body.get('tick')
-        if not KEY.match(key) or not isinstance(tick, str) or tick not in TICKS:
+        if not KEY.match(key) or not isinstance(tick, str) or tick not in GAME_TICKS[game]:
             return {'ok': False, 'error': 'Not a box this page has.'}
         ticks = set(c['have'].get(key, []))
         (ticks.add if on else ticks.discard)(tick)
@@ -122,7 +144,7 @@ def change(body):
             c['have'][key] = sorted(ticks)
         else:
             c['have'].pop(key, None)
-    elif lst in ('went', 'costumes'):
+    elif lst in ('went', 'costumes') and game == 'go':   # events and costumes are GO's alone
         if not re.fullmatch(r'[\w-]{1,120}', key):
             return {'ok': False, 'error': 'No such item.'}
         items = set(c[lst])
@@ -130,7 +152,7 @@ def change(body):
         c[lst] = sorted(items)
     else:
         return {'ok': False, 'error': 'Unknown list.'}
-    write(c)
+    write(c, file)
     return {'ok': True}
 
 
@@ -178,9 +200,13 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         if self.path.startswith('/api/'):
             if not self.host_ok():
                 return self.reply({'error': 'not allowed'}, 403)
-            if self.path == '/api/collection':
-                with LOCK():
-                    c = read()
+            path, _, query = self.path.partition('?')
+            if path == '/api/collection':
+                file = game_file(urllib.parse.parse_qs(query).get('game', ['go'])[0])
+                if not file:
+                    return self.reply({'error': 'unknown game'}, 404)
+                with LOCK(file):
+                    c = read(file)
                 return self.reply(c)
             return self.reply({'error': 'unknown'}, 404)
         return super().do_GET()
@@ -190,8 +216,11 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             return self.reply({'error': 'not allowed'}, 403)
         try:
             body = json.loads(self.rfile.read(min(int(self.headers.get('Content-Length', 0)), 10000)) or b'{}')
-            with LOCK():
-                r = change(body)
+            file = game_file(body.get('game')) if isinstance(body, dict) else None
+            if not file:
+                return self.reply({'ok': False, 'error': 'Unknown game.'})
+            with LOCK(file):
+                r = change(body, file)
             self.reply(r)
         except Exception as e:
             self.reply({'ok': False, 'error': str(e)}, 500)

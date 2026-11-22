@@ -1,0 +1,8910 @@
+{
+ "updated": "2026-11-22",
+ "entries": [
+  {
+   "id": "1",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "2",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "3",
+   "go": true,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "4",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "5",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "6",
+   "go": true,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "7",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "8",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "9",
+   "go": true,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "10",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "11",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "12",
+   "go": true,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "13",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "14",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "15",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "16",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "17",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "18",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "19",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "19-alolan",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "20",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "20-alolan",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "21",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "22",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "23",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "24",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "25",
+   "go": true,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "25-original-cap",
+   "dex": 25,
+   "gen": 1,
+   "name": "Pikachu",
+   "form": "Original Cap",
+   "types": [
+    "Electric"
+   ],
+   "img": "hm.10094",
+   "gender": "both",
+   "category": "Mouse Pokémon",
+   "height": 0.4,
+   "weight": 6.0,
+   "desc": "Whenever Pikachu comes across something new, it blasts it with a jolt of electricity. If you come across a blackened berry, it’s evidence that this Pokémon mistook the intensity of its charge.",
+   "family": "PIKACHU",
+   "evo": [],
+   "order": 43,
+   "shiny": false,
+   "gmax": false
+  },
+  {
+   "id": "25-hoenn-cap",
+   "dex": 25,
+   "gen": 1,
+   "name": "Pikachu",
+   "form": "Hoenn Cap",
+   "types": [
+    "Electric"
+   ],
+   "img": "hm.10095",
+   "gender": "both",
+   "category": "Mouse Pokémon",
+   "height": 0.4,
+   "weight": 6.0,
+   "desc": "Whenever Pikachu comes across something new, it blasts it with a jolt of electricity. If you come across a blackened berry, it’s evidence that this Pokémon mistook the intensity of its charge.",
+   "family": "PIKACHU",
+   "evo": [],
+   "order": 44,
+   "shiny": false,
+   "gmax": false
+  },
+  {
+   "id": "25-sinnoh-cap",
+   "dex": 25,
+   "gen": 1,
+   "name": "Pikachu",
+   "form": "Sinnoh Cap",
+   "types": [
+    "Electric"
+   ],
+   "img": "hm.10096",
+   "gender": "both",
+   "category": "Mouse Pokémon",
+   "height": 0.4,
+   "weight": 6.0,
+   "desc": "Whenever Pikachu comes across something new, it blasts it with a jolt of electricity. If you come across a blackened berry, it’s evidence that this Pokémon mistook the intensity of its charge.",
+   "family": "PIKACHU",
+   "evo": [],
+   "order": 45,
+   "shiny": false,
+   "gmax": false
+  },
+  {
+   "id": "25-unova-cap",
+   "dex": 25,
+   "gen": 1,
+   "name": "Pikachu",
+   "form": "Unova Cap",
+   "types": [
+    "Electric"
+   ],
+   "img": "hm.10097",
+   "gender": "both",
+   "category": "Mouse Pokémon",
+   "height": 0.4,
+   "weight": 6.0,
+   "desc": "Whenever Pikachu comes across something new, it blasts it with a jolt of electricity. If you come across a blackened berry, it’s evidence that this Pokémon mistook the intensity of its charge.",
+   "family": "PIKACHU",
+   "evo": [],
+   "order": 46,
+   "shiny": false,
+   "gmax": false
+  },
+  {
+   "id": "25-kalos-cap",
+   "dex": 25,
+   "gen": 1,
+   "name": "Pikachu",
+   "form": "Kalos Cap",
+   "types": [
+    "Electric"
+   ],
+   "img": "hm.10098",
+   "gender": "both",
+   "category": "Mouse Pokémon",
+   "height": 0.4,
+   "weight": 6.0,
+   "desc": "Whenever Pikachu comes across something new, it blasts it with a jolt of electricity. If you come across a blackened berry, it’s evidence that this Pokémon mistook the intensity of its charge.",
+   "family": "PIKACHU",
+   "evo": [],
+   "order": 47,
+   "shiny": false,
+   "gmax": false
+  },
+  {
+   "id": "25-alola-cap",
+   "dex": 25,
+   "gen": 1,
+   "name": "Pikachu",
+   "form": "Alola Cap",
+   "types": [
+    "Electric"
+   ],
+   "img": "hm.10099",
+   "gender": "both",
+   "category": "Mouse Pokémon",
+   "height": 0.4,
+   "weight": 6.0,
+   "desc": "Whenever Pikachu comes across something new, it blasts it with a jolt of electricity. If you come across a blackened berry, it’s evidence that this Pokémon mistook the intensity of its charge.",
+   "family": "PIKACHU",
+   "evo": [],
+   "order": 48,
+   "shiny": false,
+   "gmax": false
+  },
+  {
+   "id": "25-partner-cap",
+   "dex": 25,
+   "gen": 1,
+   "name": "Pikachu",
+   "form": "Partner Cap",
+   "types": [
+    "Electric"
+   ],
+   "img": "hm.10148",
+   "gender": "both",
+   "category": "Mouse Pokémon",
+   "height": 0.4,
+   "weight": 6.0,
+   "desc": "Whenever Pikachu comes across something new, it blasts it with a jolt of electricity. If you come across a blackened berry, it’s evidence that this Pokémon mistook the intensity of its charge.",
+   "family": "PIKACHU",
+   "evo": [],
+   "order": 49,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "25-world-cap",
+   "dex": 25,
+   "gen": 1,
+   "name": "Pikachu",
+   "form": "World Cap",
+   "types": [
+    "Electric"
+   ],
+   "img": "hm.10160",
+   "gender": "both",
+   "category": "Mouse Pokémon",
+   "height": 0.4,
+   "weight": 6.0,
+   "desc": "Whenever Pikachu comes across something new, it blasts it with a jolt of electricity. If you come across a blackened berry, it’s evidence that this Pokémon mistook the intensity of its charge.",
+   "family": "PIKACHU",
+   "evo": [],
+   "order": 51,
+   "shiny": false,
+   "gmax": false
+  },
+  {
+   "id": "26",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "26-alolan",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "27",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "27-alolan",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "28",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "28-alolan",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "29",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "30",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "31",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "32",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "33",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "34",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "35",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "36",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "37",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "37-alolan",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "38",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "38-alolan",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "39",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "40",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "41",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "42",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "43",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "44",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "45",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "46",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "47",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "48",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "49",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "50",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "50-alolan",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "51",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "51-alolan",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "52",
+   "go": true,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "52-alolan",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "52-galarian",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "53",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "53-alolan",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "54",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "55",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "56",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "57",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "58",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "58-hisuian",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "59",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "59-hisuian",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "60",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "61",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "62",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "63",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "64",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "65",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "66",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "67",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "68",
+   "go": true,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "69",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "70",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "71",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "72",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "73",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "74",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "74-alolan",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "75",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "75-alolan",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "76",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "76-alolan",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "77",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "77-galarian",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "78",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "78-galarian",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "79",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "79-galarian",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "80",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "80-galarian",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "81",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "82",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "83",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "83-galarian",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "84",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "85",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "86",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "87",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "88",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "88-alolan",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "89",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "89-alolan",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "90",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "91",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "92",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "93",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "94",
+   "go": true,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "95",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "96",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "97",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "98",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "99",
+   "go": true,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "100",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "100-hisuian",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "101",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "101-hisuian",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "102",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "103",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "103-alolan",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "104",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "105",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "105-alolan",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "106",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "107",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "108",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "109",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "110",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "110-galarian",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "111",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "112",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "113",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "114",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "115",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "116",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "117",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "118",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "119",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "120",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "121",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "122",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "122-galarian",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "123",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "124",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "125",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "126",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "127",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "128",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "128-paldean-combat",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "128-paldean-blaze",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "128-paldean-aqua",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "129",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "130",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "131",
+   "go": true,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "132",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "133",
+   "go": true,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "134",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "135",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "136",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "137",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "138",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "139",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "140",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "141",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "142",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "143",
+   "go": true,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "144",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "144-galarian",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "145",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "145-galarian",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "146",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "146-galarian",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "147",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "148",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "149",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "150",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "151",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "152",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "153",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "154",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "155",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "156",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "157",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "157-hisuian",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "158",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "159",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "160",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "161",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "162",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "163",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "164",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "165",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "166",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "167",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "168",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "169",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "170",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "171",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "172",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "173",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "174",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "175",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "176",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "177",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "178",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "179",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "180",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "181",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "182",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "183",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "184",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "185",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "186",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "187",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "188",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "189",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "190",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "191",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "192",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "193",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "194",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "194-paldean",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "195",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "196",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "197",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "198",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "199",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "199-galarian",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "200",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "201-a",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "201-b",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "201-c",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "201-d",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "201-e",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "201-f",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "201-g",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "201-h",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "201-i",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "201-j",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "201-k",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "201-l",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "201-m",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "201-n",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "201-o",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "201-p",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "201-q",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "201-r",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "201-s",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "201-t",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "201-u",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "201-v",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "201-w",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "201-x",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "201-y",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "201-z",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "201-exclamation",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "201-question",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "202",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "203",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "204",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "205",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "206",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "207",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "208",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "209",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "210",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "211",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "211-hisuian",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "212",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "213",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "214",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "215",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "215-hisuian",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "216",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "217",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "218",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "219",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "220",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "221",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "222",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "222-galarian",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "223",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "224",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "225",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "226",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "227",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "228",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "229",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "230",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "231",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "232",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "233",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "234",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "235",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "236",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "237",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "238",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "239",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "240",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "241",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "242",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "243",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "244",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "245",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "246",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "247",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "248",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "249",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "250",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "251",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "252",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "253",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "254",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "255",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "256",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "257",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "258",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "259",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "260",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "261",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "262",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "263",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "263-galarian",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "264",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "264-galarian",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "265",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "266",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "267",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "268",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "269",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "270",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "271",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "272",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "273",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "274",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "275",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "276",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "277",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "278",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "279",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "280",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "281",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "282",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "283",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "284",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "285",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "286",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "287",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "288",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "289",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "290",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "291",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "292",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "293",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "294",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "295",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "296",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "297",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "298",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "299",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "300",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "301",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "302",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "303",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "304",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "305",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "306",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "307",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "308",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "309",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "310",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "311",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "312",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "313",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "314",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "315",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "316",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "317",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "318",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "319",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "320",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "321",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "322",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "323",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "324",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "325",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "326",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "327-1",
+   "go": true,
+   "form": null,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "328",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "329",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "330",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "331",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "332",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "333",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "334",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "335",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "336",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "337",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "338",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "339",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "340",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "341",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "342",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "343",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "344",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "345",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "346",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "347",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "348",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "349",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "350",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "351",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "352",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "353",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "354",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "355",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "356",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "357",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "358",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "359",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "360",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "361",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "362",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "363",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "364",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "365",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "366",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "367",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "368",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "369",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "370",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "371",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "372",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "373",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "374",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "375",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "376",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "377",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "378",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "379",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "380",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "381",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "382",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "383",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "384",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "385",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "386",
+   "go": true,
+   "form": "Normal Forme",
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "386-attack",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "386-defense",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "386-speed",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "387",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "388",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "389",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "390",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "391",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "392",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "393",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "394",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "395",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "396",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "397",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "398",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "399",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "400",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "401",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "402",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "403",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "404",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "405",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "406",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "407",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "408",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "409",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "410",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "411",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "412-plant",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "412-sandy",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "412-trash",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "413-plant",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "413-sandy",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "413-trash",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "414",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "415",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "416",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "417",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "418",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "419",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "420",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "421-overcast",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "422-west-sea",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "422-east-sea",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "423-west-sea",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "423-east-sea",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "424",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "425",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "426",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "427",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "428",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "429",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "430",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "431",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "432",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "433",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "434",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "435",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "436",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "437",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "438",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "439",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "440",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "441",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "442",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "443",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "444",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "445",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "446",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "447",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "448",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "449-female",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "449",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "450-female",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "450",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "451",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "452",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "453",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "454",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "455",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "456",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "457",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "458",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "459",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "460",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "461",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "462",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "463",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "464",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "465",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "466",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "467",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "468",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "469",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "470",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "471",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "472",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "473",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "474",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "475",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "476",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "477",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "478",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "479",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "479-heat",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "479-wash",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "479-frost",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "479-fan",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "479-mow",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "480",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "481",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "482",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "483",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "484",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "485",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "486",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "487-altered",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "488",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "489",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "490",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "491",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "492-land",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "492-sky",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "493",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "494",
+   "go": true,
+   "shiny": false,
+   "gmax": false
+  },
+  {
+   "id": "495",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "496",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "497",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "498",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "499",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "500",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "501",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "502",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "503",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "503-hisuian",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "504",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "505",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "506",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "507",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "508",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "509",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "510",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "511",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "512",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "513",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "514",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "515",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "516",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "517",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "518",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "519",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "520",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "521-female",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "521",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "522",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "523",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "524",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "525",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "526",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "527",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "528",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "529",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "530",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "531",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "532",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "533",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "534",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "535",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "536",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "537",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "538",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "539",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "540",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "541",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "542",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "543",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "544",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "545",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "546",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "547",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "548",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "549",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "549-hisuian",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "550-red-striped",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "550-blue-striped",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "550-white-striped",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "551",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "552",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "553",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "554",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "554-galarian",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "555-standard",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "555-galarian",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "556",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "557",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "558",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "559",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "560",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "561",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "562",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "562-galarian",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "563",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "564",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "565",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "566",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "567",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "568",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "569",
+   "go": true,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "570",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "570-hisuian",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "571",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "571-hisuian",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "572",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "573",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "574",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "575",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "576",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "577",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "578",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "579",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "580",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "581",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "582",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "583",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "584",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "585-spring",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "585-summer",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "585-autumn",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "585-winter",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "586-spring",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "586-summer",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "586-autumn",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "586-winter",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "587",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "588",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "589",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "590",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "591",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "592",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "592-female",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "593",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "593-female",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "594",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "595",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "596",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "597",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "598",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "599",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "600",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "601",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "602",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "603",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "604",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "605",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "606",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "607",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "608",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "609",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "610",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "611",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "612",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "613",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "614",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "615",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "616",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "617",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "618",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "618-galarian",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "619",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "620",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "621",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "622",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "623",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "624",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "625",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "626",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "627",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "628",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "628-hisuian",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "629",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "630",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "631",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "632",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "633",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "634",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "635",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "636",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "637",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "638",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "639",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "640",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "641-incarnate",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "641-therian",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "642-incarnate",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "642-therian",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "643",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "644",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "645-incarnate",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "645-therian",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "646",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "647-ordinary",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "647-resolute",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "648-aria",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "649",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "650",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "651",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "652",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "653",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "654",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "655",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "656",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "657",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "658",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "659",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "660",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "661",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "662",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "663",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "664-archipelago",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "665-archipelago",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "666-meadow",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "666-icy-snow",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "666-polar",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "666-tundra",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "666-continental",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "666-garden",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "666-elegant",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "666-modern",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "666-marine",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "666-archipelago",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "666-high-plains",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "666-sandstorm",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "666-river",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "666-monsoon",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "666-savanna",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "666-sun",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "666-ocean",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "666-jungle",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "666-fancy",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "666-poke-ball",
+   "go": true,
+   "shiny": false,
+   "gmax": false
+  },
+  {
+   "id": "667",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "668",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "668-female",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "669-red",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "669-yellow",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "669-orange",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "669-blue",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "669-white",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "670-red",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "670-yellow",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "670-orange",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "670-blue",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "670-white",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "670-eternal",
+   "dex": 670,
+   "gen": 6,
+   "name": "Floette",
+   "form": "Eternal Flower",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.10061",
+   "gender": "female",
+   "category": "Single Bloom Pokémon",
+   "height": 0.2,
+   "weight": 0.9,
+   "desc": "It flutters around fields of flowers and cares for flowers that are starting to wilt. It draws out the hidden power of flowers to battle.",
+   "family": "FLABEBE",
+   "evo": [],
+   "order": 959,
+   "shiny": false,
+   "gmax": false
+  },
+  {
+   "id": "671-red",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "671-yellow",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "671-orange",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "671-blue",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "671-white",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "672",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "673",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "674",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "675",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "676-natural",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "676-heart",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "676-star",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "676-diamond",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "676-debutante",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "676-matron",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "676-dandy",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "676-la-reine",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "676-kabuki",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "676-pharaoh",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "677",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "678",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "678-female",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "679",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "680",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "681-shield",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "682",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "683",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "684",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "685",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "686",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "687",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "688",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "689",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "690",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "691",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "692",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "693",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "694",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "695",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "696",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "697",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "698",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "699",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "700",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "701",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "702",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "703",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "704",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "705",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "705-hisuian",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "706",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "706-hisuian",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "707",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "708",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "709",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "710-average",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "710-small",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "710-large",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "710-super",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "711-average",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "711-small",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "711-large",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "711-super",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "712",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "713",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "713-hisuian",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "714",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "715",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "716",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "717",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "718-50",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "718-10",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "719",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "720-confined",
+   "go": true,
+   "shiny": false,
+   "gmax": false
+  },
+  {
+   "id": "720-unbound",
+   "go": true,
+   "shiny": false,
+   "gmax": false
+  },
+  {
+   "id": "721",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "722",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "723",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "724",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "724-hisuian",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "725",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "726",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "727",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "728",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "729",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "730",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "731",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "732",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "733",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "734",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "735",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "736",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "737",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "738",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "739",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "740",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "741-baile",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "741-pompom",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "741-pau",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "741-sensu",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "742",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "743",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "744",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "745-midday",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "745-midnight",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "745-dusk",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "746-solo",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "747",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "748",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "749",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "750",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "751",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "752",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "753",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "754",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "755",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "756",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "757",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "758",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "759",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "760",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "761",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "762",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "763",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "764",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "765",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "766",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "767",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "768",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "769",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "770",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "771",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "772",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "773",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "774-red",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "774-orange",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "774-yellow",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "774-green",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "774-blue",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "774-indigo",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "774-violet",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "775",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "776",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "777",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "778-disguised",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "779",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "780",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "781",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "782",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "783",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "784",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "785",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "786",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "787",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "788",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "789",
+   "go": true,
+   "shiny": false,
+   "gmax": false
+  },
+  {
+   "id": "790",
+   "go": true,
+   "shiny": false,
+   "gmax": false
+  },
+  {
+   "id": "791",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "792",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "793",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "794",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "795",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "796",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "797",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "798",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "799",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "800",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "801",
+   "go": true,
+   "shiny": false,
+   "gmax": false
+  },
+  {
+   "id": "801-original",
+   "dex": 801,
+   "gen": 7,
+   "name": "Magearna",
+   "form": "Original Color",
+   "types": [
+    "Steel",
+    "Fairy"
+   ],
+   "img": "hm.10147",
+   "gender": "none",
+   "class": "mythical",
+   "category": "Artificial Pokémon",
+   "height": 1.0,
+   "weight": 80.5,
+   "desc": "Built roughly 500 years ago by a scientist, the part called the Soul-Heart is the actual life-form.",
+   "family": "MAGEARNA",
+   "evo": [],
+   "order": 1180,
+   "shiny": false,
+   "gmax": false
+  },
+  {
+   "id": "802",
+   "go": true,
+   "shiny": false,
+   "gmax": false
+  },
+  {
+   "id": "803",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "804",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "805",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "806",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "807",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "808",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "809",
+   "go": true,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "810",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "811",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "812",
+   "go": true,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "813",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "814",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "815",
+   "go": true,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "816",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "817",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "818",
+   "go": true,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "819",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "820",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "821",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "822",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "823",
+   "go": true,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "824",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "825",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "826",
+   "go": true,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "827",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "828",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "829",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "830",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "831",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "832",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "833",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "834",
+   "go": true,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "835",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "836",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "837",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "838",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "839",
+   "go": true,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "840",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "841",
+   "go": true,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "842",
+   "go": true,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "843",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "844",
+   "go": true,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "845",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "846",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "847",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "848",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "849-amped",
+   "go": true,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "849-low-key",
+   "go": true,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "850",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "851",
+   "go": true,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "852",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "853",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "854",
+   "go": true,
+   "form": "Phony Form",
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "854-antique",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "855",
+   "go": true,
+   "form": "Phony Form",
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "855-antique",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "856",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "857",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "858",
+   "go": true,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "859",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "860",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "861",
+   "go": true,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "862",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "863",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "864",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "865",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "866",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "867",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "868",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "869",
+   "go": true,
+   "form": "Vanilla Cream Strawberry Sweet",
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-vanilla-cream-berry-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Vanilla Cream Berry Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-vanilla-cream-berry-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1256,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-vanilla-cream-love-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Vanilla Cream Love Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-vanilla-cream-love-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1256,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-vanilla-cream-star-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Vanilla Cream Star Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-vanilla-cream-star-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1256,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-vanilla-cream-clover-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Vanilla Cream Clover Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-vanilla-cream-clover-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1256,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-vanilla-cream-flower-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Vanilla Cream Flower Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-vanilla-cream-flower-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1256,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-vanilla-cream-ribbon-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Vanilla Cream Ribbon Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-vanilla-cream-ribbon-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1256,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-ruby-cream-strawberry-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Ruby Cream Strawberry Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-ruby-cream-strawberry-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1257,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-ruby-cream-berry-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Ruby Cream Berry Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-ruby-cream-berry-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1257,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-ruby-cream-love-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Ruby Cream Love Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-ruby-cream-love-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1257,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-ruby-cream-star-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Ruby Cream Star Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-ruby-cream-star-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1257,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-ruby-cream-clover-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Ruby Cream Clover Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-ruby-cream-clover-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1257,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-ruby-cream-flower-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Ruby Cream Flower Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-ruby-cream-flower-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1257,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-ruby-cream-ribbon-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Ruby Cream Ribbon Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-ruby-cream-ribbon-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1257,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-matcha-cream-strawberry-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Matcha Cream Strawberry Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-matcha-cream-strawberry-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1258,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-matcha-cream-berry-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Matcha Cream Berry Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-matcha-cream-berry-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1258,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-matcha-cream-love-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Matcha Cream Love Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-matcha-cream-love-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1258,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-matcha-cream-star-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Matcha Cream Star Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-matcha-cream-star-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1258,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-matcha-cream-clover-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Matcha Cream Clover Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-matcha-cream-clover-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1258,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-matcha-cream-flower-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Matcha Cream Flower Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-matcha-cream-flower-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1258,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-matcha-cream-ribbon-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Matcha Cream Ribbon Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-matcha-cream-ribbon-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1258,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-mint-cream-strawberry-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Mint Cream Strawberry Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-mint-cream-strawberry-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1259,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-mint-cream-berry-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Mint Cream Berry Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-mint-cream-berry-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1259,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-mint-cream-love-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Mint Cream Love Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-mint-cream-love-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1259,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-mint-cream-star-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Mint Cream Star Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-mint-cream-star-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1259,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-mint-cream-clover-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Mint Cream Clover Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-mint-cream-clover-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1259,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-mint-cream-flower-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Mint Cream Flower Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-mint-cream-flower-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1259,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-mint-cream-ribbon-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Mint Cream Ribbon Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-mint-cream-ribbon-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1259,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-lemon-cream-strawberry-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Lemon Cream Strawberry Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-lemon-cream-strawberry-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1260,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-lemon-cream-berry-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Lemon Cream Berry Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-lemon-cream-berry-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1260,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-lemon-cream-love-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Lemon Cream Love Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-lemon-cream-love-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1260,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-lemon-cream-star-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Lemon Cream Star Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-lemon-cream-star-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1260,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-lemon-cream-clover-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Lemon Cream Clover Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-lemon-cream-clover-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1260,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-lemon-cream-flower-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Lemon Cream Flower Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-lemon-cream-flower-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1260,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-lemon-cream-ribbon-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Lemon Cream Ribbon Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-lemon-cream-ribbon-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1260,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-salted-cream-strawberry-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Salted Cream Strawberry Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-salted-cream-strawberry-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1261,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-salted-cream-berry-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Salted Cream Berry Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-salted-cream-berry-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1261,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-salted-cream-love-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Salted Cream Love Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-salted-cream-love-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1261,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-salted-cream-star-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Salted Cream Star Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-salted-cream-star-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1261,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-salted-cream-clover-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Salted Cream Clover Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-salted-cream-clover-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1261,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-salted-cream-flower-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Salted Cream Flower Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-salted-cream-flower-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1261,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-salted-cream-ribbon-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Salted Cream Ribbon Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-salted-cream-ribbon-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1261,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-ruby-swirl-strawberry-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Ruby Swirl Strawberry Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-ruby-swirl-strawberry-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1262,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-ruby-swirl-berry-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Ruby Swirl Berry Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-ruby-swirl-berry-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1262,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-ruby-swirl-love-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Ruby Swirl Love Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-ruby-swirl-love-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1262,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-ruby-swirl-star-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Ruby Swirl Star Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-ruby-swirl-star-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1262,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-ruby-swirl-clover-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Ruby Swirl Clover Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-ruby-swirl-clover-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1262,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-ruby-swirl-flower-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Ruby Swirl Flower Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-ruby-swirl-flower-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1262,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-ruby-swirl-ribbon-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Ruby Swirl Ribbon Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-ruby-swirl-ribbon-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1262,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-caramel-swirl-strawberry-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Caramel Swirl Strawberry Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-caramel-swirl-strawberry-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1263,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-caramel-swirl-berry-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Caramel Swirl Berry Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-caramel-swirl-berry-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1263,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-caramel-swirl-love-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Caramel Swirl Love Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-caramel-swirl-love-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1263,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-caramel-swirl-star-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Caramel Swirl Star Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-caramel-swirl-star-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1263,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-caramel-swirl-clover-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Caramel Swirl Clover Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-caramel-swirl-clover-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1263,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-caramel-swirl-flower-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Caramel Swirl Flower Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-caramel-swirl-flower-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1263,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-caramel-swirl-ribbon-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Caramel Swirl Ribbon Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-caramel-swirl-ribbon-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1263,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-rainbow-swirl-strawberry-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Rainbow Swirl Strawberry Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-rainbow-swirl-strawberry-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1264,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-rainbow-swirl-berry-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Rainbow Swirl Berry Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-rainbow-swirl-berry-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1264,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-rainbow-swirl-love-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Rainbow Swirl Love Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-rainbow-swirl-love-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1264,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-rainbow-swirl-star-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Rainbow Swirl Star Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-rainbow-swirl-star-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1264,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-rainbow-swirl-clover-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Rainbow Swirl Clover Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-rainbow-swirl-clover-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1264,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-rainbow-swirl-flower-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Rainbow Swirl Flower Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-rainbow-swirl-flower-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1264,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "869-rainbow-swirl-ribbon-sweet",
+   "dex": 869,
+   "gen": 8,
+   "name": "Alcremie",
+   "form": "Rainbow Swirl Ribbon Sweet",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.869-rainbow-swirl-ribbon-sweet",
+   "gender": "female",
+   "category": "Cream Pokémon",
+   "height": 0.3,
+   "weight": 0.5,
+   "desc": "When it trusts a Trainer, it will treat them to berries it’s decorated with cream.",
+   "family": "MILCERY",
+   "evo": [],
+   "order": 1264,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "870",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "871",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "872",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "873",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "874",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "875",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "876",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "876-female",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "877-full-belly",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "878",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "879",
+   "go": true,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "880",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "881",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "882",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "883",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "884",
+   "go": true,
+   "shiny": true,
+   "gmax": true
+  },
+  {
+   "id": "885",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "886",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "887",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "888",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "889",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "890",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "891",
+   "go": true,
+   "shiny": false,
+   "gmax": false
+  },
+  {
+   "id": "892-single-strike",
+   "go": true,
+   "shiny": false,
+   "gmax": true
+  },
+  {
+   "id": "892-rapid-strike",
+   "go": true,
+   "shiny": false,
+   "gmax": true
+  },
+  {
+   "id": "893",
+   "go": true,
+   "shiny": false,
+   "gmax": false
+  },
+  {
+   "id": "893-dada",
+   "dex": 893,
+   "gen": 8,
+   "name": "Zarude",
+   "form": "Dada",
+   "types": [
+    "Dark",
+    "Grass"
+   ],
+   "img": "hm.10192",
+   "gender": "none",
+   "class": "mythical",
+   "category": "Rogue Monkey Pokémon",
+   "height": 1.8,
+   "weight": 70.0,
+   "desc": "Within dense forests, this Pokémon lives in a pack with others of its kind. It’s incredibly aggressive, and the other Pokémon of the forest fear it.",
+   "family": "ZARUDE",
+   "evo": [],
+   "order": 1297,
+   "shiny": false,
+   "gmax": false
+  },
+  {
+   "id": "894",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "895",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "896",
+   "go": true,
+   "shiny": false,
+   "gmax": false
+  },
+  {
+   "id": "897",
+   "go": true,
+   "shiny": false,
+   "gmax": false
+  },
+  {
+   "id": "898",
+   "go": true,
+   "shiny": false,
+   "gmax": false
+  },
+  {
+   "id": "899",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "900",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "901",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "901-bloodmoon",
+   "dex": 901,
+   "gen": 9,
+   "name": "Ursaluna",
+   "form": "Bloodmoon",
+   "types": [
+    "Ground",
+    "Normal"
+   ],
+   "img": "hm.10272",
+   "gender": "both",
+   "category": "Peat Pokémon",
+   "height": 2.4,
+   "weight": 290.0,
+   "desc": "I believe it was Hisui’s swampy terrain that gave Ursaluna its burly physique and newfound capacity to manipulate peat at will.",
+   "family": "TEDDIURSA",
+   "evo": [],
+   "order": 1421,
+   "shiny": false,
+   "gmax": false
+  },
+  {
+   "id": "902",
+   "go": true,
+   "form": "Male",
+   "gender": "male",
+   "genderForm": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "902-female",
+   "dex": 902,
+   "gen": 9,
+   "name": "Basculegion",
+   "form": "Female",
+   "types": [
+    "Water",
+    "Ghost"
+   ],
+   "img": "hm.10248",
+   "gender": "female",
+   "category": "Big Fish Pokémon",
+   "desc": "Clads itself in the souls of comrades that perished before fulfilling their goals of journeying upstream. No other species throughout all Hisui’s rivers is Basculegion’s equal.",
+   "evo": [],
+   "order": 1347,
+   "genderForm": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "903",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "904",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "905-incarnate",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "905-therian",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "906",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "907",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "908",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "909",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "910",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "911",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "912",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "913",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "914",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "915",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "916",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "916-female",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "917",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "918",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "919",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "920",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "921",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "922",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "923",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "924",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "925-family-of-four",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "925-family-of-three",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "926",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "927",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "928",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "929",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "930",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "931-green",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "931-blue",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "931-yellow",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "931-white",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "932",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "933",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "934",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "935",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "936",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "937",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "938",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "939",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "940",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "941",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "942",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "943",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "944",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "945",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "946",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "947",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "948",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "949",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "950",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "951",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "952",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "953",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "954",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "955",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "956",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "957",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "958",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "959",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "960",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "961",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "962",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "963",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "964",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "965",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "966",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "967",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "968",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "969",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "970",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "971",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "972",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "973",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "974",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "975",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "976",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "977",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "978-curly",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "978-droopy",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "978-stretchy",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "979",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "980",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "981",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "982-two",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "982-three",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "983",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "984",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "985",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "986",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "987",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "988",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "989",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "990",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "991",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "992",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "993",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "994",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "995",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "996",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "997",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "998",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "999-chest",
+   "dex": 999,
+   "gen": 9,
+   "name": "Gimmighoul",
+   "form": "Chest Form",
+   "types": [
+    "Ghost"
+   ],
+   "img": "hm.999",
+   "gender": "none",
+   "category": "Coin Hunter Pokémon",
+   "height": 0.1,
+   "weight": 0.1,
+   "desc": "This Pokémon was born from passion that seeped into a coin. It wanders, apparently seeking to return to the treasure chest it once inhabited.",
+   "family": "GIMMIGHOUL",
+   "evo": [],
+   "order": 1386,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "999",
+   "go": true,
+   "form": "Roaming Form",
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "1000",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "1001",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "1002",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "1003",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "1004",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "1005",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "1006",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "1007",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "1008",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "1009",
+   "go": true,
+   "shiny": false,
+   "gmax": false
+  },
+  {
+   "id": "1010",
+   "go": true,
+   "shiny": false,
+   "gmax": false
+  },
+  {
+   "id": "1011",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "1012",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "1013",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "1014",
+   "go": true,
+   "shiny": false,
+   "gmax": false
+  },
+  {
+   "id": "1015",
+   "go": true,
+   "shiny": false,
+   "gmax": false
+  },
+  {
+   "id": "1016",
+   "go": true,
+   "shiny": false,
+   "gmax": false
+  },
+  {
+   "id": "1017",
+   "go": true,
+   "shiny": false,
+   "gmax": false
+  },
+  {
+   "id": "1018",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "1019",
+   "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "1020",
+   "go": true,
+   "shiny": false,
+   "gmax": false
+  },
+  {
+   "id": "1021",
+   "go": true,
+   "shiny": false,
+   "gmax": false
+  },
+  {
+   "id": "1022",
+   "go": true,
+   "shiny": false,
+   "gmax": false
+  },
+  {
+   "id": "1023",
+   "go": true,
+   "shiny": false,
+   "gmax": false
+  },
+  {
+   "id": "1024",
+   "go": true,
+   "shiny": false,
+   "gmax": false
+  },
+  {
+   "id": "1025",
+   "go": true,
+   "shiny": false,
+   "gmax": false
+  }
+ ]
+}

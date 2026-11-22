@@ -1,0 +1,1430 @@
+{
+ "gmax": [
+   {"dex": 3, "name": "Venusaur", "form": null, "serebii": "Gigantamax Capable Venusaur", "shinyAvailable": true},
+   {"dex": 6, "name": "Charizard", "form": null, "serebii": "Gigantamax Capable Charizard", "shinyAvailable": true},
+   {"dex": 9, "name": "Blastoise", "form": null, "serebii": "Gigantamax Capable Blastoise", "shinyAvailable": true},
+   {"dex": 12, "name": "Butterfree", "form": null, "serebii": "Gigantamax Capable Butterfree", "shinyAvailable": true},
+   {"dex": 25, "name": "Pikachu", "form": null, "serebii": "Gigantamax Capable Pikachu", "shinyAvailable": true},
+   {"dex": 52, "name": "Meowth", "form": null, "serebii": "Gigantamax Capable Meowth", "shinyAvailable": true},
+   {"dex": 68, "name": "Machamp", "form": null, "serebii": "Gigantamax Capable Machamp", "shinyAvailable": true},
+   {"dex": 94, "name": "Gengar", "form": null, "serebii": "Gigantamax Capable Gengar", "shinyAvailable": true},
+   {"dex": 99, "name": "Kingler", "form": null, "serebii": "Gigantamax Capable Kingler", "shinyAvailable": true},
+   {"dex": 131, "name": "Lapras", "form": null, "serebii": "Gigantamax Capable Lapras", "shinyAvailable": true},
+   {"dex": 133, "name": "Eevee", "form": null, "serebii": "Gigantamax Capable Eevee", "shinyAvailable": true},
+   {"dex": 143, "name": "Snorlax", "form": null, "serebii": "Gigantamax Capable Snorlax", "shinyAvailable": true},
+   {"dex": 569, "name": "Garbodor", "form": null, "serebii": "Gigantamax Capable Garbodor", "shinyAvailable": true},
+   {"dex": 809, "name": "Melmetal", "form": null, "serebii": "Gigantamax Capable Melmetal", "shinyAvailable": false, "note": "only the special gift Melmetal (first GO to HOME transfer) can Gigantamax (Pokémon Support FAQ 360049848812)"},
+   {"dex": 812, "name": "Rillaboom", "form": null, "serebii": "Gigantamax Capable Rillaboom", "shinyAvailable": true},
+   {"dex": 815, "name": "Cinderace", "form": null, "serebii": "Gigantamax Capable Cinderace", "shinyAvailable": true},
+   {"dex": 818, "name": "Inteleon", "form": null, "serebii": "Gigantamax Capable Inteleon", "shinyAvailable": true},
+   {"dex": 823, "name": "Corviknight", "form": null, "serebii": "Gigantamax Capable Corviknight", "shinyAvailable": true},
+   {"dex": 826, "name": "Orbeetle", "form": null, "serebii": "Gigantamax Capable Orbeetle", "shinyAvailable": true},
+   {"dex": 834, "name": "Drednaw", "form": null, "serebii": "Gigantamax Capable Drednaw", "shinyAvailable": true},
+   {"dex": 839, "name": "Coalossal", "form": null, "serebii": "Gigantamax Capable Coalossal", "shinyAvailable": true},
+   {"dex": 841, "name": "Flapple", "form": null, "serebii": "Gigantamax Capable Flapple", "shinyAvailable": true},
+   {"dex": 842, "name": "Appletun", "form": null, "serebii": "Gigantamax Capable Appletun", "shinyAvailable": true},
+   {"dex": 844, "name": "Sandaconda", "form": null, "serebii": "Gigantamax Capable Sandaconda", "shinyAvailable": true},
+   {"dex": 849, "name": "Toxtricity", "form": null, "serebii": "Gigantamax Capable Toxtricity", "shinyAvailable": true, "note": "Amped and Low Key share one Gigantamax look (Serebii’s Gigantamax page shows one Gigantamax Toxtricity); Serebii’s HOME Gigantamax box lists both forms as Gigantamax Capable"},
+   {"dex": 849, "name": "Toxtricity", "form": "Low Key Form", "serebii": "Gigantamax Capable Toxtricity", "shinyAvailable": true, "note": "Amped and Low Key share one Gigantamax look (Serebii’s Gigantamax page shows one Gigantamax Toxtricity); Serebii’s HOME Gigantamax box lists both forms as Gigantamax Capable"},
+   {"dex": 851, "name": "Centiskorch", "form": null, "serebii": "Gigantamax Capable Centiskorch", "shinyAvailable": true},
+   {"dex": 858, "name": "Hatterene", "form": null, "serebii": "Gigantamax Capable Hatterene", "shinyAvailable": true},
+   {"dex": 861, "name": "Grimmsnarl", "form": null, "serebii": "Gigantamax Capable Grimmsnarl", "shinyAvailable": true},
+   {"dex": 869, "name": "Alcremie", "form": null, "serebii": "Gigantamax Capable Alcremie", "shinyAvailable": true, "note": "one Gigantamax look for every cream and sweet; Serebii lists one Gigantamax Capable Alcremie"},
+   {"dex": 879, "name": "Copperajah", "form": null, "serebii": "Gigantamax Capable Copperajah", "shinyAvailable": true},
+   {"dex": 884, "name": "Duraludon", "form": null, "serebii": "Gigantamax Capable Duraludon", "shinyAvailable": true},
+   {"dex": 892, "name": "Urshifu", "form": null, "serebii": "Gigantamax Capable Urshifu", "shinyAvailable": false},
+   {"dex": 892, "name": "Urshifu", "form": "Rapid Strike Style", "serebii": "Gigantamax Capable Urshifu", "shinyAvailable": false}
+ ],
+ "noShiny": [
+   {"dex": 25, "name": "Pikachu", "form": "Original Cap", "serebii": "Pikachu Original Cap (Not Available)", "source": "https://www.serebii.net/pokemonhome/depositablepokemon.shtml", "read": "2026-11-22"},
+   {"dex": 25, "name": "Pikachu", "form": "Hoenn Cap", "serebii": "Pikachu Hoenn Cap (Not Available)", "source": "https://www.serebii.net/pokemonhome/depositablepokemon.shtml", "read": "2026-11-22"},
+   {"dex": 25, "name": "Pikachu", "form": "Sinnoh Cap", "serebii": "Pikachu Sinnoh Cap (Not Available)", "source": "https://www.serebii.net/pokemonhome/depositablepokemon.shtml", "read": "2026-11-22"},
+   {"dex": 25, "name": "Pikachu", "form": "Unova Cap", "serebii": "Pikachu Unova Cap (Not Available)", "source": "https://www.serebii.net/pokemonhome/depositablepokemon.shtml", "read": "2026-11-22"},
+   {"dex": 25, "name": "Pikachu", "form": "Kalos Cap", "serebii": "Pikachu Kalos Cap (Not Available)", "source": "https://www.serebii.net/pokemonhome/depositablepokemon.shtml", "read": "2026-11-22"},
+   {"dex": 25, "name": "Pikachu", "form": "Alola Cap", "serebii": "Pikachu Alola Cap (Not Available)", "source": "https://www.serebii.net/pokemonhome/depositablepokemon.shtml", "read": "2026-11-22"},
+   {"dex": 25, "name": "Pikachu", "form": "World Cap", "serebii": "Pikachu World Cap (Not Available)", "source": "https://www.serebii.net/pokemonhome/depositablepokemon.shtml", "read": "2026-11-22"},
+   {"dex": 494, "name": "Victini", "form": null, "serebii": "Victini (Not Available)", "source": "https://www.serebii.net/pokemonhome/depositablepokemon.shtml", "read": "2026-11-22"},
+   {"dex": 658, "name": "Greninja", "form": "Battle Bond", "serebii": "Greninja Battle Bond (Not Available)", "source": "https://www.serebii.net/pokemonhome/depositablepokemon.shtml", "read": "2026-11-22"},
+   {"dex": 666, "name": "Vivillon", "form": "Poké Ball Pattern", "serebii": "Vivillon Poké Ball Pattern (Not Available)", "source": "https://www.serebii.net/pokemonhome/depositablepokemon.shtml", "read": "2026-11-22"},
+   {"dex": 670, "name": "Floette", "form": "Eternal Flower", "serebii": "Floette Eternal Flower (Not Available)", "source": "https://www.serebii.net/pokemonhome/depositablepokemon.shtml", "read": "2026-11-22"},
+   {"dex": 720, "name": "Hoopa", "form": null, "serebii": "Hoopa (Not Available)", "source": "https://www.serebii.net/pokemonhome/depositablepokemon.shtml", "read": "2026-11-22"},
+   {"dex": 720, "name": "Hoopa", "form": "Hoopa Unbound", "serebii": "Hoopa Hoopa Unbound (Not Available)", "source": "https://www.serebii.net/pokemonhome/depositablepokemon.shtml", "read": "2026-11-22"},
+   {"dex": 789, "name": "Cosmog", "form": null, "serebii": "Cosmog (Not Available)", "source": "https://www.serebii.net/pokemonhome/depositablepokemon.shtml", "read": "2026-11-22"},
+   {"dex": 790, "name": "Cosmoem", "form": null, "serebii": "Cosmoem (Not Available)", "source": "https://www.serebii.net/pokemonhome/depositablepokemon.shtml", "read": "2026-11-22"},
+   {"dex": 801, "name": "Magearna", "form": null, "serebii": "Magearna (Not Available)", "source": "https://www.serebii.net/pokemonhome/depositablepokemon.shtml", "read": "2026-11-22"},
+   {"dex": 801, "name": "Magearna", "form": "Original Color", "serebii": "Magearna Original Color (Not Available)", "source": "https://www.serebii.net/pokemonhome/depositablepokemon.shtml", "read": "2026-11-22"},
+   {"dex": 802, "name": "Marshadow", "form": null, "serebii": "Marshadow (Not Available)", "source": "https://www.serebii.net/pokemonhome/depositablepokemon.shtml", "read": "2026-11-22"},
+   {"dex": 891, "name": "Kubfu", "form": null, "serebii": "Kubfu (Not Available)", "source": "https://www.serebii.net/pokemonhome/depositablepokemon.shtml", "read": "2026-11-22"},
+   {"dex": 892, "name": "Urshifu", "form": null, "serebii": "Urshifu (Not Available)", "source": "https://www.serebii.net/pokemonhome/depositablepokemon.shtml", "read": "2026-11-22"},
+   {"dex": 892, "name": "Urshifu", "form": "Rapid Strike Style", "serebii": "Urshifu Rapid Strike Style (Not Available)", "source": "https://www.serebii.net/pokemonhome/depositablepokemon.shtml", "read": "2026-11-22"},
+   {"dex": 893, "name": "Zarude", "form": null, "serebii": "Zarude (Not Available)", "source": "https://www.serebii.net/pokemonhome/depositablepokemon.shtml", "read": "2026-11-22"},
+   {"dex": 893, "name": "Zarude", "form": "Dada", "serebii": "Zarude Dada (Not Available)", "source": "https://www.serebii.net/pokemonhome/depositablepokemon.shtml", "read": "2026-11-22"},
+   {"dex": 896, "name": "Glastrier", "form": null, "serebii": "Glastrier (Not Available)", "source": "https://www.serebii.net/pokemonhome/depositablepokemon.shtml", "read": "2026-11-22"},
+   {"dex": 897, "name": "Spectrier", "form": null, "serebii": "Spectrier (Not Available)", "source": "https://www.serebii.net/pokemonhome/depositablepokemon.shtml", "read": "2026-11-22"},
+   {"dex": 898, "name": "Calyrex", "form": null, "serebii": "Calyrex (Not Available)", "source": "https://www.serebii.net/pokemonhome/depositablepokemon.shtml", "read": "2026-11-22"},
+   {"dex": 901, "name": "Ursaluna", "form": "Blood Moon Form", "serebii": "Ursaluna Blood Moon Form (Not Available)", "source": "https://www.serebii.net/pokemonhome/depositablepokemon.shtml", "read": "2026-11-22"},
+   {"dex": 1009, "name": "Walking Wake", "form": null, "serebii": "Walking Wake (Not Available)", "source": "https://www.serebii.net/pokemonhome/depositablepokemon.shtml", "read": "2026-11-22"},
+   {"dex": 1010, "name": "Iron Leaves", "form": null, "serebii": "Iron Leaves (Not Available)", "source": "https://www.serebii.net/pokemonhome/depositablepokemon.shtml", "read": "2026-11-22"},
+   {"dex": 1014, "name": "Okidogi", "form": null, "serebii": "Okidogi (Not Available)", "source": "https://www.serebii.net/pokemonhome/depositablepokemon.shtml", "read": "2026-11-22"},
+   {"dex": 1015, "name": "Munkidori", "form": null, "serebii": "Munkidori (Not Available)", "source": "https://www.serebii.net/pokemonhome/depositablepokemon.shtml", "read": "2026-11-22"},
+   {"dex": 1016, "name": "Fezandipiti", "form": null, "serebii": "Fezandipiti (Not Available)", "source": "https://www.serebii.net/pokemonhome/depositablepokemon.shtml", "read": "2026-11-22"},
+   {"dex": 1017, "name": "Ogerpon", "form": null, "serebii": "Ogerpon (Not Available)", "source": "https://www.serebii.net/pokemonhome/depositablepokemon.shtml", "read": "2026-11-22"},
+   {"dex": 1020, "name": "Gouging Fire", "form": null, "serebii": "Gouging Fire (Not Available)", "source": "https://www.serebii.net/pokemonhome/depositablepokemon.shtml", "read": "2026-11-22"},
+   {"dex": 1021, "name": "Raging Bolt", "form": null, "serebii": "Raging Bolt (Not Available)", "source": "https://www.serebii.net/pokemonhome/depositablepokemon.shtml", "read": "2026-11-22"},
+   {"dex": 1022, "name": "Iron Boulder", "form": null, "serebii": "Iron Boulder (Not Available)", "source": "https://www.serebii.net/pokemonhome/depositablepokemon.shtml", "read": "2026-11-22"},
+   {"dex": 1023, "name": "Iron Crown", "form": null, "serebii": "Iron Crown (Not Available)", "source": "https://www.serebii.net/pokemonhome/depositablepokemon.shtml", "read": "2026-11-22"},
+   {"dex": 1024, "name": "Terapagos", "form": null, "serebii": "Terapagos (Not Available)", "source": "https://www.serebii.net/pokemonhome/depositablepokemon.shtml", "read": "2026-11-22"},
+   {"dex": 1025, "name": "Pecharunt", "form": null, "serebii": "Pecharunt (Not Available)", "source": "https://www.serebii.net/pokemonhome/depositablepokemon.shtml", "read": "2026-11-22"}
+ ],
+ "forms": {
+  "3": [null, "Female"],
+  "12": [null, "Female"],
+  "19": [null, "Alolan", "Female"],
+  "20": [null, "Alolan", "Female"],
+  "25": [null, "Original Cap", "Hoenn Cap", "Sinnoh Cap", "Unova Cap", "Kalos Cap", "Alola Cap", "Partner Cap", "World Cap", "Female"],
+  "26": [null, "Alolan", "Female"],
+  "27": [null, "Alolan"],
+  "28": [null, "Alolan"],
+  "37": [null, "Alolan"],
+  "38": [null, "Alolan"],
+  "41": [null, "Female"],
+  "42": [null, "Female"],
+  "44": [null, "Female"],
+  "45": [null, "Female"],
+  "50": [null, "Alolan"],
+  "51": [null, "Alolan"],
+  "52": [null, "Alolan", "Galarian"],
+  "53": [null, "Alolan"],
+  "58": [null, "Hisuian"],
+  "59": [null, "Hisuian"],
+  "64": [null, "Female"],
+  "65": [null, "Female"],
+  "74": [null, "Alolan"],
+  "75": [null, "Alolan"],
+  "76": [null, "Alolan"],
+  "77": [null, "Galarian"],
+  "78": [null, "Galarian"],
+  "79": [null, "Galarian"],
+  "80": [null, "Galarian"],
+  "83": [null, "Galarian"],
+  "84": [null, "Female"],
+  "85": [null, "Female"],
+  "88": [null, "Alolan"],
+  "89": [null, "Alolan"],
+  "97": [null, "Female"],
+  "100": [null, "Hisuian"],
+  "101": [null, "Hisuian"],
+  "103": [null, "Alolan"],
+  "105": [null, "Alolan"],
+  "110": [null, "Galarian"],
+  "111": [null, "Female"],
+  "112": [null, "Female"],
+  "118": [null, "Female"],
+  "119": [null, "Female"],
+  "122": [null, "Galarian"],
+  "123": [null, "Female"],
+  "128": [null, "Paldean", "Blaze Breed", "Aqua Breed"],
+  "129": [null, "Female"],
+  "130": [null, "Female"],
+  "133": [null, "Female"],
+  "144": [null, "Galarian"],
+  "145": [null, "Galarian"],
+  "146": [null, "Galarian"],
+  "154": [null, "Female"],
+  "157": [null, "Hisuian"],
+  "165": [null, "Female"],
+  "166": [null, "Female"],
+  "178": [null, "Female"],
+  "185": [null, "Female"],
+  "186": [null, "Female"],
+  "190": [null, "Female"],
+  "194": [null, "Paldean", "Female"],
+  "195": [null, "Female"],
+  "198": [null, "Female"],
+  "199": [null, "Galarian"],
+  "201": [null, "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "!", "?"],
+  "202": [null, "Female"],
+  "203": [null, "Female"],
+  "207": [null, "Female"],
+  "208": [null, "Female"],
+  "211": [null, "Hisuian"],
+  "212": [null, "Female"],
+  "214": [null, "Female"],
+  "215": [null, "Hisuian", "Hisuian (Female)", "Female"],
+  "217": [null, "Female"],
+  "221": [null, "Female"],
+  "222": [null, "Galarian"],
+  "224": [null, "Female"],
+  "229": [null, "Female"],
+  "232": [null, "Female"],
+  "255": [null, "Female"],
+  "256": [null, "Female"],
+  "257": [null, "Female"],
+  "263": [null, "Galarian"],
+  "264": [null, "Galarian"],
+  "267": [null, "Female"],
+  "269": [null, "Female"],
+  "272": [null, "Female"],
+  "274": [null, "Female"],
+  "275": [null, "Female"],
+  "307": [null, "Female"],
+  "308": [null, "Female"],
+  "315": [null, "Female"],
+  "316": [null, "Female"],
+  "317": [null, "Female"],
+  "322": [null, "Female"],
+  "323": [null, "Female"],
+  "332": [null, "Female"],
+  "350": [null, "Female"],
+  "369": [null, "Female"],
+  "386": [null, "Attack Forme", "Defense Forme", "Speed Forme"],
+  "396": [null, "Female"],
+  "397": [null, "Female"],
+  "398": [null, "Female"],
+  "399": [null, "Female"],
+  "400": [null, "Female"],
+  "401": [null, "Female"],
+  "402": [null, "Female"],
+  "403": [null, "Female"],
+  "404": [null, "Female"],
+  "405": [null, "Female"],
+  "407": [null, "Female"],
+  "412": [null, "Sandy Cloak", "Trash Cloak"],
+  "413": [null, "Sandy Cloak", "Trash Cloak"],
+  "415": [null, "Female"],
+  "417": [null, "Female"],
+  "418": [null, "Female"],
+  "419": [null, "Female"],
+  "422": [null, "East Sea"],
+  "423": [null, "East Sea"],
+  "424": [null, "Female"],
+  "443": [null, "Female"],
+  "444": [null, "Female"],
+  "445": [null, "Female"],
+  "449": [null, "Female"],
+  "450": [null, "Female"],
+  "453": [null, "Female"],
+  "454": [null, "Female"],
+  "456": [null, "Female"],
+  "457": [null, "Female"],
+  "459": [null, "Female"],
+  "460": [null, "Female"],
+  "461": [null, "Female"],
+  "464": [null, "Female"],
+  "465": [null, "Female"],
+  "473": [null, "Female"],
+  "479": [null, "Heat Rotom", "Wash Rotom", "Frost Rotom", "Fan Rotom", "Mow Rotom"],
+  "492": [null, "Sky Forme"],
+  "503": [null, "Hisuian"],
+  "521": [null, "Female"],
+  "549": [null, "Hisuian"],
+  "550": [null, "Blue-Striped Form", "White-Striped Form"],
+  "554": [null, "Galarian"],
+  "555": [null, "Galarian"],
+  "562": [null, "Galarian"],
+  "570": [null, "Hisuian"],
+  "571": [null, "Hisuian"],
+  "585": [null, "Summer Form", "Autumn Form", "Winter Form"],
+  "586": [null, "Summer Form", "Autumn Form", "Winter Form"],
+  "592": [null, "Female"],
+  "593": [null, "Female"],
+  "618": [null, "Galarian"],
+  "628": [null, "Hisuian"],
+  "641": [null, "Therian Forme"],
+  "642": [null, "Therian Forme"],
+  "645": [null, "Therian Forme"],
+  "647": [null, "Resolute Form"],
+  "658": [null, "Battle Bond"],
+  "666": [null, "Polar Pattern", "Tundra Pattern", "Continental Pattern", "Garden Pattern", "Elegant Pattern", "Icy Snow Pattern", "Modern Pattern", "Marine Pattern", "Archipelago Pattern", "High Plains Pattern", "Sandstorm Pattern", "River Pattern", "Monsoon Pattern", "Savanna Pattern", "Sun Pattern", "Ocean Pattern", "Jungle Pattern", "Fancy Pattern", "Poké Ball Pattern"],
+  "668": [null, "Female"],
+  "669": [null, "Yellow Flower", "Orange Flower", "Blue Flower", "White Flower"],
+  "670": [null, "Yellow Flower", "Orange Flower", "Blue Flower", "White Flower", "Eternal Flower"],
+  "671": [null, "Yellow Flower", "Orange Flower", "Blue Flower", "White Flower"],
+  "676": [null, "Heart Trim", "Star Trim", "Diamond Trim", "Deputante Trim", "Matron Trim", "Dandy Trim", "La Reine Trim", "Kabuki Trim", "Pharaoh Trim"],
+  "678": [null, "Female"],
+  "705": [null, "Hisuian"],
+  "706": [null, "Hisuian"],
+  "710": [null, "Small Size", "Large Size", "Super Size"],
+  "711": [null, "Small Size", "Large Size", "Super Size"],
+  "713": [null, "Hisuian"],
+  "718": [null, "10% Forme", "Power Construct (10% Forme)", "Power Construct (50% Forme)"],
+  "720": [null, "Hoopa Unbound"],
+  "724": [null, "Hisuian"],
+  "741": [null, "Pom-pom Style", "P'au Style", "Sensu Style"],
+  "744": [null, "Own Tempo"],
+  "745": [null, "Midnight Form", "Dusk Form"],
+  "774": [null, "Orange Core", "Yellow Core", "Green Core", "Blue Core", "Indigo Core", "Violet Core"],
+  "801": [null, "Original Color"],
+  "849": [null, "Low Key Form"],
+  "854": [null, "Authentic Form"],
+  "855": [null, "Authentic Form"],
+  "869": [null, "Vanilla Cream, Berry Sweet", "Vanilla Cream, Love Sweet", "Vanilla Cream, Star Sweet", "Vanilla Cream, Clover Sweet", "Vanilla Cream, Flower Sweet", "Vanilla Cream, Ribbon Sweet", "Ruby Cream, Strawberry Sweet", "Ruby Cream, Berry Sweet", "Ruby Cream, Love Sweet", "Ruby Cream, Star Sweet", "Ruby Cream, Clover Sweet", "Ruby Cream, Flower Sweet", "Ruby Cream, Ribbon Sweet", "Matcha Cream, Strawberry Sweet", "Matcha Cream, Berry Sweet", "Matcha Cream, Love Sweet", "Matcha Cream, Star Sweet", "Matcha Cream, Clover Sweet", "Matcha Cream, Flower Sweet", "Matcha Cream, Ribbon Sweet", "Mint Cream, Strawberry Sweet", "Mint Cream, Berry Sweet", "Mint Cream, Love Sweet", "Mint Cream, Star Sweet", "Mint Cream, Clover Sweet", "Mint Cream, Flower Sweet", "Mint Cream, Ribbon Sweet", "Lemon Cream, Strawberry Sweet", "Lemon Cream, Berry Sweet", "Lemon Cream, Love Sweet", "Lemon Cream, Star Sweet", "Lemon Cream, Clover Sweet", "Lemon Cream, Flower Sweet", "Lemon Cream, Ribbon Sweet", "Salted Cream, Strawberry Sweet", "Salted Cream, Berry Sweet", "Salted Cream, Love Sweet", "Salted Cream, Star Sweet", "Salted Cream, Clover Sweet", "Salted Cream, Flower Sweet", "Salted Cream, Ribbon Sweet", "Ruby Swirl, Strawberry Sweet", "Ruby Swirl, Berry Sweet", "Ruby Swirl, Love Sweet", "Ruby Swirl, Star Sweet", "Ruby Swirl, Clover Sweet", "Ruby Swirl, Flower Sweet", "Ruby Swirl, Ribbon Sweet", "Caramel Swirl, Strawberry Sweet", "Caramel Swirl, Berry Sweet", "Caramel Swirl, Love Sweet", "Caramel Swirl, Star Sweet", "Caramel Swirl, Clover Sweet", "Caramel Swirl, Flower Sweet", "Caramel Swirl, Ribbon Sweet", "Rainbow Swirl, Strawberry Sweet", "Rainbow Swirl, Berry Sweet", "Rainbow Swirl, Love Sweet", "Rainbow Swirl, Star Sweet", "Rainbow Swirl, Clover Sweet", "Rainbow Swirl, Flower Sweet", "Rainbow Swirl, Ribbon Sweet"],
+  "876": [null, "Female"],
+  "892": [null, "Rapid Strike Style"],
+  "893": [null, "Dada"],
+  "901": [null, "Blood Moon Form"],
+  "902": [null, "Female"],
+  "905": [null, "Therian Forme"],
+  "916": [null, "Female"],
+  "925": [null, "Family of Four"],
+  "931": [null, "Blue Plumage", "Yellow Plumage", "White Plumage"],
+  "978": [null, "Droopy Form", "Stretchy Form"],
+  "982": [null, "Three-Segment Form"],
+  "999": [null, "Roaming Form"],
+  "1012": [null, "Artisan Form"],
+  "1013": [null, "Masterpiece Form"]
+ },
+ "notes": "Read 22 Nov 2026 (see sources; full write-up in research/home-tracking.md). form null = the species’ default form as Serebii shows it (e.g. Vivillon = Meadow, Minior = Red Core, Urshifu = Single Strike, Toxtricity = Amped). gmax: Serebii’s categorised depositable list, Gigantamax box, 34 “Gigantamax Capable” entries (32 species). Toxtricity’s two forms share one Gigantamax look, so Serebii’s Sword & Shield Gigantamax page lists 33 Gigantamax forms. Gigantamax forms are registered in HOME’s Pokédex by depositing a Pokémon with the Gigantamax Factor. noShiny: the 39 “(Not Available)” entries in Serebii’s Shiny Boxes (29 species); Serebii: if a Pokémon doesn’t display, it currently cannot be obtained as Shiny. noShinyGigantamax: 3 more blanks in the categorised list’s shiny Gigantamax box (Melmetal, Urshifu both styles). shinyDoubts: Serebii shows these as shiny-obtainable but other sources cast doubt: unsure. forms: Serebii’s Standard Boxes (1,391 entries for 1,025 species; 196 species with more than one entry, 562 entries), in Serebii’s order; names are Serebii’s with the species name taken off and “(Female)” written “Female”. Not Serebii’s words: Alcremie sweets (from Serebii’s picture names; its text gives only the cream), “Hisuian (Female)” (numerical list says “Sneasel (Female)”, categorised list “Hisuian Sneasel (Female)”), Zygarde “Power Construct (10% Forme)” / “(50% Forme)” (Serebii writes both “Zygarde Power Construct”). formsSerebii keeps Serebii’s exact names and picture codes. Look-alikes Serebii lists separately with the same picture as the default: Greninja Battle Bond, Zygarde Power Construct ×2, Rockruff Own Tempo, Poltchageist Artisan Form, Sinistcha Masterpiece Form; whether HOME’s Pokédex lists them separately: unsure. genderFormSpecies: 102 species where Serebii lists a separate female entry (gender differences, plus Meowstic, Indeedee, Basculegion, Oinkologne whose female is a form). nonDepositable: Serebii’s Undepositable list, 173 forms (96 Mega, 2 Primal, 75 battle-only, held-item or fused forms); label added only where Serebii repeats a name (from its picture names; Tatsugiri’s Curly/Droopy/Stretchy inferred). Names in the data keep Serebii’s straight apostrophes (Farfetch'd, P'au Style); use curly ones when shown on the site.",
+ "noShinyGigantamax": [
+   {"dex": 809, "name": "Melmetal", "form": null, "serebii": "Gigantamax Capable Melmetal (Blank)", "source": "https://www.serebii.net/pokemonhome/depositablepokemon-sorted.shtml", "read": "2026-11-22"},
+   {"dex": 892, "name": "Urshifu", "form": null, "serebii": "Gigantamax Capable Urshifu (Blank)", "source": "https://www.serebii.net/pokemonhome/depositablepokemon-sorted.shtml", "read": "2026-11-22"},
+   {"dex": 892, "name": "Urshifu", "form": "Rapid Strike Style", "serebii": "Gigantamax Capable Urshifu (Blank)", "source": "https://www.serebii.net/pokemonhome/depositablepokemon-sorted.shtml", "read": "2026-11-22"}
+ ],
+ "shinyDoubts": [
+   {"dex": 772, "name": "Type: Null", "form": null, "serebiiShows": "shiny available", "why": "Serebii’s Sword & Shield shiny page says Type: Null cannot be given as Shiny there; Serebii’s event database has no shiny Type: Null distribution (it has shiny Silvally ones). Whether any legitimate shiny Type: Null exists: unsure.", "sources": ["https://www.serebii.net/swordshield/shinypokemon.shtml", "https://www.serebii.net/events/dex/772.shtml"], "read": "2026-11-22"},
+   {"dex": 25, "name": "Pikachu", "form": "Partner Cap", "serebiiShows": "shiny available (every other cap is marked Not Available)", "why": "No shiny Partner Cap Pikachu distribution found (Serebii’s Pikachu event page lists no cap events; Dittobase only shows a sprite). Unsure.", "sources": ["https://www.serebii.net/events/dex/025.shtml", "https://www.dittobase.com/pokedex/pikachu-partner-cap"], "read": "2026-11-22"}
+ ],
+ "formsSerebii": {
+  "3": [
+    {"form": null, "serebii": "Venusaur", "picture": "003"},
+    {"form": "Female", "serebii": "Venusaur (Female)", "picture": "003-f"}
+  ],
+  "12": [
+    {"form": null, "serebii": "Butterfree", "picture": "012"},
+    {"form": "Female", "serebii": "Butterfree (Female)", "picture": "012-f"}
+  ],
+  "19": [
+    {"form": null, "serebii": "Rattata", "picture": "019"},
+    {"form": "Alolan", "serebii": "Alolan Rattata", "picture": "019-a"},
+    {"form": "Female", "serebii": "Rattata (Female)", "picture": "019-f"}
+  ],
+  "20": [
+    {"form": null, "serebii": "Raticate", "picture": "020"},
+    {"form": "Alolan", "serebii": "Alolan Raticate", "picture": "020-a"},
+    {"form": "Female", "serebii": "Raticate (Female)", "picture": "020-f"}
+  ],
+  "25": [
+    {"form": null, "serebii": "Pikachu", "picture": "025"},
+    {"form": "Original Cap", "serebii": "Pikachu Original Cap", "picture": "025-o"},
+    {"form": "Hoenn Cap", "serebii": "Pikachu Hoenn Cap", "picture": "025-h"},
+    {"form": "Sinnoh Cap", "serebii": "Pikachu Sinnoh Cap", "picture": "025-s"},
+    {"form": "Unova Cap", "serebii": "Pikachu Unova Cap", "picture": "025-u"},
+    {"form": "Kalos Cap", "serebii": "Pikachu Kalos Cap", "picture": "025-k"},
+    {"form": "Alola Cap", "serebii": "Pikachu Alola Cap", "picture": "025-a"},
+    {"form": "Partner Cap", "serebii": "Pikachu Partner Cap", "picture": "025-p"},
+    {"form": "World Cap", "serebii": "Pikachu World Cap", "picture": "025-w"},
+    {"form": "Female", "serebii": "Pikachu (Female)", "picture": "025-f"}
+  ],
+  "26": [
+    {"form": null, "serebii": "Raichu", "picture": "026"},
+    {"form": "Alolan", "serebii": "Alolan Raichu", "picture": "026-a"},
+    {"form": "Female", "serebii": "Raichu (Female)", "picture": "026-f"}
+  ],
+  "27": [
+    {"form": null, "serebii": "Sandshrew", "picture": "027"},
+    {"form": "Alolan", "serebii": "Alolan Sandshrew", "picture": "027-a"}
+  ],
+  "28": [
+    {"form": null, "serebii": "Sandslash", "picture": "028"},
+    {"form": "Alolan", "serebii": "Alolan Sandslash", "picture": "028-a"}
+  ],
+  "37": [
+    {"form": null, "serebii": "Vulpix", "picture": "037"},
+    {"form": "Alolan", "serebii": "Alolan Vulpix", "picture": "037-a"}
+  ],
+  "38": [
+    {"form": null, "serebii": "Ninetales", "picture": "038"},
+    {"form": "Alolan", "serebii": "Alolan Ninetales", "picture": "038-a"}
+  ],
+  "41": [
+    {"form": null, "serebii": "Zubat", "picture": "041"},
+    {"form": "Female", "serebii": "Zubat (Female)", "picture": "041-f"}
+  ],
+  "42": [
+    {"form": null, "serebii": "Golbat", "picture": "042"},
+    {"form": "Female", "serebii": "Golbat (Female)", "picture": "042-f"}
+  ],
+  "44": [
+    {"form": null, "serebii": "Gloom", "picture": "044"},
+    {"form": "Female", "serebii": "Gloom (Female)", "picture": "044-f"}
+  ],
+  "45": [
+    {"form": null, "serebii": "Vileplume", "picture": "045"},
+    {"form": "Female", "serebii": "Vileplume (Female)", "picture": "045-f"}
+  ],
+  "50": [
+    {"form": null, "serebii": "Diglett", "picture": "050"},
+    {"form": "Alolan", "serebii": "Alolan Diglett", "picture": "050-a"}
+  ],
+  "51": [
+    {"form": null, "serebii": "Dugtrio", "picture": "051"},
+    {"form": "Alolan", "serebii": "Alolan Dugtrio", "picture": "051-a"}
+  ],
+  "52": [
+    {"form": null, "serebii": "Meowth", "picture": "052"},
+    {"form": "Alolan", "serebii": "Alolan Meowth", "picture": "052-a"},
+    {"form": "Galarian", "serebii": "Galarian Meowth", "picture": "052-g"}
+  ],
+  "53": [
+    {"form": null, "serebii": "Persian", "picture": "053"},
+    {"form": "Alolan", "serebii": "Alolan Persian", "picture": "053-a"}
+  ],
+  "58": [
+    {"form": null, "serebii": "Growlithe", "picture": "058"},
+    {"form": "Hisuian", "serebii": "Hisuian Growlithe", "picture": "058-h"}
+  ],
+  "59": [
+    {"form": null, "serebii": "Arcanine", "picture": "059"},
+    {"form": "Hisuian", "serebii": "Hisuian Arcanine", "picture": "059-h"}
+  ],
+  "64": [
+    {"form": null, "serebii": "Kadabra", "picture": "064"},
+    {"form": "Female", "serebii": "Kadabra (Female)", "picture": "064-f"}
+  ],
+  "65": [
+    {"form": null, "serebii": "Alakazam", "picture": "065"},
+    {"form": "Female", "serebii": "Alakazam (Female)", "picture": "065-f"}
+  ],
+  "74": [
+    {"form": null, "serebii": "Geodude", "picture": "074"},
+    {"form": "Alolan", "serebii": "Alolan Geodude", "picture": "074-a"}
+  ],
+  "75": [
+    {"form": null, "serebii": "Graveler", "picture": "075"},
+    {"form": "Alolan", "serebii": "Alolan Graveler", "picture": "075-a"}
+  ],
+  "76": [
+    {"form": null, "serebii": "Golem", "picture": "076"},
+    {"form": "Alolan", "serebii": "Alolan Golem", "picture": "076-a"}
+  ],
+  "77": [
+    {"form": null, "serebii": "Ponyta", "picture": "077"},
+    {"form": "Galarian", "serebii": "Galarian Ponyta", "picture": "077-g"}
+  ],
+  "78": [
+    {"form": null, "serebii": "Rapidash", "picture": "078"},
+    {"form": "Galarian", "serebii": "Galarian Rapidash", "picture": "078-g"}
+  ],
+  "79": [
+    {"form": null, "serebii": "Slowpoke", "picture": "079"},
+    {"form": "Galarian", "serebii": "Galarian Slowpoke", "picture": "079-g"}
+  ],
+  "80": [
+    {"form": null, "serebii": "Slowbro", "picture": "080"},
+    {"form": "Galarian", "serebii": "Galarian Slowbro", "picture": "080-g"}
+  ],
+  "83": [
+    {"form": null, "serebii": "Farfetch'd", "picture": "083"},
+    {"form": "Galarian", "serebii": "Galarian Farfetch'd", "picture": "083-g"}
+  ],
+  "84": [
+    {"form": null, "serebii": "Doduo", "picture": "084"},
+    {"form": "Female", "serebii": "Doduo (Female)", "picture": "084-f"}
+  ],
+  "85": [
+    {"form": null, "serebii": "Dodrio", "picture": "085"},
+    {"form": "Female", "serebii": "Dodrio (Female)", "picture": "085-f"}
+  ],
+  "88": [
+    {"form": null, "serebii": "Grimer", "picture": "088"},
+    {"form": "Alolan", "serebii": "Alolan Grimer", "picture": "088-a"}
+  ],
+  "89": [
+    {"form": null, "serebii": "Muk", "picture": "089"},
+    {"form": "Alolan", "serebii": "Alolan Muk", "picture": "089-a"}
+  ],
+  "97": [
+    {"form": null, "serebii": "Hypno", "picture": "097"},
+    {"form": "Female", "serebii": "Hypno (Female)", "picture": "097-f"}
+  ],
+  "100": [
+    {"form": null, "serebii": "Voltorb", "picture": "100"},
+    {"form": "Hisuian", "serebii": "Hisuian Voltorb", "picture": "100-h"}
+  ],
+  "101": [
+    {"form": null, "serebii": "Electrode", "picture": "101"},
+    {"form": "Hisuian", "serebii": "Hisuian Electrode", "picture": "101-h"}
+  ],
+  "103": [
+    {"form": null, "serebii": "Exeggutor", "picture": "103"},
+    {"form": "Alolan", "serebii": "Alolan Exeggutor", "picture": "103-a"}
+  ],
+  "105": [
+    {"form": null, "serebii": "Marowak", "picture": "105"},
+    {"form": "Alolan", "serebii": "Alolan Marowak", "picture": "105-a"}
+  ],
+  "110": [
+    {"form": null, "serebii": "Weezing", "picture": "110"},
+    {"form": "Galarian", "serebii": "Galarian Weezing", "picture": "110-g"}
+  ],
+  "111": [
+    {"form": null, "serebii": "Rhyhorn", "picture": "111"},
+    {"form": "Female", "serebii": "Rhyhorn (Female)", "picture": "111-f"}
+  ],
+  "112": [
+    {"form": null, "serebii": "Rhydon", "picture": "112"},
+    {"form": "Female", "serebii": "Rhydon (Female)", "picture": "112-f"}
+  ],
+  "118": [
+    {"form": null, "serebii": "Goldeen", "picture": "118"},
+    {"form": "Female", "serebii": "Goldeen (Female)", "picture": "118-f"}
+  ],
+  "119": [
+    {"form": null, "serebii": "Seaking", "picture": "119"},
+    {"form": "Female", "serebii": "Seaking (Female)", "picture": "119-f"}
+  ],
+  "122": [
+    {"form": null, "serebii": "Mr. Mime", "picture": "122"},
+    {"form": "Galarian", "serebii": "Galarian Mr. Mime", "picture": "122-g"}
+  ],
+  "123": [
+    {"form": null, "serebii": "Scyther", "picture": "123"},
+    {"form": "Female", "serebii": "Scyther (Female)", "picture": "123-f"}
+  ],
+  "128": [
+    {"form": null, "serebii": "Tauros", "picture": "128"},
+    {"form": "Paldean", "serebii": "Paldean Tauros", "picture": "128-p"},
+    {"form": "Blaze Breed", "serebii": "Tauros Blaze Breed", "picture": "128-b"},
+    {"form": "Aqua Breed", "serebii": "Tauros Aqua Breed", "picture": "128-a"}
+  ],
+  "129": [
+    {"form": null, "serebii": "Magikarp", "picture": "129"},
+    {"form": "Female", "serebii": "Magikarp (Female)", "picture": "129-f"}
+  ],
+  "130": [
+    {"form": null, "serebii": "Gyarados", "picture": "130"},
+    {"form": "Female", "serebii": "Gyarados (Female)", "picture": "130-f"}
+  ],
+  "133": [
+    {"form": null, "serebii": "Eevee", "picture": "133"},
+    {"form": "Female", "serebii": "Eevee (Female)", "picture": "133-f"}
+  ],
+  "144": [
+    {"form": null, "serebii": "Articuno", "picture": "144"},
+    {"form": "Galarian", "serebii": "Galarian Articuno", "picture": "144-g"}
+  ],
+  "145": [
+    {"form": null, "serebii": "Zapdos", "picture": "145"},
+    {"form": "Galarian", "serebii": "Galarian Zapdos", "picture": "145-g"}
+  ],
+  "146": [
+    {"form": null, "serebii": "Moltres", "picture": "146"},
+    {"form": "Galarian", "serebii": "Galarian Moltres", "picture": "146-g"}
+  ],
+  "154": [
+    {"form": null, "serebii": "Meganium", "picture": "154"},
+    {"form": "Female", "serebii": "Meganium (Female)", "picture": "154-f"}
+  ],
+  "157": [
+    {"form": null, "serebii": "Typhlosion", "picture": "157"},
+    {"form": "Hisuian", "serebii": "Hisuian Typhlosion", "picture": "157-h"}
+  ],
+  "165": [
+    {"form": null, "serebii": "Ledyba", "picture": "165"},
+    {"form": "Female", "serebii": "Ledyba (Female)", "picture": "165-f"}
+  ],
+  "166": [
+    {"form": null, "serebii": "Ledian", "picture": "166"},
+    {"form": "Female", "serebii": "Ledian (Female)", "picture": "166-f"}
+  ],
+  "178": [
+    {"form": null, "serebii": "Xatu", "picture": "178"},
+    {"form": "Female", "serebii": "Xatu (Female)", "picture": "178-f"}
+  ],
+  "185": [
+    {"form": null, "serebii": "Sudowoodo", "picture": "185"},
+    {"form": "Female", "serebii": "Sudowoodo (Female)", "picture": "185-f"}
+  ],
+  "186": [
+    {"form": null, "serebii": "Politoed", "picture": "186"},
+    {"form": "Female", "serebii": "Politoed (Female)", "picture": "186-f"}
+  ],
+  "190": [
+    {"form": null, "serebii": "Aipom", "picture": "190"},
+    {"form": "Female", "serebii": "Aipom (Female)", "picture": "190-f"}
+  ],
+  "194": [
+    {"form": null, "serebii": "Wooper", "picture": "194"},
+    {"form": "Paldean", "serebii": "Paldean Wooper", "picture": "194-p"},
+    {"form": "Female", "serebii": "Wooper (Female)", "picture": "194-f"}
+  ],
+  "195": [
+    {"form": null, "serebii": "Quagsire", "picture": "195"},
+    {"form": "Female", "serebii": "Quagsire (Female)", "picture": "195-f"}
+  ],
+  "198": [
+    {"form": null, "serebii": "Murkrow", "picture": "198"},
+    {"form": "Female", "serebii": "Murkrow (Female)", "picture": "198-f"}
+  ],
+  "199": [
+    {"form": null, "serebii": "Slowking", "picture": "199"},
+    {"form": "Galarian", "serebii": "Galarian Slowking", "picture": "199-g"}
+  ],
+  "201": [
+    {"form": null, "serebii": "Unown", "picture": "201"},
+    {"form": "B", "serebii": "Unown B", "picture": "201-b"},
+    {"form": "C", "serebii": "Unown C", "picture": "201-c"},
+    {"form": "D", "serebii": "Unown D", "picture": "201-d"},
+    {"form": "E", "serebii": "Unown E", "picture": "201-e"},
+    {"form": "F", "serebii": "Unown F", "picture": "201-f"},
+    {"form": "G", "serebii": "Unown G", "picture": "201-g"},
+    {"form": "H", "serebii": "Unown H", "picture": "201-h"},
+    {"form": "I", "serebii": "Unown I", "picture": "201-i"},
+    {"form": "J", "serebii": "Unown J", "picture": "201-j"},
+    {"form": "K", "serebii": "Unown K", "picture": "201-k"},
+    {"form": "L", "serebii": "Unown L", "picture": "201-l"},
+    {"form": "M", "serebii": "Unown M", "picture": "201-m"},
+    {"form": "N", "serebii": "Unown N", "picture": "201-n"},
+    {"form": "O", "serebii": "Unown O", "picture": "201-o"},
+    {"form": "P", "serebii": "Unown P", "picture": "201-p"},
+    {"form": "Q", "serebii": "Unown Q", "picture": "201-q"},
+    {"form": "R", "serebii": "Unown R", "picture": "201-r"},
+    {"form": "S", "serebii": "Unown S", "picture": "201-s"},
+    {"form": "T", "serebii": "Unown T", "picture": "201-t"},
+    {"form": "U", "serebii": "Unown U", "picture": "201-u"},
+    {"form": "V", "serebii": "Unown V", "picture": "201-v"},
+    {"form": "W", "serebii": "Unown W", "picture": "201-w"},
+    {"form": "X", "serebii": "Unown X", "picture": "201-x"},
+    {"form": "Y", "serebii": "Unown Y", "picture": "201-y"},
+    {"form": "Z", "serebii": "Unown Z", "picture": "201-z"},
+    {"form": "!", "serebii": "Unown !", "picture": "201-em"},
+    {"form": "?", "serebii": "Unown ?", "picture": "201-qm"}
+  ],
+  "202": [
+    {"form": null, "serebii": "Wobbuffet", "picture": "202"},
+    {"form": "Female", "serebii": "Wobbuffet (Female)", "picture": "202-f"}
+  ],
+  "203": [
+    {"form": null, "serebii": "Girafarig", "picture": "203"},
+    {"form": "Female", "serebii": "Girafarig (Female)", "picture": "203-f"}
+  ],
+  "207": [
+    {"form": null, "serebii": "Gligar", "picture": "207"},
+    {"form": "Female", "serebii": "Gligar (Female)", "picture": "207-f"}
+  ],
+  "208": [
+    {"form": null, "serebii": "Steelix", "picture": "208"},
+    {"form": "Female", "serebii": "Steelix (Female)", "picture": "208-f"}
+  ],
+  "211": [
+    {"form": null, "serebii": "Qwilfish", "picture": "211"},
+    {"form": "Hisuian", "serebii": "Hisuian Qwilfish", "picture": "211-h"}
+  ],
+  "212": [
+    {"form": null, "serebii": "Scizor", "picture": "212"},
+    {"form": "Female", "serebii": "Scizor (Female)", "picture": "212-f"}
+  ],
+  "214": [
+    {"form": null, "serebii": "Heracross", "picture": "214"},
+    {"form": "Female", "serebii": "Heracross (Female)", "picture": "214-f"}
+  ],
+  "215": [
+    {"form": null, "serebii": "Sneasel", "picture": "215"},
+    {"form": "Hisuian", "serebii": "Hisuian Sneasel", "picture": "215-h"},
+    {"form": "Hisuian (Female)", "serebii": "Sneasel (Female)", "picture": "215-h-f"},
+    {"form": "Female", "serebii": "Sneasel (Female)", "picture": "215-f"}
+  ],
+  "217": [
+    {"form": null, "serebii": "Ursaring", "picture": "217"},
+    {"form": "Female", "serebii": "Ursaring (Female)", "picture": "217-f"}
+  ],
+  "221": [
+    {"form": null, "serebii": "Piloswine", "picture": "221"},
+    {"form": "Female", "serebii": "Piloswine (Female)", "picture": "221-f"}
+  ],
+  "222": [
+    {"form": null, "serebii": "Corsola", "picture": "222"},
+    {"form": "Galarian", "serebii": "Galarian Corsola", "picture": "222-g"}
+  ],
+  "224": [
+    {"form": null, "serebii": "Octillery", "picture": "224"},
+    {"form": "Female", "serebii": "Octillery (Female)", "picture": "224-f"}
+  ],
+  "229": [
+    {"form": null, "serebii": "Houndoom", "picture": "229"},
+    {"form": "Female", "serebii": "Houndoom (Female)", "picture": "229-f"}
+  ],
+  "232": [
+    {"form": null, "serebii": "Donphan", "picture": "232"},
+    {"form": "Female", "serebii": "Donphan (Female)", "picture": "232-f"}
+  ],
+  "255": [
+    {"form": null, "serebii": "Torchic", "picture": "255"},
+    {"form": "Female", "serebii": "Torchic (Female)", "picture": "255-f"}
+  ],
+  "256": [
+    {"form": null, "serebii": "Combusken", "picture": "256"},
+    {"form": "Female", "serebii": "Combusken (Female)", "picture": "256-f"}
+  ],
+  "257": [
+    {"form": null, "serebii": "Blaziken", "picture": "257"},
+    {"form": "Female", "serebii": "Blaziken (Female)", "picture": "257-f"}
+  ],
+  "263": [
+    {"form": null, "serebii": "Zigzagoon", "picture": "263"},
+    {"form": "Galarian", "serebii": "Galarian Zigzagoon", "picture": "263-g"}
+  ],
+  "264": [
+    {"form": null, "serebii": "Linoone", "picture": "264"},
+    {"form": "Galarian", "serebii": "Galarian Linoone", "picture": "264-g"}
+  ],
+  "267": [
+    {"form": null, "serebii": "Beautifly", "picture": "267"},
+    {"form": "Female", "serebii": "Beautifly (Female)", "picture": "267-f"}
+  ],
+  "269": [
+    {"form": null, "serebii": "Dustox", "picture": "269"},
+    {"form": "Female", "serebii": "Dustox (Female)", "picture": "269-f"}
+  ],
+  "272": [
+    {"form": null, "serebii": "Ludicolo", "picture": "272"},
+    {"form": "Female", "serebii": "Ludicolo (Female)", "picture": "272-f"}
+  ],
+  "274": [
+    {"form": null, "serebii": "Nuzleaf", "picture": "274"},
+    {"form": "Female", "serebii": "Nuzleaf (Female)", "picture": "274-f"}
+  ],
+  "275": [
+    {"form": null, "serebii": "Shiftry", "picture": "275"},
+    {"form": "Female", "serebii": "Shiftry (Female)", "picture": "275-f"}
+  ],
+  "307": [
+    {"form": null, "serebii": "Meditite", "picture": "307"},
+    {"form": "Female", "serebii": "Meditite (Female)", "picture": "307-f"}
+  ],
+  "308": [
+    {"form": null, "serebii": "Medicham", "picture": "308"},
+    {"form": "Female", "serebii": "Medicham (Female)", "picture": "308-f"}
+  ],
+  "315": [
+    {"form": null, "serebii": "Roselia", "picture": "315"},
+    {"form": "Female", "serebii": "Roselia (Female)", "picture": "315-f"}
+  ],
+  "316": [
+    {"form": null, "serebii": "Gulpin", "picture": "316"},
+    {"form": "Female", "serebii": "Gulpin (Female)", "picture": "316-f"}
+  ],
+  "317": [
+    {"form": null, "serebii": "Swalot", "picture": "317"},
+    {"form": "Female", "serebii": "Swalot (Female)", "picture": "317-f"}
+  ],
+  "322": [
+    {"form": null, "serebii": "Numel", "picture": "322"},
+    {"form": "Female", "serebii": "Numel (Female)", "picture": "322-f"}
+  ],
+  "323": [
+    {"form": null, "serebii": "Camerupt", "picture": "323"},
+    {"form": "Female", "serebii": "Camerupt (Female)", "picture": "323-f"}
+  ],
+  "332": [
+    {"form": null, "serebii": "Cacturne", "picture": "332"},
+    {"form": "Female", "serebii": "Cacturne (Female)", "picture": "332-f"}
+  ],
+  "350": [
+    {"form": null, "serebii": "Milotic", "picture": "350"},
+    {"form": "Female", "serebii": "Milotic (Female)", "picture": "350-f"}
+  ],
+  "369": [
+    {"form": null, "serebii": "Relicanth", "picture": "369"},
+    {"form": "Female", "serebii": "Relicanth (Female)", "picture": "369-f"}
+  ],
+  "386": [
+    {"form": null, "serebii": "Deoxys", "picture": "386"},
+    {"form": "Attack Forme", "serebii": "Deoxys Attack Forme", "picture": "386-a"},
+    {"form": "Defense Forme", "serebii": "Deoxys Defense Forme", "picture": "386-d"},
+    {"form": "Speed Forme", "serebii": "Deoxys Speed Forme", "picture": "386-s"}
+  ],
+  "396": [
+    {"form": null, "serebii": "Starly", "picture": "396"},
+    {"form": "Female", "serebii": "Starly (Female)", "picture": "396-f"}
+  ],
+  "397": [
+    {"form": null, "serebii": "Staravia", "picture": "397"},
+    {"form": "Female", "serebii": "Staravia (Female)", "picture": "397-f"}
+  ],
+  "398": [
+    {"form": null, "serebii": "Staraptor", "picture": "398"},
+    {"form": "Female", "serebii": "Staraptor (Female)", "picture": "398-f"}
+  ],
+  "399": [
+    {"form": null, "serebii": "Bidoof", "picture": "399"},
+    {"form": "Female", "serebii": "Bidoof (Female)", "picture": "399-f"}
+  ],
+  "400": [
+    {"form": null, "serebii": "Bibarel", "picture": "400"},
+    {"form": "Female", "serebii": "Bibarel (Female)", "picture": "400-f"}
+  ],
+  "401": [
+    {"form": null, "serebii": "Kricketot", "picture": "401"},
+    {"form": "Female", "serebii": "Kricketot (Female)", "picture": "401-f"}
+  ],
+  "402": [
+    {"form": null, "serebii": "Kricketune", "picture": "402"},
+    {"form": "Female", "serebii": "Kricketune (Female)", "picture": "402-f"}
+  ],
+  "403": [
+    {"form": null, "serebii": "Shinx", "picture": "403"},
+    {"form": "Female", "serebii": "Shinx (Female)", "picture": "403-f"}
+  ],
+  "404": [
+    {"form": null, "serebii": "Luxio", "picture": "404"},
+    {"form": "Female", "serebii": "Luxio (Female)", "picture": "404-f"}
+  ],
+  "405": [
+    {"form": null, "serebii": "Luxray", "picture": "405"},
+    {"form": "Female", "serebii": "Luxray (Female)", "picture": "405-f"}
+  ],
+  "407": [
+    {"form": null, "serebii": "Roserade", "picture": "407"},
+    {"form": "Female", "serebii": "Roserade (Female)", "picture": "407-f"}
+  ],
+  "412": [
+    {"form": null, "serebii": "Burmy", "picture": "412"},
+    {"form": "Sandy Cloak", "serebii": "Burmy Sandy Cloak", "picture": "412-s"},
+    {"form": "Trash Cloak", "serebii": "Burmy Trash Cloak", "picture": "412-t"}
+  ],
+  "413": [
+    {"form": null, "serebii": "Wormadam", "picture": "413"},
+    {"form": "Sandy Cloak", "serebii": "Wormadam Sandy Cloak", "picture": "413-s"},
+    {"form": "Trash Cloak", "serebii": "Wormadam Trash Cloak", "picture": "413-t"}
+  ],
+  "415": [
+    {"form": null, "serebii": "Combee", "picture": "415"},
+    {"form": "Female", "serebii": "Combee (Female)", "picture": "415-f"}
+  ],
+  "417": [
+    {"form": null, "serebii": "Pachirisu", "picture": "417"},
+    {"form": "Female", "serebii": "Pachirisu (Female)", "picture": "417-f"}
+  ],
+  "418": [
+    {"form": null, "serebii": "Buizel", "picture": "418"},
+    {"form": "Female", "serebii": "Buizel (Female)", "picture": "418-f"}
+  ],
+  "419": [
+    {"form": null, "serebii": "Floatzel", "picture": "419"},
+    {"form": "Female", "serebii": "Floatzel (Female)", "picture": "419-f"}
+  ],
+  "422": [
+    {"form": null, "serebii": "Shellos", "picture": "422"},
+    {"form": "East Sea", "serebii": "Shellos East Sea", "picture": "422-e"}
+  ],
+  "423": [
+    {"form": null, "serebii": "Gastrodon", "picture": "423"},
+    {"form": "East Sea", "serebii": "Gastrodon East Sea", "picture": "423-e"}
+  ],
+  "424": [
+    {"form": null, "serebii": "Ambipom", "picture": "424"},
+    {"form": "Female", "serebii": "Ambipom (Female)", "picture": "424-f"}
+  ],
+  "443": [
+    {"form": null, "serebii": "Gible", "picture": "443"},
+    {"form": "Female", "serebii": "Gible (Female)", "picture": "443-f"}
+  ],
+  "444": [
+    {"form": null, "serebii": "Gabite", "picture": "444"},
+    {"form": "Female", "serebii": "Gabite (Female)", "picture": "444-f"}
+  ],
+  "445": [
+    {"form": null, "serebii": "Garchomp", "picture": "445"},
+    {"form": "Female", "serebii": "Garchomp (Female)", "picture": "445-f"}
+  ],
+  "449": [
+    {"form": null, "serebii": "Hippopotas", "picture": "449"},
+    {"form": "Female", "serebii": "Hippopotas (Female)", "picture": "449-f"}
+  ],
+  "450": [
+    {"form": null, "serebii": "Hippowdon", "picture": "450"},
+    {"form": "Female", "serebii": "Hippowdon (Female)", "picture": "450-f"}
+  ],
+  "453": [
+    {"form": null, "serebii": "Croagunk", "picture": "453"},
+    {"form": "Female", "serebii": "Croagunk (Female)", "picture": "453-f"}
+  ],
+  "454": [
+    {"form": null, "serebii": "Toxicroak", "picture": "454"},
+    {"form": "Female", "serebii": "Toxicroak (Female)", "picture": "454-f"}
+  ],
+  "456": [
+    {"form": null, "serebii": "Finneon", "picture": "456"},
+    {"form": "Female", "serebii": "Finneon (Female)", "picture": "456-f"}
+  ],
+  "457": [
+    {"form": null, "serebii": "Lumineon", "picture": "457"},
+    {"form": "Female", "serebii": "Lumineon (Female)", "picture": "457-f"}
+  ],
+  "459": [
+    {"form": null, "serebii": "Snover", "picture": "459"},
+    {"form": "Female", "serebii": "Snover (Female)", "picture": "459-f"}
+  ],
+  "460": [
+    {"form": null, "serebii": "Abomasnow", "picture": "460"},
+    {"form": "Female", "serebii": "Abomasnow (Female)", "picture": "460-f"}
+  ],
+  "461": [
+    {"form": null, "serebii": "Weavile", "picture": "461"},
+    {"form": "Female", "serebii": "Weavile (Female)", "picture": "461-f"}
+  ],
+  "464": [
+    {"form": null, "serebii": "Rhyperior", "picture": "464"},
+    {"form": "Female", "serebii": "Rhyperior (Female)", "picture": "464-f"}
+  ],
+  "465": [
+    {"form": null, "serebii": "Tangrowth", "picture": "465"},
+    {"form": "Female", "serebii": "Tangrowth (Female)", "picture": "465-f"}
+  ],
+  "473": [
+    {"form": null, "serebii": "Mamoswine", "picture": "473"},
+    {"form": "Female", "serebii": "Mamoswine (Female)", "picture": "473-f"}
+  ],
+  "479": [
+    {"form": null, "serebii": "Rotom", "picture": "479"},
+    {"form": "Heat Rotom", "serebii": "Rotom Heat Rotom", "picture": "479-h"},
+    {"form": "Wash Rotom", "serebii": "Rotom Wash Rotom", "picture": "479-w"},
+    {"form": "Frost Rotom", "serebii": "Rotom Frost Rotom", "picture": "479-f"},
+    {"form": "Fan Rotom", "serebii": "Rotom Fan Rotom", "picture": "479-s"},
+    {"form": "Mow Rotom", "serebii": "Rotom Mow Rotom", "picture": "479-m"}
+  ],
+  "492": [
+    {"form": null, "serebii": "Shaymin", "picture": "492"},
+    {"form": "Sky Forme", "serebii": "Shaymin Sky Forme", "picture": "492-s"}
+  ],
+  "503": [
+    {"form": null, "serebii": "Samurott", "picture": "503"},
+    {"form": "Hisuian", "serebii": "Hisuian Samurott", "picture": "503-h"}
+  ],
+  "521": [
+    {"form": null, "serebii": "Unfezant", "picture": "521"},
+    {"form": "Female", "serebii": "Unfezant (Female)", "picture": "521-f"}
+  ],
+  "549": [
+    {"form": null, "serebii": "Lilligant", "picture": "549"},
+    {"form": "Hisuian", "serebii": "Hisuian Lilligant", "picture": "549-h"}
+  ],
+  "550": [
+    {"form": null, "serebii": "Basculin", "picture": "550"},
+    {"form": "Blue-Striped Form", "serebii": "Basculin Blue-Striped Form", "picture": "550-b"},
+    {"form": "White-Striped Form", "serebii": "Basculin White-Striped Form", "picture": "550-w"}
+  ],
+  "554": [
+    {"form": null, "serebii": "Darumaka", "picture": "554"},
+    {"form": "Galarian", "serebii": "Galarian Darumaka", "picture": "554-g"}
+  ],
+  "555": [
+    {"form": null, "serebii": "Darmanitan", "picture": "555"},
+    {"form": "Galarian", "serebii": "Galarian Darmanitan", "picture": "555-g"}
+  ],
+  "562": [
+    {"form": null, "serebii": "Yamask", "picture": "562"},
+    {"form": "Galarian", "serebii": "Galarian Yamask", "picture": "562-g"}
+  ],
+  "570": [
+    {"form": null, "serebii": "Zorua", "picture": "570"},
+    {"form": "Hisuian", "serebii": "Hisuian Zorua", "picture": "570-h"}
+  ],
+  "571": [
+    {"form": null, "serebii": "Zoroark", "picture": "571"},
+    {"form": "Hisuian", "serebii": "Hisuian Zoroark", "picture": "571-h"}
+  ],
+  "585": [
+    {"form": null, "serebii": "Deerling", "picture": "585"},
+    {"form": "Summer Form", "serebii": "Deerling Summer Form", "picture": "585-s"},
+    {"form": "Autumn Form", "serebii": "Deerling Autumn Form", "picture": "585-a"},
+    {"form": "Winter Form", "serebii": "Deerling Winter Form", "picture": "585-w"}
+  ],
+  "586": [
+    {"form": null, "serebii": "Sawsbuck", "picture": "586"},
+    {"form": "Summer Form", "serebii": "Sawsbuck Summer Form", "picture": "586-s"},
+    {"form": "Autumn Form", "serebii": "Sawsbuck Autumn Form", "picture": "586-a"},
+    {"form": "Winter Form", "serebii": "Sawsbuck Winter Form", "picture": "586-w"}
+  ],
+  "592": [
+    {"form": null, "serebii": "Frillish", "picture": "592"},
+    {"form": "Female", "serebii": "Frillish (Female)", "picture": "592-f"}
+  ],
+  "593": [
+    {"form": null, "serebii": "Jellicent", "picture": "593"},
+    {"form": "Female", "serebii": "Jellicent (Female)", "picture": "593-f"}
+  ],
+  "618": [
+    {"form": null, "serebii": "Stunfisk", "picture": "618"},
+    {"form": "Galarian", "serebii": "Galarian Stunfisk", "picture": "618-g"}
+  ],
+  "628": [
+    {"form": null, "serebii": "Braviary", "picture": "628"},
+    {"form": "Hisuian", "serebii": "Hisuian Braviary", "picture": "628-h"}
+  ],
+  "641": [
+    {"form": null, "serebii": "Tornadus", "picture": "641"},
+    {"form": "Therian Forme", "serebii": "Tornadus Therian Forme", "picture": "641-t"}
+  ],
+  "642": [
+    {"form": null, "serebii": "Thundurus", "picture": "642"},
+    {"form": "Therian Forme", "serebii": "Thundurus Therian Forme", "picture": "642-t"}
+  ],
+  "645": [
+    {"form": null, "serebii": "Landorus", "picture": "645"},
+    {"form": "Therian Forme", "serebii": "Landorus Therian Forme", "picture": "645-t"}
+  ],
+  "647": [
+    {"form": null, "serebii": "Keldeo", "picture": "647"},
+    {"form": "Resolute Form", "serebii": "Keldeo Resolute Form", "picture": "647-r"}
+  ],
+  "658": [
+    {"form": null, "serebii": "Greninja", "picture": "658"},
+    {"form": "Battle Bond", "serebii": "Greninja Battle Bond", "picture": "658"}
+  ],
+  "666": [
+    {"form": null, "serebii": "Vivillon", "picture": "666"},
+    {"form": "Polar Pattern", "serebii": "Vivillon Polar Pattern", "picture": "666-p"},
+    {"form": "Tundra Pattern", "serebii": "Vivillon Tundra Pattern", "picture": "666-t"},
+    {"form": "Continental Pattern", "serebii": "Vivillon Continental Pattern", "picture": "666-c"},
+    {"form": "Garden Pattern", "serebii": "Vivillon Garden Pattern", "picture": "666-g"},
+    {"form": "Elegant Pattern", "serebii": "Vivillon Elegant Pattern", "picture": "666-e"},
+    {"form": "Icy Snow Pattern", "serebii": "Vivillon Icy Snow Pattern", "picture": "666-i"},
+    {"form": "Modern Pattern", "serebii": "Vivillon Modern Pattern", "picture": "666-mo"},
+    {"form": "Marine Pattern", "serebii": "Vivillon Marine Pattern", "picture": "666-ma"},
+    {"form": "Archipelago Pattern", "serebii": "Vivillon Archipelago Pattern", "picture": "666-a"},
+    {"form": "High Plains Pattern", "serebii": "Vivillon High Plains Pattern", "picture": "666-h"},
+    {"form": "Sandstorm Pattern", "serebii": "Vivillon Sandstorm Pattern", "picture": "666-s"},
+    {"form": "River Pattern", "serebii": "Vivillon River Pattern", "picture": "666-r"},
+    {"form": "Monsoon Pattern", "serebii": "Vivillon Monsoon Pattern", "picture": "666-mon"},
+    {"form": "Savanna Pattern", "serebii": "Vivillon Savanna Pattern", "picture": "666-sa"},
+    {"form": "Sun Pattern", "serebii": "Vivillon Sun Pattern", "picture": "666-su"},
+    {"form": "Ocean Pattern", "serebii": "Vivillon Ocean Pattern", "picture": "666-o"},
+    {"form": "Jungle Pattern", "serebii": "Vivillon Jungle Pattern", "picture": "666-j"},
+    {"form": "Fancy Pattern", "serebii": "Vivillon Fancy Pattern", "picture": "666-f"},
+    {"form": "Poké Ball Pattern", "serebii": "Vivillon Poké Ball Pattern", "picture": "666-pb"}
+  ],
+  "668": [
+    {"form": null, "serebii": "Pyroar", "picture": "668"},
+    {"form": "Female", "serebii": "Pyroar (Female)", "picture": "668-f"}
+  ],
+  "669": [
+    {"form": null, "serebii": "Flabébé", "picture": "669"},
+    {"form": "Yellow Flower", "serebii": "Flabébé Yellow Flower", "picture": "669-y"},
+    {"form": "Orange Flower", "serebii": "Flabébé Orange Flower", "picture": "669-o"},
+    {"form": "Blue Flower", "serebii": "Flabébé Blue Flower", "picture": "669-b"},
+    {"form": "White Flower", "serebii": "Flabébé White Flower", "picture": "669-w"}
+  ],
+  "670": [
+    {"form": null, "serebii": "Floette", "picture": "670"},
+    {"form": "Yellow Flower", "serebii": "Floette Yellow Flower", "picture": "670-y"},
+    {"form": "Orange Flower", "serebii": "Floette Orange Flower", "picture": "670-o"},
+    {"form": "Blue Flower", "serebii": "Floette Blue Flower", "picture": "670-b"},
+    {"form": "White Flower", "serebii": "Floette White Flower", "picture": "670-w"},
+    {"form": "Eternal Flower", "serebii": "Floette Eternal Flower", "picture": "670-e"}
+  ],
+  "671": [
+    {"form": null, "serebii": "Florges", "picture": "671"},
+    {"form": "Yellow Flower", "serebii": "Florges Yellow Flower", "picture": "671-y"},
+    {"form": "Orange Flower", "serebii": "Florges Orange Flower", "picture": "671-o"},
+    {"form": "Blue Flower", "serebii": "Florges Blue Flower", "picture": "671-b"},
+    {"form": "White Flower", "serebii": "Florges White Flower", "picture": "671-w"}
+  ],
+  "676": [
+    {"form": null, "serebii": "Furfrou", "picture": "676"},
+    {"form": "Heart Trim", "serebii": "Furfrou Heart Trim", "picture": "676-h"},
+    {"form": "Star Trim", "serebii": "Furfrou Star Trim", "picture": "676-s"},
+    {"form": "Diamond Trim", "serebii": "Furfrou Diamond Trim", "picture": "676-d"},
+    {"form": "Deputante Trim", "serebii": "Furfrou Deputante Trim", "picture": "676-de"},
+    {"form": "Matron Trim", "serebii": "Furfrou Matron Trim", "picture": "676-m"},
+    {"form": "Dandy Trim", "serebii": "Furfrou Dandy Trim", "picture": "676-da"},
+    {"form": "La Reine Trim", "serebii": "Furfrou La Reine Trim", "picture": "676-l"},
+    {"form": "Kabuki Trim", "serebii": "Furfrou Kabuki Trim", "picture": "676-k"},
+    {"form": "Pharaoh Trim", "serebii": "Furfrou Pharaoh Trim", "picture": "676-p"}
+  ],
+  "678": [
+    {"form": null, "serebii": "Meowstic", "picture": "678"},
+    {"form": "Female", "serebii": "Meowstic Female", "picture": "678-f"}
+  ],
+  "705": [
+    {"form": null, "serebii": "Sliggoo", "picture": "705"},
+    {"form": "Hisuian", "serebii": "Hisuian Sliggoo", "picture": "705-h"}
+  ],
+  "706": [
+    {"form": null, "serebii": "Goodra", "picture": "706"},
+    {"form": "Hisuian", "serebii": "Hisuian Goodra", "picture": "706-h"}
+  ],
+  "710": [
+    {"form": null, "serebii": "Pumpkaboo", "picture": "710"},
+    {"form": "Small Size", "serebii": "Pumpkaboo Small Size", "picture": "710-s"},
+    {"form": "Large Size", "serebii": "Pumpkaboo Large Size", "picture": "710-l"},
+    {"form": "Super Size", "serebii": "Pumpkaboo Super Size", "picture": "710-h"}
+  ],
+  "711": [
+    {"form": null, "serebii": "Gourgeist", "picture": "711"},
+    {"form": "Small Size", "serebii": "Gourgeist Small Size", "picture": "711-s"},
+    {"form": "Large Size", "serebii": "Gourgeist Large Size", "picture": "711-l"},
+    {"form": "Super Size", "serebii": "Gourgeist Super Size", "picture": "711-h"}
+  ],
+  "713": [
+    {"form": null, "serebii": "Avalugg", "picture": "713"},
+    {"form": "Hisuian", "serebii": "Hisuian Avalugg", "picture": "713-h"}
+  ],
+  "718": [
+    {"form": null, "serebii": "Zygarde", "picture": "718"},
+    {"form": "10% Forme", "serebii": "Zygarde 10% Forme", "picture": "718-10"},
+    {"form": "Power Construct (10% Forme)", "serebii": "Zygarde Power Construct", "picture": "718-10"},
+    {"form": "Power Construct (50% Forme)", "serebii": "Zygarde Power Construct", "picture": "718"}
+  ],
+  "720": [
+    {"form": null, "serebii": "Hoopa", "picture": "720"},
+    {"form": "Hoopa Unbound", "serebii": "Hoopa Hoopa Unbound", "picture": "720-u"}
+  ],
+  "724": [
+    {"form": null, "serebii": "Decidueye", "picture": "724"},
+    {"form": "Hisuian", "serebii": "Hisuian Decidueye", "picture": "724-h"}
+  ],
+  "741": [
+    {"form": null, "serebii": "Oricorio", "picture": "741"},
+    {"form": "Pom-pom Style", "serebii": "Oricorio Pom-pom Style", "picture": "741-p"},
+    {"form": "P'au Style", "serebii": "Oricorio P'au Style", "picture": "741-pau"},
+    {"form": "Sensu Style", "serebii": "Oricorio Sensu Style", "picture": "741-s"}
+  ],
+  "744": [
+    {"form": null, "serebii": "Rockruff", "picture": "744"},
+    {"form": "Own Tempo", "serebii": "Rockruff Own Tempo", "picture": "744"}
+  ],
+  "745": [
+    {"form": null, "serebii": "Lycanroc", "picture": "745"},
+    {"form": "Midnight Form", "serebii": "Lycanroc Midnight Form", "picture": "745-m"},
+    {"form": "Dusk Form", "serebii": "Lycanroc Dusk Form", "picture": "745-d"}
+  ],
+  "774": [
+    {"form": null, "serebii": "Minior", "picture": "774-r"},
+    {"form": "Orange Core", "serebii": "Minior Orange Core", "picture": "774-o"},
+    {"form": "Yellow Core", "serebii": "Minior Yellow Core", "picture": "774-y"},
+    {"form": "Green Core", "serebii": "Minior Green Core", "picture": "774-g"},
+    {"form": "Blue Core", "serebii": "Minior Blue Core", "picture": "774-b"},
+    {"form": "Indigo Core", "serebii": "Minior Indigo Core", "picture": "774-i"},
+    {"form": "Violet Core", "serebii": "Minior Violet Core", "picture": "774-v"}
+  ],
+  "801": [
+    {"form": null, "serebii": "Magearna", "picture": "801"},
+    {"form": "Original Color", "serebii": "Magearna Original Color", "picture": "801-o"}
+  ],
+  "849": [
+    {"form": null, "serebii": "Toxtricity", "picture": "849"},
+    {"form": "Low Key Form", "serebii": "Toxtricity Low Key Form", "picture": "849-l"}
+  ],
+  "854": [
+    {"form": null, "serebii": "Sinistea", "picture": "854"},
+    {"form": "Authentic Form", "serebii": "Sinistea Authentic Form", "picture": "854-f"}
+  ],
+  "855": [
+    {"form": null, "serebii": "Polteageist", "picture": "855"},
+    {"form": "Authentic Form", "serebii": "Polteageist Authentic Form", "picture": "855-f"}
+  ],
+  "869": [
+    {"form": null, "serebii": "Alcremie", "picture": "869"},
+    {"form": "Vanilla Cream, Berry Sweet", "serebii": "Alcremie Vanilla Cream", "picture": "869-berry"},
+    {"form": "Vanilla Cream, Love Sweet", "serebii": "Alcremie Vanilla Cream", "picture": "869-love"},
+    {"form": "Vanilla Cream, Star Sweet", "serebii": "Alcremie Vanilla Cream", "picture": "869-star"},
+    {"form": "Vanilla Cream, Clover Sweet", "serebii": "Alcremie Vanilla Cream", "picture": "869-clover"},
+    {"form": "Vanilla Cream, Flower Sweet", "serebii": "Alcremie Vanilla Cream", "picture": "869-flower"},
+    {"form": "Vanilla Cream, Ribbon Sweet", "serebii": "Alcremie Vanilla Cream", "picture": "869-ribbon"},
+    {"form": "Ruby Cream, Strawberry Sweet", "serebii": "Alcremie Ruby Cream", "picture": "869-rc"},
+    {"form": "Ruby Cream, Berry Sweet", "serebii": "Alcremie Ruby Cream", "picture": "869-rcberry"},
+    {"form": "Ruby Cream, Love Sweet", "serebii": "Alcremie Ruby Cream", "picture": "869-rclove"},
+    {"form": "Ruby Cream, Star Sweet", "serebii": "Alcremie Ruby Cream", "picture": "869-rcstar"},
+    {"form": "Ruby Cream, Clover Sweet", "serebii": "Alcremie Ruby Cream", "picture": "869-rcclover"},
+    {"form": "Ruby Cream, Flower Sweet", "serebii": "Alcremie Ruby Cream", "picture": "869-rcflower"},
+    {"form": "Ruby Cream, Ribbon Sweet", "serebii": "Alcremie Ruby Cream", "picture": "869-rcribbon"},
+    {"form": "Matcha Cream, Strawberry Sweet", "serebii": "Alcremie Matcha Cream", "picture": "869-mac"},
+    {"form": "Matcha Cream, Berry Sweet", "serebii": "Alcremie Matcha Cream", "picture": "869-macberry"},
+    {"form": "Matcha Cream, Love Sweet", "serebii": "Alcremie Matcha Cream", "picture": "869-maclove"},
+    {"form": "Matcha Cream, Star Sweet", "serebii": "Alcremie Matcha Cream", "picture": "869-macstar"},
+    {"form": "Matcha Cream, Clover Sweet", "serebii": "Alcremie Matcha Cream", "picture": "869-macclover"},
+    {"form": "Matcha Cream, Flower Sweet", "serebii": "Alcremie Matcha Cream", "picture": "869-macflower"},
+    {"form": "Matcha Cream, Ribbon Sweet", "serebii": "Alcremie Matcha Cream", "picture": "869-macribbon"},
+    {"form": "Mint Cream, Strawberry Sweet", "serebii": "Alcremie Mint Cream", "picture": "869-mic"},
+    {"form": "Mint Cream, Berry Sweet", "serebii": "Alcremie Mint Cream", "picture": "869-micberry"},
+    {"form": "Mint Cream, Love Sweet", "serebii": "Alcremie Mint Cream", "picture": "869-miclove"},
+    {"form": "Mint Cream, Star Sweet", "serebii": "Alcremie Mint Cream", "picture": "869-micstar"},
+    {"form": "Mint Cream, Clover Sweet", "serebii": "Alcremie Mint Cream", "picture": "869-micclover"},
+    {"form": "Mint Cream, Flower Sweet", "serebii": "Alcremie Mint Cream", "picture": "869-micflower"},
+    {"form": "Mint Cream, Ribbon Sweet", "serebii": "Alcremie Mint Cream", "picture": "869-micribbon"},
+    {"form": "Lemon Cream, Strawberry Sweet", "serebii": "Alcremie Lemon Cream", "picture": "869-lc"},
+    {"form": "Lemon Cream, Berry Sweet", "serebii": "Alcremie Lemon Cream", "picture": "869-lcberry"},
+    {"form": "Lemon Cream, Love Sweet", "serebii": "Alcremie Lemon Cream", "picture": "869-lclove"},
+    {"form": "Lemon Cream, Star Sweet", "serebii": "Alcremie Lemon Cream", "picture": "869-lcstar"},
+    {"form": "Lemon Cream, Clover Sweet", "serebii": "Alcremie Lemon Cream", "picture": "869-lcclover"},
+    {"form": "Lemon Cream, Flower Sweet", "serebii": "Alcremie Lemon Cream", "picture": "869-lcflower"},
+    {"form": "Lemon Cream, Ribbon Sweet", "serebii": "Alcremie Lemon Cream", "picture": "869-lcribbon"},
+    {"form": "Salted Cream, Strawberry Sweet", "serebii": "Alcremie Salted Cream", "picture": "869-sc"},
+    {"form": "Salted Cream, Berry Sweet", "serebii": "Alcremie Salted Cream", "picture": "869-scberry"},
+    {"form": "Salted Cream, Love Sweet", "serebii": "Alcremie Salted Cream", "picture": "869-sclove"},
+    {"form": "Salted Cream, Star Sweet", "serebii": "Alcremie Salted Cream", "picture": "869-scstar"},
+    {"form": "Salted Cream, Clover Sweet", "serebii": "Alcremie Salted Cream", "picture": "869-scclover"},
+    {"form": "Salted Cream, Flower Sweet", "serebii": "Alcremie Salted Cream", "picture": "869-scflower"},
+    {"form": "Salted Cream, Ribbon Sweet", "serebii": "Alcremie Salted Cream", "picture": "869-scribbon"},
+    {"form": "Ruby Swirl, Strawberry Sweet", "serebii": "Alcremie Ruby Swirl", "picture": "869-rs"},
+    {"form": "Ruby Swirl, Berry Sweet", "serebii": "Alcremie Ruby Swirl", "picture": "869-rsberry"},
+    {"form": "Ruby Swirl, Love Sweet", "serebii": "Alcremie Ruby Swirl", "picture": "869-rslove"},
+    {"form": "Ruby Swirl, Star Sweet", "serebii": "Alcremie Ruby Swirl", "picture": "869-rsstar"},
+    {"form": "Ruby Swirl, Clover Sweet", "serebii": "Alcremie Ruby Swirl", "picture": "869-rsclover"},
+    {"form": "Ruby Swirl, Flower Sweet", "serebii": "Alcremie Ruby Swirl", "picture": "869-rsflower"},
+    {"form": "Ruby Swirl, Ribbon Sweet", "serebii": "Alcremie Ruby Swirl", "picture": "869-rsribbon"},
+    {"form": "Caramel Swirl, Strawberry Sweet", "serebii": "Alcremie Caramel Swirl", "picture": "869-cs"},
+    {"form": "Caramel Swirl, Berry Sweet", "serebii": "Alcremie Caramel Swirl", "picture": "869-csberry"},
+    {"form": "Caramel Swirl, Love Sweet", "serebii": "Alcremie Caramel Swirl", "picture": "869-cslove"},
+    {"form": "Caramel Swirl, Star Sweet", "serebii": "Alcremie Caramel Swirl", "picture": "869-csstar"},
+    {"form": "Caramel Swirl, Clover Sweet", "serebii": "Alcremie Caramel Swirl", "picture": "869-csclover"},
+    {"form": "Caramel Swirl, Flower Sweet", "serebii": "Alcremie Caramel Swirl", "picture": "869-csflower"},
+    {"form": "Caramel Swirl, Ribbon Sweet", "serebii": "Alcremie Caramel Swirl", "picture": "869-csribbon"},
+    {"form": "Rainbow Swirl, Strawberry Sweet", "serebii": "Alcremie Rainbow Swirl", "picture": "869-ras"},
+    {"form": "Rainbow Swirl, Berry Sweet", "serebii": "Alcremie Rainbow Swirl", "picture": "869-rasberry"},
+    {"form": "Rainbow Swirl, Love Sweet", "serebii": "Alcremie Rainbow Swirl", "picture": "869-raslove"},
+    {"form": "Rainbow Swirl, Star Sweet", "serebii": "Alcremie Rainbow Swirl", "picture": "869-rasstar"},
+    {"form": "Rainbow Swirl, Clover Sweet", "serebii": "Alcremie Rainbow Swirl", "picture": "869-rasclover"},
+    {"form": "Rainbow Swirl, Flower Sweet", "serebii": "Alcremie Rainbow Swirl", "picture": "869-rasflower"},
+    {"form": "Rainbow Swirl, Ribbon Sweet", "serebii": "Alcremie Rainbow Swirl", "picture": "869-rasribbon"}
+  ],
+  "876": [
+    {"form": null, "serebii": "Indeedee", "picture": "876"},
+    {"form": "Female", "serebii": "Indeedee Female", "picture": "876-f"}
+  ],
+  "892": [
+    {"form": null, "serebii": "Urshifu", "picture": "892"},
+    {"form": "Rapid Strike Style", "serebii": "Urshifu Rapid Strike Style", "picture": "892-r"}
+  ],
+  "893": [
+    {"form": null, "serebii": "Zarude", "picture": "893"},
+    {"form": "Dada", "serebii": "Zarude Dada", "picture": "893-d"}
+  ],
+  "901": [
+    {"form": null, "serebii": "Ursaluna", "picture": "901"},
+    {"form": "Blood Moon Form", "serebii": "Ursaluna Blood Moon Form", "picture": "901-b"}
+  ],
+  "902": [
+    {"form": null, "serebii": "Basculegion", "picture": "902"},
+    {"form": "Female", "serebii": "Basculegion Female", "picture": "902-f"}
+  ],
+  "905": [
+    {"form": null, "serebii": "Enamorus", "picture": "905"},
+    {"form": "Therian Forme", "serebii": "Enamorus Therian Forme", "picture": "905-t"}
+  ],
+  "916": [
+    {"form": null, "serebii": "Oinkologne", "picture": "916"},
+    {"form": "Female", "serebii": "Oinkologne Female", "picture": "916-f"}
+  ],
+  "925": [
+    {"form": null, "serebii": "Maushold", "picture": "925"},
+    {"form": "Family of Four", "serebii": "Maushold Family of Four", "picture": "925-f"}
+  ],
+  "931": [
+    {"form": null, "serebii": "Squawkabilly", "picture": "931"},
+    {"form": "Blue Plumage", "serebii": "Squawkabilly Blue Plumage", "picture": "931-b"},
+    {"form": "Yellow Plumage", "serebii": "Squawkabilly Yellow Plumage", "picture": "931-y"},
+    {"form": "White Plumage", "serebii": "Squawkabilly White Plumage", "picture": "931-w"}
+  ],
+  "978": [
+    {"form": null, "serebii": "Tatsugiri", "picture": "978"},
+    {"form": "Droopy Form", "serebii": "Tatsugiri Droopy Form", "picture": "978-d"},
+    {"form": "Stretchy Form", "serebii": "Tatsugiri Stretchy Form", "picture": "978-s"}
+  ],
+  "982": [
+    {"form": null, "serebii": "Dudunsparce", "picture": "982"},
+    {"form": "Three-Segment Form", "serebii": "Dudunsparce Three-Segment Form", "picture": "982-t"}
+  ],
+  "999": [
+    {"form": null, "serebii": "Gimmighoul", "picture": "999"},
+    {"form": "Roaming Form", "serebii": "Gimmighoul Roaming Form", "picture": "999-r"}
+  ],
+  "1012": [
+    {"form": null, "serebii": "Poltchageist", "picture": "1012"},
+    {"form": "Artisan Form", "serebii": "Poltchageist Artisan Form", "picture": "1012"}
+  ],
+  "1013": [
+    {"form": null, "serebii": "Sinistcha", "picture": "1013"},
+    {"form": "Masterpiece Form", "serebii": "Sinistcha Masterpiece Form", "picture": "1013"}
+  ]
+ },
+ "genderFormSpecies": [3, 12, 19, 20, 25, 26, 41, 42, 44, 45, 64, 65, 84, 85, 97, 111, 112, 118, 119, 123, 129, 130, 133, 154, 165, 166, 178, 185, 186, 190, 194, 195, 198, 202, 203, 207, 208, 212, 214, 215, 217, 221, 224, 229, 232, 255, 256, 257, 267, 269, 272, 274, 275, 307, 308, 315, 316, 317, 322, 323, 332, 350, 369, 396, 397, 398, 399, 400, 401, 402, 403, 404, 405, 407, 415, 417, 418, 419, 424, 443, 444, 445, 449, 450, 453, 454, 456, 457, 459, 460, 461, 464, 465, 473, 521, 592, 593, 668, 678, 876, 902, 916],
+ "nonDepositable": [
+   {"dex": 3, "serebii": "Mega Venusaur", "picture": "003-m", "kind": "mega"},
+   {"dex": 6, "serebii": "Mega Charizard X", "picture": "006-mx", "kind": "mega"},
+   {"dex": 6, "serebii": "Mega Charizard Y", "picture": "006-my", "kind": "mega"},
+   {"dex": 9, "serebii": "Mega Blastoise", "picture": "009-m", "kind": "mega"},
+   {"dex": 15, "serebii": "Mega Beedrill", "picture": "015-m", "kind": "mega"},
+   {"dex": 18, "serebii": "Mega Pidgeot", "picture": "018-m", "kind": "mega"},
+   {"dex": 26, "serebii": "Mega Raichu", "picture": "026-mx", "label": "Mega Raichu X", "kind": "mega"},
+   {"dex": 26, "serebii": "Mega Raichu", "picture": "026-my", "label": "Mega Raichu Y", "kind": "mega"},
+   {"dex": 36, "serebii": "Mega Clefable", "picture": "036-m", "kind": "mega"},
+   {"dex": 65, "serebii": "Mega Alakazam", "picture": "065-m", "kind": "mega"},
+   {"dex": 71, "serebii": "Mega Victreebel", "picture": "071-m", "kind": "mega"},
+   {"dex": 80, "serebii": "Mega Slowbro", "picture": "080-m", "kind": "mega"},
+   {"dex": 94, "serebii": "Mega Gengar", "picture": "094-m", "kind": "mega"},
+   {"dex": 115, "serebii": "Mega Kangaskhan", "picture": "115-m", "kind": "mega"},
+   {"dex": 121, "serebii": "Mega Starmie", "picture": "121-m", "kind": "mega"},
+   {"dex": 127, "serebii": "Mega Pinsir", "picture": "127-m", "kind": "mega"},
+   {"dex": 130, "serebii": "Mega Gyarados", "picture": "130-m", "kind": "mega"},
+   {"dex": 142, "serebii": "Mega Aerodactyl", "picture": "142-m", "kind": "mega"},
+   {"dex": 149, "serebii": "Mega Dragonite", "picture": "149-m", "kind": "mega"},
+   {"dex": 150, "serebii": "Mega Mewtwo X", "picture": "150-mx", "kind": "mega"},
+   {"dex": 150, "serebii": "Mega Mewtwo Y", "picture": "150-my", "kind": "mega"},
+   {"dex": 154, "serebii": "Mega Meganium", "picture": "154-m", "kind": "mega"},
+   {"dex": 160, "serebii": "Mega Feraligatr", "picture": "160-m", "kind": "mega"},
+   {"dex": 181, "serebii": "Mega Ampharos", "picture": "181-m", "kind": "mega"},
+   {"dex": 208, "serebii": "Mega Steelix", "picture": "208-m", "kind": "mega"},
+   {"dex": 212, "serebii": "Mega Scizor", "picture": "212-m", "kind": "mega"},
+   {"dex": 214, "serebii": "Mega Heracross", "picture": "214-m", "kind": "mega"},
+   {"dex": 227, "serebii": "Mega Skarmory", "picture": "227-m", "kind": "mega"},
+   {"dex": 229, "serebii": "Mega Houndoom", "picture": "229-m", "kind": "mega"},
+   {"dex": 248, "serebii": "Mega Tyranitar", "picture": "248-m", "kind": "mega"},
+   {"dex": 254, "serebii": "Mega Sceptile", "picture": "254-m", "kind": "mega"},
+   {"dex": 257, "serebii": "Mega Blaziken", "picture": "257-m", "kind": "mega"},
+   {"dex": 260, "serebii": "Mega Swampert", "picture": "260-m", "kind": "mega"},
+   {"dex": 282, "serebii": "Mega Gardevoir", "picture": "282-m", "kind": "mega"},
+   {"dex": 302, "serebii": "Mega Sableye", "picture": "302-m", "kind": "mega"},
+   {"dex": 303, "serebii": "Mega Mawile", "picture": "303-m", "kind": "mega"},
+   {"dex": 306, "serebii": "Mega Aggron", "picture": "306-m", "kind": "mega"},
+   {"dex": 308, "serebii": "Mega Medicham", "picture": "308-m", "kind": "mega"},
+   {"dex": 310, "serebii": "Mega Manectric", "picture": "310-m", "kind": "mega"},
+   {"dex": 319, "serebii": "Mega Sharpedo", "picture": "319-m", "kind": "mega"},
+   {"dex": 323, "serebii": "Mega Camerupt", "picture": "323-m", "kind": "mega"},
+   {"dex": 334, "serebii": "Mega Altaria", "picture": "334-m", "kind": "mega"},
+   {"dex": 351, "serebii": "Castform (Sunny Form)", "picture": "351-s", "kind": "other"},
+   {"dex": 351, "serebii": "Castform (Rainy Form)", "picture": "351-r", "kind": "other"},
+   {"dex": 351, "serebii": "Castform (Snowy Form)", "picture": "351-i", "kind": "other"},
+   {"dex": 354, "serebii": "Mega Banette", "picture": "354-m", "kind": "mega"},
+   {"dex": 358, "serebii": "Mega Chimecho", "picture": "358-m", "kind": "mega"},
+   {"dex": 359, "serebii": "Mega Absol", "picture": "359-m", "label": "Mega Absol", "kind": "mega"},
+   {"dex": 359, "serebii": "Mega Absol", "picture": "359-mz", "label": "Mega Absol Z", "kind": "mega"},
+   {"dex": 362, "serebii": "Mega Glalie", "picture": "362-m", "kind": "mega"},
+   {"dex": 373, "serebii": "Mega Salamence", "picture": "373-m", "kind": "mega"},
+   {"dex": 376, "serebii": "Mega Metagross", "picture": "376-m", "kind": "mega"},
+   {"dex": 380, "serebii": "Mega Latias", "picture": "380-m", "kind": "mega"},
+   {"dex": 381, "serebii": "Mega Latios", "picture": "381-m", "kind": "mega"},
+   {"dex": 382, "serebii": "Primal Kyogre", "picture": "382-p", "kind": "primal"},
+   {"dex": 383, "serebii": "Primal Groudon", "picture": "383-p", "kind": "primal"},
+   {"dex": 384, "serebii": "Mega Rayquaza", "picture": "384-m", "kind": "mega"},
+   {"dex": 398, "serebii": "Mega Staraptor", "picture": "398-m", "kind": "mega"},
+   {"dex": 421, "serebii": "Cherrim (Sunshine Form)", "picture": "421-s", "kind": "other"},
+   {"dex": 428, "serebii": "Mega Lopunny", "picture": "428-m", "kind": "mega"},
+   {"dex": 445, "serebii": "Mega Garchomp", "picture": "445-m", "label": "Mega Garchomp", "kind": "mega"},
+   {"dex": 445, "serebii": "Mega Garchomp", "picture": "445-mz", "label": "Mega Garchomp Z", "kind": "mega"},
+   {"dex": 448, "serebii": "Mega Lucario", "picture": "448-m", "label": "Mega Lucario", "kind": "mega"},
+   {"dex": 448, "serebii": "Mega Lucario", "picture": "448-mz", "label": "Mega Lucario Z", "kind": "mega"},
+   {"dex": 460, "serebii": "Mega Abomasnow", "picture": "460-m", "kind": "mega"},
+   {"dex": 475, "serebii": "Mega Gallade", "picture": "475-m", "kind": "mega"},
+   {"dex": 478, "serebii": "Mega Froslass", "picture": "478-m", "kind": "mega"},
+   {"dex": 483, "serebii": "Dialga (Origin Forme)", "picture": "483-o", "kind": "other"},
+   {"dex": 484, "serebii": "Palkia (Origin Forme)", "picture": "484-o", "kind": "other"},
+   {"dex": 485, "serebii": "Mega Heatran", "picture": "485-m", "kind": "mega"},
+   {"dex": 487, "serebii": "Giratina (Origin Forme)", "picture": "487-o", "kind": "other"},
+   {"dex": 491, "serebii": "Mega Darkrai", "picture": "491-m", "kind": "mega"},
+   {"dex": 493, "serebii": "Arceus (Fighting-Type)", "picture": "493-fighting", "kind": "other"},
+   {"dex": 493, "serebii": "Arceus (Flying-Type)", "picture": "493-flying", "kind": "other"},
+   {"dex": 493, "serebii": "Arceus (Poison-Type)", "picture": "493-poison", "kind": "other"},
+   {"dex": 493, "serebii": "Arceus (Ground-Type)", "picture": "493-ground", "kind": "other"},
+   {"dex": 493, "serebii": "Arceus (Rock-Type)", "picture": "493-rock", "kind": "other"},
+   {"dex": 493, "serebii": "Arceus (Bug-Type)", "picture": "493-bug", "kind": "other"},
+   {"dex": 493, "serebii": "Arceus (Ghost-Type)", "picture": "493-ghost", "kind": "other"},
+   {"dex": 493, "serebii": "Arceus (Steel-Type)", "picture": "493-steel", "kind": "other"},
+   {"dex": 493, "serebii": "Arceus (Fire-Type)", "picture": "493-fire", "kind": "other"},
+   {"dex": 493, "serebii": "Arceus (Water-Type)", "picture": "493-water", "kind": "other"},
+   {"dex": 493, "serebii": "Arceus (Grass-Type)", "picture": "493-grass", "kind": "other"},
+   {"dex": 493, "serebii": "Arceus (Electric-Type)", "picture": "493-electric", "kind": "other"},
+   {"dex": 493, "serebii": "Arceus (Psychic-Type)", "picture": "493-psychic", "kind": "other"},
+   {"dex": 493, "serebii": "Arceus (Ice-Type)", "picture": "493-ice", "kind": "other"},
+   {"dex": 493, "serebii": "Arceus (Dragon-Type)", "picture": "493-dragon", "kind": "other"},
+   {"dex": 493, "serebii": "Arceus (Dark-Type)", "picture": "493-dark", "kind": "other"},
+   {"dex": 493, "serebii": "Arceus (Fairy-Type)", "picture": "493-fairy", "kind": "other"},
+   {"dex": 493, "serebii": "Arceus (Legend Plate)", "picture": "493", "kind": "other"},
+   {"dex": 500, "serebii": "Mega Emboar", "picture": "500-m", "kind": "mega"},
+   {"dex": 530, "serebii": "Mega Excadrill", "picture": "530-m", "kind": "mega"},
+   {"dex": 531, "serebii": "Mega Audino", "picture": "531-m", "kind": "mega"},
+   {"dex": 545, "serebii": "Mega Scolipede", "picture": "545-m", "kind": "mega"},
+   {"dex": 555, "serebii": "Darmanitan (Zen Mode)", "picture": "555-d", "kind": "other"},
+   {"dex": 555, "serebii": "Darmanitan (Galarian Zen Mode)", "picture": "555-gz", "kind": "other"},
+   {"dex": 560, "serebii": "Mega Scrafty", "picture": "560-m", "kind": "mega"},
+   {"dex": 604, "serebii": "Mega Eelektross", "picture": "604-m", "kind": "mega"},
+   {"dex": 609, "serebii": "Mega Chandelure", "picture": "609-m", "kind": "mega"},
+   {"dex": 623, "serebii": "Mega Golurk", "picture": "623-m", "kind": "mega"},
+   {"dex": 646, "serebii": "Kyurem (Black Kyurem)", "picture": "646-b", "kind": "other"},
+   {"dex": 646, "serebii": "Kyurem (White Kyurem)", "picture": "646-w", "kind": "other"},
+   {"dex": 648, "serebii": "Meloetta (Pirouette Forme)", "picture": "648-p", "kind": "other"},
+   {"dex": 649, "serebii": "Genesect (Burn Drive)", "picture": "649-f", "kind": "other"},
+   {"dex": 649, "serebii": "Genesect (Chill Drive)", "picture": "649-i", "kind": "other"},
+   {"dex": 649, "serebii": "Genesect (Douse Drive)", "picture": "649-w", "kind": "other"},
+   {"dex": 649, "serebii": "Genesect (Shock Drive)", "picture": "649-e", "kind": "other"},
+   {"dex": 652, "serebii": "Mega Chesnaught", "picture": "652-m", "kind": "mega"},
+   {"dex": 655, "serebii": "Mega Delphox", "picture": "655-m", "kind": "mega"},
+   {"dex": 658, "serebii": "Greninja (Ash-Greninja)", "picture": "658-a", "kind": "other"},
+   {"dex": 658, "serebii": "Mega Greninja", "picture": "658-m", "kind": "mega"},
+   {"dex": 668, "serebii": "Mega Pyroar", "picture": "668-m", "kind": "mega"},
+   {"dex": 670, "serebii": "Mega Floette", "picture": "670-m", "kind": "mega"},
+   {"dex": 678, "serebii": "Mega Meowstic", "picture": "678-m", "kind": "mega"},
+   {"dex": 681, "serebii": "Aegislash (Blade Forme)", "picture": "681-b", "kind": "other"},
+   {"dex": 687, "serebii": "Mega Malamar", "picture": "687-m", "kind": "mega"},
+   {"dex": 689, "serebii": "Mega Barbaracle", "picture": "689-m", "kind": "mega"},
+   {"dex": 691, "serebii": "Mega Dragalge", "picture": "691-m", "kind": "mega"},
+   {"dex": 701, "serebii": "Mega Hawlucha", "picture": "701-m", "kind": "mega"},
+   {"dex": 716, "serebii": "Xerneas (Active Mode)", "picture": "716-a", "kind": "other"},
+   {"dex": 718, "serebii": "Zygarde (Complete Forme)", "picture": "718-c", "kind": "other"},
+   {"dex": 718, "serebii": "Mega Zygarde", "picture": "718-m", "kind": "mega"},
+   {"dex": 719, "serebii": "Mega Diancie", "picture": "719-m", "kind": "mega"},
+   {"dex": 740, "serebii": "Mega Crabominable", "picture": "740-m", "kind": "mega"},
+   {"dex": 746, "serebii": "Wishiwashi (School Form)", "picture": "746-s", "kind": "other"},
+   {"dex": 768, "serebii": "Mega Golisopod", "picture": "768-m", "kind": "mega"},
+   {"dex": 773, "serebii": "Silvally (Fighting-type)", "picture": "773-fighting", "kind": "other"},
+   {"dex": 773, "serebii": "Silvally (Flying-type)", "picture": "773-flying", "kind": "other"},
+   {"dex": 773, "serebii": "Silvally (Poison-type)", "picture": "773-poison", "kind": "other"},
+   {"dex": 773, "serebii": "Silvally (Ground-type)", "picture": "773-ground", "kind": "other"},
+   {"dex": 773, "serebii": "Silvally (Rock-type)", "picture": "773-rock", "kind": "other"},
+   {"dex": 773, "serebii": "Silvally (Bug-type)", "picture": "773-bug", "kind": "other"},
+   {"dex": 773, "serebii": "Silvally (Ghost-type)", "picture": "773-ghost", "kind": "other"},
+   {"dex": 773, "serebii": "Silvally (Steel-type)", "picture": "773-steel", "kind": "other"},
+   {"dex": 773, "serebii": "Silvally (Fire-type)", "picture": "773-fire", "kind": "other"},
+   {"dex": 773, "serebii": "Silvally (Water-type)", "picture": "773-water", "kind": "other"},
+   {"dex": 773, "serebii": "Silvally (Grass-type)", "picture": "773-grass", "kind": "other"},
+   {"dex": 773, "serebii": "Silvally (Electric-type)", "picture": "773-electric", "kind": "other"},
+   {"dex": 773, "serebii": "Silvally (Psychic-type)", "picture": "773-psychic", "kind": "other"},
+   {"dex": 773, "serebii": "Silvally (Ice-type)", "picture": "773-ice", "kind": "other"},
+   {"dex": 773, "serebii": "Silvally (Dragon-type)", "picture": "773-dragon", "kind": "other"},
+   {"dex": 773, "serebii": "Silvally (Dark-type)", "picture": "773-dark", "kind": "other"},
+   {"dex": 773, "serebii": "Silvally (Fairy-type)", "picture": "773-fairy", "kind": "other"},
+   {"dex": 778, "serebii": "Mimikyu (Busted Form)", "picture": "778-b", "kind": "other"},
+   {"dex": 780, "serebii": "Mega Drampa", "picture": "780-m", "kind": "mega"},
+   {"dex": 800, "serebii": "Necrozma (Dusk Mane)", "picture": "800-dm", "kind": "other"},
+   {"dex": 800, "serebii": "Necrozma (Dawn Wings)", "picture": "800-dw", "kind": "other"},
+   {"dex": 800, "serebii": "Ultra Necrozma", "picture": "800-u", "kind": "other"},
+   {"dex": 801, "serebii": "Mega Magearna", "picture": "801-m", "label": "Mega Magearna", "kind": "mega"},
+   {"dex": 801, "serebii": "Mega Magearna", "picture": "801-mo", "label": "Mega Magearna (Original Color)", "kind": "mega"},
+   {"dex": 807, "serebii": "Mega Zeraora", "picture": "807-m", "kind": "mega"},
+   {"dex": 845, "serebii": "Cramorant (Gulping Form)", "picture": "845-gu", "kind": "other"},
+   {"dex": 845, "serebii": "Cramorant (Gorging Form)", "picture": "845-go", "kind": "other"},
+   {"dex": 870, "serebii": "Mega Falinks", "picture": "870-m", "kind": "mega"},
+   {"dex": 875, "serebii": "Eiscue (NoIce Face)", "picture": "875-m", "kind": "other"},
+   {"dex": 877, "serebii": "Morpeko (Hangry Mode)", "picture": "877-h", "kind": "other"},
+   {"dex": 888, "serebii": "Zacian (Crowned Sword)", "picture": "888-c", "kind": "other"},
+   {"dex": 889, "serebii": "Zamazenta (Crowned Shield)", "picture": "889-c", "kind": "other"},
+   {"dex": 890, "serebii": "Eternatus (Eternamax)", "picture": "890-e", "kind": "other"},
+   {"dex": 898, "serebii": "Calyrex (Ice Rider)", "picture": "898-i", "kind": "other"},
+   {"dex": 898, "serebii": "Calyrex (Shadow Rider)", "picture": "898-s", "kind": "other"},
+   {"dex": 952, "serebii": "Mega Scovillain", "picture": "952-m", "kind": "mega"},
+   {"dex": 964, "serebii": "Palafin (Hero Form)", "picture": "964-h", "kind": "other"},
+   {"dex": 970, "serebii": "Mega Glimmora", "picture": "970-m", "kind": "mega"},
+   {"dex": 978, "serebii": "Mega Tatsugiri", "picture": "978-m", "label": "Mega Tatsugiri (Curly Form)", "kind": "mega"},
+   {"dex": 978, "serebii": "Mega Tatsugiri", "picture": "978-md", "label": "Mega Tatsugiri (Droopy Form)", "kind": "mega"},
+   {"dex": 978, "serebii": "Mega Tatsugiri", "picture": "978-ms", "label": "Mega Tatsugiri (Stretchy Form)", "kind": "mega"},
+   {"dex": 998, "serebii": "Mega Baxcalibur", "picture": "998-m", "kind": "mega"},
+   {"dex": 1017, "serebii": "Ogerpon (Hearthflame Mask)", "picture": "1017-h", "kind": "other"},
+   {"dex": 1017, "serebii": "Ogerpon (Wellspring Mask)", "picture": "1017-w", "kind": "other"},
+   {"dex": 1017, "serebii": "Ogerpon (Cornerstone Mask)", "picture": "1017-c", "kind": "other"},
+   {"dex": 1024, "serebii": "Terapagos (Terastal Form)", "picture": "1024-t", "kind": "other"},
+   {"dex": 1024, "serebii": "Terapagos (Stellar Form)", "picture": "1024-s", "kind": "other"}
+ ],
+ "sources": {
+  "https://www.serebii.net/pokemonhome/depositablepokemon.shtml": "Standard and Shiny Boxes, numerical list (1,391 entries each; 39 shiny \"(Not Available)\")",
+  "https://www.serebii.net/pokemonhome/depositablepokemon-sorted.shtml": "categorised list (1,425 entries = 1,391 + 34 \"Gigantamax Capable\"; shiny: 42 blanks)",
+  "https://www.serebii.net/pokemonhome/nondepositablepokemon.shtml": "Undepositable Pokémon (173 forms)",
+  "https://www.serebii.net/swordshield/gigantamax.shtml": "Gigantamax forms (33 rows: Toxtricity once, Urshifu twice)",
+  "https://home.pokemon.com/en-us/features": "official: deposit registers; Mega Evolve / Gigantamax forms registered too",
+  "https://support.pokemon.com/hc/en-us/articles/360039030792": "official: HOME recognises the Gigantamax Factor",
+  "https://support.pokemon.com/hc/en-us/articles/360039207832": "official: held items go to the Bag on deposit",
+  "https://www.serebii.net/news/2026/02-April-2026.shtml": "HOME 4.0.0: Lumiose, Hyperspace and Mega Evolution Pokédexes; depositable list updated"
+ },
+ "read": "2026-11-22"
+}

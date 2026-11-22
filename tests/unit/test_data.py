@@ -158,5 +158,47 @@ class Data(unittest.TestCase):
         self.assertEqual({e['id'] for e in built['entries']}, set(self.byid))
 
 
+
+class HomeData(unittest.TestCase):
+    """Pokémon HOME's list (data/home/dex.json, tools/import_home.py; built 22 Nov): what the research says HOME has."""
+    @classmethod
+    def setUpClass(cls):
+        cls.go = {e['id']: e for e in real('go', 'dex.json')['entries']}
+        cls.home = real('home', 'dex.json')['entries']
+        cls.full = [{**cls.go.get(e['id'], {}), **e} if e.get('go') else e for e in cls.home]
+        cls.facts = real('..', 'research', 'data', 'home-facts.json') if os.path.exists(os.path.join(REAL, 'research', 'data', 'home-facts.json')) else {}
+
+    def test_every_species_once_each_id_once_and_every_shared_one_in_go(self):
+        self.assertEqual({e['dex'] for e in self.full}, set(range(1, 1026)))
+        ids = [e['id'] for e in self.home]
+        self.assertEqual(len(ids), len(set(ids)))
+        self.assertEqual([e['id'] for e in self.home if e.get('go') and e['id'] not in self.go], [])
+
+    def test_only_homes_facts_and_a_picture_for_each(self):
+        for e in self.home:
+            with self.subTest(e['id']):
+                self.assertIsInstance(e['shiny'], bool); self.assertIsInstance(e['gmax'], bool)
+                self.assertFalse({'shadow', 'dynamax', 'mega', 'buddyKm', 'released'} & set(e), 'no GO-only facts in HOME’s own data')
+                self.assertTrue(e.get('go') or (e.get('img') or '').startswith('hm.'), 'HOME’s own forms have HOME’s picture')
+
+    def test_shiny_and_gigantamax_as_serebii_lists_them(self):
+        no = {e['id'] for e in self.home if not e['shiny']}
+        for i in ('494', '25-original-cap', '1025', '893', '893-dada', '670-eternal'):   # Victini, a cap Pikachu, Pecharunt, Zarude…
+            self.assertIn(i, no)
+        for i in ('25', '25-partner-cap', '6', '1'):
+            self.assertNotIn(i, no)
+        gmax = {e['dex'] for e in self.full if e['gmax']}
+        self.assertEqual(len(gmax), 32, sorted(gmax))
+        self.assertFalse([e['id'] for e in self.full if e['gmax'] and (e.get('form') or '').startswith(('Alolan', 'Galarian', 'Hisuian', 'Paldean'))])
+        self.assertFalse([e['id'] for e in self.full if e['gmax'] and e['dex'] == 25 and e['id'] != '25'], 'only plain Pikachu, not the caps')
+
+    def test_go_forms_home_does_not_keep_are_left_out(self):
+        ids = {e['id'] for e in self.home}
+        for i in ('150-armored', '351-sunny', '487-origin', '493-fire', '646-black', '774-meteor', '327-2'):
+            self.assertNotIn(i, ids)
+        for i in ('774-red', '670-eternal', '999', '999-chest', '902-female', '869-ruby-swirl-love-sweet'):
+            self.assertIn(i, ids)
+
+
 if __name__ == '__main__':
     unittest.main()

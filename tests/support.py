@@ -17,6 +17,7 @@ PYTHON = sys.executable
 if TOOLS not in sys.path:
     sys.path.insert(0, TOOLS)
 REAL_TICKS = os.path.join(REAL, 'data', 'collection', 'go.json')
+REAL_HOME_TICKS = os.path.join(REAL, 'data', 'collection', 'home.json')   # her Pokémon HOME ticks (22 Nov)
 REAL_FAMILY = os.path.join(os.path.dirname(REAL), 'site', 'family')   # Jemma's Journals' shared code
 
 
@@ -30,9 +31,10 @@ def _new_root():
     return base, root
 
 
-def fingerprint(path=REAL_TICKS):
-    """Her real ticks file's fingerprint, to check afterwards that no test changed it."""
-    return hashlib.sha256(open(path, 'rb').read()).hexdigest() if os.path.exists(path) else None
+def fingerprint(path=None):
+    """Her real ticks files' fingerprint (GO's and HOME's, or the one file given), to check afterwards that no test changed them."""
+    one = lambda f: hashlib.sha256(open(f, 'rb').read()).hexdigest() if os.path.exists(f) else None
+    return one(path) if path else (one(REAL_TICKS), one(REAL_HOME_TICKS))
 
 
 def _link_tree(src, dst):
@@ -110,6 +112,8 @@ class LightSandbox(Sandbox):
         else:
             os.makedirs(os.path.join(self.root, 'data', 'collection'))
             shutil.copy2(REAL_TICKS, os.path.join(self.root, 'data', 'collection', 'go.json'))
+            if os.path.exists(REAL_HOME_TICKS):
+                shutil.copy2(REAL_HOME_TICKS, os.path.join(self.root, 'data', 'collection', 'home.json'))
         site = os.path.join(self.root, 'site')
         os.makedirs(site)
         for name in os.listdir(os.path.join(REAL, 'site')):

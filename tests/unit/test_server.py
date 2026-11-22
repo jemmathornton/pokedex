@@ -90,6 +90,38 @@ class Server(unittest.TestCase):
                 self.assertEqual(self.post({'list': 'have', 'key': key, 'tick': tick, 'on': True})[1], {'ok': True})
                 self.assertIn(tick, self.saved()['have'][key])
 
+    # ---------- Pokémon HOME (22 Nov): its own ticks file, GO's never touched ----------
+    def get(self, path):
+        with urllib.request.urlopen(self.url + path) as r:
+            return json.loads(r.read())
+
+    def test_home_ticks_go_to_home_json_and_never_to_go_json(self):
+        go_before = self.box.read('collection', 'go.json')
+        self.assertEqual(self.post({'game': 'home', 'list': 'have', 'key': 'd:25', 'tick': 's', 'on': True}), (200, {'ok': True}))
+        self.assertEqual(self.box.read('collection', 'home.json')['have'], {'d:25': ['s']})
+        self.assertEqual(self.box.read('collection', 'go.json'), go_before, "GO's file unchanged")
+        self.assertEqual(self.get('/api/collection?game=home')['have'], {'d:25': ['s']})
+        self.assertEqual(self.get('/api/collection'), go_before, 'GO read as ever')
+        self.assertEqual(self.get('/api/collection?game=go'), go_before)
+
+    def test_home_has_only_homes_boxes(self):
+        for t in sorted(self.serve.HOME_TICKS):
+            with self.subTest(t):
+                self.assertEqual(self.post({'game': 'home', 'list': 'have', 'key': 'd:6', 'tick': t, 'on': True})[1], {'ok': True})
+        for t in ('l', 'h', 'sd', 'pu', 'dx', 'mx', 'xl', 'ss'):   # no Lucky, 4★, Shadow… in HOME (her note, 22 Nov)
+            with self.subTest(t):
+                self.assertFalse(self.post({'game': 'home', 'list': 'have', 'key': 'd:6', 'tick': t, 'on': True})[1]['ok'])
+        self.assertFalse(self.post({'game': 'home', 'list': 'costumes', 'key': '1-fall-2019', 'on': True})[1]['ok'], 'costumes are GO’s')
+        self.assertFalse(self.post({'game': 'home', 'list': 'went', 'key': 'x', 'on': True})[1]['ok'], 'events are GO’s')
+
+    def test_an_unknown_game_is_refused(self):
+        for game in ('za', '../go', 5, ['go']):
+            with self.subTest(game):
+                self.assertFalse(self.post({'game': game, 'list': 'have', 'key': 'd:6', 'tick': 'c', 'on': True})[1]['ok'])
+        with self.assertRaises(urllib.error.HTTPError):
+            self.get('/api/collection?game=za')
+        self.assertFalse(os.path.exists(self.box.path('data', 'collection', 'za.json')))
+
     def test_went_and_costume_lists(self):
         self.post({'list': 'costumes', 'key': '1-fall-2019', 'on': False})
         self.assertNotIn('1-fall-2019', self.saved()['costumes'])

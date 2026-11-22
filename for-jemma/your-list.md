@@ -1,8 +1,10 @@
-# Your list (18 Nov 2026)
+# Your list (22 Nov 2026)
 
 Everything waiting on you. **Do** = just do it; **Decide** = your call. Tell Claude when one’s done or decided and it comes off.
 
 ## Decide
+- **Pokémon HOME, Alcremie:** its 63 flavours are on one card (Forms 0/63), each with its own boxes on its page. Add it to the Pokémon you track form by form (like Vivillon), or leave it?
+- **Pokémon HOME, forms that look just like the plain one:** Battle Bond Greninja, Power Construct Zygarde, Own Tempo Rockruff, Artisan Poltchageist and Masterpiece Sinistcha are one entry each, by your GO rule (“no real difference”). HOME’s boxes list them apart. Keep them as one, or list them apart in HOME?
 - **Looking for (trial, 15 Nov):** a page of what’s out and you still need: Shiny, Lucky (to trade for), Dynamax, Gigantamax and Mega, by region, and Backgrounds (each of your events’ background Pokémon not got yet, under its card: `looking-for-backgrounds.png`), with Copy the list; small icons show the other boxes you need for each, and Only overlaps lists just those, e.g. Lucky with Only overlaps = the best ones for a lucky trade (`for-jemma/looking-for-s.png`, `-l`, `-mega`, `-lucky-overlaps`). Keep, change or drop?
 - **Crowned Zacian and Zamazenta, and Complete Zygarde:** track them as Pokémon of their own (like Dusk Mane Necrozma and Black Kyurem) or not? They’re kept forms you make in GO; at the moment they aren’t in the app.
 - **Sinistea and Polteageist:** track their Antique forms one by one or not? (You’re undecided.) Rockruff, Scatterbug and Spewpa left off on purpose: no real difference until they evolve. Arceus when it’s out.
@@ -16,9 +18,10 @@ Everything waiting on you. **Do** = just do it; **Decide** = your call. Tell Cla
 - **Dynamax Trails (16–23 Nov):** Max Battle catches get a background, probably the Dark Skies one again (Serebii); tell Claude once you’ve seen it, and Sneasel, Mawile and the rest go on it.
 
 ## Done
+- **Pokémon HOME built (22 Nov evening, your ask):** the same pages as GO from HOME’s own list: Home, Every Pokémon, the ten regions, every Pokémon’s page and Fast tick, saving to its own ticks file (your GO ticks untouched). Boxes: Caught (in HOME now), Female, Male, Shiny and Gigantamax: that’s what HOME has (no Dynamax there; a Mega can’t be kept in HOME). Every Pokémon #0001–#1025 with HOME’s own forms (Pikachu in a cap, Alcremie’s flavours…), and the 38 that can’t be shiny in HOME marked so. One picture for a Pokémon in both games: GO’s, and HOME’s own only where GO has none. Home’s region maps now have a line in the region’s colour.
 - **Decided (22 Nov):** the Pokédex will cover Pokémon GO and Pokémon HOME first; HOME’s main box means “you have it in HOME now”.
-- **Your picks (22 Nov evening):** each game’s Home is its totals at the top with the regions below, each region with its map, its Pokédex numbers and your counts (HOME: Pokémon and Shiny only, Placeholders for now); a small “All games” link above the HOME | GO switch shows both games’ totals side by side. The Try switch is gone. Pictures: `Documents\JemmasJournals\for-jemma\concepts\pokedex-games\chosen\`.
-- **Built (22 Nov, your picks):** the game switch in the sidebar (HOME | GO); HOME is the default, so the Pokédex opens on HOME (a marked Placeholder until its data is in); GO’s Home is under GO. The italic “Pokédex” in the title is no longer yellow. “Hide ones I have” is off unless you turn it on (picking a tab no longer turns it on).
+- **Your picks (22 Nov evening):** each game’s Home is its totals at the top with the regions below, each region with its map, its Pokédex numbers and your counts (HOME: Pokémon and Shiny); a small “All games” link above the HOME | GO switch shows both games’ totals side by side. The Try switch is gone. Pictures: `Documents\JemmasJournals\for-jemma\concepts\pokedex-games\chosen\`.
+- **Built (22 Nov, your picks):** the game switch in the sidebar (HOME | GO); HOME is the default, so the Pokédex opens on HOME; GO’s Home is under GO. The italic “Pokédex” in the title is no longer yellow. “Hide ones I have” is off unless you turn it on (picking a tab no longer turns it on).
 - Card art in dark mode: Brighter; Shiny a little deeper and Lucky a little deeper (a middle gold, not the mustard); the other boxes as they were (your picks, 22 Nov). The Try switch is gone.
 - Banner tabs in one smaller row at every width over 900; Kanto's white sky gone from its banner; no date on Home; a Content Security Policy, so only the Pokédex's own code runs (your decisions, 22 Nov).
 - Pictures on Home: Smaller, the lighter copies of the maps (your pick, 22 Nov); the Try row is gone.
