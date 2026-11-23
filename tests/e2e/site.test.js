@@ -432,8 +432,7 @@
 
   test("her picks from the Try switch (22 Nov): Card art in dark mode Brighter; Shiny #6C7786 and Lucky #B48600; the switch gone", async () => {
     const root = document.documentElement;
-    const onlyFormNames = () => [...document.querySelectorAll(".trybox [data-row]")].every(r => r.dataset.row === "formnames");   // the one Try switch now (23 Nov)
-    ok(onlyFormNames() && !("tryArt" in root.dataset) && !("tryBoxes" in root.dataset), "no old Try switch left");
+    ok(!document.querySelector(".trybox") && !("tryArt" in root.dataset) && !("tryBoxes" in root.dataset), "no Try switch left");
     const hex = n => getComputedStyle(root).getPropertyValue(`--${n}`).trim().toUpperCase();
     eq(hex("shiny"), "#6C7786", "Shiny a little deeper"); eq(hex("lucky"), "#B48600", "Lucky a little deeper (a middle gold)");
     eq(hex("male"), "#078E5A", "the other boxes as they were"); eq(hex("hundo"), "#D14186"); eq(hex("mega"), "#C2571A");
@@ -450,7 +449,8 @@
   });
 
   test("the art window is tinted by the Pokémon's first type (her pick, 21 Nov); the 21 Nov Try switch is gone", async () => {
-    ok([...document.querySelectorAll(".trybox [data-row]")].every(r => r.dataset.row === "formnames"), "no games Try switch (removed, her picks 22 Nov evening); only Form names (23 Nov)");
+    ok(!document.querySelector(".trybox"), "no Try switch (the games one removed, her picks 22 Nov evening; Form names removed 23 Nov, her pick: as now)");
+    eq(localStorage.getItem("jemmas-pokedex-try-formnames"), null, "the Form names choice cleared");
     ok(["jemmas-pokedex-try-homepage", "jemmas-pokedex-try-allgames", "jemmas-pokedex-try-gameswitch", "jemmas-pokedex-try-lastgame"].every(k => localStorage.getItem(k) === null), "its kept choices cleared");
     prefs.work = "all"; prefs.workShow = "all"; await go("#gen-1");
     const art = id => { const c = view().querySelector(`.card[data-id="${id}"]`); return c && getComputedStyle(c.querySelector(".pic")).backgroundImage; };
@@ -1268,24 +1268,6 @@
     ok(al && al.querySelector(".fbs") && /0\/63/.test(al.textContent), "its card counts its 63 flavours");
     ok(FORM_SPECIES.has(666) && FORM_SPECIES.has(869), "beside Vivillon");
     await go("#gen-8"); ok(!view().querySelector('.card[data-id="869"] .fbs'), "GO's one Alcremie: a plain card");
-  });
-
-  test("TRIAL Try switch Form names (23 Nov): As now cuts long names; Wrapped shows every name whole; Cream only names Alcremie by its cream", async () => {
-    const pick = async v => { click(document.querySelector(`.trybox [data-v="${v}"]`)); await wait(150); };
-    const labels = () => [...view().querySelectorAll(".formpick small")];
-    const cut = () => labels().filter(s => s.scrollWidth > s.clientWidth + 1).length;
-    const was = tryFormNames;
-    try {
-      await go("#hm-p-869");
-      await pick("now"); ok(cut() > 50, `As now: names cut (${cut()})`); eq(localStorage.getItem(TRY_FORMNAMES_KEY), '"now"', "kept");
-      await pick("wrap"); eq(cut(), 0, "Wrapped: nothing cut");
-      ok(labels().every(s => parseFloat(getComputedStyle(s).fontSize) >= 7.5), "never under 7.5px");
-      eq(labels()[0].textContent, "Vanilla Cream Strawberry Sweet", "the whole name");
-      await pick("cream"); eq(cut(), 0, "Cream only: nothing cut");
-      eq(new Set(labels().map(s => s.textContent)).size, 9, "nine creams");
-      ok(view().querySelector('.formpick [data-pickform="869-ruby-cream-love-sweet"]').title === "Ruby Cream Love Sweet" && view().querySelector('.formpick [data-pickform="869-ruby-cream-love-sweet"] small').textContent === "Ruby Cream", "the sweet in the hover text");
-      await go("#hm-p-25"); eq(labels()[1].textContent, "Original Cap", "other Pokémon keep their names"); eq(cut(), 0, "wrapped");
-    } finally { await pick(was); }
   });
 
   test("one picture for a Pokémon in both games (her question, 22 Nov): GO's own, HOME's only where GO's files have none", async () => {
