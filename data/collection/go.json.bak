@@ -509,6 +509,9 @@
   "b:sb-gofest2025-eternatus:129": [
    "c"
   ],
+  "b:sb-gofest2025-eternatus:133": [
+   "c"
+  ],
   "b:sb-gofest2025-eternatus:138": [
    "c"
   ],
@@ -552,6 +555,9 @@
    "c"
   ],
   "b:sb-gofest2025-eternatus:810": [
+   "c"
+  ],
+  "b:sb-gofest2025-eternatus:813": [
    "c"
   ],
   "b:sb-gofest2025-eternatus:821": [
@@ -3568,7 +3574,6 @@
    "s"
   ],
   "d:28": [
-   "c",
    "cf",
    "cm",
    "s"
@@ -4228,7 +4233,8 @@
    "cm",
    "dx",
    "s",
-   "sd"
+   "sd",
+   "xl"
   ],
   "d:35": [
    "c",

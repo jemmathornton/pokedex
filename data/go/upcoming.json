@@ -1,5 +1,5 @@
 {
- "fetched": "2026-11-22",
+ "fetched": "2026-11-23",
  "source": "Leek Duck (leekduck.com/events), via ScrapedDuck",
  "events": [
   {
@@ -105,16 +105,6 @@
    "start": "2026-11-17T10:00:00.000",
    "end": "2026-12-31T23:59:00.000",
    "link": "https://leekduck.com/events/duolingo-timed-research-2026/",
-   "mons": []
-  },
-  {
-   "id": "pokemon-latin-america-international-championships-2027-timed-research-twitch-drops",
-   "name": "Twitch Drops for 2027 Pokémon Latin America International Championships",
-   "type": "Twitch Drops",
-   "kind": "twitch-drops",
-   "start": "2026-11-20T12:00:00.000Z",
-   "end": "2026-11-22T23:00:00.000Z",
-   "link": "https://leekduck.com/events/pokemon-latin-america-international-championships-2027-timed-research-twitch-drops/",
    "mons": []
   },
   {
