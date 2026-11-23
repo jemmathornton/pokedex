@@ -4792,6 +4792,28 @@
    "gmax": false
   },
   {
+   "id": "658-battle-bond",
+   "dex": 658,
+   "gen": 6,
+   "name": "Greninja",
+   "form": "Battle Bond",
+   "types": [
+    "Water",
+    "Dark"
+   ],
+   "img": "hm.10116",
+   "gender": "male",
+   "category": "Ninja Pokémon",
+   "height": 1.5,
+   "weight": 40.0,
+   "desc": "It creates throwing stars out of compressed water. When it spins them and throws them at high speed, these stars can split metal in two.",
+   "family": "FROAKIE",
+   "evo": [],
+   "order": 878,
+   "shiny": false,
+   "gmax": false
+  },
+  {
    "id": "659",
    "go": true,
    "shiny": true,
@@ -5485,6 +5507,52 @@
    "gmax": false
   },
   {
+   "id": "718-10-power-construct",
+   "dex": 718,
+   "gen": 6,
+   "name": "Zygarde",
+   "form": "10% Power Construct",
+   "types": [
+    "Dragon",
+    "Ground"
+   ],
+   "img": "hm.10118",
+   "gender": "none",
+   "class": "legendary",
+   "category": "Order Pokémon",
+   "height": 1.2,
+   "weight": 33.5,
+   "desc": "When the Kalos region’s ecosystem falls into disarray, it appears and reveals its secret power.",
+   "family": "ZYGARDE",
+   "evo": [],
+   "order": 1037,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "718-50-power-construct",
+   "dex": 718,
+   "gen": 6,
+   "name": "Zygarde",
+   "form": "50% Power Construct",
+   "types": [
+    "Dragon",
+    "Ground"
+   ],
+   "img": "hm.10119",
+   "gender": "none",
+   "class": "legendary",
+   "category": "Order Pokémon",
+   "height": 5.0,
+   "weight": 305.0,
+   "desc": "When the Kalos region’s ecosystem falls into disarray, it appears and reveals its secret power.",
+   "family": "ZYGARDE",
+   "evo": [],
+   "order": 1038,
+   "shiny": true,
+   "gmax": false
+  },
+  {
    "id": "719",
    "go": true,
    "shiny": true,
@@ -5667,6 +5735,27 @@
   {
    "id": "744",
    "go": true,
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "744-own-tempo",
+   "dex": 744,
+   "gen": 7,
+   "name": "Rockruff",
+   "form": "Own Tempo",
+   "types": [
+    "Rock"
+   ],
+   "img": "hm.10151",
+   "gender": "both",
+   "category": "Puppy Pokémon",
+   "height": 0.5,
+   "weight": 9.2,
+   "desc": "When it rubs the rocks on its neck against you, that’s proof of its love for you. However, the rocks are sharp, so the gesture is quite painful!",
+   "family": "ROCKRUFF",
+   "evo": [],
+   "order": 1076,
    "shiny": true,
    "gmax": false
   },
@@ -8824,12 +8913,54 @@
   {
    "id": "1012",
    "go": true,
+   "form": "Counterfeit Form",
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "1012-artisan",
+   "dex": 1012,
+   "gen": 9,
+   "name": "Poltchageist",
+   "form": "Artisan Form",
+   "types": [
+    "Grass",
+    "Ghost"
+   ],
+   "img": "hm.1012",
+   "gender": "none",
+   "height": 0.1,
+   "weight": 1.1,
+   "family": "POLTCHAGEIST",
+   "evo": [],
+   "order": 1424,
    "shiny": true,
    "gmax": false
   },
   {
    "id": "1013",
    "go": true,
+   "form": "Unremarkable Form",
+   "shiny": true,
+   "gmax": false
+  },
+  {
+   "id": "1013-masterpiece",
+   "dex": 1013,
+   "gen": 9,
+   "name": "Sinistcha",
+   "form": "Masterpiece Form",
+   "types": [
+    "Grass",
+    "Ghost"
+   ],
+   "img": "hm.1013",
+   "gender": "none",
+   "height": 0.2,
+   "weight": 2.2,
+   "family": "POLTCHAGEIST",
+   "evo": [],
+   "order": 1426,
    "shiny": true,
    "gmax": false
   },

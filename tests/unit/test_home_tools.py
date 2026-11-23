@@ -42,7 +42,7 @@ class ImportHome(unittest.TestCase):
             self.assertEqual(len(new), len(old))
             self.assertEqual([a['id'] for a, b in zip(new, old) if a != b][:20], [])
             self.assertEqual(box.read('home', 'pictures.json'), real('home', 'pictures.json'))
-            self.assertIn('1,292 entries', r.stdout.replace('1292', '1,292'))
+            self.assertIn('1,298 entries', r.stdout.replace('1298', '1,298'))
         self.assertEqual(fingerprint(), before)
 
 

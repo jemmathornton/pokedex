@@ -35,15 +35,16 @@ SOURCES = {f'{n}.csv': CSV + f'{n}.csv' for n in ('pokemon', 'pokemon_forms', 'p
 
 # forms PokeAPI lists that HOME doesn't keep (Serebii's Standard Boxes, research/home-tracking.md): the cosplay and partner
 # Pikachu, Spiky-eared Pichu, Minior's Meteor Form (HOME keeps its seven cores), and Koraidon's and Miraidon's ride shapes.
-# (species, PokeAPI form name.) Also forms that look just like the plain one, kept as one entry by her rule for GO (16 Nov:
-# Rockruff, Scatterbug and Spewpa, “no real difference”): Battle Bond Greninja, Power Construct Zygarde, Artisan Poltchageist,
-# Masterpiece Sinistcha (Serebii lists them apart; research/home-tracking.md: same pictures). Besides these, where Serebii's list has one form for a species and PokeAPI more (Origin Giratina,
+# (species, PokeAPI form name.) Besides these, where Serebii's list has one form for a species and PokeAPI more (Origin Giratina,
 # Arceus's types, fused Kyurem, Ogerpon's masks: items decide them, or they can't be put in HOME), only the first is kept.
-LOOK_ALIKES = {(658, 'battle-bond'), (718, '10-power-construct'), (718, '50-power-construct'), (1012, 'artisan'), (1013, 'masterpiece')}
-NOT_IN_HOME = {(774, c + '-meteor') for c in ('red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet')} | {(25, f) for f in ('rock-star', 'belle', 'pop-star', 'phd', 'libre', 'cosplay', 'starter')} |     {(133, 'starter'), (172, 'spiky-eared')} | LOOK_ALIKES | {(1007, f) for f in ('limited-build', 'sprinting-build', 'swimming-build', 'gliding-build')} | {(1008, f) for f in ('low-power-mode', 'drive-mode', 'aquatic-mode', 'glide-mode')}
+# Forms that look just like the plain one are listed apart in HOME, as HOME's boxes list them (her answer, 23 Nov: “Separate”):
+# Battle Bond Greninja, Power Construct Zygarde, Own Tempo Rockruff, Artisan Poltchageist, Masterpiece Sinistcha. Their names:
+# Serebii writes both Zygarde "Zygarde Power Construct", so the size goes with it.
+FORM_TITLES = {'718-10-power-construct': '10% Power Construct', '718-50-power-construct': '50% Power Construct'}
+NOT_IN_HOME = {(774, c + '-meteor') for c in ('red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet')} | {(25, f) for f in ('rock-star', 'belle', 'pop-star', 'phd', 'libre', 'cosplay', 'starter')} |     {(133, 'starter'), (172, 'spiky-eared')} | {(1007, f) for f in ('limited-build', 'sprinting-build', 'swimming-build', 'gliding-build')} | {(1008, f) for f in ('low-power-mode', 'drive-mode', 'aquatic-mode', 'glide-mode')}
 # forms with no real difference: one entry, as in GO (import_go.py NO_FORMS; her picks, 16 Nov), plus Mothim, whose cloaks
 # don't show
-ONE_ENTRY = {664, 665, 744, 414}
+ONE_ENTRY = {664, 665, 414}   # in HOME, Own Tempo Rockruff apart (her answer, 23 Nov)
 # male and female fully different: two entries each, as in GO (import_go.py GENDER_FORMS; her pick, 18 Nov)
 GENDER_FORMS = (449, 450, 521, 592, 593, 668, 678, 876, 902, 916)
 # a PokeAPI form whose GO entry the names don't find: GO's Gimmighoul is its Roaming Form (the coin one)
@@ -57,7 +58,7 @@ FORM_NAMES = {(327, '327-1'): None, (999, '999'): 'Roaming Form'}
 OWN_TEXT = {'999-chest', '901-bloodmoon'}
 OWN_CATEGORY = {'999-chest'}
 SIZE_FIXES = {'901-bloodmoon': (2.7, 333.0)}
-FORM_GENDER = {'901-bloodmoon': 'male'}   # Serebii's same page: Bloodmoon Male 100% (PokeAPI's gender rate is the species')
+FORM_GENDER = {'901-bloodmoon': 'male', '658-battle-bond': 'male'}   # Battle Bond Greninja: only ever the male gift from the Sun and Moon demo   # Serebii's same page: Bloodmoon Male 100% (PokeAPI's gender rate is the species')
 # Gigantamax for every form, not only the first: any Alcremie flavour can have the Gigantamax Factor
 GMAX_ALL_FORMS = {869}
 SYN = {'alola': 'alolan', 'galar': 'galarian', 'hisui': 'hisuian', 'paldea': 'paldean'}
@@ -198,7 +199,7 @@ def main():
                 fid = f'{dex}-{slug(f["fi"])}' if f['fi'] else str(dex)
                 p = poke.get(f['pid']) or {}
                 height, weight = SIZE_FIXES.get(fid) or ((int(p['height']) / 10, int(p['weight']) / 10) if p.get('height') and p.get('weight') else (base.get('height'), base.get('weight')))
-                e = {'id': fid, 'dex': dex, 'gen': base.get('gen'), 'name': base['name'], 'form': fname or f['fi'].replace('-', ' ').title(),
+                e = {'id': fid, 'dex': dex, 'gen': base.get('gen'), 'name': base['name'], 'form': FORM_TITLES.get(fid) or fname or f['fi'].replace('-', ' ').title(),
                      'types': types_of(f['pid']) or base.get('types', []), 'img': pic, 'gender': base.get('gender'),
                      'class': base.get('class'), 'category': None if fid in OWN_CATEGORY else base.get('category'), 'height': height, 'weight': weight,
                      'desc': None if fid in OWN_TEXT else base.get('desc'), 'family': base.get('family'), 'evo': [], 'order': f['order']}

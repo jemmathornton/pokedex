@@ -1270,6 +1270,14 @@
     await go("#gen-8"); ok(!view().querySelector('.card[data-id="869"] .fbs'), "GO's one Alcremie: a plain card");
   });
 
+  test("Crowned Zacian and Zamazenta and Complete Zygarde tracked as Pokémon of their own in GO (her answer, 23 Nov)", async () => {
+    await go("#p-888"); ok(view().querySelector('[data-pickform="888-crowned-sword"]'), "Zacian's page: its Crowned Sword form");
+    await go("#gen-8"); const z = view().querySelector('.card[data-id="888"]');
+    ok(z && z.querySelector(".fbs") && /\/2/.test(z.textContent), "Zacian's card counts its two forms, like Necrozma");
+    await go("#p-718"); ok(view().querySelector('[data-pickform="718-complete"]'), "Zygarde's page: Complete");
+    await go("#hm-p-718"); ok(!view().querySelector('[data-pickform="718-complete"]') && view().querySelector('[data-pickform="718-10-power-construct"]'), "HOME: no Complete (it can't be kept there), Power Construct apart");
+  });
+
   test("one picture for a Pokémon in both games (her question, 22 Nov): GO's own, HOME's only where GO's files have none", async () => {
     const goAl = WORLDS.go.byId["869"];
     ok(goAl && !SPRITES.has(goAl.img) && sprite(goAl.img) && /sprites\/hm\./.test(sprite(goAl.img)), "Alcremie: no picture in GO's files, so HOME's, in GO too");

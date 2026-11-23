@@ -114,10 +114,12 @@ ASSET_RAW = 'https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/'
 
 # Forms that aren't Pokédex entries: Mega, Gigantamax and in-battle shapes (in GO you catch the other one).
 NOT_ENTRIES = re.compile(r'(^|_)(MEGA|MEGA_X|MEGA_Y|PRIMAL|GIGANTAMAX|ETERNAMAX)$|_(ZEN|GALARIAN_ZEN|SCHOOL|BUSTED|GULPING|GORGING|HANGRY|'
-                         r'BLADE|COMPLETE|COMPLETE_TEN_PERCENT|COMPLETE_FIFTY_PERCENT|NOICE|PIROUETTE|ULTRA|DUSK_MANE_ULTRA|'
-                         r'CROWNED_SWORD|CROWNED_SHIELD|ETERNAMAX|STELLAR|TERASTAL|HERO|MASTERPIECE|PHONY|UNREMARKABLE|COUNTERFEIT|ARTISAN|'
+                         r'BLADE|COMPLETE_TEN_PERCENT|COMPLETE_FIFTY_PERCENT|NOICE|PIROUETTE|ULTRA|DUSK_MANE_ULTRA|'
+                         r'ETERNAMAX|STELLAR|TERASTAL|HERO|MASTERPIECE|PHONY|UNREMARKABLE|COUNTERFEIT|ARTISAN|'
                          r'METEOR_\w+|BREAD_DOUGH_MODE\w*)$|^(?!UNOWN)\w+_S$')   # _S: the Apex Shadow versions (Lugia, Ho-Oh, the legendary beasts…)
-# Hero Palafin, Crowned Zacian/Zamazenta etc. are battle or item-change forms; Sinistea/Poltchageist editions look the same.
+# Hero Palafin etc. are battle or item-change forms; Sinistea/Poltchageist editions look the same. Crowned Zacian and Zamazenta and
+# Complete Zygarde are Pokémon of their own (her answer, 23 Nov: “Track as own”, like Dusk Mane Necrozma and Black Kyurem): kept
+# forms she makes in GO; Complete from 10% and from 50% look the same, so one Complete.
 # Region names as GO shows them.
 REGION = {'ALOLA': 'Alolan', 'GALARIAN': 'Galarian', 'HISUIAN': 'Hisuian', 'PALDEA': 'Paldean'}
 

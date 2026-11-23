@@ -139,9 +139,10 @@ class ImportGo(unittest.TestCase):
 
     def test_not_entries(self):
         ne = self.ig.NOT_ENTRIES
-        for code in ('CHARIZARD_MEGA_X', 'KYOGRE_PRIMAL', 'LUGIA_S', 'DARMANITAN_GALARIAN_ZEN', 'ZACIAN_CROWNED_SWORD'):
+        for code in ('CHARIZARD_MEGA_X', 'KYOGRE_PRIMAL', 'LUGIA_S', 'DARMANITAN_GALARIAN_ZEN', 'ZYGARDE_COMPLETE_TEN_PERCENT', 'ZYGARDE_COMPLETE_FIFTY_PERCENT'):
             self.assertTrue(ne.search(code), code)
-        for code in ('UNOWN_S', 'VULPIX_ALOLA', 'DARMANITAN_GALARIAN_STANDARD', 'MEOWSTIC_FEMALE'):
+        # Crowned Zacian and Zamazenta and Complete Zygarde are Pokémon of their own (her answer, 23 Nov: "Track as own")
+        for code in ('UNOWN_S', 'VULPIX_ALOLA', 'DARMANITAN_GALARIAN_STANDARD', 'MEOWSTIC_FEMALE', 'ZACIAN_CROWNED_SWORD', 'ZAMAZENTA_CROWNED_SHIELD', 'ZYGARDE_COMPLETE'):
             self.assertFalse(ne.search(code), code)
 
 

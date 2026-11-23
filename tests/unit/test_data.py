@@ -159,6 +159,17 @@ class Data(unittest.TestCase):
 
 
 
+class GoKeptForms(unittest.TestCase):
+    def test_crowned_and_complete_are_pokemon_of_their_own(self):
+        """Her answer, 23 Nov (“Track as own”): Crowned Zacian and Zamazenta and Complete Zygarde, like Dusk Mane Necrozma."""
+        go = {e['id']: e for e in real('go', 'dex.json')['entries']}
+        for i, img in (('888-crowned-sword', 'pm888.fCROWNED_SWORD'), ('889-crowned-shield', 'pm889.fCROWNED_SHIELD'), ('718-complete', 'pm718.fCOMPLETE')):
+            self.assertEqual(go[i]['img'], img)
+            self.assertTrue(os.path.exists(os.path.join(REAL, 'site', 'sprites', img + '.webp')), img)
+        self.assertIn('718-complete', [s['to'] for s in go['718-50'].get('evo') or []])
+        self.assertTrue(all(f'{n},' in APP or f' {n}' in APP for n in (888, 889)))
+
+
 class HomeData(unittest.TestCase):
     """Pokémon HOME's list (data/home/dex.json, tools/import_home.py; built 22 Nov): what the research says HOME has."""
     @classmethod
@@ -202,6 +213,15 @@ class HomeData(unittest.TestCase):
         self.assertEqual((c['height'], c['weight']), (0.3, 5.0))
         self.assertFalse(b.get('desc') or c.get('desc') or c.get('category'), 'no Pokédex text written for another form')
         self.assertEqual(h['999']['form'], 'Roaming Form')
+
+    def test_look_alike_forms_listed_apart_in_home(self):
+        """Her answer, 23 Nov (“Separate”): the forms that look just like the plain one are entries of their own in HOME, as
+        HOME's boxes list them; Battle Bond Greninja only ever male, and never shiny."""
+        h = {e['id']: e for e in self.full}
+        for i in ('658-battle-bond', '718-10-power-construct', '718-50-power-construct', '744-own-tempo', '1012-artisan', '1013-masterpiece'):
+            self.assertIn(i, h)
+        self.assertEqual((h['658-battle-bond']['gender'], h['658-battle-bond']['shiny']), ('male', False))
+        self.assertEqual(h['718-10-power-construct']['form'], '10% Power Construct')
 
     def test_shiny_and_gigantamax_as_serebii_lists_them(self):
         no = {e['id'] for e in self.home if not e['shiny']}

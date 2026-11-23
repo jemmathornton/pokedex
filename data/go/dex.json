@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-18",
+ "updated": "2026-11-23",
  "entries": [
   {
    "id": "1",
@@ -24102,7 +24102,36 @@
    "weight": 305.0,
    "buddyKm": 20.0,
    "family": "ZYGARDE",
+   "evo": [
+    {
+     "item": "Zygarde Cell",
+     "itemCount": 200,
+     "to": "718-complete"
+    }
+   ],
    "order": 1
+  },
+  {
+   "id": "718-complete",
+   "dex": 718,
+   "gen": 6,
+   "name": "Zygarde",
+   "form": "Complete",
+   "types": [
+    "Dragon",
+    "Ground"
+   ],
+   "img": "pm718.fCOMPLETE",
+   "gender": "none",
+   "released": true,
+   "class": "legendary",
+   "desc": "When the Kalos region’s ecosystem falls into disarray, it appears and reveals its secret power.",
+   "category": "Order Pokémon",
+   "height": 4.5,
+   "weight": 610.0,
+   "buddyKm": 20.0,
+   "family": "ZYGARDE",
+   "order": 2
   },
   {
    "id": "719",
@@ -28736,6 +28765,29 @@
    "order": -1
   },
   {
+   "id": "888-crowned-sword",
+   "dex": 888,
+   "gen": 8,
+   "name": "Zacian",
+   "form": "Crowned Sword",
+   "types": [
+    "Fairy",
+    "Steel"
+   ],
+   "img": "pm888.fCROWNED_SWORD",
+   "gender": "none",
+   "released": true,
+   "class": "legendary",
+   "shiny": "2025-05-29",
+   "desc": "Now armed with a weapon it used in ancient times, this Pokémon needs only a single strike to fell even Gigantamax Pokémon.",
+   "category": "Warrior Pokémon",
+   "height": 2.8,
+   "weight": 110.0,
+   "buddyKm": 20.0,
+   "family": "ZACIAN",
+   "order": 1
+  },
+  {
    "id": "889",
    "dex": 889,
    "gen": 8,
@@ -28757,6 +28809,29 @@
    "buddyKm": 20.0,
    "family": "ZAMAZENTA",
    "order": -1
+  },
+  {
+   "id": "889-crowned-shield",
+   "dex": 889,
+   "gen": 8,
+   "name": "Zamazenta",
+   "form": "Crowned Shield",
+   "types": [
+    "Fighting",
+    "Steel"
+   ],
+   "img": "pm889.fCROWNED_SHIELD",
+   "gender": "none",
+   "released": true,
+   "class": "legendary",
+   "shiny": "2025-05-29",
+   "desc": "Its ability to deflect any attack led to it being known as the Fighting Master’s Shield. It was feared and respected by all.",
+   "category": "Warrior Pokémon",
+   "height": 2.9,
+   "weight": 210.0,
+   "buddyKm": 20.0,
+   "family": "ZAMAZENTA",
+   "order": 1
   },
   {
    "id": "890",
