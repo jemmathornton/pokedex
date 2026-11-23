@@ -193,6 +193,8 @@ def main():
                      'class': base.get('class'), 'category': base.get('category'), 'height': base.get('height'), 'weight': base.get('weight'),
                      'desc': base.get('desc'), 'family': base.get('family'), 'evo': [], 'order': f['order']}
                 e = {k: v for k, v in e.items() if v not in (None, '')}
+                if dex == 25 and f['fi'].endswith('-cap'):   # every cap Pikachu is male (PokeAPI's gender rate is the species'; overnight review, 23 Nov)
+                    e['gender'] = 'male'
                 if not pic:
                     report.append(f'#{dex} {e["form"]}: no HOME picture')
             if (dex, (g or {}).get('id')) in FORM_NAMES:

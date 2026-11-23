@@ -181,6 +181,18 @@ class HomeData(unittest.TestCase):
                 self.assertFalse({'shadow', 'dynamax', 'mega', 'buddyKm', 'released'} & set(e), 'no GO-only facts in HOME’s own data')
                 self.assertTrue(e.get('go') or (e.get('img') or '').startswith('hm.'), 'HOME’s own forms have HOME’s picture')
 
+    def test_homes_own_forms_have_the_right_gender(self):
+        """Every cap Pikachu is male (overnight review, 23 Nov: they had Female boxes); Eternal Floette female; Magearna, Zarude
+        and Gimmighoul genderless."""
+        g = {e['id']: e.get('gender') for e in self.full}
+        caps = [i for i in g if i.startswith('25-') and i.endswith('-cap')]
+        self.assertEqual(len(caps), 8)
+        for i in caps:
+            self.assertEqual(g[i], 'male', i)
+        self.assertEqual(g['670-eternal'], 'female')
+        for i in ('801-original', '893-dada', '999-chest'):
+            self.assertEqual(g[i], 'none', i)
+
     def test_shiny_and_gigantamax_as_serebii_lists_them(self):
         no = {e['id'] for e in self.home if not e['shiny']}
         for i in ('494', '25-original-cap', '1025', '893', '893-dada', '670-eternal'):   # Victini, a cap Pikachu, Pecharunt, Zarude…

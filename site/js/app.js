@@ -674,8 +674,8 @@ function dexPage(title, label, list, region, search = false){
   const groups = groupByNumber(items);
   const seg = (attrName, cur, rows) => `<span class="opts">${rows.map(([v, l]) => `<button type="button" ${attrName}="${v}" aria-pressed="${v === cur}">${l}</button>`).join("")}</span>`;
   const picked = !!workBox();   // a tab this game has (a GO-only one picked in GO is no tab in HOME)
-  // one line: the tabs, Clear, and on the far right the "Hide ones I have" switch (was "Not caught"; no tab: not caught at all; a tab: missing that box), on when a tab is picked (untick it to
-  // see the ones she has too, lit up; her place, 9 Nov; hidden during a search); the not-out switch under it where there are some; how many are shown sits by the title (her layout, 9 Nov)
+  // one line: the tabs, Clear, and on the far right the "Hide ones I have" switch (was "Not caught"; no tab: not caught at all; a tab: missing that box), off until she clicks it
+  // (picking a tab leaves it as it is: her ask, 22 Nov; her place, 9 Nov; hidden during a search); the not-out switch under it where there are some; how many are shown sits by the title (her layout, 9 Nov)
   setRegion(region);
   const shot = region ? regionShot(region) : {style: "", sw: heroPics(ALL_MAPS()), cls: " withshot"};
   const hero = `<header class="hero${shot.cls || ""}"${shot.style}>${shot.sw}<span class="label">${esc(label)} · ${num(groups.length)} shown</span><h1>${title}</h1>${statsHtml(counts(list), true)}</header>`;
