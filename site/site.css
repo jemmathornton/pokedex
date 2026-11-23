@@ -134,7 +134,7 @@
   --accent:#F2C14E;
   --caught:#315686; --male:#078E5A; --female:#6A5DCF; --shiny:#6C7786; --lucky:#B48600; --hundo:#D14186; --shadow:#4D2D5F; --purified:#0082C5; --dynamax:#B6285A; --gmax:#80183B; --mega:#C2571A;   /* Mega: burnt orange (her pick, 10 Nov). Shiny and Lucky a little deeper (her picks, 22 Nov): Shiny #6C7786 (white 4.54:1, was #7C8795), Lucky #B48600 (white 3.31:1, halfway to #977000, which was too dark; was #D09B00) */
   --xxl:#0E8A84; --xxs:#1B5C9E;
-  --alpha:#C62828; --complete:#8A6410;   /* Legends: Arceus (23 Nov): Alpha red like the game's, Complete gold; TRIAL: the Try switch "Arceus's boxes" offers others */   /* XXL teal (12 Nov), XXS deep sea blue (her pick 3, 13 Nov: coral was too close to Dynamax) */
+  --alpha:#9E1B1B; --complete:#8A6410;   /* Legends: Arceus, her picks (23 Nov): Alpha deep red (white 8:1), Complete gold (white 5.4:1) */   /* XXL teal (12 Nov), XXS deep sea blue (her pick 3, 13 Nov: coral was too close to Dynamax) */
   /* box colours: her picks after several rounds (9 Nov), balanced to one palette; white text on every box (her rule) */
   --focus:var(--deep-2); --deep-text:var(--deep-2);   /* red text; a light rose in dark mode (the dark red was 1.8:1 there) */
   --display:"Instrument Serif","Iowan Old Style","Palatino Linotype",Georgia,serif;
@@ -398,20 +398,6 @@ a.formsbtn{text-decoration:none}
 .dex-entry{font:400 22px/1.45 var(--display);margin:0 0 16px;max-width:60ch;text-wrap:pretty}
 .dex-entry .label{display:block;margin-bottom:4px}
 .label.dexfrom{display:block;margin:0 0 6px}
-/* ===== TRIAL: Try switch "Arceus’s boxes" (23 Nov), START: remove with the TRIAL block in app.js once she has picked ===== */
-.trybox{position:fixed;right:12px;bottom:12px;z-index:60;display:grid;gap:6px;padding:8px 10px;border-radius:10px;background:var(--surface,#fff);color:var(--ink,#222);
-  border:1px solid var(--line,#ccc);box-shadow:0 4px 16px rgba(0,0,0,.2);font:600 12px var(--body,sans-serif);max-width:calc(100vw - 24px);box-sizing:border-box}
-.trybox > b{font-size:11px;letter-spacing:.08em;text-transform:uppercase}
-.tryrow{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
-.tryrow span{margin-right:4px;min-width:104px}
-.tryrow button{font:inherit;padding:3px 8px;border-radius:6px;border:1px solid var(--line,#ccc);background:transparent;color:inherit;cursor:pointer;display:inline-flex;align-items:center;gap:4px}
-.tryrow button .i{width:14px;height:14px}
-.tryrow button i.sw{display:inline-block;width:12px;height:12px;border-radius:3px}
-.tryrow button[aria-pressed="true"]{background:var(--ink,#222);color:var(--surface,#fff);border-color:transparent}
-@media print{.trybox{display:none}}
-.jj-menu-open .trybox{display:none}   /* never over the Menu drawer */
-@media (max-width:900px){ body{padding-bottom:var(--trypad,0px)} .tryrow button{padding:5px 8px} }
-/* ===== TRIAL: Try switch "Arceus’s boxes", END ===== */
 .genmap.multi{display:flex;background:none;overflow:hidden}   /* several pictures side by side on a card, like the banner's strip (Shield's Bonus Pokémon, Dynamax Adventures, HOME Transfers: her picks, 23 Nov) */
 .genmap.multi i{flex:1;background:var(--pic) center/cover no-repeat}
 /* Skip to the page (as her Library and Travels): off screen until the keyboard reaches it */

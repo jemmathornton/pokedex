@@ -31,7 +31,7 @@ if (["genders", "caught", "forms"].includes(prefs.work)) prefs.work = "all";
 prefs.workShow = "all";   // "Hide ones I have" is always off when the app opens, not remembered (her answer, 21 Nov)
 delete prefs.regionShot;   // left from the scenery trial (removed 22 Nov)
 try { localStorage.removeItem("jemmas-pokedex-try"); } catch {}   // left from the Try switch (removed 21 Nov)
-for (const k of ["jemmas-pokedex-try-art", "jemmas-pokedex-try-boxes", "jemmas-pokedex-try-formnames", "jemmas-pokedex-try-dlcpics", "jemmas-pokedex-try-secpics"]) { try { localStorage.removeItem(k); } catch {} }   // and the 23 Nov "Form names" one (her pick: as now) and "Shield’s DLC pictures" (her pick: the official paintings) and "Shield’s other pictures" (her picks: all three, every region)   // left from the 22 Nov Try switch (removed: her picks, Brighter and the deeper Shiny and Lucky, are in site.css)
+for (const k of ["jemmas-pokedex-try-art", "jemmas-pokedex-try-boxes", "jemmas-pokedex-try-formnames", "jemmas-pokedex-try-dlcpics", "jemmas-pokedex-try-secpics", "jemmas-pokedex-try-arceusboxes"]) { try { localStorage.removeItem(k); } catch {} }   // and the 23 Nov "Form names" one (her pick: as now) and "Shield’s DLC pictures" (her pick: the official paintings) and "Shield’s other pictures" (her picks: all three, every region) and "Arceus’s boxes" (her picks: α deep red, book gold)   // left from the 22 Nov Try switch (removed: her picks, Brighter and the deeper Shiny and Lucky, are in site.css)
 const keepPrefs = () => store.set(PREFS_KEY, prefs);
 
 // ---------- what there is ----------
@@ -429,41 +429,6 @@ const SHOT_FIT = {"isle-of-armor-1.jpg": "center 60%/cover", "crown-tundra-1.jpg
 // Shield's Isle of Armor and Crown Tundra: the official paintings (swordshield.pokemon.com, downloaded with her yes, 23 Nov; the
 // official site has no map of either; her pick over Galar's map, 23 Nov), in REGION_CHOSEN above so tools/make_home_maps.py makes
 // their smaller copies
-// ===== TRIAL: Try switch "Arceus’s boxes" (23 Nov), START: remove once she has picked =====
-// Legends: Arceus's two new boxes need an icon and a colour (CLAUDE.md: icons from the sets her apps use, shown before use; colours
-// shown as the boxes). Alpha's icon: the letter α (her pick, 23 Nov: “Letter alpha yes”; icons.js). For Complete she asked to see
-// the options (“complete show me options”): two more icons (Stamp, Award) and a colour (Teal). My suggestions (not decided) first.
-const TRY_ARC_KEY = "jemmas-pokedex-try-arceusboxes";
-const TRY_ARC = [
-  ["alphaColour", "Alpha colour", [["#C62828", "Red"], ["#9E1B1B", "Deep red"], ["#D32F2F", "Bright red"]], "#C62828", "colour", "--alpha"],
-  ["completeIcon", "Complete icon", [["book", "Book"], ["badge", "Badge"], ["clipboard", "Clipboard"], ["stamp", "Stamp"], ["award", "Award"]], "book", "icon", "complete"],
-  ["completeColour", "Complete colour", [["#8A6410", "Gold"], ["#3C6150", "Hisui green"], ["#7A5230", "Sepia"], ["#0F766E", "Teal"]], "#8A6410", "colour", "--complete"],
-];
-let tryArc = store.get(TRY_ARC_KEY, {});
-if (!tryArc || typeof tryArc !== "object" || Array.isArray(tryArc)) tryArc = {};
-const tryArcPick = id => { const row = TRY_ARC.find(r => r[0] === id); return row[2].some(([k]) => k === tryArc[id]) ? tryArc[id] : row[3]; };
-function tryArcApply(){
-  for (const [id, , , , kind, target] of TRY_ARC) {
-    const v = tryArcPick(id);
-    if (kind === "icon") ICONS[target] = ICONS[`${target}-${v}`];
-    else document.documentElement.style.setProperty(target, v);
-  }
-}
-tryArcApply();
-(function tryBox(){
-  const box = document.createElement("div"); box.className = "trybox"; box.setAttribute("role", "group"); box.setAttribute("aria-label", "Try");
-  const draw = () => {
-    box.innerHTML = `<b>Try: Arceus’s boxes</b>` + TRY_ARC.map(([id, name, opts, , kind, target]) => `<div class="tryrow" role="group" aria-label="${name}" data-row="${id}"><span>${name}</span>` +
-      opts.map(([k, l]) => `<button type="button" data-v="${k}" aria-pressed="${tryArcPick(id) === k}">${kind === "icon" ? ic(`${target}-${k}`) : `<i class="sw" style="background:${k}"></i>`}${l}</button>`).join("") + `</div>`).join("");
-  };
-  const pad = () => document.documentElement.style.setProperty("--trypad", box.offsetHeight + 24 + "px");   // room under the page on phones (site.css)
-  box.addEventListener("click", ev => { const b = ev.target.closest("[data-v]"); if (!b) return; const id = b.closest("[data-row]").dataset.row;
-    tryArc = {...tryArc, [id]: b.dataset.v}; store.set(TRY_ARC_KEY, tryArc); tryArcApply(); draw(); rerender();
-    box.querySelector(`[data-row="${id}"] [data-v="${b.dataset.v}"]`)?.focus(); pad(); });
-  draw(); document.body.append(box);
-  pad(); addEventListener("resize", pad);
-})();
-// ===== TRIAL: Try switch "Arceus’s boxes", END =====
 // a narrower picture shown less zoomed in: the banner's picture area takes this shape (width / height), so more of it shows and
 // it still blends softly into the colour on the left (12 Nov: Johto looked too zoomed in)
 const SHOT_RATIO = {};

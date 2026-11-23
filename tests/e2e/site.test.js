@@ -433,7 +433,7 @@
 
   test("her picks from the Try switch (22 Nov): Card art in dark mode Brighter; Shiny #6C7786 and Lucky #B48600; the switch gone", async () => {
     const root = document.documentElement;
-    ok([...document.querySelectorAll(".trybox [data-row]")].every(r => ["alphaIcon", "alphaColour", "completeIcon", "completeColour"].includes(r.dataset.row)) && !("tryArt" in root.dataset) && !("tryBoxes" in root.dataset), "no old Try switch left (only Arceus’s boxes, 23 Nov)");
+    ok(!document.querySelector(".trybox") && !("tryArt" in root.dataset) && !("tryBoxes" in root.dataset), "no Try switch left");
     const hex = n => getComputedStyle(root).getPropertyValue(`--${n}`).trim().toUpperCase();
     eq(hex("shiny"), "#6C7786", "Shiny a little deeper"); eq(hex("lucky"), "#B48600", "Lucky a little deeper (a middle gold)");
     eq(hex("male"), "#078E5A", "the other boxes as they were"); eq(hex("hundo"), "#D14186"); eq(hex("mega"), "#C2571A");
@@ -450,7 +450,8 @@
   });
 
   test("the art window is tinted by the Pokémon's first type (her pick, 21 Nov); the 21 Nov Try switch is gone", async () => {
-    ok([...document.querySelectorAll(".trybox [data-row]")].every(r => ["alphaIcon", "alphaColour", "completeIcon", "completeColour"].includes(r.dataset.row)), "no games, Form names or Shield’s pictures Try switch (removed: her picks); only Arceus’s boxes (23 Nov)");
+    ok(!document.querySelector(".trybox"), "no Try switch (games, Form names, Shield’s pictures and Arceus’s boxes all removed: her picks)");
+    eq(localStorage.getItem("jemmas-pokedex-try-arceusboxes"), null, "the Arceus’s boxes choice cleared");
     eq(localStorage.getItem("jemmas-pokedex-try-secpics"), null, "the Shield’s other pictures choice cleared");
     eq(localStorage.getItem("jemmas-pokedex-try-formnames"), null, "the Form names choice cleared");
     eq(localStorage.getItem("jemmas-pokedex-try-dlcpics"), null, "the Shield’s DLC pictures choice cleared");
@@ -1411,15 +1412,12 @@
     } finally { for (const t of ["al", "c"]) await save({game: "arceus", list: "have", key: "d:722", tick: t, on: false}); COLS.arceus.have = {}; }
   });
 
-  test("TRIAL Try switch Arceus’s boxes (23 Nov): Alpha’s and Complete’s icon and colour", async () => {
-    const pick = async (row, v) => { click(document.querySelector(`.trybox [data-row="${row}"] [data-v="${v}"]`)); await wait(150); };
-    const was = {...tryArc};
-    try {
-      await go("#la-p-722");
-      await pick("alphaColour", "#9E1B1B"); eq(getComputedStyle(document.documentElement).getPropertyValue("--alpha").trim().toUpperCase(), "#9E1B1B", "Alpha deep red");
-      await pick("completeIcon", "badge"); ok(/^M3\.85 8\.62/.test(view().querySelector('.bigboxes [data-tick="rc"] svg path').getAttribute("d")), "Complete’s badge icon (Lucide badge-check)");
-      eq(JSON.parse(localStorage.getItem(TRY_ARC_KEY)).completeIcon, "badge", "kept");
-    } finally { tryArc = was; store.set(TRY_ARC_KEY, was); tryArcApply(); rerender(); }
+  test("Arceus’s boxes (her picks, 23 Nov): Alpha the letter α in deep red, Complete a book in gold", async () => {
+    const hex = n => getComputedStyle(document.documentElement).getPropertyValue(`--${n}`).trim().toUpperCase();
+    eq(hex("alpha"), "#9E1B1B", "Alpha deep red"); eq(hex("complete"), "#8A6410", "Complete gold");
+    await go("#la-p-722");
+    ok(/^M18\.1 6c/.test(view().querySelector('.bigboxes [data-tick="al"] svg path').getAttribute("d")), "Alpha: Tabler alpha (the letter α)");
+    ok(/^M4 19\.5v-15/.test(view().querySelector('.bigboxes [data-tick="rc"] svg path').getAttribute("d")), "Complete: Lucide book-check");
   });
 
   test("one picture for a Pokémon in both games (her question, 22 Nov): GO's own, HOME's only where GO's files have none", async () => {
