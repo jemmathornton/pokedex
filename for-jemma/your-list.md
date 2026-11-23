@@ -3,14 +3,14 @@
 Everything waiting on you. **Do** = just do it; **Decide** = your call. Tell Claude when one’s done or decided and it comes off.
 
 ## Decide
-- **Four more games (proposal, 23 Nov):** Legends: Arceus, Legends: Z-A, Violet and Shield, each like HOME but with its own Pokédexes (Galar, Isle of Armor, Crown Tundra…) instead of the regions. Everything to choose, every option listed: `for-jemma/new-games.md`.
-- **HOME’s colour, teal #2E6A72** (my suggestion, not decided): keep it · choose another from options built into the app.
+- **Four more games (proposal, 23 Nov):** Legends: Arceus, Legends: Z-A, Violet and Shield. Your answers so far (23 Nov): not yet; when they do go in, Caught means you have it in that game now (like HOME), and Pokémon only in the other version are shown with a mark. Still to choose when you’re ready: `for-jemma/new-games.md`.
 
 ## Do
 - **Try getting your collection in:** easiest is **Fast tick → Kanto → Lucky** next to your phone’s Pokédex on the Lucky tab. Or one short screen recording of the Pokédex’s Lucky tab (Kanto only) and, if you have one, a Calcy IV export, into the Pokédex folder’s `imports` folder. Then Claude checks the reader works on your phone’s screens.
 - **Check the 49 Kalos–Paldea Pokémon** ticked Caught with no Shiny (possible leftovers from Tick all): Fast tick → Caught next to the game’s Pokédex.
 
 ## Done
+- **HOME the same red as GO (your pick, 23 Nov):** HOME’s pages and the HOME button on the switch are the binder red, like GO; only the switch says which game. (Teal had been my suggestion.)
 - **Your answers (23 Nov):** Alcremie’s Gigantamax on every flavour (as it was); the box colours as they are; HOME’s look-alike forms listed apart (Battle Bond Greninja, Power Construct Zygarde, Own Tempo Rockruff, Artisan Poltchageist, Masterpiece Sinistcha); Looking for, Event Pokémon as one page, and banners on every page kept; Crowned Zacian and Zamazenta and Complete Zygarde now Pokémon of their own in GO (each its own boxes on its page, like Dusk Mane Necrozma); Sinistea and Polteageist like other forms (one card, each form ticked on its page, as they were). The footer already says “HTML, CSS, JavaScript and Python” (22 Nov).
 - **Form names left as they are (your pick, 23 Nov: “Leave Alcremie as is”):** Alcremie’s and the cap Pikachu’s names stay cut short in the row of form pictures, the full name on hover. The Try box is gone. Picture of the three options: `for-jemma/form-names-options.png`.
 - **Dynamax Espurr on Dark Skies (your ask, 23 Nov):** its Max Monday today was during Dynamax Trails, so Espurr and Meowstic (both) are on the Dark Skies background with the rest of the Dynamax Trails Pokémon (Sneasel, Mawile, Feebas…).

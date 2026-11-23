@@ -382,7 +382,7 @@ function card(e, more = "", inForms = false, forms = null){
 const REGION_COLOURS = {"1": "#A3302A", "2": "#8E6A0E", "3": "#16618A", "4": "#5B4B94", "5": "#36353D", "6": "#2B55A3",
   "7": "#B5531C", "8": "#6E2D82", "hisui": "#3C6150", "9": "#952F57"};
 document.documentElement.dataset.look = "mix";
-const setRegion = g => document.documentElement.style.setProperty("--rc", REGION_COLOURS[g] || (GAME === "home" ? HOME_COLOUR : "#7E2530"));   // a page with no region: the game's own colour
+const setRegion = g => document.documentElement.style.setProperty("--rc", REGION_COLOURS[g] || GAME_COLOUR);   // a page with no region: the game's own colour
 const REGION_CHOSEN = {"1": "kanto-map-2.jpg", "2": "johto-map-1.jpg", "3": "hoenn-map-2.jpg", "4": "sinnoh-map-3.jpg", "5": "unova-map-2.jpg", "6": "kalos-map-2.jpg", "7": "alola-map-1.jpg", "8": "galar-map-1.jpg", "hisui": "hisui-map-1.jpg", "9": "paldea-map-1.jpg"};   // her picks: the official painted region maps (12 Nov; she switched from scenery)
 // which part of a picture the banner shows, where the middle isn't the best part (12 Nov: Kanto's Route 1 was nearly all sky):
 // a closer crop towards the ground; the picture itself is unchanged
@@ -1437,7 +1437,8 @@ function navHtml(route){
 // (her pick, 22 Nov evening) opens #games: each game’s totals side by side, never a list of Pokémon (her note: “every mon is
 // game specific”). Each game’s Home is the totals at the top and a region hub below (her pick, 22 Nov evening: “a combination of
 // region hub with stats”): a card per region with its map, name, National Pokédex numbers and her counts.
-const HOME_COLOUR = "#2E6A72";   // my suggestion (not decided): a quiet teal for HOME beside GO’s binder red
+// both games the binder red, HOME as GO (her pick, 23 Nov: “Same red as GO”; teal #2E6A72 had been my suggestion): only the switch says which game
+const GAME_COLOUR = "#7E2530", HOME_COLOUR = GAME_COLOUR;
 const GAMES = [
   {id: "home", name: "Pokémon HOME", short: "HOME", colour: HOME_COLOUR, href: "#home"},
   {id: "go", name: "Pokémon GO", short: "GO", colour: "#7E2530", href: "#go"},
@@ -1451,7 +1452,7 @@ document.querySelector(".brand").after(gameSwitch);
 // the Try switches are gone (her picks, 22 Nov evening): their kept choices cleared once
 try { for (const k of ["jemmas-pokedex-try-homepage", "jemmas-pokedex-try-allgames", "jemmas-pokedex-try-gameswitch", "jemmas-pokedex-try-lastgame"]) localStorage.removeItem(k); } catch {}
 function gameNavHtml(route, link, regions, more){
-  if (wasHm && !isHmRoute(route)) setRegion(null);   // back from HOME’s teal
+  if (wasHm && !isHmRoute(route)) setRegion(null);   // back from HOME
   wasHm = isHmRoute(route);
   const game = gameOf(route), all = route === "games";
   brandSmall.textContent = GAMES.find(g => g.id === game).name; brandSmall.hidden = true;   // the switch shows the game

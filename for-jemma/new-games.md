@@ -1,5 +1,7 @@
 # Four more games in your Pokédex (23 Nov)
 
+**Your answers so far (23 Nov):** not yet. When they do go in: “Caught” means you have it in that game now (like HOME), and Pokémon only in the other version are shown with a small “Scarlet only” or “Sword only” mark. The rest below is still to choose.
+
 Ideas only: nothing in the Pokédex has changed for these. The research for each game is in `research/games/` (one page each, every fact with its source), and how it would be built is in `research/new-games.md`.
 
 ## The idea in short

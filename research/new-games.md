@@ -1,6 +1,6 @@
 # Legends: Arceus, Legends: Z-A, Violet and Shield in the Pokédex: research and how it would be built (23 Nov 2026)
 
-Her ask (22 Nov, overnight): “research into adding more games: Legends Arceus, Legends ZA, Violet & Shield. They only have newer regions and do different dexes slightly so may need a bit different to home or go … do full research and come up with proposals for them.” Her plain version, with every choice listed: `for-jemma/new-games.md`. The research, one page per game with every fact’s source and date: `research/games/legends-arceus.md`, `legends-za.md`, `violet.md`, `shield.md`; the lists as data: `research/data/games/*.json`. Nothing in the app was changed for this.
+Her ask (22 Nov, overnight): “research into adding more games: Legends Arceus, Legends ZA, Violet & Shield. They only have newer regions and do different dexes slightly so may need a bit different to home or go … do full research and come up with proposals for them.” Her plain version, with every choice listed: `for-jemma/new-games.md`. The research, one page per game with every fact’s source and date: `research/games/legends-arceus.md`, `legends-za.md`, `violet.md`, `shield.md`; the lists as data: `research/data/games/*.json`. Nothing in the app was changed for this. **Her answers (23 Nov):** not yet; when built, Caught = have it in that game now (a living dex, like HOME, not the game’s Pokédex registration), and version exclusives shown with a mark (and tickable).
 
 ## 1. What each game has (from the research)
 
