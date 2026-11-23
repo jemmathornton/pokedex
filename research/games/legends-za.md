@@ -92,7 +92,7 @@ Research for adding Legends: Z-A (Switch and Switch 2, out 16 Oct 2025) next to 
 - **Gifts:** the first deposit from Z-A unlocks Alpha Chikorita, Tepig and Totodile as Mystery Gifts in HOME’s mobile app ([HOME: move][o-move]). Shiny Volcanion: see 3.
 - **Pokémon Champions:** Z-A Pokémon can go there; sending Z-A Chesnaught, Delphox, Greninja or Eternal Flower Floette gives their Mega Stones in Champions ([HOME: move][o-move]).
 
-## 7. Pictures (nothing downloaded)
+## 7. Pictures (downloaded 23 Nov with her yes: see the Pokédex’s CLAUDE.md, “Pokémon Violet and Pokémon Legends: Z-A”, for files, sources and sizes)
 
 - **Official Lumiose City map:** on the official site’s Lumiose City page, under “Discover the Map”, with a “See a full view” link. The file is `/images/pages/story-map/lumiose-map-2x.jpg` on legends.pokemon.com ([official Lumiose City page][o-lum], 23 Nov). The page doesn’t say what it shows: **unsure** whether it is the whole city with the Wild Zones.
 - **The announcement art:** “Pokemon Legends Z-A Artwork 015 Lumiose City Map”, in RPGFan’s gallery (uploaded February 2024; the thumbnail is 1019 × 720, so about 1.4:1) ([RPGFan][rpgfan]). GamePro says official map art was shown in a Pokémon Presents ([GamePro][gamepro], snippet). It would need cropping for home’s 2:1 plates (inferred).

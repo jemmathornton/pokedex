@@ -35,6 +35,7 @@ DATA = os.path.join(ROOT, 'data')
 UA = {'User-Agent': "Jemma's Pokedex (private)"}
 CSV = 'https://raw.githubusercontent.com/PokeAPI/pokeapi/master/data/v2/csv/'
 
+HISUI = [100, 101, 157, 215, 503, 549, 570, 571, 628, 705, 706, 713, 724]   # Hisuian forms Violet can only have from HOME (research transferOnlyForms)
 GAMES = {
     'shield': {
         'pokedexes': [('galar', 27), ('isle-of-armor', 28), ('crown-tundra', 29)],
@@ -72,6 +73,63 @@ GAMES = {
         'alsoIn': {'elsewhere': [491, 492]},   # Darkrai and Shaymin in Bonus Pokémon too (her answer, 23 Nov)
         'alpha': True, 'alphaNot': ['37-alolan', '38-alolan'],   # the gift Alolan Vulpix and its evolution can't be Alpha
         'complete': True,
+    },
+    'violet': {
+        # her answers (23 Nov, before leaving it overnight): boxes Caught, Female, Male, Shiny; as Shield and Arceus: everything that
+        # can be had in Violet, only its own forms, its three Pokédexes in the game's order, then Bonus Pokémon and HOME Transfers,
+        # Scarlet's Pokémon marked. research/data/games/violet.json (Serebii and PokeAPI, 22–23 Nov)
+        'research': 'violet',
+        'pokedexes': [('paldea', 31), ('kitakami', 32), ('blueberry', 33)],
+        'sections': [
+            {'id': 'paldea', 'name': 'Paldea', 'small': 'Scarlet and Violet', 'map': '9', 'colour': '#952F57'},
+            {'id': 'kitakami', 'name': 'Kitakami', 'small': 'The Teal Mask', 'map': 'kitakami', 'colour': '#952F57'},
+            {'id': 'blueberry', 'name': 'Blueberry', 'small': 'The Indigo Disk', 'map': 'blueberry', 'colour': '#952F57'},
+            {'id': 'elsewhere', 'name': 'Bonus Pokémon', 'small': 'Not in a Pokédex', 'map': ['9', 'kitakami', 'blueberry'], 'colour': '#952F57'},
+            {'id': 'from-home', 'name': 'HOME Transfers', 'small': 'Pokémon HOME', 'map': 'all', 'colour': '#952F57'},
+        ],
+        'other': 'scarlet',
+        'gmax': False,
+        # which form a Pokédex's number means (Serebii's Pokédex pictures, read 23 Nov: 194-p, 128-p, 550-w, 901-b, 103-a…)
+        'dexForms': {('paldea', 194): 'Paldean', ('paldea', 128): 'Paldean', ('paldea', 550): ['Red-Striped', 'Blue-Striped'],
+                     ('kitakami', 550): 'White-Striped', ('kitakami', 901): 'Bloodmoon',
+                     **{('blueberry', n): 'Alolan' for n in (103, 50, 51, 88, 89, 74, 75, 76, 27, 28, 37, 38)},
+                     **{('blueberry', n): 'Galarian' for n in (79, 80, 199)}, ('blueberry', 211): 'Hisuian'},
+        # only the forms Violet has (Serebii; research/games/violet.md section 1); '*' = every form HOME keeps
+        'forms': {128: ['Normal', 'Paldean Combat', 'Paldean Blaze', 'Paldean Aqua'], 194: ['Normal', 'Paldean'],
+                  **{n: ['Normal', 'Alolan'] for n in (26, 27, 28, 37, 38, 50, 51, 74, 75, 76, 88, 89, 103)},
+                  **{n: ['Normal', 'Galarian'] for n in (79, 80, 199, 110, 144, 145, 146)},
+                  **{n: ['Normal', 'Hisuian'] for n in [211] + HISUI},
+                  550: ['Red-Striped', 'Blue-Striped', 'White-Striped'], 901: ['Normal', 'Bloodmoon'],
+                  **{n: '*' for n in (25, 479, 585, 586, 666, 741, 774, 801, 892, 893, 925, 931, 978, 982, 999)}},
+        'unlisted': None,   # a form in no list and not a transfer: left out (not known to be in Violet)
+        # forms only by transfer from HOME (research transferOnlyForms): to HOME Transfers whatever list their species is in
+        'toHome': [(25, 'Cap'), (26, 'Alolan'), (110, 'Galarian'), (144, 'Galarian'), (145, 'Galarian'), (146, 'Galarian'),
+                   *[(n, 'Hisuian') for n in HISUI], (801, 'Original Color'), (893, 'Dada'), (901, 'Normal'), (999, 'Roaming'), (666, 'Poké Ball')],
+        'groups': {'elsewhere': 'notInAnyDex', 'from-home': 'transferOnly'},   # research lists: in Violet but in no Pokédex; only from HOME
+    },
+    'za': {
+        # her answers (23 Nov): boxes Caught, Female, Male, Shiny, Alpha and Mega; the rest as Shield and Arceus.
+        # research/data/games/legends-za.json (Serebii and PokeAPI, 22–23 Nov)
+        'research': 'legends-za',
+        'pokedexes': [('lumiose', 34), ('hyperspace', 35)],
+        'sections': [
+            {'id': 'lumiose', 'name': 'Lumiose', 'small': 'Legends: Z-A', 'map': 'lumiose', 'colour': '#2B55A3'},
+            {'id': 'hyperspace', 'name': 'Hyperspace', 'small': 'Mega Dimension', 'map': 'hyperspace', 'colour': '#2B55A3'},
+            {'id': 'mega', 'name': 'Mega Evolution', 'small': 'Legends: Z-A', 'map': 'mega', 'colour': '#2B55A3'},
+            {'id': 'elsewhere', 'name': 'Bonus Pokémon', 'small': 'Not in a Pokédex', 'map': ['lumiose', 'hyperspace'], 'colour': '#2B55A3'},
+            {'id': 'from-home', 'name': 'HOME Transfers', 'small': 'Pokémon HOME', 'map': 'all', 'colour': '#2B55A3'},
+        ],
+        'other': None,
+        'gmax': False,
+        # only the forms Z-A has (Serebii's forms page, read 23 Nov: Floette's Eternal Flower, Zygarde 10% and 50%, Furfrou's trims;
+        # Flabébé's colours by where it's caught; Tatsugiri's three; Vivillon's Meadow, Marine and Garden in the game, the rest by HOME)
+        'forms': {**{n: '*' for n in (666, 669, 670, 671, 676, 710, 711, 801, 978, 999)}, 718: ['50%', '10%']},
+        'unlisted': None,
+        'toHome': [(801, 'Original Color'), (999, 'Roaming'),
+                   *[(666, p) for p in ('Icy Snow', 'Polar', 'Tundra', 'Continental', 'Elegant', 'Modern', 'Archipelago', 'High Plains',
+                                         'Sandstorm', 'River', 'Monsoon', 'Savanna', 'Sun', 'Ocean', 'Jungle', 'Fancy', 'Poké Ball')]],
+        'alpha': True,
+        'megas': True,   # the Mega box (her answer): research `megas`, PokeAPI's Mega forms for the pictures; in the Mega Evolution list too
     },
 }
 SYN = {'alola': 'alolan', 'galar': 'galarian', 'hisui': 'hisuian', 'paldea': 'paldean'}
@@ -132,6 +190,42 @@ def same(a, b, sp='', exact=False):
     return not exact and (ta <= tb or tb <= ta)   # whole words only: Male isn't Female
 
 
+def megas_by_entry(research, cfg, hfolder, go):
+    """Z-A's Megas for each entry: [{t, label, img}] as GO's (t mg, or mx / my / mz for X, Y and Z), GO's picture where GO has that
+    Mega and its picture is in site/sprites, else HOME's (PokeAPI's Mega form, e.g. clefable-mega, and its HOME picture hm.<id>)."""
+    poke = rows(hfolder, 'pokemon.csv')
+    pics = set(load(hfolder, 'home-pictures.json'))
+    out, seen = {}, set()
+    for m in research.get('megas', []):
+        n, name = m['national'], m['name']
+        t = 'mx' if name.endswith(' X') else 'my' if name.endswith(' Y') else 'mz' if name.endswith(' Z') else 'mg'
+        cands = [r for r in poke if int(r['species_id']) == n and '-mega' in r['identifier']]
+        suffix = {'mx': '-mega-x', 'my': '-mega-y', 'mz': '-mega-z', 'mg': '-mega'}[t]
+        cands = [r for r in cands if r['identifier'].endswith(suffix)]
+        for r in cands:
+            if (r['id'], t) in seen:
+                continue
+            ident = r['identifier']
+            # which of the species' entries it belongs to: a form named in it (tatsugiri-curly-mega, magearna-original-mega,
+            # meowstic-female-mega), Floette's Eternal Flower, Zygarde's 50%, else the species' first form
+            target = {'floette-mega': '670-eternal', 'zygarde-mega': '718-50', 'meowstic-male-mega': '678', 'meowstic-female-mega': '678-female',
+                      'magearna-mega': '801', 'magearna-original-mega': '801-original'}.get(ident)
+            if not target and ident.startswith('tatsugiri-'):
+                target = '978-' + ident.split('-')[1]
+            if not target:
+                target = str(n)
+            seen.add((r['id'], t))
+            g = go.get(target) or go.get(str(n)) or {}
+            gm = next((x for x in g.get('mega') or [] if x['t'] == t), None)
+            got = gm and os.path.exists(os.path.join(ROOT, 'site', 'sprites', 'big', gm['img'] + '.webp'))   # GO's picture only if it's here (Mega Clefable's isn't yet)
+            img = gm['img'] if got else (f'hm.{r["id"]}' if f'{r["id"]}.png' in pics else None)
+            label = {'mx': 'Mega X', 'my': 'Mega Y', 'mz': 'Mega Z', 'mg': 'Mega'}[t]
+            out.setdefault(target, []).append({k: v for k, v in {'t': t, 'label': label, 'img': img}.items() if v})
+            if not any(w in ident for w in ('-male-', '-female-')):   # one Mega per name, except Meowstic's two (male and female)
+                break
+    return out
+
+
 def main():
     game = next((a for a in sys.argv[1:] if not a.startswith('--')), None)
     if game not in GAMES:
@@ -190,17 +284,26 @@ def main():
                 nums.setdefault(sec, {})[int(r['species_id'])] = int(r['pokedex_number'])
     dex_form = {}
     for d in research['dexes']:
-        for x in d['entries']:
-            if x.get('form'):
+        for x in d.get('entries') or []:
+            if x.get('form') and 'no' in x:
                 dex_form[(d['id'], x['national'])] = x['form']
+    dex_form.update(cfg.get('dexForms', {}))
+    is_form = lambda want, f, sp: any(same(w, f, sp) for w in (want if isinstance(want, list) else [want]))
     outside = extras.get('outsideDexes', {})
     not_gmax = lambda xs: [x for x in xs if (x.get('form') or '') != 'Gigantamax']   # a Gigantamax is a box, not a Pokémon to list
     groups = {'max-lair': not_gmax(outside.get('dynamaxAdventures', []) + outside.get('dynamaxAdventuresAlsoGives', [])),
               'elsewhere': not_gmax(outside.get('otherInGame', [])), 'from-home': not_gmax(outside.get('homeOnly', []))}
+    for s, key in cfg.get('groups', {}).items():   # a game whose research has the lists by name (Violet: notInAnyDex, transferOnly)
+        groups[s] = [{'national': x['national']} for x in research.get(key, [])]
+    groups = {s: xs for s, xs in groups.items() if any(z['id'] == s for z in cfg['sections'])}
+    to_home = cfg.get('toHome', [])
+    goes_home = lambda n, f, sp: any(m == n and (same(w, f, sp, True) or (w == 'Cap' and 'Cap' in (f or ''))) for m, w in to_home)
     species = set(n for d in nums.values() for n in d) | {x['national'] for xs in groups.values() for x in xs}
     shield_forms = cfg.get('forms') or {int(k): v for k, v in (extras.get('forms') or {}).items()}
     other = {(x['national'], x.get('form')) if isinstance(x, dict) else (x, None) for x in research.get(f'{cfg["other"]}Only', [])} if cfg.get('other') else set()
-    alphas = set(research.get('alphas') or []) if cfg.get('alpha') else set()
+    alphas = {x['national'] if isinstance(x, dict) else x for x in research.get('alphas') or []} if cfg.get('alpha') else set()
+    alphas -= {x['national'] for x in research.get('notAlpha') or []}
+    megas = megas_by_entry(research, cfg, hfolder, go) if cfg.get('megas') else {}
 
     out = []
     for n in sorted(species):
@@ -254,15 +357,22 @@ def main():
             for s, d in nums.items():
                 if n in d:
                     want = dex_form.get((s, n))
-                    if (want and same(want, e.get('form'), sp)) or (not want and not regional) or n in cfg.get('dexAllForms', ()):
+                    if (want and is_form(want, e.get('form'), sp)) or (not want and not regional) or n in cfg.get('dexAllForms', ()):
                         sec[s] = d[n]
             for s, xs in groups.items():
                 # a whole species in a group (Genesect from HOME, Giratina from the Max Lair) brings its forms (drives, Origin); a form
                 # named (Kantonian Articuno) only that one
                 if any(x['national'] == n and (same(x.get('form'), e.get('form'), sp) or (not x.get('form') and not regional)) for x in xs) and not sec:
                     sec[s] = None
+            if goes_home(n, e.get('form'), sp):   # a form only by transfer (Violet's Hisuian Voltorb, Z-A's Original Color Magearna)
+                sec = {'from-home': None}
+            if not sec and cfg.get('unlisted', 'elsewhere') is None:
+                report.append(f'#{n} {e.get("form") or ""}: in no list of {game} (left out)'); continue
             if not sec:
                 sec['elsewhere'] = None   # a form Shield has outside its Pokédexes (Kantonian Meowth beside the Galarian one)
+            if megas.get(e['id']):   # Z-A: its Megas (the Mega box) and the Mega Evolution list
+                entry['mega'] = megas[e['id']]
+                sec['mega'] = None
             for s, ns in cfg.get('alsoIn', {}).items():   # in a list beside its Pokédex number (Arceus: Darkrai and Shaymin)
                 if n in ns:
                     sec[s] = None

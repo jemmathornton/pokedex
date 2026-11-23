@@ -37,11 +37,14 @@ def source(key):
 def wanted():
     keys = set()
     dex = json.load(open(os.path.join(ROOT, 'data', 'home', 'dex.json'), encoding='utf-8'))['entries']
-    for game in ('shield', 'arceus'):   # the games after HOME: their own forms (Calyrex's riders, Silvally's memories in Shield)
+    for game in ('shield', 'arceus', 'violet', 'za'):   # the games after HOME: their own forms (Calyrex's riders, Silvally's memories in Shield)
         path = os.path.join(ROOT, 'data', game, 'dex.json')
         if os.path.exists(path):
             dex = dex + json.load(open(path, encoding='utf-8'))['entries']
     for e in dex:
+        for m in e.get('mega') or []:   # Legends: Z-A's Megas without a GO picture (Mega Clefable…): HOME's, not shiny
+            if m.get('img', '').startswith('hm.'):
+                keys.add(m['img'])
         for k in (e.get('img'), e.get('femaleImg')):
             if k and k.startswith('hm.'):
                 keys |= {k, k + '.s'} if e.get('shiny') else {k}   # no shiny picture of one that can't be shiny (the cap Pikachu)

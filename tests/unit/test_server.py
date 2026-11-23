@@ -134,13 +134,23 @@ class Server(unittest.TestCase):
         for t in ('gx', 'l', 'dx', 'sd'):
             self.assertFalse(self.post({'game': 'arceus', 'list': 'have', 'key': 'd:722', 'tick': t, 'on': True})[1]['ok'], t)
 
+    def test_violet_and_za_ticks_go_to_their_files(self):   # Pokémon Violet and Legends: Z-A (23 Nov)
+        self.assertEqual(self.post({'game': 'violet', 'list': 'have', 'key': 'd:1008', 'tick': 's', 'on': True}), (200, {'ok': True}))
+        self.assertEqual(self.post({'game': 'za', 'list': 'have', 'key': 'd:359', 'tick': 'mz', 'on': True}), (200, {'ok': True}))
+        self.assertEqual(self.box.read('collection', 'violet.json')['have'], {'d:1008': ['s']})
+        self.assertEqual(self.box.read('collection', 'za.json')['have'], {'d:359': ['mz']})
+        for t in ('al', 'gx', 'mg'):
+            self.assertFalse(self.post({'game': 'violet', 'list': 'have', 'key': 'd:1008', 'tick': t, 'on': True})[1]['ok'], t)
+        for t in ('gx', 'rc', 'l'):
+            self.assertFalse(self.post({'game': 'za', 'list': 'have', 'key': 'd:359', 'tick': t, 'on': True})[1]['ok'], t)
+
     def test_an_unknown_game_is_refused(self):
-        for game in ('za', '../go', 5, ['go']):
+        for game in ('red', '../go', 5, ['go']):   # not 'za' any more: Legends: Z-A is a game since 23 Nov
             with self.subTest(game):
                 self.assertFalse(self.post({'game': game, 'list': 'have', 'key': 'd:6', 'tick': 'c', 'on': True})[1]['ok'])
         with self.assertRaises(urllib.error.HTTPError):
-            self.get('/api/collection?game=za')
-        self.assertFalse(os.path.exists(self.box.path('data', 'collection', 'za.json')))
+            self.get('/api/collection?game=red')
+        self.assertFalse(os.path.exists(self.box.path('data', 'collection', 'red.json')))
 
     def test_went_and_costume_lists(self):
         self.post({'list': 'costumes', 'key': '1-fall-2019', 'on': False})

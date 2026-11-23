@@ -80,8 +80,11 @@ const HOME_DATA = DATA.home || {entries: [], collection: {}};   // Pokémon HOME
 // the games beside GO, in release order after HOME (her ask, 23 Nov: “we should do them in release order”): each its list, its
 // sections (HOME: the ten regions; Shield: its own Pokédexes and the rest of what Shield can hold) and her ticks
 const GAME_DATA = {home: HOME_DATA, shield: DATA.shield || {entries: [], sections: [], collection: {}},
-  arceus: DATA.arceus || {entries: [], sections: [], collection: {}}};   // Pokémon Legends: Arceus (her yes, 23 Nov: next in release order)
-const COLS = {go: COL, home: norm(HOME_DATA.collection), shield: norm(GAME_DATA.shield.collection), arceus: norm(GAME_DATA.arceus.collection)};   // each game's ticks; COL is the game shown's
+  arceus: DATA.arceus || {entries: [], sections: [], collection: {}},   // Pokémon Legends: Arceus (her yes, 23 Nov: next in release order)
+  violet: DATA.violet || {entries: [], sections: [], collection: {}},   // Pokémon Violet and Legends: Z-A (her ask, 23 Nov: built overnight)
+  za: DATA.za || {entries: [], sections: [], collection: {}}};
+const COLS = {go: COL, home: norm(HOME_DATA.collection), shield: norm(GAME_DATA.shield.collection), arceus: norm(GAME_DATA.arceus.collection),
+  violet: norm(GAME_DATA.violet.collection), za: norm(GAME_DATA.za.collection)};   // each game's ticks; COL is the game shown's
 // viewOnly (22 Nov, like her Library's read-only mode): no save server at this address at all (plain web hosting once it's online:
 // api/collection missing, refused or not JSON), so the page just shows her ticks as at the last build, quietly: no banner, and the
 // boxes don't react to clicks. A real failure of her own server (a 500, a broken answer) still shows loadFailed's note.
@@ -119,8 +122,12 @@ const EXTRAS = [
 // Shiny and Gigantamax (a Pokémon kept with the Gigantamax Factor; HOME has no Dynamax box: research/home-tracking.md)
 let GAME = "go";
 const GAME_BOXES = {go: null, home: new Set(["c", "cf", "cm", "s", "gx"]), shield: new Set(["c", "cf", "cm", "s", "gx"]),   // Shield: her answer, 23 Nov
-  arceus: new Set(["c", "cf", "cm", "s", "al", "rc"])};   // Legends: Arceus: Caught, Female, Male, Shiny, Alpha, Complete (her answer, 23 Nov)
-const boxOn = t => !GAME_BOXES[GAME] || GAME_BOXES[GAME].has(["mg", "mx", "my"].includes(t) ? "mega" : t);
+  arceus: new Set(["c", "cf", "cm", "s", "al", "rc"]),   // Legends: Arceus: Caught, Female, Male, Shiny, Alpha, Complete (her answer, 23 Nov)
+  violet: new Set(["c", "cf", "cm", "s"]),   // Violet: Caught, Female, Male, Shiny (her answer, 23 Nov)
+  za: new Set(["c", "cf", "cm", "s", "al", "mega"])};   // Legends: Z-A: and Alpha and Mega (her answer, 23 Nov; Mega X, Y and Z a box each)
+const MEGA_TICKS = ["mg", "mx", "my", "mz"];   // Mega, Mega X, Mega Y, and Legends: Z-A's Mega Z (Absol, Garchomp, Lucario)
+const MEGA_SHORT = {mg: "M", mx: "X", my: "Y", mz: "Z"}, MEGA_NAME = {mg: "Mega", mx: "Mega X", my: "Mega Y", mz: "Mega Z"};
+const boxOn = t => !GAME_BOXES[GAME] || GAME_BOXES[GAME].has(MEGA_TICKS.includes(t) ? "mega" : t);
 // which boxes a Pokémon could ever have (her rule, 12 Nov: only what's impossible is left out; ones not in GO yet still
 // count, as in the game's Pokédex), from all its entries, out or not. In HOME: a shiny only where HOME can have one, and
 // Gigantamax only where it can be kept with the Factor (data/home/dex.json)
@@ -232,7 +239,7 @@ function formBoxes(lead, forms, only){
     [B("al", "al", "alpha", "Alpha", f => !!f.alpha), B("rc", "rc", "complete", "Complete", f => !!f.complete)],   // Legends: Arceus
     [B("xl", "xl", "expand", "XXL", f => !neverXXL(f)), B("xs", "xs", "shrink", "XXS", f => !neverXXS(f))],
     [B("dx", "dx", "dynamax", "Dynamax", f => !!f.dynamax)], [B("gx", "gx", "gigantamax", "Gigantamax", f => !!f.gmax)],   // a full row each, so Gigantamax is the same size as the rest (her pick, 21 Nov)
-    megaT.map(t => B(t, "mg", "mega", t === "mx" ? "Mega X" : t === "my" ? "Mega Y" : "Mega", f => (f.mega || []).some(m => m.t === t))),
+    megaT.map(t => B(t, "mg", "mega", MEGA_NAME[t], f => (f.mega || []).some(m => m.t === t))),
     [B("sd", "sd", "shadow", "Shadow", f => !!f.shadow), B("pu", "pu", "purified", "Purified", f => !!f.shadow)],
     [B("h", "h", "star", "4★", () => true)],
   ];
@@ -299,7 +306,8 @@ const isRegional = e => !!REGION_GEN[(e.form || "").split(" ")[0]];
 // card and page); other forms (Unown, Rotom, Vivillon…) stay one card and one page per number. The three Paldean Tauros are one.
 const groupKey = e => isRegional(e) ? `${e.dex}-${e.form.split(" ")[0].toLowerCase()}` : String(e.dex);
 // each game's addresses: GO's as ever, HOME's after #hm-, Shield's after #sh-; each game's Home: #go, #home, #shield
-const GAME_PREFIX = {go: "", home: "hm-", shield: "sh-", arceus: "la-"}, GAME_HOME = {go: "go", home: "home", shield: "shield", arceus: "arceus"};   // Legends: Arceus after #la-
+const GAME_PREFIX = {go: "", home: "hm-", shield: "sh-", arceus: "la-", violet: "vi-", za: "za-"},
+  GAME_HOME = {go: "go", home: "home", shield: "shield", arceus: "arceus", violet: "violet", za: "za"};   // Legends: Arceus after #la-
 const R = path => "#" + GAME_PREFIX[GAME] + path;   // an address in the game shown: #gen-1 in GO, #hm-gen-1 in HOME, #sh-gen-galar in Shield
 const pageOf = e => R("p-" + groupKey(e));
 // a game's sections: GO and HOME the ten regions (e.gen); a game with its own Pokédexes (Shield) its sections from its data, each
@@ -422,13 +430,49 @@ const REGION_COLOURS = {"1": "#A3302A", "2": "#8E6A0E", "3": "#16618A", "4": "#5
   "7": "#B5531C", "8": "#6E2D82", "hisui": "#3C6150", "9": "#952F57"};
 document.documentElement.dataset.look = "mix";
 const setRegion = g => document.documentElement.style.setProperty("--rc", REGION_COLOURS[g] || (g && bySections() && secById(g) || {}).colour || GAME_COLOUR);   // a page with no region: the game's own colour
-const REGION_CHOSEN = {"1": "kanto-map-2.jpg", "2": "johto-map-1.jpg", "3": "hoenn-map-2.jpg", "4": "sinnoh-map-3.jpg", "5": "unova-map-2.jpg", "6": "kalos-map-2.jpg", "7": "alola-map-1.jpg", "8": "galar-map-1.jpg", "hisui": "hisui-map-1.jpg", "9": "paldea-map-1.jpg", "isle-of-armor": "isle-of-armor-1.jpg", "crown-tundra": "crown-tundra-1.jpg"};   // her picks: the official painted region maps (12 Nov; she switched from scenery)
+const REGION_CHOSEN = {"1": "kanto-map-2.jpg", "2": "johto-map-1.jpg", "3": "hoenn-map-2.jpg", "4": "sinnoh-map-3.jpg", "5": "unova-map-2.jpg", "6": "kalos-map-2.jpg", "7": "alola-map-1.jpg", "8": "galar-map-1.jpg", "hisui": "hisui-map-1.jpg", "9": "paldea-map-1.jpg", "isle-of-armor": "isle-of-armor-1.jpg", "crown-tundra": "crown-tundra-1.jpg",
+  // Violet's DLCs and Legends: Z-A (23 Nov, downloaded with her yes: “Do it if you can”): The Teal Mask's and The Indigo Disk's key art
+  // (scarletviolet.pokemon.com, 960 × 553; no official maps of Kitakami or the Terarium), the official Lumiose City map
+  // (legends.pokemon.com, 2336 × 1642) and two Mega Dimension pictures from its official page (1920 × 1080)
+  "kitakami": "kitakami-1.jpg", "blueberry": "blueberry-1.jpg", "lumiose": "lumiose-map-1.jpg", "hyperspace": "hyperspace-1.jpg", "mega": "mega-1.jpg"};   // her picks: the official painted region maps (12 Nov; she switched from scenery)
 // which part of a picture the banner shows, where the middle isn't the best part (12 Nov: Kanto's Route 1 was nearly all sky):
 // a closer crop towards the ground; the picture itself is unchanged
-const SHOT_FIT = {"isle-of-armor-1.jpg": "center 60%/cover", "crown-tundra-1.jpg": "center 35%/cover", "kanto-map-2.jpg": "center/cover", "johto-map-1.jpg": "center/cover", "hoenn-map-2.jpg": "center/cover", "unova-map-2.jpg": "center/cover", "galar-map-1.jpg": "center 45%/cover", "hisui-map-1.jpg": "50% 50%/112% auto", "paldea-map-1.jpg": "center/cover", "sinnoh-map-3.jpg": "50% 48%/118% auto", "kalos-map-2.jpg": "center/cover", "alola-map-1.jpg": "center 45%/cover"};   // maps: the middle; Hisui closer, so its parchment edge is cut off (her ask, 12 Nov)   // maps: the middle
+const SHOT_FIT = {"kitakami-1.jpg": "center 30%/cover", "blueberry-1.jpg": "center 35%/cover", "lumiose-map-1.jpg": "center 50%/cover", "hyperspace-1.jpg": "center 40%/cover", "mega-1.jpg": "center/cover", "isle-of-armor-1.jpg": "center 60%/cover", "crown-tundra-1.jpg": "center 35%/cover", "kanto-map-2.jpg": "center/cover", "johto-map-1.jpg": "center/cover", "hoenn-map-2.jpg": "center/cover", "unova-map-2.jpg": "center/cover", "galar-map-1.jpg": "center 45%/cover", "hisui-map-1.jpg": "50% 50%/112% auto", "paldea-map-1.jpg": "center/cover", "sinnoh-map-3.jpg": "50% 48%/118% auto", "kalos-map-2.jpg": "center/cover", "alola-map-1.jpg": "center 45%/cover"};   // maps: the middle; Hisui closer, so its parchment edge is cut off (her ask, 12 Nov)   // maps: the middle
 // Shield's Isle of Armor and Crown Tundra: the official paintings (swordshield.pokemon.com, downloaded with her yes, 23 Nov; the
 // official site has no map of either; her pick over Galar's map, 23 Nov), in REGION_CHOSEN above so tools/make_home_maps.py makes
 // their smaller copies
+// ===== TRIAL: Try switch "Violet and Z-A" (23 Nov, overnight), START: remove once she has picked =====
+// She asked for Violet and Legends: Z-A to be built while she was away; two things are looks, so both are options here (my
+// suggestions, not decided, first): the pictures for the new lists (the official pictures she let me download, or the maps we had),
+// and how six games fit the switch at the top of the sidebar.
+const TRY_VZ_KEY = "jemmas-pokedex-try-violetza";
+const TRY_VZ = [
+  ["gameSwitch", "Six games", [["rows", "Two rows"], ["dropdown", "Drop-down"], ["list", "List"]], "rows"],
+  ["kitakami", "Kitakami", [["kitakami", "The Teal Mask art"], ["9", "Paldea’s map"]], "kitakami"],
+  ["blueberry", "Blueberry", [["blueberry", "The Indigo Disk art"], ["9", "Paldea’s map"]], "blueberry"],
+  ["lumiose", "Lumiose", [["lumiose", "Lumiose City map"], ["6", "Kalos’s map"]], "lumiose"],
+  ["hyperspace", "Hyperspace", [["hyperspace", "Mega Dimension picture"], ["lumiose", "Lumiose City map"], ["6", "Kalos’s map"]], "hyperspace"],
+  ["mega", "Mega Evolution", [["mega", "Mega Stones picture"], ["lumiose", "Lumiose City map"]], "mega"],
+];
+let tryVz = store.get(TRY_VZ_KEY, {});
+if (!tryVz || typeof tryVz !== "object" || Array.isArray(tryVz)) tryVz = {};
+const tryPick = id => { const row = TRY_VZ.find(r => r[0] === id); if (!row) return null; return row[2].some(([k]) => k === tryVz[id]) ? tryVz[id] : row[3]; };
+const tryPicKey = k => TRY_VZ.some(r => r[0] === k && r[0] !== "gameSwitch") ? tryPick(k) : k;   // a picture's map key, as picked
+(function tryBox(){
+  const box = document.createElement("div"); box.className = "trybox"; box.setAttribute("role", "group"); box.setAttribute("aria-label", "Try");
+  const draw = () => {
+    box.innerHTML = `<b>Try: Violet and Z-A</b>` + TRY_VZ.map(([id, name, opts]) => `<div class="tryrow" role="group" aria-label="${name}" data-row="${id}"><span>${name}</span>` +
+      opts.map(([k, l]) => `<button type="button" data-v="${k}" aria-pressed="${tryPick(id) === k}">${l}</button>`).join("") + `</div>`).join("");
+  };
+  const pad = () => document.documentElement.style.setProperty("--trypad", box.offsetHeight + 24 + "px");   // room under the page on phones (site.css)
+  box.addEventListener("click", ev => { const b = ev.target.closest("[data-v]"); if (!b) return; const id = b.closest("[data-row]").dataset.row;
+    tryVz = {...tryVz, [id]: b.dataset.v}; store.set(TRY_VZ_KEY, tryVz); draw(); rerender();
+    box.querySelector(`[data-row="${id}"] [data-v="${b.dataset.v}"]`)?.focus(); pad(); });
+  draw(); document.body.append(box);
+  pad(); addEventListener("resize", pad);
+})();
+document.addEventListener("change", ev => { const s = ev.target.closest && ev.target.closest("[data-gamepick]"); if (s && s.value) location.hash = s.value; });   // the drop-down
+// ===== TRIAL: Try switch "Violet and Z-A", END =====
 // a narrower picture shown less zoomed in: the banner's picture area takes this shape (width / height), so more of it shows and
 // it still blends softly into the colour on the left (12 Nov: Johto looked too zoomed in)
 const SHOT_RATIO = {};
@@ -474,7 +518,7 @@ const homeMaps = () => GENS.map(([g]) => REGION_CHOSEN[g] ? `regions/home/${REGI
 // the Try switch "Shield's other pictures": Bonus Pokémon all three of Shield's, from Galar, the Isle of Armor and the Crown Tundra;
 // Dynamax Adventures and HOME Transfers every region's map, their Pokémon coming from every region)
 const mapFiles = g => { const m = bySections() && secById(g) ? secById(g).map : g;
-  return (m === "all" ? GENS.map(([r]) => r) : Array.isArray(m) ? m : m ? [m] : []).map(k => REGION_CHOSEN[k]).filter(Boolean); };
+  return (m === "all" ? GENS.map(([r]) => r) : Array.isArray(m) ? m : m ? [m] : []).map(k => REGION_CHOSEN[tryPicKey(k)]).filter(Boolean); };
 const mapFile = g => { const fs = mapFiles(g); return fs.length === 1 ? fs[0] : null; };   // its one map (null when it has several)
 const homeCopy = f => `regions/home/${f.replace(/\.\w+$/, "")}.webp`;   // Home's smaller copy of a map (tools/make_home_maps.py)
 function regionShot(g){   // style for a region page's banner: her picked map (12 Nov; the scenery trial and its switch were removed 22 Nov)
@@ -821,7 +865,7 @@ function bigBoxes(e){
     if (!applies && !on && !why) return "";
     if (boxLook() !== "now") {
       const src = boxPic(e, t);
-      return `<button class="pc pc-${["mg", "mx", "my"].includes(t) ? "mg" : t}${boxLook() === "strip" ? " small" : ""}" type="button" data-tick="${t}" aria-pressed="${on}" style="--bc:var(${col})"${!applies && !on ? " disabled" : ""}>` +
+      return `<button class="pc pc-${MEGA_TICKS.includes(t) ? "mg" : t}${boxLook() === "strip" ? " small" : ""}" type="button" data-tick="${t}" aria-pressed="${on}" style="--bc:var(${col})"${!applies && !on ? " disabled" : ""}>` +
         `<span class="pcpic">${src ? `<img src="${src}" alt="" loading="lazy">` : ""}${on ? `<span class="pcok">${ic("check")}</span>` : ""}</span>` +
         `<span class="pclab">${ic(icon)}<b>${esc(boxLook() === "strip" && label === "Gigantamax" ? "G-Max" : label)}</b></span>${boxLook() === "strip" ? "" : `<small>${esc(on ? "Got it" : applies ? "Not yet" : why)}</small>`}</button>`;
     }
@@ -887,7 +931,8 @@ function pokemonPage(key){
     row("Pokédex", esc(pdx)) +   // its number in each of the game's Pokédexes (Shield: Galar #001 · Isle of Armor #015)
     row("Shiny", yesNo(!!sel.shiny, "Available", "Unavailable")) +
     (boxOn("gx") ? row("Gigantamax", yesNo(!!sel.gmax, "Available", "Not possible")) : "") +
-    (boxOn("al") ? row("Alpha", yesNo(!!sel.alpha, "Available", "Not possible")) : "") + `</dl>` : `<dl class="dfacts">` +
+    (boxOn("al") ? row("Alpha", yesNo(!!sel.alpha, "Available", "Not possible")) : "") +
+    (boxOn("mega") ? row("Mega", yesNo(!!(sel.mega || []).length, (sel.mega || []).map(m => m.label).join(" · "), "Not possible")) : "") + `</dl>` : `<dl class="dfacts">` +
     row("Category", esc(sel.category || "")) + row("Type", esc(sel.types.join(" · "))) + row("Gender", esc(gw)) +
     row("Average height", sel.height ? esc(metres(sel.height)) : "") + row("Average weight", sel.weight ? esc(kilos(sel.weight)) : "") +   // the species' Pokédex size; each one caught varies
     row("Buddy distance", sel.buddyKm ? esc(`${num(sel.buddyKm)} km`) : "") +
@@ -1076,7 +1121,7 @@ function canTick(e, t){
   if (!boxOn(t)) return false;   // only the game's own boxes
   return {c: true, cm: !!maleTick(e), cf: !!femaleTick(e), s: !!e.shiny, l: canLucky(e), h: e.released, xl: canXXL(e), xs: canXXS(e), sd: !!e.shadow, pu: !!e.shadow,
     dx: !!e.dynamax, gx: !!e.gmax, ss: !!e.shadowShiny, mg: (e.mega || []).some(m => m.t === "mg"), mx: (e.mega || []).some(m => m.t === "mx"),
-    my: (e.mega || []).some(m => m.t === "my"), al: !!e.alpha, rc: !!e.complete}[t];
+    my: (e.mega || []).some(m => m.t === "my"), mz: (e.mega || []).some(m => m.t === "mz"), al: !!e.alpha, rc: !!e.complete}[t];
 }
 
 // ---------- Fast tick (TRIAL, 11 Nov overnight: her ask for a better way to put her whole collection in) ----------
@@ -1203,7 +1248,7 @@ function fastPage(){
       const on = ts.map(t => has(dk(main), t));
       if (on.some(Boolean)) got++;
       return `<span class="fc two${on.some(Boolean) ? " lit" : ""}"><img src="${fastPic(main, ts[0])}" alt="" loading="lazy"><span>${sp.no}</span><span class="fcname" aria-hidden="true">${esc(main.name)}</span><span class="xy">` +
-        ts.map((t, k) => `<button type="button" data-fast="${attr(main.id)}" data-t="${t}" aria-pressed="${on[k]}" title="${esc(main.name)} ${t === "mx" ? "Mega X" : "Mega Y"}">${t === "mx" ? "X" : "Y"}</button>`).join("") + `</span></span>`;
+        ts.map((t, k) => `<button type="button" data-fast="${attr(main.id)}" data-t="${t}" aria-pressed="${on[k]}" title="${esc(main.name)} ${MEGA_NAME[t]}">${MEGA_SHORT[t]}</button>`).join("") + `</span></span>`;
     }
     const t = ts[0];
     const elsewhere = can.find(e => e !== main && fastTicks(e, b).some(x => has(dk(e), x)));   // got on another form (Alolan Vulpix…)
@@ -1224,7 +1269,8 @@ function fastPage(){
 }
 // Caught that Fast tick ticked only because another box was ticked there (her note, 12 Nov: tick all the shinies, untick the
 // ones she hasn't got, and those shouldn't stay Caught): unticking that box unticks Caught again, unless something else is ticked
-const AUTO_KEYS = {go: "jemmas-pokedex-autocaught", home: "jemmas-pokedex-autocaught-home", shield: "jemmas-pokedex-autocaught-shield", arceus: "jemmas-pokedex-autocaught-arceus"};   // each game its own (the same ids are in each)
+const AUTO_KEYS = {go: "jemmas-pokedex-autocaught", home: "jemmas-pokedex-autocaught-home", shield: "jemmas-pokedex-autocaught-shield", arceus: "jemmas-pokedex-autocaught-arceus",
+  violet: "jemmas-pokedex-autocaught-violet", za: "jemmas-pokedex-autocaught-za"};   // each game its own (the same ids are in each)
 const AUTOS = Object.fromEntries(Object.entries(AUTO_KEYS).map(([g, k]) => [g, new Set(store.get(k, []))]));
 let autoCaught = AUTOS.go;
 const keepAuto = (g = GAME) => store.set(AUTO_KEYS[g], [...AUTOS[g]]);   // that game's, even if she has changed game meanwhile (overnight review, 23 Nov)
@@ -1515,6 +1561,8 @@ const GAMES = [
   {id: "go", name: "Pokémon GO", short: "GO", colour: "#7E2530", href: "#go"},
   {id: "shield", name: "Pokémon Shield", short: "Shield", colour: GAME_COLOUR, href: "#shield"},   // the first game in release order (her ask, 23 Nov)
   {id: "arceus", name: "Pokémon Legends: Arceus", short: "Arceus", colour: GAME_COLOUR, href: "#arceus"},   // the next (her yes, 23 Nov)
+  {id: "violet", name: "Pokémon Violet", short: "Violet", colour: GAME_COLOUR, href: "#violet"},   // built overnight (her ask, 23 Nov)
+  {id: "za", name: "Pokémon Legends: Z-A", short: "Z-A", colour: GAME_COLOUR, href: "#za"},
 ];
 const gameOf = r => r === "games" ? "go" : gameOfRoute(r);
 let wasGame = "home";
@@ -1528,8 +1576,12 @@ function gameNavHtml(route, link, regions, more){
   wasGame = gameOf(route);
   const game = gameOf(route), all = route === "games";
   brandSmall.textContent = GAMES.find(g => g.id === game).name; brandSmall.hidden = true;   // the switch shows the game
-  gameSwitch.innerHTML = `<a class="allgames${all ? " on" : ""}" href="#games"${all ? ' aria-current="page"' : ""}>${ic("layers")}All games</a>` +
-    `<div class="game-switch" role="group" aria-label="Game" style="grid-template-columns:repeat(${GAMES.length},1fr)">${GAMES.map(g => `<a href="${g.href}" style="--gc:${g.colour}"${g.id === game && !all ? ' aria-current="true"' : ""}>${esc(g.short)}</a>`).join("")}</div>`;
+  const cur = g => g.id === game && !all;
+  const look = tryPick("gameSwitch");   // TRIAL: the Try switch "Six games" (23 Nov overnight): Two rows · Drop-down · List
+  gameSwitch.innerHTML = `<a class="allgames${all ? " on" : ""}" href="#games"${all ? ' aria-current="page"' : ""}>${ic("layers")}All games</a>` + (
+    look === "dropdown" ? `<label class="game-pick"><span class="game-pick-l">Game</span><select data-gamepick aria-label="Game">${GAMES.map(g => `<option value="${attr(g.href)}"${cur(g) ? " selected" : ""}>${esc(g.name)}</option>`).join("")}${all ? `<option value="" selected>All games</option>` : ""}</select></label>` :
+    look === "list" ? `<div class="game-list" role="group" aria-label="Game">${GAMES.map(g => `<a href="${g.href}"${cur(g) ? ' aria-current="true"' : ""}>${esc(g.name.replace(/^Pokémon /, ""))}</a>`).join("")}</div>` :
+    `<div class="game-switch rows" role="group" aria-label="Game" style="grid-template-columns:repeat(${GAMES.length > 4 ? 3 : GAMES.length},1fr)">${GAMES.map(g => `<a href="${g.href}" style="--gc:${g.colour}"${cur(g) ? ' aria-current="true"' : ""}>${esc(g.short)}</a>`).join("")}</div>`);
   if (game !== "go") return `<div class="nav-group">${link("#" + GAME_HOME[game], "house", "Home")}${link(R("dex"), "layout-grid", "Every Pokémon", groupByNumber(ENTRIES).length)}</div>${regions}${more}`;
   return `<div class="nav-group">${link("#go", "house", "Home")}${link("#dex", "layout-grid", "Every Pokémon", groupByNumber(ENTRIES).length)}</div>${regions}${more}`;
 }
@@ -1608,7 +1660,8 @@ function lockBoxes(){ if (viewOnly) view.querySelectorAll(SAVE_BOXES).forEach(b 
 function route(to){ const out = drawRoute(to); lockBoxes(); return out; }
 // GO's addresses; anything else is Pokémon HOME's (#home, #hm-…), the default game, and an unknown address goes to HOME's Home
 const GO_ROUTE = /^(go|dex|fast|want|coming|sets|games|costumes|events|hm|set-.+|gen-\w+|p-\d+(-[a-z]+)?)$/;
-const gameOfRoute = full => GO_ROUTE.test(full) ? "go" : full === "shield" || full.startsWith("sh-") ? "shield" : full === "arceus" || full.startsWith("la-") ? "arceus" : "home";   // anything else: HOME, the default
+const gameOfRoute = full => GO_ROUTE.test(full) ? "go" : full === "shield" || full.startsWith("sh-") ? "shield" : full === "arceus" || full.startsWith("la-") ? "arceus" :
+  full === "violet" || full.startsWith("vi-") ? "violet" : full === "za" || full.startsWith("za-") ? "za" : "home";   // anything else: HOME, the default
 function drawRoute(to){   // to: draw that page without changing the address (the tests' sweep over every page)
   const full = to || (location.hash || "#home").slice(1);
   const game = gameOfRoute(full), hm = game !== "go", pre = GAME_PREFIX[game];
@@ -1673,7 +1726,7 @@ const toastEl = document.getElementById("toast");
 let toastTimer;
 function toast(msg){ toastEl.textContent = msg; toastEl.hidden = false; clearTimeout(toastTimer); toastTimer = setTimeout(() => toastEl.hidden = true, 3500); }
 
-const READY = {go: false, home: false, shield: false, arceus: false};   // her ticks for that game read from the server (HOME's need a server that knows HOME)
+const READY = {go: false, home: false, shield: false, arceus: false, violet: false, za: false};   // her ticks for that game read from the server (HOME's need a server that knows HOME)
 async function save(body){
   if (viewOnly) return false;
   const game = body.game || GAME;

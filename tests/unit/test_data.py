@@ -170,6 +170,54 @@ class GoKeptForms(unittest.TestCase):
         self.assertTrue(all(f'{n},' in APP or f' {n}' in APP for n in (888, 889)))
 
 
+class VioletData(unittest.TestCase):
+    """Pokémon Violet (tools/import_games.py violet; 23 Nov): three Pokédexes, Bonus Pokémon, HOME Transfers, Scarlet's marked."""
+    @classmethod
+    def setUpClass(cls):
+        cls.entries = real('violet', 'dex.json')['entries']
+        cls.by = {e['id']: e for e in cls.entries}
+
+    def test_each_pokedex_has_every_number(self):
+        for sec, n in (('paldea', 400), ('kitakami', 200), ('blueberry', 243)):
+            self.assertEqual({e['sec'][sec] for e in self.entries if e['sec'].get(sec) is not None}, set(range(1, n + 1)), sec)
+
+    def test_733_species_scarlets_marked_transfers_apart(self):
+        self.assertEqual(len({e['id'].split('-')[0] for e in self.entries}), 733)   # the research's count of species in the game
+        self.assertEqual(self.by['1007'].get('only'), 'scarlet'); self.assertIsNone(self.by['1008'].get('only'))
+        self.assertEqual(self.by['128-paldean-blaze'].get('only'), 'scarlet'); self.assertIsNone(self.by['128-paldean-aqua'].get('only'))
+        for i in ('215-hisuian', '25-world-cap', '901', '150'):
+            self.assertEqual(self.by[i]['sec'], {'from-home': None}, i)
+        self.assertEqual(self.by['901-bloodmoon']['sec'], {'kitakami': 196})
+
+
+class ZaData(unittest.TestCase):
+    """Pokémon Legends: Z-A (tools/import_games.py za; 23 Nov): Lumiose, Hyperspace, the Mega Evolution list; Alpha and Mega."""
+    @classmethod
+    def setUpClass(cls):
+        cls.entries = real('za', 'dex.json')['entries']
+        cls.by = {e['id']: e for e in cls.entries}
+
+    def test_each_pokedex_has_every_number(self):
+        for sec, n in (('lumiose', 232), ('hyperspace', 132)):
+            self.assertEqual({e['sec'][sec] for e in self.entries if e['sec'].get(sec) is not None}, set(range(1, n + 1)), sec)
+
+    def test_megas(self):
+        megas = [m for e in self.entries for m in e.get('mega') or []]
+        self.assertGreaterEqual(len(megas), 96)
+        self.assertEqual([m['t'] for m in self.by['359']['mega']], ['mg', 'mz'])
+        self.assertEqual([m['t'] for m in self.by['6']['mega']], ['mx', 'my'])
+        self.assertTrue(self.by['670-eternal'].get('mega') and not self.by['670-red'].get('mega'))   # Mega Floette is the Eternal Flower's
+        for e in self.entries:
+            self.assertEqual(bool(e.get('mega')), 'mega' in e['sec'], e['id'])   # the Mega Evolution list is exactly the ones with a Mega
+            for m in e.get('mega') or []:
+                self.assertTrue(m.get('img'), e['id'])
+
+    def test_alpha_and_transfers(self):
+        self.assertTrue(self.by['152'].get('alpha')); self.assertFalse(self.by['150'].get('alpha'))   # Chikorita yes, Mewtwo no
+        self.assertEqual(self.by['801-original']['sec'].get('from-home', 1), None)
+        self.assertEqual(self.by['666-fancy']['sec'], {'from-home': None}); self.assertIn('lumiose', self.by['666-meadow']['sec'])
+
+
 class ArceusData(unittest.TestCase):
     """Pokémon Legends: Arceus (tools/import_games.py arceus; 23 Nov): the Hisui Pokédex and Bonus Pokémon, Alpha and Complete."""
     @classmethod

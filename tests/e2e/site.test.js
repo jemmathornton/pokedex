@@ -54,7 +54,7 @@
         if (seen.has(h) || h === "#") continue; seen.add(h);
         await show(h);
         const r = h.slice(1);
-        if (!/^(home|shield|arceus|([a-z]+-)?(dex|gen-[\w-]+|p-\d+(-[a-z]+)?)|costumes|events)$/.test(r)) problems.push(`a link to ${h}, which isn’t a page`);
+        if (!/^(home|shield|arceus|violet|za|([a-z]+-)?(dex|gen-[\w-]+|p-\d+(-[a-z]+)?)|costumes|events)$/.test(r)) problems.push(`a link to ${h}, which isn’t a page`);
         if (/^(hm-)?p-\d+$/.test(r) && !view().querySelector(".mondetail")) problems.push(`link to ${h}: no Pokémon page`);
       }
     } finally { removeEventListener("error", onErr); }
@@ -433,7 +433,7 @@
 
   test("her picks from the Try switch (22 Nov): Card art in dark mode Brighter; Shiny #6C7786 and Lucky #B48600; the switch gone", async () => {
     const root = document.documentElement;
-    ok(!document.querySelector(".trybox") && !("tryArt" in root.dataset) && !("tryBoxes" in root.dataset), "no Try switch left");
+    ok([...document.querySelectorAll(".trybox [data-row]")].every(r => ["gameSwitch", "kitakami", "blueberry", "lumiose", "hyperspace", "mega"].includes(r.dataset.row)) && !("tryArt" in root.dataset) && !("tryBoxes" in root.dataset), "no old Try switch left (only Violet and Z-A’s, 23 Nov)");
     const hex = n => getComputedStyle(root).getPropertyValue(`--${n}`).trim().toUpperCase();
     eq(hex("shiny"), "#6C7786", "Shiny a little deeper"); eq(hex("lucky"), "#B48600", "Lucky a little deeper (a middle gold)");
     eq(hex("male"), "#078E5A", "the other boxes as they were"); eq(hex("hundo"), "#D14186"); eq(hex("mega"), "#C2571A");
@@ -450,7 +450,7 @@
   });
 
   test("the art window is tinted by the Pokémon's first type (her pick, 21 Nov); the 21 Nov Try switch is gone", async () => {
-    ok(!document.querySelector(".trybox"), "no Try switch (games, Form names, Shield’s pictures and Arceus’s boxes all removed: her picks)");
+    ok([...document.querySelectorAll(".trybox [data-row]")].every(r => ["gameSwitch", "kitakami", "blueberry", "lumiose", "hyperspace", "mega"].includes(r.dataset.row)), "no games, Form names, Shield’s pictures or Arceus’s boxes Try switch (removed: her picks); only Violet and Z-A’s (23 Nov)");
     eq(localStorage.getItem("jemmas-pokedex-try-arceusboxes"), null, "the Arceus’s boxes choice cleared");
     eq(localStorage.getItem("jemmas-pokedex-try-secpics"), null, "the Shield’s other pictures choice cleared");
     eq(localStorage.getItem("jemmas-pokedex-try-formnames"), null, "the Form names choice cleared");
@@ -1286,7 +1286,7 @@
   test("Shield: its own Home with a card per Pokédex, base game then DLC, and its own sidebar", async () => {
     await go("#shield");
     eq(document.querySelector('.game-switch a[aria-current]').textContent, "Shield", "Shield chosen on the switch");
-    eq([...document.querySelectorAll(".game-switch a")].map(a => a.textContent), ["HOME", "GO", "Shield", "Arceus"], "the games, Arceus last (release order)");
+    eq([...document.querySelectorAll(".game-switch a")].map(a => a.textContent), ["HOME", "GO", "Shield", "Arceus", "Violet", "Z-A"], "the games, in release order after HOME and GO");
     const names = [...view().querySelectorAll(".gen h3")].map(h => h.textContent);
     eq(names.slice(0, 3), ["Galar", "Isle of Armor", "Crown Tundra"], "the three Pokédexes first: the base game, then the two DLCs");
     eq(view().querySelector('.gen[href="#sh-gen-galar"] .genno').textContent, "#001–#400", "Galar’s own numbers");
@@ -1418,6 +1418,66 @@
     await go("#la-p-722");
     ok(/^M18\.1 6c/.test(view().querySelector('.bigboxes [data-tick="al"] svg path').getAttribute("d")), "Alpha: Tabler alpha (the letter α)");
     ok(/^M4 19\.5v-15/.test(view().querySelector('.bigboxes [data-tick="rc"] svg path').getAttribute("d")), "Complete: Lucide book-check");
+  });
+
+  // ---------- Pokémon Violet and Legends: Z-A (23 Nov, built overnight at her ask) ----------
+  test("Violet: its three Pokédexes in the game’s order, Bonus Pokémon and HOME Transfers; Scarlet’s marked; its four boxes", async () => {
+    await go("#violet");
+    eq(document.querySelector('.game-switch a[aria-current]').textContent, "Violet", "Violet chosen on the switch");
+    eq([...view().querySelectorAll(".gen h3")].map(h => h.textContent), ["Paldea", "Kitakami", "Blueberry", "Bonus Pokémon", "HOME Transfers"], "its lists");
+    eq([...view().querySelectorAll(".hero .stats .slt")].map(x => x.textContent), ["Pokémon", "Female", "Male", "Shiny"], "Violet’s boxes (her answer, 23 Nov)");
+    await go("#vi-gen-paldea");
+    eq([...view().querySelectorAll(".card")].slice(0, 3).map(c => c.querySelector(".no").textContent + " " + c.querySelector(".nm").textContent), ["#001 Sprigatito", "#002 Floragato", "#003 Meowscarada"], "Paldea’s order");
+    ok(/Scarlet only/.test(view().querySelector('.card[data-id="1007"]').textContent) && !/Scarlet only/.test(view().querySelector('.card[data-id="1008"]').textContent), "Koraidon Scarlet only, Miraidon not");
+    ok(view().querySelector('.card[data-id="194-paldean"]') && !view().querySelector('.card[data-id="194"]'), "Paldea’s Wooper is the Paldean one");
+    await go("#vi-gen-from-home");
+    ok(view().querySelector('.card[data-id="215-hisuian"]') && view().querySelector('.card[data-id="150"]'), "only by transfer: Hisuian Sneasel, Mewtwo");
+    await go("#vi-gen-elsewhere"); ok(view().querySelector('.card[data-id="249"]'), "Lugia: in Violet, in no Pokédex");
+  });
+
+  test("Z-A: Lumiose, Hyperspace, Mega Evolution; Alpha and Mega boxes; Mega X, Y and Z", async () => {
+    await go("#za");
+    eq([...view().querySelectorAll(".gen h3")].map(h => h.textContent), ["Lumiose", "Hyperspace", "Mega Evolution", "HOME Transfers"], "its lists (no Bonus Pokémon: none)");
+    eq([...view().querySelectorAll(".hero .stats .slt")].map(x => x.textContent), ["Pokémon", "Female", "Male", "Shiny", "Alpha", "Mega"], "Z-A’s boxes (her answer, 23 Nov)");
+    await go("#za-p-359");
+    eq(strip(), ["Caught", "Female", "Male", "Shiny", "Alpha", "Mega", "Mega Z"], "Absol: Mega and Mega Z");
+    ok(fact("Mega") === "Mega · Mega Z" && /Lumiose #134/.test(fact("Pokédex")), `Absol: ${fact("Mega")}; ${fact("Pokédex")}`);
+    await go("#za-p-6"); ok(strip().includes("Mega X") && strip().includes("Mega Y"), "Charizard X and Y");
+    await go("#za-p-154"); ok(/hm\.10282/.test(view().querySelector('.bigboxes [data-tick="mg"] img').getAttribute("src")), "Mega Meganium: HOME’s picture (GO has none)");
+    await go("#za-p-3"); ok(/pm3\.fMEGA/.test(view().querySelector('.bigboxes [data-tick="mg"] img').getAttribute("src")), "Mega Venusaur: GO’s own picture");
+    await go("#za-gen-mega"); ok(view().querySelector('.card[data-id="36"]') && !view().querySelector('.card[data-id="35"]'), "Mega Evolution: the ones with a Mega");
+  });
+
+  test("Violet’s and Z-A’s ticks save to their own files; Mega Z saves", async () => {
+    const before = {};
+    for (const g of ["go", "home", "shield", "arceus"]) before[g] = JSON.stringify((await server(g)).have);
+    try {
+      await go("#za-p-359"); click(view().querySelector('.bigboxes [data-tick="mz"]'));
+      for (let t = 0; t < 5000 && !((await server("za")).have["d:359"] || []).includes("mz"); t += 200) await wait(200);
+      ok(((await server("za")).have["d:359"] || []).includes("mz"), "Mega Z saved in Z-A");
+      await go("#vi-p-1008"); click(view().querySelector('.bigboxes [data-tick="s"]'));
+      for (let t = 0; t < 5000 && !((await server("violet")).have["d:1008"] || []).includes("s"); t += 200) await wait(200);
+      ok(((await server("violet")).have["d:1008"] || []).includes("s"), "Shiny saved in Violet");
+      for (const g of ["go", "home", "shield", "arceus"]) eq(JSON.stringify((await server(g)).have), before[g], `${g}’s ticks unchanged`);
+    } finally {
+      for (const t of ["mz", "c"]) await save({game: "za", list: "have", key: "d:359", tick: t, on: false});
+      for (const t of ["s", "c"]) await save({game: "violet", list: "have", key: "d:1008", tick: t, on: false});
+      COLS.za.have = {}; COLS.violet.have = {};
+    }
+  });
+
+  test("TRIAL Try switch Violet and Z-A (23 Nov): the new lists’ pictures and a switch for six games", async () => {
+    const pick = async (row, v) => { click(document.querySelector(`.trybox [data-row="${row}"] [data-v="${v}"]`)); await wait(150); };
+    const was = {...tryVz};
+    try {
+      await go("#vi-gen-kitakami");
+      await pick("kitakami", "kitakami"); ok(/kitakami-1/.test(view().querySelector(".hero").getAttribute("style") || ""), "Kitakami: The Teal Mask art");
+      await pick("kitakami", "9"); ok(/paldea-map-1/.test(view().querySelector(".hero").getAttribute("style") || ""), "Kitakami: Paldea’s map");
+      await pick("gameSwitch", "dropdown"); ok(document.querySelector("[data-gamepick]") && !document.querySelector(".game-switch"), "the drop-down");
+      await pick("gameSwitch", "list"); eq(document.querySelectorAll(".game-list a").length, 6, "the list");
+      await pick("gameSwitch", "rows"); const sw = document.querySelector(".game-switch"); ok(sw && sw.scrollWidth <= sw.clientWidth + 1, "two rows, fitting");
+      eq(JSON.parse(localStorage.getItem(TRY_VZ_KEY)).gameSwitch, "rows", "kept");
+    } finally { tryVz = was; store.set(TRY_VZ_KEY, was); rerender(); }
   });
 
   test("one picture for a Pokémon in both games (her question, 22 Nov): GO's own, HOME's only where GO's files have none", async () => {

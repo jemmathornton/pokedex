@@ -84,7 +84,7 @@ Serebii’s exclusives page has **34 for each version** in one list (base game a
   - **Reward: Shiny Meloetta**, in HOME’s mobile app after confirming in its Games tab ([official news, 18 Oct 2024][o-mel]); from 16 Oct 2024, end date unknown ([Dittobase][db-mel]).
 - Also in HOME: moves can be changed when bringing a Pokémon into Violet (HOME 3.0.0), and Violet’s Mystery Gifts can be received in the mobile app ([HOME features][o-feat]). HOME’s own shiny and form ticks: see `research/home-tracking.md`.
 
-## 7. Pictures (nothing downloaded)
+## 7. Pictures (downloaded 23 Nov with her yes: see the Pokédex’s CLAUDE.md, “Pokémon Violet and Pokémon Legends: Z-A”, for files, sources and sizes)
 
 - **Paldea:** already have one (`site/regions/paldea-map-1.jpg`).
 - **Kitakami:** no painted map art found. The nearest is **`Kitakami.png`, 3,400 × 3,400, 4.8 MB**, in Bulbagarden Archives’ “Scarlet and Violet maps” ([search][g-kmap], snippet; the Archives refuse automated reading). Inferred: it is the in-game map, square, so a banner would be a slice. **Unsure** what it looks like.
