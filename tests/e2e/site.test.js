@@ -1387,6 +1387,14 @@
     eq(strip(), ["Caught", "Female", "Male", "Shiny", "Alpha", "Complete"], "Rowlet’s boxes in Arceus");
     ok(/Hisui #001/.test(fact("Pokédex")) && fact("Alpha") === "Available", `Rowlet: ${fact("Pokédex")}; Alpha ${fact("Alpha")}`);
     ok(view().querySelector('.crumbs a[href="#la-gen-hisui"]') && view().querySelector('.prevnext a[href^="#la-p-"]'), "links stay in Arceus");
+    const nx = view().querySelector(".prevnext .pn.next");   // her answer, 23 Nov: Previous / Next in the game's order
+    ok(nx && /Dartrix/.test(nx.textContent) && /#002/.test(nx.textContent) && !view().querySelector(".prevnext .pn.prev"), `Rowlet: nothing before, Dartrix #002 next (${nx && nx.textContent})`);
+    await go("#la-p-491"); ok(/Shaymin/.test(view().querySelector(".prevnext .pn.prev").textContent), "Darkrai (#242) after Shaymin (#241)");
+    await go("#sh-p-810"); ok(/Thwackey/.test(view().querySelector(".prevnext .pn.next").textContent), "Shield too: Grookey, then Thwackey");
+    await go("#la-gen-hisui");
+    const arc = view().querySelector('.card[data-id="493"]');
+    ok(arc && /0\/18/.test(arc.textContent), "Arceus’s 18 Plates counted on its card, like Unown (her answer, 23 Nov)");
+    await go("#gen-4"); ok(!FORM_SPECIES.has(493), "in GO, Arceus as before");
   });
 
   test("Arceus’s ticks save to its own file, never another game’s; Fast tick has Alpha and Complete", async () => {

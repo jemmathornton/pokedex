@@ -431,13 +431,13 @@ const SHOT_FIT = {"isle-of-armor-1.jpg": "center 60%/cover", "crown-tundra-1.jpg
 // their smaller copies
 // ===== TRIAL: Try switch "Arceus’s boxes" (23 Nov), START: remove once she has picked =====
 // Legends: Arceus's two new boxes need an icon and a colour (CLAUDE.md: icons from the sets her apps use, shown before use; colours
-// shown as the boxes). My suggestions (not decided) first: Alpha the letter α in the game's red, Complete a book with a tick in gold.
+// shown as the boxes). Alpha's icon: the letter α (her pick, 23 Nov: “Letter alpha yes”; icons.js). For Complete she asked to see
+// the options (“complete show me options”): two more icons (Stamp, Award) and a colour (Teal). My suggestions (not decided) first.
 const TRY_ARC_KEY = "jemmas-pokedex-try-arceusboxes";
 const TRY_ARC = [
-  ["alphaIcon", "Alpha icon", [["letter", "Letter"], ["crown", "Crown"], ["paw", "Paw"]], "letter", "icon", "alpha"],
   ["alphaColour", "Alpha colour", [["#C62828", "Red"], ["#9E1B1B", "Deep red"], ["#D32F2F", "Bright red"]], "#C62828", "colour", "--alpha"],
-  ["completeIcon", "Complete icon", [["book", "Book"], ["badge", "Badge"], ["clipboard", "Clipboard"]], "book", "icon", "complete"],
-  ["completeColour", "Complete colour", [["#8A6410", "Gold"], ["#3C6150", "Hisui green"], ["#7A5230", "Sepia"]], "#8A6410", "colour", "--complete"],
+  ["completeIcon", "Complete icon", [["book", "Book"], ["badge", "Badge"], ["clipboard", "Clipboard"], ["stamp", "Stamp"], ["award", "Award"]], "book", "icon", "complete"],
+  ["completeColour", "Complete colour", [["#8A6410", "Gold"], ["#3C6150", "Hisui green"], ["#7A5230", "Sepia"], ["#0F766E", "Teal"]], "#8A6410", "colour", "--complete"],
 ];
 let tryArc = store.get(TRY_ARC_KEY, {});
 if (!tryArc || typeof tryArc !== "object" || Array.isArray(tryArc)) tryArc = {};
@@ -788,7 +788,14 @@ function dexPage(title, label, list, region, search = false){
 const REGION_OF = {1: "Kanto", 2: "Johto", 3: "Hoenn", 4: "Sinnoh", 5: "Unova", 6: "Kalos", 7: "Alola", 8: "Galar", 9: "Paldea"};
 const pageForm = {};   // page (groupKey) -> the form picked on its page (until the page is reloaded)
 // every page in order: each number, then its regional forms (Growlithe, Hisuian Growlithe, Arcanine…), for Previous / Next
-const mkPageKeys = es => [...new Set([...es].sort((a, b) => a.dex - b.dex || isRegional(a) - isRegional(b)).map(groupKey))];
+// Previous / Next go in the game's own order (her answer, 23 Nov: “game order”): for a game with its own Pokédexes, the first list
+// a Pokémon is in, then its number there (Shield: Galar, then the Isle of Armor's own, the Crown Tundra's, Dynamax Adventures…);
+// GO and HOME by National number
+const mkPageKeys = (es, g) => {
+  const secs = g && bySections(g) ? GAME_DATA[g].sections.map(s => s.id) : null;
+  const at = e => { if (!secs) return [0, 0]; const i = secs.findIndex(s => e.sec && s in e.sec); return i < 0 ? [secs.length, 0] : [i, e.sec[secs[i]] ?? 1e6]; };
+  return [...new Set([...es].sort((a, b) => { const [ia, na] = at(a), [ib, nb] = at(b); return ia - ib || na - nb || a.dex - b.dex || isRegional(a) - isRegional(b); }).map(groupKey))];
+};
 let PAGE_KEYS = mkPageKeys(ENTRIES);
 const mkEvoIn = (es, ids) => { const o = {}; es.forEach(x => (x.evo || []).forEach(st => { if (ids[st.to]) (o[st.to] = o[st.to] || []).push(x); })); return o; };
 let EVO_IN = mkEvoIn(ENTRIES, byId);     // entry id -> the entries that evolve into it
@@ -903,8 +910,9 @@ function pokemonPage(key){
   const kind = {legendary: "Legendary", mythical: "Mythical", "ultra-beast": "Ultra Beast"}[sel.class];
   const sec0 = secOf(sel), gen = sec0 ? [sec0.id, sec0.name, sec0.small] : genById[sel.gen] || ["", REGION_OF[sel.gen] || "", ""];   // in Shield: the first Pokédex it is in
   const at = PAGE_KEYS.indexOf(key), prev = PAGE_KEYS[at - 1], next = PAGE_KEYS[at + 1];
+  const stepNo = x => { const s0 = secOf(x); return s0 && secNo(x, s0.id) != null ? String(secNo(x, s0.id)).padStart(3, "0") : pad(x.dex); };   // its number in the game's own list (Hisui #002), as the order (her answer, 23 Nov)
   const step = (m, dir) => { if (!m) return `<span></span>`; const x = groupByNumber(ENTRIES.filter(e => groupKey(e) === m))[0].lead;
-    return `<a class="pn ${dir}" href="${R("p-" + m)}" title="${dir === "prev" ? "Previous" : "Next"}: ${tip(x.name)}">${dir === "prev" ? ic("chevron-left") : ""}${sprite(x.img) ? `<img src="${sprite(x.img)}" alt="">` : ""}<span><small>#${pad(x.dex)}${isRegional(x) ? " " + esc(x.form.split(" ")[0]) : ""}</small>${esc(x.name)}</span>${dir === "next" ? ic("chevron-right") : ""}</a>`; };
+    return `<a class="pn ${dir}" href="${R("p-" + m)}" title="${dir === "prev" ? "Previous" : "Next"}: ${tip(x.name)}">${dir === "prev" ? ic("chevron-left") : ""}${sprite(x.img) ? `<img src="${sprite(x.img)}" alt="">` : ""}<span><small>#${stepNo(x)}${isRegional(x) ? " " + esc(x.form.split(" ")[0]) : ""}</small>${esc(x.name)}</span>${dir === "next" ? ic("chevron-right") : ""}</a>`; };
   const yesNo = (on, yes, no) => on ? esc(yes) : `<span class="no">${esc(no)}</span>`;   // no ticks here: they looked like "caught" (her point, 10 Nov)
   const row = (t, v) => v ? `<div><dt>${esc(t)}</dt><dd>${v}</dd></div>` : "";
   const pdx = bySections() ? secList().filter(s => secNo(sel, s.id) != null).map(s => `${s.name} #${String(secNo(sel, s.id)).padStart(3, "0")}`).join(" · ") : "";
@@ -1577,7 +1585,7 @@ const regionHead = (g, region, small) => `<span class="label">${esc(small)}</spa
 // for that Pokémon or form (its name, picture, types, Pokédex text and evolutions shared, her ask: “Used shared stuff between
 // games”) with HOME's own shiny and Gigantamax, and the rest are HOME's own (the forms GO hasn't got)
 const WORLDS = {go: {ENTRIES, byId, baseOf, outBySpecies, BY_GROUP, PAGE_KEYS, EVO_IN, entryIdx}};
-function indexWorld(es){ fixGen(es); const ids = mkById(es); return {ENTRIES: es, byId: ids, baseOf: mkBaseOf(es), outBySpecies: mkOut(es), BY_GROUP: mkGroups(es), PAGE_KEYS: mkPageKeys(es), EVO_IN: mkEvoIn(es, ids), entryIdx: mkIdx(es)}; }
+function indexWorld(es, g){ fixGen(es); const ids = mkById(es); return {ENTRIES: es, byId: ids, baseOf: mkBaseOf(es), outBySpecies: mkOut(es), BY_GROUP: mkGroups(es), PAGE_KEYS: mkPageKeys(es, g), EVO_IN: mkEvoIn(es, ids), entryIdx: mkIdx(es)}; }
 const NOT_IN_HOME = {released: true, shiny: false, gmax: false, shadow: false, shadowShiny: false, dynamax: false, mega: undefined, megaLater: false, buddyKm: undefined};   // GO's own boxes and facts
 function homeEntries(){
   const go = WORLDS.go.byId;
@@ -1592,9 +1600,14 @@ function gameEntries(g){   // a game after HOME: its entries name HOME's (`home`
     const e = {...base, ...NOT_IN_HOME, ...h}; delete e.go; delete e.home; return e;
   });
 }
+// Pokémon tracked form by form in one game only (her answer, 23 Nov: Arceus's 18 Plates “One by one like unown” in Legends: Arceus;
+// in GO Arceus stays as she decided, for when it's out)
+const GAME_FORM_SPECIES = {arceus: [493]};
 function useGame(g){   // draw the pages from this game's list and ticks
   if (g === GAME) return;
-  if (!WORLDS[g]) WORLDS[g] = indexWorld(gameEntries(g));
+  for (const n of Object.values(GAME_FORM_SPECIES).flat()) FORM_SPECIES.delete(n);
+  for (const n of GAME_FORM_SPECIES[g] || []) FORM_SPECIES.add(n);
+  if (!WORLDS[g]) WORLDS[g] = indexWorld(gameEntries(g), g);
   ({ENTRIES, byId, baseOf, outBySpecies, BY_GROUP, PAGE_KEYS, EVO_IN, entryIdx} = WORLDS[g]);
   GAME = g; COL = COLS[g]; autoCaught = AUTOS[g];
   cardMemo.clear(); lastList = null;

@@ -3,7 +3,7 @@
 Everything waiting on you. **Do** = just do it; **Decide** = your call. Tell Claude when one’s done or decided and it comes off.
 
 ## Decide
-- **Arceus’s boxes (Try switch, bottom right):** the icon and colour for Alpha (Letter α, Crown or Paw; Red, Deep red or Bright red) and for Complete (Book, Badge or Clipboard; Gold, Hisui green or Sepia). The first of each is my suggestion (not decided). Pick and the switch goes.
+- **Arceus’s boxes (Try switch, bottom right):** Alpha’s colour (Red, Deep red or Bright red; its icon is the letter α, your pick) and Complete’s icon (Book, Badge, Clipboard, Stamp or Award) and colour (Gold, Hisui green, Sepia or Teal). The first of each is my suggestion (not decided). Pick and the switch goes.
 - **The next games, in release order:** Violet, then Legends: Z-A (Shield and Legends: Arceus are built). Their choices: `for-jemma/new-games.md`.
 
 ## Do
