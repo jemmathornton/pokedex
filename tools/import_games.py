@@ -36,11 +36,14 @@ GAMES = {
             {'id': 'galar', 'name': 'Galar', 'small': 'Sword and Shield', 'map': '8', 'colour': '#6E2D82'},
             {'id': 'isle-of-armor', 'name': 'Isle of Armor', 'small': 'The Isle of Armor', 'map': 'isle-of-armor', 'colour': '#6E2D82'},
             {'id': 'crown-tundra', 'name': 'Crown Tundra', 'small': 'The Crown Tundra', 'map': 'crown-tundra', 'colour': '#6E2D82'},
-            {'id': 'max-lair', 'name': 'Dynamax Adventures', 'small': 'The Crown Tundra', 'map': 'crown-tundra', 'colour': '#6E2D82'},
-            {'id': 'elsewhere', 'name': 'Bonus Pokémon', 'small': 'Not in a Pokédex', 'map': '8', 'colour': '#6E2D82'},
-            {'id': 'from-home', 'name': 'HOME Transfers', 'small': 'Pokémon HOME', 'map': None, 'colour': '#6E2D82'},
+            {'id': 'max-lair', 'name': 'Dynamax Adventures', 'small': 'The Crown Tundra', 'map': 'all', 'colour': '#6E2D82'},   # every region's map (her pick, 23 Nov)
+            {'id': 'elsewhere', 'name': 'Bonus Pokémon', 'small': 'Not in a Pokédex', 'map': ['8', 'isle-of-armor', 'crown-tundra'], 'colour': '#6E2D82'},   # all three (her pick, 23 Nov)
+            {'id': 'from-home', 'name': 'HOME Transfers', 'small': 'Pokémon HOME', 'map': 'all', 'colour': '#6E2D82'},   # every region's map (her pick, 23 Nov)
         ],
         'other': 'sword',   # the other version: its Pokémon are marked (her answer, 23 Nov)
+        # one of each pair in a save (Serebii's legendaries page, 23 Nov: "You can only choose one"): Regieleki or Regidrago, Glastrier
+        # or Spectrier, so Ice or Shadow Rider Calyrex; the other needs a trade. Marked "Choose one" on both (her answer, 23 Nov)
+        'chooseOne': ['894', '895', '896', '897', '898-ice', '898-shadow'],
     },
 }
 SYN = {'alola': 'alolan', 'galar': 'galarian', 'hisui': 'hisuian', 'paldea': 'paldean'}
@@ -211,6 +214,8 @@ def main():
             # only in the other version: the whole species (Ho-Oh), or one form (Red-Striped Basculin, male Indeedee, Galarian Farfetch'd)
             if n not in CATCHABLE_HERE and ((n, None) in other or any(k[0] == n and k[1] and same(k[1], e.get('form'), sp) for k in other)):
                 entry['only'] = cfg['other']
+            if entry['id'] in cfg.get('chooseOne', ()):
+                entry['choose'] = True
             sec = {}
             regional = (e.get('form') or '').split(' ')[0] in ('Alolan', 'Galarian', 'Hisuian', 'Paldean')
             for s, d in nums.items():

@@ -433,7 +433,7 @@
 
   test("her picks from the Try switch (22 Nov): Card art in dark mode Brighter; Shiny #6C7786 and Lucky #B48600; the switch gone", async () => {
     const root = document.documentElement;
-    ok([...document.querySelectorAll(".trybox [data-row]")].every(r => ["max-lair", "elsewhere", "from-home"].includes(r.dataset.row)) && !("tryArt" in root.dataset) && !("tryBoxes" in root.dataset), "no old Try switch left (only Shield’s other pictures, 23 Nov)");
+    ok(!document.querySelector(".trybox") && !("tryArt" in root.dataset) && !("tryBoxes" in root.dataset), "no Try switch left");
     const hex = n => getComputedStyle(root).getPropertyValue(`--${n}`).trim().toUpperCase();
     eq(hex("shiny"), "#6C7786", "Shiny a little deeper"); eq(hex("lucky"), "#B48600", "Lucky a little deeper (a middle gold)");
     eq(hex("male"), "#078E5A", "the other boxes as they were"); eq(hex("hundo"), "#D14186"); eq(hex("mega"), "#C2571A");
@@ -450,7 +450,8 @@
   });
 
   test("the art window is tinted by the Pokémon's first type (her pick, 21 Nov); the 21 Nov Try switch is gone", async () => {
-    ok([...document.querySelectorAll(".trybox [data-row]")].every(r => ["max-lair", "elsewhere", "from-home"].includes(r.dataset.row)), "no games, Form names or Shield’s DLC pictures Try switch (removed: her picks); only Shield’s other pictures (23 Nov)");
+    ok(!document.querySelector(".trybox"), "no Try switch (games, Form names, Shield’s DLC and other pictures all removed: her picks)");
+    eq(localStorage.getItem("jemmas-pokedex-try-secpics"), null, "the Shield’s other pictures choice cleared");
     eq(localStorage.getItem("jemmas-pokedex-try-formnames"), null, "the Form names choice cleared");
     eq(localStorage.getItem("jemmas-pokedex-try-dlcpics"), null, "the Shield’s DLC pictures choice cleared");
     ok(["jemmas-pokedex-try-homepage", "jemmas-pokedex-try-allgames", "jemmas-pokedex-try-gameswitch", "jemmas-pokedex-try-lastgame"].every(k => localStorage.getItem(k) === null), "its kept choices cleared");
@@ -1306,6 +1307,14 @@
     ok(view().querySelector('.crumbs a[href="#sh-gen-galar"]') && view().querySelector('.prevnext a[href^="#sh-p-"]'), "links stay in Shield");
     await go("#sh-p-865"); ok([...view().querySelectorAll(".chips .type")].some(c => c.textContent === "Sword only"), "the mark on its page too");
     await go("#sh-p-6"); ok(strip().includes("G-Max"), "Charizard can be Gigantamax in Shield");
+    await go("#sh-gen-crown-tundra");   // her answer, 23 Nov: one of each pair in a save, marked "Choose one" on both
+    for (const id of ["894", "895", "896", "897"]) ok(/Choose one/.test(view().querySelector(`.card[data-id="${id}"]`).textContent), `${id} marked Choose one`);
+    ok(view().querySelector('.card[data-id="377"]') && !/Choose one/.test(view().querySelector('.card[data-id="377"]').textContent), "Regirock not");
+    const chosen = () => [...view().querySelectorAll(".chips .type")].some(c => c.textContent === "Choose one");
+    try {
+      pageForm["898"] = "898-ice"; await go("#sh-p-898"); ok(chosen(), "Ice Rider Calyrex too");
+      pageForm["898"] = "898"; await go("#sh-p-898"); ok(!chosen(), "plain Calyrex not");
+    } finally { delete pageForm["898"]; }
   });
 
   test("Shield’s ticks save to its own file, never GO’s or HOME’s; Fast tick goes by Pokédex", async () => {
@@ -1335,21 +1344,19 @@
     eq([...view().querySelectorAll(".gen h3")].map(h => h.textContent).slice(3), ["Dynamax Adventures", "Bonus Pokémon", "HOME Transfers"], "her names (23 Nov)");
   });
 
-  test("TRIAL Try switch Shield’s other pictures (23 Nov): Dynamax Adventures, Bonus Pokémon and HOME Transfers", async () => {
-    const pick = async (row, v) => { click(document.querySelector(`.trybox [data-row="${row}"] [data-v="${v}"]`)); await wait(150); };
-    const was = {...trySec};
-    try {
-      await go("#shield");
-      await pick("elsewhere", "three"); eq(view().querySelectorAll('.gen[href="#sh-gen-elsewhere"] .genmap.multi i').length, 3, "Bonus Pokémon: all three");
-      await pick("elsewhere", "as"); ok(view().querySelector('.gen[href="#sh-gen-elsewhere"] .genmap:not(.multi)').getAttribute("style").includes("galar-map-1"), "Bonus Pokémon: Galar’s map");
-      await pick("from-home", "all"); eq(view().querySelectorAll('.gen[href="#sh-gen-from-home"] .genmap.multi i').length, 10, "HOME Transfers: every region’s map");
-      await pick("from-home", "as"); ok(!view().querySelector('.gen[href="#sh-gen-from-home"] .genmap'), "HOME Transfers: no picture");
-      await pick("max-lair", "all"); eq(view().querySelectorAll('.gen[href="#sh-gen-max-lair"] .genmap.multi i').length, 10, "Dynamax Adventures: every region’s map");
-      await go("#sh-gen-max-lair"); eq(view().querySelectorAll(".hero .heropics i").length, 10, "on its banner too");
-      await pick("max-lair", "as"); ok(/crown-tundra-1/.test(view().querySelector(".hero").getAttribute("style") || ""), "Dynamax Adventures: the Crown Tundra painting");
-      eq(JSON.parse(localStorage.getItem(TRY_SEC_KEY))["max-lair"], "as", "kept");
-      await go("#go"); ok(view().querySelectorAll(".gen .genmap:not(.multi)").length >= 10, "GO’s regions unchanged");
-    } finally { trySec = was; store.set(TRY_SEC_KEY, was); rerender(); }
+  test("Shield’s other pictures (her picks, 23 Nov): Bonus Pokémon all three; Dynamax Adventures and HOME Transfers every region’s map", async () => {
+    await go("#shield");
+    const plate = id => [...view().querySelectorAll(`.gen[href="#sh-gen-${id}"] .genmap.multi i`)].map(i => i.getAttribute("style"));
+    const three = plate("elsewhere");
+    eq(three.length, 3, "Bonus Pokémon: three pictures");
+    ok(/galar-map-1/.test(three[0]) && /isle-of-armor-1/.test(three[1]) && /crown-tundra-1/.test(three[2]), "Galar, the Isle of Armor, the Crown Tundra");
+    eq(plate("max-lair").length, 10, "Dynamax Adventures: every region’s map");
+    eq(plate("from-home").length, 10, "HOME Transfers: every region’s map");
+    eq(view().querySelectorAll(".hero .heropics i").length, 3, "Shield’s Home banner still its three Pokédexes’ pictures");
+    await go("#sh-gen-elsewhere"); eq(view().querySelectorAll(".hero .heropics i").length, 3, "Bonus Pokémon’s banner: all three");
+    await go("#sh-gen-max-lair"); eq(view().querySelectorAll(".hero .heropics i").length, 10, "Dynamax Adventures’ banner: every region");
+    await go("#sh-p-144"); eq(view().querySelectorAll(".hero .heropics i").length, 10, "a Dynamax Adventures Pokémon’s page (Articuno) too");
+    await go("#go"); ok(view().querySelectorAll(".gen .genmap:not(.multi)").length >= 10 && !view().querySelector(".genmap.multi"), "GO’s regions unchanged");
   });
 
   test("one picture for a Pokémon in both games (her question, 22 Nov): GO's own, HOME's only where GO's files have none", async () => {

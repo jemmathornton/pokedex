@@ -26,21 +26,25 @@
    "id": "max-lair",
    "name": "Dynamax Adventures",
    "small": "The Crown Tundra",
-   "map": "crown-tundra",
+   "map": "all",
    "colour": "#6E2D82"
   },
   {
    "id": "elsewhere",
    "name": "Bonus Pokémon",
    "small": "Not in a Pokédex",
-   "map": "8",
+   "map": [
+    "8",
+    "isle-of-armor",
+    "crown-tundra"
+   ],
    "colour": "#6E2D82"
   },
   {
    "id": "from-home",
    "name": "HOME Transfers",
    "small": "Pokémon HOME",
-   "map": null,
+   "map": "all",
    "colour": "#6E2D82"
   }
  ],
@@ -7993,6 +7997,7 @@
    "home": true,
    "shiny": true,
    "gmax": false,
+   "choose": true,
    "sec": {
     "crown-tundra": 200
    }
@@ -8002,6 +8007,7 @@
    "home": true,
    "shiny": true,
    "gmax": false,
+   "choose": true,
    "sec": {
     "crown-tundra": 201
    }
@@ -8011,6 +8017,7 @@
    "home": true,
    "shiny": false,
    "gmax": false,
+   "choose": true,
    "sec": {
     "crown-tundra": 208
    }
@@ -8020,6 +8027,7 @@
    "home": true,
    "shiny": false,
    "gmax": false,
+   "choose": true,
    "sec": {
     "crown-tundra": 209
    }
@@ -8054,6 +8062,7 @@
    "order": 1303,
    "shiny": false,
    "gmax": false,
+   "choose": true,
    "sec": {
     "crown-tundra": 210
    }
@@ -8079,6 +8088,7 @@
    "order": 1304,
    "shiny": false,
    "gmax": false,
+   "choose": true,
    "sec": {
     "crown-tundra": 210
    }

@@ -39,7 +39,7 @@ From Serebii’s Version Exclusives ([exclusives][s-excl], 22 Nov): **47 rows ea
 - **Gigantamax raids:** Machamp, Coalossal, Flapple. Inferred: with Max Soup (Isle of Armor) a Shield Machamp or Coalossal can get the Gigantamax Factor; Flapple can’t without a trade.
 - **Other forms:** Unovan Darumaka and Darmanitan (Regina, Sword; Shield “Trade from Pokémon Sword”). Kantonian Farfetch’d needs a Galarian Farfetch’d for Regina, so inferred a trade too.
 - **Flapple and Appletun:** the Tart Apple is Sword’s and the Sweet Apple Shield’s ([version differences][s-vmisc], 22 Nov); Serebii’s Flapple page says Shield: “Trade from Sword” ([Flapple][s-flapple], 22 Nov).
-- **Indeedee:** inferred that breeding a female in Shield can give a male (no source checked): **unsure**.
+- **Indeedee and Basculin, checked 23 Nov (her ask):** Serebii’s Exclusives page lists Indeedee “Male” and Basculin “Red-Striped Form Exclusive” under Sword (Indeedee “Female”, Basculin “Blue-Striped” under Shield); the Basculin page: “Its Red-Striped Form is found in Sword while its Blue-Striped Form is found in Shield”. No source says either can be had in Shield alone: only with a Sword player (a linked Max Raid, or Dynamax Adventures with “the Pokémon … from either game”), and nothing about breeding a male Indeedee. So both stay marked Sword only ([Basculin][s-basculin], [Indeedee][s-indeedee], [exclusives][s-excl], [Dynamax Adventures][s-da2], 23 Nov).
 - **Ultra Beasts** (Nihilego, Buzzwole, Pheromosa, Xurkitree, Celesteela, Kartana, Guzzlord, Stakataka, Blacephalon): no version note on Serebii; guides say every Ultra Beast and the other 31 legendaries are in both games, 8 exclusive each side (search snippets, 22 Nov). That matches Serebii’s 47 bosses (38 legendaries, 9 Ultra Beasts).
 - **Galarian forms in both games:** Meowth, Slowpoke, Slowbro, Slowking, Weezing, Mr. Mime, Zigzagoon, Linoone, Yamask, Stunfisk, Articuno, Zapdos, Moltres (inferred from the lists).
 - **To complete in Shield (inferred):** Galar needs 29 species by trade, Isle of Armor 12, Crown Tundra 15. The Crown Tundra also needs the Calyrex steed and Regi you didn’t choose: Glastrier or Spectrier, and Regieleki or Regidrago (“You can only choose one”, [legendaries][s-leg], 23 Nov).
@@ -149,3 +149,6 @@ Official map art for banners (headers checked only, 23 Nov):
 [pb-lock]: https://pokemondb.net/pokebase/329784/what-are-all-the-shiny-locked-pokemon-in-swsh
 [rl]: https://rotomlabs.net/guide/crown-tundra-shiny-legendary-hunting
 [gs]: https://www.gamespot.com/articles/new-pokemon-home-switch-update-fixes-isle-of-armor/1100-6479226/
+[s-basculin]: https://www.serebii.net/pokedex-swsh/basculin/
+[s-indeedee]: https://www.serebii.net/pokedex-swsh/indeedee/
+[s-da2]: https://www.serebii.net/swordshield/dynamaxadventures.shtml

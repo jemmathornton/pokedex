@@ -31,7 +31,7 @@ if (["genders", "caught", "forms"].includes(prefs.work)) prefs.work = "all";
 prefs.workShow = "all";   // "Hide ones I have" is always off when the app opens, not remembered (her answer, 21 Nov)
 delete prefs.regionShot;   // left from the scenery trial (removed 22 Nov)
 try { localStorage.removeItem("jemmas-pokedex-try"); } catch {}   // left from the Try switch (removed 21 Nov)
-for (const k of ["jemmas-pokedex-try-art", "jemmas-pokedex-try-boxes", "jemmas-pokedex-try-formnames", "jemmas-pokedex-try-dlcpics"]) { try { localStorage.removeItem(k); } catch {} }   // and the 23 Nov "Form names" one (her pick: as now) and "Shield’s DLC pictures" (her pick: the official paintings)   // left from the 22 Nov Try switch (removed: her picks, Brighter and the deeper Shiny and Lucky, are in site.css)
+for (const k of ["jemmas-pokedex-try-art", "jemmas-pokedex-try-boxes", "jemmas-pokedex-try-formnames", "jemmas-pokedex-try-dlcpics", "jemmas-pokedex-try-secpics"]) { try { localStorage.removeItem(k); } catch {} }   // and the 23 Nov "Form names" one (her pick: as now) and "Shield’s DLC pictures" (her pick: the official paintings) and "Shield’s other pictures" (her picks: all three, every region)   // left from the 22 Nov Try switch (removed: her picks, Brighter and the deeper Shiny and Lucky, are in site.css)
 const keepPrefs = () => store.set(PREFS_KEY, prefs);
 
 // ---------- what there is ----------
@@ -383,6 +383,7 @@ function card(e, more = "", inForms = false, forms = null){
   if (e.class === "mythical") flags.push("Mythical");
   if (e.class === "ultra-beast") flags.push("Ultra Beast");
   if (e.only && ONLY[e.only]) flags.push(ONLY[e.only]);   // the other version's: needs a trade
+  if (e.choose) flags.push("Choose one");   // one of a pair in a save (Shield: Regieleki or Regidrago, Glastrier or Spectrier; her answer, 23 Nov)
   const gw = e.genderForm ? null : GENDER_WORDS[e.gender];   // a Male or Female form says it already
   // the card is marked when she has it: caught, or with a tab on, that tab's box, in its colour (her call, 9 Nov)
   const tab = !showAllBoxes && workBox();
@@ -413,33 +414,6 @@ const SHOT_FIT = {"isle-of-armor-1.jpg": "center 60%/cover", "crown-tundra-1.jpg
 // Shield's Isle of Armor and Crown Tundra: the official paintings (swordshield.pokemon.com, downloaded with her yes, 23 Nov; the
 // official site has no map of either; her pick over Galar's map, 23 Nov), in REGION_CHOSEN above so tools/make_home_maps.py makes
 // their smaller copies
-// ===== TRIAL: Try switch "Shield’s other pictures" (23 Nov), START: remove once she has picked =====
-// her questions (23 Nov): why Dynamax Adventures has the Crown Tundra's painting (the Max Lair is there), and her ideas: Bonus
-// Pokémon all three of Shield's pictures, HOME Transfers every region's map together. "as" = what the data says (Shield's dex.json)
-const TRY_SEC_KEY = "jemmas-pokedex-try-secpics";
-const TRY_SEC = [
-  ["max-lair", "Dynamax Adventures", [["as", "The Crown Tundra painting"], ["all", "Every region’s map"]], "as"],
-  ["elsewhere", "Bonus Pokémon", [["as", "Galar’s map"], ["three", "All three"]], "three"],
-  ["from-home", "HOME Transfers", [["as", "No picture"], ["all", "Every region’s map"]], "all"],
-];
-let trySec = store.get(TRY_SEC_KEY, {});
-if (!trySec || typeof trySec !== "object" || Array.isArray(trySec)) trySec = {};
-const trySecPick = id => { const row = TRY_SEC.find(r => r[0] === id); if (!row) return "as";
-  return row[2].some(([k]) => k === trySec[id]) ? trySec[id] : row[3]; };
-(function tryBox(){
-  const box = document.createElement("div"); box.className = "trybox"; box.setAttribute("role", "group"); box.setAttribute("aria-label", "Try");
-  const draw = () => {
-    box.innerHTML = `<b>Try</b>` + TRY_SEC.map(([id, name, opts]) => `<div class="tryrow" role="group" aria-label="${name}" data-row="${id}"><span>${name}</span>` +
-      opts.map(([k, l]) => `<button type="button" data-v="${k}" aria-pressed="${trySecPick(id) === k}">${l}</button>`).join("") + `</div>`).join("");
-  };
-  const pad = () => document.documentElement.style.setProperty("--trypad", box.offsetHeight + 24 + "px");   // room under the page on phones (site.css)
-  box.addEventListener("click", ev => { const b = ev.target.closest("[data-v]"); if (!b) return; const id = b.closest("[data-row]").dataset.row;
-    trySec = {...trySec, [id]: b.dataset.v}; store.set(TRY_SEC_KEY, trySec); draw(); rerender();
-    box.querySelector(`[data-row="${id}"] [data-v="${b.dataset.v}"]`)?.focus(); pad(); });
-  draw(); document.body.append(box);
-  pad(); addEventListener("resize", pad);
-})();
-// ===== TRIAL: Try switch "Shield’s other pictures", END =====
 // a narrower picture shown less zoomed in: the banner's picture area takes this shape (width / height), so more of it shows and
 // it still blends softly into the colour on the left (12 Nov: Johto looked too zoomed in)
 const SHOT_RATIO = {};
@@ -466,7 +440,7 @@ const heroPics = (srcs, cls = "") => srcs.length ? `<span class="heropics${cls ?
 // one region's map (Fast tick for a region, a Pokémon's page), cropped and lifted like the region page's own banner (round 5
 // review: Kanto's white sky still showed at the top right of these at about 1000 wide), the phone copy on narrow windows
 function regionPics(g){
-  const fs = mapFiles(g); if (fs.length > 1) return heroPics(fs.map(homeCopy));   // a section with several pictures (TRIAL above)
+  const fs = mapFiles(g); if (fs.length > 1) return heroPics(fs.map(homeCopy));   // a section with several pictures
   const f = fs[0]; if (!f) return "";
   const sm = phoneMap(f), fit = SHOT_FIT[f], lift = SHOT_LIFT[f];
   return `<span class="heropics one"${lift ? ` style="--shotlift:${lift}"` : ""}><i style="${attr(`--pic:url('regions/${f}')${sm ? `;--picsm:url('${sm}')` : ""}${fit ? `;--fit:${fit}` : ""}`)}"></i></span>`;
@@ -481,14 +455,12 @@ const homeMaps = () => GENS.map(([g]) => REGION_CHOSEN[g] ? `regions/home/${REGI
 
 // a section's map: a region's (her picks), or the one its game's data names (Shield's Isle of Armor and Crown Tundra: the official
 // paintings, her pick, 23 Nov)
-const mapFile = g => { const k = bySections() && secById(g) ? secById(g).map : g; return k ? REGION_CHOSEN[k] : null; };
-// every picture of a section: usually its one map; several side by side where she has picked that (TRIAL "Shield's other pictures")
-const mapFiles = g => {
-  const v = GAME === "shield" && bySections() && secById(g) ? trySecPick(g) : "as";
-  if (v === "all") return GENS.map(([r]) => REGION_CHOSEN[r]).filter(Boolean);
-  if (v === "three") return ["galar", "isle-of-armor", "crown-tundra"].map(mapFile).filter(Boolean);
-  const f = mapFile(g); return f ? [f] : [];
-};
+// A section's "map" in its game's data is one map, a list shown side by side, or "all": every region's map (her picks, 23 Nov, from
+// the Try switch "Shield's other pictures": Bonus Pokémon all three of Shield's, from Galar, the Isle of Armor and the Crown Tundra;
+// Dynamax Adventures and HOME Transfers every region's map, their Pokémon coming from every region)
+const mapFiles = g => { const m = bySections() && secById(g) ? secById(g).map : g;
+  return (m === "all" ? GENS.map(([r]) => r) : Array.isArray(m) ? m : m ? [m] : []).map(k => REGION_CHOSEN[k]).filter(Boolean); };
+const mapFile = g => { const fs = mapFiles(g); return fs.length === 1 ? fs[0] : null; };   // its one map (null when it has several)
 const homeCopy = f => `regions/home/${f.replace(/\.\w+$/, "")}.webp`;   // Home's smaller copy of a map (tools/make_home_maps.py)
 function regionShot(g){   // style for a region page's banner: her picked map (12 Nov; the scenery trial and its switch were removed 22 Nov)
   const f = PIC_TRY || mapFile(g);   // ?pic= for pictures of options only
@@ -916,7 +888,7 @@ function pokemonPage(key){
       (gen[0] ? `<a href="${R("gen-" + gen[0])}">${ic("layers")}${esc(gen[1])}</a>` : "") + `</div>
       <nav class="prevnext" aria-label="Previous and next Pokémon">${step(prev, "prev")}${step(next, "next")}</nav></div>
     <div class="monhead"><div><span class="label">#${pad(n)}${sel.category ? " · " + esc(sel.category) : ""}</span><h1>${esc(sel.name)}${sel.form ? ` <em>${esc(sel.form)}</em>` : ""}</h1>
-      <div class="chips">${sel.types.map(t => `<span class="type">${esc(t)}</span>`).join("")}${{both: ["Female", "Male"], male: ["Male"], female: ["Female"], none: ["Genderless"]}[sel.gender].map(g => `<span class="type">${g}</span>`).join("")}${kind ? `<span class="type">${esc(kind)}</span>` : ""}${sel.released ? "" : `<span class="type">Unavailable in ${GAME !== "go" ? gameName() : "GO"}</span>`}${sel.only && ONLY[sel.only] ? `<span class="type">${ONLY[sel.only]}</span>` : ""}</div></div></div></header>${readOnlyNote()}
+      <div class="chips">${sel.types.map(t => `<span class="type">${esc(t)}</span>`).join("")}${{both: ["Female", "Male"], male: ["Male"], female: ["Female"], none: ["Genderless"]}[sel.gender].map(g => `<span class="type">${g}</span>`).join("")}${kind ? `<span class="type">${esc(kind)}</span>` : ""}${sel.released ? "" : `<span class="type">Unavailable in ${GAME !== "go" ? gameName() : "GO"}</span>`}${sel.only && ONLY[sel.only] ? `<span class="type">${ONLY[sel.only]}</span>` : ""}${sel.choose ? `<span class="type">Choose one</span>` : ""}</div></div></div></header>${readOnlyNote()}
     <div class="mondetail"><div class="monpic" data-t1="${attr((sel.types || [])[0] || "")}">${pic(sel, dk(sel), true)}${picker}</div>
       <div>${descFrom}${desc}${facts}</div></div>
     <section class="section"><div class="boxhead"><h2>Your <em>boxes</em>${ordered.length > 1 ? ` <span class="muted">for ${esc(formLabel(sel))}</span>` : ""}</h2></div>${bigBoxes(sel)}</section>
@@ -1537,7 +1509,7 @@ const dexNo = n => "#" + String(n).padStart(4, "0");
 const PH = `<span class="stamp">Placeholder</span>`;
 const regionMapPlate = g => { const fs = mapFiles(g); if (!fs.length) return "";
   return fs.length === 1 ? `<span class="genmap" aria-hidden="true" style="--pic:url('${homeCopy(fs[0])}')"></span>`
-    : `<span class="genmap multi" aria-hidden="true">${fs.map(f => `<i style="--pic:url('${homeCopy(f)}')"></i>`).join("")}</span>`; };   // several side by side (TRIAL)
+    : `<span class="genmap multi" aria-hidden="true">${fs.map(f => `<i style="--pic:url('${homeCopy(f)}')"></i>`).join("")}</span>`; };   // several side by side (Shield's Bonus Pokémon, Dynamax Adventures, HOME Transfers)
 const statRow = (name, icon, have, of, col) => `<span class="rl" style="--c:${col}">${ic(icon)}${name}</span><span class="bar" style="--c:${col}">${of ? `<i style="width:${have / of * 100}%"></i>` : ""}</span><span class="v">${of ? `${num(have)} / ${num(of)}` : PH}</span>`;
 const secRange = g => { if (DEX_RANGE[g] && !bySections()) return `${dexNo(DEX_RANGE[g][0])}–${dexNo(DEX_RANGE[g][1])}`;   // a region's National numbers; a Pokédex's own (Galar #001–#400); a list without numbers: how many
   const ns = secEntries(g).map(e => secNo(e, g)).filter(n => n != null);
