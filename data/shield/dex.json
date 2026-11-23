@@ -31,14 +31,14 @@
   },
   {
    "id": "elsewhere",
-   "name": "Also in Shield",
+   "name": "Bonus Pokémon",
    "small": "Not in a Pokédex",
    "map": "8",
    "colour": "#6E2D82"
   },
   {
    "id": "from-home",
-   "name": "From HOME",
+   "name": "HOME Transfers",
    "small": "Pokémon HOME",
    "map": null,
    "colour": "#6E2D82"

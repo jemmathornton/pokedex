@@ -37,8 +37,8 @@ GAMES = {
             {'id': 'isle-of-armor', 'name': 'Isle of Armor', 'small': 'The Isle of Armor', 'map': 'isle-of-armor', 'colour': '#6E2D82'},
             {'id': 'crown-tundra', 'name': 'Crown Tundra', 'small': 'The Crown Tundra', 'map': 'crown-tundra', 'colour': '#6E2D82'},
             {'id': 'max-lair', 'name': 'Dynamax Adventures', 'small': 'The Crown Tundra', 'map': 'crown-tundra', 'colour': '#6E2D82'},
-            {'id': 'elsewhere', 'name': 'Also in Shield', 'small': 'Not in a Pokédex', 'map': '8', 'colour': '#6E2D82'},
-            {'id': 'from-home', 'name': 'From HOME', 'small': 'Pokémon HOME', 'map': None, 'colour': '#6E2D82'},
+            {'id': 'elsewhere', 'name': 'Bonus Pokémon', 'small': 'Not in a Pokédex', 'map': '8', 'colour': '#6E2D82'},
+            {'id': 'from-home', 'name': 'HOME Transfers', 'small': 'Pokémon HOME', 'map': None, 'colour': '#6E2D82'},
         ],
         'other': 'sword',   # the other version: its Pokémon are marked (her answer, 23 Nov)
     },
