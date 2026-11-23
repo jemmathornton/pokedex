@@ -37,6 +37,10 @@ def source(key):
 def wanted():
     keys = set()
     dex = json.load(open(os.path.join(ROOT, 'data', 'home', 'dex.json'), encoding='utf-8'))['entries']
+    for game in ('shield',):   # the games after HOME: their own forms (Calyrex's riders, Silvally's memories in Shield)
+        path = os.path.join(ROOT, 'data', game, 'dex.json')
+        if os.path.exists(path):
+            dex = dex + json.load(open(path, encoding='utf-8'))['entries']
     for e in dex:
         for k in (e.get('img'), e.get('femaleImg')):
             if k and k.startswith('hm.'):

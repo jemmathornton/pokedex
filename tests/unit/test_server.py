@@ -114,6 +114,16 @@ class Server(unittest.TestCase):
         self.assertFalse(self.post({'game': 'home', 'list': 'costumes', 'key': '1-fall-2019', 'on': True})[1]['ok'], 'costumes are GO’s')
         self.assertFalse(self.post({'game': 'home', 'list': 'went', 'key': 'x', 'on': True})[1]['ok'], 'events are GO’s')
 
+    def test_shield_ticks_go_to_shield_json(self):   # Pokémon Shield (23 Nov): its own file, only its boxes
+        go_before = self.box.read('collection', 'go.json')
+        self.assertEqual(self.post({'game': 'shield', 'list': 'have', 'key': 'd:810', 'tick': 'gx', 'on': True}), (200, {'ok': True}))
+        self.assertEqual(self.box.read('collection', 'shield.json')['have'], {'d:810': ['gx']})
+        self.assertEqual(self.get('/api/collection?game=shield')['have'], {'d:810': ['gx']})
+        self.assertEqual(self.box.read('collection', 'go.json'), go_before)
+        self.assertFalse(os.path.exists(self.box.path('data', 'collection', 'home.json')) and self.box.read('collection', 'home.json')['have'].get('d:810'))
+        for t in ('l', 'h', 'dx', 'sd'):
+            self.assertFalse(self.post({'game': 'shield', 'list': 'have', 'key': 'd:6', 'tick': t, 'on': True})[1]['ok'], t)
+
     def test_an_unknown_game_is_refused(self):
         for game in ('za', '../go', 5, ['go']):
             with self.subTest(game):

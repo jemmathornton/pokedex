@@ -1,0 +1,8087 @@
+{
+ "updated": "2026-11-23",
+ "sections": [
+  {
+   "id": "galar",
+   "name": "Galar",
+   "small": "Sword and Shield",
+   "map": "8",
+   "colour": "#6E2D82"
+  },
+  {
+   "id": "isle-of-armor",
+   "name": "Isle of Armor",
+   "small": "The Isle of Armor",
+   "map": "isle-of-armor",
+   "colour": "#6E2D82"
+  },
+  {
+   "id": "crown-tundra",
+   "name": "Crown Tundra",
+   "small": "The Crown Tundra",
+   "map": "crown-tundra",
+   "colour": "#6E2D82"
+  },
+  {
+   "id": "max-lair",
+   "name": "Dynamax Adventures",
+   "small": "The Crown Tundra",
+   "map": "crown-tundra",
+   "colour": "#6E2D82"
+  },
+  {
+   "id": "elsewhere",
+   "name": "Also in Shield",
+   "small": "Not in a Pokédex",
+   "map": "8",
+   "colour": "#6E2D82"
+  },
+  {
+   "id": "from-home",
+   "name": "From HOME",
+   "small": "Pokémon HOME",
+   "map": null,
+   "colour": "#6E2D82"
+  }
+ ],
+ "entries": [
+  {
+   "id": "1",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 68
+   }
+  },
+  {
+   "id": "2",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 69
+   }
+  },
+  {
+   "id": "3",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "isle-of-armor": 70
+   }
+  },
+  {
+   "id": "4",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 378
+   }
+  },
+  {
+   "id": "5",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 379
+   }
+  },
+  {
+   "id": "6",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 380
+   }
+  },
+  {
+   "id": "7",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 71
+   }
+  },
+  {
+   "id": "8",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 72
+   }
+  },
+  {
+   "id": "9",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "isle-of-armor": 73
+   }
+  },
+  {
+   "id": "10",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 13
+   }
+  },
+  {
+   "id": "11",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 14
+   }
+  },
+  {
+   "id": "12",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 15
+   }
+  },
+  {
+   "id": "25",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "isle-of-armor": 85,
+    "galar": 194
+   }
+  },
+  {
+   "id": "25-original-cap",
+   "home": true,
+   "shiny": false,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 85,
+    "galar": 194
+   }
+  },
+  {
+   "id": "25-hoenn-cap",
+   "home": true,
+   "shiny": false,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 85,
+    "galar": 194
+   }
+  },
+  {
+   "id": "25-sinnoh-cap",
+   "home": true,
+   "shiny": false,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 85,
+    "galar": 194
+   }
+  },
+  {
+   "id": "25-unova-cap",
+   "home": true,
+   "shiny": false,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 85,
+    "galar": 194
+   }
+  },
+  {
+   "id": "25-kalos-cap",
+   "home": true,
+   "shiny": false,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 85,
+    "galar": 194
+   }
+  },
+  {
+   "id": "25-alola-cap",
+   "home": true,
+   "shiny": false,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 85,
+    "galar": 194
+   }
+  },
+  {
+   "id": "25-partner-cap",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 85,
+    "galar": 194
+   }
+  },
+  {
+   "id": "25-world-cap",
+   "home": true,
+   "shiny": false,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 85,
+    "galar": 194
+   }
+  },
+  {
+   "id": "26",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 86,
+    "galar": 195
+   }
+  },
+  {
+   "id": "26-alolan",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "27",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 168
+   }
+  },
+  {
+   "id": "27-alolan",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "elsewhere": null
+   }
+  },
+  {
+   "id": "28",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 169
+   }
+  },
+  {
+   "id": "28-alolan",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "29",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 65
+   }
+  },
+  {
+   "id": "30",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 66
+   }
+  },
+  {
+   "id": "31",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 67
+   }
+  },
+  {
+   "id": "32",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 68
+   }
+  },
+  {
+   "id": "33",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 69
+   }
+  },
+  {
+   "id": "34",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 70
+   }
+  },
+  {
+   "id": "35",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 255,
+    "crown-tundra": 44
+   }
+  },
+  {
+   "id": "36",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 256,
+    "crown-tundra": 45
+   }
+  },
+  {
+   "id": "37",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 68
+   }
+  },
+  {
+   "id": "37-alolan",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "elsewhere": null
+   }
+  },
+  {
+   "id": "38",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 69
+   }
+  },
+  {
+   "id": "38-alolan",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "elsewhere": null
+   }
+  },
+  {
+   "id": "39",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 12
+   }
+  },
+  {
+   "id": "40",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 13
+   }
+  },
+  {
+   "id": "41",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 144
+   }
+  },
+  {
+   "id": "42",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 145
+   }
+  },
+  {
+   "id": "43",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 55
+   }
+  },
+  {
+   "id": "44",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 56
+   }
+  },
+  {
+   "id": "45",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 57
+   }
+  },
+  {
+   "id": "50",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 164
+   }
+  },
+  {
+   "id": "50-alolan",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "elsewhere": null
+   }
+  },
+  {
+   "id": "51",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 165
+   }
+  },
+  {
+   "id": "51-alolan",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "52",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "elsewhere": null
+   }
+  },
+  {
+   "id": "52-alolan",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "elsewhere": null
+   }
+  },
+  {
+   "id": "52-galarian",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 182
+   }
+  },
+  {
+   "id": "53",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 184
+   }
+  },
+  {
+   "id": "53-alolan",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "54",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 146
+   }
+  },
+  {
+   "id": "55",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 147
+   }
+  },
+  {
+   "id": "58",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 70
+   }
+  },
+  {
+   "id": "59",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 71
+   }
+  },
+  {
+   "id": "60",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 142
+   }
+  },
+  {
+   "id": "61",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 143
+   }
+  },
+  {
+   "id": "62",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 144
+   }
+  },
+  {
+   "id": "63",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 31
+   }
+  },
+  {
+   "id": "64",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 32
+   }
+  },
+  {
+   "id": "65",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 33
+   }
+  },
+  {
+   "id": "66",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 138
+   }
+  },
+  {
+   "id": "67",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 139
+   }
+  },
+  {
+   "id": "68",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 140
+   }
+  },
+  {
+   "id": "72",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 40
+   }
+  },
+  {
+   "id": "73",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 41
+   }
+  },
+  {
+   "id": "77",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "elsewhere": null
+   }
+  },
+  {
+   "id": "77-galarian",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 333,
+    "crown-tundra": 105
+   }
+  },
+  {
+   "id": "78",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "elsewhere": null
+   }
+  },
+  {
+   "id": "78-galarian",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 334,
+    "crown-tundra": 106
+   }
+  },
+  {
+   "id": "79",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "elsewhere": null
+   }
+  },
+  {
+   "id": "79-galarian",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 1
+   }
+  },
+  {
+   "id": "80",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "elsewhere": null
+   }
+  },
+  {
+   "id": "80-galarian",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 2
+   }
+  },
+  {
+   "id": "81",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 105
+   }
+  },
+  {
+   "id": "82",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 106
+   }
+  },
+  {
+   "id": "83",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "elsewhere": null
+   }
+  },
+  {
+   "id": "83-galarian",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "only": "sword",
+   "sec": {
+    "galar": 218
+   }
+  },
+  {
+   "id": "90",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 131,
+    "galar": 150
+   }
+  },
+  {
+   "id": "91",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 132,
+    "galar": 151
+   }
+  },
+  {
+   "id": "92",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 141
+   }
+  },
+  {
+   "id": "93",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 142
+   }
+  },
+  {
+   "id": "94",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 143
+   }
+  },
+  {
+   "id": "95",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 178
+   }
+  },
+  {
+   "id": "98",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 38,
+    "galar": 98
+   }
+  },
+  {
+   "id": "99",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "isle-of-armor": 39,
+    "galar": 99
+   }
+  },
+  {
+   "id": "102",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 205
+   }
+  },
+  {
+   "id": "103",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 206
+   }
+  },
+  {
+   "id": "103-alolan",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "elsewhere": null
+   }
+  },
+  {
+   "id": "104",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 170
+   }
+  },
+  {
+   "id": "105",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 171
+   }
+  },
+  {
+   "id": "105-alolan",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "106",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 108
+   }
+  },
+  {
+   "id": "107",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 109
+   }
+  },
+  {
+   "id": "108",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 54
+   }
+  },
+  {
+   "id": "109",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 250
+   }
+  },
+  {
+   "id": "110",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "elsewhere": null
+   }
+  },
+  {
+   "id": "110-galarian",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 251
+   }
+  },
+  {
+   "id": "111",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 183,
+    "galar": 264
+   }
+  },
+  {
+   "id": "112",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 184,
+    "galar": 265
+   }
+  },
+  {
+   "id": "113",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 7
+   }
+  },
+  {
+   "id": "114",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 80
+   }
+  },
+  {
+   "id": "115",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 172
+   }
+  },
+  {
+   "id": "116",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 198
+   }
+  },
+  {
+   "id": "117",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 199
+   }
+  },
+  {
+   "id": "118",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 94,
+    "galar": 146
+   }
+  },
+  {
+   "id": "119",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 95,
+    "galar": 147
+   }
+  },
+  {
+   "id": "120",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 98
+   }
+  },
+  {
+   "id": "121",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 99
+   }
+  },
+  {
+   "id": "122",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "elsewhere": null
+   }
+  },
+  {
+   "id": "122-galarian",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 365,
+    "crown-tundra": 11
+   }
+  },
+  {
+   "id": "123",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 118
+   }
+  },
+  {
+   "id": "124",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 14
+   }
+  },
+  {
+   "id": "125",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 16
+   }
+  },
+  {
+   "id": "126",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 19
+   }
+  },
+  {
+   "id": "127",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "only": "sword",
+   "sec": {
+    "isle-of-armor": 120
+   }
+  },
+  {
+   "id": "128",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 116
+   }
+  },
+  {
+   "id": "129",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 42,
+    "galar": 144,
+    "crown-tundra": 62
+   }
+  },
+  {
+   "id": "130",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 43,
+    "galar": 145,
+    "crown-tundra": 63
+   }
+  },
+  {
+   "id": "131",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 361,
+    "crown-tundra": 190
+   }
+  },
+  {
+   "id": "132",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 207,
+    "galar": 373
+   }
+  },
+  {
+   "id": "133",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 196,
+    "crown-tundra": 74
+   }
+  },
+  {
+   "id": "134",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 197,
+    "crown-tundra": 75
+   }
+  },
+  {
+   "id": "135",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 198,
+    "crown-tundra": 76
+   }
+  },
+  {
+   "id": "136",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 199,
+    "crown-tundra": 77
+   }
+  },
+  {
+   "id": "137",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 208
+   }
+  },
+  {
+   "id": "138",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "only": "sword",
+   "sec": {
+    "crown-tundra": 123
+   }
+  },
+  {
+   "id": "139",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "only": "sword",
+   "sec": {
+    "crown-tundra": 124
+   }
+  },
+  {
+   "id": "140",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 125
+   }
+  },
+  {
+   "id": "141",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 126
+   }
+  },
+  {
+   "id": "142",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 127
+   }
+  },
+  {
+   "id": "143",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 261,
+    "crown-tundra": 173
+   }
+  },
+  {
+   "id": "144",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "144-galarian",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 202
+   }
+  },
+  {
+   "id": "145",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "145-galarian",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 203
+   }
+  },
+  {
+   "id": "146",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "146-galarian",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 204
+   }
+  },
+  {
+   "id": "147",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 194
+   }
+  },
+  {
+   "id": "148",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 195
+   }
+  },
+  {
+   "id": "149",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 196
+   }
+  },
+  {
+   "id": "150",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "151",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "from-home": null
+   }
+  },
+  {
+   "id": "163",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 19
+   }
+  },
+  {
+   "id": "164",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 20
+   }
+  },
+  {
+   "id": "169",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 146
+   }
+  },
+  {
+   "id": "170",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 188,
+    "galar": 220
+   }
+  },
+  {
+   "id": "171",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 189,
+    "galar": 221
+   }
+  },
+  {
+   "id": "172",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 84,
+    "galar": 193
+   }
+  },
+  {
+   "id": "173",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 254,
+    "crown-tundra": 43
+   }
+  },
+  {
+   "id": "174",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 11
+   }
+  },
+  {
+   "id": "175",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 257
+   }
+  },
+  {
+   "id": "176",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 258
+   }
+  },
+  {
+   "id": "177",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 92
+   }
+  },
+  {
+   "id": "178",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 93
+   }
+  },
+  {
+   "id": "182",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 58
+   }
+  },
+  {
+   "id": "183",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 140
+   }
+  },
+  {
+   "id": "184",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 141
+   }
+  },
+  {
+   "id": "185",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 253
+   }
+  },
+  {
+   "id": "186",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 145
+   }
+  },
+  {
+   "id": "194",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 58,
+    "galar": 100
+   }
+  },
+  {
+   "id": "195",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 59,
+    "galar": 101
+   }
+  },
+  {
+   "id": "196",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 200,
+    "crown-tundra": 79
+   }
+  },
+  {
+   "id": "197",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 201,
+    "crown-tundra": 78
+   }
+  },
+  {
+   "id": "199",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "elsewhere": null
+   }
+  },
+  {
+   "id": "199-galarian",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 3
+   }
+  },
+  {
+   "id": "202",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 217
+   }
+  },
+  {
+   "id": "206",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 52
+   }
+  },
+  {
+   "id": "208",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 179
+   }
+  },
+  {
+   "id": "211",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 304
+   }
+  },
+  {
+   "id": "212",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 119
+   }
+  },
+  {
+   "id": "213",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 227,
+    "crown-tundra": 170
+   }
+  },
+  {
+   "id": "214",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 121
+   }
+  },
+  {
+   "id": "215",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 292,
+    "crown-tundra": 28
+   }
+  },
+  {
+   "id": "220",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 75,
+    "crown-tundra": 7
+   }
+  },
+  {
+   "id": "221",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 76,
+    "crown-tundra": 8
+   }
+  },
+  {
+   "id": "222",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "elsewhere": null
+   }
+  },
+  {
+   "id": "222-galarian",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 236
+   }
+  },
+  {
+   "id": "223",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 44,
+    "galar": 148
+   }
+  },
+  {
+   "id": "224",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 45,
+    "galar": 149
+   }
+  },
+  {
+   "id": "225",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 78,
+    "crown-tundra": 120
+   }
+  },
+  {
+   "id": "226",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 47,
+    "galar": 355
+   }
+  },
+  {
+   "id": "227",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 153
+   }
+  },
+  {
+   "id": "230",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 200
+   }
+  },
+  {
+   "id": "233",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 209
+   }
+  },
+  {
+   "id": "236",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 107
+   }
+  },
+  {
+   "id": "237",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 110
+   }
+  },
+  {
+   "id": "238",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 13
+   }
+  },
+  {
+   "id": "239",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 15
+   }
+  },
+  {
+   "id": "240",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 18
+   }
+  },
+  {
+   "id": "241",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 117
+   }
+  },
+  {
+   "id": "242",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 8
+   }
+  },
+  {
+   "id": "243",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "244",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "245",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "246",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 383,
+    "crown-tundra": 139
+   }
+  },
+  {
+   "id": "247",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 384,
+    "crown-tundra": 140
+   }
+  },
+  {
+   "id": "248",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 385,
+    "crown-tundra": 141
+   }
+  },
+  {
+   "id": "249",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "250",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "only": "sword",
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "251",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "from-home": null
+   }
+  },
+  {
+   "id": "252",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "elsewhere": null
+   }
+  },
+  {
+   "id": "253",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "254",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "255",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "elsewhere": null
+   }
+  },
+  {
+   "id": "256",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "257",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "258",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "elsewhere": null
+   }
+  },
+  {
+   "id": "259",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "260",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "263",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "elsewhere": null
+   }
+  },
+  {
+   "id": "263-galarian",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 31,
+    "crown-tundra": 71
+   }
+  },
+  {
+   "id": "264",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "elsewhere": null
+   }
+  },
+  {
+   "id": "264-galarian",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 32,
+    "crown-tundra": 72
+   }
+  },
+  {
+   "id": "270",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 36
+   }
+  },
+  {
+   "id": "271",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 37
+   }
+  },
+  {
+   "id": "272",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 38
+   }
+  },
+  {
+   "id": "273",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "only": "sword",
+   "sec": {
+    "galar": 39
+   }
+  },
+  {
+   "id": "274",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "only": "sword",
+   "sec": {
+    "galar": 40
+   }
+  },
+  {
+   "id": "275",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "only": "sword",
+   "sec": {
+    "galar": 41
+   }
+  },
+  {
+   "id": "278",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 48,
+    "galar": 62
+   }
+  },
+  {
+   "id": "279",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 49,
+    "galar": 63
+   }
+  },
+  {
+   "id": "280",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 34,
+    "galar": 120
+   }
+  },
+  {
+   "id": "281",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 35,
+    "galar": 121
+   }
+  },
+  {
+   "id": "282",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 36,
+    "galar": 122
+   }
+  },
+  {
+   "id": "290",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 104
+   }
+  },
+  {
+   "id": "291",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 105
+   }
+  },
+  {
+   "id": "292",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 106
+   }
+  },
+  {
+   "id": "293",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 148
+   }
+  },
+  {
+   "id": "294",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 149
+   }
+  },
+  {
+   "id": "295",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 150
+   }
+  },
+  {
+   "id": "298",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 139
+   }
+  },
+  {
+   "id": "302",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 294,
+    "crown-tundra": 174
+   }
+  },
+  {
+   "id": "303",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "only": "sword",
+   "sec": {
+    "galar": 295,
+    "crown-tundra": 175
+   }
+  },
+  {
+   "id": "304",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 191
+   }
+  },
+  {
+   "id": "305",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 192
+   }
+  },
+  {
+   "id": "306",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 193
+   }
+  },
+  {
+   "id": "309",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 66
+   }
+  },
+  {
+   "id": "310",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 67
+   }
+  },
+  {
+   "id": "315",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 60
+   }
+  },
+  {
+   "id": "318",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 111
+   }
+  },
+  {
+   "id": "319",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 112
+   }
+  },
+  {
+   "id": "320",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 190,
+    "galar": 356
+   }
+  },
+  {
+   "id": "321",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 191,
+    "galar": 357
+   }
+  },
+  {
+   "id": "324",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 173,
+    "galar": 300
+   }
+  },
+  {
+   "id": "328",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 321
+   }
+  },
+  {
+   "id": "329",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 322
+   }
+  },
+  {
+   "id": "330",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 323
+   }
+  },
+  {
+   "id": "333",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 35
+   }
+  },
+  {
+   "id": "334",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 36
+   }
+  },
+  {
+   "id": "337",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 362
+   }
+  },
+  {
+   "id": "338",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "only": "sword",
+   "sec": {
+    "galar": 363
+   }
+  },
+  {
+   "id": "339",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 137,
+    "galar": 228,
+    "crown-tundra": 60
+   }
+  },
+  {
+   "id": "340",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 138,
+    "galar": 229,
+    "crown-tundra": 61
+   }
+  },
+  {
+   "id": "341",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 91,
+    "galar": 102
+   }
+  },
+  {
+   "id": "342",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 92,
+    "galar": 103
+   }
+  },
+  {
+   "id": "343",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 82,
+    "crown-tundra": 151
+   }
+  },
+  {
+   "id": "344",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 83,
+    "crown-tundra": 152
+   }
+  },
+  {
+   "id": "345",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 183
+   }
+  },
+  {
+   "id": "346",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 184
+   }
+  },
+  {
+   "id": "347",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 185
+   }
+  },
+  {
+   "id": "348",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 186
+   }
+  },
+  {
+   "id": "349",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 152,
+    "crown-tundra": 188
+   }
+  },
+  {
+   "id": "350",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 153,
+    "crown-tundra": 189
+   }
+  },
+  {
+   "id": "355",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 135
+   }
+  },
+  {
+   "id": "356",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 136
+   }
+  },
+  {
+   "id": "359",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 107
+   }
+  },
+  {
+   "id": "360",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 216
+   }
+  },
+  {
+   "id": "361",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 79,
+    "crown-tundra": 25
+   }
+  },
+  {
+   "id": "362",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 80,
+    "crown-tundra": 26
+   }
+  },
+  {
+   "id": "363",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 159
+   }
+  },
+  {
+   "id": "364",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 160
+   }
+  },
+  {
+   "id": "365",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 161
+   }
+  },
+  {
+   "id": "369",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 187
+   }
+  },
+  {
+   "id": "371",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "only": "sword",
+   "sec": {
+    "crown-tundra": 113
+   }
+  },
+  {
+   "id": "372",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "only": "sword",
+   "sec": {
+    "crown-tundra": 114
+   }
+  },
+  {
+   "id": "373",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "only": "sword",
+   "sec": {
+    "crown-tundra": 115
+   }
+  },
+  {
+   "id": "374",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 129
+   }
+  },
+  {
+   "id": "375",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 130
+   }
+  },
+  {
+   "id": "376",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 131
+   }
+  },
+  {
+   "id": "377",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 197
+   }
+  },
+  {
+   "id": "378",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 198
+   }
+  },
+  {
+   "id": "379",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 199
+   }
+  },
+  {
+   "id": "380",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "381",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "only": "sword",
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "382",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "383",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "only": "sword",
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "384",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "385",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "from-home": null
+   }
+  },
+  {
+   "id": "403",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 25
+   }
+  },
+  {
+   "id": "404",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 26
+   }
+  },
+  {
+   "id": "405",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 27
+   }
+  },
+  {
+   "id": "406",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 59
+   }
+  },
+  {
+   "id": "407",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 61
+   }
+  },
+  {
+   "id": "415",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 203,
+    "galar": 116
+   }
+  },
+  {
+   "id": "416",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 204,
+    "galar": 117
+   }
+  },
+  {
+   "id": "420",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 128
+   }
+  },
+  {
+   "id": "421-overcast",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 129
+   }
+  },
+  {
+   "id": "422-west-sea",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 230
+   }
+  },
+  {
+   "id": "422-east-sea",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 230
+   }
+  },
+  {
+   "id": "423-west-sea",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 231
+   }
+  },
+  {
+   "id": "423-east-sea",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 231
+   }
+  },
+  {
+   "id": "425",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 135,
+    "galar": 124
+   }
+  },
+  {
+   "id": "426",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 136,
+    "galar": 125
+   }
+  },
+  {
+   "id": "427",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 4
+   }
+  },
+  {
+   "id": "428",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 5
+   }
+  },
+  {
+   "id": "434",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 130
+   }
+  },
+  {
+   "id": "435",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 131
+   }
+  },
+  {
+   "id": "436",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 118,
+    "crown-tundra": 87
+   }
+  },
+  {
+   "id": "437",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 119,
+    "crown-tundra": 88
+   }
+  },
+  {
+   "id": "438",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 252
+   }
+  },
+  {
+   "id": "439",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 364,
+    "crown-tundra": 10
+   }
+  },
+  {
+   "id": "440",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 6
+   }
+  },
+  {
+   "id": "442",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 47
+   }
+  },
+  {
+   "id": "443",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 116
+   }
+  },
+  {
+   "id": "444",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 117
+   }
+  },
+  {
+   "id": "445",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 118
+   }
+  },
+  {
+   "id": "446",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 260,
+    "crown-tundra": 172
+   }
+  },
+  {
+   "id": "447",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 298,
+    "crown-tundra": 134
+   }
+  },
+  {
+   "id": "448",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 299,
+    "crown-tundra": 135
+   }
+  },
+  {
+   "id": "449-female",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 314
+   }
+  },
+  {
+   "id": "449",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 314
+   }
+  },
+  {
+   "id": "450-female",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 315
+   }
+  },
+  {
+   "id": "450",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 315
+   }
+  },
+  {
+   "id": "451",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 50,
+    "galar": 285
+   }
+  },
+  {
+   "id": "452",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 51,
+    "galar": 286
+   }
+  },
+  {
+   "id": "453",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 82,
+    "galar": 222
+   }
+  },
+  {
+   "id": "454",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 83,
+    "galar": 223
+   }
+  },
+  {
+   "id": "458",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 46,
+    "galar": 354
+   }
+  },
+  {
+   "id": "459",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 96,
+    "crown-tundra": 31
+   }
+  },
+  {
+   "id": "460",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 97,
+    "crown-tundra": 32
+   }
+  },
+  {
+   "id": "461",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 293,
+    "crown-tundra": 29
+   }
+  },
+  {
+   "id": "462",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 107
+   }
+  },
+  {
+   "id": "463",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 55
+   }
+  },
+  {
+   "id": "464",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 185,
+    "galar": 266
+   }
+  },
+  {
+   "id": "465",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 81
+   }
+  },
+  {
+   "id": "466",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 17
+   }
+  },
+  {
+   "id": "467",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 20
+   }
+  },
+  {
+   "id": "468",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 259
+   }
+  },
+  {
+   "id": "470",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 202,
+    "crown-tundra": 81
+   }
+  },
+  {
+   "id": "471",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 203,
+    "crown-tundra": 80
+   }
+  },
+  {
+   "id": "473",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 77,
+    "crown-tundra": 9
+   }
+  },
+  {
+   "id": "474",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 210
+   }
+  },
+  {
+   "id": "475",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 37,
+    "galar": 123
+   }
+  },
+  {
+   "id": "477",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 137
+   }
+  },
+  {
+   "id": "478",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 81,
+    "crown-tundra": 27
+   }
+  },
+  {
+   "id": "479",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 372
+   }
+  },
+  {
+   "id": "479-fan",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 372
+   }
+  },
+  {
+   "id": "479-frost",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 372
+   }
+  },
+  {
+   "id": "479-heat",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 372
+   }
+  },
+  {
+   "id": "479-mow",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 372
+   }
+  },
+  {
+   "id": "479-wash",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 372
+   }
+  },
+  {
+   "id": "480",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "481",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "482",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "483",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "only": "sword",
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "484",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "485",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "486",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "elsewhere": null
+   }
+  },
+  {
+   "id": "487-altered",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "487-origin",
+   "go": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "488",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "494",
+   "home": true,
+   "shiny": false,
+   "gmax": false,
+   "sec": {
+    "from-home": null
+   }
+  },
+  {
+   "id": "506",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 113
+   }
+  },
+  {
+   "id": "507",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 114
+   }
+  },
+  {
+   "id": "508",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 115
+   }
+  },
+  {
+   "id": "509",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 44
+   }
+  },
+  {
+   "id": "510",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 45
+   }
+  },
+  {
+   "id": "517",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 90
+   }
+  },
+  {
+   "id": "518",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 91
+   }
+  },
+  {
+   "id": "519",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 26
+   }
+  },
+  {
+   "id": "520",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 27
+   }
+  },
+  {
+   "id": "521-female",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 28
+   }
+  },
+  {
+   "id": "521",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 28
+   }
+  },
+  {
+   "id": "524",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 154,
+    "galar": 168
+   }
+  },
+  {
+   "id": "525",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 155,
+    "galar": 169
+   }
+  },
+  {
+   "id": "526",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 156,
+    "galar": 170
+   }
+  },
+  {
+   "id": "527",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 151,
+    "galar": 174
+   }
+  },
+  {
+   "id": "528",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 152,
+    "galar": 175
+   }
+  },
+  {
+   "id": "529",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 166
+   }
+  },
+  {
+   "id": "530",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 167
+   }
+  },
+  {
+   "id": "531",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 21
+   }
+  },
+  {
+   "id": "532",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 171,
+    "crown-tundra": 57
+   }
+  },
+  {
+   "id": "533",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 172,
+    "crown-tundra": 58
+   }
+  },
+  {
+   "id": "534",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 173,
+    "crown-tundra": 59
+   }
+  },
+  {
+   "id": "535",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 132
+   }
+  },
+  {
+   "id": "536",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 133
+   }
+  },
+  {
+   "id": "537",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 134
+   }
+  },
+  {
+   "id": "538",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 248
+   }
+  },
+  {
+   "id": "539",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 249
+   }
+  },
+  {
+   "id": "543",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 74
+   }
+  },
+  {
+   "id": "544",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 75
+   }
+  },
+  {
+   "id": "545",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 76
+   }
+  },
+  {
+   "id": "546",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 262,
+    "crown-tundra": 168
+   }
+  },
+  {
+   "id": "547",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 263,
+    "crown-tundra": 169
+   }
+  },
+  {
+   "id": "548",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 201
+   }
+  },
+  {
+   "id": "549",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 202
+   }
+  },
+  {
+   "id": "550-red-striped",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "only": "sword",
+   "sec": {
+    "galar": 154,
+    "crown-tundra": 64
+   }
+  },
+  {
+   "id": "550-blue-striped",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 154,
+    "crown-tundra": 64
+   }
+  },
+  {
+   "id": "551",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 176
+   }
+  },
+  {
+   "id": "552",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 177
+   }
+  },
+  {
+   "id": "553",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 178
+   }
+  },
+  {
+   "id": "554",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "elsewhere": null
+   }
+  },
+  {
+   "id": "554-galarian",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "only": "sword",
+   "sec": {
+    "galar": 367,
+    "crown-tundra": 103
+   }
+  },
+  {
+   "id": "555-standard",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "elsewhere": null
+   }
+  },
+  {
+   "id": "555-galarian",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "only": "sword",
+   "sec": {
+    "galar": 368,
+    "crown-tundra": 104
+   }
+  },
+  {
+   "id": "556",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 296
+   }
+  },
+  {
+   "id": "557",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 122,
+    "galar": 86
+   }
+  },
+  {
+   "id": "558",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 123,
+    "galar": 87
+   }
+  },
+  {
+   "id": "559",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "only": "sword",
+   "sec": {
+    "isle-of-armor": 161,
+    "galar": 224
+   }
+  },
+  {
+   "id": "560",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "only": "sword",
+   "sec": {
+    "isle-of-armor": 162,
+    "galar": 225
+   }
+  },
+  {
+   "id": "561",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 297
+   }
+  },
+  {
+   "id": "562",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "elsewhere": null
+   }
+  },
+  {
+   "id": "562-galarian",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 327
+   }
+  },
+  {
+   "id": "563",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 329
+   }
+  },
+  {
+   "id": "564",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 147
+   }
+  },
+  {
+   "id": "565",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 148
+   }
+  },
+  {
+   "id": "566",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 149
+   }
+  },
+  {
+   "id": "567",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 150
+   }
+  },
+  {
+   "id": "568",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 157
+   }
+  },
+  {
+   "id": "569",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 158
+   }
+  },
+  {
+   "id": "570",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 87
+   }
+  },
+  {
+   "id": "571",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 88
+   }
+  },
+  {
+   "id": "572",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 50
+   }
+  },
+  {
+   "id": "573",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 51
+   }
+  },
+  {
+   "id": "574",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "only": "sword",
+   "sec": {
+    "galar": 267,
+    "crown-tundra": 51
+   }
+  },
+  {
+   "id": "575",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "only": "sword",
+   "sec": {
+    "galar": 268,
+    "crown-tundra": 52
+   }
+  },
+  {
+   "id": "576",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "only": "sword",
+   "sec": {
+    "galar": 269,
+    "crown-tundra": 53
+   }
+  },
+  {
+   "id": "577",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 270,
+    "crown-tundra": 54
+   }
+  },
+  {
+   "id": "578",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 271,
+    "crown-tundra": 55
+   }
+  },
+  {
+   "id": "579",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 272,
+    "crown-tundra": 56
+   }
+  },
+  {
+   "id": "582",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 72,
+    "crown-tundra": 22
+   }
+  },
+  {
+   "id": "583",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 73,
+    "crown-tundra": 23
+   }
+  },
+  {
+   "id": "584",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 74,
+    "crown-tundra": 24
+   }
+  },
+  {
+   "id": "587",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 102
+   }
+  },
+  {
+   "id": "588",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 66,
+    "galar": 273,
+    "crown-tundra": 95
+   }
+  },
+  {
+   "id": "589",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 67,
+    "galar": 274,
+    "crown-tundra": 96
+   }
+  },
+  {
+   "id": "590",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 77
+   }
+  },
+  {
+   "id": "591",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 78
+   }
+  },
+  {
+   "id": "592",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 192,
+    "galar": 305
+   }
+  },
+  {
+   "id": "592-female",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 192,
+    "galar": 305
+   }
+  },
+  {
+   "id": "593",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 193,
+    "galar": 306
+   }
+  },
+  {
+   "id": "593-female",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 193,
+    "galar": 306
+   }
+  },
+  {
+   "id": "595",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 64,
+    "crown-tundra": 93
+   }
+  },
+  {
+   "id": "596",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 65,
+    "crown-tundra": 94
+   }
+  },
+  {
+   "id": "597",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 189,
+    "crown-tundra": 179
+   }
+  },
+  {
+   "id": "598",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 190,
+    "crown-tundra": 180
+   }
+  },
+  {
+   "id": "599",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 113
+   }
+  },
+  {
+   "id": "600",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 114
+   }
+  },
+  {
+   "id": "601",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 115
+   }
+  },
+  {
+   "id": "605",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 277
+   }
+  },
+  {
+   "id": "606",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 278
+   }
+  },
+  {
+   "id": "607",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 287,
+    "crown-tundra": 48
+   }
+  },
+  {
+   "id": "608",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 288,
+    "crown-tundra": 49
+   }
+  },
+  {
+   "id": "609",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 289,
+    "crown-tundra": 50
+   }
+  },
+  {
+   "id": "610",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 324
+   }
+  },
+  {
+   "id": "611",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 325
+   }
+  },
+  {
+   "id": "612",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 326
+   }
+  },
+  {
+   "id": "613",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 279,
+    "crown-tundra": 121
+   }
+  },
+  {
+   "id": "614",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 280,
+    "crown-tundra": 122
+   }
+  },
+  {
+   "id": "615",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 30
+   }
+  },
+  {
+   "id": "616",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 64,
+    "galar": 275,
+    "crown-tundra": 97
+   }
+  },
+  {
+   "id": "617",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 65,
+    "galar": 276,
+    "crown-tundra": 98
+   }
+  },
+  {
+   "id": "618",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "elsewhere": null
+   }
+  },
+  {
+   "id": "618-galarian",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 226
+   }
+  },
+  {
+   "id": "619",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 163
+   }
+  },
+  {
+   "id": "620",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 164
+   }
+  },
+  {
+   "id": "621",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 63,
+    "crown-tundra": 119
+   }
+  },
+  {
+   "id": "622",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 88,
+    "crown-tundra": 153
+   }
+  },
+  {
+   "id": "623",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 89,
+    "crown-tundra": 154
+   }
+  },
+  {
+   "id": "624",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 29,
+    "galar": 246
+   }
+  },
+  {
+   "id": "625",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 30,
+    "galar": 247
+   }
+  },
+  {
+   "id": "626",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 53
+   }
+  },
+  {
+   "id": "627",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "only": "sword",
+   "sec": {
+    "isle-of-armor": 179,
+    "galar": 281
+   }
+  },
+  {
+   "id": "628",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "only": "sword",
+   "sec": {
+    "isle-of-armor": 180,
+    "galar": 282
+   }
+  },
+  {
+   "id": "629",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 181,
+    "galar": 283
+   }
+  },
+  {
+   "id": "630",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 182,
+    "galar": 284
+   }
+  },
+  {
+   "id": "631",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 317,
+    "crown-tundra": 102
+   }
+  },
+  {
+   "id": "632",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 316,
+    "crown-tundra": 101
+   }
+  },
+  {
+   "id": "633",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "only": "sword",
+   "sec": {
+    "galar": 386,
+    "crown-tundra": 136
+   }
+  },
+  {
+   "id": "634",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "only": "sword",
+   "sec": {
+    "galar": 387,
+    "crown-tundra": 137
+   }
+  },
+  {
+   "id": "635",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "only": "sword",
+   "sec": {
+    "galar": 388,
+    "crown-tundra": 138
+   }
+  },
+  {
+   "id": "636",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 186
+   }
+  },
+  {
+   "id": "637",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 187
+   }
+  },
+  {
+   "id": "638",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 205
+   }
+  },
+  {
+   "id": "639",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 206
+   }
+  },
+  {
+   "id": "640",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 207
+   }
+  },
+  {
+   "id": "641-incarnate",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "only": "sword",
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "641-therian",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "only": "sword",
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "642-incarnate",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "642-therian",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "643",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "only": "sword",
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "644",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "645-incarnate",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "645-therian",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "646",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "646-black",
+   "go": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "646-white",
+   "go": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "647-ordinary",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "elsewhere": null
+   }
+  },
+  {
+   "id": "647-resolute",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "elsewhere": null
+   }
+  },
+  {
+   "id": "649",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "from-home": null
+   }
+  },
+  {
+   "id": "649-shock",
+   "go": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "from-home": null
+   }
+  },
+  {
+   "id": "649-burn",
+   "go": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "from-home": null
+   }
+  },
+  {
+   "id": "649-chill",
+   "go": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "from-home": null
+   }
+  },
+  {
+   "id": "649-douse",
+   "go": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "from-home": null
+   }
+  },
+  {
+   "id": "659",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 48
+   }
+  },
+  {
+   "id": "660",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 49
+   }
+  },
+  {
+   "id": "661",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 22
+   }
+  },
+  {
+   "id": "662",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 23
+   }
+  },
+  {
+   "id": "663",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 24
+   }
+  },
+  {
+   "id": "674",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 111
+   }
+  },
+  {
+   "id": "675",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 112
+   }
+  },
+  {
+   "id": "677",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 208
+   }
+  },
+  {
+   "id": "678",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 209
+   }
+  },
+  {
+   "id": "678-female",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 209
+   }
+  },
+  {
+   "id": "679",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 330
+   }
+  },
+  {
+   "id": "680",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 331
+   }
+  },
+  {
+   "id": "681-shield",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 332
+   }
+  },
+  {
+   "id": "682",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 212
+   }
+  },
+  {
+   "id": "683",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 213
+   }
+  },
+  {
+   "id": "684",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "only": "sword",
+   "sec": {
+    "galar": 210
+   }
+  },
+  {
+   "id": "685",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "only": "sword",
+   "sec": {
+    "galar": 211
+   }
+  },
+  {
+   "id": "686",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 108,
+    "galar": 290
+   }
+  },
+  {
+   "id": "687",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 109,
+    "galar": 291
+   }
+  },
+  {
+   "id": "688",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 234
+   }
+  },
+  {
+   "id": "689",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 235
+   }
+  },
+  {
+   "id": "690",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 194
+   }
+  },
+  {
+   "id": "691",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 195
+   }
+  },
+  {
+   "id": "692",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "only": "sword",
+   "sec": {
+    "isle-of-armor": 196
+   }
+  },
+  {
+   "id": "693",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "only": "sword",
+   "sec": {
+    "isle-of-armor": 197
+   }
+  },
+  {
+   "id": "694",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 318
+   }
+  },
+  {
+   "id": "695",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 319
+   }
+  },
+  {
+   "id": "696",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 83
+   }
+  },
+  {
+   "id": "697",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 84
+   }
+  },
+  {
+   "id": "698",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 85
+   }
+  },
+  {
+   "id": "699",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 86
+   }
+  },
+  {
+   "id": "700",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 204,
+    "crown-tundra": 82
+   }
+  },
+  {
+   "id": "701",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 320
+   }
+  },
+  {
+   "id": "702",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 103
+   }
+  },
+  {
+   "id": "703",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 128
+   }
+  },
+  {
+   "id": "704",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 60,
+    "galar": 389
+   }
+  },
+  {
+   "id": "705",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 61,
+    "galar": 390
+   }
+  },
+  {
+   "id": "706",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 62,
+    "galar": 391
+   }
+  },
+  {
+   "id": "707",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 28
+   }
+  },
+  {
+   "id": "708",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 338,
+    "crown-tundra": 33
+   }
+  },
+  {
+   "id": "709",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 339,
+    "crown-tundra": 34
+   }
+  },
+  {
+   "id": "710-small",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 191
+   }
+  },
+  {
+   "id": "710-average",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 191
+   }
+  },
+  {
+   "id": "710-large",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 191
+   }
+  },
+  {
+   "id": "710-super",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 191
+   }
+  },
+  {
+   "id": "711-small",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 192
+   }
+  },
+  {
+   "id": "711-average",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 192
+   }
+  },
+  {
+   "id": "711-large",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 192
+   }
+  },
+  {
+   "id": "711-super",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 192
+   }
+  },
+  {
+   "id": "712",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 358,
+    "crown-tundra": 142
+   }
+  },
+  {
+   "id": "713",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 359,
+    "crown-tundra": 143
+   }
+  },
+  {
+   "id": "714",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 176,
+    "crown-tundra": 181
+   }
+  },
+  {
+   "id": "715",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 177,
+    "crown-tundra": 182
+   }
+  },
+  {
+   "id": "716",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "only": "sword",
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "717",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "718-10",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "718-50",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "719",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "from-home": null
+   }
+  },
+  {
+   "id": "721",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "from-home": null
+   }
+  },
+  {
+   "id": "722",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "elsewhere": null
+   }
+  },
+  {
+   "id": "723",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "elsewhere": null
+   }
+  },
+  {
+   "id": "724",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "elsewhere": null
+   }
+  },
+  {
+   "id": "725",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "elsewhere": null
+   }
+  },
+  {
+   "id": "726",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "elsewhere": null
+   }
+  },
+  {
+   "id": "727",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "elsewhere": null
+   }
+  },
+  {
+   "id": "728",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "elsewhere": null
+   }
+  },
+  {
+   "id": "729",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "elsewhere": null
+   }
+  },
+  {
+   "id": "730",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "elsewhere": null
+   }
+  },
+  {
+   "id": "736",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 16
+   }
+  },
+  {
+   "id": "737",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 17
+   }
+  },
+  {
+   "id": "738",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 18
+   }
+  },
+  {
+   "id": "742",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 187
+   }
+  },
+  {
+   "id": "743",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 188
+   }
+  },
+  {
+   "id": "744",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 157
+   }
+  },
+  {
+   "id": "745-midday",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 158
+   }
+  },
+  {
+   "id": "745-midnight",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 158
+   }
+  },
+  {
+   "id": "745-dusk",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 158
+   }
+  },
+  {
+   "id": "746-solo",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 110,
+    "galar": 155
+   }
+  },
+  {
+   "id": "747",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 127,
+    "galar": 307
+   }
+  },
+  {
+   "id": "748",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 128,
+    "galar": 308
+   }
+  },
+  {
+   "id": "749",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 84
+   }
+  },
+  {
+   "id": "750",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 85
+   }
+  },
+  {
+   "id": "751",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 214,
+    "crown-tundra": 91
+   }
+  },
+  {
+   "id": "752",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 215,
+    "crown-tundra": 92
+   }
+  },
+  {
+   "id": "753",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 17
+   }
+  },
+  {
+   "id": "754",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 18
+   }
+  },
+  {
+   "id": "755",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 340
+   }
+  },
+  {
+   "id": "756",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 341
+   }
+  },
+  {
+   "id": "757",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 159,
+    "galar": 244
+   }
+  },
+  {
+   "id": "758",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 160,
+    "galar": 245
+   }
+  },
+  {
+   "id": "759",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 94
+   }
+  },
+  {
+   "id": "760",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 95
+   }
+  },
+  {
+   "id": "761",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 52
+   }
+  },
+  {
+   "id": "762",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 53
+   }
+  },
+  {
+   "id": "763",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 54
+   }
+  },
+  {
+   "id": "764",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 79
+   }
+  },
+  {
+   "id": "765",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 89,
+    "galar": 342
+   }
+  },
+  {
+   "id": "766",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 90,
+    "galar": 343
+   }
+  },
+  {
+   "id": "767",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 124,
+    "galar": 232
+   }
+  },
+  {
+   "id": "768",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 125,
+    "galar": 233
+   }
+  },
+  {
+   "id": "769",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 133
+   }
+  },
+  {
+   "id": "770",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 134
+   }
+  },
+  {
+   "id": "771",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 156
+   }
+  },
+  {
+   "id": "772",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 381
+   }
+  },
+  {
+   "id": "773",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 382
+   }
+  },
+  {
+   "id": "773-bug",
+   "dex": 773,
+   "gen": 7,
+   "name": "Silvally",
+   "form": "Type: Bug",
+   "types": [
+    "Bug"
+   ],
+   "img": "hm.773-bug",
+   "gender": "none",
+   "class": "legendary",
+   "category": "Synthetic Pokémon",
+   "height": 2.3,
+   "weight": 100.5,
+   "family": "TYPE_NULL",
+   "evo": [],
+   "order": 1118,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 382
+   }
+  },
+  {
+   "id": "773-dark",
+   "dex": 773,
+   "gen": 7,
+   "name": "Silvally",
+   "form": "Type: Dark",
+   "types": [
+    "Dark"
+   ],
+   "img": "hm.773-dark",
+   "gender": "none",
+   "class": "legendary",
+   "category": "Synthetic Pokémon",
+   "height": 2.3,
+   "weight": 100.5,
+   "family": "TYPE_NULL",
+   "evo": [],
+   "order": 1128,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 382
+   }
+  },
+  {
+   "id": "773-dragon",
+   "dex": 773,
+   "gen": 7,
+   "name": "Silvally",
+   "form": "Type: Dragon",
+   "types": [
+    "Dragon"
+   ],
+   "img": "hm.773-dragon",
+   "gender": "none",
+   "class": "legendary",
+   "category": "Synthetic Pokémon",
+   "height": 2.3,
+   "weight": 100.5,
+   "family": "TYPE_NULL",
+   "evo": [],
+   "order": 1127,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 382
+   }
+  },
+  {
+   "id": "773-electric",
+   "dex": 773,
+   "gen": 7,
+   "name": "Silvally",
+   "form": "Type: Electric",
+   "types": [
+    "Electric"
+   ],
+   "img": "hm.773-electric",
+   "gender": "none",
+   "class": "legendary",
+   "category": "Synthetic Pokémon",
+   "height": 2.3,
+   "weight": 100.5,
+   "family": "TYPE_NULL",
+   "evo": [],
+   "order": 1124,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 382
+   }
+  },
+  {
+   "id": "773-fairy",
+   "dex": 773,
+   "gen": 7,
+   "name": "Silvally",
+   "form": "Type: Fairy",
+   "types": [
+    "Fairy"
+   ],
+   "img": "hm.773-fairy",
+   "gender": "none",
+   "class": "legendary",
+   "category": "Synthetic Pokémon",
+   "height": 2.3,
+   "weight": 100.5,
+   "family": "TYPE_NULL",
+   "evo": [],
+   "order": 1129,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 382
+   }
+  },
+  {
+   "id": "773-fighting",
+   "dex": 773,
+   "gen": 7,
+   "name": "Silvally",
+   "form": "Type: Fighting",
+   "types": [
+    "Fighting"
+   ],
+   "img": "hm.773-fighting",
+   "gender": "none",
+   "class": "legendary",
+   "category": "Synthetic Pokémon",
+   "height": 2.3,
+   "weight": 100.5,
+   "family": "TYPE_NULL",
+   "evo": [],
+   "order": 1113,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 382
+   }
+  },
+  {
+   "id": "773-fire",
+   "dex": 773,
+   "gen": 7,
+   "name": "Silvally",
+   "form": "Type: Fire",
+   "types": [
+    "Fire"
+   ],
+   "img": "hm.773-fire",
+   "gender": "none",
+   "class": "legendary",
+   "category": "Synthetic Pokémon",
+   "height": 2.3,
+   "weight": 100.5,
+   "family": "TYPE_NULL",
+   "evo": [],
+   "order": 1121,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 382
+   }
+  },
+  {
+   "id": "773-flying",
+   "dex": 773,
+   "gen": 7,
+   "name": "Silvally",
+   "form": "Type: Flying",
+   "types": [
+    "Flying"
+   ],
+   "img": "hm.773-flying",
+   "gender": "none",
+   "class": "legendary",
+   "category": "Synthetic Pokémon",
+   "height": 2.3,
+   "weight": 100.5,
+   "family": "TYPE_NULL",
+   "evo": [],
+   "order": 1114,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 382
+   }
+  },
+  {
+   "id": "773-ghost",
+   "dex": 773,
+   "gen": 7,
+   "name": "Silvally",
+   "form": "Type: Ghost",
+   "types": [
+    "Ghost"
+   ],
+   "img": "hm.773-ghost",
+   "gender": "none",
+   "class": "legendary",
+   "category": "Synthetic Pokémon",
+   "height": 2.3,
+   "weight": 100.5,
+   "family": "TYPE_NULL",
+   "evo": [],
+   "order": 1119,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 382
+   }
+  },
+  {
+   "id": "773-grass",
+   "dex": 773,
+   "gen": 7,
+   "name": "Silvally",
+   "form": "Type: Grass",
+   "types": [
+    "Grass"
+   ],
+   "img": "hm.773-grass",
+   "gender": "none",
+   "class": "legendary",
+   "category": "Synthetic Pokémon",
+   "height": 2.3,
+   "weight": 100.5,
+   "family": "TYPE_NULL",
+   "evo": [],
+   "order": 1123,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 382
+   }
+  },
+  {
+   "id": "773-ground",
+   "dex": 773,
+   "gen": 7,
+   "name": "Silvally",
+   "form": "Type: Ground",
+   "types": [
+    "Ground"
+   ],
+   "img": "hm.773-ground",
+   "gender": "none",
+   "class": "legendary",
+   "category": "Synthetic Pokémon",
+   "height": 2.3,
+   "weight": 100.5,
+   "family": "TYPE_NULL",
+   "evo": [],
+   "order": 1116,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 382
+   }
+  },
+  {
+   "id": "773-ice",
+   "dex": 773,
+   "gen": 7,
+   "name": "Silvally",
+   "form": "Type: Ice",
+   "types": [
+    "Ice"
+   ],
+   "img": "hm.773-ice",
+   "gender": "none",
+   "class": "legendary",
+   "category": "Synthetic Pokémon",
+   "height": 2.3,
+   "weight": 100.5,
+   "family": "TYPE_NULL",
+   "evo": [],
+   "order": 1126,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 382
+   }
+  },
+  {
+   "id": "773-poison",
+   "dex": 773,
+   "gen": 7,
+   "name": "Silvally",
+   "form": "Type: Poison",
+   "types": [
+    "Poison"
+   ],
+   "img": "hm.773-poison",
+   "gender": "none",
+   "class": "legendary",
+   "category": "Synthetic Pokémon",
+   "height": 2.3,
+   "weight": 100.5,
+   "family": "TYPE_NULL",
+   "evo": [],
+   "order": 1115,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 382
+   }
+  },
+  {
+   "id": "773-psychic",
+   "dex": 773,
+   "gen": 7,
+   "name": "Silvally",
+   "form": "Type: Psychic",
+   "types": [
+    "Psychic"
+   ],
+   "img": "hm.773-psychic",
+   "gender": "none",
+   "class": "legendary",
+   "category": "Synthetic Pokémon",
+   "height": 2.3,
+   "weight": 100.5,
+   "family": "TYPE_NULL",
+   "evo": [],
+   "order": 1125,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 382
+   }
+  },
+  {
+   "id": "773-rock",
+   "dex": 773,
+   "gen": 7,
+   "name": "Silvally",
+   "form": "Type: Rock",
+   "types": [
+    "Rock"
+   ],
+   "img": "hm.773-rock",
+   "gender": "none",
+   "class": "legendary",
+   "category": "Synthetic Pokémon",
+   "height": 2.3,
+   "weight": 100.5,
+   "family": "TYPE_NULL",
+   "evo": [],
+   "order": 1117,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 382
+   }
+  },
+  {
+   "id": "773-steel",
+   "dex": 773,
+   "gen": 7,
+   "name": "Silvally",
+   "form": "Type: Steel",
+   "types": [
+    "Steel"
+   ],
+   "img": "hm.773-steel",
+   "gender": "none",
+   "class": "legendary",
+   "category": "Synthetic Pokémon",
+   "height": 2.3,
+   "weight": 100.5,
+   "family": "TYPE_NULL",
+   "evo": [],
+   "order": 1120,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 382
+   }
+  },
+  {
+   "id": "773-water",
+   "dex": 773,
+   "gen": 7,
+   "name": "Silvally",
+   "form": "Type: Water",
+   "types": [
+    "Water"
+   ],
+   "img": "hm.773-water",
+   "gender": "none",
+   "class": "legendary",
+   "category": "Synthetic Pokémon",
+   "height": 2.3,
+   "weight": 100.5,
+   "family": "TYPE_NULL",
+   "evo": [],
+   "order": 1122,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 382
+   }
+  },
+  {
+   "id": "776",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "only": "sword",
+   "sec": {
+    "galar": 347
+   }
+  },
+  {
+   "id": "777",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 348
+   }
+  },
+  {
+   "id": "778-disguised",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 301,
+    "crown-tundra": 46
+   }
+  },
+  {
+   "id": "780",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 346
+   }
+  },
+  {
+   "id": "781",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 360,
+    "crown-tundra": 162
+   }
+  },
+  {
+   "id": "782",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "only": "sword",
+   "sec": {
+    "isle-of-armor": 165,
+    "galar": 392
+   }
+  },
+  {
+   "id": "783",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "only": "sword",
+   "sec": {
+    "isle-of-armor": 166,
+    "galar": 393
+   }
+  },
+  {
+   "id": "784",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "only": "sword",
+   "sec": {
+    "isle-of-armor": 167,
+    "galar": 394
+   }
+  },
+  {
+   "id": "785",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "786",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "787",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "788",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "789",
+   "home": true,
+   "shiny": false,
+   "gmax": false,
+   "sec": {
+    "elsewhere": null
+   }
+  },
+  {
+   "id": "790",
+   "home": true,
+   "shiny": false,
+   "gmax": false,
+   "sec": {
+    "elsewhere": null
+   }
+  },
+  {
+   "id": "791",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "only": "sword",
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "792",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "793",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "794",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "795",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "796",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "797",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "798",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "799",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "800",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "800-dusk-mane",
+   "go": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "800-dawn-wings",
+   "go": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "801",
+   "home": true,
+   "shiny": false,
+   "gmax": false,
+   "sec": {
+    "from-home": null
+   }
+  },
+  {
+   "id": "801-original",
+   "home": true,
+   "shiny": false,
+   "gmax": false,
+   "sec": {
+    "from-home": null
+   }
+  },
+  {
+   "id": "802",
+   "home": true,
+   "shiny": false,
+   "gmax": false,
+   "sec": {
+    "from-home": null
+   }
+  },
+  {
+   "id": "803",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "elsewhere": null
+   }
+  },
+  {
+   "id": "804",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "elsewhere": null
+   }
+  },
+  {
+   "id": "805",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "806",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "max-lair": null
+   }
+  },
+  {
+   "id": "807",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "from-home": null
+   }
+  },
+  {
+   "id": "808",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "from-home": null
+   }
+  },
+  {
+   "id": "809",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "from-home": null
+   }
+  },
+  {
+   "id": "810",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 1
+   }
+  },
+  {
+   "id": "811",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 2
+   }
+  },
+  {
+   "id": "812",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 3
+   }
+  },
+  {
+   "id": "813",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 4
+   }
+  },
+  {
+   "id": "814",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 5
+   }
+  },
+  {
+   "id": "815",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 6
+   }
+  },
+  {
+   "id": "816",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 7
+   }
+  },
+  {
+   "id": "817",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 8
+   }
+  },
+  {
+   "id": "818",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 9
+   }
+  },
+  {
+   "id": "819",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 9,
+    "galar": 24,
+    "crown-tundra": 5
+   }
+  },
+  {
+   "id": "820",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 10,
+    "galar": 25,
+    "crown-tundra": 6
+   }
+  },
+  {
+   "id": "821",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 21,
+    "crown-tundra": 163
+   }
+  },
+  {
+   "id": "822",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 22,
+    "crown-tundra": 164
+   }
+  },
+  {
+   "id": "823",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 23,
+    "crown-tundra": 165
+   }
+  },
+  {
+   "id": "824",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 14,
+    "galar": 10
+   }
+  },
+  {
+   "id": "825",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 15,
+    "galar": 11
+   }
+  },
+  {
+   "id": "826",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "isle-of-armor": 16,
+    "galar": 12
+   }
+  },
+  {
+   "id": "827",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 29
+   }
+  },
+  {
+   "id": "828",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 30
+   }
+  },
+  {
+   "id": "829",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 126,
+    "crown-tundra": 166
+   }
+  },
+  {
+   "id": "830",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 127,
+    "crown-tundra": 167
+   }
+  },
+  {
+   "id": "831",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 34,
+    "crown-tundra": 3
+   }
+  },
+  {
+   "id": "832",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 35,
+    "crown-tundra": 4
+   }
+  },
+  {
+   "id": "833",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 56,
+    "galar": 42
+   }
+  },
+  {
+   "id": "834",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "isle-of-armor": 57,
+    "galar": 43
+   }
+  },
+  {
+   "id": "835",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 46,
+    "crown-tundra": 155
+   }
+  },
+  {
+   "id": "836",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 47,
+    "crown-tundra": 156
+   }
+  },
+  {
+   "id": "837",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 161,
+    "crown-tundra": 176
+   }
+  },
+  {
+   "id": "838",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 162,
+    "crown-tundra": 177
+   }
+  },
+  {
+   "id": "839",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 163,
+    "crown-tundra": 178
+   }
+  },
+  {
+   "id": "840",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 19,
+    "galar": 205
+   }
+  },
+  {
+   "id": "841",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "only": "sword",
+   "sec": {
+    "isle-of-armor": 20,
+    "galar": 206
+   }
+  },
+  {
+   "id": "842",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "isle-of-armor": 21,
+    "galar": 207
+   }
+  },
+  {
+   "id": "843",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 174,
+    "galar": 312
+   }
+  },
+  {
+   "id": "844",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "isle-of-armor": 175,
+    "galar": 313
+   }
+  },
+  {
+   "id": "845",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 93,
+    "galar": 309
+   }
+  },
+  {
+   "id": "846",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 96,
+    "galar": 180
+   }
+  },
+  {
+   "id": "847",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 97,
+    "galar": 181
+   }
+  },
+  {
+   "id": "848",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 310
+   }
+  },
+  {
+   "id": "849-amped",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 311
+   }
+  },
+  {
+   "id": "849-low-key",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 311
+   }
+  },
+  {
+   "id": "850",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 159,
+    "crown-tundra": 99
+   }
+  },
+  {
+   "id": "851",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 160,
+    "crown-tundra": 100
+   }
+  },
+  {
+   "id": "852",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 129,
+    "galar": 351
+   }
+  },
+  {
+   "id": "853",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 130,
+    "galar": 352
+   }
+  },
+  {
+   "id": "854",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 335,
+    "crown-tundra": 132
+   }
+  },
+  {
+   "id": "854-antique",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 335,
+    "crown-tundra": 132
+   }
+  },
+  {
+   "id": "855",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 336,
+    "crown-tundra": 133
+   }
+  },
+  {
+   "id": "855-antique",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 336,
+    "crown-tundra": 133
+   }
+  },
+  {
+   "id": "856",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 241,
+    "crown-tundra": 40
+   }
+  },
+  {
+   "id": "857",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 242,
+    "crown-tundra": 41
+   }
+  },
+  {
+   "id": "858",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 243,
+    "crown-tundra": 42
+   }
+  },
+  {
+   "id": "859",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 238,
+    "crown-tundra": 37
+   }
+  },
+  {
+   "id": "860",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 239,
+    "crown-tundra": 38
+   }
+  },
+  {
+   "id": "861",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 240,
+    "crown-tundra": 39
+   }
+  },
+  {
+   "id": "862",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 33,
+    "crown-tundra": 73
+   }
+  },
+  {
+   "id": "863",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 183
+   }
+  },
+  {
+   "id": "864",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 237
+   }
+  },
+  {
+   "id": "865",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "only": "sword",
+   "sec": {
+    "galar": 219
+   }
+  },
+  {
+   "id": "866",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 366,
+    "crown-tundra": 12
+   }
+  },
+  {
+   "id": "867",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 328
+   }
+  },
+  {
+   "id": "868",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 185
+   }
+  },
+  {
+   "id": "869",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-vanilla-cream-berry-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-vanilla-cream-love-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-vanilla-cream-star-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-vanilla-cream-clover-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-vanilla-cream-flower-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-vanilla-cream-ribbon-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-ruby-cream-strawberry-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-ruby-cream-berry-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-ruby-cream-love-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-ruby-cream-star-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-ruby-cream-clover-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-ruby-cream-flower-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-ruby-cream-ribbon-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-matcha-cream-strawberry-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-matcha-cream-berry-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-matcha-cream-love-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-matcha-cream-star-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-matcha-cream-clover-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-matcha-cream-flower-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-matcha-cream-ribbon-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-mint-cream-strawberry-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-mint-cream-berry-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-mint-cream-love-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-mint-cream-star-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-mint-cream-clover-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-mint-cream-flower-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-mint-cream-ribbon-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-lemon-cream-strawberry-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-lemon-cream-berry-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-lemon-cream-love-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-lemon-cream-star-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-lemon-cream-clover-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-lemon-cream-flower-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-lemon-cream-ribbon-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-salted-cream-strawberry-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-salted-cream-berry-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-salted-cream-love-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-salted-cream-star-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-salted-cream-clover-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-salted-cream-flower-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-salted-cream-ribbon-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-ruby-swirl-strawberry-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-ruby-swirl-berry-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-ruby-swirl-love-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-ruby-swirl-star-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-ruby-swirl-clover-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-ruby-swirl-flower-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-ruby-swirl-ribbon-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-caramel-swirl-strawberry-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-caramel-swirl-berry-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-caramel-swirl-love-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-caramel-swirl-star-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-caramel-swirl-clover-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-caramel-swirl-flower-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-caramel-swirl-ribbon-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-rainbow-swirl-strawberry-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-rainbow-swirl-berry-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-rainbow-swirl-love-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-rainbow-swirl-star-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-rainbow-swirl-clover-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-rainbow-swirl-flower-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "869-rainbow-swirl-ribbon-sweet",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 186
+   }
+  },
+  {
+   "id": "870",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 345
+   }
+  },
+  {
+   "id": "871",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 126,
+    "galar": 353,
+    "crown-tundra": 158
+   }
+  },
+  {
+   "id": "872",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 349,
+    "crown-tundra": 1
+   }
+  },
+  {
+   "id": "873",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 350,
+    "crown-tundra": 2
+   }
+  },
+  {
+   "id": "874",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "only": "sword",
+   "sec": {
+    "galar": 369,
+    "crown-tundra": 89
+   }
+  },
+  {
+   "id": "875",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 370,
+    "crown-tundra": 90
+   }
+  },
+  {
+   "id": "876",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "only": "sword",
+   "sec": {
+    "galar": 337,
+    "crown-tundra": 171
+   }
+  },
+  {
+   "id": "876-female",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 337,
+    "crown-tundra": 171
+   }
+  },
+  {
+   "id": "877-full-belly",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 104,
+    "galar": 344,
+    "crown-tundra": 157
+   }
+  },
+  {
+   "id": "878",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 302,
+    "crown-tundra": 108
+   }
+  },
+  {
+   "id": "879",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 303,
+    "crown-tundra": 109
+   }
+  },
+  {
+   "id": "880",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 374
+   }
+  },
+  {
+   "id": "881",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 375
+   }
+  },
+  {
+   "id": "882",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 376
+   }
+  },
+  {
+   "id": "883",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 377
+   }
+  },
+  {
+   "id": "884",
+   "home": true,
+   "shiny": true,
+   "gmax": true,
+   "sec": {
+    "galar": 371
+   }
+  },
+  {
+   "id": "885",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 395,
+    "crown-tundra": 110
+   }
+  },
+  {
+   "id": "886",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 396,
+    "crown-tundra": 111
+   }
+  },
+  {
+   "id": "887",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 397,
+    "crown-tundra": 112
+   }
+  },
+  {
+   "id": "888",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "only": "sword",
+   "sec": {
+    "galar": 398
+   }
+  },
+  {
+   "id": "888-crowned-sword",
+   "go": true,
+   "shiny": true,
+   "gmax": false,
+   "only": "sword",
+   "sec": {
+    "galar": 398
+   }
+  },
+  {
+   "id": "889",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 399
+   }
+  },
+  {
+   "id": "889-crowned-shield",
+   "go": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 399
+   }
+  },
+  {
+   "id": "890",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "galar": 400
+   }
+  },
+  {
+   "id": "891",
+   "home": true,
+   "shiny": false,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 100
+   }
+  },
+  {
+   "id": "892-single-strike",
+   "home": true,
+   "shiny": false,
+   "gmax": true,
+   "sec": {
+    "isle-of-armor": 101
+   }
+  },
+  {
+   "id": "892-rapid-strike",
+   "home": true,
+   "shiny": false,
+   "gmax": true,
+   "sec": {
+    "isle-of-armor": 101
+   }
+  },
+  {
+   "id": "893",
+   "home": true,
+   "shiny": false,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 211
+   }
+  },
+  {
+   "id": "893-dada",
+   "home": true,
+   "shiny": false,
+   "gmax": false,
+   "sec": {
+    "isle-of-armor": 211
+   }
+  },
+  {
+   "id": "894",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 200
+   }
+  },
+  {
+   "id": "895",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 201
+   }
+  },
+  {
+   "id": "896",
+   "home": true,
+   "shiny": false,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 208
+   }
+  },
+  {
+   "id": "897",
+   "home": true,
+   "shiny": false,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 209
+   }
+  },
+  {
+   "id": "898",
+   "home": true,
+   "shiny": false,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 210
+   }
+  },
+  {
+   "id": "898-ice",
+   "dex": 898,
+   "gen": 8,
+   "name": "Calyrex",
+   "form": "Ice Rider",
+   "types": [
+    "Psychic",
+    "Ice"
+   ],
+   "img": "hm.10193",
+   "gender": "none",
+   "class": "legendary",
+   "category": "King Pokémon",
+   "height": 2.4,
+   "weight": 809.1,
+   "family": "CALYREX",
+   "evo": [],
+   "order": 1303,
+   "shiny": false,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 210
+   }
+  },
+  {
+   "id": "898-shadow",
+   "dex": 898,
+   "gen": 8,
+   "name": "Calyrex",
+   "form": "Shadow Rider",
+   "types": [
+    "Psychic",
+    "Ghost"
+   ],
+   "img": "hm.10194",
+   "gender": "none",
+   "class": "legendary",
+   "category": "King Pokémon",
+   "height": 2.4,
+   "weight": 53.6,
+   "family": "CALYREX",
+   "evo": [],
+   "order": 1304,
+   "shiny": false,
+   "gmax": false,
+   "sec": {
+    "crown-tundra": 210
+   }
+  }
+ ]
+}

@@ -46,5 +46,17 @@ class ImportHome(unittest.TestCase):
         self.assertEqual(fingerprint(), before)
 
 
+@unittest.skipUnless(os.path.isdir(IMPORTS) and any(d.startswith('games-') for d in os.listdir(IMPORTS)), 'needs the saved downloads in imports/games-*')
+class ImportGames(unittest.TestCase):
+    def test_shield_reimport_gives_the_same_data(self):   # Pokémon Shield (23 Nov)
+        before = fingerprint()
+        with Sandbox(imports=True) as box:
+            r = subprocess.run([PYTHON, '-X', 'utf8', os.path.join(REAL, 'tools', 'import_games.py'), 'shield', '--reuse', '--apply'],
+                               capture_output=True, text=True, env={**os.environ, 'POKEDEX_ROOT': box.root}, timeout=300)
+            self.assertEqual(r.returncode, 0, r.stdout[-2000:] + r.stderr[-2000:])
+            self.assertEqual(box.read('shield', 'dex.json')['entries'], real('shield', 'dex.json')['entries'])
+        self.assertEqual(fingerprint(), before)
+
+
 if __name__ == '__main__':
     unittest.main()

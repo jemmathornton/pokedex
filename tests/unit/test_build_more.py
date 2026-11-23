@@ -108,6 +108,7 @@ class BuildMore(unittest.TestCase):
 
     def test_builds_without_home_and_its_ticks(self):
         os.remove(self.box.path('data', 'home', 'dex.json'))
+        os.remove(self.box.path('data', 'shield', 'dex.json'))   # Shield's list names HOME's entries
         if os.path.exists(self.box.path('data', 'collection', 'home.json')):
             os.remove(self.box.path('data', 'collection', 'home.json'))
         d = self.ok()
@@ -119,6 +120,16 @@ class BuildMore(unittest.TestCase):
         self.fails('99999', 'hasn’t got')
         self.box.write({**home, 'entries': home['entries'] + [home['entries'][0]]}, 'home', 'dex.json')
         self.fails('id is there twice')
+
+    def test_shield_goes_in_with_its_sections_and_ticks(self):   # Pokémon Shield (23 Nov)
+        self.box.write({'have': {'d:810': ['c']}, 'went': [], 'costumes': []}, 'collection', 'shield.json')
+        d = self.ok()
+        self.assertEqual(d['shield']['entries'], self.box.read('shield', 'dex.json')['entries'])
+        self.assertEqual([s['id'] for s in d['shield']['sections']][:3], ['galar', 'isle-of-armor', 'crown-tundra'])
+        self.assertEqual(d['shield']['collection']['have'], {'d:810': ['c']})
+        sh = self.box.read('shield', 'dex.json')
+        self.box.write({**sh, 'entries': sh['entries'] + [{'id': 'nope', 'home': True, 'shiny': True, 'gmax': False, 'sec': {}}]}, 'shield', 'dex.json')
+        self.fails('nope', 'HOME entry')
 
     def test_homes_picture_only_where_go_has_none_and_only_if_it_is_there(self):
         sprites = pathlib.Path(self.box.path('site', 'sprites')); (sprites / 'big').mkdir(parents=True)

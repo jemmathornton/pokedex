@@ -31,6 +31,12 @@ def main():
     collection = load('collection', 'go.json', default={})
     home = load('home', 'dex.json', default={'entries': []}) or {'entries': []}
     home_collection = load('collection', 'home.json', default={}) or {}
+    # the games after HOME, in release order (her ask, 23 Nov): each its list (tools/import_games.py) and her ticks
+    games = {}
+    for g in ('shield',):
+        d = load(g, 'dex.json', default=None)
+        if d:
+            games[g] = {'entries': d['entries'], 'sections': d.get('sections', []), 'collection': load('collection', f'{g}.json', default={}) or {}}
     # which event each costume code came from (data/costume-events.json, from research/data/costume-events.json): name and dates only
     keep = lambda v: {f: v[f] for f in ('event', 'start', 'end') if v.get(f)}
     cev = {k: {**keep(v), **({'parts': {n: keep(p) for n, p in v['parts'].items()}} if v.get('parts') else {})}
@@ -89,6 +95,17 @@ def main():
             problems.append(f'home/dex.json: {e["id"]} names GO entry {e["go"]}, which dex.json hasn’t got')
     if len(home_ids) != len(home['entries']):
         problems.append('home/dex.json: an id is there twice')
+    for g, d in games.items():   # a game's entry names HOME's or GO's entry for the same Pokémon or form
+        ids = [e['id'] for e in d['entries']]
+        if len(ids) != len(set(ids)):
+            problems.append(f'{g}/dex.json: an id is there twice')
+        for e in d['entries']:
+            ref = e.get('home') and (e['id'] if e['home'] is True else e['home'])
+            if ref and ref not in home_ids:
+                problems.append(f'{g}/dex.json: {e["id"]} names HOME entry {ref}, which home/dex.json hasn’t got')
+            ref = e.get('go') and (e['id'] if e['go'] is True else e['go'])
+            if ref and ref not in by_id:
+                problems.append(f'{g}/dex.json: {e["id"]} names GO entry {ref}, which dex.json hasn’t got')
     pics = [k for e in dex['entries'] + costumes['costumes'] for k in (e['img'], e['img'] + '.s')]
     missing = sum(1 for k in pics if k not in have and k not in alt)
     upcoming = load('go', 'upcoming.json', default={}) or {}   # tools/import_events.py: the What's on page
@@ -104,7 +121,7 @@ def main():
     out = {'game': 'go', 'updated': dex['updated'], 'entries': dex['entries'], 'costumes': costumes['costumes'],
            'upcoming': {'fetched': upcoming.get('fetched'), 'events': upcoming.get('events', []), 'backgrounds': upbg},
            'events': events, 'special': special, 'costumeEvents': cev, 'dexByName': names, 'sprites': sorted(have), 'bigSprites': sorted(big), 'backgrounds': sorted(bgs), 'collection': collection,
-           'picAlt': alt, 'home': {'entries': home['entries'], 'collection': home_collection}}
+           'picAlt': alt, 'home': {'entries': home['entries'], 'collection': home_collection}, **games}
     js = 'const DATA = ' + json.dumps(out, ensure_ascii=False, separators=(',', ':')) + ';\n'
     write(os.path.join(SITE, 'js', 'data.js'), js)
     stamp()

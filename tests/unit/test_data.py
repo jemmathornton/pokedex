@@ -170,6 +170,36 @@ class GoKeptForms(unittest.TestCase):
         self.assertTrue(all(f'{n},' in APP or f' {n}' in APP for n in (888, 889)))
 
 
+class ShieldData(unittest.TestCase):
+    """Pokémon Shield (tools/import_games.py; 23 Nov): everything that can be had in Shield, its Pokédexes numbered as the game."""
+    @classmethod
+    def setUpClass(cls):
+        cls.data = real('shield', 'dex.json')
+        cls.entries = cls.data['entries']
+
+    def test_each_pokedex_has_every_number(self):
+        for sec, n in (('galar', 400), ('isle-of-armor', 211), ('crown-tundra', 210)):
+            got = {e['sec'][sec] for e in self.entries if e['sec'].get(sec) is not None}
+            self.assertEqual(got, set(range(1, n + 1)), sec)
+
+    def test_ids_once_each_naming_home_or_go_and_only_shields_boxes(self):
+        ids = [e['id'] for e in self.entries]
+        self.assertEqual(len(ids), len(set(ids)))
+        home = {e['id'] for e in real('home', 'dex.json')['entries']}
+        go = {e['id'] for e in real('go', 'dex.json')['entries']}
+        for e in self.entries:
+            with self.subTest(e['id']):
+                self.assertTrue((e.get('home') and e['id'] in home) or (e.get('go') and e['id'] in go) or e.get('img'))
+                self.assertIsInstance(e['shiny'], bool); self.assertIsInstance(e['gmax'], bool)
+
+    def test_sword_only_marked(self):
+        only = {e['id'] for e in self.entries if e.get('only') == 'sword'}
+        for i in ('865', '250', '83-galarian'):   # Sirfetch'd, Ho-Oh, Galarian Farfetch'd
+            self.assertIn(i, only)
+        for i in ('810', '249', '77-galarian'):   # Grookey, Lugia, Galarian Ponyta (Shield's)
+            self.assertNotIn(i, only)
+
+
 class HomeData(unittest.TestCase):
     """Pokémon HOME's list (data/home/dex.json, tools/import_home.py; built 22 Nov): what the research says HOME has."""
     @classmethod
