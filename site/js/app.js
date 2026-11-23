@@ -447,6 +447,7 @@ function fitLabels(){
   fitStrips();
   fitCardLabels();
   fitSquareNames();
+  fitPickLabels();   // TRIAL: Try switch "Form names"
 }
 // a Pokémon page's picture boxes: every label in the strip one size, the size the longest needs, never under 8px, icon kept (her
 // note, 21 Nov; round 5 review: the check measured the box, not the label, so labels ran into the border, mixed sizes down to 6.5px)
@@ -794,6 +795,46 @@ function shinyShadowCard(e){   // a picture box like the others (her note: click
 // have a Gigantamax form at all (regional forms of them don't), and Zacian, Zamazenta and Eternatus can't Dynamax
 const GMAX_SPECIES = new Set([3, 6, 9, 12, 25, 52, 68, 94, 99, 131, 133, 143, 569, 809, 812, 815, 818, 823, 826, 834, 839, 841, 842, 844, 849, 851, 858, 861, 869, 879, 884, 892]);
 const NO_DYNAMAX = new Set([888, 889, 890]);
+// ===== TRIAL: Try switch "Form names" (23 Nov, her yes to building the options), START: remove with its CSS once she has picked =====
+// The row of form pictures on a Pokémon's page cuts long names short ("Vanilla C…" for Alcremie, "Original…" for the cap Pikachu;
+// overnight review, 23 Nov). Her options (for-jemma/your-list.md): As now · Wrapped (the whole name, on as many lines as it needs;
+// a word too long for its button gets smaller writing, never under 7.5px, never cut) · Cream only (Alcremie by its cream, "Ruby
+// Cream", the sweet in the hover text with the rest of the name; other long names wrapped). The choice is kept in localStorage.
+const TRY_FORMNAMES_KEY = "jemmas-pokedex-try-formnames";
+const TRY_FORMNAMES = [["now", "As now"], ["wrap", "Wrapped"], ["cream", "Cream only"]];
+let tryFormNames = store.get(TRY_FORMNAMES_KEY, "now");
+if (!TRY_FORMNAMES.some(([k]) => k === tryFormNames)) tryFormNames = "now";
+document.documentElement.dataset.tryFormnames = tryFormNames;
+const pickLabel = e => {   // Alcremie by its cream: "Ruby Cream Love Sweet" -> "Ruby Cream", "Caramel Swirl Berry Sweet" -> "Caramel Swirl"
+  const l = formLabel(e);
+  return tryFormNames === "cream" && e.dex === 869 ? (/^(.*? (?:Cream|Swirl))\b/.exec(l) || [, l])[1] : l;
+};
+function fitPickLabels(){
+  if (tryFormNames === "now") return;
+  const c = fitPickLabels.c || (fitPickLabels.c = document.createElement("canvas").getContext("2d"));
+  for (const s of view.querySelectorAll(".formpick small")) {
+    s.style.fontSize = "";
+    const cs = getComputedStyle(s), px = parseFloat(cs.fontSize), room = s.clientWidth;
+    if (!room) continue;
+    c.font = `${cs.fontWeight} ${px}px ${cs.fontFamily}`;
+    const widest = Math.max(...s.textContent.split(/\s+/).map(w => c.measureText(w).width));
+    if (widest > room) s.style.fontSize = Math.max(7.5, Math.floor(px * room / widest * 4) / 4) + "px";
+  }
+}
+(function tryBox(){
+  const box = document.createElement("div"); box.className = "trybox"; box.setAttribute("role", "group"); box.setAttribute("aria-label", "Try");
+  const draw = () => {
+    box.innerHTML = `<b>Try</b><div class="tryrow" role="group" aria-label="Form names" data-row="formnames"><span>Form names</span>` +
+      TRY_FORMNAMES.map(([k, l]) => `<button type="button" data-v="${k}" aria-pressed="${tryFormNames === k}">${l}</button>`).join("") + `</div>`;
+  };
+  const pad = () => document.documentElement.style.setProperty("--trypad", box.offsetHeight + 24 + "px");   // room under the page on phones (site.css)
+  box.addEventListener("click", ev => { const b = ev.target.closest("[data-v]"); if (!b) return;
+    tryFormNames = b.dataset.v; store.set(TRY_FORMNAMES_KEY, tryFormNames); document.documentElement.dataset.tryFormnames = tryFormNames;
+    draw(); rerender(); box.querySelector(`[data-v="${tryFormNames}"]`)?.focus(); pad(); });
+  draw(); document.body.append(box);
+  pad(); addEventListener("resize", pad);
+})();
+// ===== TRIAL: Try switch "Form names", END =====
 function pokemonPage(key){
   const every = ENTRIES.filter(e => groupKey(e) === key);
   if (!every.length) return GAME === "home" ? hmHome() : home();
@@ -833,7 +874,7 @@ function pokemonPage(key){
       : `<p class="dex-entry">${esc(sel.desc)}</p>`) : `<p class="dex-entry muted">No Pokédex entry for it in the game’s text yet.</p>`;
   const descFrom = GAME === "home" && sel.desc ? `<span class="label dexfrom">From Pokémon GO’s Pokédex</span>` : "";   // HOME shows GO's own words, and says so
   const picker = ordered.length > 1 ? `<div class="formpick" role="group" aria-label="Which form to show">${ordered.map(e =>
-    `<button type="button" data-pickform="${attr(e.id)}" aria-pressed="${e === sel}" title="${tip(e.form || e.name)}">${sprite(e.img) ? `<img src="${sprite(e.img)}" alt="" loading="lazy">` : `<span class="blank">?</span>`}<small>${esc(formLabel(e))}</small></button>`).join("")}</div>` : "";
+    `<button type="button" data-pickform="${attr(e.id)}" aria-pressed="${e === sel}" title="${tip(e.form || e.name)}">${sprite(e.img) ? `<img src="${sprite(e.img)}" alt="" loading="lazy">` : `<span class="blank">?</span>`}<small>${esc(pickLabel(e))}</small></button>`).join("")}</div>` : "";   // pickLabel: TRIAL, Try switch "Form names"
   const family = evoFamily(sel);
   const bgCards = evs.flatMap(ev => { const ms = bgMonsOf(ev).filter(e => groupKey(e) === key); return (ms.length ? ms : [regionalPage ? grouped.lead : baseOf[n] || grouped.lead]).map(e => bgCard(ev, e, false)); }).join("");
   const first = esc(sel.name);

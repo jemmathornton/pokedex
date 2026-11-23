@@ -395,6 +395,21 @@ a.formsbtn{text-decoration:none}
 .dex-entry{font:400 22px/1.45 var(--display);margin:0 0 16px;max-width:60ch;text-wrap:pretty}
 .dex-entry .label{display:block;margin-bottom:4px}
 .label.dexfrom{display:block;margin:0 0 6px}
+/* ===== TRIAL: Try switch "Form names" (23 Nov), START: remove with the TRIAL block in app.js once she has picked ===== */
+.trybox{position:fixed;right:12px;bottom:12px;z-index:60;display:grid;gap:6px;padding:8px 10px;border-radius:10px;background:var(--surface,#fff);color:var(--ink,#222);
+  border:1px solid var(--line,#ccc);box-shadow:0 4px 16px rgba(0,0,0,.2);font:600 12px var(--body,sans-serif);max-width:calc(100vw - 24px);box-sizing:border-box}
+.trybox > b{font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.tryrow{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+.tryrow span{margin-right:4px}
+.tryrow button{font:inherit;padding:3px 8px;border-radius:6px;border:1px solid var(--line,#ccc);background:transparent;color:inherit;cursor:pointer}
+.tryrow button[aria-pressed="true"]{background:var(--ink,#222);color:var(--surface,#fff);border-color:transparent}
+@media print{.trybox{display:none}}
+.jj-menu-open .trybox{display:none}   /* never over the Menu drawer */
+@media (max-width:900px){ body{padding-bottom:var(--trypad,0px)} .tryrow button{padding:5px 8px} }
+/* Wrapped and Cream only: the whole name on as many lines as it needs, never cut (app.js fitPickLabels shrinks a word too long for its button) */
+:root:is([data-try-formnames="wrap"],[data-try-formnames="cream"]) .formpick small{white-space:normal;overflow:visible;text-overflow:clip;width:100%;line-height:1.15;text-wrap:balance;overflow-wrap:normal}
+:root:is([data-try-formnames="wrap"],[data-try-formnames="cream"]) .formpick button{align-content:start}
+/* ===== TRIAL: Try switch "Form names", END ===== */
 /* Skip to the page (as her Library and Travels): off screen until the keyboard reaches it */
 .skip{position:absolute;left:-999px;top:10px;z-index:100;padding:10px 16px;border-radius:8px;background:var(--surface);color:var(--ink);font-weight:700;text-decoration:none;box-shadow:var(--card-shadow)}
 .skip:focus{left:12px}   /* Pokémon HOME: the Pokédex text is GO's, and says so */
