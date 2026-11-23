@@ -54,7 +54,7 @@
         if (seen.has(h) || h === "#") continue; seen.add(h);
         await show(h);
         const r = h.slice(1);
-        if (!/^(home|shield|([a-z]+-)?(dex|gen-[\w-]+|p-\d+(-[a-z]+)?)|costumes|events)$/.test(r)) problems.push(`a link to ${h}, which isn’t a page`);
+        if (!/^(home|shield|arceus|([a-z]+-)?(dex|gen-[\w-]+|p-\d+(-[a-z]+)?)|costumes|events)$/.test(r)) problems.push(`a link to ${h}, which isn’t a page`);
         if (/^(hm-)?p-\d+$/.test(r) && !view().querySelector(".mondetail")) problems.push(`link to ${h}: no Pokémon page`);
       }
     } finally { removeEventListener("error", onErr); }
@@ -433,7 +433,7 @@
 
   test("her picks from the Try switch (22 Nov): Card art in dark mode Brighter; Shiny #6C7786 and Lucky #B48600; the switch gone", async () => {
     const root = document.documentElement;
-    ok(!document.querySelector(".trybox") && !("tryArt" in root.dataset) && !("tryBoxes" in root.dataset), "no Try switch left");
+    ok([...document.querySelectorAll(".trybox [data-row]")].every(r => ["alphaIcon", "alphaColour", "completeIcon", "completeColour"].includes(r.dataset.row)) && !("tryArt" in root.dataset) && !("tryBoxes" in root.dataset), "no old Try switch left (only Arceus’s boxes, 23 Nov)");
     const hex = n => getComputedStyle(root).getPropertyValue(`--${n}`).trim().toUpperCase();
     eq(hex("shiny"), "#6C7786", "Shiny a little deeper"); eq(hex("lucky"), "#B48600", "Lucky a little deeper (a middle gold)");
     eq(hex("male"), "#078E5A", "the other boxes as they were"); eq(hex("hundo"), "#D14186"); eq(hex("mega"), "#C2571A");
@@ -450,7 +450,7 @@
   });
 
   test("the art window is tinted by the Pokémon's first type (her pick, 21 Nov); the 21 Nov Try switch is gone", async () => {
-    ok(!document.querySelector(".trybox"), "no Try switch (games, Form names, Shield’s DLC and other pictures all removed: her picks)");
+    ok([...document.querySelectorAll(".trybox [data-row]")].every(r => ["alphaIcon", "alphaColour", "completeIcon", "completeColour"].includes(r.dataset.row)), "no games, Form names or Shield’s pictures Try switch (removed: her picks); only Arceus’s boxes (23 Nov)");
     eq(localStorage.getItem("jemmas-pokedex-try-secpics"), null, "the Shield’s other pictures choice cleared");
     eq(localStorage.getItem("jemmas-pokedex-try-formnames"), null, "the Form names choice cleared");
     eq(localStorage.getItem("jemmas-pokedex-try-dlcpics"), null, "the Shield’s DLC pictures choice cleared");
@@ -1285,7 +1285,7 @@
   test("Shield: its own Home with a card per Pokédex, base game then DLC, and its own sidebar", async () => {
     await go("#shield");
     eq(document.querySelector('.game-switch a[aria-current]').textContent, "Shield", "Shield chosen on the switch");
-    eq([...document.querySelectorAll(".game-switch a")].map(a => a.textContent), ["HOME", "GO", "Shield"], "three games");
+    eq([...document.querySelectorAll(".game-switch a")].map(a => a.textContent), ["HOME", "GO", "Shield", "Arceus"], "the games, Arceus last (release order)");
     const names = [...view().querySelectorAll(".gen h3")].map(h => h.textContent);
     eq(names.slice(0, 3), ["Galar", "Isle of Armor", "Crown Tundra"], "the three Pokédexes first: the base game, then the two DLCs");
     eq(view().querySelector('.gen[href="#sh-gen-galar"] .genno').textContent, "#001–#400", "Galar’s own numbers");
@@ -1357,6 +1357,61 @@
     await go("#sh-gen-max-lair"); eq(view().querySelectorAll(".hero .heropics i").length, 10, "Dynamax Adventures’ banner: every region");
     await go("#sh-p-144"); eq(view().querySelectorAll(".hero .heropics i").length, 10, "a Dynamax Adventures Pokémon’s page (Articuno) too");
     await go("#go"); ok(view().querySelectorAll(".gen .genmap:not(.multi)").length >= 10 && !view().querySelector(".genmap.multi"), "GO’s regions unchanged");
+  });
+
+  // ---------- Pokémon Legends: Arceus (23 Nov: next in release order) ----------
+  test("Arceus: its Home, the Hisui Pokédex then Bonus Pokémon, its six boxes, its sidebar", async () => {
+    await go("#arceus");
+    eq(document.querySelector('.game-switch a[aria-current]').textContent, "Arceus", "Arceus chosen on the switch");
+    const sw = document.querySelector(".game-switch"); ok(sw.scrollWidth <= sw.clientWidth + 1, "the four games fit the switch");
+    eq([...view().querySelectorAll(".gen h3")].map(h => h.textContent), ["Hisui", "Bonus Pokémon"], "her lists (23 Nov)");
+    eq(view().querySelector('.gen[href="#la-gen-hisui"] .genno').textContent, "#001–#242", "Hisui’s own numbers");
+    eq([...view().querySelectorAll(".hero .stats .slt")].map(x => x.textContent), ["Pokémon", "Female", "Male", "Shiny", "Alpha", "Complete"], "Arceus’s boxes (her answer, 23 Nov)");
+    ok(nav.querySelector('a[href="#la-gen-hisui"]') && nav.querySelector('a[href="#la-fast"]') && !nav.querySelector('a[href="#sh-gen-galar"], a[href="#gen-1"]'), "Arceus’s sidebar only");
+    ok(!/Lucky|Gigantamax|Dynamax|Shadow|Placeholder/.test(view().textContent), "nothing Arceus hasn’t got");
+  });
+
+  test("Arceus: Hisui in the game’s order; only its forms; Alpha and Complete where they can be; Bonus Pokémon", async () => {
+    await go("#la-gen-hisui");
+    eq([...view().querySelectorAll(".card")].slice(0, 3).map(c => c.querySelector(".no").textContent + " " + c.querySelector(".nm").textContent), ["#001 Rowlet", "#002 Dartrix", "#003 Decidueye"], "Hisui’s order");
+    const card = id => view().querySelector(`.card[data-id="${id}"]`), labels = id => [...card(id).querySelectorAll(".tk span")].map(s => s.textContent);
+    ok(labels("722").includes("Alpha") && labels("722").includes("Complete"), "Rowlet: Alpha and Complete");
+    ok(!labels("483").includes("Alpha") && labels("483").includes("Complete"), "Dialga: never Alpha, but Complete");
+    ok(card("58-hisuian") && !card("58"), "Hisuian Growlithe only (her answer: only Arceus’s own forms)");
+    ok(card("215") && card("215-hisuian"), "both Sneasels in Hisui");
+    ok(card("491") && /#242/.test(card("491").textContent), "Darkrai #242 in Hisui");
+    await go("#la-gen-elsewhere");
+    eq(new Set([...view().querySelectorAll(".card")].map(c => c.dataset.id.split("-")[0])), new Set(["37", "38", "491", "492"]), "Bonus Pokémon: Alolan Vulpix and Ninetales, Darkrai and Shaymin (her answer: like bonus)");
+    ok(!labels("37-alolan").includes("Alpha") && !labels("37-alolan").includes("Complete"), "the gift Alolan Vulpix: no Alpha, no Complete (Vulpix has it)");
+    await go("#la-p-722");
+    eq(strip(), ["Caught", "Female", "Male", "Shiny", "Alpha", "Complete"], "Rowlet’s boxes in Arceus");
+    ok(/Hisui #001/.test(fact("Pokédex")) && fact("Alpha") === "Available", `Rowlet: ${fact("Pokédex")}; Alpha ${fact("Alpha")}`);
+    ok(view().querySelector('.crumbs a[href="#la-gen-hisui"]') && view().querySelector('.prevnext a[href^="#la-p-"]'), "links stay in Arceus");
+  });
+
+  test("Arceus’s ticks save to its own file, never another game’s; Fast tick has Alpha and Complete", async () => {
+    const before = {};
+    for (const g of ["go", "home", "shield"]) before[g] = JSON.stringify((await server(g)).have);
+    await go("#la-fast");
+    eq([...view().querySelectorAll("[data-fastgen]")].map(b => b.textContent).slice(0, 2), ["Hisui", "Bonus Pokémon"], "by list");
+    try {
+      await go("#la-p-722");
+      click(view().querySelector('.bigboxes [data-tick="al"]'));
+      for (let t = 0; t < 5000 && !((await server("arceus")).have["d:722"] || []).includes("al"); t += 200) await wait(200);
+      ok(((await server("arceus")).have["d:722"] || []).includes("al"), "Alpha saved in Arceus");
+      for (const g of ["go", "home", "shield"]) eq(JSON.stringify((await server(g)).have), before[g], `${g}’s ticks unchanged`);
+    } finally { for (const t of ["al", "c"]) await save({game: "arceus", list: "have", key: "d:722", tick: t, on: false}); COLS.arceus.have = {}; }
+  });
+
+  test("TRIAL Try switch Arceus’s boxes (23 Nov): Alpha’s and Complete’s icon and colour", async () => {
+    const pick = async (row, v) => { click(document.querySelector(`.trybox [data-row="${row}"] [data-v="${v}"]`)); await wait(150); };
+    const was = {...tryArc};
+    try {
+      await go("#la-p-722");
+      await pick("alphaColour", "#9E1B1B"); eq(getComputedStyle(document.documentElement).getPropertyValue("--alpha").trim().toUpperCase(), "#9E1B1B", "Alpha deep red");
+      await pick("completeIcon", "badge"); ok(/^M3\.85 8\.62/.test(view().querySelector('.bigboxes [data-tick="rc"] svg path').getAttribute("d")), "Complete’s badge icon (Lucide badge-check)");
+      eq(JSON.parse(localStorage.getItem(TRY_ARC_KEY)).completeIcon, "badge", "kept");
+    } finally { tryArc = was; store.set(TRY_ARC_KEY, was); tryArcApply(); rerender(); }
   });
 
   test("one picture for a Pokémon in both games (her question, 22 Nov): GO's own, HOME's only where GO's files have none", async () => {

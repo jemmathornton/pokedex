@@ -57,6 +57,15 @@ class ImportGames(unittest.TestCase):
             self.assertEqual(box.read('shield', 'dex.json')['entries'], real('shield', 'dex.json')['entries'])
         self.assertEqual(fingerprint(), before)
 
+    def test_arceus_reimport_gives_the_same_data(self):   # Pokémon Legends: Arceus (23 Nov)
+        before = fingerprint()
+        with Sandbox(imports=True) as box:
+            r = subprocess.run([PYTHON, '-X', 'utf8', os.path.join(REAL, 'tools', 'import_games.py'), 'arceus', '--reuse', '--apply'],
+                               capture_output=True, text=True, env={**os.environ, 'POKEDEX_ROOT': box.root}, timeout=300)
+            self.assertEqual(r.returncode, 0, r.stdout[-2000:] + r.stderr[-2000:])
+            self.assertEqual(box.read('arceus', 'dex.json')['entries'], real('arceus', 'dex.json')['entries'])
+        self.assertEqual(fingerprint(), before)
+
 
 if __name__ == '__main__':
     unittest.main()

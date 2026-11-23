@@ -33,7 +33,7 @@ def main():
     home_collection = load('collection', 'home.json', default={}) or {}
     # the games after HOME, in release order (her ask, 23 Nov): each its list (tools/import_games.py) and her ticks
     games = {}
-    for g in ('shield',):
+    for g in ('shield', 'arceus'):   # Legends: Arceus next in release order (her yes, 23 Nov)
         d = load(g, 'dex.json', default=None)
         if d:
             games[g] = {'entries': d['entries'], 'sections': d.get('sections', []), 'collection': load('collection', f'{g}.json', default={}) or {}}

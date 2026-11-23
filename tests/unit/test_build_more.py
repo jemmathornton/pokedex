@@ -109,6 +109,7 @@ class BuildMore(unittest.TestCase):
     def test_builds_without_home_and_its_ticks(self):
         os.remove(self.box.path('data', 'home', 'dex.json'))
         os.remove(self.box.path('data', 'shield', 'dex.json'))   # Shield's list names HOME's entries
+        os.remove(self.box.path('data', 'arceus', 'dex.json'))   # and so does Legends: Arceus's
         if os.path.exists(self.box.path('data', 'collection', 'home.json')):
             os.remove(self.box.path('data', 'collection', 'home.json'))
         d = self.ok()
@@ -130,6 +131,13 @@ class BuildMore(unittest.TestCase):
         sh = self.box.read('shield', 'dex.json')
         self.box.write({**sh, 'entries': sh['entries'] + [{'id': 'nope', 'home': True, 'shiny': True, 'gmax': False, 'sec': {}}]}, 'shield', 'dex.json')
         self.fails('nope', 'HOME entry')
+
+    def test_arceus_goes_in_with_its_sections_and_ticks(self):   # Pokémon Legends: Arceus (23 Nov)
+        self.box.write({'have': {'d:722': ['al']}, 'went': [], 'costumes': []}, 'collection', 'arceus.json')
+        d = self.ok()
+        self.assertEqual(d['arceus']['entries'], self.box.read('arceus', 'dex.json')['entries'])
+        self.assertEqual([s['id'] for s in d['arceus']['sections']], ['hisui', 'elsewhere'])
+        self.assertEqual(d['arceus']['collection']['have'], {'d:722': ['al']})
 
     def test_homes_picture_only_where_go_has_none_and_only_if_it_is_there(self):
         sprites = pathlib.Path(self.box.path('site', 'sprites')); (sprites / 'big').mkdir(parents=True)

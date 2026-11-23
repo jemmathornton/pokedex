@@ -124,6 +124,16 @@ class Server(unittest.TestCase):
         for t in ('l', 'h', 'dx', 'sd'):
             self.assertFalse(self.post({'game': 'shield', 'list': 'have', 'key': 'd:6', 'tick': t, 'on': True})[1]['ok'], t)
 
+    def test_arceus_ticks_go_to_arceus_json(self):   # Pokémon Legends: Arceus (23 Nov): its own file, only its boxes
+        go_before = self.box.read('collection', 'go.json')
+        for t in ('al', 'rc'):
+            self.assertEqual(self.post({'game': 'arceus', 'list': 'have', 'key': 'd:722', 'tick': t, 'on': True}), (200, {'ok': True}))
+        self.assertEqual(self.box.read('collection', 'arceus.json')['have'], {'d:722': ['al', 'rc']})
+        self.assertEqual(self.get('/api/collection?game=arceus')['have'], {'d:722': ['al', 'rc']})
+        self.assertEqual(self.box.read('collection', 'go.json'), go_before)
+        for t in ('gx', 'l', 'dx', 'sd'):
+            self.assertFalse(self.post({'game': 'arceus', 'list': 'have', 'key': 'd:722', 'tick': t, 'on': True})[1]['ok'], t)
+
     def test_an_unknown_game_is_refused(self):
         for game in ('za', '../go', 5, ['go']):
             with self.subTest(game):

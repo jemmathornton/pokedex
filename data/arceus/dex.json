@@ -1,0 +1,3376 @@
+{
+ "updated": "2026-11-23",
+ "sections": [
+  {
+   "id": "hisui",
+   "name": "Hisui",
+   "small": "Legends: Arceus",
+   "map": "hisui",
+   "colour": "#3C6150"
+  },
+  {
+   "id": "elsewhere",
+   "name": "Bonus Pokémon",
+   "small": "Legends: Arceus",
+   "map": "hisui",
+   "colour": "#3C6150"
+  }
+ ],
+ "entries": [
+  {
+   "id": "25",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 56
+   },
+   "complete": true
+  },
+  {
+   "id": "26",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 57
+   },
+   "complete": true
+  },
+  {
+   "id": "35",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 200
+   },
+   "complete": true
+  },
+  {
+   "id": "36",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 201
+   },
+   "complete": true
+  },
+  {
+   "id": "37",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 168
+   },
+   "complete": true
+  },
+  {
+   "id": "37-alolan",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": false,
+   "sec": {
+    "elsewhere": null
+   }
+  },
+  {
+   "id": "38",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 169
+   },
+   "complete": true
+  },
+  {
+   "id": "38-alolan",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": false,
+   "sec": {
+    "elsewhere": null
+   }
+  },
+  {
+   "id": "41",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 34
+   },
+   "complete": true
+  },
+  {
+   "id": "42",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 35
+   },
+   "complete": true
+  },
+  {
+   "id": "46",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 53
+   },
+   "complete": true
+  },
+  {
+   "id": "47",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 54
+   },
+   "complete": true
+  },
+  {
+   "id": "54",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 68
+   },
+   "complete": true
+  },
+  {
+   "id": "55",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 69
+   },
+   "complete": true
+  },
+  {
+   "id": "58-hisuian",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 150
+   },
+   "complete": true
+  },
+  {
+   "id": "59-hisuian",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 151
+   },
+   "complete": true
+  },
+  {
+   "id": "63",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 58
+   },
+   "complete": true
+  },
+  {
+   "id": "64",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 59
+   },
+   "complete": true
+  },
+  {
+   "id": "65",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 60
+   },
+   "complete": true
+  },
+  {
+   "id": "66",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 154
+   },
+   "complete": true
+  },
+  {
+   "id": "67",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 155
+   },
+   "complete": true
+  },
+  {
+   "id": "68",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 156
+   },
+   "complete": true
+  },
+  {
+   "id": "72",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 170
+   },
+   "complete": true
+  },
+  {
+   "id": "73",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 171
+   },
+   "complete": true
+  },
+  {
+   "id": "74",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 46
+   },
+   "complete": true
+  },
+  {
+   "id": "75",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 47
+   },
+   "complete": true
+  },
+  {
+   "id": "76",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 48
+   },
+   "complete": true
+  },
+  {
+   "id": "77",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 23
+   },
+   "complete": true
+  },
+  {
+   "id": "78",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 24
+   },
+   "complete": true
+  },
+  {
+   "id": "81",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 177
+   },
+   "complete": true
+  },
+  {
+   "id": "82",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 178
+   },
+   "complete": true
+  },
+  {
+   "id": "92",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 136
+   },
+   "complete": true
+  },
+  {
+   "id": "93",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 137
+   },
+   "complete": true
+  },
+  {
+   "id": "94",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 138
+   },
+   "complete": true
+  },
+  {
+   "id": "95",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 118
+   },
+   "complete": true
+  },
+  {
+   "id": "100-hisuian",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 192
+   },
+   "complete": true
+  },
+  {
+   "id": "101-hisuian",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 193
+   },
+   "complete": true
+  },
+  {
+   "id": "108",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 125
+   },
+   "complete": true
+  },
+  {
+   "id": "111",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 120
+   },
+   "complete": true
+  },
+  {
+   "id": "112",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 121
+   },
+   "complete": true
+  },
+  {
+   "id": "113",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 87
+   },
+   "complete": true
+  },
+  {
+   "id": "114",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 95
+   },
+   "complete": true
+  },
+  {
+   "id": "122",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 77
+   },
+   "complete": true
+  },
+  {
+   "id": "123",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 72
+   },
+   "complete": true
+  },
+  {
+   "id": "125",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 183
+   },
+   "complete": true
+  },
+  {
+   "id": "126",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 175
+   },
+   "complete": true
+  },
+  {
+   "id": "129",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 80
+   },
+   "complete": true
+  },
+  {
+   "id": "130",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 81
+   },
+   "complete": true
+  },
+  {
+   "id": "133",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 25
+   },
+   "complete": true
+  },
+  {
+   "id": "134",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 26
+   },
+   "complete": true
+  },
+  {
+   "id": "135",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 27
+   },
+   "complete": true
+  },
+  {
+   "id": "136",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 28
+   },
+   "complete": true
+  },
+  {
+   "id": "137",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 133
+   },
+   "complete": true
+  },
+  {
+   "id": "143",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 52
+   },
+   "complete": true
+  },
+  {
+   "id": "155",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 4
+   },
+   "complete": true
+  },
+  {
+   "id": "156",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 5
+   },
+   "complete": true
+  },
+  {
+   "id": "157-hisuian",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 6
+   },
+   "complete": true
+  },
+  {
+   "id": "169",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 36
+   },
+   "complete": true
+  },
+  {
+   "id": "172",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 55
+   },
+   "complete": true
+  },
+  {
+   "id": "173",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 199
+   },
+   "complete": true
+  },
+  {
+   "id": "175",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 127
+   },
+   "complete": true
+  },
+  {
+   "id": "176",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 128
+   },
+   "complete": true
+  },
+  {
+   "id": "185",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 124
+   },
+   "complete": true
+  },
+  {
+   "id": "190",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 78
+   },
+   "complete": true
+  },
+  {
+   "id": "193",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 105
+   },
+   "complete": true
+  },
+  {
+   "id": "196",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 29
+   },
+   "complete": true
+  },
+  {
+   "id": "197",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 30
+   },
+   "complete": true
+  },
+  {
+   "id": "198",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 140
+   },
+   "complete": true
+  },
+  {
+   "id": "200",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 197
+   },
+   "complete": true
+  },
+  {
+   "id": "201-a",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 142
+   },
+   "complete": true
+  },
+  {
+   "id": "201-b",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 142
+   }
+  },
+  {
+   "id": "201-c",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 142
+   }
+  },
+  {
+   "id": "201-d",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 142
+   }
+  },
+  {
+   "id": "201-e",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 142
+   }
+  },
+  {
+   "id": "201-f",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 142
+   }
+  },
+  {
+   "id": "201-g",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 142
+   }
+  },
+  {
+   "id": "201-h",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 142
+   }
+  },
+  {
+   "id": "201-i",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 142
+   }
+  },
+  {
+   "id": "201-j",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 142
+   }
+  },
+  {
+   "id": "201-k",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 142
+   }
+  },
+  {
+   "id": "201-l",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 142
+   }
+  },
+  {
+   "id": "201-m",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 142
+   }
+  },
+  {
+   "id": "201-n",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 142
+   }
+  },
+  {
+   "id": "201-o",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 142
+   }
+  },
+  {
+   "id": "201-p",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 142
+   }
+  },
+  {
+   "id": "201-q",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 142
+   }
+  },
+  {
+   "id": "201-r",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 142
+   }
+  },
+  {
+   "id": "201-s",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 142
+   }
+  },
+  {
+   "id": "201-t",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 142
+   }
+  },
+  {
+   "id": "201-u",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 142
+   }
+  },
+  {
+   "id": "201-v",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 142
+   }
+  },
+  {
+   "id": "201-w",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 142
+   }
+  },
+  {
+   "id": "201-x",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 142
+   }
+  },
+  {
+   "id": "201-y",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 142
+   }
+  },
+  {
+   "id": "201-z",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 142
+   }
+  },
+  {
+   "id": "201-exclamation",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 142
+   }
+  },
+  {
+   "id": "201-question",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 142
+   }
+  },
+  {
+   "id": "207",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 185
+   },
+   "complete": true
+  },
+  {
+   "id": "208",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 119
+   },
+   "complete": true
+  },
+  {
+   "id": "211-hisuian",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 84
+   },
+   "complete": true
+  },
+  {
+   "id": "212",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 74
+   },
+   "complete": true
+  },
+  {
+   "id": "214",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 75
+   },
+   "complete": true
+  },
+  {
+   "id": "215",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 202
+   },
+   "complete": true
+  },
+  {
+   "id": "215-hisuian",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 202
+   }
+  },
+  {
+   "id": "216",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 112
+   },
+   "complete": true
+  },
+  {
+   "id": "217",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 113
+   },
+   "complete": true
+  },
+  {
+   "id": "220",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 212
+   },
+   "complete": true
+  },
+  {
+   "id": "221",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 213
+   },
+   "complete": true
+  },
+  {
+   "id": "223",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 146
+   },
+   "complete": true
+  },
+  {
+   "id": "224",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 147
+   },
+   "complete": true
+  },
+  {
+   "id": "226",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 165
+   },
+   "complete": true
+  },
+  {
+   "id": "233",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 134
+   },
+   "complete": true
+  },
+  {
+   "id": "234",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 49
+   },
+   "complete": true
+  },
+  {
+   "id": "239",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 182
+   },
+   "complete": true
+  },
+  {
+   "id": "240",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 174
+   },
+   "complete": true
+  },
+  {
+   "id": "242",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 88
+   },
+   "complete": true
+  },
+  {
+   "id": "265",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 18
+   },
+   "complete": true
+  },
+  {
+   "id": "266",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 19
+   },
+   "complete": true
+  },
+  {
+   "id": "267",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 20
+   },
+   "complete": true
+  },
+  {
+   "id": "268",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 21
+   },
+   "complete": true
+  },
+  {
+   "id": "269",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 22
+   },
+   "complete": true
+  },
+  {
+   "id": "280",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 101
+   },
+   "complete": true
+  },
+  {
+   "id": "281",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 102
+   },
+   "complete": true
+  },
+  {
+   "id": "282",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 103
+   },
+   "complete": true
+  },
+  {
+   "id": "299",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 190
+   },
+   "complete": true
+  },
+  {
+   "id": "315",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 90
+   },
+   "complete": true
+  },
+  {
+   "id": "339",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 97
+   },
+   "complete": true
+  },
+  {
+   "id": "340",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 98
+   },
+   "complete": true
+  },
+  {
+   "id": "355",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 158
+   },
+   "complete": true
+  },
+  {
+   "id": "356",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 159
+   },
+   "complete": true
+  },
+  {
+   "id": "358",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 196
+   },
+   "complete": true
+  },
+  {
+   "id": "361",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 205
+   },
+   "complete": true
+  },
+  {
+   "id": "362",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 206
+   },
+   "complete": true
+  },
+  {
+   "id": "363",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 143
+   },
+   "complete": true
+  },
+  {
+   "id": "364",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 144
+   },
+   "complete": true
+  },
+  {
+   "id": "365",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 145
+   },
+   "complete": true
+  },
+  {
+   "id": "387",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 130
+   },
+   "complete": true
+  },
+  {
+   "id": "388",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 131
+   },
+   "complete": true
+  },
+  {
+   "id": "389",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 132
+   },
+   "complete": true
+  },
+  {
+   "id": "390",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 61
+   },
+   "complete": true
+  },
+  {
+   "id": "391",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 62
+   },
+   "complete": true
+  },
+  {
+   "id": "392",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 63
+   },
+   "complete": true
+  },
+  {
+   "id": "393",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 161
+   },
+   "complete": true
+  },
+  {
+   "id": "394",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 162
+   },
+   "complete": true
+  },
+  {
+   "id": "395",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 163
+   },
+   "complete": true
+  },
+  {
+   "id": "396",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 12
+   },
+   "complete": true
+  },
+  {
+   "id": "397",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 13
+   },
+   "complete": true
+  },
+  {
+   "id": "398",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 14
+   },
+   "complete": true
+  },
+  {
+   "id": "399",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 10
+   },
+   "complete": true
+  },
+  {
+   "id": "400",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 11
+   },
+   "complete": true
+  },
+  {
+   "id": "401",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 39
+   },
+   "complete": true
+  },
+  {
+   "id": "402",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 40
+   },
+   "complete": true
+  },
+  {
+   "id": "403",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 15
+   },
+   "complete": true
+  },
+  {
+   "id": "404",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 16
+   },
+   "complete": true
+  },
+  {
+   "id": "405",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 17
+   },
+   "complete": true
+  },
+  {
+   "id": "406",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 89
+   },
+   "complete": true
+  },
+  {
+   "id": "407",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 91
+   },
+   "complete": true
+  },
+  {
+   "id": "408",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 208
+   },
+   "complete": true
+  },
+  {
+   "id": "409",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 209
+   },
+   "complete": true
+  },
+  {
+   "id": "410",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 210
+   },
+   "complete": true
+  },
+  {
+   "id": "411",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 211
+   },
+   "complete": true
+  },
+  {
+   "id": "412-plant",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 43
+   },
+   "complete": true
+  },
+  {
+   "id": "412-sandy",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 43
+   }
+  },
+  {
+   "id": "412-trash",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 43
+   }
+  },
+  {
+   "id": "413-plant",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 44
+   },
+   "complete": true
+  },
+  {
+   "id": "413-sandy",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 44
+   }
+  },
+  {
+   "id": "413-trash",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 44
+   }
+  },
+  {
+   "id": "414",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 45
+   },
+   "complete": true
+  },
+  {
+   "id": "415",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 70
+   },
+   "complete": true
+  },
+  {
+   "id": "416",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 71
+   },
+   "complete": true
+  },
+  {
+   "id": "417",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 109
+   },
+   "complete": true
+  },
+  {
+   "id": "418",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 41
+   },
+   "complete": true
+  },
+  {
+   "id": "419",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 42
+   },
+   "complete": true
+  },
+  {
+   "id": "420",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 66
+   },
+   "complete": true
+  },
+  {
+   "id": "421-overcast",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 67
+   },
+   "complete": true
+  },
+  {
+   "id": "422-west-sea",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 82
+   },
+   "complete": true
+  },
+  {
+   "id": "422-east-sea",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 82
+   }
+  },
+  {
+   "id": "423-west-sea",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 83
+   },
+   "complete": true
+  },
+  {
+   "id": "423-east-sea",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 83
+   }
+  },
+  {
+   "id": "424",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 79
+   },
+   "complete": true
+  },
+  {
+   "id": "425",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 37
+   },
+   "complete": true
+  },
+  {
+   "id": "426",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 38
+   },
+   "complete": true
+  },
+  {
+   "id": "427",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 64
+   },
+   "complete": true
+  },
+  {
+   "id": "428",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 65
+   },
+   "complete": true
+  },
+  {
+   "id": "429",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 198
+   },
+   "complete": true
+  },
+  {
+   "id": "430",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 141
+   },
+   "complete": true
+  },
+  {
+   "id": "431",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 152
+   },
+   "complete": true
+  },
+  {
+   "id": "432",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 153
+   },
+   "complete": true
+  },
+  {
+   "id": "433",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 195
+   },
+   "complete": true
+  },
+  {
+   "id": "434",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 110
+   },
+   "complete": true
+  },
+  {
+   "id": "435",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 111
+   },
+   "complete": true
+  },
+  {
+   "id": "436",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 180
+   },
+   "complete": true
+  },
+  {
+   "id": "437",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 181
+   },
+   "complete": true
+  },
+  {
+   "id": "438",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 123
+   },
+   "complete": true
+  },
+  {
+   "id": "439",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 76
+   },
+   "complete": true
+  },
+  {
+   "id": "440",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 86
+   },
+   "complete": true
+  },
+  {
+   "id": "441",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 157
+   },
+   "complete": true
+  },
+  {
+   "id": "442",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 139
+   },
+   "complete": true
+  },
+  {
+   "id": "443",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 187
+   },
+   "complete": true
+  },
+  {
+   "id": "444",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 188
+   },
+   "complete": true
+  },
+  {
+   "id": "445",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 189
+   },
+   "complete": true
+  },
+  {
+   "id": "446",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 51
+   },
+   "complete": true
+  },
+  {
+   "id": "447",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 223
+   },
+   "complete": true
+  },
+  {
+   "id": "448",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 224
+   },
+   "complete": true
+  },
+  {
+   "id": "449-female",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 107
+   },
+   "complete": true
+  },
+  {
+   "id": "449",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 107
+   }
+  },
+  {
+   "id": "450-female",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 108
+   },
+   "complete": true
+  },
+  {
+   "id": "450",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 108
+   }
+  },
+  {
+   "id": "451",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 148
+   },
+   "complete": true
+  },
+  {
+   "id": "452",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 149
+   },
+   "complete": true
+  },
+  {
+   "id": "453",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 99
+   },
+   "complete": true
+  },
+  {
+   "id": "454",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 100
+   },
+   "complete": true
+  },
+  {
+   "id": "455",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 92
+   },
+   "complete": true
+  },
+  {
+   "id": "456",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 172
+   },
+   "complete": true
+  },
+  {
+   "id": "457",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 173
+   },
+   "complete": true
+  },
+  {
+   "id": "458",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 164
+   },
+   "complete": true
+  },
+  {
+   "id": "459",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 217
+   },
+   "complete": true
+  },
+  {
+   "id": "460",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 218
+   },
+   "complete": true
+  },
+  {
+   "id": "461",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 204
+   },
+   "complete": true
+  },
+  {
+   "id": "462",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 179
+   },
+   "complete": true
+  },
+  {
+   "id": "463",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 126
+   },
+   "complete": true
+  },
+  {
+   "id": "464",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 122
+   },
+   "complete": true
+  },
+  {
+   "id": "465",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 96
+   },
+   "complete": true
+  },
+  {
+   "id": "466",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 184
+   },
+   "complete": true
+  },
+  {
+   "id": "467",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 176
+   },
+   "complete": true
+  },
+  {
+   "id": "468",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 129
+   },
+   "complete": true
+  },
+  {
+   "id": "469",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 106
+   },
+   "complete": true
+  },
+  {
+   "id": "470",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 31
+   },
+   "complete": true
+  },
+  {
+   "id": "471",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 32
+   },
+   "complete": true
+  },
+  {
+   "id": "472",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 186
+   },
+   "complete": true
+  },
+  {
+   "id": "473",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 214
+   },
+   "complete": true
+  },
+  {
+   "id": "474",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 135
+   },
+   "complete": true
+  },
+  {
+   "id": "475",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 104
+   },
+   "complete": true
+  },
+  {
+   "id": "476",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 191
+   },
+   "complete": true
+  },
+  {
+   "id": "477",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 160
+   },
+   "complete": true
+  },
+  {
+   "id": "478",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 207
+   },
+   "complete": true
+  },
+  {
+   "id": "479",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 194
+   },
+   "complete": true
+  },
+  {
+   "id": "479-heat",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 194
+   }
+  },
+  {
+   "id": "479-wash",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 194
+   }
+  },
+  {
+   "id": "479-frost",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 194
+   }
+  },
+  {
+   "id": "479-fan",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 194
+   }
+  },
+  {
+   "id": "479-mow",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 194
+   }
+  },
+  {
+   "id": "480",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": false,
+   "sec": {
+    "hisui": 225
+   },
+   "complete": true
+  },
+  {
+   "id": "481",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": false,
+   "sec": {
+    "hisui": 226
+   },
+   "complete": true
+  },
+  {
+   "id": "482",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": false,
+   "sec": {
+    "hisui": 227
+   },
+   "complete": true
+  },
+  {
+   "id": "483",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": false,
+   "sec": {
+    "hisui": 235
+   },
+   "complete": true
+  },
+  {
+   "id": "483-origin",
+   "go": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": false,
+   "sec": {
+    "hisui": 235
+   }
+  },
+  {
+   "id": "484",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": false,
+   "sec": {
+    "hisui": 236
+   },
+   "complete": true
+  },
+  {
+   "id": "484-origin",
+   "go": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": false,
+   "sec": {
+    "hisui": 236
+   }
+  },
+  {
+   "id": "485",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": false,
+   "sec": {
+    "hisui": 228
+   },
+   "complete": true
+  },
+  {
+   "id": "486",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": false,
+   "sec": {
+    "hisui": 229
+   },
+   "complete": true
+  },
+  {
+   "id": "487-altered",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": false,
+   "sec": {
+    "hisui": 237
+   },
+   "complete": true
+  },
+  {
+   "id": "487-origin",
+   "go": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": false,
+   "sec": {
+    "hisui": 237
+   }
+  },
+  {
+   "id": "488",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": false,
+   "sec": {
+    "hisui": 230
+   },
+   "complete": true
+  },
+  {
+   "id": "489",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": false,
+   "sec": {
+    "hisui": 239
+   },
+   "complete": true
+  },
+  {
+   "id": "490",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": false,
+   "sec": {
+    "hisui": 240
+   },
+   "complete": true
+  },
+  {
+   "id": "491",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": false,
+   "sec": {
+    "hisui": 242,
+    "elsewhere": null
+   },
+   "complete": true
+  },
+  {
+   "id": "492-land",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": false,
+   "sec": {
+    "hisui": 241,
+    "elsewhere": null
+   },
+   "complete": true
+  },
+  {
+   "id": "492-sky",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": false,
+   "sec": {
+    "hisui": 241,
+    "elsewhere": null
+   }
+  },
+  {
+   "id": "493",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": false,
+   "sec": {
+    "hisui": 238
+   },
+   "complete": true
+  },
+  {
+   "id": "493-fighting",
+   "go": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": false,
+   "sec": {
+    "hisui": 238
+   }
+  },
+  {
+   "id": "493-flying",
+   "go": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": false,
+   "sec": {
+    "hisui": 238
+   }
+  },
+  {
+   "id": "493-poison",
+   "go": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": false,
+   "sec": {
+    "hisui": 238
+   }
+  },
+  {
+   "id": "493-ground",
+   "go": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": false,
+   "sec": {
+    "hisui": 238
+   }
+  },
+  {
+   "id": "493-rock",
+   "go": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": false,
+   "sec": {
+    "hisui": 238
+   }
+  },
+  {
+   "id": "493-bug",
+   "go": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": false,
+   "sec": {
+    "hisui": 238
+   }
+  },
+  {
+   "id": "493-ghost",
+   "go": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": false,
+   "sec": {
+    "hisui": 238
+   }
+  },
+  {
+   "id": "493-steel",
+   "go": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": false,
+   "sec": {
+    "hisui": 238
+   }
+  },
+  {
+   "id": "493-fire",
+   "go": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": false,
+   "sec": {
+    "hisui": 238
+   }
+  },
+  {
+   "id": "493-water",
+   "go": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": false,
+   "sec": {
+    "hisui": 238
+   }
+  },
+  {
+   "id": "493-grass",
+   "go": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": false,
+   "sec": {
+    "hisui": 238
+   }
+  },
+  {
+   "id": "493-electric",
+   "go": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": false,
+   "sec": {
+    "hisui": 238
+   }
+  },
+  {
+   "id": "493-psychic",
+   "go": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": false,
+   "sec": {
+    "hisui": 238
+   }
+  },
+  {
+   "id": "493-ice",
+   "go": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": false,
+   "sec": {
+    "hisui": 238
+   }
+  },
+  {
+   "id": "493-dragon",
+   "go": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": false,
+   "sec": {
+    "hisui": 238
+   }
+  },
+  {
+   "id": "493-dark",
+   "go": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": false,
+   "sec": {
+    "hisui": 238
+   }
+  },
+  {
+   "id": "493-fairy",
+   "go": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": false,
+   "sec": {
+    "hisui": 238
+   }
+  },
+  {
+   "id": "501",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 7
+   },
+   "complete": true
+  },
+  {
+   "id": "502",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 8
+   },
+   "complete": true
+  },
+  {
+   "id": "503-hisuian",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 9
+   },
+   "complete": true
+  },
+  {
+   "id": "548",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 93
+   },
+   "complete": true
+  },
+  {
+   "id": "549-hisuian",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 94
+   },
+   "complete": true
+  },
+  {
+   "id": "550-white-striped",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 166
+   },
+   "complete": true
+  },
+  {
+   "id": "570-hisuian",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 219
+   },
+   "complete": true
+  },
+  {
+   "id": "571-hisuian",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 220
+   },
+   "complete": true
+  },
+  {
+   "id": "627",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 221
+   },
+   "complete": true
+  },
+  {
+   "id": "628-hisuian",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 222
+   },
+   "complete": true
+  },
+  {
+   "id": "641-incarnate",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": false,
+   "sec": {
+    "hisui": 231
+   },
+   "complete": true
+  },
+  {
+   "id": "641-therian",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": false,
+   "sec": {
+    "hisui": 231
+   }
+  },
+  {
+   "id": "642-incarnate",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": false,
+   "sec": {
+    "hisui": 232
+   },
+   "complete": true
+  },
+  {
+   "id": "642-therian",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": false,
+   "sec": {
+    "hisui": 232
+   }
+  },
+  {
+   "id": "645-incarnate",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": false,
+   "sec": {
+    "hisui": 233
+   },
+   "complete": true
+  },
+  {
+   "id": "645-therian",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": false,
+   "sec": {
+    "hisui": 233
+   }
+  },
+  {
+   "id": "700",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 33
+   },
+   "complete": true
+  },
+  {
+   "id": "704",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 115
+   },
+   "complete": true
+  },
+  {
+   "id": "705-hisuian",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 116
+   },
+   "complete": true
+  },
+  {
+   "id": "706-hisuian",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 117
+   },
+   "complete": true
+  },
+  {
+   "id": "712",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 215
+   },
+   "complete": true
+  },
+  {
+   "id": "713-hisuian",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 216
+   },
+   "complete": true
+  },
+  {
+   "id": "722",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 1
+   },
+   "complete": true
+  },
+  {
+   "id": "723",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 2
+   },
+   "complete": true
+  },
+  {
+   "id": "724-hisuian",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 3
+   },
+   "complete": true
+  },
+  {
+   "id": "899",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 50
+   },
+   "complete": true
+  },
+  {
+   "id": "900",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 73
+   },
+   "complete": true
+  },
+  {
+   "id": "901",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 114
+   },
+   "complete": true
+  },
+  {
+   "id": "902",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 167
+   }
+  },
+  {
+   "id": "902-female",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 167
+   },
+   "complete": true
+  },
+  {
+   "id": "903",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 203
+   },
+   "complete": true
+  },
+  {
+   "id": "904",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": true,
+   "sec": {
+    "hisui": 85
+   },
+   "complete": true
+  },
+  {
+   "id": "905-incarnate",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": false,
+   "sec": {
+    "hisui": 234
+   },
+   "complete": true
+  },
+  {
+   "id": "905-therian",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": false,
+   "sec": {
+    "hisui": 234
+   }
+  }
+ ]
+}

@@ -3,13 +3,15 @@
 Everything waiting on you. **Do** = just do it; **Decide** = your call. Tell Claude when one’s done or decided and it comes off.
 
 ## Decide
-- **The next games, in release order:** Legends: Arceus, then Violet, then Legends: Z-A. Their choices: `for-jemma/new-games.md`.
+- **Arceus’s boxes (Try switch, bottom right):** the icon and colour for Alpha (Letter α, Crown or Paw; Red, Deep red or Bright red) and for Complete (Book, Badge or Clipboard; Gold, Hisui green or Sepia). The first of each is my suggestion (not decided). Pick and the switch goes.
+- **The next games, in release order:** Violet, then Legends: Z-A (Shield and Legends: Arceus are built). Their choices: `for-jemma/new-games.md`.
 
 ## Do
 - **Try getting your collection in:** easiest is **Fast tick → Kanto → Lucky** next to your phone’s Pokédex on the Lucky tab. Or one short screen recording of the Pokédex’s Lucky tab (Kanto only) and, if you have one, a Calcy IV export, into the Pokédex folder’s `imports` folder. Then Claude checks the reader works on your phone’s screens.
 - **Check the 49 Kalos–Paldea Pokémon** ticked Caught with no Shiny (possible leftovers from Tick all): Fast tick → Caught next to the game’s Pokédex.
 
 ## Done
+- **Pokémon Legends: Arceus built (23 Nov, your answers):** the Hisui Pokédex (#001–#242, the game’s order) and Bonus Pokémon (Alolan Vulpix and Ninetales, and Darkrai and Shaymin, which also keep their Hisui numbers). Boxes Caught, Female, Male, Shiny, Alpha and Complete (Research Level 10, one per Pokédex entry); only Arceus’s own forms. Its own ticks file and Fast tick.
 - **Pokémon Shield built (23 Nov, your answers):** everything you can have in Shield, 664 Pokémon: the Galar Pokédex (base game), Isle of Armor and Crown Tundra (DLC) in the game’s own order and numbers, then Dynamax Adventures, Bonus Pokémon and HOME Transfers (your names, 23 Nov). The Isle of Armor and Crown Tundra show the official paintings; Bonus Pokémon all three pictures; Dynamax Adventures and HOME Transfers every region’s map (your picks, 23 Nov); the Try switches are gone. Regieleki and Regidrago, Glastrier and Spectrier (and the two Calyrex riders) are marked “Choose one” (your answer); once you’ve chosen in the game, say which and the other can say it needs a trade. Shield’s ticks save (the server was restarted). Boxes Caught, Female, Male, Shiny, Gigantamax; only Shield’s own forms; “Sword only” marked on the ones you need by trade. Its own ticks file and Fast tick.
 - **HOME the same red as GO (your pick, 23 Nov):** HOME’s pages and the HOME button on the switch are the binder red, like GO; only the switch says which game. (Teal had been my suggestion.)
 - **Your answers (23 Nov):** Alcremie’s Gigantamax on every flavour (as it was); the box colours as they are; HOME’s look-alike forms listed apart (Battle Bond Greninja, Power Construct Zygarde, Own Tempo Rockruff, Artisan Poltchageist, Masterpiece Sinistcha); Looking for, Event Pokémon as one page, and banners on every page kept; Crowned Zacian and Zamazenta and Complete Zygarde now Pokémon of their own in GO (each its own boxes on its page, like Dusk Mane Necrozma); Sinistea and Polteageist like other forms (one card, each form ticked on its page, as they were). The footer already says “HTML, CSS, JavaScript and Python” (22 Nov).

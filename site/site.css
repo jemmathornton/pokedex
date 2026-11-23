@@ -133,7 +133,8 @@
   --nav:#5A1820; --deep:#5A1820; --deep-2:#7E2530; --on-deep:#FFF4EE; --on-deep-mute:color-mix(in srgb,#fff 62%,var(--deep));
   --accent:#F2C14E;
   --caught:#315686; --male:#078E5A; --female:#6A5DCF; --shiny:#6C7786; --lucky:#B48600; --hundo:#D14186; --shadow:#4D2D5F; --purified:#0082C5; --dynamax:#B6285A; --gmax:#80183B; --mega:#C2571A;   /* Mega: burnt orange (her pick, 10 Nov). Shiny and Lucky a little deeper (her picks, 22 Nov): Shiny #6C7786 (white 4.54:1, was #7C8795), Lucky #B48600 (white 3.31:1, halfway to #977000, which was too dark; was #D09B00) */
-  --xxl:#0E8A84; --xxs:#1B5C9E;   /* XXL teal (12 Nov), XXS deep sea blue (her pick 3, 13 Nov: coral was too close to Dynamax) */
+  --xxl:#0E8A84; --xxs:#1B5C9E;
+  --alpha:#C62828; --complete:#8A6410;   /* Legends: Arceus (23 Nov): Alpha red like the game's, Complete gold; TRIAL: the Try switch "Arceus's boxes" offers others */   /* XXL teal (12 Nov), XXS deep sea blue (her pick 3, 13 Nov: coral was too close to Dynamax) */
   /* box colours: her picks after several rounds (9 Nov), balanced to one palette; white text on every box (her rule) */
   --focus:var(--deep-2); --deep-text:var(--deep-2);   /* red text; a light rose in dark mode (the dark red was 1.8:1 there) */
   --display:"Instrument Serif","Iowan Old Style","Palatino Linotype",Georgia,serif;
@@ -254,6 +255,8 @@ main{margin-left:var(--side);min-height:100vh;container-type:inline-size}
 .tk.pu[aria-pressed="true"]{background:var(--purified)}
 .tk.dx[aria-pressed="true"]{background:var(--dynamax)}
 .tk.gx[aria-pressed="true"]{background:var(--gmax)}
+.tk.al[aria-pressed="true"]{background:var(--alpha)}
+.tk.rc[aria-pressed="true"]{background:var(--complete)}
 .tk.mg[aria-pressed="true"]{background:var(--mega)}
 .tk.xl[aria-pressed="true"]{background:var(--xxl)}
 .tk.xs[aria-pressed="true"]{background:var(--xxs)}
@@ -395,6 +398,20 @@ a.formsbtn{text-decoration:none}
 .dex-entry{font:400 22px/1.45 var(--display);margin:0 0 16px;max-width:60ch;text-wrap:pretty}
 .dex-entry .label{display:block;margin-bottom:4px}
 .label.dexfrom{display:block;margin:0 0 6px}
+/* ===== TRIAL: Try switch "Arceus’s boxes" (23 Nov), START: remove with the TRIAL block in app.js once she has picked ===== */
+.trybox{position:fixed;right:12px;bottom:12px;z-index:60;display:grid;gap:6px;padding:8px 10px;border-radius:10px;background:var(--surface,#fff);color:var(--ink,#222);
+  border:1px solid var(--line,#ccc);box-shadow:0 4px 16px rgba(0,0,0,.2);font:600 12px var(--body,sans-serif);max-width:calc(100vw - 24px);box-sizing:border-box}
+.trybox > b{font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.tryrow{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+.tryrow span{margin-right:4px;min-width:104px}
+.tryrow button{font:inherit;padding:3px 8px;border-radius:6px;border:1px solid var(--line,#ccc);background:transparent;color:inherit;cursor:pointer;display:inline-flex;align-items:center;gap:4px}
+.tryrow button .i{width:14px;height:14px}
+.tryrow button i.sw{display:inline-block;width:12px;height:12px;border-radius:3px}
+.tryrow button[aria-pressed="true"]{background:var(--ink,#222);color:var(--surface,#fff);border-color:transparent}
+@media print{.trybox{display:none}}
+.jj-menu-open .trybox{display:none}   /* never over the Menu drawer */
+@media (max-width:900px){ body{padding-bottom:var(--trypad,0px)} .tryrow button{padding:5px 8px} }
+/* ===== TRIAL: Try switch "Arceus’s boxes", END ===== */
 .genmap.multi{display:flex;background:none;overflow:hidden}   /* several pictures side by side on a card, like the banner's strip (Shield's Bonus Pokémon, Dynamax Adventures, HOME Transfers: her picks, 23 Nov) */
 .genmap.multi i{flex:1;background:var(--pic) center/cover no-repeat}
 /* Skip to the page (as her Library and Travels): off screen until the keyboard reaches it */
@@ -571,7 +588,10 @@ a.formsbtn{text-decoration:none}
 .pc-pu[aria-pressed="true"] .pcpic img{filter:drop-shadow(0 0 10px rgba(255,255,255,.9))}
 /* Dynamax: glowing red-pink Max energy orbs; G-Max: the red Gigantamax clouds; both scattered like Lucky's circles, light (her redesign ask, 10 Nov) */
 .pc-dx .pcpic{background:radial-gradient(circle at 50% 55%,#fff3f6,color-mix(in srgb,var(--dynamax) 28%,#fff) 85%)}
-.pc-gx .pcpic{background:radial-gradient(circle at 50% 55%,#fbe3e8,color-mix(in srgb,var(--gmax) 45%,#fff) 85%)}   /* bigger, darker clouds than Dynamax (her note) */
+.pc-gx .pcpic{background:radial-gradient(circle at 50% 55%,#fbe3e8,color-mix(in srgb,var(--gmax) 45%,#fff) 85%)}
+/* Legends: Arceus: a light tint of the box's colour only (no symbol drawn: her rule) */
+.pc-al .pcpic{background:radial-gradient(circle at 50% 55%,#fff,color-mix(in srgb,var(--alpha) 30%,#fff) 85%)}
+.pc-rc .pcpic{background:radial-gradient(circle at 50% 55%,#fff,color-mix(in srgb,var(--complete) 30%,#fff) 85%)}   /* bigger, darker clouds than Dynamax (her note) */
 .pc-dx .pcpic::before,.pc-dx .pcpic::after,.pc-gx .pcpic::before,.pc-gx .pcpic::after{content:"";position:absolute;inset:0}
 .pc-dx .pcpic::before{background:#ef6f95;-webkit-mask:url(variants/cloud.png) 13% 34%/34% no-repeat,url(variants/cloud.png) 67% 64%/16% no-repeat,url(variants/cloud.png) 91% 13%/25% no-repeat,url(variants/cloud.png) 12% 83%/44% no-repeat,url(variants/cloud.png) 83% 93%/19% no-repeat,url(variants/cloud.png) 64% 32%/31% no-repeat,url(variants/cloud.png) 82% 60%/28% no-repeat,url(variants/cloud.png) 59% 16%/40% no-repeat;mask:url(variants/cloud.png) 13% 34%/34% no-repeat,url(variants/cloud.png) 67% 64%/16% no-repeat,url(variants/cloud.png) 91% 13%/25% no-repeat,url(variants/cloud.png) 12% 83%/44% no-repeat,url(variants/cloud.png) 83% 93%/19% no-repeat,url(variants/cloud.png) 64% 32%/31% no-repeat,url(variants/cloud.png) 82% 60%/28% no-repeat,url(variants/cloud.png) 59% 16%/40% no-repeat;opacity:.5}
 .pc-dx .pcpic::after{background:#ffb3c8;-webkit-mask:url(variants/cloud.png) 43% 65%/37% no-repeat,url(variants/cloud.png) 39% 12%/28% no-repeat,url(variants/cloud.png) 8% 15%/16% no-repeat,url(variants/cloud.png) 43% 86%/22% no-repeat,url(variants/cloud.png) 91% 34%/44% no-repeat,url(variants/cloud.png) 32% 36%/19% no-repeat,url(variants/cloud.png) 9% 57%/25% no-repeat,url(variants/cloud.png) 58% 91%/34% no-repeat;mask:url(variants/cloud.png) 43% 65%/37% no-repeat,url(variants/cloud.png) 39% 12%/28% no-repeat,url(variants/cloud.png) 8% 15%/16% no-repeat,url(variants/cloud.png) 43% 86%/22% no-repeat,url(variants/cloud.png) 91% 34%/44% no-repeat,url(variants/cloud.png) 32% 36%/19% no-repeat,url(variants/cloud.png) 9% 57%/25% no-repeat,url(variants/cloud.png) 58% 91%/34% no-repeat;opacity:.65}   /* clouds like G-Max but smaller and paler (her note) */
@@ -772,7 +792,7 @@ a.formsbtn{text-decoration:none}
 .tk.fb b{margin-left:auto;font-size:8.5px;font-weight:700;opacity:.85;flex:none;letter-spacing:-.4px}
 .tk.fb.c{--bc:var(--caught)}.tk.fb.f{--bc:var(--female)}.tk.fb.m{--bc:var(--male)}.tk.fb.s{--bc:var(--shiny)}.tk.fb.l{--bc:var(--lucky)}
 .tk.fb.h{--bc:var(--hundo)}.tk.fb.sd{--bc:var(--shadow)}.tk.fb.pu{--bc:var(--purified)}.tk.fb.dx{--bc:var(--dynamax)}.tk.fb.gx{--bc:var(--gmax)}
-.tk.fb.mg{--bc:var(--mega)}.tk.fb.xl{--bc:var(--xxl)}.tk.fb.xs{--bc:var(--xxs)}
+.tk.fb.mg{--bc:var(--mega)}.tk.fb.xl{--bc:var(--xxl)}.tk.fb.xs{--bc:var(--xxs)}.tk.fb.al{--bc:var(--alpha)}.tk.fb.rc{--bc:var(--complete)}
 .tk.fb[data-all="true"]{color:#fff;border-color:transparent;background:var(--bc)}   /* every form got: filled like a ticked box (a link, so data-all, not aria-pressed) */
 .tk.fb .fill{position:absolute;inset:0;display:flex;align-items:center;gap:2px;padding:2px 4px;background:var(--bc);color:#fff;
   clip-path:inset(0 calc(100% - var(--p)) 0 0);pointer-events:none}

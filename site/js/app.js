@@ -79,8 +79,9 @@ let COL = norm(DATA.collection), readOnly = true, loadFailed = false, viewOnly =
 const HOME_DATA = DATA.home || {entries: [], collection: {}};   // Pokémon HOME (build.py: data/home/dex.json and her collection/home.json)
 // the games beside GO, in release order after HOME (her ask, 23 Nov: “we should do them in release order”): each its list, its
 // sections (HOME: the ten regions; Shield: its own Pokédexes and the rest of what Shield can hold) and her ticks
-const GAME_DATA = {home: HOME_DATA, shield: DATA.shield || {entries: [], sections: [], collection: {}}};
-const COLS = {go: COL, home: norm(HOME_DATA.collection), shield: norm(GAME_DATA.shield.collection)};   // each game's ticks; COL is the game shown's
+const GAME_DATA = {home: HOME_DATA, shield: DATA.shield || {entries: [], sections: [], collection: {}},
+  arceus: DATA.arceus || {entries: [], sections: [], collection: {}}};   // Pokémon Legends: Arceus (her yes, 23 Nov: next in release order)
+const COLS = {go: COL, home: norm(HOME_DATA.collection), shield: norm(GAME_DATA.shield.collection), arceus: norm(GAME_DATA.arceus.collection)};   // each game's ticks; COL is the game shown's
 // viewOnly (22 Nov, like her Library's read-only mode): no save server at this address at all (plain web hosting once it's online:
 // api/collection missing, refused or not JSON), so the page just shows her ticks as at the last build, quietly: no banner, and the
 // boxes don't react to clicks. A real failure of her own server (a 500, a broken answer) still shows loadFailed's note.
@@ -107,13 +108,18 @@ const EXTRAS = [
   {t: "pu", label: "Purified", icon: "purified", flag: "shadow", title: "Purified"},
   {t: "dx", label: "Dynamax", icon: "dynamax", flag: "dynamax", title: "Dynamax"},
   {t: "gx", label: "Gigantamax", icon: "gigantamax", flag: "gmax", title: "Gigantamax"},
+  // Legends: Arceus (her answer, 23 Nov): Alpha, the big red-eyed ones; Complete, the entry's Research Level 10 (one box per entry
+  // of the Hisui Pokédex: data/arceus/dex.json `complete`)
+  {t: "al", label: "Alpha", icon: "alpha", flag: "alpha", title: "Alpha"},
+  {t: "rc", label: "Complete", icon: "complete", flag: "complete", title: "Complete (Research Level 10)"},
 ];
 
 // the boxes each game has: GO all of them; Pokémon HOME only what HOME has (her notes, 22 Nov: “Thing like lucky aren't a thing
 // there”, “Home is shiny, male/female (like go), maybe dyna and gigan if they are in home”): Caught (in HOME now), Female, Male,
 // Shiny and Gigantamax (a Pokémon kept with the Gigantamax Factor; HOME has no Dynamax box: research/home-tracking.md)
 let GAME = "go";
-const GAME_BOXES = {go: null, home: new Set(["c", "cf", "cm", "s", "gx"]), shield: new Set(["c", "cf", "cm", "s", "gx"])};   // Shield: her answer, 23 Nov
+const GAME_BOXES = {go: null, home: new Set(["c", "cf", "cm", "s", "gx"]), shield: new Set(["c", "cf", "cm", "s", "gx"]),   // Shield: her answer, 23 Nov
+  arceus: new Set(["c", "cf", "cm", "s", "al", "rc"])};   // Legends: Arceus: Caught, Female, Male, Shiny, Alpha, Complete (her answer, 23 Nov)
 const boxOn = t => !GAME_BOXES[GAME] || GAME_BOXES[GAME].has(["mg", "mx", "my"].includes(t) ? "mega" : t);
 // which boxes a Pokémon could ever have (her rule, 12 Nov: only what's impossible is left out; ones not in GO yet still
 // count, as in the game's Pokédex), from all its entries, out or not. In HOME: a shiny only where HOME can have one, and
@@ -125,13 +131,15 @@ const POSSIBLE = {
   dx: es => !NO_DYNAMAX.has(es[0].dex), gx: es => GAME !== "go" ? es.some(e => e.gmax) : es.some(e => GMAX_SPECIES.has(e.dex) && !isRegional(e)),   // no regional form can Gigantamax (Galarian Meowth can't)
   mega: es => es.some(e => (e.mega || []).length || e.megaLater),
   cm: es => es.some(e => maleTick(e)), cf: es => es.some(e => femaleTick(e)),
+  al: es => es.some(e => e.alpha), rc: es => es.some(e => e.complete),   // Legends: Arceus
 };
 function counts(list){
   // the totals at the top of a page count each Pokémon once, ignoring forms (her call, 11 Nov: forms are counted on each
   // Pokémon's own page, not in these totals), and out of every Pokémon that could ever have that box, out in GO yet or
   // not (12 Nov, as the game's Pokédex counts): got if any of its forms has it
   const r = {species: 0, speciesOut: 0, male: 0, maleOut: 0, female: 0, femaleOut: 0, shiny: 0, shinyOut: 0,
-             lucky: 0, luckyOut: 0, hundo: 0, out: 0, sd: 0, pu: 0, shadowOut: 0, dx: 0, dynamaxOut: 0, gx: 0, gmaxOut: 0, mega: 0, megaOut: 0, xl: 0, xlOut: 0, xs: 0, xsOut: 0};
+             lucky: 0, luckyOut: 0, hundo: 0, out: 0, sd: 0, pu: 0, shadowOut: 0, dx: 0, dynamaxOut: 0, gx: 0, gmaxOut: 0, mega: 0, megaOut: 0, xl: 0, xlOut: 0, xs: 0, xsOut: 0,
+             al: 0, alphaOut: 0, rc: 0, completeOut: 0};
   const by = {};
   for (const e of list) (by[groupKey(e)] = by[groupKey(e)] || []).push(e);   // a regional form is a Pokémon of its own (her call, 14 Nov)
   r.speciesAll = Object.keys(by).length;
@@ -152,6 +160,8 @@ function counts(list){
     if (POSSIBLE.pu(es) && es.some(ticked("pu"))) r.pu++;
     tally(es, "dx", ticked("dx"), "dynamaxOut", "dx");
     tally(es, "gx", ticked("gx"), "gmaxOut", "gx");
+    tally(es, "al", ticked("al"), "alphaOut", "al");
+    tally(es, "rc", ticked("rc"), "completeOut", "rc");
     tally(es, "mega", e => (e.mega || []).some(m => has(dk(e), m.t)), "megaOut", "mega");
   }
   return r;
@@ -169,6 +179,8 @@ const BOXF = [   // each box as a filter: which Pokémon it applies to, and whet
   {k: "xxs", t: "xs", label: "XXS", applies: canXXS, have: e => has(dk(e), "xs"), ticks: ["xs"]},
   {k: "dynamax", t: "dx", label: "Dynamax", applies: e => !!e.dynamax, have: e => has(dk(e), "dx"), ticks: ["dx"]},
   {k: "gmax", t: "gx", label: "Gigantamax", applies: e => !!e.gmax, have: e => has(dk(e), "gx"), ticks: ["gx"]},
+  {k: "alpha", t: "al", label: "Alpha", applies: e => !!e.alpha, have: e => has(dk(e), "al"), ticks: ["al"]},
+  {k: "complete", t: "rc", label: "Complete", applies: e => !!e.complete, have: e => has(dk(e), "rc"), ticks: ["rc"]},
   // Mega Evolution and Primal (her ask, 10 Nov: a full box like Dynamax; Mega X and Y a box each, so "have" means all of them)
   {k: "mega", t: "mega", label: "Mega", applies: e => !!(e.mega || []).length, have: e => (e.mega || []).every(m => has(dk(e), m.t)), ticks: e => (e.mega || []).map(m => m.t)},
   {k: "shadow", t: "sd", label: "Shadow", applies: e => !!e.shadow, have: e => has(dk(e), "sd"), ticks: ["sd"]},
@@ -217,6 +229,7 @@ function formBoxes(lead, forms, only){
     [B("c", "c", "poke-ball", "Caught", () => true)],
     [B("cf", "f", "venus", "Female", femaleTick), B("cm", "m", "mars", "Male", maleTick)],
     [B("s", "s", "sparkles", "Shiny", f => !!f.shiny), B("l", "l", "lucky", "Lucky", canLucky)],
+    [B("al", "al", "alpha", "Alpha", f => !!f.alpha), B("rc", "rc", "complete", "Complete", f => !!f.complete)],   // Legends: Arceus
     [B("xl", "xl", "expand", "XXL", f => !neverXXL(f)), B("xs", "xs", "shrink", "XXS", f => !neverXXS(f))],
     [B("dx", "dx", "dynamax", "Dynamax", f => !!f.dynamax)], [B("gx", "gx", "gigantamax", "Gigantamax", f => !!f.gmax)],   // a full row each, so Gigantamax is the same size as the rest (her pick, 21 Nov)
     megaT.map(t => B(t, "mg", "mega", t === "mx" ? "Mega X" : t === "my" ? "Mega Y" : "Mega", f => (f.mega || []).some(m => m.t === t))),
@@ -248,6 +261,7 @@ function boxes(e){
      maleTick(e) ? btn("cm", "m", "mars", "Male", e.gender === "male" ? "Male (male only)" : "Male") : ""],   // female first (her call)
     [btn("s", "s", "sparkles", "Shiny", e.shiny ? "Shiny" : GAME !== "go" ? "No shiny in " + gameName() : "No shiny in GO yet", !e.shiny),
      UNTRADEABLE.has(e.dex) && !has(k, "l") ? "" : btn("l", "l", "lucky", "Lucky", "Lucky", !canLucky(e))],   // a box that can never be (a mythical’s Lucky) isn’t shown (her call, 10 Nov)
+    [extra("al"), extra("rc")],   // Legends: Arceus: Alpha and Complete
     [neverXXL(e) && !has(k, "xl") ? "" : btn("xl", "xl", "expand", "XXL", "XXL", !e.released), neverXXS(e) && !has(k, "xs") ? "" : btn("xs", "xs", "shrink", "XXS", "XXS", !e.released)],
     [extra("dx")], [extra("gx")],   // a full row each (her pick, 21 Nov: Gigantamax was squeezed into smaller writing)
     megas.length > 1 ? megas : [megas[0] || ""],
@@ -285,7 +299,7 @@ const isRegional = e => !!REGION_GEN[(e.form || "").split(" ")[0]];
 // card and page); other forms (Unown, Rotom, Vivillon…) stay one card and one page per number. The three Paldean Tauros are one.
 const groupKey = e => isRegional(e) ? `${e.dex}-${e.form.split(" ")[0].toLowerCase()}` : String(e.dex);
 // each game's addresses: GO's as ever, HOME's after #hm-, Shield's after #sh-; each game's Home: #go, #home, #shield
-const GAME_PREFIX = {go: "", home: "hm-", shield: "sh-"}, GAME_HOME = {go: "go", home: "home", shield: "shield"};
+const GAME_PREFIX = {go: "", home: "hm-", shield: "sh-", arceus: "la-"}, GAME_HOME = {go: "go", home: "home", shield: "shield", arceus: "arceus"};   // Legends: Arceus after #la-
 const R = path => "#" + GAME_PREFIX[GAME] + path;   // an address in the game shown: #gen-1 in GO, #hm-gen-1 in HOME, #sh-gen-galar in Shield
 const pageOf = e => R("p-" + groupKey(e));
 // a game's sections: GO and HOME the ten regions (e.gen); a game with its own Pokédexes (Shield) its sections from its data, each
@@ -375,7 +389,8 @@ function drawList(hero, mid, cards, ids){
 }
 
 const HL = {caught: "--caught", female: "--female", male: "--male", shiny: "--shiny", lucky: "--lucky", hundo: "--hundo",
-            shadow: "--shadow", purified: "--purified", dynamax: "--dynamax", gmax: "--gmax", mega: "--mega", xxl: "--xxl", xxs: "--xxs"};
+            shadow: "--shadow", purified: "--purified", dynamax: "--dynamax", gmax: "--gmax", mega: "--mega", xxl: "--xxl", xxs: "--xxs",
+            alpha: "--alpha", complete: "--complete"};
 function card(e, more = "", inForms = false, forms = null){
   const flags = [];
   if (!e.released) flags.push("Not out yet");
@@ -414,6 +429,41 @@ const SHOT_FIT = {"isle-of-armor-1.jpg": "center 60%/cover", "crown-tundra-1.jpg
 // Shield's Isle of Armor and Crown Tundra: the official paintings (swordshield.pokemon.com, downloaded with her yes, 23 Nov; the
 // official site has no map of either; her pick over Galar's map, 23 Nov), in REGION_CHOSEN above so tools/make_home_maps.py makes
 // their smaller copies
+// ===== TRIAL: Try switch "Arceus’s boxes" (23 Nov), START: remove once she has picked =====
+// Legends: Arceus's two new boxes need an icon and a colour (CLAUDE.md: icons from the sets her apps use, shown before use; colours
+// shown as the boxes). My suggestions (not decided) first: Alpha the letter α in the game's red, Complete a book with a tick in gold.
+const TRY_ARC_KEY = "jemmas-pokedex-try-arceusboxes";
+const TRY_ARC = [
+  ["alphaIcon", "Alpha icon", [["letter", "Letter"], ["crown", "Crown"], ["paw", "Paw"]], "letter", "icon", "alpha"],
+  ["alphaColour", "Alpha colour", [["#C62828", "Red"], ["#9E1B1B", "Deep red"], ["#D32F2F", "Bright red"]], "#C62828", "colour", "--alpha"],
+  ["completeIcon", "Complete icon", [["book", "Book"], ["badge", "Badge"], ["clipboard", "Clipboard"]], "book", "icon", "complete"],
+  ["completeColour", "Complete colour", [["#8A6410", "Gold"], ["#3C6150", "Hisui green"], ["#7A5230", "Sepia"]], "#8A6410", "colour", "--complete"],
+];
+let tryArc = store.get(TRY_ARC_KEY, {});
+if (!tryArc || typeof tryArc !== "object" || Array.isArray(tryArc)) tryArc = {};
+const tryArcPick = id => { const row = TRY_ARC.find(r => r[0] === id); return row[2].some(([k]) => k === tryArc[id]) ? tryArc[id] : row[3]; };
+function tryArcApply(){
+  for (const [id, , , , kind, target] of TRY_ARC) {
+    const v = tryArcPick(id);
+    if (kind === "icon") ICONS[target] = ICONS[`${target}-${v}`];
+    else document.documentElement.style.setProperty(target, v);
+  }
+}
+tryArcApply();
+(function tryBox(){
+  const box = document.createElement("div"); box.className = "trybox"; box.setAttribute("role", "group"); box.setAttribute("aria-label", "Try");
+  const draw = () => {
+    box.innerHTML = `<b>Try: Arceus’s boxes</b>` + TRY_ARC.map(([id, name, opts, , kind, target]) => `<div class="tryrow" role="group" aria-label="${name}" data-row="${id}"><span>${name}</span>` +
+      opts.map(([k, l]) => `<button type="button" data-v="${k}" aria-pressed="${tryArcPick(id) === k}">${kind === "icon" ? ic(`${target}-${k}`) : `<i class="sw" style="background:${k}"></i>`}${l}</button>`).join("") + `</div>`).join("");
+  };
+  const pad = () => document.documentElement.style.setProperty("--trypad", box.offsetHeight + 24 + "px");   // room under the page on phones (site.css)
+  box.addEventListener("click", ev => { const b = ev.target.closest("[data-v]"); if (!b) return; const id = b.closest("[data-row]").dataset.row;
+    tryArc = {...tryArc, [id]: b.dataset.v}; store.set(TRY_ARC_KEY, tryArc); tryArcApply(); draw(); rerender();
+    box.querySelector(`[data-row="${id}"] [data-v="${b.dataset.v}"]`)?.focus(); pad(); });
+  draw(); document.body.append(box);
+  pad(); addEventListener("resize", pad);
+})();
+// ===== TRIAL: Try switch "Arceus’s boxes", END =====
 // a narrower picture shown less zoomed in: the banner's picture area takes this shape (width / height), so more of it shows and
 // it still blends softly into the colour on the left (12 Nov: Johto looked too zoomed in)
 const SHOT_RATIO = {};
@@ -642,14 +692,16 @@ function statTile(colour, icon, label, have, of, extra = "", work = null){
 function statsHtml(c, tabs = false){
   // the counts at the top: an even grid of tiles, each with its box's icon and colour, "3 of 151" and a bar (her point:
   // the old row of uneven tiles looked bad). Forms sit inside the Pokémon tile.
-  const K = {Pokémon: "all", Female: "female", Male: "male", Shiny: "shiny", Lucky: "lucky", XXL: "xxl", XXS: "xxs", Dynamax: "dynamax", Gigantamax: "gmax", Mega: "mega", Shadow: "shadow", Purified: "purified", "4★": "hundo"};
-  const T = {Female: "cf", Male: "cm", Shiny: "s", Lucky: "l", XXL: "xl", XXS: "xs", Dynamax: "dx", Gigantamax: "gx", Mega: "mega", Shadow: "sd", Purified: "pu", "4★": "h"};
+  const K = {Pokémon: "all", Female: "female", Male: "male", Shiny: "shiny", Lucky: "lucky", XXL: "xxl", XXS: "xxs", Dynamax: "dynamax", Gigantamax: "gmax", Mega: "mega", Shadow: "shadow", Purified: "purified", "4★": "hundo", Alpha: "alpha", Complete: "complete"};
+  const T = {Female: "cf", Male: "cm", Shiny: "s", Lucky: "l", XXL: "xl", XXS: "xs", Dynamax: "dx", Gigantamax: "gx", Mega: "mega", Shadow: "sd", Purified: "pu", "4★": "h", Alpha: "al", Complete: "rc"};
   const t = (colour, icon, label, have, of, extra = "") => of && (!T[label] || boxOn(T[label])) ? statTile(colour, icon, label, have, of, extra, tabs ? K[label] : null) : "";   // only the game's own boxes
   return `<div class="stats">` +
     t("--caught", "poke-ball", "Pokémon", c.species, c.speciesAll) +
     t("--female", "venus", "Female", c.female, c.femaleOut) +
     t("--male", "mars", "Male", c.male, c.maleOut) +
     t("--shiny", "sparkles", "Shiny", c.shiny, c.shinyOut) +
+    t("--alpha", "alpha", "Alpha", c.al, c.alphaOut) +   // Legends: Arceus
+    t("--complete", "complete", "Complete", c.rc, c.completeOut) +
     t("--lucky", "lucky", "Lucky", c.lucky, c.luckyOut) +
     t("--xxl", "expand", "XXL", c.xl, c.xlOut) +
     t("--xxs", "shrink", "XXS", c.xs, c.xsOut) +
@@ -808,6 +860,8 @@ function bigBoxes(e){
     B("cf", "--female", "venus", "Female", !!femaleTick(e)),   // a gender it can't be isn't shown (genderless, male only…)
     B("cm", "--male", "mars", "Male", !!maleTick(e)),
     B("s", "--shiny", "sparkles", "Shiny", !!e.shiny, "Unavailable"),
+    B("al", "--alpha", "alpha", "Alpha", !!e.alpha),   // Legends: Arceus
+    B("rc", "--complete", "complete", "Complete", !!e.complete),
     B("l", "--lucky", "lucky", "Lucky", canLucky(e), UNTRADEABLE.has(e.dex) ? null : "Unavailable"),
     B("xl", "--xxl", "expand", "XXL", canXXL(e), neverXXL(e) ? null : "Unavailable"),
     B("xs", "--xxs", "shrink", "XXS", canXXS(e), neverXXS(e) ? null : "Unavailable"),
@@ -859,7 +913,8 @@ function pokemonPage(key){
     row("Average height", sel.height ? esc(metres(sel.height)) : "") + row("Average weight", sel.weight ? esc(kilos(sel.weight)) : "") +
     row("Pokédex", esc(pdx)) +   // its number in each of the game's Pokédexes (Shield: Galar #001 · Isle of Armor #015)
     row("Shiny", yesNo(!!sel.shiny, "Available", "Unavailable")) +
-    (boxOn("gx") ? row("Gigantamax", yesNo(!!sel.gmax, "Available", "Not possible")) : "") + `</dl>` : `<dl class="dfacts">` +
+    (boxOn("gx") ? row("Gigantamax", yesNo(!!sel.gmax, "Available", "Not possible")) : "") +
+    (boxOn("al") ? row("Alpha", yesNo(!!sel.alpha, "Available", "Not possible")) : "") + `</dl>` : `<dl class="dfacts">` +
     row("Category", esc(sel.category || "")) + row("Type", esc(sel.types.join(" · "))) + row("Gender", esc(gw)) +
     row("Average height", sel.height ? esc(metres(sel.height)) : "") + row("Average weight", sel.weight ? esc(kilos(sel.weight)) : "") +   // the species' Pokédex size; each one caught varies
     row("Buddy distance", sel.buddyKm ? esc(`${num(sel.buddyKm)} km`) : "") +
@@ -1048,7 +1103,7 @@ function canTick(e, t){
   if (!boxOn(t)) return false;   // only the game's own boxes
   return {c: true, cm: !!maleTick(e), cf: !!femaleTick(e), s: !!e.shiny, l: canLucky(e), h: e.released, xl: canXXL(e), xs: canXXS(e), sd: !!e.shadow, pu: !!e.shadow,
     dx: !!e.dynamax, gx: !!e.gmax, ss: !!e.shadowShiny, mg: (e.mega || []).some(m => m.t === "mg"), mx: (e.mega || []).some(m => m.t === "mx"),
-    my: (e.mega || []).some(m => m.t === "my")}[t];
+    my: (e.mega || []).some(m => m.t === "my"), al: !!e.alpha, rc: !!e.complete}[t];
 }
 
 // ---------- Fast tick (TRIAL, 11 Nov overnight: her ask for a better way to put her whole collection in) ----------
@@ -1057,9 +1112,10 @@ function canTick(e, t){
 // game's tab open on her phone, she clicks the ones that are in colour there, and the count at the top should end up
 // the same as the game's. One click ticks the Pokémon's plain form (the game's Pokédex counts the species too).
 const FAST = [["c", "Caught", "poke-ball"], ["cf", "Female", "venus"], ["cm", "Male", "mars"], ["s", "Shiny", "sparkles"], ["l", "Lucky", "lucky"],   // the game's Pokédex order (her ask, 12 Nov), with Female, Male and Dynamax fitted in
-  ["xl", "XXL", "expand"], ["xs", "XXS", "shrink"], ["dx", "Dynamax", "dynamax"], ["gx", "Gigantamax", "gigantamax"], ["mega", "Mega", "mega"], ["sd", "Shadow", "shadow"], ["pu", "Purified", "purified"], ["h", "4★", "star"]];
+  ["xl", "XXL", "expand"], ["xs", "XXS", "shrink"], ["dx", "Dynamax", "dynamax"], ["gx", "Gigantamax", "gigantamax"], ["mega", "Mega", "mega"], ["sd", "Shadow", "shadow"], ["pu", "Purified", "purified"], ["h", "4★", "star"],
+  ["al", "Alpha", "alpha"], ["rc", "Complete", "complete"]];   // Legends: Arceus
 const FAST_GAME = {c: "Pokémon", s: "Shiny", l: "Lucky", h: "100%", sd: "Shadow", pu: "Purified", gx: "G-Max", mega: "Mega", xl: "XXL", xs: "XXS"};   // the game's own tab names (its Gigantamax tab is "G-Max": Dittobase's Pokédex V2 guide, checked 14 Nov)
-const FAST_COL = {c: "--caught", s: "--shiny", l: "--lucky", h: "--hundo", sd: "--shadow", pu: "--purified", dx: "--dynamax", gx: "--gmax", mega: "--mega", cm: "--male", cf: "--female", xl: "--xxl", xs: "--xxs"};
+const FAST_COL = {c: "--caught", s: "--shiny", l: "--lucky", h: "--hundo", sd: "--shadow", pu: "--purified", dx: "--dynamax", gx: "--gmax", mega: "--mega", cm: "--male", cf: "--female", xl: "--xxl", xs: "--xxs", al: "--alpha", rc: "--complete"};
 const fastTicks = (e, b) => b === "mega" ? (e.mega || []).map(m => m.t) : canTick(e, b) ? [b] : [];
 function fastSpecies(g){   // the region's Pokémon in number order, each with its entries that are out; not-out ones too, as GO counts them.
   // Regional forms are Pokémon of their own (her call, 14 Nov): a square each in their own region (Hisuian Growlithe under Hisui), as on the region pages
@@ -1195,7 +1251,7 @@ function fastPage(){
 }
 // Caught that Fast tick ticked only because another box was ticked there (her note, 12 Nov: tick all the shinies, untick the
 // ones she hasn't got, and those shouldn't stay Caught): unticking that box unticks Caught again, unless something else is ticked
-const AUTO_KEYS = {go: "jemmas-pokedex-autocaught", home: "jemmas-pokedex-autocaught-home", shield: "jemmas-pokedex-autocaught-shield"};   // each game its own (the same ids are in each)
+const AUTO_KEYS = {go: "jemmas-pokedex-autocaught", home: "jemmas-pokedex-autocaught-home", shield: "jemmas-pokedex-autocaught-shield", arceus: "jemmas-pokedex-autocaught-arceus"};   // each game its own (the same ids are in each)
 const AUTOS = Object.fromEntries(Object.entries(AUTO_KEYS).map(([g, k]) => [g, new Set(store.get(k, []))]));
 let autoCaught = AUTOS.go;
 const keepAuto = (g = GAME) => store.set(AUTO_KEYS[g], [...AUTOS[g]]);   // that game's, even if she has changed game meanwhile (overnight review, 23 Nov)
@@ -1485,6 +1541,7 @@ const GAMES = [
   {id: "home", name: "Pokémon HOME", short: "HOME", colour: HOME_COLOUR, href: "#home"},
   {id: "go", name: "Pokémon GO", short: "GO", colour: "#7E2530", href: "#go"},
   {id: "shield", name: "Pokémon Shield", short: "Shield", colour: GAME_COLOUR, href: "#shield"},   // the first game in release order (her ask, 23 Nov)
+  {id: "arceus", name: "Pokémon Legends: Arceus", short: "Arceus", colour: GAME_COLOUR, href: "#arceus"},   // the next (her yes, 23 Nov)
 ];
 const gameOf = r => r === "games" ? "go" : gameOfRoute(r);
 let wasGame = "home";
@@ -1573,7 +1630,7 @@ function lockBoxes(){ if (viewOnly) view.querySelectorAll(SAVE_BOXES).forEach(b 
 function route(to){ const out = drawRoute(to); lockBoxes(); return out; }
 // GO's addresses; anything else is Pokémon HOME's (#home, #hm-…), the default game, and an unknown address goes to HOME's Home
 const GO_ROUTE = /^(go|dex|fast|want|coming|sets|games|costumes|events|hm|set-.+|gen-\w+|p-\d+(-[a-z]+)?)$/;
-const gameOfRoute = full => GO_ROUTE.test(full) ? "go" : full === "shield" || full.startsWith("sh-") ? "shield" : "home";   // anything else: HOME, the default
+const gameOfRoute = full => GO_ROUTE.test(full) ? "go" : full === "shield" || full.startsWith("sh-") ? "shield" : full === "arceus" || full.startsWith("la-") ? "arceus" : "home";   // anything else: HOME, the default
 function drawRoute(to){   // to: draw that page without changing the address (the tests' sweep over every page)
   const full = to || (location.hash || "#home").slice(1);
   const game = gameOfRoute(full), hm = game !== "go", pre = GAME_PREFIX[game];
@@ -1638,7 +1695,7 @@ const toastEl = document.getElementById("toast");
 let toastTimer;
 function toast(msg){ toastEl.textContent = msg; toastEl.hidden = false; clearTimeout(toastTimer); toastTimer = setTimeout(() => toastEl.hidden = true, 3500); }
 
-const READY = {go: false, home: false, shield: false};   // her ticks for that game read from the server (HOME's need a server that knows HOME)
+const READY = {go: false, home: false, shield: false, arceus: false};   // her ticks for that game read from the server (HOME's need a server that knows HOME)
 async function save(body){
   if (viewOnly) return false;
   const game = body.game || GAME;

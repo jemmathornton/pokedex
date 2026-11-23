@@ -11,6 +11,7 @@ copy just stops.
     GET  /api/collection   everything she has ticked in Pokémon GO (data/collection/go.json)
     GET  /api/collection?game=home   her Pokémon HOME ticks (data/collection/home.json; 22 Nov, her ask: HOME fully built)
     GET  /api/collection?game=shield   her Pokémon Shield ticks (data/collection/shield.json; 23 Nov)
+    GET  /api/collection?game=arceus   her Pokémon Legends: Arceus ticks (data/collection/arceus.json; 23 Nov)
     GET  /family/<file>    the family's shared code (mode.js, family.js, family.css), from Jemma's Journals, the parent
                            folder (its site/family/; her decision, 22 Nov: all shared code lives there and every app
                            loads it at /family/, as the family server on 8050 and, online, the one address do)
@@ -29,7 +30,8 @@ SITE = os.path.join(ROOT, 'site')
 FILE = os.path.join(ROOT, 'data', 'collection', 'go.json')
 # each game its own ticks file (her decision, 22 Nov: GO's file and its keys never change; HOME's ticks beside it)
 FILES = {'go': FILE, 'home': os.path.join(ROOT, 'data', 'collection', 'home.json'),
-         'shield': os.path.join(ROOT, 'data', 'collection', 'shield.json')}   # Pokémon Shield (23 Nov: the games in release order)
+         'shield': os.path.join(ROOT, 'data', 'collection', 'shield.json'),   # Pokémon Shield (23 Nov: the games in release order)
+         'arceus': os.path.join(ROOT, 'data', 'collection', 'arceus.json')}   # Pokémon Legends: Arceus (23 Nov)
 FAMILY = os.path.normpath(os.path.join(ROOT, '..', 'site', 'family'))   # Jemma's Journals' shared code (the tests' copy has one beside it too)
 THREADS = threading.Lock()
 
@@ -74,7 +76,9 @@ TICKS = {'c', 'cm', 'cf', 's', 'l', 'h', 'sd', 'pu', 'dx', 'gx', 'ss', 'mg', 'mx
 # Pokémon HOME's boxes: only what HOME has (her note, 22 Nov: no Lucky there; research/home-tracking.md): in HOME now, female,
 # male, shiny, and Gigantamax (a Pokémon with the Gigantamax Factor kept in HOME)
 HOME_TICKS = {'c', 'cm', 'cf', 's', 'gx'}
-GAME_TICKS = {'go': TICKS, 'home': HOME_TICKS, 'shield': HOME_TICKS}   # Shield: Caught, Female, Male, Shiny, Gigantamax (her answer, 23 Nov)
+# Legends: Arceus: Caught, Female, Male, Shiny, Alpha ("al") and Complete ("rc", Research Level 10) (her answer, 23 Nov)
+ARCEUS_TICKS = {'c', 'cm', 'cf', 's', 'al', 'rc'}
+GAME_TICKS = {'go': TICKS, 'home': HOME_TICKS, 'shield': HOME_TICKS, 'arceus': ARCEUS_TICKS}   # Shield: Caught, Female, Male, Shiny, Gigantamax (her answer, 23 Nov)
 
 
 def read(file=None):

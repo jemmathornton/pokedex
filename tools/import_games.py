@@ -1,6 +1,7 @@
-"""Bring in a game after HOME: everything that can be had in it, grouped by where it comes from (23 Nov: Pokémon Shield).
+"""Bring in a game after HOME: everything that can be had in it, grouped by where it comes from (23 Nov: Pokémon Shield, then
+Pokémon Legends: Arceus).
 
-    python -X utf8 tools/import_games.py shield            (report only)
+    python -X utf8 tools/import_games.py shield            (report only; or arceus)
     python -X utf8 tools/import_games.py shield --apply    (writes data/shield/dex.json)
     python -X utf8 tools/import_games.py shield --reuse    (the newest copies in imports/ instead of fetching again)
 
@@ -19,6 +20,12 @@ can be brought into Shield). Gigantamax: Serebii's Gigantamax list (research/dat
 
 Sources: PokeAPI's Pokédex numbers (pokedexes 27–29), research/data/games/shield.json and shield-extras.json (Serebii, read
 22–23 Nov), data/home/dex.json and data/go/dex.json.
+
+Legends: Arceus (her answers, 23 Nov): boxes Caught, Female, Male, Shiny, Alpha and Complete (Research Level 10); only the forms
+the game has; the Hisui Pokédex (PokeAPI's pokedex 30, its own numbers), then Bonus Pokémon: Alolan Vulpix and Ninetales (a gift,
+not in the Pokédex), and Darkrai and Shaymin too (“Could they be like bonus?”: they need another game's save data), keeping their
+Hisui numbers. Alpha: research/data/games/legends-arceus.json `alphas` (Serebii: all but the 18 legendaries and mythicals; not
+Alolan Vulpix or Ninetales). Complete: one box per Hisui Pokédex entry, as the game keeps a research level per entry.
 """
 import csv, io, json, os, re, sys, urllib.request
 from datetime import date
@@ -44,6 +51,27 @@ GAMES = {
         # one of each pair in a save (Serebii's legendaries page, 23 Nov: "You can only choose one"): Regieleki or Regidrago, Glastrier
         # or Spectrier, so Ice or Shadow Rider Calyrex; the other needs a trade. Marked "Choose one" on both (her answer, 23 Nov)
         'chooseOne': ['894', '895', '896', '897', '898-ice', '898-shadow'],
+    },
+    'arceus': {
+        'research': 'legends-arceus',   # research/data/games/legends-arceus.json
+        'pokedexes': [('hisui', 30)],
+        'sections': [
+            {'id': 'hisui', 'name': 'Hisui', 'small': 'Legends: Arceus', 'map': 'hisui', 'colour': '#3C6150'},
+            {'id': 'elsewhere', 'name': 'Bonus Pokémon', 'small': 'Legends: Arceus', 'map': 'hisui', 'colour': '#3C6150'},
+        ],
+        'other': None,   # one version
+        'gmax': False,   # no Gigantamax in Hisui
+        # only the forms the game has (her answer, 23 Nov; research/games/legends-arceus.md section 1): '*' = every form HOME keeps
+        'forms': {201: '*', 479: '*', 412: '*', 413: '*', 422: '*', 423: '*',
+                  483: ['Normal', 'Origin'], 484: ['Normal', 'Origin'], 487: ['Altered', 'Origin'], 492: ['Land', 'Sky'],
+                  641: ['Incarnate', 'Therian'], 642: ['Incarnate', 'Therian'], 645: ['Incarnate', 'Therian'], 905: ['Incarnate', 'Therian'],
+                  493: ['Normal', 'Fighting', 'Flying', 'Poison', 'Ground', 'Rock', 'Bug', 'Ghost', 'Steel', 'Fire', 'Water', 'Grass', 'Electric', 'Psychic', 'Ice', 'Dragon', 'Dark', 'Fairy'],   # by Plate
+                  215: ['Normal', 'Hisuian'], 37: ['Normal', 'Alolan'], 38: ['Normal', 'Alolan'], 550: ['White-Striped'],
+                  **{n: ['Hisuian'] for n in [724, 157, 503, 211, 549, 705, 706, 58, 59, 100, 101, 713, 570, 571, 628]}},   # only the Hisuian form is in the game
+        'dexAllForms': [215],   # both Sneasels share the Hisui number (both are wild in Hisui)
+        'alsoIn': {'elsewhere': [491, 492]},   # Darkrai and Shaymin in Bonus Pokémon too (her answer, 23 Nov)
+        'alpha': True, 'alphaNot': ['37-alolan', '38-alolan'],   # the gift Alolan Vulpix and its evolution can't be Alpha
+        'complete': True,
     },
 }
 SYN = {'alola': 'alolan', 'galar': 'galarian', 'hisui': 'hisuian', 'paldea': 'paldean'}
@@ -114,8 +142,8 @@ def main():
     if reuse and os.path.isdir(imports) and any(d.startswith('games-') for d in os.listdir(imports)):
         folder = os.path.join(imports, max(d for d in os.listdir(imports) if d.startswith('games-')))
     fetch(folder, reuse)
-    research = load(ROOT, 'research', 'data', 'games', f'{game}.json')
-    extras = load(ROOT, 'research', 'data', 'games', f'{game}-extras.json', default={}) or {}
+    research = load(ROOT, 'research', 'data', 'games', f'{cfg.get("research", game)}.json')
+    extras = load(ROOT, 'research', 'data', 'games', f'{cfg.get("research", game)}-extras.json', default={}) or {}
     home = load(DATA, 'home', 'dex.json')['entries']
     go = {e['id']: e for e in load(DATA, 'go', 'dex.json')['entries']}
     full_home = [{**go.get(e['id'] if e.get('go') is True else e.get('go'), {}), **e} if e.get('go') else e for e in home]
@@ -170,8 +198,9 @@ def main():
     groups = {'max-lair': not_gmax(outside.get('dynamaxAdventures', []) + outside.get('dynamaxAdventuresAlsoGives', [])),
               'elsewhere': not_gmax(outside.get('otherInGame', [])), 'from-home': not_gmax(outside.get('homeOnly', []))}
     species = set(n for d in nums.values() for n in d) | {x['national'] for xs in groups.values() for x in xs}
-    shield_forms = {int(k): v for k, v in (extras.get('forms') or {}).items()}
-    other = {(x['national'], x.get('form')) if isinstance(x, dict) else (x, None) for x in research.get(f'{cfg["other"]}Only', [])}
+    shield_forms = cfg.get('forms') or {int(k): v for k, v in (extras.get('forms') or {}).items()}
+    other = {(x['national'], x.get('form')) if isinstance(x, dict) else (x, None) for x in research.get(f'{cfg["other"]}Only', [])} if cfg.get('other') else set()
+    alphas = set(research.get('alphas') or []) if cfg.get('alpha') else set()
 
     out = []
     for n in sorted(species):
@@ -181,7 +210,9 @@ def main():
         allowed = shield_forms.get(n)   # Serebii's forms in Sword and Shield (more than one); none listed: the species' first form only
         chosen, base = [], (homes or gos)[0]
         sp = base['name']
-        if allowed:
+        if allowed == '*':   # every form HOME keeps (Unown's 28, Rotom's appliances…)
+            chosen = list(homes or gos)
+        elif allowed:
             for i, f in enumerate(allowed):
                 taken = {x['id'] for x in chosen}
                 pick = lambda exact: next((e for e in homes if e['id'] not in taken and same(f, e.get('form'), sp, exact)), None) or \
@@ -210,9 +241,11 @@ def main():
                 entry = {'id': e['id'], 'home' if in_home else 'go': True}
             base_home = e if in_home else (homes[0] if homes else {})
             entry['shiny'] = bool(base_home.get('shiny')) if base_home else bool(e.get('shiny'))
-            entry['gmax'] = bool(base_home.get('gmax')) if in_home else False
+            entry['gmax'] = bool(base_home.get('gmax')) if in_home and cfg.get('gmax', True) else False
+            if cfg.get('alpha'):
+                entry['alpha'] = n in alphas and e['id'] not in cfg.get('alphaNot', ())
             # only in the other version: the whole species (Ho-Oh), or one form (Red-Striped Basculin, male Indeedee, Galarian Farfetch'd)
-            if n not in CATCHABLE_HERE and ((n, None) in other or any(k[0] == n and k[1] and same(k[1], e.get('form'), sp) for k in other)):
+            if other and n not in CATCHABLE_HERE and ((n, None) in other or any(k[0] == n and k[1] and same(k[1], e.get('form'), sp) for k in other)):
                 entry['only'] = cfg['other']
             if entry['id'] in cfg.get('chooseOne', ()):
                 entry['choose'] = True
@@ -221,7 +254,7 @@ def main():
             for s, d in nums.items():
                 if n in d:
                     want = dex_form.get((s, n))
-                    if (want and same(want, e.get('form'), sp)) or (not want and not regional):
+                    if (want and same(want, e.get('form'), sp)) or (not want and not regional) or n in cfg.get('dexAllForms', ()):
                         sec[s] = d[n]
             for s, xs in groups.items():
                 # a whole species in a group (Genesect from HOME, Giratina from the Max Lair) brings its forms (drives, Origin); a form
@@ -230,16 +263,28 @@ def main():
                     sec[s] = None
             if not sec:
                 sec['elsewhere'] = None   # a form Shield has outside its Pokédexes (Kantonian Meowth beside the Galarian one)
+            for s, ns in cfg.get('alsoIn', {}).items():   # in a list beside its Pokédex number (Arceus: Darkrai and Shaymin)
+                if n in ns:
+                    sec[s] = None
             entry['sec'] = sec
             out.append(entry)
 
+    if cfg.get('complete'):   # one Complete box per entry of the game's Pokédex (a research level per entry): its first form, the
+        first = cfg['pokedexes'][0][0]   # female where the two are forms (Basculegion), as Female comes first everywhere
+        for n in sorted({e['sec'][first] for e in out if e['sec'].get(first) is not None}):
+            es = [e for e in out if e['sec'].get(first) == n]
+            lead = next((e for e in es if e['id'].endswith('-female')), es[0])
+            lead['complete'] = True
     ids_ = [e['id'] for e in out]
     report += [f'id twice: {i}' for i in sorted({i for i in ids_ if ids_.count(i) > 1})]
     by_sec = {s['id']: sum(1 for e in out if s['id'] in e['sec']) for s in cfg['sections']}
     print(f'{game}: {len(out)} entries, {len(species)} species; ' + ', '.join(f'{k} {v}' for k, v in by_sec.items()) +
-          f'; {sum(1 for e in out if e.get("only"))} {cfg["other"]} only; {sum(1 for e in out if not e["shiny"])} can’t be shiny; {sum(1 for e in out if e["gmax"])} Gigantamax')
-    if not extras:
-        print('  note: no research/data/games/%s-extras.json yet: only the three Pokédexes, forms the first one each' % game)
+          (f'; {sum(1 for e in out if e.get("only"))} {cfg["other"]} only' if cfg.get('other') else '') +
+          f'; {sum(1 for e in out if not e["shiny"])} can’t be shiny; {sum(1 for e in out if e["gmax"])} Gigantamax' +
+          (f'; {sum(1 for e in out if e.get("alpha"))} can be Alpha' if cfg.get('alpha') else '') +
+          (f'; {sum(1 for e in out if e.get("complete"))} Complete boxes' if cfg.get('complete') else ''))
+    if not extras and not cfg.get('forms'):
+        print('  note: no research/data/games/%s-extras.json yet: only its Pokédexes, forms the first one each' % game)
     for r in report:
         print(' ', r)
     if apply:

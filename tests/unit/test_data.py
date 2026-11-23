@@ -29,7 +29,7 @@ class Data(unittest.TestCase):
             b = cls.base.get(e['dex'])
             if not b or (not e.get('form') and b.get('form')):
                 cls.base[e['dex']] = e
-        cls.ticks = load('serve').TICKS
+        cls.ticks = set().union(*load('serve').GAME_TICKS.values())   # every game's boxes (Legends: Arceus's Alpha and Complete, 23 Nov)
 
     # ---------- the Pokédex ----------
     def test_entry_ids_are_unique(self):
@@ -168,6 +168,38 @@ class GoKeptForms(unittest.TestCase):
             self.assertTrue(os.path.exists(os.path.join(REAL, 'site', 'sprites', img + '.webp')), img)
         self.assertIn('718-complete', [s['to'] for s in go['718-50'].get('evo') or []])
         self.assertTrue(all(f'{n},' in APP or f' {n}' in APP for n in (888, 889)))
+
+
+class ArceusData(unittest.TestCase):
+    """Pokémon Legends: Arceus (tools/import_games.py arceus; 23 Nov): the Hisui Pokédex and Bonus Pokémon, Alpha and Complete."""
+    @classmethod
+    def setUpClass(cls):
+        cls.entries = real('arceus', 'dex.json')['entries']
+        cls.by = {e['id']: e for e in cls.entries}
+
+    def test_hisui_has_every_number_and_one_complete_box_each(self):
+        nums = [e['sec']['hisui'] for e in self.entries if e['sec'].get('hisui') is not None]
+        self.assertEqual(set(nums), set(range(1, 243)))
+        done = [e['sec']['hisui'] for e in self.entries if e.get('complete')]
+        self.assertEqual(sorted(done), list(range(1, 243)))   # one each
+
+    def test_alpha_never_on_legendaries_or_the_gift_alolan_vulpix(self):
+        for i in ('483', '484', '493', '491', '905-incarnate', '37-alolan', '38-alolan'):
+            self.assertFalse(self.by[i].get('alpha'), i)
+        for i in ('722', '58-hisuian', '215-hisuian', '37'):
+            self.assertTrue(self.by[i].get('alpha'), i)
+
+    def test_only_its_own_forms_and_bonus_pokemon(self):
+        ids = set(self.by)
+        self.assertIn('58-hisuian', ids); self.assertNotIn('58', ids)   # Hisuian Growlithe only
+        self.assertIn('550-white-striped', ids); self.assertNotIn('550-red-striped', ids)
+        self.assertEqual(sum(1 for e in self.entries if e['id'].startswith('493')), 18)   # Arceus by Plate
+        self.assertEqual(sum(1 for e in self.entries if e['id'].startswith('201-')), 28)   # Unown
+        bonus = {e['id'] for e in self.entries if 'elsewhere' in e['sec']}
+        self.assertEqual(bonus, {'37-alolan', '38-alolan', '491', '492-land', '492-sky'})
+        self.assertEqual(self.by['491']['sec'], {'hisui': 242, 'elsewhere': None})   # Darkrai keeps its number (her answer: like bonus)
+        for e in self.entries:
+            self.assertFalse(e['gmax'], e['id'])
 
 
 class ShieldData(unittest.TestCase):
