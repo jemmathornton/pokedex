@@ -34,8 +34,18 @@ test("Tab and Shift+Tab stay inside the open drawer, 30 presses each way (899 wi
   }
 });
 
+test("Skip to the page: the first Tab stop; Enter puts focus on the page and keeps the address (overnight review, 23 Nov)", async browser => {
+  const page = await open(browser, BASE + "#hm-gen-1", 1600);
+  try {
+    await page.keyboard.press("Tab");
+    ok(await page.evaluate(() => document.activeElement.id === "skipLink" && getComputedStyle(document.activeElement).left !== "-999px"), `the skip link first, on screen (got ${await focusDesc(page)})`);
+    await page.keyboard.press("Enter"); await page.waitForTimeout(150);
+    ok(await page.evaluate(() => document.activeElement.id === "view" && location.hash === "#hm-gen-1"), `focus on the page, still Kanto (got ${await focusDesc(page)}, ${await page.evaluate(() => location.hash)})`);
+  } finally { await page.close(); }
+});
+
 test("at 1280, choosing a sidebar link by keyboard keeps focus on that link", async browser => {
-  const page = await open(browser, BASE + "#go", 1280);   // GO's sidebar (HOME, the default game, has only Home and Every Pokémon so far)
+  const page = await open(browser, BASE + "#go", 1280);   // GO's sidebar, then HOME's (built 22 Nov: Home, Every Pokémon, its regions, Fast tick)
   try {
     for (const h of ["#gen-1", "#fast", "#sets", "#go", "#gen-hisui", "#want", "#dex"]) {
       await page.focus(`#nav a[href="${h}"]`);
@@ -47,6 +57,15 @@ test("at 1280, choosing a sidebar link by keyboard keeps focus on that link", as
     }
     await page.keyboard.press("Tab");   // the next Tab goes on from there, not from ← Jemma's Journals
     ok(await page.evaluate(() => document.activeElement.getAttribute("href")) === "#gen-1", `next Tab after Every Pokémon goes on to Kanto in the sidebar (got ${await focusDesc(page)})`);
+    await page.goto(BASE + "#home"); await page.waitForTimeout(400);   // HOME's sidebar the same
+    for (const h of ["#hm-gen-1", "#hm-fast", "#hm-dex", "#home"]) {
+      await page.focus(`#nav a[href="${h}"]`);
+      await page.keyboard.press("Enter");
+      await page.waitForFunction(x => location.hash === x, h);
+      await page.waitForTimeout(150);
+      const f = await page.evaluate(() => { const a = document.activeElement; return { href: a.getAttribute("href"), inNav: document.getElementById("nav").contains(a), on: a.classList.contains("on") }; });
+      ok(f.inNav && f.href === h && f.on, `HOME ${h}: focus on the chosen (current) link, got ${JSON.stringify(f)}`);
+    }
   } finally { await page.close(); }
 });
 

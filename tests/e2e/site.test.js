@@ -1288,6 +1288,25 @@
     } finally { prefs.work = "all"; prefs.workShow = "all"; keepPrefs(); }
   });
 
+  test("GO's own switch and addresses stay in GO (overnight review, 23 Nov): Not in GO, #hm-set-…, Tick all's memory", async () => {
+    try {
+      prefs.unreleased = true; prefs.work = "shiny"; keepPrefs();
+      await go("#hm-gen-5");   // Unova: Victini can't be shiny in HOME
+      ok(!view().querySelector('.card[data-id="494"]'), "HOME's Shiny tab leaves out Victini, whatever GO's Not in GO switch says");
+      const t = view().querySelector('.stattab[data-work="shiny"]');
+      eq(+t.querySelector("b small").textContent.replace(/\D/g, ""), counts(ENTRIES.filter(e => e.gen === "5")).shinyOut, "the tab's figure");
+      eq(view().querySelectorAll(".card").length, counts(ENTRIES.filter(e => e.gen === "5")).shinyOut, "one card for each that can be shiny");
+    } finally { prefs.unreleased = false; prefs.work = "all"; keepPrefs(); }
+    await go("#hm-set-nothing");
+    eq(document.querySelector('.game-switch a[aria-current]').textContent, "HOME", "an unknown HOME address: HOME in the switch");
+    ok(nav.querySelector('a[href="#hm-dex"]') && !nav.querySelector('a[href="#dex"]'), "and HOME's sidebar only");
+    const before = localStorage.getItem(AUTO_KEYS.home);
+    try {
+      AUTOS.home.add("d:test-only"); useGame("go"); keepAuto("home");
+      ok(JSON.parse(localStorage.getItem(AUTO_KEYS.home)).includes("d:test-only"), "HOME's memory saved under HOME's key from GO");
+    } finally { AUTOS.home.delete("d:test-only"); before === null ? localStorage.removeItem(AUTO_KEYS.home) : localStorage.setItem(AUTO_KEYS.home, before); }
+  });
+
   test("HOME's ticks on a server from before HOME: refused with a note, nothing saved to either file", async () => {
     const goBefore = JSON.stringify((await server("go")).have), homeBefore = JSON.stringify((await server("home")).have);
     let msg = ""; const t0 = window.toast; window.toast = m => { msg = m; };

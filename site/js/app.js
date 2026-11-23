@@ -159,7 +159,7 @@ function counts(list){
 const BOXF = [   // each box as a filter: which Pokémon it applies to, and whether she has it (t: the box)
   {k: "female", t: "cf", label: "Female", applies: e => !!femaleTick(e), have: gotFemale, ticks: e => [femaleTick(e)]},
   {k: "male", t: "cm", label: "Male", applies: e => !!maleTick(e), have: gotMale, ticks: e => [maleTick(e)]},
-  {k: "shiny", t: "s", label: "Shiny", applies: e => !!e.shiny || prefs.unreleased,   // with "Not in GO" on, shinies not out yet too
+  {k: "shiny", t: "s", label: "Shiny", applies: e => !!e.shiny || (prefs.unreleased && GAME === "go"),   // with "Not in GO" on, shinies not out yet too (GO only: HOME has no such switch; overnight review, 23 Nov)
    have: e => has(dk(e), "s"), ticks: ["s"]},
   {k: "lucky", t: "l", label: "Lucky", applies: e => canLucky(e), have: e => has(dk(e), "l"), ticks: ["l"]},
   {k: "xxl", t: "xl", label: "XXL", applies: canXXL, have: e => has(dk(e), "xl"), ticks: ["xl"]},
@@ -1155,7 +1155,7 @@ function fastPage(){
 const AUTO_KEYS = {go: "jemmas-pokedex-autocaught", home: "jemmas-pokedex-autocaught-home"};   // each game its own (the same ids are in both)
 const AUTOS = {go: new Set(store.get(AUTO_KEYS.go, [])), home: new Set(store.get(AUTO_KEYS.home, []))};
 let autoCaught = AUTOS.go;
-const keepAuto = () => store.set(AUTO_KEYS[GAME], [...autoCaught]);
+const keepAuto = (g = GAME) => store.set(AUTO_KEYS[g], [...AUTOS[g]]);   // that game's, even if she has changed game meanwhile (overnight review, 23 Nov)
 async function fastClick(btn){
   const t = btn.dataset.t, on = btn.getAttribute("aria-pressed") !== "true", key = btn.dataset.fk || dk(byId[btn.dataset.fast]);
   if (!on && btn.dataset.other) return toast(`Ticked on its ${curly(btn.dataset.other)} form: untick it on its page.`);
@@ -1178,10 +1178,10 @@ async function fastAll(){
       if (x === "c" && t !== "c") auto.add(key);   // Caught only because of this box (see fastClick)
     }
     done++; btn.setAttribute("aria-pressed", "true");
-    const n = document.querySelector(".fastn"); if (n) n.textContent = `Ticking… ${num(done)} of ${num(left.length)}`;
+    const n = GAME === game && document.querySelector(".fastn"); if (n) n.textContent = `Ticking… ${num(done)} of ${num(left.length)}`;   // not on the other game's page
   };
   for (let i = 0; i < left.length && !failed; i += 10) await Promise.all(left.slice(i, i + 10).map(one));
-  keepAuto();
+  keepAuto(game);
   toast(failed ? `Stopped after ${num(done)}: not saved.` : `Ticked ${num(done)}.`);
   rerender();   // the page she's on now, in case she moved on while it was saving
 }
@@ -1522,7 +1522,7 @@ function drawRoute(to){   // to: draw that page without changing the address (th
   document.documentElement.classList.toggle("tab-shiny", prefs.work === "shiny" && !!workBox());
   const term = q.value.trim().toLowerCase().replace(/[‘’]/g, "'");   // “farfetch’d” as the page shows it, or from a phone (19 Nov tests)
   const pn = /^p-(\d+(?:-[a-z]+)?)$/.exec(r), lead = pn && groupByNumber(ENTRIES.filter(e => groupKey(e) === pn[1]))[0];
-  navHtml(lead ? R("gen-" + lead.lead.gen).slice(1) : /^set-/.test(r) ? "sets" : hm && !/^(dex|fast|gen-\w+)$/.test(r) ? "home" : full);   // a Pokémon's page lights up its region in the sidebar
+  navHtml(lead ? R("gen-" + lead.lead.gen).slice(1) : !hm && /^set-/.test(r) ? "sets" : hm && !/^(dex|fast|gen-\w+)$/.test(r) ? "home" : full);   // a Pokémon's page lights up its region in the sidebar
   if (hm) return hmRoute(r, term);
   if (r === "costumes" || r === "events") { location.replace("#sets"); return; }   // the old pages are now Event Pokémon
   if (r === "fast") return fastPage();
@@ -1610,7 +1610,7 @@ async function tick(key, t, on){
   // ticked (her note, 12 Nov, for Fast tick; everywhere since the 15 Nov review); ticking Caught by hand keeps it
   if (alsoCaught) auto.add(key);
   if (t === "c") auto.delete(key);
-  keepAuto();
+  keepAuto(game);
   setTick(key, t, on, col);
   if (alsoCaught) setTick(key, "c", true, col);
   rerender();
@@ -1618,7 +1618,7 @@ async function tick(key, t, on){
   if (alsoCaught && !await save({game, list: "have", key, tick: "c", on: true})) { setTick(key, "c", false, col); rerender(); }
   if (GAME !== game) return;
   if (!on && t !== "c" && auto.has(key) && (col.have[key] || []).every(x => x === "c")) {
-    auto.delete(key); keepAuto();
+    auto.delete(key); keepAuto(game);
     if (has(key, "c")) await tick(key, "c", false);
   }
 }
@@ -1631,6 +1631,7 @@ async function toggleList(list, id){
 }
 
 document.addEventListener("click", ev => {
+  if (ev.target.closest("a[data-skip]")) { ev.preventDefault(); view.focus(); return; }   // Skip to the page: focus, not an address (#view isn't a page)
   const go = ev.target.closest("a[data-goform]");
   if (go) { const e = byId[go.dataset.goform]; pageForm[groupKey(e)] = e.id; if (location.hash === pageOf(e)) { ev.preventDefault(); rerender(); } return; }
   const b = ev.target.closest("button");
@@ -1714,7 +1715,7 @@ function startFamily(){
   }
   menu = JJFamily.menu({
     button: menuBtn, drawer: side, scrim: document.getElementById("scrim"),
-    outside: () => [document.getElementById("topbar"), document.getElementById("main")],
+    outside: () => [document.getElementById("skipLink"), document.getElementById("topbar"), document.getElementById("main")],   // inert while the drawer is open
     current: () => nav.querySelector("a.on") || nav.querySelector("a"),   // this page's link (aria-current), the game's Home if none
     main: () => view,
   });

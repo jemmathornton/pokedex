@@ -14,9 +14,9 @@ Everything waiting on you. **Do** = just do it; **Decide** = your call. Tell Cla
 ## Do
 - **Try getting your collection in:** easiest is **Fast tick → Kanto → Lucky** next to your phone’s Pokédex on the Lucky tab. Or one short screen recording of the Pokédex’s Lucky tab (Kanto only) and, if you have one, a Calcy IV export, into the Pokédex folder’s `imports` folder. Then Claude checks the reader works on your phone’s screens.
 - **Check the 49 Kalos–Paldea Pokémon** ticked Caught with no Shiny (possible leftovers from Tick all): Fast tick → Caught next to the game’s Pokédex.
-- **Dynamax Trails (16–23 Nov):** Max Battle catches get a background, probably the Dark Skies one again (Serebii); tell Claude once you’ve seen it, and Sneasel, Mawile and the rest go on it.
 
 ## Done
+- **Dynamax Espurr on Dark Skies (your ask, 23 Nov):** its Max Monday today was during Dynamax Trails, so Espurr and Meowstic (both) are on the Dark Skies background with the rest of the Dynamax Trails Pokémon (Sneasel, Mawile, Feebas…).
 - **Alcremie tracked form by form, like Vivillon (your answer, 22 Nov evening):** its card in HOME counts its 63 flavours (Shiny 0/63…), each flavour with its own boxes on its page. Your Pokédex server was restarted (your yes), so HOME’s ticks save.
 - **Pokémon HOME built (22 Nov evening, your ask):** the same pages as GO from HOME’s own list: Home, Every Pokémon, the ten regions, every Pokémon’s page and Fast tick, saving to its own ticks file (your GO ticks untouched). Boxes: Caught (in HOME now), Female, Male, Shiny and Gigantamax: that’s what HOME has (no Dynamax there; a Mega can’t be kept in HOME). Every Pokémon #0001–#1025 with HOME’s own forms (Pikachu in a cap, Alcremie’s flavours…), and the 38 that can’t be shiny in HOME marked so. One picture for a Pokémon in both games: GO’s, and HOME’s own only where GO has none. Home’s region maps now have a line in the region’s colour.
 - **Decided (22 Nov):** the Pokédex will cover Pokémon GO and Pokémon HOME first; HOME’s main box means “you have it in HOME now”.

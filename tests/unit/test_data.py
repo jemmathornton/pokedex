@@ -193,6 +193,16 @@ class HomeData(unittest.TestCase):
         for i in ('801-original', '893-dada', '999-chest'):
             self.assertEqual(g[i], 'none', i)
 
+    def test_homes_own_forms_have_their_own_size_and_no_other_forms_text(self):
+        """Overnight review, 23 Nov: Bloodmoon Ursaluna showed the regular one's size, Chest Gimmighoul the coin form's size and
+        text. Sizes from PokeAPI per form, Bloodmoon's from Serebii (2.7 m, 333 kg, male only)."""
+        h = {e['id']: e for e in self.full}
+        b, c = h['901-bloodmoon'], h['999-chest']
+        self.assertEqual((b['height'], b['weight'], b['gender']), (2.7, 333.0, 'male'))
+        self.assertEqual((c['height'], c['weight']), (0.3, 5.0))
+        self.assertFalse(b.get('desc') or c.get('desc') or c.get('category'), 'no Pokédex text written for another form')
+        self.assertEqual(h['999']['form'], 'Roaming Form')
+
     def test_shiny_and_gigantamax_as_serebii_lists_them(self):
         no = {e['id'] for e in self.home if not e['shiny']}
         for i in ('494', '25-original-cap', '1025', '893', '893-dada', '670-eternal'):   # Victini, a cap Pikachu, Pecharunt, Zarude…

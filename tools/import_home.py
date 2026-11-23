@@ -50,6 +50,14 @@ GENDER_FORMS = (449, 450, 521, 592, 593, 668, 678, 876, 902, 916)
 FORM_MAP = {(999, 'roaming'): '999'}
 # a GO form name that isn't HOME's: GO's Spinda #1 (GO numbers its spot patterns; HOME's Spinda is one Pokémon)
 FORM_NAMES = {(327, '327-1'): None, (999, '999'): 'Roaming Form'}
+# HOME's own forms take their own size (PokeAPI's pokemon table, for that form) and borrow GO's Pokédex text and category only
+# where it is about the same look (overnight review, 23 Nov): GO's Gimmighoul is the Roaming Form, so its coin text isn't the
+# Chest Form's; GO's Ursaluna text is the regular one's, not Bloodmoon's. PokeAPI gives Bloodmoon the regular size: Serebii's
+# Scarlet and Violet page (read 23 Nov) has 2.4 m / 2.7 m and 290 kg / 333 kg (regular / Bloodmoon), both "Peat Pokémon".
+OWN_TEXT = {'999-chest', '901-bloodmoon'}
+OWN_CATEGORY = {'999-chest'}
+SIZE_FIXES = {'901-bloodmoon': (2.7, 333.0)}
+FORM_GENDER = {'901-bloodmoon': 'male'}   # Serebii's same page: Bloodmoon Male 100% (PokeAPI's gender rate is the species')
 # Gigantamax for every form, not only the first: any Alcremie flavour can have the Gigantamax Factor
 GMAX_ALL_FORMS = {869}
 SYN = {'alola': 'alolan', 'galar': 'galarian', 'hisui': 'hisuian', 'paldea': 'paldean'}
@@ -188,11 +196,15 @@ def main():
                 if not base:
                     report.append(f'#{dex}: no GO entry to share its name and facts'); continue
                 fid = f'{dex}-{slug(f["fi"])}' if f['fi'] else str(dex)
+                p = poke.get(f['pid']) or {}
+                height, weight = SIZE_FIXES.get(fid) or ((int(p['height']) / 10, int(p['weight']) / 10) if p.get('height') and p.get('weight') else (base.get('height'), base.get('weight')))
                 e = {'id': fid, 'dex': dex, 'gen': base.get('gen'), 'name': base['name'], 'form': fname or f['fi'].replace('-', ' ').title(),
                      'types': types_of(f['pid']) or base.get('types', []), 'img': pic, 'gender': base.get('gender'),
-                     'class': base.get('class'), 'category': base.get('category'), 'height': base.get('height'), 'weight': base.get('weight'),
-                     'desc': base.get('desc'), 'family': base.get('family'), 'evo': [], 'order': f['order']}
+                     'class': base.get('class'), 'category': None if fid in OWN_CATEGORY else base.get('category'), 'height': height, 'weight': weight,
+                     'desc': None if fid in OWN_TEXT else base.get('desc'), 'family': base.get('family'), 'evo': [], 'order': f['order']}
                 e = {k: v for k, v in e.items() if v not in (None, '')}
+                if fid in FORM_GENDER:
+                    e['gender'] = FORM_GENDER[fid]
                 if dex == 25 and f['fi'].endswith('-cap'):   # every cap Pikachu is male (PokeAPI's gender rate is the species'; overnight review, 23 Nov)
                     e['gender'] = 'male'
                 if not pic:
