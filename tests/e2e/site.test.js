@@ -433,8 +433,7 @@
 
   test("her picks from the Try switch (22 Nov): Card art in dark mode Brighter; Shiny #6C7786 and Lucky #B48600; the switch gone", async () => {
     const root = document.documentElement;
-    const onlyDlc = () => [...document.querySelectorAll(".trybox [data-row]")].every(r => r.dataset.row === "dlcpics");   // the one Try switch now (23 Nov: Shield’s DLC pictures)
-    ok(onlyDlc() && !("tryArt" in root.dataset) && !("tryBoxes" in root.dataset), "no old Try switch left");
+    ok([...document.querySelectorAll(".trybox [data-row]")].every(r => ["max-lair", "elsewhere", "from-home"].includes(r.dataset.row)) && !("tryArt" in root.dataset) && !("tryBoxes" in root.dataset), "no old Try switch left (only Shield’s other pictures, 23 Nov)");
     const hex = n => getComputedStyle(root).getPropertyValue(`--${n}`).trim().toUpperCase();
     eq(hex("shiny"), "#6C7786", "Shiny a little deeper"); eq(hex("lucky"), "#B48600", "Lucky a little deeper (a middle gold)");
     eq(hex("male"), "#078E5A", "the other boxes as they were"); eq(hex("hundo"), "#D14186"); eq(hex("mega"), "#C2571A");
@@ -451,8 +450,9 @@
   });
 
   test("the art window is tinted by the Pokémon's first type (her pick, 21 Nov); the 21 Nov Try switch is gone", async () => {
-    ok([...document.querySelectorAll(".trybox [data-row]")].every(r => r.dataset.row === "dlcpics"), "no games or Form names Try switch (removed); only Shield’s DLC pictures (23 Nov)");
+    ok([...document.querySelectorAll(".trybox [data-row]")].every(r => ["max-lair", "elsewhere", "from-home"].includes(r.dataset.row)), "no games, Form names or Shield’s DLC pictures Try switch (removed: her picks); only Shield’s other pictures (23 Nov)");
     eq(localStorage.getItem("jemmas-pokedex-try-formnames"), null, "the Form names choice cleared");
+    eq(localStorage.getItem("jemmas-pokedex-try-dlcpics"), null, "the Shield’s DLC pictures choice cleared");
     ok(["jemmas-pokedex-try-homepage", "jemmas-pokedex-try-allgames", "jemmas-pokedex-try-gameswitch", "jemmas-pokedex-try-lastgame"].every(k => localStorage.getItem(k) === null), "its kept choices cleared");
     prefs.work = "all"; prefs.workShow = "all"; await go("#gen-1");
     const art = id => { const c = view().querySelector(`.card[data-id="${id}"]`); return c && getComputedStyle(c.querySelector(".pic")).backgroundImage; };
@@ -1324,16 +1324,32 @@
     } finally { await save({game: "shield", list: "have", key: "d:810", tick: "c", on: false}); COLS.shield.have = {}; }
   });
 
-  test("TRIAL Try switch Shield’s DLC pictures (23 Nov): the official paintings or Galar’s map", async () => {
-    const pick = async v => { click(document.querySelector(`.trybox [data-v="${v}"]`)); await wait(150); };
-    const was = tryDlcPics;
+  test("Shield’s DLC pictures: the official paintings (her pick, 23 Nov); Galar keeps its map; the sections’ names are hers", async () => {
+    await go("#sh-gen-isle-of-armor");
+    ok(/isle-of-armor-1/.test(view().querySelector(".hero").getAttribute("style") || ""), "the Isle of Armor painting");
+    await go("#sh-gen-crown-tundra");
+    ok(/crown-tundra-1/.test(view().querySelector(".hero").getAttribute("style") || ""), "the Crown Tundra painting");
+    await go("#shield");
+    ok(view().querySelector('.gen[href="#sh-gen-crown-tundra"] .genmap').getAttribute("style").includes("crown-tundra-1"), "the Crown Tundra card too");
+    ok(view().querySelector('.gen[href="#sh-gen-galar"] .genmap').getAttribute("style").includes("galar-map-1"), "Galar’s card its map");
+    eq([...view().querySelectorAll(".gen h3")].map(h => h.textContent).slice(3), ["Dynamax Adventures", "Bonus Pokémon", "HOME Transfers"], "her names (23 Nov)");
+  });
+
+  test("TRIAL Try switch Shield’s other pictures (23 Nov): Dynamax Adventures, Bonus Pokémon and HOME Transfers", async () => {
+    const pick = async (row, v) => { click(document.querySelector(`.trybox [data-row="${row}"] [data-v="${v}"]`)); await wait(150); };
+    const was = {...trySec};
     try {
-      await go("#sh-gen-isle-of-armor");
-      await pick("paintings"); ok(/isle-of-armor-1/.test(view().querySelector(".hero").getAttribute("style") || ""), "the Isle of Armor painting");
-      await pick("galar"); ok(/galar-map-1/.test(view().querySelector(".hero").getAttribute("style") || ""), "Galar’s map");
-      eq(localStorage.getItem(TRY_DLC_KEY), '"galar"', "kept");
-      await go("#shield"); ok(view().querySelector('.gen[href="#sh-gen-crown-tundra"] .genmap').getAttribute("style").includes("galar-map-1"), "the Crown Tundra card too");
-    } finally { await pick(was); }
+      await go("#shield");
+      await pick("elsewhere", "three"); eq(view().querySelectorAll('.gen[href="#sh-gen-elsewhere"] .genmap.multi i').length, 3, "Bonus Pokémon: all three");
+      await pick("elsewhere", "as"); ok(view().querySelector('.gen[href="#sh-gen-elsewhere"] .genmap:not(.multi)').getAttribute("style").includes("galar-map-1"), "Bonus Pokémon: Galar’s map");
+      await pick("from-home", "all"); eq(view().querySelectorAll('.gen[href="#sh-gen-from-home"] .genmap.multi i').length, 10, "HOME Transfers: every region’s map");
+      await pick("from-home", "as"); ok(!view().querySelector('.gen[href="#sh-gen-from-home"] .genmap'), "HOME Transfers: no picture");
+      await pick("max-lair", "all"); eq(view().querySelectorAll('.gen[href="#sh-gen-max-lair"] .genmap.multi i').length, 10, "Dynamax Adventures: every region’s map");
+      await go("#sh-gen-max-lair"); eq(view().querySelectorAll(".hero .heropics i").length, 10, "on its banner too");
+      await pick("max-lair", "as"); ok(/crown-tundra-1/.test(view().querySelector(".hero").getAttribute("style") || ""), "Dynamax Adventures: the Crown Tundra painting");
+      eq(JSON.parse(localStorage.getItem(TRY_SEC_KEY))["max-lair"], "as", "kept");
+      await go("#go"); ok(view().querySelectorAll(".gen .genmap:not(.multi)").length >= 10, "GO’s regions unchanged");
+    } finally { trySec = was; store.set(TRY_SEC_KEY, was); rerender(); }
   });
 
   test("one picture for a Pokémon in both games (her question, 22 Nov): GO's own, HOME's only where GO's files have none", async () => {

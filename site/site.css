@@ -395,7 +395,7 @@ a.formsbtn{text-decoration:none}
 .dex-entry{font:400 22px/1.45 var(--display);margin:0 0 16px;max-width:60ch;text-wrap:pretty}
 .dex-entry .label{display:block;margin-bottom:4px}
 .label.dexfrom{display:block;margin:0 0 6px}
-/* ===== TRIAL: Try switch "Shield’s DLC pictures" (23 Nov), START: remove with the TRIAL block in app.js once she has picked ===== */
+/* ===== TRIAL: Try switch "Shield’s other pictures" (23 Nov), START: remove with the TRIAL block in app.js once she has picked (keep .genmap.multi if she picks a choice with several pictures) ===== */
 .trybox{position:fixed;right:12px;bottom:12px;z-index:60;display:grid;gap:6px;padding:8px 10px;border-radius:10px;background:var(--surface,#fff);color:var(--ink,#222);
   border:1px solid var(--line,#ccc);box-shadow:0 4px 16px rgba(0,0,0,.2);font:600 12px var(--body,sans-serif);max-width:calc(100vw - 24px);box-sizing:border-box}
 .trybox > b{font-size:11px;letter-spacing:.08em;text-transform:uppercase}
@@ -406,7 +406,9 @@ a.formsbtn{text-decoration:none}
 @media print{.trybox{display:none}}
 .jj-menu-open .trybox{display:none}   /* never over the Menu drawer */
 @media (max-width:900px){ body{padding-bottom:var(--trypad,0px)} .tryrow button{padding:5px 8px} }
-/* ===== TRIAL: Try switch "Shield’s DLC pictures", END ===== */
+.genmap.multi{display:flex;background:none;overflow:hidden}   /* several pictures side by side on a card, like the banner's strip */
+.genmap.multi i{flex:1;background:var(--pic) center/cover no-repeat}
+/* ===== TRIAL: Try switch "Shield’s other pictures", END ===== */
 /* Skip to the page (as her Library and Travels): off screen until the keyboard reaches it */
 .skip{position:absolute;left:-999px;top:10px;z-index:100;padding:10px 16px;border-radius:8px;background:var(--surface);color:var(--ink);font-weight:700;text-decoration:none;box-shadow:var(--card-shadow)}
 .skip:focus{left:12px}   /* Pokémon HOME: the Pokédex text is GO's, and says so */
