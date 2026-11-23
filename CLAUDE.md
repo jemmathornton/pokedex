@@ -55,6 +55,8 @@ A private Pokédex for Jemma’s Pokémon GO collection: every Pokémon and form
 
 ## Other games: Pokémon HOME (built 22 Nov)
 
+**Next games (research and proposals, 23 Nov; nothing built, waiting on her choices):** Legends: Arceus, Legends: Z-A, Violet and Shield, each like HOME but with its own Pokédexes instead of the regions. `research/new-games.md` (how it would be built), `research/games/*.md` and `research/data/games/*.json` (the research, sourced and dated), `for-jemma/new-games.md` (her choices, every option listed).
+
 **Her decisions (22 Nov): the Pokédex covers Pokémon GO and Pokémon HOME first; HOME’s main box means “you have it in HOME now”** (a living dex, not “ever registered”). Research and the open choices: Jemma’s Journals’ `research/pokedex-more-games.md` and `for-jemma/pokedex-more-games.md`.
 
 **HOME fully built (22 Nov evening, her ask: “Home needs to be fully built… Used shared stuff between games, no need to redo stuff all over again. Home is shiny, male/female (like go), maybe dyna and gigan if they are in home. Do whatever home has.”; “Yes add fast tick to home”).**

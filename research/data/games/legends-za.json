@@ -1,0 +1,6383 @@
+{
+ "game": "legends-za",
+ "name": "Pokémon Legends: Z-A",
+ "updated": "2026-11-23",
+ "released": "2025-10-16",
+ "platforms": [
+  "Nintendo Switch",
+  "Nintendo Switch 2"
+ ],
+ "dlc": {
+  "id": "mega-dimension",
+  "name": "Mega Dimension",
+  "version": "2.0.0",
+  "story": "2025-12-10",
+  "note": "Nintendo’s Americas page dates 2.0.0 to 9 Dec 2025; Serebii gives 10 Dec 2025 for the story (time zones, inferred). Latest version 2.0.2, 18 Mar 2026."
+ },
+ "dexes": [
+  {
+   "id": "lumiose",
+   "name": "Lumiose Pokédex",
+   "dlc": false,
+   "size": 232,
+   "required": 230,
+   "note": "Numbered 001 to 232. Diancie and Mewtwo are not needed for completion. One number per species; forms sit inside the species’ entry. Serebii and PokeAPI (pokedex 34, lumiose-city) give the same list and order.",
+   "entries": [
+    {
+     "no": 1,
+     "national": 152,
+     "name": "Chikorita"
+    },
+    {
+     "no": 2,
+     "national": 153,
+     "name": "Bayleef"
+    },
+    {
+     "no": 3,
+     "national": 154,
+     "name": "Meganium"
+    },
+    {
+     "no": 4,
+     "national": 498,
+     "name": "Tepig"
+    },
+    {
+     "no": 5,
+     "national": 499,
+     "name": "Pignite"
+    },
+    {
+     "no": 6,
+     "national": 500,
+     "name": "Emboar"
+    },
+    {
+     "no": 7,
+     "national": 158,
+     "name": "Totodile"
+    },
+    {
+     "no": 8,
+     "national": 159,
+     "name": "Croconaw"
+    },
+    {
+     "no": 9,
+     "national": 160,
+     "name": "Feraligatr"
+    },
+    {
+     "no": 10,
+     "national": 661,
+     "name": "Fletchling"
+    },
+    {
+     "no": 11,
+     "national": 662,
+     "name": "Fletchinder"
+    },
+    {
+     "no": 12,
+     "national": 663,
+     "name": "Talonflame"
+    },
+    {
+     "no": 13,
+     "national": 659,
+     "name": "Bunnelby"
+    },
+    {
+     "no": 14,
+     "national": 660,
+     "name": "Diggersby"
+    },
+    {
+     "no": 15,
+     "national": 664,
+     "name": "Scatterbug"
+    },
+    {
+     "no": 16,
+     "national": 665,
+     "name": "Spewpa"
+    },
+    {
+     "no": 17,
+     "national": 666,
+     "name": "Vivillon"
+    },
+    {
+     "no": 18,
+     "national": 13,
+     "name": "Weedle"
+    },
+    {
+     "no": 19,
+     "national": 14,
+     "name": "Kakuna"
+    },
+    {
+     "no": 20,
+     "national": 15,
+     "name": "Beedrill"
+    },
+    {
+     "no": 21,
+     "national": 16,
+     "name": "Pidgey"
+    },
+    {
+     "no": 22,
+     "national": 17,
+     "name": "Pidgeotto"
+    },
+    {
+     "no": 23,
+     "national": 18,
+     "name": "Pidgeot"
+    },
+    {
+     "no": 24,
+     "national": 179,
+     "name": "Mareep"
+    },
+    {
+     "no": 25,
+     "national": 180,
+     "name": "Flaaffy"
+    },
+    {
+     "no": 26,
+     "national": 181,
+     "name": "Ampharos"
+    },
+    {
+     "no": 27,
+     "national": 504,
+     "name": "Patrat"
+    },
+    {
+     "no": 28,
+     "national": 505,
+     "name": "Watchog"
+    },
+    {
+     "no": 29,
+     "national": 406,
+     "name": "Budew"
+    },
+    {
+     "no": 30,
+     "national": 315,
+     "name": "Roselia"
+    },
+    {
+     "no": 31,
+     "national": 407,
+     "name": "Roserade"
+    },
+    {
+     "no": 32,
+     "national": 129,
+     "name": "Magikarp"
+    },
+    {
+     "no": 33,
+     "national": 130,
+     "name": "Gyarados"
+    },
+    {
+     "no": 34,
+     "national": 688,
+     "name": "Binacle"
+    },
+    {
+     "no": 35,
+     "national": 689,
+     "name": "Barbaracle"
+    },
+    {
+     "no": 36,
+     "national": 120,
+     "name": "Staryu"
+    },
+    {
+     "no": 37,
+     "national": 121,
+     "name": "Starmie"
+    },
+    {
+     "no": 38,
+     "national": 669,
+     "name": "Flabébé"
+    },
+    {
+     "no": 39,
+     "national": 670,
+     "name": "Floette"
+    },
+    {
+     "no": 40,
+     "national": 671,
+     "name": "Florges"
+    },
+    {
+     "no": 41,
+     "national": 672,
+     "name": "Skiddo"
+    },
+    {
+     "no": 42,
+     "national": 673,
+     "name": "Gogoat"
+    },
+    {
+     "no": 43,
+     "national": 677,
+     "name": "Espurr"
+    },
+    {
+     "no": 44,
+     "national": 678,
+     "name": "Meowstic"
+    },
+    {
+     "no": 45,
+     "national": 667,
+     "name": "Litleo"
+    },
+    {
+     "no": 46,
+     "national": 668,
+     "name": "Pyroar"
+    },
+    {
+     "no": 47,
+     "national": 674,
+     "name": "Pancham"
+    },
+    {
+     "no": 48,
+     "national": 675,
+     "name": "Pangoro"
+    },
+    {
+     "no": 49,
+     "national": 568,
+     "name": "Trubbish"
+    },
+    {
+     "no": 50,
+     "national": 569,
+     "name": "Garbodor"
+    },
+    {
+     "no": 51,
+     "national": 702,
+     "name": "Dedenne"
+    },
+    {
+     "no": 52,
+     "national": 172,
+     "name": "Pichu"
+    },
+    {
+     "no": 53,
+     "national": 25,
+     "name": "Pikachu"
+    },
+    {
+     "no": 54,
+     "national": 26,
+     "name": "Raichu",
+     "regionalForms": [
+      "Alolan Form"
+     ]
+    },
+    {
+     "no": 55,
+     "national": 173,
+     "name": "Cleffa"
+    },
+    {
+     "no": 56,
+     "national": 35,
+     "name": "Clefairy"
+    },
+    {
+     "no": 57,
+     "national": 36,
+     "name": "Clefable"
+    },
+    {
+     "no": 58,
+     "national": 167,
+     "name": "Spinarak"
+    },
+    {
+     "no": 59,
+     "national": 168,
+     "name": "Ariados"
+    },
+    {
+     "no": 60,
+     "national": 23,
+     "name": "Ekans"
+    },
+    {
+     "no": 61,
+     "national": 24,
+     "name": "Arbok"
+    },
+    {
+     "no": 62,
+     "national": 63,
+     "name": "Abra"
+    },
+    {
+     "no": 63,
+     "national": 64,
+     "name": "Kadabra"
+    },
+    {
+     "no": 64,
+     "national": 65,
+     "name": "Alakazam"
+    },
+    {
+     "no": 65,
+     "national": 92,
+     "name": "Gastly"
+    },
+    {
+     "no": 66,
+     "national": 93,
+     "name": "Haunter"
+    },
+    {
+     "no": 67,
+     "national": 94,
+     "name": "Gengar"
+    },
+    {
+     "no": 68,
+     "national": 543,
+     "name": "Venipede"
+    },
+    {
+     "no": 69,
+     "national": 544,
+     "name": "Whirlipede"
+    },
+    {
+     "no": 70,
+     "national": 545,
+     "name": "Scolipede"
+    },
+    {
+     "no": 71,
+     "national": 679,
+     "name": "Honedge"
+    },
+    {
+     "no": 72,
+     "national": 680,
+     "name": "Doublade"
+    },
+    {
+     "no": 73,
+     "national": 681,
+     "name": "Aegislash"
+    },
+    {
+     "no": 74,
+     "national": 69,
+     "name": "Bellsprout"
+    },
+    {
+     "no": 75,
+     "national": 70,
+     "name": "Weepinbell"
+    },
+    {
+     "no": 76,
+     "national": 71,
+     "name": "Victreebel"
+    },
+    {
+     "no": 77,
+     "national": 511,
+     "name": "Pansage"
+    },
+    {
+     "no": 78,
+     "national": 512,
+     "name": "Simisage"
+    },
+    {
+     "no": 79,
+     "national": 513,
+     "name": "Pansear"
+    },
+    {
+     "no": 80,
+     "national": 514,
+     "name": "Simisear"
+    },
+    {
+     "no": 81,
+     "national": 515,
+     "name": "Panpour"
+    },
+    {
+     "no": 82,
+     "national": 516,
+     "name": "Simipour"
+    },
+    {
+     "no": 83,
+     "national": 307,
+     "name": "Meditite"
+    },
+    {
+     "no": 84,
+     "national": 308,
+     "name": "Medicham"
+    },
+    {
+     "no": 85,
+     "national": 309,
+     "name": "Electrike"
+    },
+    {
+     "no": 86,
+     "national": 310,
+     "name": "Manectric"
+    },
+    {
+     "no": 87,
+     "national": 280,
+     "name": "Ralts"
+    },
+    {
+     "no": 88,
+     "national": 281,
+     "name": "Kirlia"
+    },
+    {
+     "no": 89,
+     "national": 282,
+     "name": "Gardevoir"
+    },
+    {
+     "no": 90,
+     "national": 475,
+     "name": "Gallade"
+    },
+    {
+     "no": 91,
+     "national": 228,
+     "name": "Houndour"
+    },
+    {
+     "no": 92,
+     "national": 229,
+     "name": "Houndoom"
+    },
+    {
+     "no": 93,
+     "national": 333,
+     "name": "Swablu"
+    },
+    {
+     "no": 94,
+     "national": 334,
+     "name": "Altaria"
+    },
+    {
+     "no": 95,
+     "national": 531,
+     "name": "Audino"
+    },
+    {
+     "no": 96,
+     "national": 682,
+     "name": "Spritzee"
+    },
+    {
+     "no": 97,
+     "national": 683,
+     "name": "Aromatisse"
+    },
+    {
+     "no": 98,
+     "national": 684,
+     "name": "Swirlix"
+    },
+    {
+     "no": 99,
+     "national": 685,
+     "name": "Slurpuff"
+    },
+    {
+     "no": 100,
+     "national": 133,
+     "name": "Eevee"
+    },
+    {
+     "no": 101,
+     "national": 134,
+     "name": "Vaporeon"
+    },
+    {
+     "no": 102,
+     "national": 135,
+     "name": "Jolteon"
+    },
+    {
+     "no": 103,
+     "national": 136,
+     "name": "Flareon"
+    },
+    {
+     "no": 104,
+     "national": 196,
+     "name": "Espeon"
+    },
+    {
+     "no": 105,
+     "national": 197,
+     "name": "Umbreon"
+    },
+    {
+     "no": 106,
+     "national": 470,
+     "name": "Leafeon"
+    },
+    {
+     "no": 107,
+     "national": 471,
+     "name": "Glaceon"
+    },
+    {
+     "no": 108,
+     "national": 700,
+     "name": "Sylveon"
+    },
+    {
+     "no": 109,
+     "national": 427,
+     "name": "Buneary"
+    },
+    {
+     "no": 110,
+     "national": 428,
+     "name": "Lopunny"
+    },
+    {
+     "no": 111,
+     "national": 353,
+     "name": "Shuppet"
+    },
+    {
+     "no": 112,
+     "national": 354,
+     "name": "Banette"
+    },
+    {
+     "no": 113,
+     "national": 582,
+     "name": "Vanillite"
+    },
+    {
+     "no": 114,
+     "national": 583,
+     "name": "Vanillish"
+    },
+    {
+     "no": 115,
+     "national": 584,
+     "name": "Vanilluxe"
+    },
+    {
+     "no": 116,
+     "national": 322,
+     "name": "Numel"
+    },
+    {
+     "no": 117,
+     "national": 323,
+     "name": "Camerupt"
+    },
+    {
+     "no": 118,
+     "national": 449,
+     "name": "Hippopotas"
+    },
+    {
+     "no": 119,
+     "national": 450,
+     "name": "Hippowdon"
+    },
+    {
+     "no": 120,
+     "national": 529,
+     "name": "Drilbur"
+    },
+    {
+     "no": 121,
+     "national": 530,
+     "name": "Excadrill"
+    },
+    {
+     "no": 122,
+     "national": 551,
+     "name": "Sandile"
+    },
+    {
+     "no": 123,
+     "national": 552,
+     "name": "Krokorok"
+    },
+    {
+     "no": 124,
+     "national": 553,
+     "name": "Krookodile"
+    },
+    {
+     "no": 125,
+     "national": 66,
+     "name": "Machop"
+    },
+    {
+     "no": 126,
+     "national": 67,
+     "name": "Machoke"
+    },
+    {
+     "no": 127,
+     "national": 68,
+     "name": "Machamp"
+    },
+    {
+     "no": 128,
+     "national": 443,
+     "name": "Gible"
+    },
+    {
+     "no": 129,
+     "national": 444,
+     "name": "Gabite"
+    },
+    {
+     "no": 130,
+     "national": 445,
+     "name": "Garchomp"
+    },
+    {
+     "no": 131,
+     "national": 703,
+     "name": "Carbink"
+    },
+    {
+     "no": 132,
+     "national": 302,
+     "name": "Sableye"
+    },
+    {
+     "no": 133,
+     "national": 303,
+     "name": "Mawile"
+    },
+    {
+     "no": 134,
+     "national": 359,
+     "name": "Absol"
+    },
+    {
+     "no": 135,
+     "national": 447,
+     "name": "Riolu"
+    },
+    {
+     "no": 136,
+     "national": 448,
+     "name": "Lucario"
+    },
+    {
+     "no": 137,
+     "national": 79,
+     "name": "Slowpoke",
+     "regionalForms": [
+      "Galarian Form"
+     ]
+    },
+    {
+     "no": 138,
+     "national": 80,
+     "name": "Slowbro",
+     "regionalForms": [
+      "Galarian Form"
+     ]
+    },
+    {
+     "no": 139,
+     "national": 199,
+     "name": "Slowking",
+     "regionalForms": [
+      "Galarian Form"
+     ]
+    },
+    {
+     "no": 140,
+     "national": 318,
+     "name": "Carvanha"
+    },
+    {
+     "no": 141,
+     "national": 319,
+     "name": "Sharpedo"
+    },
+    {
+     "no": 142,
+     "national": 602,
+     "name": "Tynamo"
+    },
+    {
+     "no": 143,
+     "national": 603,
+     "name": "Eelektrik"
+    },
+    {
+     "no": 144,
+     "national": 604,
+     "name": "Eelektross"
+    },
+    {
+     "no": 145,
+     "national": 147,
+     "name": "Dratini"
+    },
+    {
+     "no": 146,
+     "national": 148,
+     "name": "Dragonair"
+    },
+    {
+     "no": 147,
+     "national": 149,
+     "name": "Dragonite"
+    },
+    {
+     "no": 148,
+     "national": 1,
+     "name": "Bulbasaur"
+    },
+    {
+     "no": 149,
+     "national": 2,
+     "name": "Ivysaur"
+    },
+    {
+     "no": 150,
+     "national": 3,
+     "name": "Venusaur"
+    },
+    {
+     "no": 151,
+     "national": 4,
+     "name": "Charmander"
+    },
+    {
+     "no": 152,
+     "national": 5,
+     "name": "Charmeleon"
+    },
+    {
+     "no": 153,
+     "national": 6,
+     "name": "Charizard"
+    },
+    {
+     "no": 154,
+     "national": 7,
+     "name": "Squirtle"
+    },
+    {
+     "no": 155,
+     "national": 8,
+     "name": "Wartortle"
+    },
+    {
+     "no": 156,
+     "national": 9,
+     "name": "Blastoise"
+    },
+    {
+     "no": 157,
+     "national": 618,
+     "name": "Stunfisk",
+     "regionalForms": [
+      "Galarian Form"
+     ]
+    },
+    {
+     "no": 158,
+     "national": 676,
+     "name": "Furfrou"
+    },
+    {
+     "no": 159,
+     "national": 686,
+     "name": "Inkay"
+    },
+    {
+     "no": 160,
+     "national": 687,
+     "name": "Malamar"
+    },
+    {
+     "no": 161,
+     "national": 690,
+     "name": "Skrelp"
+    },
+    {
+     "no": 162,
+     "national": 691,
+     "name": "Dragalge"
+    },
+    {
+     "no": 163,
+     "national": 692,
+     "name": "Clauncher"
+    },
+    {
+     "no": 164,
+     "national": 693,
+     "name": "Clawitzer"
+    },
+    {
+     "no": 165,
+     "national": 704,
+     "name": "Goomy"
+    },
+    {
+     "no": 166,
+     "national": 705,
+     "name": "Sliggoo",
+     "regionalForms": [
+      "Hisuian Form"
+     ]
+    },
+    {
+     "no": 167,
+     "national": 706,
+     "name": "Goodra",
+     "regionalForms": [
+      "Hisuian Form"
+     ]
+    },
+    {
+     "no": 168,
+     "national": 225,
+     "name": "Delibird"
+    },
+    {
+     "no": 169,
+     "national": 361,
+     "name": "Snorunt"
+    },
+    {
+     "no": 170,
+     "national": 362,
+     "name": "Glalie"
+    },
+    {
+     "no": 171,
+     "national": 478,
+     "name": "Froslass"
+    },
+    {
+     "no": 172,
+     "national": 459,
+     "name": "Snover"
+    },
+    {
+     "no": 173,
+     "national": 460,
+     "name": "Abomasnow"
+    },
+    {
+     "no": 174,
+     "national": 712,
+     "name": "Bergmite"
+    },
+    {
+     "no": 175,
+     "national": 713,
+     "name": "Avalugg",
+     "regionalForms": [
+      "Hisuian Form"
+     ]
+    },
+    {
+     "no": 176,
+     "national": 123,
+     "name": "Scyther"
+    },
+    {
+     "no": 177,
+     "national": 212,
+     "name": "Scizor"
+    },
+    {
+     "no": 178,
+     "national": 127,
+     "name": "Pinsir"
+    },
+    {
+     "no": 179,
+     "national": 214,
+     "name": "Heracross"
+    },
+    {
+     "no": 180,
+     "national": 587,
+     "name": "Emolga"
+    },
+    {
+     "no": 181,
+     "national": 701,
+     "name": "Hawlucha"
+    },
+    {
+     "no": 182,
+     "national": 708,
+     "name": "Phantump"
+    },
+    {
+     "no": 183,
+     "national": 709,
+     "name": "Trevenant"
+    },
+    {
+     "no": 184,
+     "national": 559,
+     "name": "Scraggy"
+    },
+    {
+     "no": 185,
+     "national": 560,
+     "name": "Scrafty"
+    },
+    {
+     "no": 186,
+     "national": 714,
+     "name": "Noibat"
+    },
+    {
+     "no": 187,
+     "national": 715,
+     "name": "Noivern"
+    },
+    {
+     "no": 188,
+     "national": 707,
+     "name": "Klefki"
+    },
+    {
+     "no": 189,
+     "national": 607,
+     "name": "Litwick"
+    },
+    {
+     "no": 190,
+     "national": 608,
+     "name": "Lampent"
+    },
+    {
+     "no": 191,
+     "national": 609,
+     "name": "Chandelure"
+    },
+    {
+     "no": 192,
+     "national": 142,
+     "name": "Aerodactyl"
+    },
+    {
+     "no": 193,
+     "national": 696,
+     "name": "Tyrunt"
+    },
+    {
+     "no": 194,
+     "national": 697,
+     "name": "Tyrantrum"
+    },
+    {
+     "no": 195,
+     "national": 698,
+     "name": "Amaura"
+    },
+    {
+     "no": 196,
+     "national": 699,
+     "name": "Aurorus"
+    },
+    {
+     "no": 197,
+     "national": 95,
+     "name": "Onix"
+    },
+    {
+     "no": 198,
+     "national": 208,
+     "name": "Steelix"
+    },
+    {
+     "no": 199,
+     "national": 304,
+     "name": "Aron"
+    },
+    {
+     "no": 200,
+     "national": 305,
+     "name": "Lairon"
+    },
+    {
+     "no": 201,
+     "national": 306,
+     "name": "Aggron"
+    },
+    {
+     "no": 202,
+     "national": 694,
+     "name": "Helioptile"
+    },
+    {
+     "no": 203,
+     "national": 695,
+     "name": "Heliolisk"
+    },
+    {
+     "no": 204,
+     "national": 710,
+     "name": "Pumpkaboo"
+    },
+    {
+     "no": 205,
+     "national": 711,
+     "name": "Gourgeist"
+    },
+    {
+     "no": 206,
+     "national": 246,
+     "name": "Larvitar"
+    },
+    {
+     "no": 207,
+     "national": 247,
+     "name": "Pupitar"
+    },
+    {
+     "no": 208,
+     "national": 248,
+     "name": "Tyranitar"
+    },
+    {
+     "no": 209,
+     "national": 656,
+     "name": "Froakie"
+    },
+    {
+     "no": 210,
+     "national": 657,
+     "name": "Frogadier"
+    },
+    {
+     "no": 211,
+     "national": 658,
+     "name": "Greninja"
+    },
+    {
+     "no": 212,
+     "national": 870,
+     "name": "Falinks"
+    },
+    {
+     "no": 213,
+     "national": 650,
+     "name": "Chespin"
+    },
+    {
+     "no": 214,
+     "national": 651,
+     "name": "Quilladin"
+    },
+    {
+     "no": 215,
+     "national": 652,
+     "name": "Chesnaught"
+    },
+    {
+     "no": 216,
+     "national": 227,
+     "name": "Skarmory"
+    },
+    {
+     "no": 217,
+     "national": 653,
+     "name": "Fennekin"
+    },
+    {
+     "no": 218,
+     "national": 654,
+     "name": "Braixen"
+    },
+    {
+     "no": 219,
+     "national": 655,
+     "name": "Delphox"
+    },
+    {
+     "no": 220,
+     "national": 371,
+     "name": "Bagon"
+    },
+    {
+     "no": 221,
+     "national": 372,
+     "name": "Shelgon"
+    },
+    {
+     "no": 222,
+     "national": 373,
+     "name": "Salamence"
+    },
+    {
+     "no": 223,
+     "national": 115,
+     "name": "Kangaskhan"
+    },
+    {
+     "no": 224,
+     "national": 780,
+     "name": "Drampa"
+    },
+    {
+     "no": 225,
+     "national": 374,
+     "name": "Beldum"
+    },
+    {
+     "no": 226,
+     "national": 375,
+     "name": "Metang"
+    },
+    {
+     "no": 227,
+     "national": 376,
+     "name": "Metagross"
+    },
+    {
+     "no": 228,
+     "national": 716,
+     "name": "Xerneas"
+    },
+    {
+     "no": 229,
+     "national": 717,
+     "name": "Yveltal"
+    },
+    {
+     "no": 230,
+     "national": 718,
+     "name": "Zygarde"
+    },
+    {
+     "no": 231,
+     "national": 719,
+     "name": "Diancie",
+     "required": false,
+     "note": "not needed for completion; its side mission needs the Diancite Mystery Gift"
+    },
+    {
+     "no": 232,
+     "national": 150,
+     "name": "Mewtwo",
+     "required": false,
+     "note": "not needed for completion; its side mission needs the Mewtwonite X and Y Mystery Gift"
+    }
+   ]
+  },
+  {
+   "id": "hyperspace",
+   "name": "Hyperspace Pokédex",
+   "dlc": true,
+   "size": 132,
+   "required": 131,
+   "note": "Added by Mega Dimension (version 2.0.0). Numbered 001 to 132; none of these is in the Lumiose Pokédex. Zeraora is not needed for completion. Serebii and PokeAPI (pokedex 35, hyperspace) give the same list and order.",
+   "entries": [
+    {
+     "no": 1,
+     "national": 56,
+     "name": "Mankey"
+    },
+    {
+     "no": 2,
+     "national": 57,
+     "name": "Primeape"
+    },
+    {
+     "no": 3,
+     "national": 979,
+     "name": "Annihilape"
+    },
+    {
+     "no": 4,
+     "national": 52,
+     "name": "Meowth",
+     "regionalForms": [
+      "Alolan Form",
+      "Galarian Form"
+     ]
+    },
+    {
+     "no": 5,
+     "national": 53,
+     "name": "Persian",
+     "regionalForms": [
+      "Alolan Form"
+     ]
+    },
+    {
+     "no": 6,
+     "national": 863,
+     "name": "Perrserker"
+    },
+    {
+     "no": 7,
+     "national": 83,
+     "name": "Farfetch'd",
+     "regionalForms": [
+      "Galarian Form"
+     ]
+    },
+    {
+     "no": 8,
+     "national": 865,
+     "name": "Sirfetch'd"
+    },
+    {
+     "no": 9,
+     "national": 104,
+     "name": "Cubone"
+    },
+    {
+     "no": 10,
+     "national": 105,
+     "name": "Marowak",
+     "regionalForms": [
+      "Alolan Form"
+     ]
+    },
+    {
+     "no": 11,
+     "national": 137,
+     "name": "Porygon"
+    },
+    {
+     "no": 12,
+     "national": 233,
+     "name": "Porygon2"
+    },
+    {
+     "no": 13,
+     "national": 474,
+     "name": "Porygon-Z"
+    },
+    {
+     "no": 14,
+     "national": 951,
+     "name": "Capsakid"
+    },
+    {
+     "no": 15,
+     "national": 952,
+     "name": "Scovillain"
+    },
+    {
+     "no": 16,
+     "national": 957,
+     "name": "Tinkatink"
+    },
+    {
+     "no": 17,
+     "national": 958,
+     "name": "Tinkatuff"
+    },
+    {
+     "no": 18,
+     "national": 959,
+     "name": "Tinkaton"
+    },
+    {
+     "no": 19,
+     "national": 967,
+     "name": "Cyclizar"
+    },
+    {
+     "no": 20,
+     "national": 969,
+     "name": "Glimmet"
+    },
+    {
+     "no": 21,
+     "national": 970,
+     "name": "Glimmora"
+    },
+    {
+     "no": 22,
+     "national": 479,
+     "name": "Rotom"
+    },
+    {
+     "no": 23,
+     "national": 971,
+     "name": "Greavard"
+    },
+    {
+     "no": 24,
+     "national": 972,
+     "name": "Houndstone"
+    },
+    {
+     "no": 25,
+     "national": 769,
+     "name": "Sandygast"
+    },
+    {
+     "no": 26,
+     "national": 770,
+     "name": "Palossand"
+    },
+    {
+     "no": 27,
+     "national": 352,
+     "name": "Kecleon"
+    },
+    {
+     "no": 28,
+     "national": 973,
+     "name": "Flamigo"
+    },
+    {
+     "no": 29,
+     "national": 615,
+     "name": "Cryogonal"
+    },
+    {
+     "no": 30,
+     "national": 977,
+     "name": "Dondozo"
+    },
+    {
+     "no": 31,
+     "national": 978,
+     "name": "Tatsugiri"
+    },
+    {
+     "no": 32,
+     "national": 996,
+     "name": "Frigibax"
+    },
+    {
+     "no": 33,
+     "national": 997,
+     "name": "Arctibax"
+    },
+    {
+     "no": 34,
+     "national": 998,
+     "name": "Baxcalibur"
+    },
+    {
+     "no": 35,
+     "national": 999,
+     "name": "Gimmighoul"
+    },
+    {
+     "no": 36,
+     "national": 1000,
+     "name": "Gholdengo"
+    },
+    {
+     "no": 37,
+     "national": 211,
+     "name": "Qwilfish",
+     "regionalForms": [
+      "Hisuian Form"
+     ]
+    },
+    {
+     "no": 38,
+     "national": 904,
+     "name": "Overqwil"
+    },
+    {
+     "no": 39,
+     "national": 252,
+     "name": "Treecko"
+    },
+    {
+     "no": 40,
+     "national": 253,
+     "name": "Grovyle"
+    },
+    {
+     "no": 41,
+     "national": 254,
+     "name": "Sceptile"
+    },
+    {
+     "no": 42,
+     "national": 255,
+     "name": "Torchic"
+    },
+    {
+     "no": 43,
+     "national": 256,
+     "name": "Combusken"
+    },
+    {
+     "no": 44,
+     "national": 257,
+     "name": "Blaziken"
+    },
+    {
+     "no": 45,
+     "national": 258,
+     "name": "Mudkip"
+    },
+    {
+     "no": 46,
+     "national": 259,
+     "name": "Marshtomp"
+    },
+    {
+     "no": 47,
+     "national": 260,
+     "name": "Swampert"
+    },
+    {
+     "no": 48,
+     "national": 349,
+     "name": "Feebas"
+    },
+    {
+     "no": 49,
+     "national": 350,
+     "name": "Milotic"
+    },
+    {
+     "no": 50,
+     "national": 433,
+     "name": "Chingling"
+    },
+    {
+     "no": 51,
+     "national": 358,
+     "name": "Chimecho"
+    },
+    {
+     "no": 52,
+     "national": 876,
+     "name": "Indeedee"
+    },
+    {
+     "no": 53,
+     "national": 509,
+     "name": "Purrloin"
+    },
+    {
+     "no": 54,
+     "national": 510,
+     "name": "Liepard"
+    },
+    {
+     "no": 55,
+     "national": 517,
+     "name": "Munna"
+    },
+    {
+     "no": 56,
+     "national": 518,
+     "name": "Musharna"
+    },
+    {
+     "no": 57,
+     "national": 538,
+     "name": "Throh"
+    },
+    {
+     "no": 58,
+     "national": 539,
+     "name": "Sawk"
+    },
+    {
+     "no": 59,
+     "national": 562,
+     "name": "Yamask",
+     "regionalForms": [
+      "Galarian Form"
+     ]
+    },
+    {
+     "no": 60,
+     "national": 563,
+     "name": "Cofagrigus"
+    },
+    {
+     "no": 61,
+     "national": 867,
+     "name": "Runerigus"
+    },
+    {
+     "no": 62,
+     "national": 767,
+     "name": "Wimpod"
+    },
+    {
+     "no": 63,
+     "national": 768,
+     "name": "Golisopod"
+    },
+    {
+     "no": 64,
+     "national": 827,
+     "name": "Nickit"
+    },
+    {
+     "no": 65,
+     "national": 828,
+     "name": "Thievul"
+    },
+    {
+     "no": 66,
+     "national": 852,
+     "name": "Clobbopus"
+    },
+    {
+     "no": 67,
+     "national": 853,
+     "name": "Grapploct"
+    },
+    {
+     "no": 68,
+     "national": 778,
+     "name": "Mimikyu"
+    },
+    {
+     "no": 69,
+     "national": 900,
+     "name": "Kleavor"
+    },
+    {
+     "no": 70,
+     "national": 877,
+     "name": "Morpeko"
+    },
+    {
+     "no": 71,
+     "national": 622,
+     "name": "Golett"
+    },
+    {
+     "no": 72,
+     "national": 623,
+     "name": "Golurk"
+    },
+    {
+     "no": 73,
+     "national": 821,
+     "name": "Rookidee"
+    },
+    {
+     "no": 74,
+     "national": 822,
+     "name": "Corvisquire"
+    },
+    {
+     "no": 75,
+     "national": 823,
+     "name": "Corviknight"
+    },
+    {
+     "no": 76,
+     "national": 174,
+     "name": "Igglybuff"
+    },
+    {
+     "no": 77,
+     "national": 39,
+     "name": "Jigglypuff"
+    },
+    {
+     "no": 78,
+     "national": 40,
+     "name": "Wigglytuff"
+    },
+    {
+     "no": 79,
+     "national": 926,
+     "name": "Fidough"
+    },
+    {
+     "no": 80,
+     "national": 927,
+     "name": "Dachsbun"
+    },
+    {
+     "no": 81,
+     "national": 396,
+     "name": "Starly"
+    },
+    {
+     "no": 82,
+     "national": 397,
+     "name": "Staravia"
+    },
+    {
+     "no": 83,
+     "national": 398,
+     "name": "Staraptor"
+    },
+    {
+     "no": 84,
+     "national": 325,
+     "name": "Spoink"
+    },
+    {
+     "no": 85,
+     "national": 326,
+     "name": "Grumpig"
+    },
+    {
+     "no": 86,
+     "national": 931,
+     "name": "Squawkabilly"
+    },
+    {
+     "no": 87,
+     "national": 739,
+     "name": "Crabrawler"
+    },
+    {
+     "no": 88,
+     "national": 740,
+     "name": "Crabominable"
+    },
+    {
+     "no": 89,
+     "national": 932,
+     "name": "Nacli"
+    },
+    {
+     "no": 90,
+     "national": 933,
+     "name": "Naclstack"
+    },
+    {
+     "no": 91,
+     "national": 934,
+     "name": "Garganacl"
+    },
+    {
+     "no": 92,
+     "national": 316,
+     "name": "Gulpin"
+    },
+    {
+     "no": 93,
+     "national": 317,
+     "name": "Swalot"
+    },
+    {
+     "no": 94,
+     "national": 41,
+     "name": "Zubat"
+    },
+    {
+     "no": 95,
+     "national": 42,
+     "name": "Golbat"
+    },
+    {
+     "no": 96,
+     "national": 169,
+     "name": "Crobat"
+    },
+    {
+     "no": 97,
+     "national": 935,
+     "name": "Charcadet"
+    },
+    {
+     "no": 98,
+     "national": 936,
+     "name": "Armarouge"
+    },
+    {
+     "no": 99,
+     "national": 937,
+     "name": "Ceruledge"
+    },
+    {
+     "no": 100,
+     "national": 942,
+     "name": "Maschiff"
+    },
+    {
+     "no": 101,
+     "national": 943,
+     "name": "Mabosstiff"
+    },
+    {
+     "no": 102,
+     "national": 848,
+     "name": "Toxel"
+    },
+    {
+     "no": 103,
+     "national": 849,
+     "name": "Toxtricity"
+    },
+    {
+     "no": 104,
+     "national": 944,
+     "name": "Shroodle"
+    },
+    {
+     "no": 105,
+     "national": 945,
+     "name": "Grafaiai"
+    },
+    {
+     "no": 106,
+     "national": 335,
+     "name": "Zangoose"
+    },
+    {
+     "no": 107,
+     "national": 336,
+     "name": "Seviper"
+    },
+    {
+     "no": 108,
+     "national": 439,
+     "name": "Mime Jr."
+    },
+    {
+     "no": 109,
+     "national": 122,
+     "name": "Mr. Mime",
+     "regionalForms": [
+      "Galarian Form"
+     ]
+    },
+    {
+     "no": 110,
+     "national": 866,
+     "name": "Mr. Rime"
+    },
+    {
+     "no": 111,
+     "national": 590,
+     "name": "Foongus"
+    },
+    {
+     "no": 112,
+     "national": 591,
+     "name": "Amoonguss"
+    },
+    {
+     "no": 113,
+     "national": 485,
+     "name": "Heatran"
+    },
+    {
+     "no": 114,
+     "national": 721,
+     "name": "Volcanion"
+    },
+    {
+     "no": 115,
+     "national": 638,
+     "name": "Cobalion"
+    },
+    {
+     "no": 116,
+     "national": 639,
+     "name": "Terrakion"
+    },
+    {
+     "no": 117,
+     "national": 640,
+     "name": "Virizion"
+    },
+    {
+     "no": 118,
+     "national": 647,
+     "name": "Keldeo"
+    },
+    {
+     "no": 119,
+     "national": 648,
+     "name": "Meloetta"
+    },
+    {
+     "no": 120,
+     "national": 649,
+     "name": "Genesect"
+    },
+    {
+     "no": 121,
+     "national": 720,
+     "name": "Hoopa"
+    },
+    {
+     "no": 122,
+     "national": 802,
+     "name": "Marshadow"
+    },
+    {
+     "no": 123,
+     "national": 808,
+     "name": "Meltan"
+    },
+    {
+     "no": 124,
+     "national": 809,
+     "name": "Melmetal"
+    },
+    {
+     "no": 125,
+     "national": 491,
+     "name": "Darkrai"
+    },
+    {
+     "no": 126,
+     "national": 380,
+     "name": "Latias"
+    },
+    {
+     "no": 127,
+     "national": 381,
+     "name": "Latios"
+    },
+    {
+     "no": 128,
+     "national": 382,
+     "name": "Kyogre"
+    },
+    {
+     "no": 129,
+     "national": 383,
+     "name": "Groudon"
+    },
+    {
+     "no": 130,
+     "national": 384,
+     "name": "Rayquaza"
+    },
+    {
+     "no": 131,
+     "national": 801,
+     "name": "Magearna"
+    },
+    {
+     "no": 132,
+     "national": 807,
+     "name": "Zeraora",
+     "required": false,
+     "note": "not needed for completion; how it is had: unsure (event per Gamerant, in-game route per Serebii)"
+    }
+   ]
+  },
+  {
+   "id": "mega",
+   "name": "Mega Evolution Pokédex",
+   "dlc": false,
+   "size": 93,
+   "baseGameSize": 68,
+   "required": 81,
+   "baseGameRequired": 62,
+   "numbered": false,
+   "note": "A section shared by the Lumiose and Hyperspace Pokédexes (Bulbapedia, snippet). An entry is registered when you own the Pokémon and its Mega Stone; seeing it in battle only marks it seen. Tatsugiri’s three Megas share one entry, and so do Magearna’s two. No numbers of its own were found, so \"order\" is National Dex order (inferred; the in-game order is unsure). \"dlc\" = added by Mega Dimension. Not in PokeAPI.",
+   "entries": [
+    {
+     "order": 1,
+     "national": 3,
+     "name": "Mega Venusaur",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 2,
+     "national": 6,
+     "name": "Mega Charizard X",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 3,
+     "national": 6,
+     "name": "Mega Charizard Y",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 4,
+     "national": 9,
+     "name": "Mega Blastoise",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 5,
+     "national": 15,
+     "name": "Mega Beedrill",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 6,
+     "national": 18,
+     "name": "Mega Pidgeot",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 7,
+     "national": 26,
+     "name": "Mega Raichu X",
+     "dlc": true,
+     "required": true
+    },
+    {
+     "order": 8,
+     "national": 26,
+     "name": "Mega Raichu Y",
+     "dlc": true,
+     "required": true
+    },
+    {
+     "order": 9,
+     "national": 36,
+     "name": "Mega Clefable",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 10,
+     "national": 65,
+     "name": "Mega Alakazam",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 11,
+     "national": 71,
+     "name": "Mega Victreebel",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 12,
+     "national": 80,
+     "name": "Mega Slowbro",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 13,
+     "national": 94,
+     "name": "Mega Gengar",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 14,
+     "national": 115,
+     "name": "Mega Kangaskhan",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 15,
+     "national": 121,
+     "name": "Mega Starmie",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 16,
+     "national": 127,
+     "name": "Mega Pinsir",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 17,
+     "national": 130,
+     "name": "Mega Gyarados",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 18,
+     "national": 142,
+     "name": "Mega Aerodactyl",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 19,
+     "national": 149,
+     "name": "Mega Dragonite",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 20,
+     "national": 150,
+     "name": "Mega Mewtwo X",
+     "dlc": false,
+     "required": false
+    },
+    {
+     "order": 21,
+     "national": 150,
+     "name": "Mega Mewtwo Y",
+     "dlc": false,
+     "required": false
+    },
+    {
+     "order": 22,
+     "national": 154,
+     "name": "Mega Meganium",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 23,
+     "national": 160,
+     "name": "Mega Feraligatr",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 24,
+     "national": 181,
+     "name": "Mega Ampharos",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 25,
+     "national": 208,
+     "name": "Mega Steelix",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 26,
+     "national": 212,
+     "name": "Mega Scizor",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 27,
+     "national": 214,
+     "name": "Mega Heracross",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 28,
+     "national": 227,
+     "name": "Mega Skarmory",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 29,
+     "national": 229,
+     "name": "Mega Houndoom",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 30,
+     "national": 248,
+     "name": "Mega Tyranitar",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 31,
+     "national": 254,
+     "name": "Mega Sceptile",
+     "dlc": true,
+     "required": false
+    },
+    {
+     "order": 32,
+     "national": 257,
+     "name": "Mega Blaziken",
+     "dlc": true,
+     "required": false
+    },
+    {
+     "order": 33,
+     "national": 260,
+     "name": "Mega Swampert",
+     "dlc": true,
+     "required": false
+    },
+    {
+     "order": 34,
+     "national": 282,
+     "name": "Mega Gardevoir",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 35,
+     "national": 302,
+     "name": "Mega Sableye",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 36,
+     "national": 303,
+     "name": "Mega Mawile",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 37,
+     "national": 306,
+     "name": "Mega Aggron",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 38,
+     "national": 308,
+     "name": "Mega Medicham",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 39,
+     "national": 310,
+     "name": "Mega Manectric",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 40,
+     "national": 319,
+     "name": "Mega Sharpedo",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 41,
+     "national": 323,
+     "name": "Mega Camerupt",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 42,
+     "national": 334,
+     "name": "Mega Altaria",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 43,
+     "national": 354,
+     "name": "Mega Banette",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 44,
+     "national": 358,
+     "name": "Mega Chimecho",
+     "dlc": true,
+     "required": true
+    },
+    {
+     "order": 45,
+     "national": 359,
+     "name": "Mega Absol",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 46,
+     "national": 359,
+     "name": "Mega Absol Z",
+     "dlc": true,
+     "required": true
+    },
+    {
+     "order": 47,
+     "national": 362,
+     "name": "Mega Glalie",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 48,
+     "national": 373,
+     "name": "Mega Salamence",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 49,
+     "national": 376,
+     "name": "Mega Metagross",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 50,
+     "national": 380,
+     "name": "Mega Latias",
+     "dlc": true,
+     "required": true
+    },
+    {
+     "order": 51,
+     "national": 381,
+     "name": "Mega Latios",
+     "dlc": true,
+     "required": true
+    },
+    {
+     "order": 52,
+     "national": 384,
+     "name": "Mega Rayquaza",
+     "dlc": true,
+     "required": true
+    },
+    {
+     "order": 53,
+     "national": 398,
+     "name": "Mega Staraptor",
+     "dlc": true,
+     "required": true
+    },
+    {
+     "order": 54,
+     "national": 428,
+     "name": "Mega Lopunny",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 55,
+     "national": 445,
+     "name": "Mega Garchomp",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 56,
+     "national": 445,
+     "name": "Mega Garchomp Z",
+     "dlc": true,
+     "required": false
+    },
+    {
+     "order": 57,
+     "national": 448,
+     "name": "Mega Lucario",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 58,
+     "national": 448,
+     "name": "Mega Lucario Z",
+     "dlc": true,
+     "required": true
+    },
+    {
+     "order": 59,
+     "national": 460,
+     "name": "Mega Abomasnow",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 60,
+     "national": 475,
+     "name": "Mega Gallade",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 61,
+     "national": 478,
+     "name": "Mega Froslass",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 62,
+     "national": 485,
+     "name": "Mega Heatran",
+     "dlc": true,
+     "required": true
+    },
+    {
+     "order": 63,
+     "national": 491,
+     "name": "Mega Darkrai",
+     "dlc": true,
+     "required": true
+    },
+    {
+     "order": 64,
+     "national": 500,
+     "name": "Mega Emboar",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 65,
+     "national": 530,
+     "name": "Mega Excadrill",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 66,
+     "national": 531,
+     "name": "Mega Audino",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 67,
+     "national": 545,
+     "name": "Mega Scolipede",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 68,
+     "national": 560,
+     "name": "Mega Scrafty",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 69,
+     "national": 604,
+     "name": "Mega Eelektross",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 70,
+     "national": 609,
+     "name": "Mega Chandelure",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 71,
+     "national": 623,
+     "name": "Mega Golurk",
+     "dlc": true,
+     "required": true
+    },
+    {
+     "order": 72,
+     "national": 652,
+     "name": "Mega Chesnaught",
+     "dlc": false,
+     "required": false
+    },
+    {
+     "order": 73,
+     "national": 655,
+     "name": "Mega Delphox",
+     "dlc": false,
+     "required": false
+    },
+    {
+     "order": 74,
+     "national": 658,
+     "name": "Mega Greninja",
+     "dlc": false,
+     "required": false
+    },
+    {
+     "order": 75,
+     "national": 668,
+     "name": "Mega Pyroar",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 76,
+     "national": 670,
+     "name": "Mega Floette",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 77,
+     "national": 678,
+     "name": "Mega Meowstic",
+     "dlc": true,
+     "required": true
+    },
+    {
+     "order": 78,
+     "national": 687,
+     "name": "Mega Malamar",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 79,
+     "national": 689,
+     "name": "Mega Barbaracle",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 80,
+     "national": 691,
+     "name": "Mega Dragalge",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 81,
+     "national": 701,
+     "name": "Mega Hawlucha",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 82,
+     "national": 718,
+     "name": "Mega Zygarde",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 83,
+     "national": 719,
+     "name": "Mega Diancie",
+     "dlc": false,
+     "required": false
+    },
+    {
+     "order": 84,
+     "national": 740,
+     "name": "Mega Crabominable",
+     "dlc": true,
+     "required": true
+    },
+    {
+     "order": 85,
+     "national": 768,
+     "name": "Mega Golisopod",
+     "dlc": true,
+     "required": true
+    },
+    {
+     "order": 86,
+     "national": 780,
+     "name": "Mega Drampa",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 87,
+     "national": 801,
+     "name": "Mega Magearna",
+     "dlc": true,
+     "required": true,
+     "forms": [
+      "Standard",
+      "Original Color"
+     ]
+    },
+    {
+     "order": 88,
+     "national": 807,
+     "name": "Mega Zeraora",
+     "dlc": true,
+     "required": false
+    },
+    {
+     "order": 89,
+     "national": 870,
+     "name": "Mega Falinks",
+     "dlc": false,
+     "required": true
+    },
+    {
+     "order": 90,
+     "national": 952,
+     "name": "Mega Scovillain",
+     "dlc": true,
+     "required": true
+    },
+    {
+     "order": 91,
+     "national": 970,
+     "name": "Mega Glimmora",
+     "dlc": true,
+     "required": true
+    },
+    {
+     "order": 92,
+     "national": 978,
+     "name": "Mega Tatsugiri",
+     "dlc": true,
+     "required": true,
+     "forms": [
+      "Curly Form",
+      "Droopy Form",
+      "Stretchy Form"
+     ]
+    },
+    {
+     "order": 93,
+     "national": 998,
+     "name": "Mega Baxcalibur",
+     "dlc": true,
+     "required": false
+    }
+   ]
+  }
+ ],
+ "megas": [
+  {
+   "national": 3,
+   "name": "Mega Venusaur",
+   "stone": "Venusaurite",
+   "stoneFrom": "Jaune Sector 8",
+   "new": false,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 150
+  },
+  {
+   "national": 6,
+   "name": "Mega Charizard X",
+   "stone": "Charizardite X",
+   "stoneFrom": "Vernal Avenue shop",
+   "new": false,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 153
+  },
+  {
+   "national": 6,
+   "name": "Mega Charizard Y",
+   "stone": "Charizardite Y",
+   "stoneFrom": "Vernal Avenue shop",
+   "new": false,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 153
+  },
+  {
+   "national": 9,
+   "name": "Mega Blastoise",
+   "stone": "Blastoisinite",
+   "stoneFrom": "Vernal Avenue shop",
+   "new": false,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 156
+  },
+  {
+   "national": 15,
+   "name": "Mega Beedrill",
+   "stone": "Beedrillite",
+   "stoneFrom": "Vert Sector 5",
+   "new": false,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 20
+  },
+  {
+   "national": 18,
+   "name": "Mega Pidgeot",
+   "stone": "Pidgeotite",
+   "stoneFrom": "Quasartico Inc. shop",
+   "new": false,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 23
+  },
+  {
+   "national": 26,
+   "name": "Mega Raichu X",
+   "stone": "Raichunite X",
+   "stoneFrom": "Side Mission 139",
+   "new": true,
+   "dlc": true,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 54
+  },
+  {
+   "national": 26,
+   "name": "Mega Raichu Y",
+   "stone": "Raichunite Y",
+   "stoneFrom": "Side Mission 139",
+   "new": true,
+   "dlc": true,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 54
+  },
+  {
+   "national": 36,
+   "name": "Mega Clefable",
+   "stone": "Clefablite",
+   "stoneFrom": "Quasartico Inc. shop",
+   "new": true,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 57
+  },
+  {
+   "national": 65,
+   "name": "Mega Alakazam",
+   "stone": "Alakazite",
+   "stoneFrom": "Quasartico Inc. shop",
+   "new": false,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 64
+  },
+  {
+   "national": 71,
+   "name": "Mega Victreebel",
+   "stone": "Victreebelite",
+   "stoneFrom": "Magenta Sector 9",
+   "new": true,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 76
+  },
+  {
+   "national": 80,
+   "name": "Mega Slowbro",
+   "stone": "Slowbronite",
+   "stoneFrom": "Bleu District, Aymlis Park",
+   "new": false,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 138
+  },
+  {
+   "national": 94,
+   "name": "Mega Gengar",
+   "stone": "Gengarite",
+   "stoneFrom": "Vernal Avenue shop",
+   "new": false,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 67
+  },
+  {
+   "national": 115,
+   "name": "Mega Kangaskhan",
+   "stone": "Kangaskhanite",
+   "stoneFrom": "Vernal Avenue shop",
+   "new": false,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 223
+  },
+  {
+   "national": 121,
+   "name": "Mega Starmie",
+   "stone": "Starminite",
+   "stoneFrom": "Bleu Sector 9",
+   "new": true,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 37
+  },
+  {
+   "national": 127,
+   "name": "Mega Pinsir",
+   "stone": "Pinsirite",
+   "stoneFrom": "Quasartico Inc. shop",
+   "new": false,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 178
+  },
+  {
+   "national": 130,
+   "name": "Mega Gyarados",
+   "stone": "Gyaradosite",
+   "stoneFrom": "Quasartico Inc. shop",
+   "new": false,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 33
+  },
+  {
+   "national": 142,
+   "name": "Mega Aerodactyl",
+   "stone": "Aerodactylite",
+   "stoneFrom": "Quasartico Inc. shop",
+   "new": false,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 192
+  },
+  {
+   "national": 149,
+   "name": "Mega Dragonite",
+   "stone": "Dragoninite",
+   "stoneFrom": "Vert Sector 3",
+   "new": true,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 147
+  },
+  {
+   "national": 150,
+   "name": "Mega Mewtwo X",
+   "stone": "Mewtwonite X",
+   "stoneFrom": "Mystery Gift (from 2 Dec 2025)",
+   "new": false,
+   "dlc": false,
+   "eventOnly": true,
+   "dex": "lumiose",
+   "dexNo": 232
+  },
+  {
+   "national": 150,
+   "name": "Mega Mewtwo Y",
+   "stone": "Mewtwonite Y",
+   "stoneFrom": "Mystery Gift (from 2 Dec 2025)",
+   "new": false,
+   "dlc": false,
+   "eventOnly": true,
+   "dex": "lumiose",
+   "dexNo": 232
+  },
+  {
+   "national": 154,
+   "name": "Mega Meganium",
+   "stone": "Meganiumite",
+   "stoneFrom": "Vernal Avenue shop (also Hotel Z)",
+   "new": true,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 3
+  },
+  {
+   "national": 160,
+   "name": "Mega Feraligatr",
+   "stone": "Feraligite",
+   "stoneFrom": "Vernal Avenue shop (also Hotel Z)",
+   "new": true,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 9
+  },
+  {
+   "national": 181,
+   "name": "Mega Ampharos",
+   "stone": "Ampharosite",
+   "stoneFrom": "Rouge Sector 6",
+   "new": false,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 26
+  },
+  {
+   "national": 208,
+   "name": "Mega Steelix",
+   "stone": "Steelixite",
+   "stoneFrom": "Vernal Avenue shop",
+   "new": false,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 198
+  },
+  {
+   "national": 212,
+   "name": "Mega Scizor",
+   "stone": "Scizorite",
+   "stoneFrom": "Vernal Avenue shop",
+   "new": false,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 177
+  },
+  {
+   "national": 214,
+   "name": "Mega Heracross",
+   "stone": "Heracronite",
+   "stoneFrom": "Quasartico Inc. shop",
+   "new": false,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 179
+  },
+  {
+   "national": 227,
+   "name": "Mega Skarmory",
+   "stone": "Skarmorite",
+   "stoneFrom": "Quasartico Inc. shop",
+   "new": true,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 216
+  },
+  {
+   "national": 229,
+   "name": "Mega Houndoom",
+   "stone": "Houndoominite",
+   "stoneFrom": "Quasartico Inc. shop",
+   "new": false,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 92
+  },
+  {
+   "national": 248,
+   "name": "Mega Tyranitar",
+   "stone": "Tyranitarite",
+   "stoneFrom": "Jaune Sector 4",
+   "new": false,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 208
+  },
+  {
+   "national": 254,
+   "name": "Mega Sceptile",
+   "stone": "Sceptilite",
+   "stoneFrom": "Ranked Battle reward",
+   "new": false,
+   "dlc": true,
+   "eventOnly": true,
+   "dex": "hyperspace",
+   "dexNo": 41
+  },
+  {
+   "national": 257,
+   "name": "Mega Blaziken",
+   "stone": "Blazikenite",
+   "stoneFrom": "Ranked Battle reward",
+   "new": false,
+   "dlc": true,
+   "eventOnly": true,
+   "dex": "hyperspace",
+   "dexNo": 44
+  },
+  {
+   "national": 260,
+   "name": "Mega Swampert",
+   "stone": "Swampertite",
+   "stoneFrom": "Ranked Battle reward",
+   "new": false,
+   "dlc": true,
+   "eventOnly": true,
+   "dex": "hyperspace",
+   "dexNo": 47
+  },
+  {
+   "national": 282,
+   "name": "Mega Gardevoir",
+   "stone": "Gardevoirite",
+   "stoneFrom": "Quasartico Inc. shop",
+   "new": false,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 89
+  },
+  {
+   "national": 302,
+   "name": "Mega Sableye",
+   "stone": "Sablenite",
+   "stoneFrom": "Quasartico Inc. shop",
+   "new": false,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 132
+  },
+  {
+   "national": 303,
+   "name": "Mega Mawile",
+   "stone": "Mawilite",
+   "stoneFrom": "Magenta Sector 6",
+   "new": false,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 133
+  },
+  {
+   "national": 306,
+   "name": "Mega Aggron",
+   "stone": "Aggronite",
+   "stoneFrom": "Quasartico Inc. shop",
+   "new": false,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 201
+  },
+  {
+   "national": 308,
+   "name": "Mega Medicham",
+   "stone": "Medichamite",
+   "stoneFrom": "Vernal Avenue shop",
+   "new": false,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 84
+  },
+  {
+   "national": 310,
+   "name": "Mega Manectric",
+   "stone": "Manectite",
+   "stoneFrom": "Quasartico Inc. shop",
+   "new": false,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 86
+  },
+  {
+   "national": 319,
+   "name": "Mega Sharpedo",
+   "stone": "Sharpedonite",
+   "stoneFrom": "Quasartico Inc. shop",
+   "new": false,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 141
+  },
+  {
+   "national": 323,
+   "name": "Mega Camerupt",
+   "stone": "Cameruptite",
+   "stoneFrom": "Jaune Sector 3",
+   "new": false,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 117
+  },
+  {
+   "national": 334,
+   "name": "Mega Altaria",
+   "stone": "Altarianite",
+   "stoneFrom": "Magenta Sector 4",
+   "new": false,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 94
+  },
+  {
+   "national": 354,
+   "name": "Mega Banette",
+   "stone": "Banettite",
+   "stoneFrom": "Jaune Sector 9",
+   "new": false,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 112
+  },
+  {
+   "national": 358,
+   "name": "Mega Chimecho",
+   "stone": "Chimechite",
+   "stoneFrom": "Hyperspace Lumiose",
+   "new": true,
+   "dlc": true,
+   "eventOnly": false,
+   "dex": "hyperspace",
+   "dexNo": 51
+  },
+  {
+   "national": 359,
+   "name": "Mega Absol",
+   "stone": "Absolite",
+   "stoneFrom": "Vert District",
+   "new": false,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 134
+  },
+  {
+   "national": 359,
+   "name": "Mega Absol Z",
+   "stone": "Absolite Z",
+   "stoneFrom": "Hyperspace Disaster Arena",
+   "new": true,
+   "dlc": true,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 134
+  },
+  {
+   "national": 362,
+   "name": "Mega Glalie",
+   "stone": "Glalitite",
+   "stoneFrom": "Quasartico Inc. shop",
+   "new": false,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 170
+  },
+  {
+   "national": 373,
+   "name": "Mega Salamence",
+   "stone": "Salamencite",
+   "stoneFrom": "Quasartico Inc. shop",
+   "new": false,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 222
+  },
+  {
+   "national": 376,
+   "name": "Mega Metagross",
+   "stone": "Metagrossite",
+   "stoneFrom": "Quasartico Inc. shop",
+   "new": false,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 227
+  },
+  {
+   "national": 380,
+   "name": "Mega Latias",
+   "stone": "Latiasite",
+   "stoneFrom": "Side Mission 189",
+   "new": false,
+   "dlc": true,
+   "eventOnly": false,
+   "dex": "hyperspace",
+   "dexNo": 126
+  },
+  {
+   "national": 381,
+   "name": "Mega Latios",
+   "stone": "Latiosite",
+   "stoneFrom": "Side Mission 189",
+   "new": false,
+   "dlc": true,
+   "eventOnly": false,
+   "dex": "hyperspace",
+   "dexNo": 127
+  },
+  {
+   "national": 384,
+   "name": "Mega Rayquaza",
+   "stone": null,
+   "stoneFrom": "no Mega Stone (Dragon Ascent)",
+   "new": false,
+   "dlc": true,
+   "eventOnly": false,
+   "dex": "hyperspace",
+   "dexNo": 130,
+   "note": "Mega Evolves with the move Dragon Ascent, no stone (Game8, search snippet); its Mega Evolution Pokédex entry has no stone circle (Bulbapedia, snippet). How it registers: unsure"
+  },
+  {
+   "national": 398,
+   "name": "Mega Staraptor",
+   "stone": "Staraptite",
+   "stoneFrom": "Hyperspace Hunting Grounds",
+   "new": true,
+   "dlc": true,
+   "eventOnly": false,
+   "dex": "hyperspace",
+   "dexNo": 83
+  },
+  {
+   "national": 428,
+   "name": "Mega Lopunny",
+   "stone": "Lopunnite",
+   "stoneFrom": "Quasartico Inc. shop",
+   "new": false,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 110
+  },
+  {
+   "national": 445,
+   "name": "Mega Garchomp",
+   "stone": "Garchompite",
+   "stoneFrom": "Vernal Avenue shop",
+   "new": false,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 130
+  },
+  {
+   "national": 445,
+   "name": "Mega Garchomp Z",
+   "stone": "Garchompite Z",
+   "stoneFrom": "Hyperspace Lumiose event portal (Mystery Gift, from 27 Feb 2026)",
+   "new": true,
+   "dlc": true,
+   "eventOnly": true,
+   "dex": "lumiose",
+   "dexNo": 130,
+   "note": "from defeating the Lv. 110 Mega Garchomp Z in the event portal (needs Mega Dimension)"
+  },
+  {
+   "national": 448,
+   "name": "Mega Lucario",
+   "stone": "Lucarionite",
+   "stoneFrom": "Quasartico Inc. shop",
+   "new": false,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 136
+  },
+  {
+   "national": 448,
+   "name": "Mega Lucario Z",
+   "stone": "Lucarionite Z",
+   "stoneFrom": "Side Mission 197",
+   "new": true,
+   "dlc": true,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 136
+  },
+  {
+   "national": 460,
+   "name": "Mega Abomasnow",
+   "stone": "Abomasite",
+   "stoneFrom": "Vernal Avenue shop",
+   "new": false,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 173
+  },
+  {
+   "national": 475,
+   "name": "Mega Gallade",
+   "stone": "Galladite",
+   "stoneFrom": "Quasartico Inc. shop",
+   "new": false,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 90
+  },
+  {
+   "national": 478,
+   "name": "Mega Froslass",
+   "stone": "Froslassite",
+   "stoneFrom": "Bleu District, Aymlis Park",
+   "new": true,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 171
+  },
+  {
+   "national": 485,
+   "name": "Mega Heatran",
+   "stone": "Heatranite",
+   "stoneFrom": "Hyperspace Infernal Arena",
+   "new": true,
+   "dlc": true,
+   "eventOnly": false,
+   "dex": "hyperspace",
+   "dexNo": 113
+  },
+  {
+   "national": 491,
+   "name": "Mega Darkrai",
+   "stone": "Darkranite",
+   "stoneFrom": "Hyperspace Newmoon Nightmare",
+   "new": true,
+   "dlc": true,
+   "eventOnly": false,
+   "dex": "hyperspace",
+   "dexNo": 125
+  },
+  {
+   "national": 500,
+   "name": "Mega Emboar",
+   "stone": "Emboarite",
+   "stoneFrom": "Vernal Avenue shop (also Hotel Z)",
+   "new": true,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 6
+  },
+  {
+   "national": 530,
+   "name": "Mega Excadrill",
+   "stone": "Excadrite",
+   "stoneFrom": "Quasartico Inc. shop",
+   "new": true,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 121
+  },
+  {
+   "national": 531,
+   "name": "Mega Audino",
+   "stone": "Audinite",
+   "stoneFrom": "Quasartico Inc. shop",
+   "new": false,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 95
+  },
+  {
+   "national": 545,
+   "name": "Mega Scolipede",
+   "stone": "Scolipite",
+   "stoneFrom": "Quasartico Inc. shop",
+   "new": true,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 70
+  },
+  {
+   "national": 560,
+   "name": "Mega Scrafty",
+   "stone": "Scraftinite",
+   "stoneFrom": "Quasartico Inc. shop",
+   "new": true,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 185
+  },
+  {
+   "national": 604,
+   "name": "Mega Eelektross",
+   "stone": "Eelektrossite",
+   "stoneFrom": "Quasartico Inc. shop",
+   "new": true,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 144
+  },
+  {
+   "national": 609,
+   "name": "Mega Chandelure",
+   "stone": "Chandelurite",
+   "stoneFrom": "Quasartico Inc. shop",
+   "new": true,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 191
+  },
+  {
+   "national": 623,
+   "name": "Mega Golurk",
+   "stone": "Golurkite",
+   "stoneFrom": "Hyperspace Lumiose",
+   "new": true,
+   "dlc": true,
+   "eventOnly": false,
+   "dex": "hyperspace",
+   "dexNo": 72
+  },
+  {
+   "national": 652,
+   "name": "Mega Chesnaught",
+   "stone": "Chesnaughtite",
+   "stoneFrom": "Ranked Battle reward",
+   "new": true,
+   "dlc": false,
+   "eventOnly": true,
+   "dex": "lumiose",
+   "dexNo": 215
+  },
+  {
+   "national": 655,
+   "name": "Mega Delphox",
+   "stone": "Delphoxite",
+   "stoneFrom": "Ranked Battle reward",
+   "new": true,
+   "dlc": false,
+   "eventOnly": true,
+   "dex": "lumiose",
+   "dexNo": 219
+  },
+  {
+   "national": 658,
+   "name": "Mega Greninja",
+   "stone": "Greninjite",
+   "stoneFrom": "Ranked Battle reward",
+   "new": true,
+   "dlc": false,
+   "eventOnly": true,
+   "dex": "lumiose",
+   "dexNo": 211
+  },
+  {
+   "national": 668,
+   "name": "Mega Pyroar",
+   "stone": "Pyroarite",
+   "stoneFrom": "Quasartico Inc. shop",
+   "new": true,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 46
+  },
+  {
+   "national": 670,
+   "name": "Mega Floette",
+   "stone": "Floettite",
+   "stoneFrom": "Quasartico Inc.",
+   "new": true,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 39,
+   "note": "only Eternal Flower Floette (post-game gift) can Mega Evolve"
+  },
+  {
+   "national": 678,
+   "name": "Mega Meowstic",
+   "stone": "Meowsticite",
+   "stoneFrom": "Hyperspace Second-Sight Arena",
+   "new": true,
+   "dlc": true,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 44,
+   "note": "one Mega form for both genders (Vice, 15 Dec 2025); PokeAPI keeps male and female Megas apart and Bulbapedia (snippet) says HOME shows two: unsure"
+  },
+  {
+   "national": 687,
+   "name": "Mega Malamar",
+   "stone": "Malamarite",
+   "stoneFrom": "Quasartico Inc. shop",
+   "new": true,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 160
+  },
+  {
+   "national": 689,
+   "name": "Mega Barbaracle",
+   "stone": "Barbaracite",
+   "stoneFrom": "Bleu Sector 5",
+   "new": true,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 35
+  },
+  {
+   "national": 691,
+   "name": "Mega Dragalge",
+   "stone": "Dragalgite",
+   "stoneFrom": "Quasartico Inc. shop",
+   "new": true,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 162
+  },
+  {
+   "national": 701,
+   "name": "Mega Hawlucha",
+   "stone": "Hawluchanite",
+   "stoneFrom": "Magenta Sector 3",
+   "new": true,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 181
+  },
+  {
+   "national": 718,
+   "name": "Mega Zygarde",
+   "stone": "Zygardite",
+   "stoneFrom": "Centrico Plaza",
+   "new": true,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 230
+  },
+  {
+   "national": 719,
+   "name": "Mega Diancie",
+   "stone": "Diancite",
+   "stoneFrom": "Mystery Gift (from 6 Nov 2025)",
+   "new": false,
+   "dlc": false,
+   "eventOnly": true,
+   "dex": "lumiose",
+   "dexNo": 231
+  },
+  {
+   "national": 740,
+   "name": "Mega Crabominable",
+   "stone": "Crabominite",
+   "stoneFrom": "Side Mission 141",
+   "new": true,
+   "dlc": true,
+   "eventOnly": false,
+   "dex": "hyperspace",
+   "dexNo": 88
+  },
+  {
+   "national": 768,
+   "name": "Mega Golisopod",
+   "stone": "Golisopite",
+   "stoneFrom": "Hyperspace Lumiose",
+   "new": true,
+   "dlc": true,
+   "eventOnly": false,
+   "dex": "hyperspace",
+   "dexNo": 63
+  },
+  {
+   "national": 780,
+   "name": "Mega Drampa",
+   "stone": "Drampanite",
+   "stoneFrom": "Quasartico Inc. shop",
+   "new": true,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 224
+  },
+  {
+   "national": 801,
+   "name": "Mega Magearna",
+   "stone": "Magearnite",
+   "stoneFrom": "Quasartico Inc.",
+   "new": true,
+   "dlc": true,
+   "eventOnly": false,
+   "dex": "hyperspace",
+   "dexNo": 131,
+   "note": "both Magearna Megas are one Mega Evolution Pokédex entry (Bulbapedia, snippet); Serebii and Nintendo Life say the Original Color one has its own Pokédex entry (inferred: in HOME): unsure"
+  },
+  {
+   "national": 801,
+   "name": "Mega Magearna",
+   "form": "Original Color",
+   "stone": "Magearnite",
+   "stoneFrom": "Quasartico Inc. (Original Color Magearna only by transfer from HOME)",
+   "new": true,
+   "dlc": true,
+   "eventOnly": false,
+   "dex": "hyperspace",
+   "dexNo": 131
+  },
+  {
+   "national": 807,
+   "name": "Mega Zeraora",
+   "stone": "Zeraorite",
+   "stoneFrom": "Hyperspace Lumiose",
+   "new": true,
+   "dlc": true,
+   "eventOnly": true,
+   "dex": "hyperspace",
+   "dexNo": 132,
+   "note": "Bulbapedia (snippet) counts it as event-exclusive; Serebii gives an in-game route for Zeraora and lists its stone in Hyperspace Lumiose: unsure"
+  },
+  {
+   "national": 870,
+   "name": "Mega Falinks",
+   "stone": "Falinksite",
+   "stoneFrom": "Quasartico Inc. shop",
+   "new": true,
+   "dlc": false,
+   "eventOnly": false,
+   "dex": "lumiose",
+   "dexNo": 212
+  },
+  {
+   "national": 952,
+   "name": "Mega Scovillain",
+   "stone": "Scovillainite",
+   "stoneFrom": "Hyperspace Lumiose",
+   "new": true,
+   "dlc": true,
+   "eventOnly": false,
+   "dex": "hyperspace",
+   "dexNo": 15
+  },
+  {
+   "national": 970,
+   "name": "Mega Glimmora",
+   "stone": "Glimmoranite",
+   "stoneFrom": "Hyperspace Lumiose",
+   "new": true,
+   "dlc": true,
+   "eventOnly": false,
+   "dex": "hyperspace",
+   "dexNo": 21
+  },
+  {
+   "national": 978,
+   "name": "Mega Tatsugiri",
+   "form": "Curly Form",
+   "stone": "Tatsugirinite",
+   "stoneFrom": "Hyperspace Sushi Paradise",
+   "new": true,
+   "dlc": true,
+   "eventOnly": false,
+   "dex": "hyperspace",
+   "dexNo": 31
+  },
+  {
+   "national": 978,
+   "name": "Mega Tatsugiri",
+   "form": "Droopy Form",
+   "stone": "Tatsugirinite",
+   "stoneFrom": "Hyperspace Sushi Paradise",
+   "new": true,
+   "dlc": true,
+   "eventOnly": false,
+   "dex": "hyperspace",
+   "dexNo": 31
+  },
+  {
+   "national": 978,
+   "name": "Mega Tatsugiri",
+   "form": "Stretchy Form",
+   "stone": "Tatsugirinite",
+   "stoneFrom": "Hyperspace Sushi Paradise",
+   "new": true,
+   "dlc": true,
+   "eventOnly": false,
+   "dex": "hyperspace",
+   "dexNo": 31
+  },
+  {
+   "national": 998,
+   "name": "Mega Baxcalibur",
+   "stone": "Baxcalibrite",
+   "stoneFrom": "Ranked Battle reward",
+   "new": true,
+   "dlc": true,
+   "eventOnly": true,
+   "dex": "hyperspace",
+   "dexNo": 34
+  }
+ ],
+ "alphas": [
+  {
+   "national": 152,
+   "name": "Chikorita",
+   "dex": "lumiose"
+  },
+  {
+   "national": 153,
+   "name": "Bayleef",
+   "dex": "lumiose"
+  },
+  {
+   "national": 154,
+   "name": "Meganium",
+   "dex": "lumiose"
+  },
+  {
+   "national": 498,
+   "name": "Tepig",
+   "dex": "lumiose"
+  },
+  {
+   "national": 499,
+   "name": "Pignite",
+   "dex": "lumiose"
+  },
+  {
+   "national": 500,
+   "name": "Emboar",
+   "dex": "lumiose"
+  },
+  {
+   "national": 158,
+   "name": "Totodile",
+   "dex": "lumiose"
+  },
+  {
+   "national": 159,
+   "name": "Croconaw",
+   "dex": "lumiose"
+  },
+  {
+   "national": 160,
+   "name": "Feraligatr",
+   "dex": "lumiose"
+  },
+  {
+   "national": 661,
+   "name": "Fletchling",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 3"
+   ]
+  },
+  {
+   "national": 662,
+   "name": "Fletchinder",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 7"
+   ]
+  },
+  {
+   "national": 663,
+   "name": "Talonflame",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 659,
+   "name": "Bunnelby",
+   "dex": "lumiose"
+  },
+  {
+   "national": 660,
+   "name": "Diggersby",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 664,
+   "name": "Scatterbug",
+   "dex": "lumiose"
+  },
+  {
+   "national": 665,
+   "name": "Spewpa",
+   "dex": "lumiose"
+  },
+  {
+   "national": 666,
+   "name": "Vivillon",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 13,
+   "name": "Weedle",
+   "dex": "lumiose"
+  },
+  {
+   "national": 14,
+   "name": "Kakuna",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Magenta District"
+   ]
+  },
+  {
+   "national": 15,
+   "name": "Beedrill",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 15"
+   ]
+  },
+  {
+   "national": 16,
+   "name": "Pidgey",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 1"
+   ]
+  },
+  {
+   "national": 17,
+   "name": "Pidgeotto",
+   "dex": "lumiose"
+  },
+  {
+   "national": 18,
+   "name": "Pidgeot",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Jaune District"
+   ]
+  },
+  {
+   "national": 179,
+   "name": "Mareep",
+   "dex": "lumiose"
+  },
+  {
+   "national": 180,
+   "name": "Flaaffy",
+   "dex": "lumiose"
+  },
+  {
+   "national": 181,
+   "name": "Ampharos",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 16"
+   ]
+  },
+  {
+   "national": 504,
+   "name": "Patrat",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Vert District"
+   ]
+  },
+  {
+   "national": 505,
+   "name": "Watchog",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 10"
+   ]
+  },
+  {
+   "national": 406,
+   "name": "Budew",
+   "dex": "lumiose"
+  },
+  {
+   "national": 315,
+   "name": "Roselia",
+   "dex": "lumiose"
+  },
+  {
+   "national": 407,
+   "name": "Roserade",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 129,
+   "name": "Magikarp",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 2"
+   ]
+  },
+  {
+   "national": 130,
+   "name": "Gyarados",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 688,
+   "name": "Binacle",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 6"
+   ]
+  },
+  {
+   "national": 689,
+   "name": "Barbaracle",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 120,
+   "name": "Staryu",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 2"
+   ]
+  },
+  {
+   "national": 121,
+   "name": "Starmie",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 669,
+   "name": "Flabébé",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Jaune District (several colours)"
+   ]
+  },
+  {
+   "national": 670,
+   "name": "Floette",
+   "dex": "lumiose"
+  },
+  {
+   "national": 671,
+   "name": "Florges",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 672,
+   "name": "Skiddo",
+   "dex": "lumiose"
+  },
+  {
+   "national": 673,
+   "name": "Gogoat",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 677,
+   "name": "Espurr",
+   "dex": "lumiose"
+  },
+  {
+   "national": 678,
+   "name": "Meowstic",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 9 (male and female)"
+   ]
+  },
+  {
+   "national": 667,
+   "name": "Litleo",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 3"
+   ]
+  },
+  {
+   "national": 668,
+   "name": "Pyroar",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 17 (two entries)"
+   ]
+  },
+  {
+   "national": 674,
+   "name": "Pancham",
+   "dex": "lumiose"
+  },
+  {
+   "national": 675,
+   "name": "Pangoro",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 568,
+   "name": "Trubbish",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Vert District"
+   ]
+  },
+  {
+   "national": 569,
+   "name": "Garbodor",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20",
+    "Jaune District"
+   ]
+  },
+  {
+   "national": 702,
+   "name": "Dedenne",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 172,
+   "name": "Pichu",
+   "dex": "lumiose"
+  },
+  {
+   "national": 25,
+   "name": "Pikachu",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 6"
+   ]
+  },
+  {
+   "national": 26,
+   "name": "Raichu",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 173,
+   "name": "Cleffa",
+   "dex": "lumiose"
+  },
+  {
+   "national": 35,
+   "name": "Clefairy",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 19"
+   ]
+  },
+  {
+   "national": 36,
+   "name": "Clefable",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 167,
+   "name": "Spinarak",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 4"
+   ]
+  },
+  {
+   "national": 168,
+   "name": "Ariados",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 23,
+   "name": "Ekans",
+   "dex": "lumiose"
+  },
+  {
+   "national": 24,
+   "name": "Arbok",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 10",
+    "Lysandre Labs"
+   ]
+  },
+  {
+   "national": 63,
+   "name": "Abra",
+   "dex": "lumiose"
+  },
+  {
+   "national": 64,
+   "name": "Kadabra",
+   "dex": "lumiose"
+  },
+  {
+   "national": 65,
+   "name": "Alakazam",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 92,
+   "name": "Gastly",
+   "dex": "lumiose"
+  },
+  {
+   "national": 93,
+   "name": "Haunter",
+   "dex": "lumiose"
+  },
+  {
+   "national": 94,
+   "name": "Gengar",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 543,
+   "name": "Venipede",
+   "dex": "lumiose"
+  },
+  {
+   "national": 544,
+   "name": "Whirlipede",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 5"
+   ]
+  },
+  {
+   "national": 545,
+   "name": "Scolipede",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 679,
+   "name": "Honedge",
+   "dex": "lumiose"
+  },
+  {
+   "national": 680,
+   "name": "Doublade",
+   "dex": "lumiose"
+  },
+  {
+   "national": 681,
+   "name": "Aegislash",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 69,
+   "name": "Bellsprout",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 5"
+   ]
+  },
+  {
+   "national": 70,
+   "name": "Weepinbell",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 13"
+   ]
+  },
+  {
+   "national": 71,
+   "name": "Victreebel",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 511,
+   "name": "Pansage",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Bleu District",
+    "Rouge District"
+   ]
+  },
+  {
+   "national": 512,
+   "name": "Simisage",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 513,
+   "name": "Pansear",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Bleu District",
+    "Rouge District"
+   ]
+  },
+  {
+   "national": 514,
+   "name": "Simisear",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 515,
+   "name": "Panpour",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Bleu District",
+    "Rouge District"
+   ]
+  },
+  {
+   "national": 516,
+   "name": "Simipour",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 307,
+   "name": "Meditite",
+   "dex": "lumiose"
+  },
+  {
+   "national": 308,
+   "name": "Medicham",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 309,
+   "name": "Electrike",
+   "dex": "lumiose"
+  },
+  {
+   "national": 310,
+   "name": "Manectric",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 9"
+   ]
+  },
+  {
+   "national": 280,
+   "name": "Ralts",
+   "dex": "lumiose"
+  },
+  {
+   "national": 281,
+   "name": "Kirlia",
+   "dex": "lumiose"
+  },
+  {
+   "national": 282,
+   "name": "Gardevoir",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 475,
+   "name": "Gallade",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 228,
+   "name": "Houndour",
+   "dex": "lumiose"
+  },
+  {
+   "national": 229,
+   "name": "Houndoom",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 6"
+   ]
+  },
+  {
+   "national": 333,
+   "name": "Swablu",
+   "dex": "lumiose"
+  },
+  {
+   "national": 334,
+   "name": "Altaria",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 531,
+   "name": "Audino",
+   "dex": "lumiose"
+  },
+  {
+   "national": 682,
+   "name": "Spritzee",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Rouge District"
+   ]
+  },
+  {
+   "national": 683,
+   "name": "Aromatisse",
+   "dex": "lumiose"
+  },
+  {
+   "national": 684,
+   "name": "Swirlix",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Magenta District"
+   ]
+  },
+  {
+   "national": 685,
+   "name": "Slurpuff",
+   "dex": "lumiose"
+  },
+  {
+   "national": 133,
+   "name": "Eevee",
+   "dex": "lumiose"
+  },
+  {
+   "national": 134,
+   "name": "Vaporeon",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 135,
+   "name": "Jolteon",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 136,
+   "name": "Flareon",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 196,
+   "name": "Espeon",
+   "dex": "lumiose"
+  },
+  {
+   "national": 197,
+   "name": "Umbreon",
+   "dex": "lumiose"
+  },
+  {
+   "national": 470,
+   "name": "Leafeon",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 471,
+   "name": "Glaceon",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 700,
+   "name": "Sylveon",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 427,
+   "name": "Buneary",
+   "dex": "lumiose"
+  },
+  {
+   "national": 428,
+   "name": "Lopunny",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 18"
+   ]
+  },
+  {
+   "national": 353,
+   "name": "Shuppet",
+   "dex": "lumiose"
+  },
+  {
+   "national": 354,
+   "name": "Banette",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 15"
+   ]
+  },
+  {
+   "national": 582,
+   "name": "Vanillite",
+   "dex": "lumiose"
+  },
+  {
+   "national": 583,
+   "name": "Vanillish",
+   "dex": "lumiose"
+  },
+  {
+   "national": 584,
+   "name": "Vanilluxe",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 322,
+   "name": "Numel",
+   "dex": "lumiose"
+  },
+  {
+   "national": 323,
+   "name": "Camerupt",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 8"
+   ]
+  },
+  {
+   "national": 449,
+   "name": "Hippopotas",
+   "dex": "lumiose"
+  },
+  {
+   "national": 450,
+   "name": "Hippowdon",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 529,
+   "name": "Drilbur",
+   "dex": "lumiose"
+  },
+  {
+   "national": 530,
+   "name": "Excadrill",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 14"
+   ]
+  },
+  {
+   "national": 551,
+   "name": "Sandile",
+   "dex": "lumiose"
+  },
+  {
+   "national": 552,
+   "name": "Krokorok",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 8"
+   ]
+  },
+  {
+   "national": 553,
+   "name": "Krookodile",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 66,
+   "name": "Machop",
+   "dex": "lumiose"
+  },
+  {
+   "national": 67,
+   "name": "Machoke",
+   "dex": "lumiose"
+  },
+  {
+   "national": 68,
+   "name": "Machamp",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 443,
+   "name": "Gible",
+   "dex": "lumiose"
+  },
+  {
+   "national": 444,
+   "name": "Gabite",
+   "dex": "lumiose"
+  },
+  {
+   "national": 445,
+   "name": "Garchomp",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 703,
+   "name": "Carbink",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 302,
+   "name": "Sableye",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 303,
+   "name": "Mawile",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 17"
+   ]
+  },
+  {
+   "national": 359,
+   "name": "Absol",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 447,
+   "name": "Riolu",
+   "dex": "lumiose"
+  },
+  {
+   "national": 448,
+   "name": "Lucario",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 79,
+   "name": "Slowpoke",
+   "dex": "lumiose"
+  },
+  {
+   "national": 80,
+   "name": "Slowbro",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 11"
+   ]
+  },
+  {
+   "national": 199,
+   "name": "Slowking",
+   "dex": "lumiose"
+  },
+  {
+   "national": 318,
+   "name": "Carvanha",
+   "dex": "lumiose"
+  },
+  {
+   "national": 319,
+   "name": "Sharpedo",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 10"
+   ]
+  },
+  {
+   "national": 602,
+   "name": "Tynamo",
+   "dex": "lumiose"
+  },
+  {
+   "national": 603,
+   "name": "Eelektrik",
+   "dex": "lumiose"
+  },
+  {
+   "national": 604,
+   "name": "Eelektross",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 147,
+   "name": "Dratini",
+   "dex": "lumiose"
+  },
+  {
+   "national": 148,
+   "name": "Dragonair",
+   "dex": "lumiose"
+  },
+  {
+   "national": 149,
+   "name": "Dragonite",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 1,
+   "name": "Bulbasaur",
+   "dex": "lumiose"
+  },
+  {
+   "national": 2,
+   "name": "Ivysaur",
+   "dex": "lumiose"
+  },
+  {
+   "national": 3,
+   "name": "Venusaur",
+   "dex": "lumiose"
+  },
+  {
+   "national": 4,
+   "name": "Charmander",
+   "dex": "lumiose"
+  },
+  {
+   "national": 5,
+   "name": "Charmeleon",
+   "dex": "lumiose"
+  },
+  {
+   "national": 6,
+   "name": "Charizard",
+   "dex": "lumiose"
+  },
+  {
+   "national": 7,
+   "name": "Squirtle",
+   "dex": "lumiose"
+  },
+  {
+   "national": 8,
+   "name": "Wartortle",
+   "dex": "lumiose"
+  },
+  {
+   "national": 9,
+   "name": "Blastoise",
+   "dex": "lumiose"
+  },
+  {
+   "national": 618,
+   "name": "Stunfisk",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 676,
+   "name": "Furfrou",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 19",
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 686,
+   "name": "Inkay",
+   "dex": "lumiose"
+  },
+  {
+   "national": 687,
+   "name": "Malamar",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 690,
+   "name": "Skrelp",
+   "dex": "lumiose"
+  },
+  {
+   "national": 691,
+   "name": "Dragalge",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 692,
+   "name": "Clauncher",
+   "dex": "lumiose"
+  },
+  {
+   "national": 693,
+   "name": "Clawitzer",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 11"
+   ]
+  },
+  {
+   "national": 704,
+   "name": "Goomy",
+   "dex": "lumiose"
+  },
+  {
+   "national": 705,
+   "name": "Sliggoo",
+   "dex": "lumiose"
+  },
+  {
+   "national": 706,
+   "name": "Goodra",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 225,
+   "name": "Delibird",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 361,
+   "name": "Snorunt",
+   "dex": "lumiose"
+  },
+  {
+   "national": 362,
+   "name": "Glalie",
+   "dex": "lumiose"
+  },
+  {
+   "national": 478,
+   "name": "Froslass",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 459,
+   "name": "Snover",
+   "dex": "lumiose"
+  },
+  {
+   "national": 460,
+   "name": "Abomasnow",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 12"
+   ]
+  },
+  {
+   "national": 712,
+   "name": "Bergmite",
+   "dex": "lumiose"
+  },
+  {
+   "national": 713,
+   "name": "Avalugg",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 12"
+   ]
+  },
+  {
+   "national": 123,
+   "name": "Scyther",
+   "dex": "lumiose"
+  },
+  {
+   "national": 212,
+   "name": "Scizor",
+   "dex": "lumiose"
+  },
+  {
+   "national": 127,
+   "name": "Pinsir",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 214,
+   "name": "Heracross",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 587,
+   "name": "Emolga",
+   "dex": "lumiose"
+  },
+  {
+   "national": 701,
+   "name": "Hawlucha",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 708,
+   "name": "Phantump",
+   "dex": "lumiose"
+  },
+  {
+   "national": 709,
+   "name": "Trevenant",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 13"
+   ]
+  },
+  {
+   "national": 559,
+   "name": "Scraggy",
+   "dex": "lumiose"
+  },
+  {
+   "national": 560,
+   "name": "Scrafty",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 714,
+   "name": "Noibat",
+   "dex": "lumiose"
+  },
+  {
+   "national": 715,
+   "name": "Noivern",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 707,
+   "name": "Klefki",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 607,
+   "name": "Litwick",
+   "dex": "lumiose"
+  },
+  {
+   "national": 608,
+   "name": "Lampent",
+   "dex": "lumiose"
+  },
+  {
+   "national": 609,
+   "name": "Chandelure",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 142,
+   "name": "Aerodactyl",
+   "dex": "lumiose"
+  },
+  {
+   "national": 696,
+   "name": "Tyrunt",
+   "dex": "lumiose"
+  },
+  {
+   "national": 697,
+   "name": "Tyrantrum",
+   "dex": "lumiose"
+  },
+  {
+   "national": 698,
+   "name": "Amaura",
+   "dex": "lumiose"
+  },
+  {
+   "national": 699,
+   "name": "Aurorus",
+   "dex": "lumiose"
+  },
+  {
+   "national": 95,
+   "name": "Onix",
+   "dex": "lumiose"
+  },
+  {
+   "national": 208,
+   "name": "Steelix",
+   "dex": "lumiose"
+  },
+  {
+   "national": 304,
+   "name": "Aron",
+   "dex": "lumiose"
+  },
+  {
+   "national": 305,
+   "name": "Lairon",
+   "dex": "lumiose"
+  },
+  {
+   "national": 306,
+   "name": "Aggron",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 694,
+   "name": "Helioptile",
+   "dex": "lumiose"
+  },
+  {
+   "national": 695,
+   "name": "Heliolisk",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 710,
+   "name": "Pumpkaboo",
+   "dex": "lumiose"
+  },
+  {
+   "national": 711,
+   "name": "Gourgeist",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 15",
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 246,
+   "name": "Larvitar",
+   "dex": "lumiose"
+  },
+  {
+   "national": 247,
+   "name": "Pupitar",
+   "dex": "lumiose"
+  },
+  {
+   "national": 248,
+   "name": "Tyranitar",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 656,
+   "name": "Froakie",
+   "dex": "lumiose"
+  },
+  {
+   "national": 657,
+   "name": "Frogadier",
+   "dex": "lumiose"
+  },
+  {
+   "national": 658,
+   "name": "Greninja",
+   "dex": "lumiose"
+  },
+  {
+   "national": 870,
+   "name": "Falinks",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 650,
+   "name": "Chespin",
+   "dex": "lumiose"
+  },
+  {
+   "national": 651,
+   "name": "Quilladin",
+   "dex": "lumiose"
+  },
+  {
+   "national": 652,
+   "name": "Chesnaught",
+   "dex": "lumiose"
+  },
+  {
+   "national": 227,
+   "name": "Skarmory",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 653,
+   "name": "Fennekin",
+   "dex": "lumiose"
+  },
+  {
+   "national": 654,
+   "name": "Braixen",
+   "dex": "lumiose"
+  },
+  {
+   "national": 655,
+   "name": "Delphox",
+   "dex": "lumiose"
+  },
+  {
+   "national": 371,
+   "name": "Bagon",
+   "dex": "lumiose"
+  },
+  {
+   "national": 372,
+   "name": "Shelgon",
+   "dex": "lumiose"
+  },
+  {
+   "national": 373,
+   "name": "Salamence",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 18"
+   ]
+  },
+  {
+   "national": 115,
+   "name": "Kangaskhan",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 780,
+   "name": "Drampa",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 374,
+   "name": "Beldum",
+   "dex": "lumiose"
+  },
+  {
+   "national": 375,
+   "name": "Metang",
+   "dex": "lumiose"
+  },
+  {
+   "national": 376,
+   "name": "Metagross",
+   "dex": "lumiose",
+   "guaranteed": [
+    "Wild Zone 20"
+   ]
+  },
+  {
+   "national": 56,
+   "name": "Mankey",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 57,
+   "name": "Primeape",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 979,
+   "name": "Annihilape",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 52,
+   "name": "Meowth",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 53,
+   "name": "Persian",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 863,
+   "name": "Perrserker",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 83,
+   "name": "Farfetch'd",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 865,
+   "name": "Sirfetch'd",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 104,
+   "name": "Cubone",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 105,
+   "name": "Marowak",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 137,
+   "name": "Porygon",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 233,
+   "name": "Porygon2",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 474,
+   "name": "Porygon-Z",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 951,
+   "name": "Capsakid",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 952,
+   "name": "Scovillain",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 957,
+   "name": "Tinkatink",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 958,
+   "name": "Tinkatuff",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 959,
+   "name": "Tinkaton",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 967,
+   "name": "Cyclizar",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 969,
+   "name": "Glimmet",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 970,
+   "name": "Glimmora",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 479,
+   "name": "Rotom",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 971,
+   "name": "Greavard",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 972,
+   "name": "Houndstone",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 769,
+   "name": "Sandygast",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 770,
+   "name": "Palossand",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 352,
+   "name": "Kecleon",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 973,
+   "name": "Flamigo",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 615,
+   "name": "Cryogonal",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 977,
+   "name": "Dondozo",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 978,
+   "name": "Tatsugiri",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 996,
+   "name": "Frigibax",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 997,
+   "name": "Arctibax",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 998,
+   "name": "Baxcalibur",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 999,
+   "name": "Gimmighoul",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 1000,
+   "name": "Gholdengo",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 211,
+   "name": "Qwilfish",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 904,
+   "name": "Overqwil",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 252,
+   "name": "Treecko",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 253,
+   "name": "Grovyle",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 254,
+   "name": "Sceptile",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 255,
+   "name": "Torchic",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 256,
+   "name": "Combusken",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 257,
+   "name": "Blaziken",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 258,
+   "name": "Mudkip",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 259,
+   "name": "Marshtomp",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 260,
+   "name": "Swampert",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 349,
+   "name": "Feebas",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 350,
+   "name": "Milotic",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 433,
+   "name": "Chingling",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 358,
+   "name": "Chimecho",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 876,
+   "name": "Indeedee",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 509,
+   "name": "Purrloin",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 510,
+   "name": "Liepard",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 517,
+   "name": "Munna",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 518,
+   "name": "Musharna",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 538,
+   "name": "Throh",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 539,
+   "name": "Sawk",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 562,
+   "name": "Yamask",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 563,
+   "name": "Cofagrigus",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 867,
+   "name": "Runerigus",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 767,
+   "name": "Wimpod",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 768,
+   "name": "Golisopod",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 827,
+   "name": "Nickit",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 828,
+   "name": "Thievul",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 852,
+   "name": "Clobbopus",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 853,
+   "name": "Grapploct",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 778,
+   "name": "Mimikyu",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 900,
+   "name": "Kleavor",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 877,
+   "name": "Morpeko",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 622,
+   "name": "Golett",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 623,
+   "name": "Golurk",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 821,
+   "name": "Rookidee",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 822,
+   "name": "Corvisquire",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 823,
+   "name": "Corviknight",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 174,
+   "name": "Igglybuff",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 39,
+   "name": "Jigglypuff",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 40,
+   "name": "Wigglytuff",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 926,
+   "name": "Fidough",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 927,
+   "name": "Dachsbun",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 396,
+   "name": "Starly",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 397,
+   "name": "Staravia",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 398,
+   "name": "Staraptor",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 325,
+   "name": "Spoink",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 326,
+   "name": "Grumpig",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 931,
+   "name": "Squawkabilly",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 739,
+   "name": "Crabrawler",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 740,
+   "name": "Crabominable",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 932,
+   "name": "Nacli",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 933,
+   "name": "Naclstack",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 934,
+   "name": "Garganacl",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 316,
+   "name": "Gulpin",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 317,
+   "name": "Swalot",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 41,
+   "name": "Zubat",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 42,
+   "name": "Golbat",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 169,
+   "name": "Crobat",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 935,
+   "name": "Charcadet",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 936,
+   "name": "Armarouge",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 937,
+   "name": "Ceruledge",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 942,
+   "name": "Maschiff",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 943,
+   "name": "Mabosstiff",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 848,
+   "name": "Toxel",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 849,
+   "name": "Toxtricity",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 944,
+   "name": "Shroodle",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 945,
+   "name": "Grafaiai",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 335,
+   "name": "Zangoose",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 336,
+   "name": "Seviper",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 439,
+   "name": "Mime Jr.",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 122,
+   "name": "Mr. Mime",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 866,
+   "name": "Mr. Rime",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 590,
+   "name": "Foongus",
+   "dex": "hyperspace"
+  },
+  {
+   "national": 591,
+   "name": "Amoonguss",
+   "dex": "hyperspace"
+  }
+ ],
+ "notAlpha": [
+  {
+   "national": 150,
+   "name": "Mewtwo"
+  },
+  {
+   "national": 380,
+   "name": "Latias"
+  },
+  {
+   "national": 381,
+   "name": "Latios"
+  },
+  {
+   "national": 382,
+   "name": "Kyogre"
+  },
+  {
+   "national": 383,
+   "name": "Groudon"
+  },
+  {
+   "national": 384,
+   "name": "Rayquaza"
+  },
+  {
+   "national": 485,
+   "name": "Heatran"
+  },
+  {
+   "national": 491,
+   "name": "Darkrai"
+  },
+  {
+   "national": 638,
+   "name": "Cobalion"
+  },
+  {
+   "national": 639,
+   "name": "Terrakion"
+  },
+  {
+   "national": 640,
+   "name": "Virizion"
+  },
+  {
+   "national": 647,
+   "name": "Keldeo"
+  },
+  {
+   "national": 648,
+   "name": "Meloetta"
+  },
+  {
+   "national": 649,
+   "name": "Genesect"
+  },
+  {
+   "national": 716,
+   "name": "Xerneas"
+  },
+  {
+   "national": 717,
+   "name": "Yveltal"
+  },
+  {
+   "national": 718,
+   "name": "Zygarde"
+  },
+  {
+   "national": 719,
+   "name": "Diancie"
+  },
+  {
+   "national": 720,
+   "name": "Hoopa"
+  },
+  {
+   "national": 721,
+   "name": "Volcanion"
+  },
+  {
+   "national": 801,
+   "name": "Magearna"
+  },
+  {
+   "national": 802,
+   "name": "Marshadow"
+  },
+  {
+   "national": 807,
+   "name": "Zeraora"
+  },
+  {
+   "national": 808,
+   "name": "Meltan"
+  },
+  {
+   "national": 809,
+   "name": "Melmetal"
+  }
+ ],
+ "shinyLocked": [
+  {
+   "national": 152,
+   "name": "Chikorita",
+   "how": "starter gift, Main Mission 1",
+   "dlc": false,
+   "shinyElsewhereInGame": "Wild Zone 20",
+   "source": "gamerant"
+  },
+  {
+   "national": 498,
+   "name": "Tepig",
+   "how": "starter gift, Main Mission 1",
+   "dlc": false,
+   "shinyElsewhereInGame": "Wild Zone 20",
+   "source": "gamerant"
+  },
+  {
+   "national": 158,
+   "name": "Totodile",
+   "how": "starter gift, Main Mission 1",
+   "dlc": false,
+   "shinyElsewhereInGame": "Wild Zone 20",
+   "source": "gamerant"
+  },
+  {
+   "national": 214,
+   "name": "Heracross",
+   "how": "in-game trade for Pikachu, Side Mission 2",
+   "dlc": false,
+   "shinyElsewhereInGame": "Wild Zone 13",
+   "source": "gamerant"
+  },
+  {
+   "national": 650,
+   "name": "Chespin",
+   "how": "Side Mission 7",
+   "dlc": false,
+   "shinyElsewhereInGame": "Wild Zone 17",
+   "source": "gamerant"
+  },
+  {
+   "national": 653,
+   "name": "Fennekin",
+   "how": "Side Mission 8",
+   "dlc": false,
+   "shinyElsewhereInGame": "Wild Zone 18",
+   "source": "gamerant"
+  },
+  {
+   "national": 656,
+   "name": "Froakie",
+   "how": "Side Mission 9",
+   "dlc": false,
+   "shinyElsewhereInGame": "Wild Zone 16",
+   "source": "gamerant"
+  },
+  {
+   "national": 359,
+   "name": "Absol",
+   "how": "after the Rogue Mega Absol, Main Mission 9",
+   "dlc": false,
+   "shinyElsewhereInGame": "rooftops, Bleu Sector 4",
+   "source": "gamerant"
+  },
+  {
+   "national": 665,
+   "name": "Spewpa",
+   "form": "Marine Pattern (inferred from the Vivillon sources)",
+   "how": "Lumiose Museum gift, Side Mission 21",
+   "dlc": false,
+   "shinyElsewhereInGame": null,
+   "source": "gamerant"
+  },
+  {
+   "national": 1,
+   "name": "Bulbasaur",
+   "how": "gift from Mable, Side Mission 22",
+   "dlc": false,
+   "shinyElsewhereInGame": "Wild Zone 20",
+   "source": "gamerant"
+  },
+  {
+   "national": 4,
+   "name": "Charmander",
+   "how": "gift from Mable, Side Mission 22",
+   "dlc": false,
+   "shinyElsewhereInGame": "Wild Zone 20",
+   "source": "gamerant"
+  },
+  {
+   "national": 7,
+   "name": "Squirtle",
+   "how": "gift from Mable, Side Mission 22",
+   "dlc": false,
+   "shinyElsewhereInGame": "Wild Zone 20",
+   "source": "gamerant"
+  },
+  {
+   "national": 447,
+   "name": "Riolu",
+   "how": "in-game trade for Abra, Side Mission 24",
+   "dlc": false,
+   "shinyElsewhereInGame": "rooftops, Rouge Sector 4",
+   "source": "gamerant"
+  },
+  {
+   "national": 79,
+   "name": "Slowpoke",
+   "form": "Galarian Form",
+   "how": "in-game trade, Side Mission 39",
+   "dlc": false,
+   "shinyElsewhereInGame": "Hyperspace (3-star Psychic zone)",
+   "source": "gamerant"
+  },
+  {
+   "national": 618,
+   "name": "Stunfisk",
+   "form": "Galarian Form",
+   "how": "gift in Wild Zone 11, Side Mission 72",
+   "dlc": false,
+   "shinyElsewhereInGame": "Hyperspace (4-star Ground zone)",
+   "source": "gamerant"
+  },
+  {
+   "national": 26,
+   "name": "Raichu",
+   "form": "Alolan Form",
+   "how": "Side Mission 108",
+   "dlc": false,
+   "shinyElsewhereInGame": "Hyperspace (4-star Electric zone)",
+   "source": "gamerant"
+  },
+  {
+   "national": 448,
+   "name": "Lucario",
+   "how": "Poké Ball in Hotel Z, post-game",
+   "dlc": false,
+   "shinyElsewhereInGame": "Wild Zone 20",
+   "source": "gamerant"
+  },
+  {
+   "national": 716,
+   "name": "Xerneas",
+   "how": "Main Mission 40",
+   "dlc": false,
+   "shinyElsewhereInGame": null,
+   "source": "gamerant"
+  },
+  {
+   "national": 717,
+   "name": "Yveltal",
+   "how": "Main Mission 41",
+   "dlc": false,
+   "shinyElsewhereInGame": null,
+   "source": "gamerant"
+  },
+  {
+   "national": 718,
+   "name": "Zygarde",
+   "how": "Main Mission 42",
+   "dlc": false,
+   "shinyElsewhereInGame": null,
+   "source": "gamerant"
+  },
+  {
+   "national": 670,
+   "name": "Floette",
+   "form": "Eternal Flower",
+   "how": "post-game gift after the Royale",
+   "dlc": false,
+   "shinyElsewhereInGame": null,
+   "source": "gamerant"
+  },
+  {
+   "national": 719,
+   "name": "Diancie",
+   "how": "Side Mission EX1 (Mystery Gift Diancite)",
+   "dlc": false,
+   "shinyElsewhereInGame": null,
+   "source": "gamerant"
+  },
+  {
+   "national": 150,
+   "name": "Mewtwo",
+   "how": "Side Mission EX2 (Mystery Gift Mewtwonite X and Y)",
+   "dlc": false,
+   "shinyElsewhereInGame": null,
+   "source": "gamerant"
+  },
+  {
+   "national": 999,
+   "name": "Gimmighoul",
+   "how": "gift from Thelo, Side Mission 122",
+   "dlc": true,
+   "shinyElsewhereInGame": "Hyperspace (5-star Ghost zone)",
+   "source": "gamerant"
+  },
+  {
+   "national": 485,
+   "name": "Heatran",
+   "how": "Rogue Mega Heatran",
+   "dlc": true,
+   "shinyElsewhereInGame": null,
+   "source": "gamerant"
+  },
+  {
+   "national": 491,
+   "name": "Darkrai",
+   "how": "Rogue Mega Darkrai",
+   "dlc": true,
+   "shinyElsewhereInGame": null,
+   "source": "gamerant"
+  },
+  {
+   "national": 383,
+   "name": "Groudon",
+   "how": "Hyperspace Mission 13",
+   "dlc": true,
+   "shinyElsewhereInGame": null,
+   "source": "gamerant"
+  },
+  {
+   "national": 382,
+   "name": "Kyogre",
+   "how": "Hyperspace Mission 14",
+   "dlc": true,
+   "shinyElsewhereInGame": null,
+   "source": "gamerant"
+  },
+  {
+   "national": 384,
+   "name": "Rayquaza",
+   "how": "Hyperspace Mission 12",
+   "dlc": true,
+   "shinyElsewhereInGame": null,
+   "source": "gamerant"
+  },
+  {
+   "national": 648,
+   "name": "Meloetta",
+   "how": "special scan, Rust Syndicate",
+   "dlc": true,
+   "shinyElsewhereInGame": null,
+   "source": "gamerant"
+  },
+  {
+   "national": 647,
+   "name": "Keldeo",
+   "how": "special scan, Rust Syndicate",
+   "dlc": true,
+   "shinyElsewhereInGame": null,
+   "source": "gamerant"
+  },
+  {
+   "national": 649,
+   "name": "Genesect",
+   "how": "Genesect Drives, Side Mission 191",
+   "dlc": true,
+   "shinyElsewhereInGame": null,
+   "source": "gamerant"
+  },
+  {
+   "national": 802,
+   "name": "Marshadow",
+   "how": "Side Mission 192",
+   "dlc": true,
+   "shinyElsewhereInGame": null,
+   "source": "gamerant"
+  },
+  {
+   "national": 809,
+   "name": "Melmetal",
+   "how": "Side Mission 193",
+   "dlc": true,
+   "shinyElsewhereInGame": null,
+   "source": "gamerant"
+  },
+  {
+   "national": 721,
+   "name": "Volcanion",
+   "how": "Side Mission 194",
+   "dlc": true,
+   "shinyElsewhereInGame": null,
+   "source": "gamerant"
+  },
+  {
+   "national": 801,
+   "name": "Magearna",
+   "how": "Side Mission 195",
+   "dlc": true,
+   "shinyElsewhereInGame": null,
+   "source": "gamerant"
+  },
+  {
+   "national": 720,
+   "name": "Hoopa",
+   "how": "Side Mission 196",
+   "dlc": true,
+   "shinyElsewhereInGame": null,
+   "source": "gamerant"
+  },
+  {
+   "national": 807,
+   "name": "Zeraora",
+   "how": "Side Mission EX3",
+   "dlc": true,
+   "shinyElsewhereInGame": null,
+   "source": "gamerant"
+  },
+  {
+   "national": 808,
+   "name": "Meltan",
+   "how": "side mission in Rouge Sector 1 after Rayquaza (Serebii); Gamerant doesn’t name it: inferred locked by Serebii’s gift rule",
+   "dlc": true,
+   "shinyElsewhereInGame": null,
+   "source": "serebii-legendary (inferred)"
+  }
+ ],
+ "neverShinyInGame": [
+  716,
+  717,
+  718,
+  719,
+  150,
+  485,
+  491,
+  383,
+  382,
+  384,
+  648,
+  647,
+  649,
+  802,
+  809,
+  721,
+  801,
+  720,
+  807,
+  808
+ ],
+ "shinyLegendaries": [
+  {
+   "national": 380,
+   "name": "Latias",
+   "how": "special scan (25,000 survey points), yellow 5-star Hyperspace zones"
+  },
+  {
+   "national": 381,
+   "name": "Latios",
+   "how": "special scan (25,000 survey points), yellow 5-star Hyperspace zones"
+  },
+  {
+   "national": 638,
+   "name": "Cobalion",
+   "how": "special scan (25,000 survey points), yellow 5-star Hyperspace zones"
+  },
+  {
+   "national": 639,
+   "name": "Terrakion",
+   "how": "special scan (25,000 survey points), yellow 5-star Hyperspace zones"
+  },
+  {
+   "national": 640,
+   "name": "Virizion",
+   "how": "special scan (25,000 survey points), yellow 5-star Hyperspace zones"
+  }
+ ],
+ "shinyByEventOrHome": [
+  {
+   "national": 716,
+   "name": "Xerneas",
+   "how": "serial code CELEBRATE30TH, shiny, Lv. 100, 12 Nov 2026 to 7 Jan 2027 (Serebii serial codes)"
+  },
+  {
+   "national": 721,
+   "name": "Volcanion",
+   "how": "Pokémon HOME reward for completing its Lumiose, Hyperspace and Mega Evolution Pokédexes with Z-A Pokémon, from 27 Apr 2026, no end date"
+  }
+ ],
+ "eventOrTransferOnly": [
+  {
+   "national": 719,
+   "name": "Diancie",
+   "how": "its side mission needs the Diancite Mystery Gift (from 6 Nov 2025, no end date)"
+  },
+  {
+   "national": 150,
+   "name": "Mewtwo",
+   "how": "its side mission needs the Mewtwonite X and Y Mystery Gift (from 2 Dec 2025, no end date)"
+  },
+  {
+   "national": 807,
+   "name": "Zeraora",
+   "how": "Side Mission EX3 (Gamerant) and not needed for completion (Bulbapedia, snippet); Serebii describes an in-game route: unsure"
+  },
+  {
+   "national": 801,
+   "name": "Magearna",
+   "form": "Original Color",
+   "how": "transfer from HOME only"
+  },
+  {
+   "national": 999,
+   "name": "Gimmighoul",
+   "form": "Roaming Form",
+   "how": "transfer from HOME only"
+  },
+  {
+   "national": 666,
+   "name": "Vivillon",
+   "form": "17 patterns (all but Meadow, Marine and Garden)",
+   "how": "transfer from HOME; also a Mystery Gift Spewpa with a random one of 16 (29 Oct to 19 Nov 2026) and a Poké Ball Pattern Vivillon Mystery Gift (6 Nov 2026 to 26 Feb 2027)"
+  }
+ ],
+ "vivillonInGame": {
+  "Meadow Pattern": "wild Scatterbug and Spewpa",
+  "Marine Pattern": "only the Lumiose Museum Spewpa (Side Mission 21)",
+  "Garden Pattern": "Hyperspace Lumiose (Mega Dimension)"
+ },
+ "home": {
+  "connected": "2026-04-02",
+  "homeVersion": "4.0.0",
+  "dexes": [
+   {
+    "id": "lumiose",
+    "size": 230
+   },
+   {
+    "id": "hyperspace",
+    "size": 131
+   },
+   {
+    "id": "mega",
+    "size": 93
+   }
+  ],
+  "note": "HOME sizes from Bulbapedia (snippet). Only Pokémon from Z-A count; a Mega entry also needs the linked Z-A save to own that Mega Stone. Mythicals count only in the Hyperspace (not Zeraora) and Mega Evolution Pokédexes. Completing all three (without Diancie, Mewtwo, Zeraora and event-only Megas) gives a shiny Volcanion. First deposit from Z-A: Alpha Chikorita, Tepig and Totodile as Mystery Gifts (mobile)."
+ },
+ "notes": "Counts: Lumiose 232 (230 needed), Hyperspace 132 (131 needed), Mega Evolution Pokédex 93 entries (81 needed; 68 and 62 before the DLC); 96 Mega forms (48 from X and Y and Omega Ruby and Alpha Sapphire, 48 new: 26 base game, 22 Mega Dimension); 92 Mega Stones. Alphas: every species except the 25 in notAlpha (inferred from Serebii’s list of Pokémon that can’t be Alpha); \"guaranteed\" is Serebii’s 100% Alpha spawns in Lumiose (Wild Zone 20 inferred from the page layout); Hyperspace Alphas aren’t listed by place. Megas: \"new\" = first appeared in Z-A; \"dlc\" = added to the Mega Evolution Pokédex by Mega Dimension (inferred for old Megas whose species are only in the Hyperspace Pokédex); \"eventOnly\" = Bulbapedia’s 12 event-only Megas (snippet), not needed for completion. shinyLocked lists encounters (gifts, story); \"shinyElsewhereInGame\": null means no shiny route in the game. Names follow the app’s GO dex spelling. Sources and anything unsure: research/games/legends-za.md.",
+ "sources": {
+  "serebii-index": {
+   "url": "https://www.serebii.net/legendsz-a/",
+   "read": "2026-11-22",
+   "what": "Serebii’s Z-A section and page list"
+  },
+  "serebii-lumiose": {
+   "url": "https://www.serebii.net/legendsz-a/availablepokemon.shtml",
+   "read": "2026-11-22",
+   "what": "Lumiose Pokédex, 232 entries with National numbers"
+  },
+  "serebii-hyperspace": {
+   "url": "https://www.serebii.net/legendsz-a/hyperspacepokedex.shtml",
+   "read": "2026-11-22",
+   "what": "Hyperspace Pokédex, 132 entries"
+  },
+  "serebii-megas": {
+   "url": "https://www.serebii.net/legendsz-a/megaevolutions.shtml",
+   "read": "2026-11-22",
+   "what": "48 new Megas"
+  },
+  "serebii-dlc-megas": {
+   "url": "https://www.serebii.net/legendsz-a/dlc-megaevolutions.shtml",
+   "read": "2026-11-22",
+   "what": "22 Mega Dimension Megas"
+  },
+  "serebii-stones": {
+   "url": "https://www.serebii.net/legendsz-a/megastones.shtml",
+   "read": "2026-11-22",
+   "what": "92 Mega Stones and where from"
+  },
+  "serebii-research": {
+   "url": "https://www.serebii.net/legendsz-a/mablesresearch.shtml",
+   "read": "2026-11-22",
+   "what": "Mable’s Research, Shiny Charm at level 50"
+  },
+  "serebii-transfer-only": {
+   "url": "https://www.serebii.net/legendsz-a/transferonly.shtml",
+   "read": "2026-11-22",
+   "what": "transfer-only forms"
+  },
+  "serebii-shiny": {
+   "url": "https://www.serebii.net/legendsz-a/shinypokemon.shtml",
+   "read": "2026-11-22",
+   "what": "shiny odds and locks"
+  },
+  "serebii-alpha": {
+   "url": "https://www.serebii.net/legendsz-a/alphapokemon.shtml",
+   "read": "2026-11-23",
+   "what": "guaranteed Alpha spawns (first read 22 Nov, headings re-read 23 Nov)"
+  },
+  "serebii-no-alpha": {
+   "url": "https://www.serebii.net/legendsz-a/unobtainablealpha.shtml",
+   "read": "2026-11-22",
+   "what": "25 Pokémon that cannot be Alpha"
+  },
+  "serebii-mega-dimension": {
+   "url": "https://www.serebii.net/legendsz-a/megadimension.shtml",
+   "read": "2026-11-22",
+   "what": "the DLC"
+  },
+  "serebii-patches": {
+   "url": "https://www.serebii.net/legendsz-a/patch.shtml",
+   "read": "2026-11-22",
+   "what": "patch notes"
+  },
+  "serebii-legendary": {
+   "url": "https://www.serebii.net/legendsz-a/legendary.shtml",
+   "read": "2026-11-23",
+   "what": "legendaries and mythicals, where and shiny"
+  },
+  "serebii-gifts": {
+   "url": "https://www.serebii.net/legendsz-a/giftpokemon.shtml",
+   "read": "2026-11-23",
+   "what": "gift Pokémon"
+  },
+  "serebii-mystery-gift": {
+   "url": "https://www.serebii.net/legendsz-a/internetevents.shtml",
+   "read": "2026-11-23",
+   "what": "Mystery Gift events"
+  },
+  "serebii-serial-codes": {
+   "url": "https://www.serebii.net/legendsz-a/serialcode.shtml",
+   "read": "2026-11-23",
+   "what": "serial codes"
+  },
+  "serebii-hyperspace-lumiose": {
+   "url": "https://www.serebii.net/legendsz-a/hyperspacelumiose.shtml",
+   "read": "2026-11-23",
+   "what": "Hyperspace Lumiose, Alpha shiny task"
+  },
+  "serebii-news-2026-04-02": {
+   "url": "https://www.serebii.net/news/2026/02-April-2026.shtml",
+   "read": "2026-11-22",
+   "what": "HOME 4.0.0 and Z-A"
+  },
+  "serebii-news-2026-04-27": {
+   "url": "https://www.serebii.net/news/2026/27-April-2026.shtml",
+   "read": "2026-11-23",
+   "what": "shiny Volcanion"
+  },
+  "serebii-event-721": {
+   "url": "https://www.serebii.net/events/dex/721.shtml",
+   "read": "2026-11-23",
+   "what": "shiny Volcanion details"
+  },
+  "pokeapi-csv": {
+   "url": "https://raw.githubusercontent.com/PokeAPI/pokeapi/master/data/v2/csv/",
+   "read": "2026-11-23",
+   "what": "pokedexes.csv (34 lumiose-city, 35 hyperspace), pokemon_dex_numbers.csv, pokemon.csv, pokemon_forms.csv; dex file last changed 9 Sep 2026"
+  },
+  "nintendo-updates": {
+   "url": "https://en-americas-support.nintendo.com/app/answers/detail/a_id/68626",
+   "read": "2026-11-22",
+   "what": "Z-A version history"
+  },
+  "official-home-link": {
+   "url": "https://legends.pokemon.com/en-us/news/pokemon-home-connectivity",
+   "read": "2026-11-23",
+   "what": "official HOME rules (27 Feb 2026)"
+  },
+  "official-home-move": {
+   "url": "https://home.pokemon.com/en-us/move/",
+   "read": "2026-11-22",
+   "what": "HOME: moving Pokémon, Alpha starter gifts"
+  },
+  "official-lumiose-map": {
+   "url": "https://legends.pokemon.com/en-us/story-world/lumiose-city",
+   "read": "2026-11-23",
+   "what": "official Lumiose City map image"
+  },
+  "bulbapedia-snippets": {
+   "url": "https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_in_the_Mega_Evolution_Pok%C3%A9dex",
+   "read": "2026-11-23",
+   "what": "search snippets only (Bulbapedia refuses automated reading): Mega dex, HOME dex sizes, completion rules"
+  },
+  "gamerant-shiny-locks": {
+   "url": "https://gamerant.com/pokemon-legends-za-shiny-locked-pokemon-plza-mega-dimension/",
+   "read": "2026-11-23",
+   "what": "shiny-locked list (29 Dec 2025)"
+  },
+  "rankedboost-regional": {
+   "url": "https://rankedboost.com/pokemon/regional-forms/legends-z-a/",
+   "read": "2026-11-23",
+   "what": "16 regional forms"
+  },
+  "pokebase-vivillon": {
+   "url": "https://pokemondb.net/pokebase/435133/how-many-vivillon-patterns-are-available-in-legends-z-a",
+   "read": "2026-11-23",
+   "what": "Vivillon patterns (community answer)"
+  }
+ }
+}
