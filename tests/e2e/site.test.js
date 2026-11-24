@@ -433,7 +433,7 @@
 
   test("her picks from the Try switch (22 Nov): Card art in dark mode Brighter; Shiny #6C7786 and Lucky #B48600; the switch gone", async () => {
     const root = document.documentElement;
-    ok([...document.querySelectorAll(".trybox [data-row]")].every(r => ["gameSwitch", "kitakami", "blueberry", "lumiose", "hyperspace", "mega"].includes(r.dataset.row)) && !("tryArt" in root.dataset) && !("tryBoxes" in root.dataset), "no old Try switch left (only Violet and Z-A’s, 23 Nov)");
+    ok([...document.querySelectorAll(".trybox [data-row]")].every(r => ["gameSwitch", "hyperspace", "mega"].includes(r.dataset.row)) && !("tryArt" in root.dataset) && !("tryBoxes" in root.dataset), "no old Try switch left (only Violet and Z-A’s, 23 Nov)");
     const hex = n => getComputedStyle(root).getPropertyValue(`--${n}`).trim().toUpperCase();
     eq(hex("shiny"), "#6C7786", "Shiny a little deeper"); eq(hex("lucky"), "#B48600", "Lucky a little deeper (a middle gold)");
     eq(hex("male"), "#078E5A", "the other boxes as they were"); eq(hex("hundo"), "#D14186"); eq(hex("mega"), "#C2571A");
@@ -450,7 +450,7 @@
   });
 
   test("the art window is tinted by the Pokémon's first type (her pick, 21 Nov); the 21 Nov Try switch is gone", async () => {
-    ok([...document.querySelectorAll(".trybox [data-row]")].every(r => ["gameSwitch", "kitakami", "blueberry", "lumiose", "hyperspace", "mega"].includes(r.dataset.row)), "no games, Form names, Shield’s pictures or Arceus’s boxes Try switch (removed: her picks); only Violet and Z-A’s (23 Nov)");
+    ok([...document.querySelectorAll(".trybox [data-row]")].every(r => ["gameSwitch", "hyperspace", "mega"].includes(r.dataset.row)), "no games, Form names, Shield’s pictures or Arceus’s boxes Try switch (removed: her picks); only Violet and Z-A’s (23 Nov)");
     eq(localStorage.getItem("jemmas-pokedex-try-arceusboxes"), null, "the Arceus’s boxes choice cleared");
     eq(localStorage.getItem("jemmas-pokedex-try-secpics"), null, "the Shield’s other pictures choice cleared");
     eq(localStorage.getItem("jemmas-pokedex-try-formnames"), null, "the Form names choice cleared");
@@ -1466,16 +1466,29 @@
     }
   });
 
-  test("TRIAL Try switch Violet and Z-A (23 Nov): the new lists’ pictures and a switch for six games", async () => {
+  test("TRIAL Try switch Violet and Z-A (24 Nov): Hyperspace’s and Mega Evolution’s pictures, and ways to switch games", async () => {
     const pick = async (row, v) => { click(document.querySelector(`.trybox [data-row="${row}"] [data-v="${v}"]`)); await wait(150); };
     const was = {...tryVz};
     try {
-      await go("#vi-gen-kitakami");
-      await pick("kitakami", "kitakami"); ok(/kitakami-1/.test(view().querySelector(".hero").getAttribute("style") || ""), "Kitakami: The Teal Mask art");
-      await pick("kitakami", "9"); ok(/paldea-map-1/.test(view().querySelector(".hero").getAttribute("style") || ""), "Kitakami: Paldea’s map");
-      await pick("gameSwitch", "dropdown"); ok(document.querySelector("[data-gamepick]") && !document.querySelector(".game-switch"), "the drop-down");
-      await pick("gameSwitch", "list"); eq(document.querySelectorAll(".game-list a").length, 6, "the list");
-      await pick("gameSwitch", "rows"); const sw = document.querySelector(".game-switch"); ok(sw && sw.scrollWidth <= sw.clientWidth + 1, "two rows, fitting");
+      eq([...document.querySelectorAll(".trybox [data-row]")].map(r => r.dataset.row), ["gameSwitch", "hyperspace", "mega"], "Violet’s and Lumiose’s rows gone (her picks, 24 Nov)");
+      await go("#vi-gen-kitakami"); ok(/kitakami-1/.test(view().querySelector(".hero").getAttribute("style") || ""), "Kitakami: The Teal Mask art (her pick)");
+      await go("#za-gen-hyperspace");
+      for (const [v, f] of [["hyperspace-2", "hyperspace-2"], ["hyperspace-4", "hyperspace-4"], ["lumiose-night", "lumiose-night-1"], ["hyperspace-3", "hyperspace-3"]]) {
+        await pick("hyperspace", v); ok(new RegExp(f).test(view().querySelector(".hero").getAttribute("style") || ""), `Hyperspace: ${v}`);
+      }
+      await go("#za-gen-mega");
+      await pick("mega", "mega"); ok(/mega-1/.test(view().querySelector(".hero").getAttribute("style") || "") && view().querySelector(".hero.ratio"), "Mega Stones, whole (a 16:9 picture area)");
+      await pick("mega", "mega-3"); ok(/mega-3/.test(view().querySelector(".hero").getAttribute("style") || ""), "Mega Evolution: the Key Stone");
+      await go("#za");
+      await pick("gameSwitch", "more");
+      eq([...document.querySelectorAll(".game-switch a")].map(a => a.textContent), ["HOME", "GO", "Z-A"], "Toggle + More: HOME, GO and the game shown");
+      const more = document.querySelector("[data-gamemenu]"); click(more); await wait(100);
+      eq([...document.querySelectorAll(".game-menu a")].map(a => a.textContent), ["Pokémon Shield", "Pokémon Legends: Arceus", "Pokémon Violet"], "More: the rest, full names");
+      document.dispatchEvent(new KeyboardEvent("keydown", {key: "Escape"})); await wait(50); ok(document.querySelector(".game-menu").hidden, "Escape closes it");
+      for (const v of ["wrap", "radio", "rows"]) {
+        await pick("gameSwitch", v); const el = document.querySelector(".games .game-switch, .games .game-chips");
+        ok(el && el.children.length === 6 && el.scrollWidth <= el.clientWidth + 1, `${v}: all six, fitting`);
+      }
       eq(JSON.parse(localStorage.getItem(TRY_VZ_KEY)).gameSwitch, "rows", "kept");
     } finally { tryVz = was; store.set(TRY_VZ_KEY, was); rerender(); }
   });
@@ -1566,7 +1579,8 @@
     await wait(500);
     const out = [];
     for (const [name, fn, known] of tests) {
-      try { useGame("go"); await fn(); out.push(known ? {name, ok: false, error: `passes now: take it off knownBug (${known})`} : {name, ok: true}); }
+      try { useGame("go"); if (!/TRIAL Try switch Violet/.test(name)) tryVz = {...tryVz, gameSwitch: "rows"};   // the switch's own test tries every way; the rest use the buttons (TRIAL, 24 Nov)
+        await fn(); out.push(known ? {name, ok: false, error: `passes now: take it off knownBug (${known})`} : {name, ok: true}); }
       catch (e) {
         if (known) out.push({name, ok: true, known: `${known} [${String(e && e.message || e).slice(0, 200)}]`});
         else out.push({name, ok: false, error: `${String(e && e.stack || e).slice(0, 800)}\n  (page then: ${location.hash})`});

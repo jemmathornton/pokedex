@@ -434,25 +434,34 @@ const REGION_CHOSEN = {"1": "kanto-map-2.jpg", "2": "johto-map-1.jpg", "3": "hoe
   // Violet's DLCs and Legends: Z-A (23 Nov, downloaded with her yes: “Do it if you can”): The Teal Mask's and The Indigo Disk's key art
   // (scarletviolet.pokemon.com, 960 × 553; no official maps of Kitakami or the Terarium), the official Lumiose City map
   // (legends.pokemon.com, 2336 × 1642) and two Mega Dimension pictures from its official page (1920 × 1080)
-  "kitakami": "kitakami-1.jpg", "blueberry": "blueberry-1.jpg", "lumiose": "lumiose-map-1.jpg", "hyperspace": "hyperspace-1.jpg", "mega": "mega-1.jpg"};   // her picks: the official painted region maps (12 Nov; she switched from scenery)
+  "kitakami": "kitakami-1.jpg", "blueberry": "blueberry-1.jpg", "lumiose": "lumiose-map-1.jpg", "hyperspace": "hyperspace-1.jpg", "mega": "mega-1.jpg",
+  // more for Hyperspace and Mega Evolution (24 Nov, her asks: “is there better art or something for hyperspace or mega dlc?”, then
+  // “distortion is good for hyperspace but not sure if that's best quality pic”, “I like the mega stones idea but the pic is really badly
+  // cropped find others”): from Nintendo's pages, the distortion in a cleaner copy (nintendo.com/eu …_NS1_MD_Background.jpg, 1920 × 1359),
+  // a screenshot of Hyperspace Lumiose itself (the Mega Dimension DLC's eShop page, 1280 × 720), the official illustration of Lumiose
+  // at night (…_NS1_Illustration_Night.jpg, 1350 × 777) and a Key Stone starting Mega Evolution (nintendo.com/us, mega-evolved
+  // b-gallery-3, 1130 × 636); from legends.pokemon.com, Hoopa's ring (/images/dlc/p14_01.jpg) and Prism Tower (lumiose-gallery-4)
+  "hyperspace-2": "hyperspace-2.jpg", "hyperspace-3": "hyperspace-3.jpg", "hyperspace-4": "hyperspace-4.jpg", "lumiose-night": "lumiose-night-1.jpg",
+  "mega-2": "mega-2.jpg", "mega-3": "mega-3.jpg"};   // her picks: the official painted region maps (12 Nov; she switched from scenery)
 // which part of a picture the banner shows, where the middle isn't the best part (12 Nov: Kanto's Route 1 was nearly all sky):
 // a closer crop towards the ground; the picture itself is unchanged
-const SHOT_FIT = {"kitakami-1.jpg": "center 30%/cover", "blueberry-1.jpg": "center 35%/cover", "lumiose-map-1.jpg": "center 50%/cover", "hyperspace-1.jpg": "center 40%/cover", "mega-1.jpg": "center/cover", "isle-of-armor-1.jpg": "center 60%/cover", "crown-tundra-1.jpg": "center 35%/cover", "kanto-map-2.jpg": "center/cover", "johto-map-1.jpg": "center/cover", "hoenn-map-2.jpg": "center/cover", "unova-map-2.jpg": "center/cover", "galar-map-1.jpg": "center 45%/cover", "hisui-map-1.jpg": "50% 50%/112% auto", "paldea-map-1.jpg": "center/cover", "sinnoh-map-3.jpg": "50% 48%/118% auto", "kalos-map-2.jpg": "center/cover", "alola-map-1.jpg": "center 45%/cover"};   // maps: the middle; Hisui closer, so its parchment edge is cut off (her ask, 12 Nov)   // maps: the middle
+const SHOT_FIT = {"hyperspace-2.jpg": "center/cover", "hyperspace-3.jpg": "center 45%/cover", "hyperspace-4.jpg": "center 40%/cover", "lumiose-night-1.jpg": "center 35%/cover",
+  "mega-2.jpg": "center 40%/cover", "mega-3.jpg": "center 35%/cover", "kitakami-1.jpg": "center 30%/cover", "blueberry-1.jpg": "center 35%/cover", "lumiose-map-1.jpg": "center 50%/cover", "hyperspace-1.jpg": "center 40%/cover", "mega-1.jpg": "center/cover", "isle-of-armor-1.jpg": "center 60%/cover", "crown-tundra-1.jpg": "center 35%/cover", "kanto-map-2.jpg": "center/cover", "johto-map-1.jpg": "center/cover", "hoenn-map-2.jpg": "center/cover", "unova-map-2.jpg": "center/cover", "galar-map-1.jpg": "center 45%/cover", "hisui-map-1.jpg": "50% 50%/112% auto", "paldea-map-1.jpg": "center/cover", "sinnoh-map-3.jpg": "50% 48%/118% auto", "kalos-map-2.jpg": "center/cover", "alola-map-1.jpg": "center 45%/cover"};   // maps: the middle; Hisui closer, so its parchment edge is cut off (her ask, 12 Nov)   // maps: the middle
 // Shield's Isle of Armor and Crown Tundra: the official paintings (swordshield.pokemon.com, downloaded with her yes, 23 Nov; the
 // official site has no map of either; her pick over Galar's map, 23 Nov), in REGION_CHOSEN above so tools/make_home_maps.py makes
 // their smaller copies
 // ===== TRIAL: Try switch "Violet and Z-A" (23 Nov, overnight), START: remove once she has picked =====
 // She asked for Violet and Legends: Z-A to be built while she was away; two things are looks, so both are options here (my
-// suggestions, not decided, first): the pictures for the new lists (the official pictures she let me download, or the maps we had),
-// and how six games fit the switch at the top of the sidebar.
+// suggestions, not decided, first). Her picks, 24 Nov: Kitakami and Blueberry the DLC art, Lumiose the Lumiose City map (those rows
+// gone). Her asks: better art for Hyperspace and the Mega Evolution list (“feels like should be some alternative Lumiose art”:
+// more official pictures, none of Hyperspace Lumiose itself was found), and more ways to switch games (“dropdown cuts off stuff,
+// 2 rows may be ok but seems a weird shape for toggle and may not be good for adding more games”; then “Chips is closest … but idk
+// it isn't obvious you only select one. The rows was good as it looked like a toggle before there were too many”).
 const TRY_VZ_KEY = "jemmas-pokedex-try-violetza";
 const TRY_VZ = [
-  ["gameSwitch", "Six games", [["rows", "Two rows"], ["dropdown", "Drop-down"], ["list", "List"]], "rows"],
-  ["kitakami", "Kitakami", [["kitakami", "The Teal Mask art"], ["9", "Paldea’s map"]], "kitakami"],
-  ["blueberry", "Blueberry", [["blueberry", "The Indigo Disk art"], ["9", "Paldea’s map"]], "blueberry"],
-  ["lumiose", "Lumiose", [["lumiose", "Lumiose City map"], ["6", "Kalos’s map"]], "lumiose"],
-  ["hyperspace", "Hyperspace", [["hyperspace", "Mega Dimension picture"], ["lumiose", "Lumiose City map"], ["6", "Kalos’s map"]], "hyperspace"],
-  ["mega", "Mega Evolution", [["mega", "Mega Stones picture"], ["lumiose", "Lumiose City map"]], "mega"],
+  ["gameSwitch", "Switching games", [["more", "Toggle + More"], ["wrap", "Toggle that wraps"], ["radio", "Chips with dots"], ["rows", "Two rows"]], "more"],
+  ["hyperspace", "Hyperspace", [["hyperspace-2", "Distortion (clearer)"], ["hyperspace-4", "Hyperspace Lumiose"], ["lumiose-night", "Lumiose at night"], ["hyperspace-3", "Hoopa’s ring"]], "hyperspace-2"],
+  ["mega", "Mega Evolution", [["mega", "Mega Stones (whole)"], ["mega-3", "Key Stone"], ["mega-2", "Prism Tower"], ["lumiose-night", "Lumiose at night"]], "mega"],
 ];
 let tryVz = store.get(TRY_VZ_KEY, {});
 if (!tryVz || typeof tryVz !== "object" || Array.isArray(tryVz)) tryVz = {};
@@ -471,11 +480,19 @@ const tryPicKey = k => TRY_VZ.some(r => r[0] === k && r[0] !== "gameSwitch") ? t
   draw(); document.body.append(box);
   pad(); addEventListener("resize", pad);
 })();
-document.addEventListener("change", ev => { const s = ev.target.closest && ev.target.closest("[data-gamepick]"); if (s && s.value) location.hash = s.value; });   // the drop-down
+// the Menu option: a button with the game's full name opens a list of every game (no names cut short; any number of games)
+const gameMenu = open => { const b = document.querySelector("[data-gamemenu]"), m = document.querySelector(".game-menu"); if (!b || !m) return;
+  b.setAttribute("aria-expanded", String(open)); m.hidden = !open; };
+document.addEventListener("click", ev => {
+  if (!ev.target.closest) return;
+  if (ev.target.closest("[data-gamemenu]")) return gameMenu(document.querySelector("[data-gamemenu]").getAttribute("aria-expanded") !== "true");
+  if (!ev.target.closest(".game-menu")) gameMenu(false);
+});
+document.addEventListener("keydown", ev => { const m = document.querySelector(".game-menu"); if (ev.key === "Escape" && m && !m.hidden) { gameMenu(false); document.querySelector("[data-gamemenu]")?.focus(); } });
 // ===== TRIAL: Try switch "Violet and Z-A", END =====
 // a narrower picture shown less zoomed in: the banner's picture area takes this shape (width / height), so more of it shows and
 // it still blends softly into the colour on the left (12 Nov: Johto looked too zoomed in)
-const SHOT_RATIO = {};
+const SHOT_RATIO = {"mega-1.jpg": "16/9"};   // the Mega Stones whole, not cut through (her note, 24 Nov: “really badly cropped”)
 // ?fit=, ?ratio= and ?pic= are for pictures of options only. Anything from the address is checked against a strict format before
 // it is used, and escaped too (round 4 review, 22 Nov: a crafted link could break out of the style attribute and run script)
 const TRY = new URLSearchParams(location.search);
@@ -1577,10 +1594,16 @@ function gameNavHtml(route, link, regions, more){
   const game = gameOf(route), all = route === "games";
   brandSmall.textContent = GAMES.find(g => g.id === game).name; brandSmall.hidden = true;   // the switch shows the game
   const cur = g => g.id === game && !all;
-  const look = tryPick("gameSwitch");   // TRIAL: the Try switch "Six games" (23 Nov overnight): Two rows · Drop-down · List
+  const look = tryPick("gameSwitch");   // TRIAL: the Try switch "Switching games" (24 Nov): Toggle + More · Toggle that wraps · Chips with dots · Two rows
+  const seg = g => `<a href="${g.href}" style="--gc:${g.colour}"${cur(g) ? ' aria-current="true"' : ""}>${esc(g.short)}</a>`;
+  // Toggle + More: HOME and GO always, the game shown if it's another, then More for the rest in a list (any number of games)
+  const shown = GAMES.filter(g => g.id === "home" || g.id === "go" || cur(g)), rest = GAMES.filter(g => !shown.includes(g));
   gameSwitch.innerHTML = `<a class="allgames${all ? " on" : ""}" href="#games"${all ? ' aria-current="page"' : ""}>${ic("layers")}All games</a>` + (
-    look === "dropdown" ? `<label class="game-pick"><span class="game-pick-l">Game</span><select data-gamepick aria-label="Game">${GAMES.map(g => `<option value="${attr(g.href)}"${cur(g) ? " selected" : ""}>${esc(g.name)}</option>`).join("")}${all ? `<option value="" selected>All games</option>` : ""}</select></label>` :
-    look === "list" ? `<div class="game-list" role="group" aria-label="Game">${GAMES.map(g => `<a href="${g.href}"${cur(g) ? ' aria-current="true"' : ""}>${esc(g.name.replace(/^Pokémon /, ""))}</a>`).join("")}</div>` :
+    look === "more" ? `<div class="game-switch" role="group" aria-label="Game" style="grid-template-columns:repeat(${shown.length + 1},auto)">${shown.map(seg).join("")}` +
+      `<button type="button" class="game-more" data-gamemenu aria-expanded="false" aria-haspopup="true">More${ic("chevron-down")}</button></div>` +
+      `<div class="game-menu" hidden>${rest.map(g => `<a href="${g.href}">${esc(g.name)}</a>`).join("")}</div>` :
+    look === "wrap" ? `<div class="game-switch wrap" role="group" aria-label="Game">${GAMES.map(seg).join("")}</div>` :
+    look === "radio" ? `<div class="game-chips radio" role="group" aria-label="Game">${GAMES.map(g => `<a href="${g.href}"${cur(g) ? ' aria-current="true"' : ""}>${esc(g.short)}</a>`).join("")}</div>` :
     `<div class="game-switch rows" role="group" aria-label="Game" style="grid-template-columns:repeat(${GAMES.length > 4 ? 3 : GAMES.length},1fr)">${GAMES.map(g => `<a href="${g.href}" style="--gc:${g.colour}"${cur(g) ? ' aria-current="true"' : ""}>${esc(g.short)}</a>`).join("")}</div>`);
   if (game !== "go") return `<div class="nav-group">${link("#" + GAME_HOME[game], "house", "Home")}${link(R("dex"), "layout-grid", "Every Pokémon", groupByNumber(ENTRIES).length)}</div>${regions}${more}`;
   return `<div class="nav-group">${link("#go", "house", "Home")}${link("#dex", "layout-grid", "Every Pokémon", groupByNumber(ENTRIES).length)}</div>${regions}${more}`;

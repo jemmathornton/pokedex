@@ -3,8 +3,7 @@
 Everything waiting on you. **Do** = just do it; **Decide** = your call. Tell Claude when one’s done or decided and it comes off.
 
 ## Decide
-- **Violet and Z-A (Try switch, bottom right, built overnight):** how six games fit the switch at the top of the sidebar (Two rows, Drop-down or List), and the pictures for the new lists: Kitakami (The Teal Mask art or Paldea’s map), Blueberry (The Indigo Disk art or Paldea’s map), Lumiose (the official Lumiose City map or Kalos’s map), Hyperspace (the Mega Dimension picture, the Lumiose City map or Kalos’s map), Mega Evolution (the Mega Stones picture or the Lumiose City map). The first of each is my suggestion (not decided).
-- **Restart the Pokédex server** so Violet’s and Z-A’s ticks save (say “restart” and Claude does it). Until then the page says they can’t be saved yet.
+- **Violet and Z-A (Try switch, bottom right):** switching games (Toggle + More, Toggle that wraps, Chips with dots or Two rows); Hyperspace’s picture (the distortion in a clearer copy, Hyperspace Lumiose, Lumiose at night or Hoopa’s ring); Mega Evolution’s (the Mega Stones shown whole, a Key Stone, Prism Tower or Lumiose at night). The first of each is my suggestion (not decided). (Kitakami, Blueberry and Lumiose: your picks, 24 Nov.)
 
 ## Do
 - **Try getting your collection in:** easiest is **Fast tick → Kanto → Lucky** next to your phone’s Pokédex on the Lucky tab. Or one short screen recording of the Pokédex’s Lucky tab (Kanto only) and, if you have one, a Calcy IV export, into the Pokédex folder’s `imports` folder. Then Claude checks the reader works on your phone’s screens.

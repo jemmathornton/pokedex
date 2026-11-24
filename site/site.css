@@ -411,12 +411,29 @@ a.formsbtn{text-decoration:none}
 @media (max-width:900px){ body{padding-bottom:var(--trypad,0px)} .tryrow button{padding:5px 8px} }
 /* the three ways six games could fit the sidebar's switch */
 .game-switch.rows{border-radius:14px;row-gap:2px}
-.game-pick{display:flex;align-items:center;gap:8px;color:var(--on-deep-mute);font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
-.game-pick select{flex:1;min-width:0;font:600 14px var(--body,sans-serif);color:#2B1A1C;background:#FFFBF2;border:0;border-radius:999px;padding:7px 12px;box-shadow:0 1px 3px rgba(0,0,0,.3)}
-.game-list{display:grid;gap:2px}
-.game-list a{color:var(--on-deep-mute);text-decoration:none;font-size:14px;font-weight:600;padding:6px 10px;border-radius:8px}
-.game-list a:hover{color:var(--on-deep)}
-.game-list a[aria-current]{background:#FFFBF2;color:#2B1A1C}
+.games{position:relative}
+/* Toggle + More: the toggle as it was, with a More segment opening the rest of the games */
+.game-more{display:inline-flex;align-items:center;justify-content:center;gap:2px;padding:7px 8px;border:0;border-radius:999px;background:transparent;color:var(--on-deep-mute);
+  font:700 13px var(--body,sans-serif);letter-spacing:.06em;text-transform:uppercase;cursor:pointer}
+.game-more:hover,.game-more[aria-expanded="true"]{color:var(--on-deep)}
+.game-more .i{width:14px;height:14px}
+.game-more[aria-expanded="true"] .i{transform:rotate(180deg)}
+/* Toggle that wraps: one track, each game its own width, a second line inside the same track when they don't fit */
+.game-switch.wrap{display:flex;flex-wrap:wrap;border-radius:18px;gap:2px}
+.game-switch.wrap a{flex:1 1 auto}
+/* Chips with dots: a radio dot in each, filled on the game shown */
+.game-chips.radio a{display:inline-flex;align-items:center;gap:6px}
+.game-chips.radio a::before{content:"";width:9px;height:9px;border-radius:50%;box-shadow:inset 0 0 0 2px currentColor;flex:none}
+.game-chips.radio a[aria-current]::before{background:#7E2530;box-shadow:inset 0 0 0 2px #7E2530,0 0 0 2px #FFFBF2}
+.game-menu{position:absolute;left:16px;right:16px;top:100%;margin-top:4px;z-index:30;display:grid;gap:2px;padding:6px;border-radius:12px;background:#FFFBF2;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+.game-menu[hidden]{display:none}
+.game-menu a{padding:8px 10px;border-radius:8px;color:#2B1A1C;text-decoration:none;font-size:14px;font-weight:600}
+.game-menu a:hover{background:rgba(0,0,0,.06)}
+.game-menu a[aria-current]{font-weight:800;box-shadow:inset 3px 0 0 #7E2530}
+.game-chips{display:flex;flex-wrap:wrap;gap:6px}
+.game-chips a{padding:6px 11px;border-radius:999px;background:rgba(0,0,0,.2);color:var(--on-deep-mute);text-decoration:none;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.game-chips a:hover{color:var(--on-deep)}
+.game-chips a[aria-current]{background:#FFFBF2;color:#2B1A1C}
 /* ===== TRIAL: Try switch "Violet and Z-A", END ===== */
 .genmap.multi{display:flex;background:none;overflow:hidden}   /* several pictures side by side on a card, like the banner's strip (Shield's Bonus Pokémon, Dynamax Adventures, HOME Transfers: her picks, 23 Nov) */
 .genmap.multi i{flex:1;background:var(--pic) center/cover no-repeat}
