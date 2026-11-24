@@ -111,7 +111,8 @@ class Data(unittest.TestCase):
 
     # ---------- her ticks ----------
     def test_ticks_point_at_things_that_exist(self):
-        evs = {ev['id']: ev for ev in self.events + self.special}
+        built = real_built()   # the backgrounds as the page has them: with the Pokémon an event coming back adds (Dynamax Espurr on Dark Skies, 23 Nov)
+        evs = {ev['id']: ev for ev in built['events'] + built['special']}
         for key, ticks in self.col['have'].items():
             with self.subTest(key):
                 kind, _, rest = key.partition(':')

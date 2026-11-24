@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-23",
+ "updated": "2026-11-24",
  "sections": [
   {
    "id": "paldea",
@@ -874,6 +874,15 @@
    "gmax": false,
    "sec": {
     "blueberry": 3
+   }
+  },
+  {
+   "id": "103",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "sec": {
+    "elsewhere": null
    }
   },
   {

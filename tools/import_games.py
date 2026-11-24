@@ -106,6 +106,8 @@ GAMES = {
         'toHome': [(25, 'Cap'), (26, 'Alolan'), (110, 'Galarian'), (144, 'Galarian'), (145, 'Galarian'), (146, 'Galarian'),
                    *[(n, 'Hisuian') for n in HISUI], (801, 'Original Color'), (893, 'Dada'), (901, 'Normal'), (999, 'Roaming'), (666, 'Poké Ball')],
         'groups': {'elsewhere': 'notInAnyDex', 'from-home': 'transferOnly'},   # research lists: in Violet but in no Pokédex; only from HOME
+        # the plain Exeggutor: in the Terarium's Savanna Biome (Serebii's Exeggutor page, 24 Nov), but Blueberry's number is the Alolan one
+        'extraGroups': {'elsewhere': [{'national': 103}]},
     },
     'za': {
         # her answers (23 Nov): boxes Caught, Female, Male, Shiny, Alpha and Mega; the rest as Shield and Arceus.
@@ -123,9 +125,11 @@ GAMES = {
         'gmax': False,
         # only the forms Z-A has (Serebii's forms page, read 23 Nov: Floette's Eternal Flower, Zygarde 10% and 50%, Furfrou's trims;
         # Flabébé's colours by where it's caught; Tatsugiri's three; Vivillon's Meadow, Marine and Garden in the game, the rest by HOME)
-        'forms': {**{n: '*' for n in (666, 669, 670, 671, 676, 710, 711, 801, 978, 999)}, 718: ['50%', '10%']},
+        # Zygarde: Z-A's turns Complete at half health in battle (Serebii's forms page, 24 Nov), which only Power Construct does, so it is
+        # HOME's Power Construct entries (her rule: HOME lists the look-alikes apart); a plain one only by transfer
+        'forms': {**{n: '*' for n in (666, 669, 670, 671, 676, 710, 711, 801, 978, 999)}, 718: ['50% Power Construct', '10% Power Construct', '50%', '10%']},
         'unlisted': None,
-        'toHome': [(801, 'Original Color'), (999, 'Roaming'),
+        'toHome': [(801, 'Original Color'), (999, 'Roaming'), (718, '50%'), (718, '10%'),
                    *[(666, p) for p in ('Icy Snow', 'Polar', 'Tundra', 'Continental', 'Elegant', 'Modern', 'Archipelago', 'High Plains',
                                          'Sandstorm', 'River', 'Monsoon', 'Savanna', 'Sun', 'Ocean', 'Jungle', 'Fancy', 'Poké Ball')]],
         'alpha': True,
@@ -208,7 +212,7 @@ def megas_by_entry(research, cfg, hfolder, go):
             ident = r['identifier']
             # which of the species' entries it belongs to: a form named in it (tatsugiri-curly-mega, magearna-original-mega,
             # meowstic-female-mega), Floette's Eternal Flower, Zygarde's 50%, else the species' first form
-            target = {'floette-mega': '670-eternal', 'zygarde-mega': '718-50', 'meowstic-male-mega': '678', 'meowstic-female-mega': '678-female',
+            target = {'floette-mega': '670-eternal', 'zygarde-mega': '718-50-power-construct', 'meowstic-male-mega': '678', 'meowstic-female-mega': '678-female',
                       'magearna-mega': '801', 'magearna-original-mega': '801-original'}.get(ident)
             if not target and ident.startswith('tatsugiri-'):
                 target = '978-' + ident.split('-')[1]
@@ -295,6 +299,8 @@ def main():
               'elsewhere': not_gmax(outside.get('otherInGame', [])), 'from-home': not_gmax(outside.get('homeOnly', []))}
     for s, key in cfg.get('groups', {}).items():   # a game whose research has the lists by name (Violet: notInAnyDex, transferOnly)
         groups[s] = [{'national': x['national']} for x in research.get(key, [])]
+    for s, xs in cfg.get('extraGroups', {}).items():
+        groups.setdefault(s, []).extend(xs)
     groups = {s: xs for s, xs in groups.items() if any(z['id'] == s for z in cfg['sections'])}
     to_home = cfg.get('toHome', [])
     goes_home = lambda n, f, sp: any(m == n and (same(w, f, sp, True) or (w == 'Cap' and 'Cap' in (f or ''))) for m, w in to_home)

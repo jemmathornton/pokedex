@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-23",
+ "updated": "2026-11-24",
  "sections": [
   {
    "id": "lumiose",
@@ -4160,7 +4160,7 @@
    }
   },
   {
-   "id": "718-50",
+   "id": "718-50-power-construct",
    "home": true,
    "shiny": true,
    "gmax": false,
@@ -4178,13 +4178,33 @@
    }
   },
   {
-   "id": "718-10",
+   "id": "718-10-power-construct",
    "home": true,
    "shiny": true,
    "gmax": false,
    "alpha": false,
    "sec": {
     "lumiose": 230
+   }
+  },
+  {
+   "id": "718-50",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": false,
+   "sec": {
+    "from-home": null
+   }
+  },
+  {
+   "id": "718-10",
+   "home": true,
+   "shiny": true,
+   "gmax": false,
+   "alpha": false,
+   "sec": {
+    "from-home": null
    }
   },
   {

@@ -169,7 +169,7 @@ em{font-style:italic}
 .brand{display:block;padding:22px 24px 18px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.08)}
 .home-link + .brand{padding-top:7px}
 .brand b{font:400 32px/1 var(--display);display:block}
-.brand b em{color:inherit}   /* the italic word in the title’s own colour, not yellow (her note, 22 Nov: “no yellow is anywhere else for dex”) */
+.brand b em{color:var(--title-em,inherit)}   /* the italic word in the title’s own colour, not yellow (her note, 22 Nov: “no yellow is anywhere else for dex”) */
 .brand small{display:block;margin-top:8px;color:var(--on-deep-mute);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
 .search{position:relative;margin:16px 16px 4px}
 .search input{width:100%;padding:9px 12px 9px 36px;border-radius:10px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.07);color:var(--on-deep);outline:none}
@@ -197,7 +197,7 @@ main{margin-left:var(--side);min-height:100vh;container-type:inline-size}
   background:linear-gradient(transparent calc(50% - 14px),rgba(255,255,255,.06) calc(50% - 14px) calc(50% + 14px),transparent calc(50% + 14px))}
 .hero .label{color:var(--on-deep-mute)}
 .hero h1{font-size:clamp(40px,5vw,58px);line-height:1;margin-top:10px}
-.hero h1 em{color:inherit}   /* not yellow: her note, 22 Nov */
+.hero h1 em{color:var(--title-em,inherit)}   /* not yellow: her note, 22 Nov */
 .hero p{margin:12px 0 0;color:var(--on-deep-mute);max-width:62ch}
 
 .section{margin-top:34px}
@@ -402,6 +402,10 @@ a.formsbtn{text-decoration:none}
 .trybox{position:fixed;right:12px;bottom:12px;z-index:60;display:grid;gap:6px;padding:8px 10px;border-radius:10px;background:var(--surface,#fff);color:var(--ink,#222);
   border:1px solid var(--line,#ccc);box-shadow:0 4px 16px rgba(0,0,0,.2);font:600 12px var(--body,sans-serif);max-width:calc(100vw - 24px);box-sizing:border-box}
 .trybox > b{font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.try-fold{justify-self:start;display:inline-flex;align-items:center;gap:4px;padding:0;border:0;background:none;color:inherit;font:700 11px var(--body,sans-serif);letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+.try-fold .i{width:14px;height:14px}
+.trybox.folded .tryrow{display:none}
+.trybox.folded .try-fold .i{transform:rotate(180deg)}
 .tryrow{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
 .tryrow span{margin-right:4px;min-width:104px}
 .tryrow button{font:inherit;padding:3px 8px;border-radius:6px;border:1px solid var(--line,#ccc);background:transparent;color:inherit;cursor:pointer}
@@ -418,13 +422,19 @@ a.formsbtn{text-decoration:none}
 .game-more:hover,.game-more[aria-expanded="true"]{color:var(--on-deep)}
 .game-more .i{width:14px;height:14px}
 .game-more[aria-expanded="true"] .i{transform:rotate(180deg)}
-/* Toggle that wraps: one track, each game its own width, a second line inside the same track when they don't fit */
+/* the toggle that wraps: one track, each game its own width, a second line inside the same track when they don't fit; three ways to
+   make it read as a toggle (her note, 24 Nov): a heading above with a tick on the game shown, lines between the games, or a dot in each */
 .game-switch.wrap{display:flex;flex-wrap:wrap;border-radius:18px;gap:2px}
-.game-switch.wrap a{flex:1 1 auto}
-/* Chips with dots: a radio dot in each, filled on the game shown */
-.game-chips.radio a{display:inline-flex;align-items:center;gap:6px}
-.game-chips.radio a::before{content:"";width:9px;height:9px;border-radius:50%;box-shadow:inset 0 0 0 2px currentColor;flex:none}
-.game-chips.radio a[aria-current]::before{background:#7E2530;box-shadow:inset 0 0 0 2px #7E2530,0 0 0 2px #FFFBF2}
+.game-switch.wrap a{flex:1 1 auto;display:inline-flex;align-items:center;justify-content:center;gap:4px}
+.game-toggle .gt-head{display:flex;align-items:center;gap:6px;margin:0 0 6px 4px;color:var(--on-deep-mute);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.game-toggle .gt-head .i{width:13px;height:13px}
+.game-switch.labelled a .i{width:13px;height:13px;flex:none}
+.game-switch.divided{gap:0;padding:0;overflow:hidden;border:1px solid rgba(255,255,255,.22)}
+.game-switch.divided a{border-radius:0;box-shadow:inset -1px 0 0 rgba(255,255,255,.18),inset 0 -1px 0 rgba(255,255,255,.18)}
+.game-switch.divided a[aria-current]{box-shadow:inset 0 -2px 0 var(--gc)}
+.game-switch.dots a::before{content:"";width:8px;height:8px;border-radius:50%;box-shadow:inset 0 0 0 2px currentColor;flex:none}
+.game-switch.dots a[aria-current]::before{background:#7E2530;box-shadow:inset 0 0 0 2px #7E2530}
+.tryrow button i.sw{display:inline-block;width:11px;height:11px;margin-right:5px;border-radius:3px;vertical-align:-1px}
 .game-menu{position:absolute;left:16px;right:16px;top:100%;margin-top:4px;z-index:30;display:grid;gap:2px;padding:6px;border-radius:12px;background:#FFFBF2;box-shadow:0 8px 24px rgba(0,0,0,.35)}
 .game-menu[hidden]{display:none}
 .game-menu a{padding:8px 10px;border-radius:8px;color:#2B1A1C;text-decoration:none;font-size:14px;font-weight:600}
@@ -935,7 +945,7 @@ body{background:var(--stock),linear-gradient(var(--page-hi),var(--page-lo));back
   box-shadow:inset 0 0 18px rgba(0,0,0,.16);overflow:hidden}
 .side::after{content:"";position:absolute;right:0;top:0;bottom:0;width:6px;pointer-events:none;background:linear-gradient(90deg,rgba(0,0,0,0),rgba(0,0,0,.3))}
 .brand{border-bottom:0;background:linear-gradient(rgba(255,226,210,.14),rgba(255,226,210,.14)) 24px 100%/calc(100% - 48px) 1px no-repeat}
-.nav a.on,:root[data-look] .nav a.on{background:rgba(255,240,230,.16);box-shadow:inset 3px 0 0 var(--accent)}
+.nav a.on,:root[data-look] .nav a.on{background:rgba(255,240,230,.16);box-shadow:inset 3px 0 0 var(--nav-mark,var(--accent))}
 .search input{background:rgba(0,0,0,.18);border-color:rgba(255,226,210,.22)}
 
 /* the binder gap: a soft shadow where the page meets the cover, over the banner too */
@@ -1297,7 +1307,7 @@ main{background:linear-gradient(90deg,rgba(70,40,30,.18),rgba(70,40,30,0) 54px) 
 .allgames{display:flex;align-items:center;gap:8px;margin:0 0 8px;padding:6px 10px;border-radius:8px;color:var(--on-deep);text-decoration:none;font-size:13.5px;font-weight:700}
 .allgames .i{width:16px;height:16px;color:var(--on-deep-mute)}
 .allgames:hover{background:rgba(255,255,255,.07)}
-.allgames.on{background:rgba(255,240,230,.16);box-shadow:inset 3px 0 0 var(--accent)}
+.allgames.on{background:rgba(255,240,230,.16);box-shadow:inset 3px 0 0 var(--nav-mark,var(--accent))}
 .allg{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:20px;max-width:1000px}
 .allgame{padding:16px 20px 18px;border-radius:12px;background:var(--stock),var(--card-stock);color:var(--card-ink);box-shadow:inset 0 5px 0 var(--gc),var(--card-shadow)}
 .allgame h2{font-size:30px;margin:4px 0 10px}
@@ -1311,7 +1321,7 @@ main{background:linear-gradient(90deg,rgba(70,40,30,.18),rgba(70,40,30,0) 54px) 
 .allgame .v .stamp,.gen .v .stamp{font-size:9px;color:var(--card-mute)}
 /* each game’s Home: the totals, then the region hub (her pick, 22 Nov evening): each region card with its map in the art window
    (in place of three Pokémon), its games, name and National Pokédex numbers, then her counts */
-.genmap{display:block;order:0;margin-top:8px;aspect-ratio:2.4/1;border-radius:4px;border:2px solid var(--frame);background:var(--pic) center/cover no-repeat}   /* the line round the map in the card's own region colour (her note, 22 Nov: the gold art-window edge didn't match the region's frame) */
+.genmap{display:block;order:0;margin-top:8px;aspect-ratio:2.4/1;border-radius:4px;border:2px solid var(--frame);background:var(--pic) center/var(--platesize,cover) no-repeat var(--platebg,transparent)}   /* the line round the map in the card's own region colour (her note, 22 Nov: the gold art-window edge didn't match the region's frame) */
 .gen .genno{order:-1;margin-top:3px;font:700 11px/1 var(--body);letter-spacing:.08em;color:var(--card-mute);font-variant-numeric:tabular-nums}
 .gen.hm{text-decoration:none}
 

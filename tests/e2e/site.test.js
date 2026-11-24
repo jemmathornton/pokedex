@@ -433,7 +433,7 @@
 
   test("her picks from the Try switch (22 Nov): Card art in dark mode Brighter; Shiny #6C7786 and Lucky #B48600; the switch gone", async () => {
     const root = document.documentElement;
-    ok([...document.querySelectorAll(".trybox [data-row]")].every(r => ["gameSwitch", "hyperspace", "mega"].includes(r.dataset.row)) && !("tryArt" in root.dataset) && !("tryBoxes" in root.dataset), "no old Try switch left (only Violet and Z-A’s, 23 Nov)");
+    ok([...document.querySelectorAll(".trybox [data-row]")].every(r => TRY_VZ.some(x => x[0] === r.dataset.row)) && !("tryArt" in root.dataset) && !("tryBoxes" in root.dataset), "no old Try switch left (only Violet and Z-A’s, 23 Nov)");
     const hex = n => getComputedStyle(root).getPropertyValue(`--${n}`).trim().toUpperCase();
     eq(hex("shiny"), "#6C7786", "Shiny a little deeper"); eq(hex("lucky"), "#B48600", "Lucky a little deeper (a middle gold)");
     eq(hex("male"), "#078E5A", "the other boxes as they were"); eq(hex("hundo"), "#D14186"); eq(hex("mega"), "#C2571A");
@@ -450,7 +450,7 @@
   });
 
   test("the art window is tinted by the Pokémon's first type (her pick, 21 Nov); the 21 Nov Try switch is gone", async () => {
-    ok([...document.querySelectorAll(".trybox [data-row]")].every(r => ["gameSwitch", "hyperspace", "mega"].includes(r.dataset.row)), "no games, Form names, Shield’s pictures or Arceus’s boxes Try switch (removed: her picks); only Violet and Z-A’s (23 Nov)");
+    ok([...document.querySelectorAll(".trybox [data-row]")].every(r => TRY_VZ.some(x => x[0] === r.dataset.row)), "no games, Form names, Shield’s pictures or Arceus’s boxes Try switch (removed: her picks); only Violet and Z-A’s (23 Nov)");
     eq(localStorage.getItem("jemmas-pokedex-try-arceusboxes"), null, "the Arceus’s boxes choice cleared");
     eq(localStorage.getItem("jemmas-pokedex-try-secpics"), null, "the Shield’s other pictures choice cleared");
     eq(localStorage.getItem("jemmas-pokedex-try-formnames"), null, "the Form names choice cleared");
@@ -1466,31 +1466,35 @@
     }
   });
 
-  test("TRIAL Try switch Violet and Z-A (24 Nov): Hyperspace’s and Mega Evolution’s pictures, and ways to switch games", async () => {
+  test("TRIAL Try switch Violet and Z-A (24 Nov): switching games, the Mega Evolution picture, region colours, the sidebar highlight and title", async () => {
     const pick = async (row, v) => { click(document.querySelector(`.trybox [data-row="${row}"] [data-v="${v}"]`)); await wait(150); };
     const was = {...tryVz};
     try {
-      eq([...document.querySelectorAll(".trybox [data-row]")].map(r => r.dataset.row), ["gameSwitch", "hyperspace", "mega"], "Violet’s and Lumiose’s rows gone (her picks, 24 Nov)");
-      await go("#vi-gen-kitakami"); ok(/kitakami-1/.test(view().querySelector(".hero").getAttribute("style") || ""), "Kitakami: The Teal Mask art (her pick)");
-      await go("#za-gen-hyperspace");
-      for (const [v, f] of [["hyperspace-2", "hyperspace-2"], ["hyperspace-4", "hyperspace-4"], ["lumiose-night", "lumiose-night-1"], ["hyperspace-3", "hyperspace-3"]]) {
-        await pick("hyperspace", v); ok(new RegExp(f).test(view().querySelector(".hero").getAttribute("style") || ""), `Hyperspace: ${v}`);
-      }
+      eq([...document.querySelectorAll(".trybox [data-row]")].map(r => r.dataset.row), ["gameSwitch", "mega", "rc-1", "rc-2", "rc-3", "rc-4", "rc-6", "rc-7", "rc-8", "rc-9", "navMark", "titleEm"], "this round’s rows");
+      await go("#za-gen-hyperspace"); ok(/hyperspace-2/.test(view().querySelector(".hero").getAttribute("style") || ""), "Hyperspace: the clearer distortion (her pick)");
       await go("#za-gen-mega");
-      await pick("mega", "mega"); ok(/mega-1/.test(view().querySelector(".hero").getAttribute("style") || "") && view().querySelector(".hero.ratio"), "Mega Stones, whole (a 16:9 picture area)");
-      await pick("mega", "mega-3"); ok(/mega-3/.test(view().querySelector(".hero").getAttribute("style") || ""), "Mega Evolution: the Key Stone");
+      await pick("mega", "mega-big"); ok(/mega-big-1/.test(view().querySelector(".hero").getAttribute("style") || "") && view().querySelector(".hero.ratio"), "the big stone, whole");
+      await pick("mega", "mega-3"); ok(/mega-3/.test(view().querySelector(".hero").getAttribute("style") || ""), "the Key Stone");
+      await go("#vi-gen-paldea"); await pick("rc-9", "#6A3D9A");
+      eq(getComputedStyle(document.documentElement).getPropertyValue("--rc").trim().toUpperCase(), "#6A3D9A", "Paldea Violet, Violet’s lists too");
+      await pick("rc-9", "#B3261E"); eq(getComputedStyle(document.documentElement).getPropertyValue("--rc").trim().toUpperCase(), "#B3261E", "Scarlet");
+      await go("#sh-gen-galar"); await pick("rc-8", "#A3283E"); eq(getComputedStyle(document.documentElement).getPropertyValue("--rc").trim().toUpperCase(), "#A3283E", "Shield’s lists Galar’s Shield red");
+      await go("#gen-8"); eq(getComputedStyle(document.documentElement).getPropertyValue("--rc").trim().toUpperCase(), "#A3283E", "GO’s Galar the same");
+      await pick("navMark", "#1A1214"); ok(/26, 18, 20|1a1214/i.test(getComputedStyle(nav.querySelector("a.on")).boxShadow), "sidebar highlight black");
+      await pick("titleEm", "#1A1214"); eq(getComputedStyle(document.querySelector(".brand b em")).color, "rgb(26, 18, 20)", "“Pokédex” black");
+      await pick("titleEm", "inherit"); ok(getComputedStyle(document.querySelector(".brand b em")).color !== "rgb(26, 18, 20)", "or white as now");
       await go("#za");
-      await pick("gameSwitch", "more");
-      eq([...document.querySelectorAll(".game-switch a")].map(a => a.textContent), ["HOME", "GO", "Z-A"], "Toggle + More: HOME, GO and the game shown");
-      const more = document.querySelector("[data-gamemenu]"); click(more); await wait(100);
-      eq([...document.querySelectorAll(".game-menu a")].map(a => a.textContent), ["Pokémon Shield", "Pokémon Legends: Arceus", "Pokémon Violet"], "More: the rest, full names");
-      document.dispatchEvent(new KeyboardEvent("keydown", {key: "Escape"})); await wait(50); ok(document.querySelector(".game-menu").hidden, "Escape closes it");
-      for (const v of ["wrap", "radio", "rows"]) {
-        await pick("gameSwitch", v); const el = document.querySelector(".games .game-switch, .games .game-chips");
-        ok(el && el.children.length === 6 && el.scrollWidth <= el.clientWidth + 1, `${v}: all six, fitting`);
+      for (const v of ["label", "divided", "dots"]) {
+        await pick("gameSwitch", v); const el = document.querySelector(".games .game-switch");
+        ok(el && el.children.length === 6 && el.scrollWidth <= el.clientWidth + 1 && el.querySelector("a[aria-current]").textContent === "Z-A", `${v}: all six, fitting, Z-A chosen`);
       }
-      eq(JSON.parse(localStorage.getItem(TRY_VZ_KEY)).gameSwitch, "rows", "kept");
-    } finally { tryVz = was; store.set(TRY_VZ_KEY, was); rerender(); }
+      ok(document.querySelector(".games .gt-head") === null, "the heading only with its own option");
+      await pick("gameSwitch", "label"); ok(document.querySelector(".games .gt-head") && document.querySelector(".game-switch a[aria-current] svg"), "heading and a tick on the game shown");
+      await pick("gameSwitch", "more"); click(document.querySelector("[data-gamemenu]")); await wait(100);
+      eq(document.querySelectorAll(".game-menu a").length, 3, "Toggle + More: the rest in a list");
+      document.dispatchEvent(new KeyboardEvent("keydown", {key: "Escape"})); await wait(50);
+      eq(JSON.parse(localStorage.getItem(TRY_VZ_KEY)).gameSwitch, "more", "kept");
+    } finally { tryVz = was; store.set(TRY_VZ_KEY, was); tryVzApply(); rerender(); }
   });
 
   test("one picture for a Pokémon in both games (her question, 22 Nov): GO's own, HOME's only where GO's files have none", async () => {
@@ -1579,7 +1583,7 @@
     await wait(500);
     const out = [];
     for (const [name, fn, known] of tests) {
-      try { useGame("go"); if (!/TRIAL Try switch Violet/.test(name)) tryVz = {...tryVz, gameSwitch: "rows"};   // the switch's own test tries every way; the rest use the buttons (TRIAL, 24 Nov)
+      try { useGame("go"); if (!/TRIAL Try switch Violet/.test(name)) { tryVz = {...tryVz, gameSwitch: "label", titleEm: "inherit"}; tryVzApply(); }   // the switch's own test tries every way; the rest use the buttons (TRIAL, 24 Nov)
         await fn(); out.push(known ? {name, ok: false, error: `passes now: take it off knownBug (${known})`} : {name, ok: true}); }
       catch (e) {
         if (known) out.push({name, ok: true, known: `${known} [${String(e && e.message || e).slice(0, 200)}]`});

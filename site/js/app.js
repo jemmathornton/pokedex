@@ -429,23 +429,25 @@ function card(e, more = "", inForms = false, forms = null){
 const REGION_COLOURS = {"1": "#A3302A", "2": "#8E6A0E", "3": "#16618A", "4": "#5B4B94", "5": "#36353D", "6": "#2B55A3",
   "7": "#B5531C", "8": "#6E2D82", "hisui": "#3C6150", "9": "#952F57"};
 document.documentElement.dataset.look = "mix";
-const setRegion = g => document.documentElement.style.setProperty("--rc", REGION_COLOURS[g] || (g && bySections() && secById(g) || {}).colour || GAME_COLOUR);   // a page with no region: the game's own colour
+// each game after HOME takes its region's colour for all its lists (DLC lists their own later: her note, 24 Nov)
+const GAME_REGION = {shield: "8", arceus: "hisui", violet: "9", za: "6"};
+const colourOf = g => REGION_COLOURS[g] || (g && bySections() && secById(g) ? REGION_COLOURS[GAME_REGION[GAME]] || secById(g).colour : null) || GAME_COLOUR;
+const setRegion = g => document.documentElement.style.setProperty("--rc", colourOf(g));   // a page with no region: the game's own colour
 const REGION_CHOSEN = {"1": "kanto-map-2.jpg", "2": "johto-map-1.jpg", "3": "hoenn-map-2.jpg", "4": "sinnoh-map-3.jpg", "5": "unova-map-2.jpg", "6": "kalos-map-2.jpg", "7": "alola-map-1.jpg", "8": "galar-map-1.jpg", "hisui": "hisui-map-1.jpg", "9": "paldea-map-1.jpg", "isle-of-armor": "isle-of-armor-1.jpg", "crown-tundra": "crown-tundra-1.jpg",
   // Violet's DLCs and Legends: Z-A (23 Nov, downloaded with her yes: “Do it if you can”): The Teal Mask's and The Indigo Disk's key art
   // (scarletviolet.pokemon.com, 960 × 553; no official maps of Kitakami or the Terarium), the official Lumiose City map
   // (legends.pokemon.com, 2336 × 1642) and two Mega Dimension pictures from its official page (1920 × 1080)
-  "kitakami": "kitakami-1.jpg", "blueberry": "blueberry-1.jpg", "lumiose": "lumiose-map-1.jpg", "hyperspace": "hyperspace-1.jpg", "mega": "mega-1.jpg",
-  // more for Hyperspace and Mega Evolution (24 Nov, her asks: “is there better art or something for hyperspace or mega dlc?”, then
-  // “distortion is good for hyperspace but not sure if that's best quality pic”, “I like the mega stones idea but the pic is really badly
-  // cropped find others”): from Nintendo's pages, the distortion in a cleaner copy (nintendo.com/eu …_NS1_MD_Background.jpg, 1920 × 1359),
-  // a screenshot of Hyperspace Lumiose itself (the Mega Dimension DLC's eShop page, 1280 × 720), the official illustration of Lumiose
-  // at night (…_NS1_Illustration_Night.jpg, 1350 × 777) and a Key Stone starting Mega Evolution (nintendo.com/us, mega-evolved
-  // b-gallery-3, 1130 × 636); from legends.pokemon.com, Hoopa's ring (/images/dlc/p14_01.jpg) and Prism Tower (lumiose-gallery-4)
-  "hyperspace-2": "hyperspace-2.jpg", "hyperspace-3": "hyperspace-3.jpg", "hyperspace-4": "hyperspace-4.jpg", "lumiose-night": "lumiose-night-1.jpg",
-  "mega-2": "mega-2.jpg", "mega-3": "mega-3.jpg"};   // her picks: the official painted region maps (12 Nov; she switched from scenery)
+  "kitakami": "kitakami-1.jpg", "blueberry": "blueberry-1.jpg", "lumiose": "lumiose-map-1.jpg", "hyperspace": "hyperspace-2.jpg", "mega": "mega-1.jpg",
+  // Hyperspace: the distortion in Nintendo's cleaner copy (her pick, 24 Nov: “The better distortion pick is better”; nintendo.com/eu
+  // …/nswitch_pokemonlegendsza_1/CI_NSwitch_Pokemon_Legends_ZA_NS1_MD_Background.jpg, 1920 × 1359). Mega Evolution (TRIAL, her
+  // notes: “I like the mega stones idea but the pic is really badly cropped”, “maybe it's the cropping or the angle?”): the Mega
+  // Stones shown whole or just the big one (a square cut from the same picture; no other official picture of the stones exists that
+  // I found), a Key Stone starting Mega Evolution (nintendo.com/us, mega-evolved b-gallery-3, 1130 × 636) or Prism Tower
+  // (legends.pokemon.com lumiose-gallery-4)
+  "mega-big": "mega-big-1.jpg", "mega-2": "mega-2.jpg", "mega-3": "mega-3.jpg"};   // her picks: the official painted region maps (12 Nov; she switched from scenery)
 // which part of a picture the banner shows, where the middle isn't the best part (12 Nov: Kanto's Route 1 was nearly all sky):
 // a closer crop towards the ground; the picture itself is unchanged
-const SHOT_FIT = {"hyperspace-2.jpg": "center/cover", "hyperspace-3.jpg": "center 45%/cover", "hyperspace-4.jpg": "center 40%/cover", "lumiose-night-1.jpg": "center 35%/cover",
+const SHOT_FIT = {"hyperspace-2.jpg": "center/cover", "mega-big-1.jpg": "center/cover",
   "mega-2.jpg": "center 40%/cover", "mega-3.jpg": "center 35%/cover", "kitakami-1.jpg": "center 30%/cover", "blueberry-1.jpg": "center 35%/cover", "lumiose-map-1.jpg": "center 50%/cover", "hyperspace-1.jpg": "center 40%/cover", "mega-1.jpg": "center/cover", "isle-of-armor-1.jpg": "center 60%/cover", "crown-tundra-1.jpg": "center 35%/cover", "kanto-map-2.jpg": "center/cover", "johto-map-1.jpg": "center/cover", "hoenn-map-2.jpg": "center/cover", "unova-map-2.jpg": "center/cover", "galar-map-1.jpg": "center 45%/cover", "hisui-map-1.jpg": "50% 50%/112% auto", "paldea-map-1.jpg": "center/cover", "sinnoh-map-3.jpg": "50% 48%/118% auto", "kalos-map-2.jpg": "center/cover", "alola-map-1.jpg": "center 45%/cover"};   // maps: the middle; Hisui closer, so its parchment edge is cut off (her ask, 12 Nov)   // maps: the middle
 // Shield's Isle of Armor and Crown Tundra: the official paintings (swordshield.pokemon.com, downloaded with her yes, 23 Nov; the
 // official site has no map of either; her pick over Galar's map, 23 Nov), in REGION_CHOSEN above so tools/make_home_maps.py makes
@@ -459,23 +461,49 @@ const SHOT_FIT = {"hyperspace-2.jpg": "center/cover", "hyperspace-3.jpg": "cente
 // it isn't obvious you only select one. The rows was good as it looked like a toggle before there were too many”).
 const TRY_VZ_KEY = "jemmas-pokedex-try-violetza";
 const TRY_VZ = [
-  ["gameSwitch", "Switching games", [["more", "Toggle + More"], ["wrap", "Toggle that wraps"], ["radio", "Chips with dots"], ["rows", "Two rows"]], "more"],
-  ["hyperspace", "Hyperspace", [["hyperspace-2", "Distortion (clearer)"], ["hyperspace-4", "Hyperspace Lumiose"], ["lumiose-night", "Lumiose at night"], ["hyperspace-3", "Hoopa’s ring"]], "hyperspace-2"],
-  ["mega", "Mega Evolution", [["mega", "Mega Stones (whole)"], ["mega-3", "Key Stone"], ["mega-2", "Prism Tower"], ["lumiose-night", "Lumiose at night"]], "mega"],
+  // her notes, 24 Nov: “I like the idea of a wrapping toggle but it just doesn't seem clear what it is to me”
+  ["gameSwitch", "Switching games", [["label", "Toggle with a heading"], ["divided", "Toggle with lines"], ["dots", "Toggle with dots"], ["more", "Toggle + More"]], "label"],
+  ["mega", "Mega Evolution", [["mega-big", "The big stone"], ["mega", "Both stones, whole"], ["mega-3", "Key Stone"], ["mega-2", "Prism Tower"]], "mega-big"],
+  // the region colours (her note, 24 Nov: “some are obvious and some aren't … sword and shield weren't the more blue and red? … when I
+  // pick a single on wouldn't it be better to prioritise violet over scarlet?”): each region's versions' colours; my suggestion (not
+  // decided) first: the version she plays (Shield, Violet), otherwise the first one named. Unova stays black (White can't hold white
+  // writing) and Hisui forest green (one game).
+  ["rc-1", "Kanto · Red, Blue", [["#A3302A", "Red (as now)"], ["#1F4E9C", "Blue"]], "#A3302A"],
+  ["rc-2", "Johto · Gold, Silver", [["#8E6A0E", "Gold (as now)"], ["#5F6770", "Silver"], ["#1F6F8B", "Crystal"]], "#8E6A0E"],
+  ["rc-3", "Hoenn · Ruby, Sapphire", [["#9B1B30", "Ruby"], ["#16618A", "Sapphire (as now)"], ["#1B7048", "Emerald"]], "#9B1B30"],
+  ["rc-4", "Sinnoh · Diamond, Pearl", [["#2F5D9E", "Diamond"], ["#9C4A7A", "Pearl"], ["#5E6670", "Platinum"], ["#5B4B94", "Violet (as now)"]], "#2F5D9E"],
+  ["rc-6", "Kalos · X, Y", [["#2B55A3", "X (as now)"], ["#A3283A", "Y"]], "#2B55A3"],
+  ["rc-7", "Alola · Sun, Moon", [["#B5531C", "Sun (as now)"], ["#4B3F8F", "Moon"]], "#B5531C"],
+  ["rc-8", "Galar · Sword, Shield", [["#A3283E", "Shield"], ["#1E5FA8", "Sword"], ["#6E2D82", "Purple (as now)"]], "#A3283E"],
+  ["rc-9", "Paldea · Scarlet, Violet", [["#6A3D9A", "Violet"], ["#B3261E", "Scarlet"], ["#952F57", "Scarlet-violet (as now)"]], "#6A3D9A"],
+  // her notes, 24 Nov: “Why gold accent? I think it should be white or back”, and the title's “Pokédex” black, not white
+  ["navMark", "Sidebar highlight", [["#FFFFFF", "White"], ["#1A1214", "Black"], ["gold", "Gold (as now)"]], "#FFFFFF"],
+  ["titleEm", "“Pokédex” in the title", [["#1A1214", "Black"], ["inherit", "White (as now)"]], "#1A1214"],
 ];
 let tryVz = store.get(TRY_VZ_KEY, {});
 if (!tryVz || typeof tryVz !== "object" || Array.isArray(tryVz)) tryVz = {};
 const tryPick = id => { const row = TRY_VZ.find(r => r[0] === id); if (!row) return null; return row[2].some(([k]) => k === tryVz[id]) ? tryVz[id] : row[3]; };
-const tryPicKey = k => TRY_VZ.some(r => r[0] === k && r[0] !== "gameSwitch") ? tryPick(k) : k;   // a picture's map key, as picked
+const tryPicKey = k => k === "mega" ? tryPick("mega") : k;   // the Mega Evolution list's picture, as picked
+function tryVzApply(){   // the colour rows: the region colours and the two CSS colours
+  for (const [id] of TRY_VZ) if (id.startsWith("rc-")) REGION_COLOURS[id.slice(3)] = tryPick(id);
+  const mark = tryPick("navMark"), root = document.documentElement.style;
+  root.setProperty("--nav-mark", mark === "gold" ? "var(--accent)" : mark);
+  root.setProperty("--title-em", tryPick("titleEm"));
+}
+tryVzApply();
 (function tryBox(){
   const box = document.createElement("div"); box.className = "trybox"; box.setAttribute("role", "group"); box.setAttribute("aria-label", "Try");
+  let folded = matchMedia("(max-width: 900px)").matches;   // folded away on phones and narrow windows: its rows would cover the page
   const draw = () => {
-    box.innerHTML = `<b>Try: Violet and Z-A</b>` + TRY_VZ.map(([id, name, opts]) => `<div class="tryrow" role="group" aria-label="${name}" data-row="${id}"><span>${name}</span>` +
-      opts.map(([k, l]) => `<button type="button" data-v="${k}" aria-pressed="${tryPick(id) === k}">${l}</button>`).join("") + `</div>`).join("");
+    box.classList.toggle("folded", folded);
+    box.innerHTML = `<button type="button" class="try-fold" aria-expanded="${!folded}">Try${ic("chevron-down")}</button>` + TRY_VZ.map(([id, name, opts]) => `<div class="tryrow" role="group" aria-label="${name}" data-row="${id}"><span>${name}</span>` +
+      opts.map(([k, l]) => `<button type="button" data-v="${k}" aria-pressed="${tryPick(id) === k}">${/^#/.test(k) ? `<i class="sw" style="background:${k}"></i>` : ""}${l}</button>`).join("") + `</div>`).join("");
   };
   const pad = () => document.documentElement.style.setProperty("--trypad", box.offsetHeight + 24 + "px");   // room under the page on phones (site.css)
-  box.addEventListener("click", ev => { const b = ev.target.closest("[data-v]"); if (!b) return; const id = b.closest("[data-row]").dataset.row;
-    tryVz = {...tryVz, [id]: b.dataset.v}; store.set(TRY_VZ_KEY, tryVz); draw(); rerender();
+  box.addEventListener("click", ev => {
+    if (ev.target.closest(".try-fold")) { folded = !folded; draw(); box.querySelector(".try-fold").focus(); return pad(); }
+    const b = ev.target.closest("[data-v]"); if (!b) return; const id = b.closest("[data-row]").dataset.row;
+    tryVz = {...tryVz, [id]: b.dataset.v}; store.set(TRY_VZ_KEY, tryVz); tryVzApply(); draw(); cardMemo.clear(); rerender();
     box.querySelector(`[data-row="${id}"] [data-v="${b.dataset.v}"]`)?.focus(); pad(); });
   draw(); document.body.append(box);
   pad(); addEventListener("resize", pad);
@@ -492,7 +520,9 @@ document.addEventListener("keydown", ev => { const m = document.querySelector(".
 // ===== TRIAL: Try switch "Violet and Z-A", END =====
 // a narrower picture shown less zoomed in: the banner's picture area takes this shape (width / height), so more of it shows and
 // it still blends softly into the colour on the left (12 Nov: Johto looked too zoomed in)
-const SHOT_RATIO = {"mega-1.jpg": "16/9"};   // the Mega Stones whole, not cut through (her note, 24 Nov: “really badly cropped”)
+const SHOT_RATIO = {"mega-1.jpg": "16/9", "mega-big-1.jpg": "1/1"};   // the Mega Stones whole, not cut through (her note, 24 Nov: “really badly cropped”)
+// and on a card's picture plate too: the whole picture on a band of its own background colour (TRIAL, with the Mega pictures)
+const PLATE_FIT = {"mega-1.jpg": "#3B2A78", "mega-big-1.jpg": "#3B2A78"};
 // ?fit=, ?ratio= and ?pic= are for pictures of options only. Anything from the address is checked against a strict format before
 // it is used, and escaped too (round 4 review, 22 Nov: a crafted link could break out of the style attribute and run script)
 const TRY = new URLSearchParams(location.search);
@@ -1594,7 +1624,7 @@ function gameNavHtml(route, link, regions, more){
   const game = gameOf(route), all = route === "games";
   brandSmall.textContent = GAMES.find(g => g.id === game).name; brandSmall.hidden = true;   // the switch shows the game
   const cur = g => g.id === game && !all;
-  const look = tryPick("gameSwitch");   // TRIAL: the Try switch "Switching games" (24 Nov): Toggle + More · Toggle that wraps · Chips with dots · Two rows
+  const look = tryPick("gameSwitch");   // TRIAL: the Try switch "Switching games" (24 Nov): Toggle with a heading · with lines · with dots · Toggle + More
   const seg = g => `<a href="${g.href}" style="--gc:${g.colour}"${cur(g) ? ' aria-current="true"' : ""}>${esc(g.short)}</a>`;
   // Toggle + More: HOME and GO always, the game shown if it's another, then More for the rest in a list (any number of games)
   const shown = GAMES.filter(g => g.id === "home" || g.id === "go" || cur(g)), rest = GAMES.filter(g => !shown.includes(g));
@@ -1602,8 +1632,9 @@ function gameNavHtml(route, link, regions, more){
     look === "more" ? `<div class="game-switch" role="group" aria-label="Game" style="grid-template-columns:repeat(${shown.length + 1},auto)">${shown.map(seg).join("")}` +
       `<button type="button" class="game-more" data-gamemenu aria-expanded="false" aria-haspopup="true">More${ic("chevron-down")}</button></div>` +
       `<div class="game-menu" hidden>${rest.map(g => `<a href="${g.href}">${esc(g.name)}</a>`).join("")}</div>` :
-    look === "wrap" ? `<div class="game-switch wrap" role="group" aria-label="Game">${GAMES.map(seg).join("")}</div>` :
-    look === "radio" ? `<div class="game-chips radio" role="group" aria-label="Game">${GAMES.map(g => `<a href="${g.href}"${cur(g) ? ' aria-current="true"' : ""}>${esc(g.short)}</a>`).join("")}</div>` :
+    look === "label" ? `<div class="game-toggle"><span class="gt-head">${ic("layers")}Game</span><div class="game-switch wrap labelled" role="group" aria-label="Game">${GAMES.map(g => `<a href="${g.href}" style="--gc:${g.colour}"${cur(g) ? ' aria-current="true"' : ""}>${cur(g) ? ic("check") : ""}${esc(g.short)}</a>`).join("")}</div></div>` :
+    look === "divided" ? `<div class="game-switch wrap divided" role="group" aria-label="Game">${GAMES.map(seg).join("")}</div>` :
+    look === "dots" ? `<div class="game-switch wrap dots" role="group" aria-label="Game">${GAMES.map(seg).join("")}</div>` :
     `<div class="game-switch rows" role="group" aria-label="Game" style="grid-template-columns:repeat(${GAMES.length > 4 ? 3 : GAMES.length},1fr)">${GAMES.map(g => `<a href="${g.href}" style="--gc:${g.colour}"${cur(g) ? ' aria-current="true"' : ""}>${esc(g.short)}</a>`).join("")}</div>`);
   if (game !== "go") return `<div class="nav-group">${link("#" + GAME_HOME[game], "house", "Home")}${link(R("dex"), "layout-grid", "Every Pokémon", groupByNumber(ENTRIES).length)}</div>${regions}${more}`;
   return `<div class="nav-group">${link("#go", "house", "Home")}${link("#dex", "layout-grid", "Every Pokémon", groupByNumber(ENTRIES).length)}</div>${regions}${more}`;
@@ -1613,7 +1644,7 @@ const DEX_RANGE = {"1": [1, 151], "2": [152, 251], "3": [252, 386], "4": [387, 4
 const dexNo = n => "#" + String(n).padStart(4, "0");
 const PH = `<span class="stamp">Placeholder</span>`;
 const regionMapPlate = g => { const fs = mapFiles(g); if (!fs.length) return "";
-  return fs.length === 1 ? `<span class="genmap" aria-hidden="true" style="--pic:url('${homeCopy(fs[0])}')"></span>`
+  return fs.length === 1 ? `<span class="genmap" aria-hidden="true" style="--pic:url('${homeCopy(fs[0])}')${PLATE_FIT[fs[0]] ? `;--platesize:contain;--platebg:${PLATE_FIT[fs[0]]}` : ""}"></span>`
     : `<span class="genmap multi" aria-hidden="true">${fs.map(f => `<i style="--pic:url('${homeCopy(f)}')"></i>`).join("")}</span>`; };   // several side by side (Shield's Bonus Pokémon, Dynamax Adventures, HOME Transfers)
 const statRow = (name, icon, have, of, col) => `<span class="rl" style="--c:${col}">${ic(icon)}${name}</span><span class="bar" style="--c:${col}">${of ? `<i style="width:${have / of * 100}%"></i>` : ""}</span><span class="v">${of ? `${num(have)} / ${num(of)}` : PH}</span>`;
 const secRange = g => { if (DEX_RANGE[g] && !bySections()) return `${dexNo(DEX_RANGE[g][0])}–${dexNo(DEX_RANGE[g][1])}`;   // a region's National numbers; a Pokédex's own (Galar #001–#400); a list without numbers: how many
@@ -1658,7 +1689,7 @@ function hmHome(){   // a game's Home (HOME, Shield…): its totals and a card p
   let gens = "";
   for (const s of secShown()) {
     const k = counts(secEntries(s.id));
-    gens += `<a class="gen" href="${R("gen-" + s.id)}" style="--rc:${REGION_COLOURS[s.id] || s.colour || GAME_COLOUR}">${regionMapPlate(s.id)}${regionHead(s.id, s.name, s.small)}<div class="rows">` +
+    gens += `<a class="gen" href="${R("gen-" + s.id)}" style="--rc:${colourOf(s.id)}">${regionMapPlate(s.id)}${regionHead(s.id, s.name, s.small)}<div class="rows">` +
       statRow("Pokémon", "poke-ball", k.species, k.speciesAll, "var(--caught)") + statRow("Shiny", "sparkles", k.shiny, k.shinyOut, "var(--shiny)") + `</div></a>`;
   }
   setRegion(null);
