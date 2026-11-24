@@ -342,9 +342,11 @@
     ok(!/Lucky|4★|Placeholder/.test(view().querySelector(".allgame").textContent), "HOME's card has real figures and no Lucky or 4★");
     eq(view().querySelector(".allgame .v").textContent, `${num(hk.species)} / ${num(hk.speciesAll)}`, "HOME's card counts as HOME's Home");
     ok(!view().querySelector(".card, img[src*='sprites/']"), "no Pokémon on All games");
+    eq(getComputedStyle(view().querySelector(".hero h1.dex-title em")).color, "rgb(26, 18, 20)", "“Pokédex” black in the banner's title (her pick, 24 Nov)");
+    ok(/26, 18, 20/.test(getComputedStyle(document.querySelector(".games a.allgames.on")).boxShadow), "the highlight black (her pick, 24 Nov)");
     await go("#gen-1"); ok(document.querySelector('.games a.allgames[href="#games"]:not(.on)'), "the link is there on every page");
     eq(document.querySelector('.game-switch a[aria-current]').textContent, "GO", "a GO page shows GO");
-    eq(getComputedStyle(document.querySelector(".brand b em")).color, getComputedStyle(document.querySelector(".brand b")).color, "the italic Pokédex not yellow (her note, 22 Nov)");
+    eq(getComputedStyle(document.querySelector(".brand b em")).color, "rgb(26, 18, 20)", "the italic Pokédex black, not yellow (her notes, 22 and 24 Nov)");
   });
 
   test("her answers (21 Nov): Hide ones I have is off when the app opens; a search shows everything matching; foil only with Shiny ticked", async () => {
@@ -1466,23 +1468,33 @@
     }
   });
 
-  test("TRIAL Try switch Violet and Z-A (24 Nov): switching games, the Mega Evolution picture, region colours, the sidebar highlight and title", async () => {
+  test("TRIAL Try switch Violet and Z-A (24 Nov): switching games, the Mega Evolution picture, region colours, two colours on cards and banners", async () => {
     const pick = async (row, v) => { click(document.querySelector(`.trybox [data-row="${row}"] [data-v="${v}"]`)); await wait(150); };
     const was = {...tryVz};
     try {
-      eq([...document.querySelectorAll(".trybox [data-row]")].map(r => r.dataset.row), ["gameSwitch", "mega", "rc-1", "rc-2", "rc-3", "rc-4", "rc-6", "rc-7", "rc-8", "rc-9", "navMark", "titleEm"], "this round’s rows");
+      eq([...document.querySelectorAll(".trybox [data-row]")].map(r => r.dataset.row), ["gameSwitch", "mega", "rc-1", "rc-2", "rc-3", "rc-4", "rc-5", "rc-6", "rc-7", "rc-8", "rc-hisui", "rc-9", "twoCards", "twoBanner"], "this round’s rows");
       await go("#za-gen-hyperspace"); ok(/hyperspace-2/.test(view().querySelector(".hero").getAttribute("style") || ""), "Hyperspace: the clearer distortion (her pick)");
       await go("#za-gen-mega");
-      await pick("mega", "mega-big"); ok(/mega-big-1/.test(view().querySelector(".hero").getAttribute("style") || "") && view().querySelector(".hero.ratio"), "the big stone, whole");
-      await pick("mega", "mega-3"); ok(/mega-3/.test(view().querySelector(".hero").getAttribute("style") || ""), "the Key Stone");
-      await go("#vi-gen-paldea"); await pick("rc-9", "#6A3D9A");
-      eq(getComputedStyle(document.documentElement).getPropertyValue("--rc").trim().toUpperCase(), "#6A3D9A", "Paldea Violet, Violet’s lists too");
-      await pick("rc-9", "#B3261E"); eq(getComputedStyle(document.documentElement).getPropertyValue("--rc").trim().toUpperCase(), "#B3261E", "Scarlet");
-      await go("#sh-gen-galar"); await pick("rc-8", "#A3283E"); eq(getComputedStyle(document.documentElement).getPropertyValue("--rc").trim().toUpperCase(), "#A3283E", "Shield’s lists Galar’s Shield red");
-      await go("#gen-8"); eq(getComputedStyle(document.documentElement).getPropertyValue("--rc").trim().toUpperCase(), "#A3283E", "GO’s Galar the same");
-      await pick("navMark", "#1A1214"); ok(/26, 18, 20|1a1214/i.test(getComputedStyle(nav.querySelector("a.on")).boxShadow), "sidebar highlight black");
-      await pick("titleEm", "#1A1214"); eq(getComputedStyle(document.querySelector(".brand b em")).color, "rgb(26, 18, 20)", "“Pokédex” black");
-      await pick("titleEm", "inherit"); ok(getComputedStyle(document.querySelector(".brand b em")).color !== "rgb(26, 18, 20)", "or white as now");
+      for (const v of ["mega-4", "mega-5", "mega-6", "mega-7", "mega-8"]) { await pick("mega", v);
+        ok(new RegExp(v + "\.").test(view().querySelector(".hero").getAttribute("style") || "") && !view().querySelector(".hero.ratio"), `${v}: fills the banner`); }
+      await go("#za"); ok(/mega-8/.test(view().querySelector('.gen[href="#za-gen-mega"] .genmap').getAttribute("style")), "and the card on Z-A’s Home");
+      await go("#za-gen-mega"); await pick("mega", "mega-big"); ok(/mega-big-1/.test(view().querySelector(".hero").getAttribute("style") || "") && view().querySelector(".hero.ratio"), "the big stone, whole");
+      const opts = row => [...document.querySelectorAll(`.trybox [data-row="${row}"] [data-v]`)].map(b => b.dataset.v);
+      const two = () => ["--rc", "--rc2"].map(v => getComputedStyle(document.documentElement).getPropertyValue(v).trim().toUpperCase()).join("+");
+      await go("#vi-gen-paldea"); const [pair9, one9] = opts("rc-9"); ok(pair9.includes("+") && !one9.includes("+"), "Paldea: two colours first, then one");
+      await pick("rc-9", pair9); eq(two(), pair9.toUpperCase(), "Paldea's two colours, Violet's lists too");
+      await pick("rc-9", one9); eq(two(), `${one9}+${one9}`.toUpperCase(), "one colour: the same twice");
+      await go("#sh-gen-galar"); const pair8 = opts("rc-8")[0]; await pick("rc-8", pair8); eq(two(), pair8.toUpperCase(), "Shield's lists Galar's two");
+      await go("#gen-8"); eq(two(), pair8.toUpperCase(), "GO's Galar the same");
+      const frame = () => { const c = getComputedStyle(view().querySelector(".card")); return /linear-gradient/.test(c.backgroundImage) && c.borderTopColor === "rgba(0, 0, 0, 0)"; };
+      for (const v of ["diag", "side", "corners", "blend"]) { await pick("twoCards", v); ok(frame(), `cards: ${v}, the frame in two colours`); }
+      await pick("twoCards", "inner"); ok(!frame() && /inset/.test(getComputedStyle(view().querySelector(".card")).boxShadow), "or a line of the second inside");
+      await pick("twoCards", "off"); ok(!frame(), "or one colour");
+      for (const v of ["side", "top", "blend"]) { await pick("twoBanner", v); ok(/linear-gradient/.test(getComputedStyle(view().querySelector(".hero")).backgroundImage), `banner: ${v}`); }
+      await pick("twoBanner", "band"); ok(getComputedStyle(view().querySelector(".hero")).borderTopWidth === "12px", "banner: a band along the top");
+      await pick("twoBanner", "off"); ok(!/linear-gradient/.test(getComputedStyle(view().querySelector(".hero")).backgroundImage), "or one colour");
+      await go("#go"); eq(view().querySelector('.gen[href="#gen-8"]').style.getPropertyValue("--rc2").toUpperCase(), pair8.split("+")[1].toUpperCase(), "GO's region cards: their second colour");
+      ok(/26, 18, 20/.test(getComputedStyle(nav.querySelector("a.on")).boxShadow), "the sidebar highlight black (her pick)");
       await go("#za");
       for (const v of ["label", "divided", "dots"]) {
         await pick("gameSwitch", v); const el = document.querySelector(".games .game-switch");
@@ -1583,7 +1595,7 @@
     await wait(500);
     const out = [];
     for (const [name, fn, known] of tests) {
-      try { useGame("go"); if (!/TRIAL Try switch Violet/.test(name)) { tryVz = {...tryVz, gameSwitch: "label", titleEm: "inherit"}; tryVzApply(); }   // the switch's own test tries every way; the rest use the buttons (TRIAL, 24 Nov)
+      try { useGame("go"); if (!/TRIAL Try switch Violet/.test(name)) { tryVz = {...tryVz, gameSwitch: "label"}; tryVzApply(); }   // the switch's own test tries every way; the rest use the buttons (TRIAL, 24 Nov)
         await fn(); out.push(known ? {name, ok: false, error: `passes now: take it off knownBug (${known})`} : {name, ok: true}); }
       catch (e) {
         if (known) out.push({name, ok: true, known: `${known} [${String(e && e.message || e).slice(0, 200)}]`});

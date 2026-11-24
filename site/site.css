@@ -169,7 +169,7 @@ em{font-style:italic}
 .brand{display:block;padding:22px 24px 18px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.08)}
 .home-link + .brand{padding-top:7px}
 .brand b{font:400 32px/1 var(--display);display:block}
-.brand b em{color:var(--title-em,inherit)}   /* the italic word in the title’s own colour, not yellow (her note, 22 Nov: “no yellow is anywhere else for dex”) */
+.brand b em{color:#1A1214}   /* “Pokédex” in the title black (her pick, 24 Nov; 22 Nov: “no yellow is anywhere else for dex”) */
 .brand small{display:block;margin-top:8px;color:var(--on-deep-mute);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
 .search{position:relative;margin:16px 16px 4px}
 .search input{width:100%;padding:9px 12px 9px 36px;border-radius:10px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.07);color:var(--on-deep);outline:none}
@@ -197,7 +197,8 @@ main{margin-left:var(--side);min-height:100vh;container-type:inline-size}
   background:linear-gradient(transparent calc(50% - 14px),rgba(255,255,255,.06) calc(50% - 14px) calc(50% + 14px),transparent calc(50% + 14px))}
 .hero .label{color:var(--on-deep-mute)}
 .hero h1{font-size:clamp(40px,5vw,58px);line-height:1;margin-top:10px}
-.hero h1 em{color:var(--title-em,inherit)}   /* not yellow: her note, 22 Nov */
+.hero h1 em{color:inherit}   /* not yellow: her note, 22 Nov */
+.hero h1.dex-title em{color:#1A1214}   /* the title “Jemma’s Pokédex”: “Pokédex” black (her pick, 24 Nov) */
 .hero p{margin:12px 0 0;color:var(--on-deep-mute);max-width:62ch}
 
 .section{margin-top:34px}
@@ -945,7 +946,7 @@ body{background:var(--stock),linear-gradient(var(--page-hi),var(--page-lo));back
   box-shadow:inset 0 0 18px rgba(0,0,0,.16);overflow:hidden}
 .side::after{content:"";position:absolute;right:0;top:0;bottom:0;width:6px;pointer-events:none;background:linear-gradient(90deg,rgba(0,0,0,0),rgba(0,0,0,.3))}
 .brand{border-bottom:0;background:linear-gradient(rgba(255,226,210,.14),rgba(255,226,210,.14)) 24px 100%/calc(100% - 48px) 1px no-repeat}
-.nav a.on,:root[data-look] .nav a.on{background:rgba(255,240,230,.16);box-shadow:inset 3px 0 0 var(--nav-mark,var(--accent))}
+.nav a.on,:root[data-look] .nav a.on{background:rgba(255,240,230,.16);box-shadow:inset 3px 0 0 #1A1214}   /* the highlight black (her pick, 24 Nov: “Why gold accent?”) */
 .search input{background:rgba(0,0,0,.18);border-color:rgba(255,226,210,.22)}
 
 /* the binder gap: a soft shadow where the page meets the cover, over the banner too */
@@ -1065,7 +1066,7 @@ main{background:linear-gradient(90deg,rgba(70,40,30,.18),rgba(70,40,30,0) 54px) 
   .topbar button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
   .topbar button .i{width:18px;height:18px}
   .topname{font:400 26px/1 var(--display);color:var(--on-deep);text-decoration:none;white-space:nowrap}
-  .topname em{color:inherit}   /* not yellow: her note, 22 Nov */
+  .topname em{color:#1A1214}   /* “Pokédex” black, as in the sidebar (her pick, 24 Nov) */
   .toolbar{top:calc(52px + env(safe-area-inset-top,0px))}
 }
 @media (prefers-reduced-motion:reduce){ .side,.side.jj-open{transition:none} }
@@ -1307,7 +1308,7 @@ main{background:linear-gradient(90deg,rgba(70,40,30,.18),rgba(70,40,30,0) 54px) 
 .allgames{display:flex;align-items:center;gap:8px;margin:0 0 8px;padding:6px 10px;border-radius:8px;color:var(--on-deep);text-decoration:none;font-size:13.5px;font-weight:700}
 .allgames .i{width:16px;height:16px;color:var(--on-deep-mute)}
 .allgames:hover{background:rgba(255,255,255,.07)}
-.allgames.on{background:rgba(255,240,230,.16);box-shadow:inset 3px 0 0 var(--nav-mark,var(--accent))}
+.allgames.on{background:rgba(255,240,230,.16);box-shadow:inset 3px 0 0 #1A1214}   /* the highlight black (her pick, 24 Nov: “Why gold accent?”) */
 .allg{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:20px;max-width:1000px}
 .allgame{padding:16px 20px 18px;border-radius:12px;background:var(--stock),var(--card-stock);color:var(--card-ink);box-shadow:inset 0 5px 0 var(--gc),var(--card-shadow)}
 .allgame h2{font-size:30px;margin:4px 0 10px}
@@ -1325,3 +1326,21 @@ main{background:linear-gradient(90deg,rgba(70,40,30,.18),rgba(70,40,30,0) 54px) 
 .gen .genno{order:-1;margin-top:3px;font:700 11px/1 var(--body);letter-spacing:.08em;color:var(--card-mute);font-variant-numeric:tabular-nums}
 .gen.hm{text-decoration:none}
 
+/* ===== TRIAL: two colours for a region (24 Nov, her idea: “half/half for the two colours”), START: remove with the Try switch ===== */
+/* the second colour (--rc2, app.js secondOf) beside the first (--rc, which still tints the art window and holds the writing) */
+:is(.card,.gen,.monpic){--frame2:color-mix(in srgb,var(--rc2,var(--rc,#7E2530)) var(--frame-amt),var(--frame-mix))}
+.card[data-id]:not(.got):not(.informs):not(.some),.card[data-costume]:not(:has(.tk.c[aria-pressed="true"])),.card.bgcard:not(:has(.tk.c[aria-pressed="true"])){--frame2:var(--faded)}
+/* cards: the frame in two halves (corner to corner, left and right), blended, or the first colour with a line of the second inside it */
+:root[data-two-cards="diag"] :is(.card,.gen,.monpic){--two:linear-gradient(135deg,var(--frame) 50%,var(--frame2) 50%)}
+:root[data-two-cards="side"] :is(.card,.gen,.monpic){--two:linear-gradient(90deg,var(--frame) 50%,var(--frame2) 50%)}
+:root[data-two-cards="blend"] :is(.card,.gen,.monpic){--two:linear-gradient(135deg,var(--frame) 15%,var(--frame2) 85%)}
+:root[data-two-cards="corners"] :is(.card,.gen,.monpic){--two:linear-gradient(135deg,var(--frame2) 46px,var(--frame) 46px calc(100% - 46px),var(--frame2) calc(100% - 46px))}
+:root:is([data-two-cards="diag"],[data-two-cards="side"],[data-two-cards="blend"],[data-two-cards="corners"]) :is(.card,.gen,.monpic):is(*,:hover,.got,.informs){border-color:transparent;
+  background:var(--stock) padding-box,linear-gradient(var(--card-stock),var(--card-stock)) padding-box,var(--two) border-box}
+:root[data-two-cards="inner"] :is(.card,.gen,.monpic):is(*,.got,.informs){box-shadow:inset 0 0 0 3px var(--frame2),var(--card-shadow)}
+/* the banner's plain part (left of the map): the second colour beside the first, slanted; below it; or blended into it */
+:root[data-look][data-two-banner="side"] .hero.withshot{background:linear-gradient(104deg,color-mix(in srgb,var(--rc) 85%,#000) 30%,color-mix(in srgb,var(--rc2,var(--rc)) 85%,#000) 30%)}
+:root[data-look][data-two-banner="top"] .hero.withshot{background:linear-gradient(180deg,color-mix(in srgb,var(--rc) 85%,#000) 58%,color-mix(in srgb,var(--rc2,var(--rc)) 85%,#000) 58%)}
+:root[data-look][data-two-banner="blend"] .hero.withshot{background:linear-gradient(100deg,color-mix(in srgb,var(--rc) 85%,#000) 12%,color-mix(in srgb,var(--rc2,var(--rc)) 85%,#000) 40%)}
+:root[data-look][data-two-banner="band"] .hero.withshot{border-top:12px solid;border-image:linear-gradient(90deg,color-mix(in srgb,var(--rc) 85%,#000) 50%,color-mix(in srgb,var(--rc2,var(--rc)) 85%,#000) 50%) 1}
+/* ===== TRIAL: two colours, END ===== */

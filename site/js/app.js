@@ -432,7 +432,11 @@ document.documentElement.dataset.look = "mix";
 // each game after HOME takes its region's colour for all its lists (DLC lists their own later: her note, 24 Nov)
 const GAME_REGION = {shield: "8", arceus: "hisui", violet: "9", za: "6"};
 const colourOf = g => REGION_COLOURS[g] || (g && bySections() && secById(g) ? REGION_COLOURS[GAME_REGION[GAME]] || secById(g).colour : null) || GAME_COLOUR;
-const setRegion = g => document.documentElement.style.setProperty("--rc", colourOf(g));   // a page with no region: the game's own colour
+// TRIAL (24 Nov, her idea: “half/half for the two colours”): a region's second colour, from the Try switch; --rc2 beside --rc
+const REGION_SPLIT = {};
+const regionOf = g => REGION_COLOURS[g] ? g : g && bySections() && secById(g) && REGION_COLOURS[GAME_REGION[GAME]] ? GAME_REGION[GAME] : null;
+const secondOf = g => REGION_SPLIT[regionOf(g)] || colourOf(g);
+const setRegion = g => { const s = document.documentElement.style; s.setProperty("--rc", colourOf(g)); s.setProperty("--rc2", secondOf(g)); };   // a page with no region: the game's own colour
 const REGION_CHOSEN = {"1": "kanto-map-2.jpg", "2": "johto-map-1.jpg", "3": "hoenn-map-2.jpg", "4": "sinnoh-map-3.jpg", "5": "unova-map-2.jpg", "6": "kalos-map-2.jpg", "7": "alola-map-1.jpg", "8": "galar-map-1.jpg", "hisui": "hisui-map-1.jpg", "9": "paldea-map-1.jpg", "isle-of-armor": "isle-of-armor-1.jpg", "crown-tundra": "crown-tundra-1.jpg",
   // Violet's DLCs and Legends: Z-A (23 Nov, downloaded with her yes: “Do it if you can”): The Teal Mask's and The Indigo Disk's key art
   // (scarletviolet.pokemon.com, 960 × 553; no official maps of Kitakami or the Terarium), the official Lumiose City map
@@ -440,15 +444,18 @@ const REGION_CHOSEN = {"1": "kanto-map-2.jpg", "2": "johto-map-1.jpg", "3": "hoe
   "kitakami": "kitakami-1.jpg", "blueberry": "blueberry-1.jpg", "lumiose": "lumiose-map-1.jpg", "hyperspace": "hyperspace-2.jpg", "mega": "mega-1.jpg",
   // Hyperspace: the distortion in Nintendo's cleaner copy (her pick, 24 Nov: “The better distortion pick is better”; nintendo.com/eu
   // …/nswitch_pokemonlegendsza_1/CI_NSwitch_Pokemon_Legends_ZA_NS1_MD_Background.jpg, 1920 × 1359). Mega Evolution (TRIAL, her
-  // notes: “I like the mega stones idea but the pic is really badly cropped”, “maybe it's the cropping or the angle?”): the Mega
-  // Stones shown whole or just the big one (a square cut from the same picture; no other official picture of the stones exists that
-  // I found), a Key Stone starting Mega Evolution (nintendo.com/us, mega-evolved b-gallery-3, 1130 × 636) or Prism Tower
-  // (legends.pokemon.com lumiose-gallery-4)
-  "mega-big": "mega-big-1.jpg", "mega-2": "mega-2.jpg", "mega-3": "mega-3.jpg"};   // her picks: the official painted region maps (12 Nov; she switched from scenery)
+  // notes: “really badly cropped”, “maybe it's the cropping or the angle?”, then “I need better mega evolution pictures as it needs
+  // to fit the landscape box. Do more research”): official pictures in which the Pokémon fits a wide box, each cut to 2:1 around it
+  // so the card's 2.4:1 and the banner both show it whole: Mega Salamence over Lumiose (nintendo.com/us Z-A page, real-time video
+  // still, 2880 × 1521), the Mega Dimension key art of Mega Raichu X and Y (legends.pokemon.com /images/dlc/buynow_dlc_mediumup.jpg,
+  // 2328 × 1500), Mega Hawlucha (nintendo.com/us Switch 2 Edition page, mega-evolved top-gallery mega-hawlucha-2x, 1640 × 922),
+  // Victreebel Mega Evolving (…/mega-victreebel-2x, 1640 × 922), Mega Gardevoir by Prism Tower (legends.pokemon.com
+  // /images/homepage/mega-img-2x.jpg, 2880 × 1690); and the big Mega Stone as now (a square cut from /images/dlc/p14_02.jpg)
+  "mega-big": "mega-big-1.jpg", "mega-4": "mega-4.jpg", "mega-5": "mega-5.jpg", "mega-6": "mega-6.jpg", "mega-7": "mega-7.jpg", "mega-8": "mega-8.jpg"};   // her picks: the official painted region maps (12 Nov; she switched from scenery)
 // which part of a picture the banner shows, where the middle isn't the best part (12 Nov: Kanto's Route 1 was nearly all sky):
 // a closer crop towards the ground; the picture itself is unchanged
 const SHOT_FIT = {"hyperspace-2.jpg": "center/cover", "mega-big-1.jpg": "center/cover",
-  "mega-2.jpg": "center 40%/cover", "mega-3.jpg": "center 35%/cover", "kitakami-1.jpg": "center 30%/cover", "blueberry-1.jpg": "center 35%/cover", "lumiose-map-1.jpg": "center 50%/cover", "hyperspace-1.jpg": "center 40%/cover", "mega-1.jpg": "center/cover", "isle-of-armor-1.jpg": "center 60%/cover", "crown-tundra-1.jpg": "center 35%/cover", "kanto-map-2.jpg": "center/cover", "johto-map-1.jpg": "center/cover", "hoenn-map-2.jpg": "center/cover", "unova-map-2.jpg": "center/cover", "galar-map-1.jpg": "center 45%/cover", "hisui-map-1.jpg": "50% 50%/112% auto", "paldea-map-1.jpg": "center/cover", "sinnoh-map-3.jpg": "50% 48%/118% auto", "kalos-map-2.jpg": "center/cover", "alola-map-1.jpg": "center 45%/cover"};   // maps: the middle; Hisui closer, so its parchment edge is cut off (her ask, 12 Nov)   // maps: the middle
+  "mega-4.jpg": "center/cover", "mega-5.jpg": "center/cover", "mega-6.jpg": "center/cover", "mega-7.jpg": "center/cover", "mega-8.jpg": "center/cover", "kitakami-1.jpg": "center 30%/cover", "blueberry-1.jpg": "center 35%/cover", "lumiose-map-1.jpg": "center 50%/cover", "hyperspace-1.jpg": "center 40%/cover", "mega-1.jpg": "center/cover", "isle-of-armor-1.jpg": "center 60%/cover", "crown-tundra-1.jpg": "center 35%/cover", "kanto-map-2.jpg": "center/cover", "johto-map-1.jpg": "center/cover", "hoenn-map-2.jpg": "center/cover", "unova-map-2.jpg": "center/cover", "galar-map-1.jpg": "center 45%/cover", "hisui-map-1.jpg": "50% 50%/112% auto", "paldea-map-1.jpg": "center/cover", "sinnoh-map-3.jpg": "50% 48%/118% auto", "kalos-map-2.jpg": "center/cover", "alola-map-1.jpg": "center 45%/cover"};   // maps: the middle; Hisui closer, so its parchment edge is cut off (her ask, 12 Nov)   // maps: the middle
 // Shield's Isle of Armor and Crown Tundra: the official paintings (swordshield.pokemon.com, downloaded with her yes, 23 Nov; the
 // official site has no map of either; her pick over Galar's map, 23 Nov), in REGION_CHOSEN above so tools/make_home_maps.py makes
 // their smaller copies
@@ -463,33 +470,39 @@ const TRY_VZ_KEY = "jemmas-pokedex-try-violetza";
 const TRY_VZ = [
   // her notes, 24 Nov: “I like the idea of a wrapping toggle but it just doesn't seem clear what it is to me”
   ["gameSwitch", "Switching games", [["label", "Toggle with a heading"], ["divided", "Toggle with lines"], ["dots", "Toggle with dots"], ["more", "Toggle + More"]], "label"],
-  ["mega", "Mega Evolution", [["mega-big", "The big stone"], ["mega", "Both stones, whole"], ["mega-3", "Key Stone"], ["mega-2", "Prism Tower"]], "mega-big"],
-  // the region colours (her note, 24 Nov: “some are obvious and some aren't … sword and shield weren't the more blue and red? … when I
-  // pick a single on wouldn't it be better to prioritise violet over scarlet?”): each region's versions' colours; my suggestion (not
-  // decided) first: the version she plays (Shield, Violet), otherwise the first one named. Unova stays black (White can't hold white
-  // writing) and Hisui forest green (one game).
-  ["rc-1", "Kanto · Red, Blue", [["#A3302A", "Red (as now)"], ["#1F4E9C", "Blue"]], "#A3302A"],
-  ["rc-2", "Johto · Gold, Silver", [["#8E6A0E", "Gold (as now)"], ["#5F6770", "Silver"], ["#1F6F8B", "Crystal"]], "#8E6A0E"],
-  ["rc-3", "Hoenn · Ruby, Sapphire", [["#9B1B30", "Ruby"], ["#16618A", "Sapphire (as now)"], ["#1B7048", "Emerald"]], "#9B1B30"],
-  ["rc-4", "Sinnoh · Diamond, Pearl", [["#2F5D9E", "Diamond"], ["#9C4A7A", "Pearl"], ["#5E6670", "Platinum"], ["#5B4B94", "Violet (as now)"]], "#2F5D9E"],
-  ["rc-6", "Kalos · X, Y", [["#2B55A3", "X (as now)"], ["#A3283A", "Y"]], "#2B55A3"],
-  ["rc-7", "Alola · Sun, Moon", [["#B5531C", "Sun (as now)"], ["#4B3F8F", "Moon"]], "#B5531C"],
-  ["rc-8", "Galar · Sword, Shield", [["#A3283E", "Shield"], ["#1E5FA8", "Sword"], ["#6E2D82", "Purple (as now)"]], "#A3283E"],
-  ["rc-9", "Paldea · Scarlet, Violet", [["#6A3D9A", "Violet"], ["#B3261E", "Scarlet"], ["#952F57", "Scarlet-violet (as now)"]], "#6A3D9A"],
-  // her notes, 24 Nov: “Why gold accent? I think it should be white or back”, and the title's “Pokédex” black, not white
-  ["navMark", "Sidebar highlight", [["#FFFFFF", "White"], ["#1A1214", "Black"], ["gold", "Gold (as now)"]], "#FFFFFF"],
-  ["titleEm", "“Pokédex” in the title", [["#1A1214", "Black"], ["inherit", "White (as now)"]], "#1A1214"],
+  ["mega", "Mega Evolution", [["mega-4", "Mega Salamence"], ["mega-5", "Mega Raichu X and Y"], ["mega-6", "Mega Hawlucha"], ["mega-7", "Victreebel Mega Evolving"], ["mega-8", "Mega Gardevoir"], ["mega-big", "The big stone (as now)"]], "mega-4"],
+  // the region colours (her notes, 24 Nov: “some are obvious and some aren't … sword and shield weren't the more blue and red? … when I
+  // pick a single on wouldn't it be better to prioritise violet over scarlet?”; then “half/half for the two colours”, “Check all regions
+  // colours are correct too as a few off them looked a bit off to me”): each version's colour from Bulbapedia's version colours
+  // (Help:Color_templates, taken from the box art and Japanese logos), checked against the box art, darkened only as far as white
+  // writing needs (5:1 or more; White can't, so it is only ever the second colour). Two colours first (the one she plays first:
+  // Shield, Violet; the first holds the writing), then each version alone, then the colour as now. Hisui: Legends: Arceus's slate blue
+  // (the green was Bulbapedia's Fieldlands colour, not the game's).
+  ["rc-1", "Kanto · Red, Blue", [["#CF3613+#2E50D8", "Red and Blue"], ["#CF3613", "Red"], ["#2E50D8", "Blue"], ["#A3302A", "As now"]], "#CF3613+#2E50D8"],
+  ["rc-2", "Johto · Gold, Silver", [["#8C6A14+#6F6F6F", "Gold and Silver"], ["#8C6A14", "Gold"], ["#6F6F6F", "Silver"], ["#2C788E", "Crystal"], ["#8E6A0E", "As now"]], "#8C6A14+#6F6F6F"],
+  ["rc-3", "Hoenn · Ruby, Sapphire", [["#CD2236+#3D51A7", "Ruby and Sapphire"], ["#CD2236", "Ruby"], ["#3D51A7", "Sapphire"], ["#008046", "Emerald"], ["#16618A", "As now"]], "#CD2236+#3D51A7"],
+  ["rc-4", "Sinnoh · Diamond, Pearl", [["#56728E+#9E597F", "Diamond and Pearl"], ["#56728E", "Diamond"], ["#9E597F", "Pearl"], ["#707063", "Platinum"], ["#5B4B94", "As now"]], "#56728E+#9E597F"],
+  ["rc-5", "Unova · Black, White", [["#444444+#E1E1E1", "Black and White"], ["#444444", "Black"], ["#36353D", "As now"]], "#444444+#E1E1E1"],
+  ["rc-6", "Kalos · X, Y", [["#025DA6+#DA183A", "X and Y"], ["#025DA6", "X"], ["#DA183A", "Y"], ["#2B55A3", "As now"]], "#025DA6+#DA183A"],
+  ["rc-7", "Alola · Sun, Moon", [["#A0601D+#41749A", "Sun and Moon"], ["#A0601D", "Sun"], ["#41749A", "Moon"], ["#B5531C", "As now"]], "#A0601D+#41749A"],
+  ["rc-8", "Galar · Sword, Shield", [["#BF004F+#0076AB", "Shield and Sword"], ["#BF004F", "Shield"], ["#0076AB", "Sword"], ["#6E2D82", "As now"]], "#BF004F+#0076AB"],
+  ["rc-hisui", "Hisui · Legends: Arceus", [["#36597B", "Legends: Arceus"], ["#3C6150", "As now"]], "#36597B"],
+  ["rc-9", "Paldea · Scarlet, Violet", [["#8334B7+#CD372C", "Violet and Scarlet"], ["#8334B7", "Violet"], ["#CD372C", "Scarlet"], ["#952F57", "As now"]], "#8334B7+#CD372C"],
+  // two colours (her idea, 24 Nov: “half/half for the two colours”; then “ideas for showing two colours on the background bit/with the
+  // card borders”): how a region's two colours show on the card frames and on the banner; my suggestions (not decided) first
+  ["twoCards", "Two colours: cards", [["diag", "Corner to corner"], ["side", "Left and right"], ["corners", "Two corners"], ["blend", "Blended"], ["inner", "Frame and inner line"], ["off", "One colour"]], "diag"],
+  ["twoBanner", "Two colours: banner", [["side", "Left and right"], ["top", "Top and bottom"], ["blend", "Blended"], ["band", "A band along the top"], ["off", "One colour"]], "side"],
 ];
 let tryVz = store.get(TRY_VZ_KEY, {});
 if (!tryVz || typeof tryVz !== "object" || Array.isArray(tryVz)) tryVz = {};
 const tryPick = id => { const row = TRY_VZ.find(r => r[0] === id); if (!row) return null; return row[2].some(([k]) => k === tryVz[id]) ? tryVz[id] : row[3]; };
 const tryPicKey = k => k === "mega" ? tryPick("mega") : k;   // the Mega Evolution list's picture, as picked
-function tryVzApply(){   // the colour rows: the region colours and the two CSS colours
-  for (const [id] of TRY_VZ) if (id.startsWith("rc-")) REGION_COLOURS[id.slice(3)] = tryPick(id);
-  const mark = tryPick("navMark"), root = document.documentElement.style;
-  root.setProperty("--nav-mark", mark === "gold" ? "var(--accent)" : mark);
-  root.setProperty("--title-em", tryPick("titleEm"));
+function tryVzApply(){   // the colour rows: each region's colour, or two ("first+second": the first holds the writing), and how two show
+  for (const [id] of TRY_VZ) if (id.startsWith("rc-")) { const r = id.slice(3), [a, b] = tryPick(id).split("+");
+    REGION_COLOURS[r] = a; if (b) REGION_SPLIT[r] = b; else delete REGION_SPLIT[r]; }
+  const d = document.documentElement.dataset; d.twoCards = tryPick("twoCards"); d.twoBanner = tryPick("twoBanner");
 }
+const trySw = k => k.includes("+") ? `linear-gradient(135deg,${k.split("+")[0]} 50%,${k.split("+")[1]} 50%)` : k;   // a swatch: one colour or two
 tryVzApply();
 (function tryBox(){
   const box = document.createElement("div"); box.className = "trybox"; box.setAttribute("role", "group"); box.setAttribute("aria-label", "Try");
@@ -497,7 +510,7 @@ tryVzApply();
   const draw = () => {
     box.classList.toggle("folded", folded);
     box.innerHTML = `<button type="button" class="try-fold" aria-expanded="${!folded}">Try${ic("chevron-down")}</button>` + TRY_VZ.map(([id, name, opts]) => `<div class="tryrow" role="group" aria-label="${name}" data-row="${id}"><span>${name}</span>` +
-      opts.map(([k, l]) => `<button type="button" data-v="${k}" aria-pressed="${tryPick(id) === k}">${/^#/.test(k) ? `<i class="sw" style="background:${k}"></i>` : ""}${l}</button>`).join("") + `</div>`).join("");
+      opts.map(([k, l]) => `<button type="button" data-v="${k}" aria-pressed="${tryPick(id) === k}">${/^#/.test(k) ? `<i class="sw" style="background:${trySw(k)}"></i>` : ""}${l}</button>`).join("") + `</div>`).join("");
   };
   const pad = () => document.documentElement.style.setProperty("--trypad", box.offsetHeight + 24 + "px");   // room under the page on phones (site.css)
   box.addEventListener("click", ev => {
@@ -790,14 +803,14 @@ function home(){
     const list = ENTRIES.filter(e => e.gen === g), k = counts(list);
     const row = (name, icon, have, of, col) => `<span class="rl" style="--c:${col}">${ic(icon)}${name}</span><span class="bar" style="--c:${col}"><i style="width:${of ? have / of * 100 : 0}%"></i></span><span class="v">${num(have)} / ${num(of)}</span>`;
     // the region hub (her pick, 22 Nov evening: “a combination of region hub with stats”): its map, name, games, National Pokédex numbers, her counts
-    gens += `<a class="gen" href="${R("gen-" + g)}" style="--rc:${REGION_COLOURS[g]}">${regionMapPlate(g)}${regionHead(g, region, small)}<div class="rows">` +
+    gens += `<a class="gen" href="${R("gen-" + g)}" style="--rc:${REGION_COLOURS[g]};--rc2:${secondOf(g)}">${regionMapPlate(g)}${regionHead(g, region, small)}<div class="rows">` +
       row("Pokémon", "poke-ball", k.species, k.speciesAll, "var(--caught)") + row("Shiny", "sparkles", k.shiny, k.shinyOut, "var(--shiny)") +
       row("Lucky", "lucky", k.lucky, k.luckyOut, "var(--lucky)") + row("4★", "star", k.hundo, k.out, "var(--hundo)") + `</div></a>`;
   }
   const went = EVENTS.filter(e => COL.went.includes(e.id)).length;
   setRegion(null);
   view.innerHTML = `<header class="hero withshot">${heroPics(homeMaps())}<span class="label">Pokémon GO · ${num(c.speciesOut)} Pokémon out, plus their forms</span>
-    <h1>Jemma’s <em>Pokédex</em></h1>${statsHtml(c)}</header>${readOnlyNote()}
+    <h1 class="dex-title">Jemma’s <em>Pokédex</em></h1>${statsHtml(c)}</header>${readOnlyNote()}
     <section class="section"><h2>By region</h2><div class="gens">${gens}</div></section>
     <section class="section"><h2>Event Pokémon</h2><div class="gens">${setTiles()}</div></section>`;
 }
@@ -1689,19 +1702,19 @@ function hmHome(){   // a game's Home (HOME, Shield…): its totals and a card p
   let gens = "";
   for (const s of secShown()) {
     const k = counts(secEntries(s.id));
-    gens += `<a class="gen" href="${R("gen-" + s.id)}" style="--rc:${colourOf(s.id)}">${regionMapPlate(s.id)}${regionHead(s.id, s.name, s.small)}<div class="rows">` +
+    gens += `<a class="gen" href="${R("gen-" + s.id)}" style="--rc:${colourOf(s.id)};--rc2:${secondOf(s.id)}">${regionMapPlate(s.id)}${regionHead(s.id, s.name, s.small)}<div class="rows">` +
       statRow("Pokémon", "poke-ball", k.species, k.speciesAll, "var(--caught)") + statRow("Shiny", "sparkles", k.shiny, k.shinyOut, "var(--shiny)") + `</div></a>`;
   }
   setRegion(null);
   const pics = bySections() ? secList().map(s => mapFile(s.id)).filter((f, i, a) => f && a.indexOf(f) === i).map(f => `regions/home/${f.replace(/\.\w+$/, "")}.webp`) : homeMaps();
   view.innerHTML = `<header class="hero withshot">${heroPics(pics)}<span class="label">${esc(gameName())} · ${num(c.speciesOut)} Pokémon, plus their forms</span>
-    <h1>Jemma’s <em>Pokédex</em></h1>${statsHtml(c)}</header>${readOnlyNote()}
+    <h1 class="dex-title">Jemma’s <em>Pokédex</em></h1>${statsHtml(c)}</header>${readOnlyNote()}
     <section class="section"><h2>${bySections() ? "By Pokédex" : "By region"}</h2><div class="gens">${gens}</div></section>`;
 }
 function allGamesPage(){   // All games: each game's totals side by side, no Pokémon (HOME: only what HOME has)
   setRegion(null);
   const cs = Object.fromEntries(GAMES.map(g => [g.id, countsIn(g.id)]));
-  view.innerHTML = `<header class="hero withshot">${heroPics(homeMaps())}<span class="label">All games</span><h1>Jemma’s <em>Pokédex</em></h1></header>${readOnlyNote()}
+  view.innerHTML = `<header class="hero withshot">${heroPics(homeMaps())}<span class="label">All games</span><h1 class="dex-title">Jemma’s <em>Pokédex</em></h1></header>${readOnlyNote()}
     <section class="section"><div class="allg">` + GAMES.map(g => { const c = cs[g.id]; return `<article class="allgame" style="--gc:${g.colour}"><h2>${esc(g.name)}</h2><div class="rows">${g.id === "go"
       ? statRow("Pokémon", "poke-ball", c.species, c.speciesAll, "var(--caught)") + statRow("Shiny", "sparkles", c.shiny, c.shinyOut, "var(--shiny)") + statRow("Lucky", "lucky", c.lucky, c.luckyOut, "var(--lucky)") + statRow("4★", "star", c.hundo, c.out, "var(--hundo)")
       : statRow("Pokémon", "poke-ball", c.species, c.speciesAll, "var(--caught)") + statRow("Shiny", "sparkles", c.shiny, c.shinyOut, "var(--shiny)")}</div><a class="allopen" href="${g.href}">Open ${esc(g.name)}</a></article>`; }).join("") + `</div></section>`;
