@@ -1,5 +1,5 @@
 {
- "fetched": "2026-11-23",
+ "fetched": "2026-11-24",
  "source": "Leek Duck (leekduck.com/events), via ScrapedDuck",
  "events": [
   {
@@ -88,16 +88,6 @@
    ]
   },
   {
-   "id": "dynamax-trails-2026",
-   "name": "Dynamax Trails",
-   "type": "Event",
-   "kind": "event",
-   "start": "2026-11-16T10:00:00.000",
-   "end": "2026-11-23T20:00:00.000",
-   "link": "https://leekduck.com/events/dynamax-trails-2026/",
-   "mons": []
-  },
-  {
    "id": "duolingo-timed-research-2026",
    "name": "Pokémon GO and Duolingo Timed Research",
    "type": "Timed Research",
@@ -106,26 +96,6 @@
    "end": "2026-12-31T23:59:00.000",
    "link": "https://leekduck.com/events/duolingo-timed-research-2026/",
    "mons": []
-  },
-  {
-   "id": "max-mondays-2026-11-23",
-   "name": "Dynamax Espurr Max Monday",
-   "type": "Max Mondays",
-   "kind": "max-mondays",
-   "start": "2026-11-23T06:00:00.000",
-   "end": "2026-11-23T21:00:00.000",
-   "link": "https://leekduck.com/events/max-mondays-2026-11-23/",
-   "mons": [
-    {
-     "name": "Espurr",
-     "key": null,
-     "shiny": null,
-     "id": "677",
-     "as": [
-      "dynamax"
-     ]
-    }
-   ]
   },
   {
    "id": "twilight-wishes-2026",
