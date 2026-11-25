@@ -15,3 +15,9 @@
 2026-11-23 14:44 github: pushed
 2026-11-23 14:44 parent: recorded: travels: has uncommitted changes, not recorded recorded and pushed: pokedex
 2026-11-24 12:39 events: refreshed; nothing new
+2026-11-24 12:39 git: saved changes
+2026-11-24 12:39 github: pushed
+2026-11-24 12:39 parent: recorded: recorded and pushed: pokedex
+2026-11-25 14:31 events: build.py failed: Built site/js/data.js: 1261 entries, 331 costumes, 79 events; 3987 pictures (12 missing: new ones need tools/fetch_sprites.py; the rest have no picture in the game yet); Pokémon HOME: 1298 entries
+  check: Dynamax Alolan Sandshrew Max Monday: Sandshrew as dynamax, which dex.json says it can’t be: add it to data/go/flag-fixes.json
+2026-11-25 14:31 events: refreshed; new: Tropical Paradise; GO Pass: December; Mega Slowbro in Mega Raids; Regidrago in 5-star Raid Battles; Shadow Dialga in Shadow Raids; Regidrago Raid Hour; Wimpod Spotlight Hour; Dynamax Deino Max Monday; Unannounced Event; Mega Gengar in Mega Raids; Unannounced Pokémon in 5-star Raid Battles; Unannounced Raid Hour; Starly Spotlight Hour; Dynamax Eevee Max Monday; Choose Your Path: Daydream Destinations (December 15, 2026); Ho-Oh in 5-star Raid Battles; Mega Skarmory in Mega Raids; Ho-Oh Raid Hour; Bergmite Spotlight Hour; Dynamax Alolan Sandshrew Max Monday; Winter Holiday 2026; Lugia in 5-star Raid Battles; Mega Glalie in Mega Raids; Lugia Raid Hour; Delibird Spotlight Hour; Dynamax Magikarp Max Monday; New Year's 2027; Mega Falinks in Mega Raids; Tornadus, Thundurus, and Landorus (Therian Formes) in 5-star Raid Battles; Tornadus (Therian Forme), Thundurus (Therian Forme), and Landorus (Therian Forme) Raid Hour; Plusle and Minun Spotlight Hour (check them for a Special Background by hand)
