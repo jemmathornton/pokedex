@@ -1475,10 +1475,14 @@
       eq([...document.querySelectorAll(".trybox [data-row]")].map(r => r.dataset.row), ["gameSwitch", "mega", ...["1", "2", "3", "4", "5", "6", "7", "8"].flatMap(r => [`rc-${r}:a`, `rc-${r}:b`]), "rc-hisui", "rc-9:a", "rc-9:b"], "this round’s rows");
       await go("#za-gen-hyperspace"); ok(/hyperspace-2/.test(view().querySelector(".hero").getAttribute("style") || ""), "Hyperspace: the clearer distortion (her pick)");
       await go("#za-gen-mega");
-      for (const v of ["mega-keystone", "mega-keystone-2", "mega-glow", "za-keyart"]) { await pick("mega", v);
+      for (const v of ["mega-all", "mega-glossy", "mega-fan"]) { await pick("mega", v);
         ok((view().querySelector(".hero").getAttribute("style") || "").includes(REGION_CHOSEN[v]) && !view().querySelector(".hero.ratio"), `${v}: fills the banner`); }
-      await go("#za"); ok(/za-keyart/.test(view().querySelector('.gen[href="#za-gen-mega"] .genmap').getAttribute("style")), "and the card on Z-A’s Home");
-      await go("#za-gen-mega"); await pick("mega", "mega-big"); ok(/mega-big-1/.test(view().querySelector(".hero").getAttribute("style") || "") && view().querySelector(".hero.ratio"), "the big stone, whole");
+      await go("#za"); ok(/mega-fan/.test(view().querySelector('.gen[href="#za-gen-mega"] .genmap').getAttribute("style")), "and the card on Z-A’s Home");
+      await go("#za-gen-mega"); for (const v of ["mega-three", "mega-one", "mega-two"]) { await pick("mega", v);
+        const a = getComputedStyle(view().querySelector(".hero"), "::after"), w = parseFloat(a.width), h = parseFloat(a.height);
+        ok(view().querySelector(".hero.ratio") && Math.abs(w / h - 16 / 9) < 0.05, `${v}: shown whole, in its own 16:9 shape (${Math.round(w)} × ${Math.round(h)})`); }
+      await go("#za-gen-mega"); await pick("mega", "mega-big"); { const a = getComputedStyle(view().querySelector(".hero"), "::after");
+        ok(/mega-big-1/.test(view().querySelector(".hero").getAttribute("style") || "") && Math.abs(parseFloat(a.width) / parseFloat(a.height) - 1) < 0.05, "the big stone, whole and square"); }
       const opts = row => [...document.querySelectorAll(`.trybox [data-row="${row}"] [data-v]`)].map(b => b.dataset.v);
       const two = () => ["--rc", "--rc2"].map(v => getComputedStyle(document.documentElement).getPropertyValue(v).trim().toUpperCase()).join("+");
       await go("#vi-gen-paldea"); const [v1, v2] = opts("rc-9:a"), [s1, s2] = opts("rc-9:b");

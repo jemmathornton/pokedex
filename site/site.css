@@ -640,7 +640,10 @@ a.formsbtn{text-decoration:none}
   -webkit-mask:linear-gradient(90deg,transparent,#000 16%);mask:linear-gradient(90deg,transparent,#000 16%)}
 /* a map with plain white sky at its top (Kanto) is lifted that much out of the top of the banner (app.js SHOT_LIFT; her note,
    22 Nov: a white haze top right at about 1000 wide); phones show the map in a band of their own, unchanged */
-@media (min-width:701px){ .hero.withshot::after{top:calc(-1 * var(--shotlift,0px))} }   /* 701-900 too (round 5: an iPad showed the sky); phones have their own band */
+@media (min-width:701px){ .hero.withshot::after{top:calc(-1 * var(--shotlift,0px))} }
+/* a picture shown whole in its own shape (app.js SHOT_RATIO: the Mega Stones), still fading into the colour on its left. The rule
+   was lost on 12 Nov when the maps went to 70%, so those pictures were cut on wide windows (found 25 Nov) */
+@media (min-width:701px){ .hero.withshot.ratio::after{width:auto;max-width:70%;aspect-ratio:var(--shotratio)} }   /* 701-900 too (round 5: an iPad showed the sky); phones have their own band */
 /* the same lift for one region's map drawn as a picture strip (Fast tick for a region, a Pokémon's page: app.js regionPics; round 5
    review, the white sky still showed there) */
 @media (min-width:701px){ .hero.withshot > .heropics.one{top:calc(-1 * var(--shotlift,0px))} }

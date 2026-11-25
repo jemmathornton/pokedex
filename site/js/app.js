@@ -446,19 +446,21 @@ const REGION_CHOSEN = {"1": "kanto-map-2.jpg", "2": "johto-map-1.jpg", "3": "hoe
   // Hyperspace: the distortion in Nintendo's cleaner copy (her pick, 24 Nov: “The better distortion pick is better”; nintendo.com/eu
   // …/nswitch_pokemonlegendsza_1/CI_NSwitch_Pokemon_Legends_ZA_NS1_MD_Background.jpg, 1920 × 1359). Mega Evolution (TRIAL, her
   // notes: “really badly cropped”, “maybe it's the cropping or the angle?”, then “I need better mega evolution pictures as it needs
-  // to fit the landscape box. Do more research”, then 25 Nov: “for mega art I don't want a specific mon I need something generic”):
-  // official pictures with no one Pokémon as the subject, each cut to 2:1 so the card's 2.4:1 and the banner both show it: a trainer
-  // touching the Key Stone, the rainbow light of Mega Evolution across the frame (nintendo.com/us Switch 2 Edition page's gallery,
-  // assets.nintendo.com …/70010000099365/81b3fb17…, 1920 × 1080), the same moment closer (nintendo.com/eu PokemonLegendsZA_17.jpg,
-  // 1920 × 1080), the rainbow glow of Nintendo UK's Mega Evolution section (…_NS1_Mega_Anim_Rainbow_Glow.jpg, 540 × 246, a blur,
-  // enlarged), the game's key art without its logo, Lumiose at night with Mega Gardevoir, Absol and Scizor among many (pokemon.co.jp
-  // /ex/legends_z-a/assets/img/toppage/keyvisual/visual@2x.webp, 2732 × 2288); and the big Mega Stone as now (a square cut from
-  // /images/dlc/p14_02.jpg)
-  "mega-big": "mega-big-1.jpg", "mega-keystone": "mega-keystone-1.jpg", "mega-keystone-2": "mega-keystone-2.jpg", "mega-glow": "mega-glow-1.jpg", "za-keyart": "za-keyart-1.jpg"};   // her picks: the official painted region maps (12 Nov; she switched from scenery)
+  // to fit the landscape box. Do more research”, then 25 Nov: “for mega art I don't want a specific mon I need something generic”, then
+  // “For mega stone I think is the closest big stone I just need different art of it so find lots of mega stone art even unofficial
+  // may be good at this rate”): Mega Stone pictures, no Pokémon. Official: three stones in a row on Z-A's pale pattern (pokemon.co.jp
+  // /ex/legends_z-a/assets/img/news/img_250912_04.webp, 1060 × 597), one big stone (…/news/251106_01/img_04.webp, Diancite,
+  // 1772 × 996) and two (…/news/251202_01/img_05.webp, Mewtwonite X and Y, 856 × 482), both shown whole; many stones: 55 of Z-A's
+  // own Mega Stone icons in a honeycomb on the same pale (Serebii's copies of the game's icons, serebii.net/itemdex/sprites/za/
+  // <stone>.png, 160 × 160, laid out by us); glossy stones: Pokémon UNITE's six Mega Stone item pictures in a row on a dark ground
+  // (Serebii's copies, serebii.net/pokemonunite/items/<stone>.png, 256 and 512 px, laid out by us). Fan art (she allowed it): a rainbow
+  // stone in a starry sky, “Megastone Background” by PaCHADrisu (DeviantArt, 2013, 1024 × 703; no licence given: ask before keeping,
+  // and credit in the footer). And the big stone as now (a square cut from legends.pokemon.com /images/dlc/p14_02.jpg)
+  "mega-big": "mega-big-1.jpg", "mega-three": "mega-three-1.jpg", "mega-all": "mega-all-1.jpg", "mega-glossy": "mega-glossy-1.jpg", "mega-one": "mega-one-1.jpg", "mega-two": "mega-two-1.jpg", "mega-fan": "mega-fan-1.jpg"};   // her picks: the official painted region maps (12 Nov; she switched from scenery)
 // which part of a picture the banner shows, where the middle isn't the best part (12 Nov: Kanto's Route 1 was nearly all sky):
 // a closer crop towards the ground; the picture itself is unchanged
 const SHOT_FIT = {"hyperspace-2.jpg": "center/cover", "mega-big-1.jpg": "center/cover",
-  "mega-keystone-1.jpg": "center/cover", "mega-keystone-2.jpg": "center/cover", "mega-glow-1.jpg": "center/cover", "za-keyart-1.jpg": "center/cover", "kitakami-1.jpg": "center 30%/cover", "blueberry-1.jpg": "center 35%/cover", "lumiose-map-1.jpg": "center 50%/cover", "hyperspace-1.jpg": "center 40%/cover", "mega-1.jpg": "center/cover", "isle-of-armor-1.jpg": "center 60%/cover", "crown-tundra-1.jpg": "center 35%/cover", "kanto-map-2.jpg": "center/cover", "johto-map-1.jpg": "center/cover", "hoenn-map-2.jpg": "center/cover", "unova-map-2.jpg": "center/cover", "galar-map-1.jpg": "center 45%/cover", "hisui-map-1.jpg": "50% 50%/112% auto", "paldea-map-1.jpg": "center/cover", "sinnoh-map-3.jpg": "50% 48%/118% auto", "kalos-map-2.jpg": "center/cover", "alola-map-1.jpg": "center 45%/cover"};   // maps: the middle; Hisui closer, so its parchment edge is cut off (her ask, 12 Nov)   // maps: the middle
+  "mega-three-1.jpg": "center/cover", "mega-all-1.jpg": "center/cover", "mega-glossy-1.jpg": "center/cover", "mega-one-1.jpg": "center/cover", "mega-two-1.jpg": "center/cover", "mega-fan-1.jpg": "center 51%/cover", "kitakami-1.jpg": "center 30%/cover", "blueberry-1.jpg": "center 35%/cover", "lumiose-map-1.jpg": "center 50%/cover", "hyperspace-1.jpg": "center 40%/cover", "mega-1.jpg": "center/cover", "isle-of-armor-1.jpg": "center 60%/cover", "crown-tundra-1.jpg": "center 35%/cover", "kanto-map-2.jpg": "center/cover", "johto-map-1.jpg": "center/cover", "hoenn-map-2.jpg": "center/cover", "unova-map-2.jpg": "center/cover", "galar-map-1.jpg": "center 45%/cover", "hisui-map-1.jpg": "50% 50%/112% auto", "paldea-map-1.jpg": "center/cover", "sinnoh-map-3.jpg": "50% 48%/118% auto", "kalos-map-2.jpg": "center/cover", "alola-map-1.jpg": "center 45%/cover"};   // maps: the middle; Hisui closer, so its parchment edge is cut off (her ask, 12 Nov)   // maps: the middle
 // Shield's Isle of Armor and Crown Tundra: the official paintings (swordshield.pokemon.com, downloaded with her yes, 23 Nov; the
 // official site has no map of either; her pick over Galar's map, 23 Nov), in REGION_CHOSEN above so tools/make_home_maps.py makes
 // their smaller copies
@@ -477,7 +479,7 @@ const TRY_VZ = [
   // looks like two toggles”: the one-row toggle kept, all six on one row that slides along under the thumb (drag it, click a game
   // either side, or use the arrow keys); or the toggle as now
   ["gameSwitch", "Switching games", [["h", "One row, sliding"], ["label", "As now"]], "h"],
-  ["mega", "Mega Evolution", [["mega-keystone", "Key Stone"], ["mega-keystone-2", "Key Stone, closer"], ["mega-glow", "Mega Evolution glow"], ["za-keyart", "The game’s key art"], ["mega-big", "The big stone (as now)"]], "mega-keystone"],
+  ["mega", "Mega Evolution", [["mega-three", "Three stones"], ["mega-all", "Many stones"], ["mega-glossy", "Glossy stones"], ["mega-one", "One big stone"], ["mega-two", "Two stones"], ["mega-fan", "Fan art: rainbow stone"], ["mega-big", "The big stone (as now)"]], "mega-three"],
   // the region colours (her notes, 24 Nov: “some are obvious and some aren't … sword and shield weren't the more blue and red?”,
   // “prioritise violet over scarlet”, “half/half for the two colours”, “Check all regions colours are correct”; 25 Nov: “I want the
   // combined blended version. But eg for gold and silver I want multiple gold and multiple silver options. Especially for where games
@@ -569,9 +571,9 @@ document.addEventListener("keydown", ev => {
 // ===== TRIAL: Try switch "Violet and Z-A", END =====
 // a narrower picture shown less zoomed in: the banner's picture area takes this shape (width / height), so more of it shows and
 // it still blends softly into the colour on the left (12 Nov: Johto looked too zoomed in)
-const SHOT_RATIO = {"mega-1.jpg": "16/9", "mega-big-1.jpg": "1/1"};   // the Mega Stones whole, not cut through (her note, 24 Nov: “really badly cropped”)
+const SHOT_RATIO = {"mega-1.jpg": "16/9", "mega-big-1.jpg": "1/1", "mega-one-1.jpg": "16/9", "mega-two-1.jpg": "16/9", "mega-three-1.jpg": "16/9"};   // the Mega Stones whole, not cut through (her note, 24 Nov: “really badly cropped”)
 // and on a card's picture plate too: the whole picture on a band of its own background colour (TRIAL, with the Mega pictures)
-const PLATE_FIT = {"mega-1.jpg": "#3B2A78", "mega-big-1.jpg": "#3B2A78"};
+const PLATE_FIT = {"mega-1.jpg": "#3B2A78", "mega-big-1.jpg": "#3B2A78", "mega-one-1.jpg": "#F9F9F9", "mega-two-1.jpg": "#F9F9F9", "mega-three-1.jpg": "#F9F9F9"};
 // ?fit=, ?ratio= and ?pic= are for pictures of options only. Anything from the address is checked against a strict format before
 // it is used, and escaped too (round 4 review, 22 Nov: a crafted link could break out of the style attribute and run script)
 const TRY = new URLSearchParams(location.search);
