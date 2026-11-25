@@ -1472,7 +1472,7 @@
     const pick = async (row, v) => { click(document.querySelector(`.trybox [data-row="${row}"] [data-v="${v}"]`)); await wait(150); };
     const was = {...tryVz};
     try {
-      eq([...document.querySelectorAll(".trybox [data-row]")].map(r => r.dataset.row), ["gameSwitch", "mega", "rc-1", "rc-2", "rc-3", "rc-4", "rc-5", "rc-6", "rc-7", "rc-8", "rc-hisui", "rc-9"], "this round’s rows");
+      eq([...document.querySelectorAll(".trybox [data-row]")].map(r => r.dataset.row), ["gameSwitch", "mega", ...["1", "2", "3", "4", "5", "6", "7", "8"].flatMap(r => [`rc-${r}:a`, `rc-${r}:b`]), "rc-hisui", "rc-9:a", "rc-9:b"], "this round’s rows");
       await go("#za-gen-hyperspace"); ok(/hyperspace-2/.test(view().querySelector(".hero").getAttribute("style") || ""), "Hyperspace: the clearer distortion (her pick)");
       await go("#za-gen-mega");
       for (const v of ["mega-keystone", "mega-keystone-2", "mega-glow", "za-keyart"]) { await pick("mega", v);
@@ -1481,15 +1481,17 @@
       await go("#za-gen-mega"); await pick("mega", "mega-big"); ok(/mega-big-1/.test(view().querySelector(".hero").getAttribute("style") || "") && view().querySelector(".hero.ratio"), "the big stone, whole");
       const opts = row => [...document.querySelectorAll(`.trybox [data-row="${row}"] [data-v]`)].map(b => b.dataset.v);
       const two = () => ["--rc", "--rc2"].map(v => getComputedStyle(document.documentElement).getPropertyValue(v).trim().toUpperCase()).join("+");
-      await go("#vi-gen-paldea"); const [pair9, one9] = opts("rc-9"); ok(pair9.includes("+") && !one9.includes("+"), "Paldea: two colours first, then one");
-      await pick("rc-9", pair9); eq(two(), pair9.toUpperCase(), "Paldea's two colours, Violet's lists too");
-      await pick("rc-9", one9); eq(two(), `${one9}+${one9}`.toUpperCase(), "one colour: the same twice");
-      await go("#sh-gen-galar"); const pair8 = opts("rc-8")[0]; await pick("rc-8", pair8); eq(two(), pair8.toUpperCase(), "Shield's lists Galar's two");
+      await go("#vi-gen-paldea"); const [v1, v2] = opts("rc-9:a"), [s1, s2] = opts("rc-9:b");
+      await pick("rc-9:a", v1); await pick("rc-9:b", s1); eq(two(), `${v1}+${s1}`.toUpperCase(), "Paldea's two colours, Violet's lists too");
+      await pick("rc-9:a", v2); await pick("rc-9:b", s2); eq(two(), `${v2}+${s2}`.toUpperCase(), "a shade of each, picked apart");
+      ok(opts("rc-2:a").length >= 5 && opts("rc-2:b").length >= 5, "several golds and several silvers (her ask, 25 Nov)");
+      eq(opts("rc-hisui").some(v => v.includes("+")), false, "Hisui one colour");
+      await go("#sh-gen-galar"); const pair8 = opts("rc-8:a")[0] + "+" + opts("rc-8:b")[0]; await pick("rc-8:a", opts("rc-8:a")[0]); await pick("rc-8:b", opts("rc-8:b")[0]); eq(two(), pair8.toUpperCase(), "Shield's lists Galar's two");
       await go("#gen-8"); eq(two(), pair8.toUpperCase(), "GO's Galar the same");
       const card = getComputedStyle(view().querySelector(".card"));
       ok(/linear-gradient/.test(card.backgroundImage) && card.borderTopColor === "rgba(0, 0, 0, 0)", "the frame blends the two (her pick, 25 Nov)");
       ok(/linear-gradient/.test(getComputedStyle(view().querySelector(".hero")).backgroundImage), "and the banner");
-      ok(opts("rc-3").includes("#AB2813+#26649C"), "the remakes' two to judge too (Omega Ruby and Alpha Sapphire)");
+      ok(opts("rc-3:a").includes("#AB2813") && opts("rc-3:b").includes("#26649C"), "the remakes' colours among the shades (Omega Ruby, Alpha Sapphire)");
       await go("#go"); eq(view().querySelector('.gen[href="#gen-8"]').style.getPropertyValue("--rc2").toUpperCase(), pair8.split("+")[1].toUpperCase(), "GO's region cards: their second colour");
       ok(/26, 18, 20/.test(getComputedStyle(nav.querySelector("a.on")).boxShadow), "the sidebar highlight black (her pick)");
       await go("#za");

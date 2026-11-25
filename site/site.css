@@ -400,7 +400,7 @@ a.formsbtn{text-decoration:none}
 .dex-entry .label{display:block;margin-bottom:4px}
 .label.dexfrom{display:block;margin:0 0 6px}
 /* ===== TRIAL: Try switch "Violet and Z-A" (23 Nov, overnight), START: remove with the TRIAL block in app.js once she has picked ===== */
-.trybox{position:fixed;right:12px;bottom:12px;z-index:60;display:grid;gap:6px;padding:8px 10px;border-radius:10px;background:var(--surface,#fff);color:var(--ink,#222);
+.trybox{position:fixed;right:12px;bottom:12px;z-index:60;display:grid;gap:6px;max-height:calc(100vh - 24px);overflow-y:auto;padding:8px 10px;border-radius:10px;background:var(--surface,#fff);color:var(--ink,#222);
   border:1px solid var(--line,#ccc);box-shadow:0 4px 16px rgba(0,0,0,.2);font:600 12px var(--body,sans-serif);max-width:calc(100vw - 24px);box-sizing:border-box}
 .trybox > b{font-size:11px;letter-spacing:.08em;text-transform:uppercase}
 .try-fold{justify-self:start;display:inline-flex;align-items:center;gap:4px;padding:0;border:0;background:none;color:inherit;font:700 11px var(--body,sans-serif);letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
@@ -441,6 +441,7 @@ a.formsbtn{text-decoration:none}
 .game-slide.h .gs-strip{display:flex;width:max-content;margin-left:calc(50% - var(--w) / 2);transform:translateX(calc(var(--i) * var(--w) * -1 + var(--dx,0px)));transition:transform .3s cubic-bezier(.3,.7,.2,1)}
 .game-slide.h a{flex:none;width:var(--w);box-sizing:border-box;padding-inline:2px}
 @media (prefers-reduced-motion:reduce){ .gs-thumb,.game-slide.h .gs-strip{transition:none} }
+.tryrow[data-row$=":a"],.tryrow[data-row="rc-hisui"]{margin-top:6px}   /* each region's two rows together */
 .tryrow button i.sw{display:inline-block;width:11px;height:11px;margin-right:5px;border-radius:3px;vertical-align:-1px}
 /* ===== TRIAL: Try switch "Violet and Z-A", END ===== */
 .genmap.multi{display:flex;background:none;overflow:hidden}   /* several pictures side by side on a card, like the banner's strip (Shield's Bonus Pokémon, Dynamax Adventures, HOME Transfers: her picks, 23 Nov) */

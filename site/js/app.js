@@ -478,32 +478,42 @@ const TRY_VZ = [
   // either side, or use the arrow keys); or the toggle as now
   ["gameSwitch", "Switching games", [["h", "One row, sliding"], ["label", "As now"]], "h"],
   ["mega", "Mega Evolution", [["mega-keystone", "Key Stone"], ["mega-keystone-2", "Key Stone, closer"], ["mega-glow", "Mega Evolution glow"], ["za-keyart", "The game’s key art"], ["mega-big", "The big stone (as now)"]], "mega-keystone"],
-  // the region colours (her notes, 24 Nov: “some are obvious and some aren't … sword and shield weren't the more blue and red? … when I
-  // pick a single on wouldn't it be better to prioritise violet over scarlet?”; then “half/half for the two colours”, “Check all regions
-  // colours are correct too as a few off them looked a bit off to me”): each version's colour from Bulbapedia's version colours
-  // (Help:Color_templates, taken from the box art and Japanese logos), checked against the box art, darkened only as far as white
-  // writing needs (5:1 or more; White can't, so it is only ever the second colour). Two colours first (the one she plays first:
-  // Shield, Violet; the first holds the writing), the remakes' two (25 Nov, so she can judge the pairs: her note “I want to judge the
-  // actual two colours”), then each version alone, then the colour as now. Hisui: Legends: Arceus's slate blue (the green was
-  // Bulbapedia's Fieldlands colour, not the game's).
-  ["rc-1", "Kanto · Red, Blue", [["#CF3613+#2E50D8", "Red and Blue"], ["#C04901+#587A00", "FireRed and LeafGreen"], ["#CF3613", "Red"], ["#2E50D8", "Blue"], ["#A3302A", "As now"]], "#CF3613+#2E50D8"],
-  ["rc-2", "Johto · Gold, Silver", [["#8C6A14+#6F6F6F", "Gold and Silver"], ["#896B01+#67707D", "HeartGold and SoulSilver"], ["#8C6A14", "Gold"], ["#6F6F6F", "Silver"], ["#2C788E", "Crystal"], ["#8E6A0E", "As now"]], "#8C6A14+#6F6F6F"],
-  ["rc-3", "Hoenn · Ruby, Sapphire", [["#CD2236+#3D51A7", "Ruby and Sapphire"], ["#AB2813+#26649C", "Omega Ruby and Alpha Sapphire"], ["#CD2236", "Ruby"], ["#3D51A7", "Sapphire"], ["#008046", "Emerald"], ["#16618A", "As now"]], "#CD2236+#3D51A7"],
-  ["rc-4", "Sinnoh · Diamond, Pearl", [["#56728E+#9E597F", "Diamond and Pearl"], ["#2C7793+#9E5B6F", "Brilliant Diamond and Shining Pearl"], ["#56728E", "Diamond"], ["#9E597F", "Pearl"], ["#707063", "Platinum"], ["#5B4B94", "As now"]], "#56728E+#9E597F"],
-  ["rc-5", "Unova · Black, White", [["#444444+#E1E1E1", "Black and White"], ["#303E51+#EBC5C3", "Black 2 and White 2"], ["#444444", "Black"], ["#36353D", "As now"]], "#444444+#E1E1E1"],
-  ["rc-6", "Kalos · X, Y", [["#025DA6+#DA183A", "X and Y"], ["#025DA6", "X"], ["#DA183A", "Y"], ["#2B55A3", "As now"]], "#025DA6+#DA183A"],
-  ["rc-7", "Alola · Sun, Moon", [["#A0601D+#41749A", "Sun and Moon"], ["#BE4A23+#226DB5", "Ultra Sun and Ultra Moon"], ["#A0601D", "Sun"], ["#41749A", "Moon"], ["#B5531C", "As now"]], "#A0601D+#41749A"],
-  ["rc-8", "Galar · Sword, Shield", [["#BF004F+#0076AB", "Shield and Sword"], ["#BF004F", "Shield"], ["#0076AB", "Sword"], ["#6E2D82", "As now"]], "#BF004F+#0076AB"],
-  ["rc-hisui", "Hisui · Legends: Arceus", [["#36597B", "Legends: Arceus"], ["#3C6150", "As now"]], "#36597B"],
-  ["rc-9", "Paldea · Scarlet, Violet", [["#8334B7+#CD372C", "Violet and Scarlet"], ["#8334B7", "Violet"], ["#CD372C", "Scarlet"], ["#952F57", "As now"]], "#8334B7+#CD372C"],
+  // the region colours (her notes, 24 Nov: “some are obvious and some aren't … sword and shield weren't the more blue and red?”,
+  // “prioritise violet over scarlet”, “half/half for the two colours”, “Check all regions colours are correct”; 25 Nov: “I want the
+  // combined blended version. But eg for gold and silver I want multiple gold and multiple silver options. Especially for where games
+  // are similar”): each region's two colours, blended (the first holds the writing: the version she plays first, Shield and Violet,
+  // otherwise the first named), each with its own row of shades: the version's colour from Bulbapedia's version colours (taken from the
+  // box art and Japanese logos) darkened only as far as white writing needs (5:1); deeper; richer and softer; turned a little towards
+  // the next colours round the wheel (so the reds and blues of different regions can differ); the remake's, box art's or logo's colour;
+  // and the colour as before. Second colours also lighter (3:1; no writing sits on them). White can't hold white writing, so it is
+  // pale and only ever second. Hisui one colour (one game). Made by tools/region_shades.py from those sources.
+  ["rc-1:a", "Kanto · Red", [["#CF3613", "Red"], ["#96270E", "Deeper"], ["#D72800", "Richer"], ["#AF5541", "Softer"], ["#B35410", "More orange"], ["#DD141D", "More pink"], ["#C04901", "FireRed"], ["#A3302A", "As before"]], "#CF3613"],
+  ["rc-1:b", "Kanto · Blue", [["#2E50D8", "Blue"], ["#7B90E6", "Lighter"], ["#2744B9", "Deeper"], ["#385FFB", "Richer"], ["#596BB4", "Softer"], ["#625DE1", "More purple"], ["#266ECC", "More teal"], ["#19779F", "Box art"], ["#1F4E9C", "As before"]], "#2E50D8"],
+  ["rc-2:a", "Johto · Gold", [["#8C6A14", "Gold"], ["#654D0F", "Deeper"], ["#916800", "Richer"], ["#826D37", "Softer"], ["#777211", "More yellow"], ["#A55D18", "More red"], ["#8E6520", "Old gold"], ["#896B01", "HeartGold"], ["#8E6A0E", "As before"]], "#8C6A14"],
+  ["rc-2:b", "Johto · Silver", [["#6F6F6F", "Silver"], ["#949494", "Lighter"], ["#505050", "Deeper"], ["#5F6875", "Blue-grey"], ["#6E6A62", "Warm grey"], ["#67707D", "SoulSilver"], ["#6B6F73", "Logo"]], "#6F6F6F"],
+  ["rc-3:a", "Hoenn · Ruby", [["#CD2236", "Ruby"], ["#9D1A29", "Deeper"], ["#E0001A", "Richer"], ["#B34F5B", "Softer"], ["#CE3622", "More orange"], ["#D32361", "More pink"], ["#AB2813", "Omega Ruby"], ["#9B1B30", "As before"]], "#CD2236"],
+  ["rc-3:b", "Hoenn · Sapphire", [["#3D51A7", "Sapphire"], ["#8391D2", "Lighter"], ["#384A99", "Deeper"], ["#4B65D9", "Richer"], ["#606DA1", "Softer"], ["#6863C6", "More purple"], ["#4170B1", "More teal"], ["#26649C", "Alpha Sapphire"], ["#1172A9", "Box art"], ["#16618A", "As before"]], "#3D51A7"],
+  ["rc-4:a", "Sinnoh · Diamond", [["#56728E", "Diamond"], ["#3E5266", "Deeper"], ["#006CDB", "Richer"], ["#4572A1", "Softer"], ["#3C67DF", "More blue"], ["#19789A", "More teal"], ["#2C7793", "Brilliant Diamond"], ["#156288", "Dialga"], ["#2F5D9E", "As before"]], "#56728E"],
+  ["rc-4:b", "Sinnoh · Pearl", [["#9E597F", "Pearl"], ["#D376A9", "Lighter"], ["#73405C", "Deeper"], ["#D3157D", "Richer"], ["#CA3463", "More red"], ["#BF32A1", "More purple"], ["#9E5B6F", "Shining Pearl"], ["#9C4A7A", "As before"]], "#9E597F"],
+  ["rc-5:a", "Unova · Black", [["#444444", "Black"], ["#2C2C2C", "Charcoal"], ["#303E51", "Black 2"], ["#36353D", "As before"]], "#444444"],
+  ["rc-5:b", "Unova · White", [["#E1E1E1", "White"], ["#C8C8C8", "Light grey"], ["#D4D7DB", "Silver-white"], ["#EBC5C3", "White 2"]], "#E1E1E1"],
+  ["rc-6:a", "Kalos · X", [["#025DA6", "X"], ["#025292", "Deeper"], ["#0070CB", "Richer"], ["#3373A8", "Softer"], ["#1962FC", "More blue"], ["#027999", "More teal"], ["#126190", "Logo"], ["#2B55A3", "As before"]], "#025DA6"],
+  ["rc-6:b", "Kalos · Y", [["#DA183A", "Y"], ["#F1677F", "Lighter"], ["#A0122A", "Deeper"], ["#E00027", "Richer"], ["#BB485C", "Softer"], ["#DA2014", "More orange"], ["#D71464", "More pink"], ["#C72038", "Logo"], ["#A3283A", "As before"]], "#DA183A"],
+  ["rc-7:a", "Alola · Sun", [["#A0601D", "Sun"], ["#724514", "Deeper"], ["#AC5900", "Richer"], ["#946534", "Softer"], ["#8B6A09", "More yellow"], ["#C6420D", "More red"], ["#BE4A23", "Ultra Sun"], ["#99641B", "Logo"], ["#B5531C", "As before"]], "#A0601D"],
+  ["rc-7:b", "Alola · Moon", [["#41749A", "Moon"], ["#599BCB", "Lighter"], ["#2F546F", "Deeper"], ["#1B74B3", "Richer"], ["#4E738E", "Softer"], ["#3F6DC3", "More blue"], ["#2B788A", "More teal"], ["#226DB5", "Ultra Moon"], ["#393075", "Lunala"], ["#4B3F8F", "As before"]], "#41749A"],
+  ["rc-8:a", "Galar · Shield", [["#BF004F", "Shield"], ["#A20043", "Deeper"], ["#DC005B", "Richer"], ["#C43973", "Softer"], ["#DF0028", "More red"], ["#D5008A", "More pink"], ["#C13339", "Zamazenta"], ["#A3283E", "As before"]], "#BF004F"],
+  ["rc-8:b", "Galar · Sword", [["#0076AB", "Sword"], ["#009DE3", "Lighter"], ["#00557B", "Deeper"], ["#2C7798", "Softer"], ["#0069E6", "More blue"], ["#007B86", "More teal"], ["#1E5FA8", "As before"]], "#0076AB"],
+  ["rc-hisui", "Hisui · Legends: Arceus", [["#36597B", "Legends: Arceus"], ["#3472B0", "Richer"], ["#59728A", "Softer"], ["#526DB3", "More blue"], ["#3D768B", "More teal"], ["#3C6150", "As before"]], "#36597B"],
+  ["rc-9:a", "Paldea · Violet", [["#8334B7", "Violet"], ["#732DA0", "Deeper"], ["#A136E6", "Richer"], ["#8A5CA9", "Softer"], ["#AF38C5", "More pink"], ["#8356CF", "More blue"], ["#7B248A", "Logo"], ["#6A3D9A", "As before"]], "#8334B7"],
+  ["rc-9:b", "Paldea · Scarlet", [["#CD372C", "Scarlet"], ["#F5675D", "Lighter"], ["#952820", "Deeper"], ["#DE0F00", "Richer"], ["#BD4941", "Softer"], ["#C4440C", "More orange"], ["#DD0D30", "More pink"], ["#B3261E", "As before"]], "#CD372C"],
 ];
 let tryVz = store.get(TRY_VZ_KEY, {});
 if (!tryVz || typeof tryVz !== "object" || Array.isArray(tryVz)) tryVz = {};
 const tryPick = id => { const row = TRY_VZ.find(r => r[0] === id); if (!row) return null; return row[2].some(([k]) => k === tryVz[id]) ? tryVz[id] : row[3]; };
 const tryPicKey = k => k === "mega" ? tryPick("mega") : k;   // the Mega Evolution list's picture, as picked
 function tryVzApply(){   // the colour rows: each region's colour, or two ("first+second": the first holds the writing), and how two show
-  for (const [id] of TRY_VZ) if (id.startsWith("rc-")) { const r = id.slice(3), [a, b] = tryPick(id).split("+");
-    REGION_COLOURS[r] = a; if (b) REGION_SPLIT[r] = b; else delete REGION_SPLIT[r]; }
+  for (const [id] of TRY_VZ) if (id.startsWith("rc-")) { const [r, half] = id.slice(3).split(":");   // rc-2:a Gold, rc-2:b Silver; rc-hisui one
+    if (half === "b") REGION_SPLIT[r] = tryPick(id); else { REGION_COLOURS[r] = tryPick(id); if (!half) delete REGION_SPLIT[r]; } }
 }
 const trySw = k => k.includes("+") ? `linear-gradient(135deg,${k.split("+")[0]} 50%,${k.split("+")[1]} 50%)` : k;   // a swatch: one colour or two
 tryVzApply();
