@@ -1468,16 +1468,16 @@
     }
   });
 
-  test("TRIAL Try switch Violet and Z-A (24 Nov): switching games, the Mega Evolution picture, region colours, two colours on cards and banners", async () => {
+  test("TRIAL Try switch Violet and Z-A (24 Nov): switching games, the Mega Evolution picture, region colours (two, blended), sliding toggles", async () => {
     const pick = async (row, v) => { click(document.querySelector(`.trybox [data-row="${row}"] [data-v="${v}"]`)); await wait(150); };
     const was = {...tryVz};
     try {
-      eq([...document.querySelectorAll(".trybox [data-row]")].map(r => r.dataset.row), ["gameSwitch", "mega", "rc-1", "rc-2", "rc-3", "rc-4", "rc-5", "rc-6", "rc-7", "rc-8", "rc-hisui", "rc-9", "twoCards", "twoBanner"], "this round’s rows");
+      eq([...document.querySelectorAll(".trybox [data-row]")].map(r => r.dataset.row), ["gameSwitch", "mega", "rc-1", "rc-2", "rc-3", "rc-4", "rc-5", "rc-6", "rc-7", "rc-8", "rc-hisui", "rc-9"], "this round’s rows");
       await go("#za-gen-hyperspace"); ok(/hyperspace-2/.test(view().querySelector(".hero").getAttribute("style") || ""), "Hyperspace: the clearer distortion (her pick)");
       await go("#za-gen-mega");
-      for (const v of ["mega-4", "mega-5", "mega-6", "mega-7", "mega-8"]) { await pick("mega", v);
-        ok(new RegExp(v + "\.").test(view().querySelector(".hero").getAttribute("style") || "") && !view().querySelector(".hero.ratio"), `${v}: fills the banner`); }
-      await go("#za"); ok(/mega-8/.test(view().querySelector('.gen[href="#za-gen-mega"] .genmap').getAttribute("style")), "and the card on Z-A’s Home");
+      for (const v of ["mega-keystone", "mega-keystone-2", "mega-glow", "za-keyart"]) { await pick("mega", v);
+        ok((view().querySelector(".hero").getAttribute("style") || "").includes(REGION_CHOSEN[v]) && !view().querySelector(".hero.ratio"), `${v}: fills the banner`); }
+      await go("#za"); ok(/za-keyart/.test(view().querySelector('.gen[href="#za-gen-mega"] .genmap').getAttribute("style")), "and the card on Z-A’s Home");
       await go("#za-gen-mega"); await pick("mega", "mega-big"); ok(/mega-big-1/.test(view().querySelector(".hero").getAttribute("style") || "") && view().querySelector(".hero.ratio"), "the big stone, whole");
       const opts = row => [...document.querySelectorAll(`.trybox [data-row="${row}"] [data-v]`)].map(b => b.dataset.v);
       const two = () => ["--rc", "--rc2"].map(v => getComputedStyle(document.documentElement).getPropertyValue(v).trim().toUpperCase()).join("+");
@@ -1486,26 +1486,32 @@
       await pick("rc-9", one9); eq(two(), `${one9}+${one9}`.toUpperCase(), "one colour: the same twice");
       await go("#sh-gen-galar"); const pair8 = opts("rc-8")[0]; await pick("rc-8", pair8); eq(two(), pair8.toUpperCase(), "Shield's lists Galar's two");
       await go("#gen-8"); eq(two(), pair8.toUpperCase(), "GO's Galar the same");
-      const frame = () => { const c = getComputedStyle(view().querySelector(".card")); return /linear-gradient/.test(c.backgroundImage) && c.borderTopColor === "rgba(0, 0, 0, 0)"; };
-      for (const v of ["diag", "side", "corners", "blend"]) { await pick("twoCards", v); ok(frame(), `cards: ${v}, the frame in two colours`); }
-      await pick("twoCards", "inner"); ok(!frame() && /inset/.test(getComputedStyle(view().querySelector(".card")).boxShadow), "or a line of the second inside");
-      await pick("twoCards", "off"); ok(!frame(), "or one colour");
-      for (const v of ["side", "top", "blend"]) { await pick("twoBanner", v); ok(/linear-gradient/.test(getComputedStyle(view().querySelector(".hero")).backgroundImage), `banner: ${v}`); }
-      await pick("twoBanner", "band"); ok(getComputedStyle(view().querySelector(".hero")).borderTopWidth === "12px", "banner: a band along the top");
-      await pick("twoBanner", "off"); ok(!/linear-gradient/.test(getComputedStyle(view().querySelector(".hero")).backgroundImage), "or one colour");
+      const card = getComputedStyle(view().querySelector(".card"));
+      ok(/linear-gradient/.test(card.backgroundImage) && card.borderTopColor === "rgba(0, 0, 0, 0)", "the frame blends the two (her pick, 25 Nov)");
+      ok(/linear-gradient/.test(getComputedStyle(view().querySelector(".hero")).backgroundImage), "and the banner");
+      ok(opts("rc-3").includes("#AB2813+#26649C"), "the remakes' two to judge too (Omega Ruby and Alpha Sapphire)");
       await go("#go"); eq(view().querySelector('.gen[href="#gen-8"]').style.getPropertyValue("--rc2").toUpperCase(), pair8.split("+")[1].toUpperCase(), "GO's region cards: their second colour");
       ok(/26, 18, 20/.test(getComputedStyle(nav.querySelector("a.on")).boxShadow), "the sidebar highlight black (her pick)");
       await go("#za");
-      for (const v of ["label", "divided", "dots"]) {
-        await pick("gameSwitch", v); const el = document.querySelector(".games .game-switch");
-        ok(el && el.children.length === 6 && el.scrollWidth <= el.clientWidth + 1 && el.querySelector("a[aria-current]").textContent === "Z-A", `${v}: all six, fitting, Z-A chosen`);
-      }
-      ok(document.querySelector(".games .gt-head") === null, "the heading only with its own option");
-      await pick("gameSwitch", "label"); ok(document.querySelector(".games .gt-head") && document.querySelector(".game-switch a[aria-current] svg"), "heading and a tick on the game shown");
-      await pick("gameSwitch", "more"); click(document.querySelector("[data-gamemenu]")); await wait(100);
-      eq(document.querySelectorAll(".game-menu a").length, 3, "Toggle + More: the rest in a list");
-      document.dispatchEvent(new KeyboardEvent("keydown", {key: "Escape"})); await wait(50);
-      eq(JSON.parse(localStorage.getItem(TRY_VZ_KEY)).gameSwitch, "more", "kept");
+      await pick("gameSwitch", "h"); await wait(400);
+      let el = document.querySelector(".games [data-slide]"); const links = el.querySelectorAll("a");
+      ok(el && links.length === 6 && el.querySelector("a[aria-current]").href.endsWith("#za"), "one row: all six, Z-A chosen");
+      eq(el.dataset.i, "5", "the row slid so Z-A is under the thumb"); ok(el.querySelector("a.hot[aria-current]"), "Z-A lit");
+      const th = el.querySelector(".gs-thumb").getBoundingClientRect(), za = links[5].getBoundingClientRect();
+      ok(Math.abs(th.left + th.width / 2 - (za.left + za.width / 2)) < 3, "Z-A sits under the thumb");
+      ok(new Set([...links].map(a => Math.round(a.getBoundingClientRect().top))).size === 1, "all on one row (her note: two rows look like two toggles)");
+      // drag the row one game to the right: Violet comes under the thumb; let go and it's shown
+      const w = links[0].offsetWidth, y = th.top + th.height / 2, x0 = th.left + th.width / 2;
+      const ptr = (type, x) => el.dispatchEvent(new PointerEvent(type, {bubbles: true, pointerId: 7, button: 0, clientX: x, clientY: y}));
+      ptr("pointerdown", x0); ptr("pointermove", x0 + w / 2); ptr("pointermove", x0 + w);
+      ok(links[4].classList.contains("hot") && el.style.getPropertyValue("--dx") === w + "px", "the row follows the drag");
+      ptr("pointerup", x0 + w); await wait(400); eq(location.hash, "#violet", "let go on Violet: Violet shown");
+      ok(document.querySelector(".games [data-slide] a[aria-current]").href.endsWith("#violet"), "and lit");
+      // the arrow keys
+      document.querySelector(".games [data-slide] a[aria-current]").dispatchEvent(new KeyboardEvent("keydown", {key: "ArrowDown", bubbles: true})); await wait(300);
+      eq(location.hash, "#za", "the arrow key: the next game");
+      await go("#za"); await pick("gameSwitch", "label"); ok(document.querySelector(".games .gt-head") && document.querySelector(".game-switch a[aria-current] svg"), "As now: heading and a tick on the game shown");
+      await pick("gameSwitch", "h"); eq(JSON.parse(localStorage.getItem(TRY_VZ_KEY)).gameSwitch, "h", "kept");
     } finally { tryVz = was; store.set(TRY_VZ_KEY, was); tryVzApply(); rerender(); }
   });
 

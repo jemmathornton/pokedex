@@ -432,7 +432,8 @@ document.documentElement.dataset.look = "mix";
 // each game after HOME takes its region's colour for all its lists (DLC lists their own later: her note, 24 Nov)
 const GAME_REGION = {shield: "8", arceus: "hisui", violet: "9", za: "6"};
 const colourOf = g => REGION_COLOURS[g] || (g && bySections() && secById(g) ? REGION_COLOURS[GAME_REGION[GAME]] || secById(g).colour : null) || GAME_COLOUR;
-// TRIAL (24 Nov, her idea: “half/half for the two colours”): a region's second colour, from the Try switch; --rc2 beside --rc
+// a region's second colour (her idea, 24 Nov: “half/half for the two colours”; shown blended, her pick 25 Nov: site.css “Two colours”):
+// --rc2 beside --rc; the colours themselves still come from the Try switch (TRIAL)
 const REGION_SPLIT = {};
 const regionOf = g => REGION_COLOURS[g] ? g : g && bySections() && secById(g) && REGION_COLOURS[GAME_REGION[GAME]] ? GAME_REGION[GAME] : null;
 const secondOf = g => REGION_SPLIT[regionOf(g)] || colourOf(g);
@@ -445,17 +446,19 @@ const REGION_CHOSEN = {"1": "kanto-map-2.jpg", "2": "johto-map-1.jpg", "3": "hoe
   // Hyperspace: the distortion in Nintendo's cleaner copy (her pick, 24 Nov: “The better distortion pick is better”; nintendo.com/eu
   // …/nswitch_pokemonlegendsza_1/CI_NSwitch_Pokemon_Legends_ZA_NS1_MD_Background.jpg, 1920 × 1359). Mega Evolution (TRIAL, her
   // notes: “really badly cropped”, “maybe it's the cropping or the angle?”, then “I need better mega evolution pictures as it needs
-  // to fit the landscape box. Do more research”): official pictures in which the Pokémon fits a wide box, each cut to 2:1 around it
-  // so the card's 2.4:1 and the banner both show it whole: Mega Salamence over Lumiose (nintendo.com/us Z-A page, real-time video
-  // still, 2880 × 1521), the Mega Dimension key art of Mega Raichu X and Y (legends.pokemon.com /images/dlc/buynow_dlc_mediumup.jpg,
-  // 2328 × 1500), Mega Hawlucha (nintendo.com/us Switch 2 Edition page, mega-evolved top-gallery mega-hawlucha-2x, 1640 × 922),
-  // Victreebel Mega Evolving (…/mega-victreebel-2x, 1640 × 922), Mega Gardevoir by Prism Tower (legends.pokemon.com
-  // /images/homepage/mega-img-2x.jpg, 2880 × 1690); and the big Mega Stone as now (a square cut from /images/dlc/p14_02.jpg)
-  "mega-big": "mega-big-1.jpg", "mega-4": "mega-4.jpg", "mega-5": "mega-5.jpg", "mega-6": "mega-6.jpg", "mega-7": "mega-7.jpg", "mega-8": "mega-8.jpg"};   // her picks: the official painted region maps (12 Nov; she switched from scenery)
+  // to fit the landscape box. Do more research”, then 25 Nov: “for mega art I don't want a specific mon I need something generic”):
+  // official pictures with no one Pokémon as the subject, each cut to 2:1 so the card's 2.4:1 and the banner both show it: a trainer
+  // touching the Key Stone, the rainbow light of Mega Evolution across the frame (nintendo.com/us Switch 2 Edition page's gallery,
+  // assets.nintendo.com …/70010000099365/81b3fb17…, 1920 × 1080), the same moment closer (nintendo.com/eu PokemonLegendsZA_17.jpg,
+  // 1920 × 1080), the rainbow glow of Nintendo UK's Mega Evolution section (…_NS1_Mega_Anim_Rainbow_Glow.jpg, 540 × 246, a blur,
+  // enlarged), the game's key art without its logo, Lumiose at night with Mega Gardevoir, Absol and Scizor among many (pokemon.co.jp
+  // /ex/legends_z-a/assets/img/toppage/keyvisual/visual@2x.webp, 2732 × 2288); and the big Mega Stone as now (a square cut from
+  // /images/dlc/p14_02.jpg)
+  "mega-big": "mega-big-1.jpg", "mega-keystone": "mega-keystone-1.jpg", "mega-keystone-2": "mega-keystone-2.jpg", "mega-glow": "mega-glow-1.jpg", "za-keyart": "za-keyart-1.jpg"};   // her picks: the official painted region maps (12 Nov; she switched from scenery)
 // which part of a picture the banner shows, where the middle isn't the best part (12 Nov: Kanto's Route 1 was nearly all sky):
 // a closer crop towards the ground; the picture itself is unchanged
 const SHOT_FIT = {"hyperspace-2.jpg": "center/cover", "mega-big-1.jpg": "center/cover",
-  "mega-4.jpg": "center/cover", "mega-5.jpg": "center/cover", "mega-6.jpg": "center/cover", "mega-7.jpg": "center/cover", "mega-8.jpg": "center/cover", "kitakami-1.jpg": "center 30%/cover", "blueberry-1.jpg": "center 35%/cover", "lumiose-map-1.jpg": "center 50%/cover", "hyperspace-1.jpg": "center 40%/cover", "mega-1.jpg": "center/cover", "isle-of-armor-1.jpg": "center 60%/cover", "crown-tundra-1.jpg": "center 35%/cover", "kanto-map-2.jpg": "center/cover", "johto-map-1.jpg": "center/cover", "hoenn-map-2.jpg": "center/cover", "unova-map-2.jpg": "center/cover", "galar-map-1.jpg": "center 45%/cover", "hisui-map-1.jpg": "50% 50%/112% auto", "paldea-map-1.jpg": "center/cover", "sinnoh-map-3.jpg": "50% 48%/118% auto", "kalos-map-2.jpg": "center/cover", "alola-map-1.jpg": "center 45%/cover"};   // maps: the middle; Hisui closer, so its parchment edge is cut off (her ask, 12 Nov)   // maps: the middle
+  "mega-keystone-1.jpg": "center/cover", "mega-keystone-2.jpg": "center/cover", "mega-glow-1.jpg": "center/cover", "za-keyart-1.jpg": "center/cover", "kitakami-1.jpg": "center 30%/cover", "blueberry-1.jpg": "center 35%/cover", "lumiose-map-1.jpg": "center 50%/cover", "hyperspace-1.jpg": "center 40%/cover", "mega-1.jpg": "center/cover", "isle-of-armor-1.jpg": "center 60%/cover", "crown-tundra-1.jpg": "center 35%/cover", "kanto-map-2.jpg": "center/cover", "johto-map-1.jpg": "center/cover", "hoenn-map-2.jpg": "center/cover", "unova-map-2.jpg": "center/cover", "galar-map-1.jpg": "center 45%/cover", "hisui-map-1.jpg": "50% 50%/112% auto", "paldea-map-1.jpg": "center/cover", "sinnoh-map-3.jpg": "50% 48%/118% auto", "kalos-map-2.jpg": "center/cover", "alola-map-1.jpg": "center 45%/cover"};   // maps: the middle; Hisui closer, so its parchment edge is cut off (her ask, 12 Nov)   // maps: the middle
 // Shield's Isle of Armor and Crown Tundra: the official paintings (swordshield.pokemon.com, downloaded with her yes, 23 Nov; the
 // official site has no map of either; her pick over Galar's map, 23 Nov), in REGION_CHOSEN above so tools/make_home_maps.py makes
 // their smaller copies
@@ -468,30 +471,31 @@ const SHOT_FIT = {"hyperspace-2.jpg": "center/cover", "mega-big-1.jpg": "center/
 // it isn't obvious you only select one. The rows was good as it looked like a toggle before there were too many”).
 const TRY_VZ_KEY = "jemmas-pokedex-try-violetza";
 const TRY_VZ = [
-  // her notes, 24 Nov: “I like the idea of a wrapping toggle but it just doesn't seem clear what it is to me”
-  ["gameSwitch", "Switching games", [["label", "Toggle with a heading"], ["divided", "Toggle with lines"], ["dots", "Toggle with dots"], ["more", "Toggle + More"]], "label"],
-  ["mega", "Mega Evolution", [["mega-4", "Mega Salamence"], ["mega-5", "Mega Raichu X and Y"], ["mega-6", "Mega Hawlucha"], ["mega-7", "Victreebel Mega Evolving"], ["mega-8", "Mega Gardevoir"], ["mega-big", "The big stone (as now)"]], "mega-4"],
+  // her notes, 24 Nov: “I like the idea of a wrapping toggle but it just doesn't seem clear what it is to me”; 25 Nov: “the original one
+  // you did was good. But think like an actual toggle you'd drag back and forth, is there a better way to do it?”, then “I meant with a
+  // single row, that toggle was 100% perfect. Just not sure how to adapt it to a second row”, then “You can't put it over two rows as it
+  // looks like two toggles”: the one-row toggle kept, all six on one row that slides along under the thumb (drag it, click a game
+  // either side, or use the arrow keys); or the toggle as now
+  ["gameSwitch", "Switching games", [["h", "One row, sliding"], ["label", "As now"]], "h"],
+  ["mega", "Mega Evolution", [["mega-keystone", "Key Stone"], ["mega-keystone-2", "Key Stone, closer"], ["mega-glow", "Mega Evolution glow"], ["za-keyart", "The game’s key art"], ["mega-big", "The big stone (as now)"]], "mega-keystone"],
   // the region colours (her notes, 24 Nov: “some are obvious and some aren't … sword and shield weren't the more blue and red? … when I
   // pick a single on wouldn't it be better to prioritise violet over scarlet?”; then “half/half for the two colours”, “Check all regions
   // colours are correct too as a few off them looked a bit off to me”): each version's colour from Bulbapedia's version colours
   // (Help:Color_templates, taken from the box art and Japanese logos), checked against the box art, darkened only as far as white
   // writing needs (5:1 or more; White can't, so it is only ever the second colour). Two colours first (the one she plays first:
-  // Shield, Violet; the first holds the writing), then each version alone, then the colour as now. Hisui: Legends: Arceus's slate blue
-  // (the green was Bulbapedia's Fieldlands colour, not the game's).
-  ["rc-1", "Kanto · Red, Blue", [["#CF3613+#2E50D8", "Red and Blue"], ["#CF3613", "Red"], ["#2E50D8", "Blue"], ["#A3302A", "As now"]], "#CF3613+#2E50D8"],
-  ["rc-2", "Johto · Gold, Silver", [["#8C6A14+#6F6F6F", "Gold and Silver"], ["#8C6A14", "Gold"], ["#6F6F6F", "Silver"], ["#2C788E", "Crystal"], ["#8E6A0E", "As now"]], "#8C6A14+#6F6F6F"],
-  ["rc-3", "Hoenn · Ruby, Sapphire", [["#CD2236+#3D51A7", "Ruby and Sapphire"], ["#CD2236", "Ruby"], ["#3D51A7", "Sapphire"], ["#008046", "Emerald"], ["#16618A", "As now"]], "#CD2236+#3D51A7"],
-  ["rc-4", "Sinnoh · Diamond, Pearl", [["#56728E+#9E597F", "Diamond and Pearl"], ["#56728E", "Diamond"], ["#9E597F", "Pearl"], ["#707063", "Platinum"], ["#5B4B94", "As now"]], "#56728E+#9E597F"],
-  ["rc-5", "Unova · Black, White", [["#444444+#E1E1E1", "Black and White"], ["#444444", "Black"], ["#36353D", "As now"]], "#444444+#E1E1E1"],
+  // Shield, Violet; the first holds the writing), the remakes' two (25 Nov, so she can judge the pairs: her note “I want to judge the
+  // actual two colours”), then each version alone, then the colour as now. Hisui: Legends: Arceus's slate blue (the green was
+  // Bulbapedia's Fieldlands colour, not the game's).
+  ["rc-1", "Kanto · Red, Blue", [["#CF3613+#2E50D8", "Red and Blue"], ["#C04901+#587A00", "FireRed and LeafGreen"], ["#CF3613", "Red"], ["#2E50D8", "Blue"], ["#A3302A", "As now"]], "#CF3613+#2E50D8"],
+  ["rc-2", "Johto · Gold, Silver", [["#8C6A14+#6F6F6F", "Gold and Silver"], ["#896B01+#67707D", "HeartGold and SoulSilver"], ["#8C6A14", "Gold"], ["#6F6F6F", "Silver"], ["#2C788E", "Crystal"], ["#8E6A0E", "As now"]], "#8C6A14+#6F6F6F"],
+  ["rc-3", "Hoenn · Ruby, Sapphire", [["#CD2236+#3D51A7", "Ruby and Sapphire"], ["#AB2813+#26649C", "Omega Ruby and Alpha Sapphire"], ["#CD2236", "Ruby"], ["#3D51A7", "Sapphire"], ["#008046", "Emerald"], ["#16618A", "As now"]], "#CD2236+#3D51A7"],
+  ["rc-4", "Sinnoh · Diamond, Pearl", [["#56728E+#9E597F", "Diamond and Pearl"], ["#2C7793+#9E5B6F", "Brilliant Diamond and Shining Pearl"], ["#56728E", "Diamond"], ["#9E597F", "Pearl"], ["#707063", "Platinum"], ["#5B4B94", "As now"]], "#56728E+#9E597F"],
+  ["rc-5", "Unova · Black, White", [["#444444+#E1E1E1", "Black and White"], ["#303E51+#EBC5C3", "Black 2 and White 2"], ["#444444", "Black"], ["#36353D", "As now"]], "#444444+#E1E1E1"],
   ["rc-6", "Kalos · X, Y", [["#025DA6+#DA183A", "X and Y"], ["#025DA6", "X"], ["#DA183A", "Y"], ["#2B55A3", "As now"]], "#025DA6+#DA183A"],
-  ["rc-7", "Alola · Sun, Moon", [["#A0601D+#41749A", "Sun and Moon"], ["#A0601D", "Sun"], ["#41749A", "Moon"], ["#B5531C", "As now"]], "#A0601D+#41749A"],
+  ["rc-7", "Alola · Sun, Moon", [["#A0601D+#41749A", "Sun and Moon"], ["#BE4A23+#226DB5", "Ultra Sun and Ultra Moon"], ["#A0601D", "Sun"], ["#41749A", "Moon"], ["#B5531C", "As now"]], "#A0601D+#41749A"],
   ["rc-8", "Galar · Sword, Shield", [["#BF004F+#0076AB", "Shield and Sword"], ["#BF004F", "Shield"], ["#0076AB", "Sword"], ["#6E2D82", "As now"]], "#BF004F+#0076AB"],
   ["rc-hisui", "Hisui · Legends: Arceus", [["#36597B", "Legends: Arceus"], ["#3C6150", "As now"]], "#36597B"],
   ["rc-9", "Paldea · Scarlet, Violet", [["#8334B7+#CD372C", "Violet and Scarlet"], ["#8334B7", "Violet"], ["#CD372C", "Scarlet"], ["#952F57", "As now"]], "#8334B7+#CD372C"],
-  // two colours (her idea, 24 Nov: “half/half for the two colours”; then “ideas for showing two colours on the background bit/with the
-  // card borders”): how a region's two colours show on the card frames and on the banner; my suggestions (not decided) first
-  ["twoCards", "Two colours: cards", [["diag", "Corner to corner"], ["side", "Left and right"], ["corners", "Two corners"], ["blend", "Blended"], ["inner", "Frame and inner line"], ["off", "One colour"]], "diag"],
-  ["twoBanner", "Two colours: banner", [["side", "Left and right"], ["top", "Top and bottom"], ["blend", "Blended"], ["band", "A band along the top"], ["off", "One colour"]], "side"],
 ];
 let tryVz = store.get(TRY_VZ_KEY, {});
 if (!tryVz || typeof tryVz !== "object" || Array.isArray(tryVz)) tryVz = {};
@@ -500,7 +504,6 @@ const tryPicKey = k => k === "mega" ? tryPick("mega") : k;   // the Mega Evoluti
 function tryVzApply(){   // the colour rows: each region's colour, or two ("first+second": the first holds the writing), and how two show
   for (const [id] of TRY_VZ) if (id.startsWith("rc-")) { const r = id.slice(3), [a, b] = tryPick(id).split("+");
     REGION_COLOURS[r] = a; if (b) REGION_SPLIT[r] = b; else delete REGION_SPLIT[r]; }
-  const d = document.documentElement.dataset; d.twoCards = tryPick("twoCards"); d.twoBanner = tryPick("twoBanner");
 }
 const trySw = k => k.includes("+") ? `linear-gradient(135deg,${k.split("+")[0]} 50%,${k.split("+")[1]} 50%)` : k;   // a swatch: one colour or two
 tryVzApply();
@@ -521,15 +524,38 @@ tryVzApply();
   draw(); document.body.append(box);
   pad(); addEventListener("resize", pad);
 })();
-// the Menu option: a button with the game's full name opens a list of every game (no names cut short; any number of games)
-const gameMenu = open => { const b = document.querySelector("[data-gamemenu]"), m = document.querySelector(".game-menu"); if (!b || !m) return;
-  b.setAttribute("aria-expanded", String(open)); m.hidden = !open; };
-document.addEventListener("click", ev => {
-  if (!ev.target.closest) return;
-  if (ev.target.closest("[data-gamemenu]")) return gameMenu(document.querySelector("[data-gamemenu]").getAttribute("aria-expanded") !== "true");
-  if (!ev.target.closest(".game-menu")) gameMenu(false);
+// the sliding toggles (her ask, 25 Nov: “think like an actual toggle you'd drag back and forth”): press on the track and drag, and the
+// thumb follows (along: the games slide under it); let go on a game to show it; a click on a game or the arrow keys work too
+let slideDrag = null, slideDragged = false;
+function slideShow(el, k, dx){   // the games slid so game k is under the thumb; dx: how far they've been dragged along
+  el.querySelectorAll("a").forEach((a, n) => a.classList.toggle("hot", n === k));
+  if (dx) el.style.setProperty("--dx", dx + "px");   // while dragging: the games follow the finger
+  else { el.style.setProperty("--dx", "0px"); el.style.setProperty("--i", k); }
+}
+const slideNearest = (d, ev) => { const w = d.el.querySelector("a").offsetWidth; return Math.max(0, Math.min(GAMES.length - 1, Math.round(d.i0 - (ev.clientX - d.x) / w))); };
+document.addEventListener("pointerdown", ev => {
+  const el = ev.target.closest && ev.target.closest("[data-slide]"); if (!el || ev.button !== 0) return;
+  slideDrag = {el, x: ev.clientX, y: ev.clientY, id: ev.pointerId, moved: false, i0: +el.dataset.i, k: +el.dataset.i};
 });
-document.addEventListener("keydown", ev => { const m = document.querySelector(".game-menu"); if (ev.key === "Escape" && m && !m.hidden) { gameMenu(false); document.querySelector("[data-gamemenu]")?.focus(); } });
+document.addEventListener("pointermove", ev => {
+  const d = slideDrag; if (!d || ev.pointerId !== d.id) return;
+  if (!d.moved) { if (Math.hypot(ev.clientX - d.x, ev.clientY - d.y) < 5) return; d.moved = true; d.el.classList.add("dragging"); try { d.el.setPointerCapture(ev.pointerId); } catch {} }
+  d.k = slideNearest(d, ev); slideShow(d.el, d.k, ev.clientX - d.x);
+});
+const slideEnd = ev => {
+  const d = slideDrag; if (!d || ev.pointerId !== d.id) return; slideDrag = null; if (!d.moved) return;
+  d.el.classList.remove("dragging"); slideDragged = true; setTimeout(() => { slideDragged = false; }, 100);
+  const g = GAMES[d.k];
+  if (ev.type === "pointerup" && g && location.hash !== g.href && d.k !== d.i0) location.hash = g.href;
+  else slideShow(d.el, d.i0, 0);   // back where it was
+};
+document.addEventListener("pointerup", slideEnd); document.addEventListener("pointercancel", slideEnd);
+document.addEventListener("click", ev => { if (slideDragged && ev.target.closest && ev.target.closest("[data-slide]")) { ev.preventDefault(); slideDragged = false; } }, true);
+document.addEventListener("keydown", ev => {
+  const el = ev.target.closest && ev.target.closest("[data-slide]"), dir = {ArrowLeft: -1, ArrowUp: -1, ArrowRight: 1, ArrowDown: 1}[ev.key]; if (!el || !dir) return;
+  ev.preventDefault(); const k = Math.max(0, Math.min(GAMES.length - 1, +el.dataset.i + dir)); if (k === +el.dataset.i) return;
+  location.hash = GAMES[k].href; setTimeout(() => document.querySelector("[data-slide] a[aria-current]")?.focus(), 120);
+});
 // ===== TRIAL: Try switch "Violet and Z-A", END =====
 // a narrower picture shown less zoomed in: the banner's picture area takes this shape (width / height), so more of it shows and
 // it still blends softly into the colour on the left (12 Nov: Johto looked too zoomed in)
@@ -1633,22 +1659,22 @@ document.querySelector(".brand").after(gameSwitch);
 try { for (const k of ["jemmas-pokedex-try-homepage", "jemmas-pokedex-try-allgames", "jemmas-pokedex-try-gameswitch", "jemmas-pokedex-try-lastgame"]) localStorage.removeItem(k); } catch {}
 function gameNavHtml(route, link, regions, more){
   if (wasGame !== gameOf(route)) setRegion(null);   // another game: its own colour
+  const wasBefore = wasGame;   // the sliding toggles start from here
   wasGame = gameOf(route);
   const game = gameOf(route), all = route === "games";
   brandSmall.textContent = GAMES.find(g => g.id === game).name; brandSmall.hidden = true;   // the switch shows the game
   const cur = g => g.id === game && !all;
-  const look = tryPick("gameSwitch");   // TRIAL: the Try switch "Switching games" (24 Nov): Toggle with a heading · with lines · with dots · Toggle + More
-  const seg = g => `<a href="${g.href}" style="--gc:${g.colour}"${cur(g) ? ' aria-current="true"' : ""}>${esc(g.short)}</a>`;
-  // Toggle + More: HOME and GO always, the game shown if it's another, then More for the rest in a list (any number of games)
-  const shown = GAMES.filter(g => g.id === "home" || g.id === "go" || cur(g)), rest = GAMES.filter(g => !shown.includes(g));
-  gameSwitch.innerHTML = `<a class="allgames${all ? " on" : ""}" href="#games"${all ? ' aria-current="page"' : ""}>${ic("layers")}All games</a>` + (
-    look === "more" ? `<div class="game-switch" role="group" aria-label="Game" style="grid-template-columns:repeat(${shown.length + 1},auto)">${shown.map(seg).join("")}` +
-      `<button type="button" class="game-more" data-gamemenu aria-expanded="false" aria-haspopup="true">More${ic("chevron-down")}</button></div>` +
-      `<div class="game-menu" hidden>${rest.map(g => `<a href="${g.href}">${esc(g.name)}</a>`).join("")}</div>` :
-    look === "label" ? `<div class="game-toggle"><span class="gt-head">${ic("layers")}Game</span><div class="game-switch wrap labelled" role="group" aria-label="Game">${GAMES.map(g => `<a href="${g.href}" style="--gc:${g.colour}"${cur(g) ? ' aria-current="true"' : ""}>${cur(g) ? ic("check") : ""}${esc(g.short)}</a>`).join("")}</div></div>` :
-    look === "divided" ? `<div class="game-switch wrap divided" role="group" aria-label="Game">${GAMES.map(seg).join("")}</div>` :
-    look === "dots" ? `<div class="game-switch wrap dots" role="group" aria-label="Game">${GAMES.map(seg).join("")}</div>` :
-    `<div class="game-switch rows" role="group" aria-label="Game" style="grid-template-columns:repeat(${GAMES.length > 4 ? 3 : GAMES.length},1fr)">${GAMES.map(g => `<a href="${g.href}" style="--gc:${g.colour}"${cur(g) ? ' aria-current="true"' : ""}>${esc(g.short)}</a>`).join("")}</div>`);
+  const look = tryPick("gameSwitch");   // TRIAL: the Try switch "Switching games" (25 Nov): One row, sliding · As now
+  const all_ = `<a class="allgames${all ? " on" : ""}" href="#games"${all ? ' aria-current="page"' : ""}>${ic("layers")}All games</a>`;
+  if (look === "label") { gameSwitch.innerHTML = all_ + `<div class="game-toggle"><span class="gt-head">${ic("layers")}Game</span><div class="game-switch wrap labelled" role="group" aria-label="Game">${GAMES.map(g => `<a href="${g.href}" style="--gc:${g.colour}"${cur(g) ? ' aria-current="true"' : ""}>${cur(g) ? ic("check") : ""}${esc(g.short)}</a>`).join("")}</div></div>`; }
+  else {   // one row, sliding: drawn where the last game was, then the games slide so this one is under the thumb
+    const k = GAMES.findIndex(cur), from = Math.max(0, GAMES.findIndex(g => g.id === wasBefore)), at = k >= 0 ? k : from;
+    const seg = (g, n) => `<a href="${g.href}" draggable="false"${cur(g) ? ' aria-current="true"' : ""}${n === from ? ' class="hot"' : ""}>${esc(g.short)}</a>`;
+    gameSwitch.innerHTML = all_ + `<div class="game-slide h" role="group" aria-label="Game" data-slide data-i="${at}" style="--i:${from};--gc:${(GAMES[at] || GAMES[0]).colour}">` +
+      `<span class="gs-thumb" aria-hidden="true"></span><div class="gs-strip">${GAMES.map(seg).join("")}</div></div>`;
+    const el = gameSwitch.querySelector("[data-slide]");
+    if (at !== from) requestAnimationFrame(() => requestAnimationFrame(() => slideShow(el, at, 0)));   // from where the last game was
+  }
   if (game !== "go") return `<div class="nav-group">${link("#" + GAME_HOME[game], "house", "Home")}${link(R("dex"), "layout-grid", "Every Pokémon", groupByNumber(ENTRIES).length)}</div>${regions}${more}`;
   return `<div class="nav-group">${link("#go", "house", "Home")}${link("#dex", "layout-grid", "Every Pokémon", groupByNumber(ENTRIES).length)}</div>${regions}${more}`;
 }

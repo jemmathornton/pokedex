@@ -1,5 +1,7 @@
 {
  "_about": "By hand, ahead of the sources: boxes a Pokémon can have that Dittobase and Serebii don't list yet (entry id -> flags: dynamax, gmax, shadow). Passed on through evolution. Take a line out once the sources have it (tools/import_go.py prints both).",
  "677": ["dynamax"],
- "_677": "Dynamax Espurr debuts at Max Monday, 23 November 2026 (Leek Duck, Pokémon GO Hub; 18 Nov recheck)"
+ "_677": "Dynamax Espurr debuts at Max Monday, 23 November 2026 (Leek Duck, Pokémon GO Hub; 18 Nov recheck)",
+ "27-alolan": ["dynamax"],
+ "_27-alolan": "Dynamax Alolan Sandshrew debuts at Max Monday, 21 December 2026 (Leek Duck, found by the daily events refresh, 25 Nov)"
 }

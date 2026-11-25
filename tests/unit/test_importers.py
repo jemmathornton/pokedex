@@ -58,6 +58,8 @@ class ImportEvents(unittest.TestCase):
     def test_resolve_from_the_title(self):
         r = lambda name: [(m['id'], m['as']) for m in self.ie.resolve(name, [], DEX)]
         self.assertEqual(r('Dynamax Espurr during Max Monday'), [('677', ['dynamax'])])
+        self.assertEqual(r('Dynamax Alolan Sandshrew during Max Monday'), [('27-alolan', ['dynamax'])], 'the regional form named in the title (25 Nov)')
+        self.assertEqual(r('Dynamax Sandshrew during Max Monday'), [('27', ['dynamax'])])
         self.assertEqual(r('Clefable Super Mega Raid Day'), [('36', ['mega'])])
         self.assertEqual(r('Eternamax Eternatus in Max Battles'), [], 'Eternamax Eternatus can’t be caught')
         self.assertEqual(r('GO Pass: November'), [])

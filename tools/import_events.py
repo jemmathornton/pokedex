@@ -73,8 +73,10 @@ def resolve(evname, ms, dex):
     if not ms:
         words = re.sub(r'\(.*?\)', '', evname)
         for n in sorted(byname, key=len, reverse=True):
-            if re.search(rf'(?<![\w-]){re.escape(n)}(?![\w-])', words.lower()) and not re.search(rf'eternamax {re.escape(n)}', words.lower()):
-                ms.append({'name': n.title() if n.islower() else n, 'key': None, 'shiny': None})
+            # a regional form named before it (25 Nov: "Dynamax Alolan Sandshrew during Max Monday" had matched the plain Sandshrew)
+            hit = re.search(rf'(?:\b(alolan|galarian|hisuian|paldean)\s+)?(?<![\w-]){re.escape(n)}(?![\w-])', words.lower())
+            if hit and not re.search(rf'eternamax {re.escape(n)}', words.lower()):
+                ms.append({'name': (n.title() if n.islower() else n) + (f' ({hit.group(1).title()})' if hit.group(1) else ''), 'key': None, 'shiny': None})
                 words = re.sub(re.escape(n), '', words, flags=re.I)
     low = evname.lower()
     for m in ms:

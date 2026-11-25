@@ -905,6 +905,7 @@
    ],
    "shadow": true,
    "shadowShiny": true,
+   "dynamax": true,
    "order": 1
   },
   {
@@ -952,6 +953,7 @@
    "family": "SANDSHREW",
    "shadow": true,
    "shadowShiny": true,
+   "dynamax": true,
    "order": 1
   },
   {
