@@ -1335,3 +1335,34 @@ main{background:linear-gradient(90deg,rgba(70,40,30,.18),rgba(70,40,30,0) 54px) 
 :root:root :is(.card,.gen,.monpic):is(*,:hover,.got,.informs){border-color:transparent;
   background:var(--stock) padding-box,linear-gradient(var(--card-stock),var(--card-stock)) padding-box,linear-gradient(135deg,var(--frame) 15%,var(--frame2) 85%) border-box}
 :root[data-look] .hero.withshot{background:linear-gradient(100deg,color-mix(in srgb,var(--rc) 85%,#000) 12%,color-mix(in srgb,var(--rc2,var(--rc)) 85%,#000) 40%)}
+
+/* ===== TRIAL: banner fade and sidebar highlight (26 Nov), START: remove with the Try switch once she has picked ===== */
+/* the banner's two colours more on an angle (her note: “I'm seeing first colour way more than second”): the change from the first
+   to the second within the plain part left of the map, corner to corner like the card frames, softer, or top to bottom */
+:root[data-look][data-banner-fade="diag"] .hero.withshot{background:linear-gradient(135deg,color-mix(in srgb,var(--rc) 85%,#000) 8%,color-mix(in srgb,var(--rc2,var(--rc)) 85%,#000) 32%)}
+:root[data-look][data-banner-fade="diag-soft"] .hero.withshot{background:linear-gradient(135deg,color-mix(in srgb,var(--rc) 85%,#000) 0%,color-mix(in srgb,var(--rc2,var(--rc)) 85%,#000) 45%)}
+:root[data-look][data-banner-fade="steep"] .hero.withshot{background:linear-gradient(160deg,color-mix(in srgb,var(--rc) 85%,#000) 12%,color-mix(in srgb,var(--rc2,var(--rc)) 85%,#000) 40%)}
+/* the sidebar highlight in the page's two colours, first to second down the line (her question); black where the page has no region */
+.nav a.on,.allgames.on{position:relative;overflow:hidden}
+:root[data-region]:is([data-nav-mark="two"],[data-nav-mark="two-wide"]) .nav a.on{box-shadow:none}
+:root[data-region]:is([data-nav-mark="two"],[data-nav-mark="two-wide"]) .nav a.on::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;
+  background:linear-gradient(180deg,var(--rc),var(--rc2,var(--rc)))}
+:root[data-region][data-nav-mark="two-wide"] .nav a.on::before{left:5px;top:6px;bottom:6px;width:5px;border-radius:3px}   /* a small bar of its own, clear of the corners */
+/* the map in the middle, the first colour on its left and the second on its right (her question, 26 Nov); wider screens only */
+@media (min-width:701px){
+  :root[data-look]:is([data-banner-layout="mid"],[data-banner-layout="mid-wide"],[data-banner-layout="mid-narrow"]) .hero.withshot{background:linear-gradient(90deg,color-mix(in srgb,var(--rc) 85%,#000) 28%,color-mix(in srgb,var(--rc2,var(--rc)) 85%,#000) 72%)}
+  :root:is([data-banner-layout="mid"],[data-banner-layout="mid-wide"],[data-banner-layout="mid-narrow"]) .hero.withshot:not(.ratio)::after{inset:0 auto 0 50%;width:var(--midw,50%);transform:translateX(-50%);
+    -webkit-mask:linear-gradient(90deg,transparent,#000 18%,#000 82%,transparent);mask:linear-gradient(90deg,transparent,#000 18%,#000 82%,transparent)}
+  :root[data-banner-layout="mid-wide"] .hero.withshot{--midw:64%}
+  :root[data-banner-layout="mid-narrow"] .hero.withshot{--midw:40%}
+}
+/* where the title sits when the map is in the middle (her ask, 26 Nov): in the left colour, smaller and wrapping, or centred over the map */
+@media (min-width:701px){
+  :root[data-banner-layout^="mid"][data-title-place="band"] .hero.withshot:not(.ratio) > :is(.label,h1){position:relative;z-index:1;max-width:calc(var(--midb,18%) * 1.35)}
+  :root[data-banner-layout^="mid"][data-title-place="band"] .hero.withshot:not(.ratio) > h1{font-size:clamp(30px,3vw,42px);line-height:1.02}
+  :root[data-banner-layout="mid"] .hero.withshot{--midb:25%}
+  :root[data-banner-layout="mid-wide"] .hero.withshot{--midb:18%}
+  :root[data-banner-layout="mid-narrow"] .hero.withshot{--midb:30%}
+  :root[data-banner-layout^="mid"][data-title-place="centre"] .hero.withshot:not(.ratio) > :is(.label,h1){position:relative;z-index:1;text-align:center;align-self:center;text-shadow:0 2px 14px rgba(0,0,0,.75),0 0 4px rgba(0,0,0,.5)}
+}
+/* ===== TRIAL: banner fade and sidebar highlight, END ===== */

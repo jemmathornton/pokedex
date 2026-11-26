@@ -424,20 +424,29 @@ function card(e, more = "", inForms = false, forms = null){
 // ---------- the banner and sidebar look: “Colours + parade” (her pick, 10 Nov, of the trial looks): each region's colour in
 // the banner and its Pokémon walking along the bottom, a dark sidebar; no parade on a Pokémon's page. The CSS is under
 // “the look” in site.css (data-look="mix"); she may want to change the parade later.
-// each region's colour (a suggestion, after its games' colours): Kanto red, Johto gold,
-// Hoenn sapphire, Sinnoh pearl-violet, Unova black, Kalos blue, Alola sunset orange, Galar purple, Hisui forest, Paldea scarlet-violet
-const REGION_COLOURS = {"1": "#A3302A", "2": "#8E6A0E", "3": "#16618A", "4": "#5B4B94", "5": "#36353D", "6": "#2B55A3",
-  "7": "#B5531C", "8": "#6E2D82", "hisui": "#3C6150", "9": "#952F57"};
+// each region's two colours, blended (her picks, 26 Nov, from a colour picker in the chat; her notes: “half/half for the two colours”,
+// “I want the combined blended version … multiple gold and multiple silver options”). Each version's colour from Bulbapedia's version
+// colours (taken from the box art and Japanese logos), in the shade she picked (tools/region_shades.py makes them all): the first
+// holds the writing and tints the art window, the second blends in (REGION_SPLIT). Kanto Red (richer) and Blue (richer), Johto Gold
+// (brighter) and Silver (lighter), Hoenn Ruby and Sapphire (deeper), Sinnoh Brilliant Diamond and Shining Pearl, Unova Black and
+// White, Kalos X and Y (both deeper), Alola Sun (brighter, more red) and Ultra Moon, Galar Sword and Shield, Paldea Scarlet and Violet
+// (the first named first, as the games' names read on the page: her note, 26 Nov, “the order should be the same as the text”);
+// Hisui one colour, the forest green (her pick: “it didn't have a pair or colour on box like others so i think the green is best as we
+// already have so many red & blue options”)
+const REGION_COLOURS = {"1": "#D72800", "2": "#AE831A", "3": "#CD2236", "4": "#2C7793", "5": "#444444", "6": "#025292",
+  "7": "#EB5C10", "8": "#0076AB", "hisui": "#3C6150", "9": "#CD372C"};
 document.documentElement.dataset.look = "mix";
 // each game after HOME takes its region's colour for all its lists (DLC lists their own later: her note, 24 Nov)
 const GAME_REGION = {shield: "8", arceus: "hisui", violet: "9", za: "6"};
 const colourOf = g => REGION_COLOURS[g] || (g && bySections() && secById(g) ? REGION_COLOURS[GAME_REGION[GAME]] || secById(g).colour : null) || GAME_COLOUR;
-// a region's second colour (her idea, 24 Nov: “half/half for the two colours”; shown blended, her pick 25 Nov: site.css “Two colours”):
-// --rc2 beside --rc; the colours themselves still come from the Try switch (TRIAL)
-const REGION_SPLIT = {};
+// a region's second colour (her idea, 24 Nov: “half/half for the two colours”; shown blended, her pick 25 Nov: site.css “Two colours”;
+// her picks, 26 Nov, above): --rc2 beside --rc
+const REGION_SPLIT = {"1": "#385FFB", "2": "#949494", "3": "#384A99", "4": "#9E5B6F", "5": "#E1E1E1", "6": "#A0122A", "7": "#226DB5",
+  "8": "#BF004F", "9": "#8334B7"};
 const regionOf = g => REGION_COLOURS[g] ? g : g && bySections() && secById(g) && REGION_COLOURS[GAME_REGION[GAME]] ? GAME_REGION[GAME] : null;
 const secondOf = g => REGION_SPLIT[regionOf(g)] || colourOf(g);
-const setRegion = g => { const s = document.documentElement.style; s.setProperty("--rc", colourOf(g)); s.setProperty("--rc2", secondOf(g)); };   // a page with no region: the game's own colour
+const setRegion = g => { const d = document.documentElement, s = d.style; s.setProperty("--rc", colourOf(g)); s.setProperty("--rc2", secondOf(g));
+  d.toggleAttribute("data-region", !!g); };   // data-region: a page with a region's colours (the sidebar highlight can take them: TRIAL)   // a page with no region: the game's own colour
 const REGION_CHOSEN = {"1": "kanto-map-2.jpg", "2": "johto-map-1.jpg", "3": "hoenn-map-2.jpg", "4": "sinnoh-map-3.jpg", "5": "unova-map-2.jpg", "6": "kalos-map-2.jpg", "7": "alola-map-1.jpg", "8": "galar-map-1.jpg", "hisui": "hisui-map-1.jpg", "9": "paldea-map-1.jpg", "isle-of-armor": "isle-of-armor-1.jpg", "crown-tundra": "crown-tundra-1.jpg",
   // Violet's DLCs and Legends: Z-A (23 Nov, downloaded with her yes: “Do it if you can”): The Teal Mask's and The Indigo Disk's key art
   // (scarletviolet.pokemon.com, 960 × 553; no official maps of Kitakami or the Terarium), the official Lumiose City map
@@ -456,11 +465,17 @@ const REGION_CHOSEN = {"1": "kanto-map-2.jpg", "2": "johto-map-1.jpg", "3": "hoe
   // (Serebii's copies, serebii.net/pokemonunite/items/<stone>.png, 256 and 512 px, laid out by us). Fan art (she allowed it): a rainbow
   // stone in a starry sky, “Megastone Background” by PaCHADrisu (DeviantArt, 2013, 1024 × 703; no licence given: ask before keeping,
   // and credit in the footer). And the big stone as now (a square cut from legends.pokemon.com /images/dlc/p14_02.jpg)
+  // her favourite was the fan rainbow stone with the Mega symbol (26 Nov: “Fan art rainbow I think is best but not sure about how license
+  // works … Maybe find other art like that if the license is an issue?”): it is the Key Stone. Official: the Key Stone (pokemon.co.jp
+  // /ex/megaevolution/assets/img/top/stone_key.png, 190 × 190) centred on that site's own starry background (…/top/base_bg.jpg,
+  // 4536 × 4536), laid out by us; fan: RainbowSans15's “Pokemon Mega Key Stone” (DeviantArt 2022, 1280 × 1280; the artist: “This is a
+  // free asset so you may use it anytime, just give me credit”: credit in the footer if picked) on the same background
+  "mega-keystone": "mega-keystone-stars-1.jpg", "mega-keystone-fan": "mega-keystone-fan-1.jpg",
   "mega-big": "mega-big-1.jpg", "mega-three": "mega-three-1.jpg", "mega-all": "mega-all-1.jpg", "mega-glossy": "mega-glossy-1.jpg", "mega-one": "mega-one-1.jpg", "mega-two": "mega-two-1.jpg", "mega-fan": "mega-fan-1.jpg"};   // her picks: the official painted region maps (12 Nov; she switched from scenery)
 // which part of a picture the banner shows, where the middle isn't the best part (12 Nov: Kanto's Route 1 was nearly all sky):
 // a closer crop towards the ground; the picture itself is unchanged
 const SHOT_FIT = {"hyperspace-2.jpg": "center/cover", "mega-big-1.jpg": "center/cover",
-  "mega-three-1.jpg": "center/cover", "mega-all-1.jpg": "center/cover", "mega-glossy-1.jpg": "center/cover", "mega-one-1.jpg": "center/cover", "mega-two-1.jpg": "center/cover", "mega-fan-1.jpg": "center 51%/cover", "kitakami-1.jpg": "center 30%/cover", "blueberry-1.jpg": "center 35%/cover", "lumiose-map-1.jpg": "center 50%/cover", "hyperspace-1.jpg": "center 40%/cover", "mega-1.jpg": "center/cover", "isle-of-armor-1.jpg": "center 60%/cover", "crown-tundra-1.jpg": "center 35%/cover", "kanto-map-2.jpg": "center/cover", "johto-map-1.jpg": "center/cover", "hoenn-map-2.jpg": "center/cover", "unova-map-2.jpg": "center/cover", "galar-map-1.jpg": "center 45%/cover", "hisui-map-1.jpg": "50% 50%/112% auto", "paldea-map-1.jpg": "center/cover", "sinnoh-map-3.jpg": "50% 48%/118% auto", "kalos-map-2.jpg": "center/cover", "alola-map-1.jpg": "center 45%/cover"};   // maps: the middle; Hisui closer, so its parchment edge is cut off (her ask, 12 Nov)   // maps: the middle
+  "mega-three-1.jpg": "center/cover", "mega-keystone-stars-1.jpg": "center/cover", "mega-keystone-fan-1.jpg": "center/cover", "mega-all-1.jpg": "center/cover", "mega-glossy-1.jpg": "center/cover", "mega-one-1.jpg": "center/cover", "mega-two-1.jpg": "center/cover", "mega-fan-1.jpg": "center 51%/cover", "kitakami-1.jpg": "center 30%/cover", "blueberry-1.jpg": "center 35%/cover", "lumiose-map-1.jpg": "center 50%/cover", "hyperspace-1.jpg": "center 40%/cover", "mega-1.jpg": "center/cover", "isle-of-armor-1.jpg": "center 60%/cover", "crown-tundra-1.jpg": "center 35%/cover", "kanto-map-2.jpg": "center/cover", "johto-map-1.jpg": "center/cover", "hoenn-map-2.jpg": "center/cover", "unova-map-2.jpg": "center/cover", "galar-map-1.jpg": "center 45%/cover", "hisui-map-1.jpg": "50% 50%/112% auto", "paldea-map-1.jpg": "center/cover", "sinnoh-map-3.jpg": "50% 48%/118% auto", "kalos-map-2.jpg": "center/cover", "alola-map-1.jpg": "center 45%/cover"};   // maps: the middle; Hisui closer, so its parchment edge is cut off (her ask, 12 Nov)   // maps: the middle
 // Shield's Isle of Armor and Crown Tundra: the official paintings (swordshield.pokemon.com, downloaded with her yes, 23 Nov; the
 // official site has no map of either; her pick over Galar's map, 23 Nov), in REGION_CHOSEN above so tools/make_home_maps.py makes
 // their smaller copies
@@ -479,57 +494,32 @@ const TRY_VZ = [
   // looks like two toggles”: the one-row toggle kept, all six on one row that slides along under the thumb (drag it, click a game
   // either side, or use the arrow keys); or the toggle as now
   ["gameSwitch", "Switching games", [["h", "One row, sliding"], ["label", "As now"]], "h"],
-  ["mega", "Mega Evolution", [["mega-three", "Three stones"], ["mega-all", "Many stones"], ["mega-glossy", "Glossy stones"], ["mega-one", "One big stone"], ["mega-two", "Two stones"], ["mega-fan", "Fan art: rainbow stone"], ["mega-big", "The big stone (as now)"]], "mega-three"],
-  // the region colours (her notes, 24 Nov: “some are obvious and some aren't … sword and shield weren't the more blue and red?”,
-  // “prioritise violet over scarlet”, “half/half for the two colours”, “Check all regions colours are correct”; 25 Nov: “I want the
-  // combined blended version. But eg for gold and silver I want multiple gold and multiple silver options. Especially for where games
-  // are similar”): each region's two colours, blended (the first holds the writing: the version she plays first, Shield and Violet,
-  // otherwise the first named), each with its own row of shades: the version's colour from Bulbapedia's version colours (taken from the
-  // box art and Japanese logos) darkened only as far as white writing needs (5:1); deeper; richer and softer; turned a little towards
-  // the next colours round the wheel (so the reds and blues of different regions can differ); the remake's, box art's or logo's colour;
-  // and the colour as before. Second colours also lighter (3:1; no writing sits on them). White can't hold white writing, so it is
-  // pale and only ever second. Hisui one colour (one game). Made by tools/region_shades.py from those sources. 26 Nov: her first picks
-  // (“an initial glance”) are each row's chosen one; Brighter shades added (as bright as the banner's darkening still lets white writing
-  // read, 4.6:1), and more golds and oranges (her note: the Gold and Sun ones “didn't have the right ones there at all”).
-  ["rc-1:a", "Kanto · Red", [["#CF3613", "Red"], ["#ED5A39", "Brighter"], ["#96270E", "Deeper"], ["#D72800", "Richer"], ["#AF5541", "Softer"], ["#B35410", "More orange"], ["#DD141D", "More pink"], ["#C04901", "FireRed"], ["#A3302A", "As before"]], "#CF3613"],
-  ["rc-1:b", "Kanto · Blue", [["#2E50D8", "Blue"], ["#7B90E6", "Lighter"], ["#2744B9", "Deeper"], ["#385FFB", "Richer"], ["#596BB4", "Softer"], ["#625DE1", "More purple"], ["#266ECC", "More teal"], ["#19779F", "Box art"], ["#1F4E9C", "As before"]], "#385FFB"],
-  ["rc-2:a", "Johto · Gold", [["#8C6A14", "Gold"], ["#AE831A", "Brighter"], ["#654D0F", "Deeper"], ["#916800", "Richer"], ["#826D37", "Softer"], ["#777211", "More yellow"], ["#A55D18", "More red"], ["#8E6520", "Old gold"], ["#AA8501", "HeartGold, brighter"], ["#9A8A17", "Brighter, more yellow"], ["#C4781D", "Brighter, more red"], ["#896B01", "HeartGold"], ["#8E6A0E", "As before"]], "#916800"],
-  ["rc-2:b", "Johto · Silver", [["#6F6F6F", "Silver"], ["#949494", "Lighter"], ["#505050", "Deeper"], ["#5F6875", "Blue-grey"], ["#6E6A62", "Warm grey"], ["#67707D", "SoulSilver"], ["#6B6F73", "Logo"]], "#6B6F73"],
-  ["rc-3:a", "Hoenn · Ruby", [["#CD2236", "Ruby"], ["#E45C6C", "Brighter"], ["#9D1A29", "Deeper"], ["#E0001A", "Richer"], ["#B34F5B", "Softer"], ["#CE3622", "More orange"], ["#D32361", "More pink"], ["#AB2813", "Omega Ruby"], ["#9B1B30", "As before"]], "#AB2813"],
-  ["rc-3:b", "Hoenn · Sapphire", [["#3D51A7", "Sapphire"], ["#8391D2", "Lighter"], ["#384A99", "Deeper"], ["#4B65D9", "Richer"], ["#606DA1", "Softer"], ["#6863C6", "More purple"], ["#4170B1", "More teal"], ["#26649C", "Alpha Sapphire"], ["#1172A9", "Box art"], ["#16618A", "As before"]], "#384A99"],
-  ["rc-4:a", "Sinnoh · Diamond", [["#56728E", "Diamond"], ["#3B8CDF", "Brighter"], ["#3E5266", "Deeper"], ["#006CDB", "Richer"], ["#4572A1", "Softer"], ["#3C67DF", "More blue"], ["#19789A", "More teal"], ["#2C7793", "Brilliant Diamond"], ["#156288", "Dialga"], ["#2F5D9E", "As before"]], "#2C7793"],
-  ["rc-4:b", "Sinnoh · Pearl", [["#9E597F", "Pearl"], ["#D376A9", "Lighter"], ["#73405C", "Deeper"], ["#D3157D", "Richer"], ["#CA3463", "More red"], ["#BF32A1", "More purple"], ["#9E5B6F", "Shining Pearl"], ["#9C4A7A", "As before"]], "#9E5B6F"],
-  ["rc-5:a", "Unova · Black", [["#444444", "Black"], ["#2C2C2C", "Charcoal"], ["#303E51", "Black 2"], ["#36353D", "As before"]], "#444444"],
-  ["rc-5:b", "Unova · White", [["#E1E1E1", "White"], ["#C8C8C8", "Light grey"], ["#D4D7DB", "Silver-white"], ["#EBC5C3", "White 2"]], "#E1E1E1"],
-  ["rc-6:a", "Kalos · X", [["#025DA6", "X"], ["#038BF9", "Brighter"], ["#025292", "Deeper"], ["#0070CB", "Richer"], ["#3373A8", "Softer"], ["#1962FC", "More blue"], ["#027999", "More teal"], ["#126190", "Logo"], ["#2B55A3", "As before"]], "#025DA6"],
-  ["rc-6:b", "Kalos · Y", [["#DA183A", "Y"], ["#F1677F", "Lighter"], ["#A0122A", "Deeper"], ["#E00027", "Richer"], ["#BB485C", "Softer"], ["#DA2014", "More orange"], ["#D71464", "More pink"], ["#C72038", "Logo"], ["#A3283A", "As before"]], "#DA183A"],
-  ["rc-7:a", "Alola · Sun", [["#A0601D", "Sun"], ["#CF720E", "Brighter"], ["#724514", "Deeper"], ["#AC5900", "Richer"], ["#946534", "Softer"], ["#8B6A09", "More yellow"], ["#C6420D", "More red"], ["#E95D2E", "Ultra Sun, brighter"], ["#B57F0C", "Brighter, more yellow"], ["#EB5C10", "Brighter, more red"], ["#D56D00", "Brighter, richer"], ["#BE4A23", "Ultra Sun"], ["#99641B", "Logo"], ["#B5531C", "As before"]], "#99641B"],
-  ["rc-7:b", "Alola · Moon", [["#41749A", "Moon"], ["#599BCB", "Lighter"], ["#2F546F", "Deeper"], ["#1B74B3", "Richer"], ["#4E738E", "Softer"], ["#3F6DC3", "More blue"], ["#2B788A", "More teal"], ["#226DB5", "Ultra Moon"], ["#393075", "Lunala"], ["#4B3F8F", "As before"]], "#393075"],
-  ["rc-8:a", "Galar · Shield", [["#BF004F", "Shield"], ["#FF3488", "Brighter"], ["#A20043", "Deeper"], ["#DC005B", "Richer"], ["#C43973", "Softer"], ["#DF0028", "More red"], ["#D5008A", "More pink"], ["#C13339", "Zamazenta"], ["#A3283E", "As before"]], "#A20043"],
-  ["rc-8:b", "Galar · Sword", [["#0076AB", "Sword"], ["#009DE3", "Lighter"], ["#00557B", "Deeper"], ["#2C7798", "Softer"], ["#0069E6", "More blue"], ["#007B86", "More teal"], ["#1E5FA8", "As before"]], "#00557B"],
-  ["rc-hisui", "Hisui · Legends: Arceus", [["#36597B", "Legends: Arceus"], ["#608DB9", "Brighter"], ["#3472B0", "Richer"], ["#59728A", "Softer"], ["#526DB3", "More blue"], ["#3D768B", "More teal"], ["#3C6150", "As before"]], "#3C6150"],
-  ["rc-9:a", "Paldea · Violet", [["#8334B7", "Violet"], ["#AD70D6", "Brighter"], ["#732DA0", "Deeper"], ["#A136E6", "Richer"], ["#8A5CA9", "Softer"], ["#AF38C5", "More pink"], ["#8356CF", "More blue"], ["#7B248A", "Logo"], ["#6A3D9A", "As before"]], "#8334B7"],
-  ["rc-9:b", "Paldea · Scarlet", [["#CD372C", "Scarlet"], ["#F5675D", "Lighter"], ["#952820", "Deeper"], ["#DE0F00", "Richer"], ["#BD4941", "Softer"], ["#C4440C", "More orange"], ["#DD0D30", "More pink"], ["#B3261E", "As before"]], "#F5675D"],
+  // her notes, 26 Nov: “for the banner, should the fade be more on an angle as I think I'm seeing first colour way more than second”,
+  // and “could the accent selected on the sidebar also be the two colours faded instead of black”
+  // her question, 26 Nov: “would it be better with the map more central and a pair of colour on either side? … I want options”
+  ["bannerLayout", "Banner layout", [["right", "Map on the right (as now)"], ["mid", "Map in the middle"], ["mid-wide", "Map in the middle, wider"], ["mid-narrow", "Map in the middle, narrower"]], "right"],
+  // her ask, 26 Nov: for the map in the middle, wider, “could you play around with moving the text to be better placed?”
+  ["titlePlace", "Title (map in the middle)", [["band", "In the left colour, smaller"], ["centre", "Centred over the map"], ["left", "Left (as now)"]], "band"],
+  ["bannerFade", "Banner fade", [["diag", "Diagonal"], ["diag-soft", "Diagonal, softer"], ["steep", "Top to bottom, slanted"], ["now", "As now"]], "diag"],
+  ["navMark", "Sidebar highlight", [["two", "Two colours"], ["two-wide", "Two colours, a small bar"], ["black", "Black (as now)"]], "two"],
+  ["mega", "Mega Evolution", [["mega-keystone", "Key Stone (official)"], ["mega-keystone-fan", "Key Stone (fan art, free with credit)"], ["mega-three", "Three stones"], ["mega-all", "Many stones"], ["mega-glossy", "Glossy stones"], ["mega-one", "One big stone"], ["mega-two", "Two stones"], ["mega-fan", "Fan art: rainbow stone"], ["mega-big", "The big stone (as now)"]], "mega-keystone"],
 ];
 let tryVz = store.get(TRY_VZ_KEY, {});
 if (!tryVz || typeof tryVz !== "object" || Array.isArray(tryVz)) tryVz = {};
-// the region colours left the Try box (her note, 26 Nov: “I'm struggling to use the try as it goes up so much for all the colours”):
-// she picks them in a colour picker in the chat instead, so the page shows the first shade of each until her picks are put in
+// the region colours left the Try box (her note, 26 Nov: “I'm struggling to use the try as it goes up so much for all the colours”) and
+// are now her picks (REGION_COLOURS, REGION_SPLIT): any kept colour choices are cleared
 for (const k of Object.keys(tryVz)) if (k.startsWith("rc-")) delete tryVz[k];
 const tryPick = id => { const row = TRY_VZ.find(r => r[0] === id); if (!row) return null; return row[2].some(([k]) => k === tryVz[id]) ? tryVz[id] : row[3]; };
 const tryPicKey = k => k === "mega" ? tryPick("mega") : k;   // the Mega Evolution list's picture, as picked
-function tryVzApply(){   // the colour rows: each region's colour, or two ("first+second": the first holds the writing), and how two show
-  for (const [id] of TRY_VZ) if (id.startsWith("rc-")) { const [r, half] = id.slice(3).split(":");   // rc-2:a Gold, rc-2:b Silver; rc-hisui one
-    if (half === "b") REGION_SPLIT[r] = tryPick(id); else { REGION_COLOURS[r] = tryPick(id); if (!half) delete REGION_SPLIT[r]; } }
-}
-const trySw = k => k.includes("+") ? `linear-gradient(135deg,${k.split("+")[0]} 50%,${k.split("+")[1]} 50%)` : k;   // a swatch: one colour or two
+function tryVzApply(){ const d = document.documentElement.dataset; d.bannerFade = tryPick("bannerFade"); d.bannerLayout = tryPick("bannerLayout"); d.titlePlace = tryPick("titlePlace"); d.navMark = tryPick("navMark"); }   // the two CSS rows
+const trySw = k => k;   // a swatch
 tryVzApply();
 (function tryBox(){
   const box = document.createElement("div"); box.className = "trybox"; box.setAttribute("role", "group"); box.setAttribute("aria-label", "Try");
   let folded = matchMedia("(max-width: 900px)").matches;   // folded away on phones and narrow windows: its rows would cover the page
   const draw = () => {
     box.classList.toggle("folded", folded);
-    box.innerHTML = `<button type="button" class="try-fold" aria-expanded="${!folded}">Try${ic("chevron-down")}</button>` + TRY_VZ.filter(([id]) => !id.startsWith("rc-")).map(([id, name, opts]) => `<div class="tryrow" role="group" aria-label="${name}" data-row="${id}"><span>${name}</span>` +
+    box.innerHTML = `<button type="button" class="try-fold" aria-expanded="${!folded}">Try${ic("chevron-down")}</button>` + TRY_VZ.map(([id, name, opts]) => `<div class="tryrow" role="group" aria-label="${name}" data-row="${id}"><span>${name}</span>` +
       opts.map(([k, l]) => `<button type="button" data-v="${k}" aria-pressed="${tryPick(id) === k}">${/^#/.test(k) ? `<i class="sw" style="background:${trySw(k)}"></i>` : ""}${l}</button>`).join("") + `</div>`).join("");
   };
   const pad = () => document.documentElement.style.setProperty("--trypad", box.offsetHeight + 24 + "px");   // room under the page on phones (site.css)

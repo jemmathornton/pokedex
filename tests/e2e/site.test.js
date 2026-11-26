@@ -1468,14 +1468,29 @@
     }
   });
 
+  test("region colours (her picks, 26 Nov): two colours each, blended on frames and banners; Hisui one colour, its green", async () => {
+    const two = () => ["--rc", "--rc2"].map(v => getComputedStyle(document.documentElement).getPropertyValue(v).trim().toUpperCase()).join("+");
+    const picks = {"1": "#D72800+#385FFB", "2": "#AE831A+#949494", "3": "#CD2236+#384A99", "4": "#2C7793+#9E5B6F", "5": "#444444+#E1E1E1",
+      "6": "#025292+#A0122A", "7": "#EB5C10+#226DB5", "8": "#0076AB+#BF004F", "9": "#CD372C+#8334B7", "hisui": "#3C6150+#3C6150"};   // in the order of the games' names (her note, 26 Nov)
+    for (const [g, want] of Object.entries(picks)) { await go("#gen-" + g); eq(two(), want, `GO's ${g}: her two`); }
+    const card = getComputedStyle(view().querySelector(".card"));
+    ok(/linear-gradient/.test(card.backgroundImage) && card.borderTopColor === "rgba(0, 0, 0, 0)", "the frame blends the two (her pick, 25 Nov)");
+    ok(/linear-gradient/.test(getComputedStyle(view().querySelector(".hero")).backgroundImage), "and the banner");
+    await go("#vi-gen-paldea"); eq(two(), picks["9"], "Violet's lists Paldea's two");
+    await go("#sh-gen-galar"); eq(two(), picks["8"], "Shield's lists Galar's two");
+    await go("#la-gen-hisui"); eq(two(), picks.hisui, "Arceus's lists Hisui's green");
+    await go("#go"); eq(view().querySelector('.gen[href="#gen-8"]').style.getPropertyValue("--rc2").toUpperCase(), "#BF004F", "GO's region cards: their second colour");
+    await go("#home"); eq(two().split("+")[0], two().split("+")[1], "a page with no region: one colour");
+  });
+
   test("TRIAL Try switch Violet and Z-A (24 Nov): switching games, the Mega Evolution picture, region colours (two, blended), sliding toggles", async () => {
     const pick = async (row, v) => { click(document.querySelector(`.trybox [data-row="${row}"] [data-v="${v}"]`)); await wait(150); };
     const was = {...tryVz};
     try {
-      eq([...document.querySelectorAll(".trybox [data-row]")].map(r => r.dataset.row), ["gameSwitch", "mega"], "this round’s rows");
+      eq([...document.querySelectorAll(".trybox [data-row]")].map(r => r.dataset.row), ["gameSwitch", "bannerLayout", "titlePlace", "bannerFade", "navMark", "mega"], "this round’s rows");
       await go("#za-gen-hyperspace"); ok(/hyperspace-2/.test(view().querySelector(".hero").getAttribute("style") || ""), "Hyperspace: the clearer distortion (her pick)");
       await go("#za-gen-mega");
-      for (const v of ["mega-all", "mega-glossy", "mega-fan"]) { await pick("mega", v);
+      for (const v of ["mega-keystone", "mega-keystone-fan", "mega-all", "mega-glossy", "mega-fan"]) { await pick("mega", v);
         ok((view().querySelector(".hero").getAttribute("style") || "").includes(REGION_CHOSEN[v]) && !view().querySelector(".hero.ratio"), `${v}: fills the banner`); }
       await go("#za"); ok(/mega-fan/.test(view().querySelector('.gen[href="#za-gen-mega"] .genmap').getAttribute("style")), "and the card on Z-A’s Home");
       await go("#za-gen-mega"); for (const v of ["mega-three", "mega-one", "mega-two"]) { await pick("mega", v);
@@ -1483,20 +1498,15 @@
         ok(view().querySelector(".hero.ratio") && Math.abs(w / h - 16 / 9) < 0.05, `${v}: shown whole, in its own 16:9 shape (${Math.round(w)} × ${Math.round(h)})`); }
       await go("#za-gen-mega"); await pick("mega", "mega-big"); { const a = getComputedStyle(view().querySelector(".hero"), "::after");
         ok(/mega-big-1/.test(view().querySelector(".hero").getAttribute("style") || "") && Math.abs(parseFloat(a.width) / parseFloat(a.height) - 1) < 0.05, "the big stone, whole and square"); }
-      const two = () => ["--rc", "--rc2"].map(v => getComputedStyle(document.documentElement).getPropertyValue(v).trim().toUpperCase()).join("+");
-      const first = id => TRY_VZ.find(r => r[0] === id)[3], shades = id => TRY_VZ.find(r => r[0] === id)[2].map(o => o[0]);
       ok(!document.querySelector('.trybox [data-row^="rc-"]'), "the colours aren't in the Try box (her note, 26 Nov)");
-      await go("#vi-gen-paldea"); eq(two(), `${first("rc-9:a")}+${first("rc-9:b")}`.toUpperCase(), "Paldea's two colours, the first shades, Violet's lists too");
-      ok(shades("rc-2:a").length >= 5 && shades("rc-2:b").length >= 5, "several golds and several silvers (her ask, 25 Nov)");
-      ok(!TRY_VZ.some(r => r[0] === "rc-hisui:b"), "Hisui one colour");
-      ok(shades("rc-3:a").includes("#AB2813") && shades("rc-3:b").includes("#26649C"), "the remakes' colours among the shades (Omega Ruby, Alpha Sapphire)");
-      await go("#sh-gen-galar"); const pair8 = `${first("rc-8:a")}+${first("rc-8:b")}`; eq(two(), pair8.toUpperCase(), "Shield's lists Galar's two");
-      await go("#gen-8"); eq(two(), pair8.toUpperCase(), "GO's Galar the same");
-      const card = getComputedStyle(view().querySelector(".card"));
-      ok(/linear-gradient/.test(card.backgroundImage) && card.borderTopColor === "rgba(0, 0, 0, 0)", "the frame blends the two (her pick, 25 Nov)");
-      ok(/linear-gradient/.test(getComputedStyle(view().querySelector(".hero")).backgroundImage), "and the banner");
-      await go("#go"); eq(view().querySelector('.gen[href="#gen-8"]').style.getPropertyValue("--rc2").toUpperCase(), pair8.split("+")[1].toUpperCase(), "GO's region cards: their second colour");
-      ok(/26, 18, 20/.test(getComputedStyle(nav.querySelector("a.on")).boxShadow), "the sidebar highlight black (her pick)");
+      await go("#gen-8"); const bg = () => getComputedStyle(view().querySelector(".hero")).backgroundImage;
+      await pick("bannerFade", "diag"); ok(/135deg/.test(bg()), "banner: diagonal"); await pick("bannerFade", "steep"); ok(/160deg/.test(bg()), "or top to bottom");
+      await pick("bannerFade", "now"); ok(/100deg/.test(bg()), "or as now");
+      const mark = () => getComputedStyle(nav.querySelector("a.on"), "::before");
+      await pick("navMark", "two"); ok(/linear-gradient/.test(mark().backgroundImage) && mark().width === "3px", "sidebar: the region's two colours");
+      await pick("navMark", "two-wide"); eq(mark().width, "5px", "wider");
+      await go("#go"); ok(/26, 18, 20/.test(getComputedStyle(nav.querySelector("a.on")).boxShadow), "no region: black");
+      await go("#gen-8"); await pick("navMark", "black"); ok(/26, 18, 20/.test(getComputedStyle(nav.querySelector("a.on")).boxShadow), "or black as now");
       await go("#za");
       await pick("gameSwitch", "h"); await wait(400);
       let el = document.querySelector(".games [data-slide]"); const links = el.querySelectorAll("a");
