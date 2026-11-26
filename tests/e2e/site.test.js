@@ -1470,7 +1470,7 @@
 
   test("region colours (her picks, 26 Nov): two colours each, blended on frames and banners; Hisui one colour, its green", async () => {
     const two = () => ["--rc", "--rc2"].map(v => getComputedStyle(document.documentElement).getPropertyValue(v).trim().toUpperCase()).join("+");
-    const picks = {"1": "#D72800+#385FFB", "2": "#AE831A+#949494", "3": "#CD2236+#384A99", "4": "#2C7793+#9E5B6F", "5": "#444444+#E1E1E1",
+    const picks = {"1": "#D72800+#385FFB", "2": "#AE831A+#949494", "3": "#CD2236+#384A99", "4": "#2C7793+#9E5B6F", "5": `#444444+${tryPick("unova2")}`,
       "6": "#025292+#A0122A", "7": "#EB5C10+#226DB5", "8": "#0076AB+#BF004F", "9": "#CD372C+#8334B7", "hisui": "#3C6150+#3C6150"};   // in the order of the games' names (her note, 26 Nov)
     for (const [g, want] of Object.entries(picks)) { await go("#gen-" + g); eq(two(), want, `GO's ${g}: her two`); }
     const card = getComputedStyle(view().querySelector(".card"));
@@ -1495,11 +1495,20 @@
     const pick = async (row, v) => { click(document.querySelector(`.trybox [data-row="${row}"] [data-v="${v}"]`)); await wait(150); };
     const was = {...tryVz};
     try {
-      ok(!document.querySelector(".trybox"), "nothing on the Try switch just now");
+      eq([...document.querySelectorAll(".trybox [data-row]")].map(r => r.dataset.row), ["unova2", "xGen", "xYears", "xProf", "xStart", "xMine", "xCover"], "the banner's extras to try");
       await go("#gen-1"); const hero = () => view().querySelector(".hero"), txt = () => hero().textContent;
+      ok(/Generation I/.test(txt()) && /Red 1996/.test(txt()), "the generation and the years (my suggestion)");
+      await pick("xProf", "on"); ok(/Professor Oak/.test(txt()), "the Professor");
+      await pick("xStart", "names"); ok(/Bulbasaur · Charmander · Squirtle/.test(txt()), "the starters' names"); await pick("xStart", "pics"); eq(hero().querySelectorAll(":scope > .bt-pics img").length, 3, "or pictures");
+      await pick("xCover", "on"); eq(hero().querySelectorAll(".bt-right .bt-pics img").length, 2, "the cover Pokémon");
+      await go("#gen-8"); await pick("xMine", "on"); eq(hero().querySelector(".bt-right a.bt-mine").getAttribute("href"), "#shield", "her game linked");
+      for (const [r, v] of [["xGen", "off"], ["xYears", "off"], ["xProf", "off"], ["xStart", "off"], ["xMine", "off"], ["xCover", "off"]]) await pick(r, v);
+      await go("#gen-1"); ok(!/Generation/.test(txt()) && !/1996/.test(txt()), "each can be off");
       ok(/#0001–#0151/.test(txt()) && /Kanto/.test(txt()) && !/shown/.test(txt()), "the numbers over the name, no “shown” (her pick, 26 Nov)");
       eq([...hero().querySelectorAll(".bt-right .bt-stack > span")].map(x => x.textContent).join(", "), "Red, Green, Blue, Yellow, FireRed, LeafGreen, Let’s Go, Pikachu!, Let’s Go, Eevee!", "every game on the right");
-      await go("#gen-5"); eq(getComputedStyle(hero().querySelector(".bt-right .label")).color, "rgb(26, 18, 20)", "Unova's games dark on White's pale grey (her note: near unreadable)");
+      for (const [r, v] of [["xGen", "on"], ["xYears", "on"]]) await pick(r, v);
+      await go("#gen-5"); await pick("unova2", "#E1E1E1"); eq(getComputedStyle(hero().querySelector(".bt-right .label")).color, "rgb(26, 18, 20)", "Unova's games dark on White's pale grey (her note: near unreadable)");
+      await pick("unova2", "#929292"); eq(getComputedStyle(hero().querySelector(".bt-right .label")).color, "rgb(255, 255, 255)", "or white on a deeper grey (her note: one region in black looked odd)");
       eq(getComputedStyle(hero().querySelector("h1")).color, "rgb(255, 255, 255)", "its name white on Black");
       await go("#sh-gen-galar"); ok(!view().querySelector(".hero .bt-right"), "a game's own lists keep their line");
       await go("#za"); await wait(400);

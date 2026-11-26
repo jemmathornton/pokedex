@@ -44,8 +44,35 @@ function bannerWords(region, label, title){
   const games = !bySections() && REGION_GAMES[region], plain = `<span class="label">${esc(label)}</span><h1>${title}</h1>`;
   if (!games || !(mapFiles(region).length === 1)) return plain;
   const range = DEX_RANGE[region] ? `${dexNo(DEX_RANGE[region][0])}–${dexNo(DEX_RANGE[region][1])}` : "";
-  return `<span class="label">${range}</span><h1>${title}</h1><div class="bt-right"><span class="label bt-stack">${games.map(g => `<span>${esc(g)}</span>`).join("")}</span></div>`;
+  // TRIAL (her ask, 26 Nov: “Is there anything else that could be included?”, then “Show me all as options”): extras, each on or off
+  const on = id => tryPick(id) !== "off", pic = n => { const e = byId[String(n)] || WORLDS.go.byId[String(n)], src = e && sprite(e.img);
+    return src ? `<img src="${src}" alt="${esc(e.name)}" title="${esc(e.name)}" loading="lazy">` : ""; };
+  const x = REGION_EXTRAS[region] || {}, starters = x.starters || [], names = starters.map(n => (byId[String(n)] || WORLDS.go.byId[String(n)] || {}).name).filter(Boolean);
+  const top = [range, on("xGen") && x.gen ? `Generation ${x.gen}` : ""].filter(Boolean).join(" · ");
+  const game = g => { const y = on("xYears") && GAME_YEARS[g] ? ` <small>${GAME_YEARS[g]}</small>` : "", mine = on("xMine") && MY_GAMES[g];
+    return mine ? `<a href="${MY_GAMES[g]}" class="bt-mine">${ic("poke-ball")}${esc(g)}${y}</a>` : `<span>${esc(g)}${y}</span>`; };
+  return `<span class="label">${top}</span><h1>${title}</h1>` +
+    (on("xProf") && x.prof ? `<span class="label bt-prof">${esc(x.prof)}</span>` : "") +
+    (tryPick("xStart") === "names" && names.length ? `<span class="label bt-prof">${names.map(esc).join(" · ")}</span>` : "") +
+    (tryPick("xStart") === "pics" && starters.length ? `<span class="bt-pics">${starters.map(pic).join("")}</span>` : "") +
+    `<div class="bt-right"><span class="label bt-stack">${games.map(game).join("")}</span>` +
+    (on("xCover") && x.cover ? `<span class="bt-pics">${x.cover.map(pic).join("")}</span>` : "") + `</div>`;
 }
+// the extras for a region's banner (TRIAL, her ask, 26 Nov): its generation, its Professor (Paldea's is Sada in Scarlet and Turo in
+// Violet), its starters (Legends: Arceus's three for Hisui), and the Pokémon on its pair's covers (Red Charizard, Blue Blastoise …)
+const REGION_EXTRAS = {"1": {gen: "I", prof: "Professor Oak", starters: [1, 4, 7], cover: [6, 9]},
+  "2": {gen: "II", prof: "Professor Elm", starters: [152, 155, 158], cover: [250, 249]}, "3": {gen: "III", prof: "Professor Birch", starters: [252, 255, 258], cover: [383, 382]},
+  "4": {gen: "IV", prof: "Professor Rowan", starters: [387, 390, 393], cover: [483, 484]}, "5": {gen: "V", prof: "Professor Juniper", starters: [495, 498, 501], cover: [643, 644]},
+  "6": {gen: "VI", prof: "Professor Sycamore", starters: [650, 653, 656], cover: [716, 717]}, "7": {gen: "VII", prof: "Professor Kukui", starters: [722, 725, 728], cover: [791, 792]},
+  "8": {gen: "VIII", prof: "Professor Magnolia", starters: [810, 813, 816], cover: [888, 889]}, "hisui": {gen: "VIII", prof: "Professor Laventon", starters: [722, 155, 501], cover: [493]},
+  "9": {gen: "IX", prof: "Professor Sada · Professor Turo", starters: [906, 909, 912], cover: [1007, 1008]}};
+// each game's first release year (Japan); the games she tracks here link to their own lists
+const GAME_YEARS = {"Red": 1996, "Green": 1996, "Blue": 1996, "Yellow": 1998, "FireRed": 2004, "LeafGreen": 2004, "Let’s Go, Pikachu!": 2018, "Let’s Go, Eevee!": 2018,
+  "Gold": 1999, "Silver": 1999, "Crystal": 2000, "HeartGold": 2009, "SoulSilver": 2009, "Ruby": 2002, "Sapphire": 2002, "Emerald": 2004, "Omega Ruby": 2014,
+  "Alpha Sapphire": 2014, "Diamond": 2006, "Pearl": 2006, "Platinum": 2008, "Brilliant Diamond": 2021, "Shining Pearl": 2021, "Black": 2010, "White": 2010,
+  "Black 2": 2012, "White 2": 2012, "X": 2013, "Y": 2013, "Legends: Z-A": 2025, "Sun": 2016, "Moon": 2016, "Ultra Sun": 2017, "Ultra Moon": 2017,
+  "Sword": 2019, "Shield": 2019, "Legends: Arceus": 2022, "Scarlet": 2022, "Violet": 2022};
+const MY_GAMES = {"Shield": "#shield", "Legends: Arceus": "#arceus", "Violet": "#violet", "Legends: Z-A": "#za"};
 // every main game set in each region (her question, 26 Nov: “don't some regions have multiple games?”), in release order
 const REGION_GAMES = {"1": ["Red", "Green", "Blue", "Yellow", "FireRed", "LeafGreen", "Let’s Go, Pikachu!", "Let’s Go, Eevee!"],
   "2": ["Gold", "Silver", "Crystal", "HeartGold", "SoulSilver"], "3": ["Ruby", "Sapphire", "Emerald", "Omega Ruby", "Alpha Sapphire"],
@@ -495,6 +522,17 @@ const SHOT_FIT = {"hyperspace-2.jpg": "center/cover", "mega-big-1.jpg": "center/
 // it isn't obvious you only select one. The rows was good as it looked like a toggle before there were too many”).
 const TRY_VZ_KEY = "jemmas-pokedex-try-violetza";
 const TRY_VZ = [
+  // the banner's extras (her ask, 26 Nov: “Is there anything else that could be included?”, “Show me all as options”); my suggestion
+  // (not decided): the generation and the years on, the rest off
+  // her note, 26 Nov: “it seems weird to only have 1 region have just games in black … Or maybe we need to reassess colours?”: Unova's
+  // White is the one colour too pale for white writing, so a deeper grey for it, or as now
+  ["unova2", "Unova’s second colour", [["#929292", "Silver grey"], ["#8A939D", "Cool silver"], ["#E1E1E1", "White, dark writing (as now)"]], "#929292"],
+  ["xGen", "Generation", [["on", "Show"], ["off", "Hide"]], "on"],
+  ["xYears", "Release years", [["on", "Show"], ["off", "Hide"]], "on"],
+  ["xProf", "Professor", [["off", "Hide"], ["on", "Show"]], "off"],
+  ["xStart", "Starters", [["off", "Hide"], ["names", "Names"], ["pics", "Pictures"]], "off"],
+  ["xMine", "Your games", [["off", "Not marked"], ["on", "Marked, and link to their lists"]], "off"],
+  ["xCover", "Cover Pokémon", [["off", "Hide"], ["on", "Pictures"]], "off"],
 ];
 let tryVz = store.get(TRY_VZ_KEY, {});
 if (!tryVz || typeof tryVz !== "object" || Array.isArray(tryVz)) tryVz = {};
@@ -503,7 +541,7 @@ if (!tryVz || typeof tryVz !== "object" || Array.isArray(tryVz)) tryVz = {};
 for (const k of Object.keys(tryVz)) if (k.startsWith("rc-")) delete tryVz[k];
 const tryPick = id => { const row = TRY_VZ.find(r => r[0] === id); if (!row) return null; return row[2].some(([k]) => k === tryVz[id]) ? tryVz[id] : row[3]; };
 const tryPicKey = k => k;
-function tryVzApply(){ document.documentElement.dataset.bannerText = tryPick("bannerText"); }   // read where the banner is drawn too
+function tryVzApply(){ REGION_SPLIT["5"] = tryPick("unova2"); }   // read where the banner is drawn too
 const trySw = k => k;   // a swatch
 tryVzApply();
 (function tryBox(){
