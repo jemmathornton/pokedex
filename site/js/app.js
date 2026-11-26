@@ -37,6 +37,12 @@ const keepPrefs = () => store.set(PREFS_KEY, prefs);
 // ---------- what there is ----------
 // the sections, in game order: [key, region, small label]. Hisui stands on its own between Galar and Paldea (her call, 9 Nov)
 // each region with its games, like Legends: Arceus (her ask, 19 Nov: games, not generation numbers)
+// every main game set in each region (her question, 26 Nov: “don't some regions have multiple games?”), in release order
+const REGION_GAMES = {"1": ["Red", "Green", "Blue", "Yellow", "FireRed", "LeafGreen", "Let’s Go, Pikachu!", "Let’s Go, Eevee!"],
+  "2": ["Gold", "Silver", "Crystal", "HeartGold", "SoulSilver"], "3": ["Ruby", "Sapphire", "Emerald", "Omega Ruby", "Alpha Sapphire"],
+  "4": ["Diamond", "Pearl", "Platinum", "Brilliant Diamond", "Shining Pearl"], "5": ["Black", "White", "Black 2", "White 2"],
+  "6": ["X", "Y", "Legends: Z-A"], "7": ["Sun", "Moon", "Ultra Sun", "Ultra Moon"], "8": ["Sword", "Shield"], "hisui": ["Legends: Arceus"],
+  "9": ["Scarlet", "Violet"]};
 const GENS = [["1", "Kanto", "Red and Blue"], ["2", "Johto", "Gold and Silver"], ["3", "Hoenn", "Ruby and Sapphire"], ["4", "Sinnoh", "Diamond and Pearl"],
   ["5", "Unova", "Black and White"], ["6", "Kalos", "X and Y"], ["7", "Alola", "Sun and Moon"], ["8", "Galar", "Sword and Shield"],
   ["hisui", "Hisui", "Legends: Arceus"], ["9", "Paldea", "Scarlet and Violet"]];
@@ -451,31 +457,18 @@ const REGION_CHOSEN = {"1": "kanto-map-2.jpg", "2": "johto-map-1.jpg", "3": "hoe
   // Violet's DLCs and Legends: Z-A (23 Nov, downloaded with her yes: “Do it if you can”): The Teal Mask's and The Indigo Disk's key art
   // (scarletviolet.pokemon.com, 960 × 553; no official maps of Kitakami or the Terarium), the official Lumiose City map
   // (legends.pokemon.com, 2336 × 1642) and two Mega Dimension pictures from its official page (1920 × 1080)
-  "kitakami": "kitakami-1.jpg", "blueberry": "blueberry-1.jpg", "lumiose": "lumiose-map-1.jpg", "hyperspace": "hyperspace-2.jpg", "mega": "mega-1.jpg",
+  "kitakami": "kitakami-1.jpg", "blueberry": "blueberry-1.jpg", "lumiose": "lumiose-map-1.jpg", "hyperspace": "hyperspace-2.jpg", "mega": "mega-keystone-fan-1.jpg",
   // Hyperspace: the distortion in Nintendo's cleaner copy (her pick, 24 Nov: “The better distortion pick is better”; nintendo.com/eu
-  // …/nswitch_pokemonlegendsza_1/CI_NSwitch_Pokemon_Legends_ZA_NS1_MD_Background.jpg, 1920 × 1359). Mega Evolution (TRIAL, her
-  // notes: “really badly cropped”, “maybe it's the cropping or the angle?”, then “I need better mega evolution pictures as it needs
-  // to fit the landscape box. Do more research”, then 25 Nov: “for mega art I don't want a specific mon I need something generic”, then
-  // “For mega stone I think is the closest big stone I just need different art of it so find lots of mega stone art even unofficial
-  // may be good at this rate”): Mega Stone pictures, no Pokémon. Official: three stones in a row on Z-A's pale pattern (pokemon.co.jp
-  // /ex/legends_z-a/assets/img/news/img_250912_04.webp, 1060 × 597), one big stone (…/news/251106_01/img_04.webp, Diancite,
-  // 1772 × 996) and two (…/news/251202_01/img_05.webp, Mewtwonite X and Y, 856 × 482), both shown whole; many stones: 55 of Z-A's
-  // own Mega Stone icons in a honeycomb on the same pale (Serebii's copies of the game's icons, serebii.net/itemdex/sprites/za/
-  // <stone>.png, 160 × 160, laid out by us); glossy stones: Pokémon UNITE's six Mega Stone item pictures in a row on a dark ground
-  // (Serebii's copies, serebii.net/pokemonunite/items/<stone>.png, 256 and 512 px, laid out by us). Fan art (she allowed it): a rainbow
-  // stone in a starry sky, “Megastone Background” by PaCHADrisu (DeviantArt, 2013, 1024 × 703; no licence given: ask before keeping,
-  // and credit in the footer). And the big stone as now (a square cut from legends.pokemon.com /images/dlc/p14_02.jpg)
-  // her favourite was the fan rainbow stone with the Mega symbol (26 Nov: “Fan art rainbow I think is best but not sure about how license
-  // works … Maybe find other art like that if the license is an issue?”): it is the Key Stone. Official: the Key Stone (pokemon.co.jp
-  // /ex/megaevolution/assets/img/top/stone_key.png, 190 × 190) centred on that site's own starry background (…/top/base_bg.jpg,
-  // 4536 × 4536), laid out by us; fan: RainbowSans15's “Pokemon Mega Key Stone” (DeviantArt 2022, 1280 × 1280; the artist: “This is a
-  // free asset so you may use it anytime, just give me credit”: credit in the footer if picked) on the same background
-  "mega-keystone": "mega-keystone-stars-1.jpg", "mega-keystone-fan": "mega-keystone-fan-1.jpg",
-  "mega-big": "mega-big-1.jpg", "mega-three": "mega-three-1.jpg", "mega-all": "mega-all-1.jpg", "mega-glossy": "mega-glossy-1.jpg", "mega-one": "mega-one-1.jpg", "mega-two": "mega-two-1.jpg", "mega-fan": "mega-fan-1.jpg"};   // her picks: the official painted region maps (12 Nov; she switched from scenery)
+  // …/CI_NSwitch_Pokemon_Legends_ZA_NS1_MD_Background.jpg, 1920 × 1359). Mega Evolution: the Key Stone (her pick, 26 Nov: “I like key
+  // stone fan art free with credit it's my fave, go with that one”): RainbowSans15's “Pokemon Mega Key Stone” (DeviantArt 2022,
+  // 1280 × 1280; the artist: “This is a free asset so you may use it anytime, just give me credit”: credited in the footer), centred on
+  // the starry background of The Pokémon Company's Japanese Mega Evolution site (pokemon.co.jp/ex/megaevolution/assets/img/top/
+  // base_bg.jpg, 4536 × 4536), laid out by us
+};   // her picks: the official painted region maps (12 Nov; she switched from scenery)
 // which part of a picture the banner shows, where the middle isn't the best part (12 Nov: Kanto's Route 1 was nearly all sky):
 // a closer crop towards the ground; the picture itself is unchanged
 const SHOT_FIT = {"hyperspace-2.jpg": "center/cover", "mega-big-1.jpg": "center/cover",
-  "mega-three-1.jpg": "center/cover", "mega-keystone-stars-1.jpg": "center/cover", "mega-keystone-fan-1.jpg": "center/cover", "mega-all-1.jpg": "center/cover", "mega-glossy-1.jpg": "center/cover", "mega-one-1.jpg": "center/cover", "mega-two-1.jpg": "center/cover", "mega-fan-1.jpg": "center 51%/cover", "kitakami-1.jpg": "center 30%/cover", "blueberry-1.jpg": "center 35%/cover", "lumiose-map-1.jpg": "center 50%/cover", "hyperspace-1.jpg": "center 40%/cover", "mega-1.jpg": "center/cover", "isle-of-armor-1.jpg": "center 60%/cover", "crown-tundra-1.jpg": "center 35%/cover", "kanto-map-2.jpg": "center/cover", "johto-map-1.jpg": "center/cover", "hoenn-map-2.jpg": "center/cover", "unova-map-2.jpg": "center/cover", "galar-map-1.jpg": "center 45%/cover", "hisui-map-1.jpg": "50% 50%/112% auto", "paldea-map-1.jpg": "center/cover", "sinnoh-map-3.jpg": "50% 48%/118% auto", "kalos-map-2.jpg": "center/cover", "alola-map-1.jpg": "center 45%/cover"};   // maps: the middle; Hisui closer, so its parchment edge is cut off (her ask, 12 Nov)   // maps: the middle
+  "mega-keystone-fan-1.jpg": "center/cover", "kitakami-1.jpg": "center 30%/cover", "blueberry-1.jpg": "center 35%/cover", "lumiose-map-1.jpg": "center 50%/cover", "hyperspace-1.jpg": "center 40%/cover", "isle-of-armor-1.jpg": "center 60%/cover", "crown-tundra-1.jpg": "center 35%/cover", "kanto-map-2.jpg": "center/cover", "johto-map-1.jpg": "center/cover", "hoenn-map-2.jpg": "center/cover", "unova-map-2.jpg": "center/cover", "galar-map-1.jpg": "center 45%/cover", "hisui-map-1.jpg": "50% 50%/112% auto", "paldea-map-1.jpg": "center/cover", "sinnoh-map-3.jpg": "50% 48%/118% auto", "kalos-map-2.jpg": "center/cover", "alola-map-1.jpg": "center 45%/cover"};   // maps: the middle; Hisui closer, so its parchment edge is cut off (her ask, 12 Nov)   // maps: the middle
 // Shield's Isle of Armor and Crown Tundra: the official paintings (swordshield.pokemon.com, downloaded with her yes, 23 Nov; the
 // official site has no map of either; her pick over Galar's map, 23 Nov), in REGION_CHOSEN above so tools/make_home_maps.py makes
 // their smaller copies
@@ -494,15 +487,14 @@ const TRY_VZ = [
   // looks like two toggles”: the one-row toggle kept, all six on one row that slides along under the thumb (drag it, click a game
   // either side, or use the arrow keys); or the toggle as now
   ["gameSwitch", "Switching games", [["h", "One row, sliding"], ["label", "As now"]], "h"],
-  // her notes, 26 Nov: “for the banner, should the fade be more on an angle as I think I'm seeing first colour way more than second”,
-  // and “could the accent selected on the sidebar also be the two colours faded instead of black”
-  // her question, 26 Nov: “would it be better with the map more central and a pair of colour on either side? … I want options”
-  ["bannerLayout", "Banner layout", [["right", "Map on the right (as now)"], ["mid", "Map in the middle"], ["mid-wide", "Map in the middle, wider"], ["mid-narrow", "Map in the middle, narrower"]], "right"],
-  // her ask, 26 Nov: for the map in the middle, wider, “could you play around with moving the text to be better placed?”
-  ["titlePlace", "Title (map in the middle)", [["band", "In the left colour, smaller"], ["centre", "Centred over the map"], ["left", "Left (as now)"]], "band"],
-  ["bannerFade", "Banner fade", [["diag", "Diagonal"], ["diag-soft", "Diagonal, softer"], ["steep", "Top to bottom, slanted"], ["now", "As now"]], "diag"],
-  ["navMark", "Sidebar highlight", [["two", "Two colours"], ["two-wide", "Two colours, a small bar"], ["black", "Black (as now)"]], "two"],
-  ["mega", "Mega Evolution", [["mega-keystone", "Key Stone (official)"], ["mega-keystone-fan", "Key Stone (fan art, free with credit)"], ["mega-three", "Three stones"], ["mega-all", "Many stones"], ["mega-glossy", "Glossy stones"], ["mega-one", "One big stone"], ["mega-two", "Two stones"], ["mega-fan", "Fan art: rainbow stone"], ["mega-big", "The big stone (as now)"]], "mega-keystone"],
+  // her notes, 26 Nov (the map in the middle, wider, her pick): “I need more text options for left and right sides. Like you could wrap
+  // number shown (if it is even needed idk?). Also don't some regions have multiple games?”: the region's games (every main game set
+  // there, REGION_GAMES) on the right, how many are shown on the left under the title or left out; or the games on the left; or as now
+  // her note, 26 Nov, on the pages with every region's map: “idk if it works well on ones with all I'm not sure. Just show me good options”
+  ["mainBanner", "Banner with all the maps", [["across", "Maps across, darkened behind the words"], ["right", "Maps on the right (as before)"], ["mid", "Maps in the middle"], ["mid-narrow", "Maps in the middle, narrower"]], "across"],
+  ["bannerText", "Banner text", [["right", "Games on the right, shown on the left"], ["right-noshown", "Games on the right, no number shown"], ["left", "Games on the left, no number"], ["now", "As now"]], "right"],
+  // her question: “could maybe the two colours fill the stacked icon or something?” (instead of the two-colour line)
+  ["navMark", "Sidebar highlight", [["icon", "Two-colour icon"], ["icon-bar", "Two-colour icon and small bar"], ["bar", "Small bar"], ["black", "Black (as now)"]], "icon"],
 ];
 let tryVz = store.get(TRY_VZ_KEY, {});
 if (!tryVz || typeof tryVz !== "object" || Array.isArray(tryVz)) tryVz = {};
@@ -510,8 +502,8 @@ if (!tryVz || typeof tryVz !== "object" || Array.isArray(tryVz)) tryVz = {};
 // are now her picks (REGION_COLOURS, REGION_SPLIT): any kept colour choices are cleared
 for (const k of Object.keys(tryVz)) if (k.startsWith("rc-")) delete tryVz[k];
 const tryPick = id => { const row = TRY_VZ.find(r => r[0] === id); if (!row) return null; return row[2].some(([k]) => k === tryVz[id]) ? tryVz[id] : row[3]; };
-const tryPicKey = k => k === "mega" ? tryPick("mega") : k;   // the Mega Evolution list's picture, as picked
-function tryVzApply(){ const d = document.documentElement.dataset; d.bannerFade = tryPick("bannerFade"); d.bannerLayout = tryPick("bannerLayout"); d.titlePlace = tryPick("titlePlace"); d.navMark = tryPick("navMark"); }   // the two CSS rows
+const tryPicKey = k => k;
+function tryVzApply(){ const d = document.documentElement.dataset; d.bannerText = tryPick("bannerText"); d.mainBanner = tryPick("mainBanner"); d.navMark = tryPick("navMark"); }   // the two CSS rows
 const trySw = k => k;   // a swatch
 tryVzApply();
 (function tryBox(){
@@ -566,9 +558,9 @@ document.addEventListener("keydown", ev => {
 // ===== TRIAL: Try switch "Violet and Z-A", END =====
 // a narrower picture shown less zoomed in: the banner's picture area takes this shape (width / height), so more of it shows and
 // it still blends softly into the colour on the left (12 Nov: Johto looked too zoomed in)
-const SHOT_RATIO = {"mega-1.jpg": "16/9", "mega-big-1.jpg": "1/1", "mega-one-1.jpg": "16/9", "mega-two-1.jpg": "16/9", "mega-three-1.jpg": "16/9"};   // the Mega Stones whole, not cut through (her note, 24 Nov: “really badly cropped”)
+const SHOT_RATIO = {};   // a picture shown whole in its own shape, if one ever needs it (site.css .hero.withshot.ratio)
 // and on a card's picture plate too: the whole picture on a band of its own background colour (TRIAL, with the Mega pictures)
-const PLATE_FIT = {"mega-1.jpg": "#3B2A78", "mega-big-1.jpg": "#3B2A78", "mega-one-1.jpg": "#F9F9F9", "mega-two-1.jpg": "#F9F9F9", "mega-three-1.jpg": "#F9F9F9"};
+const PLATE_FIT = {};
 // ?fit=, ?ratio= and ?pic= are for pictures of options only. Anything from the address is checked against a strict format before
 // it is used, and escaped too (round 4 review, 22 Nov: a crafted link could break out of the style attribute and run script)
 const TRY = new URLSearchParams(location.search);
@@ -871,7 +863,9 @@ function dexPage(title, label, list, region, search = false){
   setRegion(region);
   const fs = region ? mapFiles(region) : [];
   const shot = fs.length === 1 ? regionShot(region) : {style: "", sw: heroPics(fs.length ? fs.map(homeCopy) : ALL_MAPS()), cls: " withshot"};
-  const hero = `<header class="hero${shot.cls || ""}"${shot.style}>${shot.sw}<span class="label">${esc(label)} · ${num(groups.length)} shown</span><h1>${title}</h1>${statsHtml(counts(list), true)}</header>`;
+  const games = !bySections() && REGION_GAMES[region];   // the map in the middle (her pick, 26 Nov), its text in the colour either side (TRIAL: which text)
+  const hero = `<header class="hero${shot.cls || ""}${fs.length === 1 ? " mapmid" : ""}"${shot.style}>${shot.sw}<span class="label lbl-now">${esc(label)} · ${num(groups.length)} shown</span>` +
+    (games ? `<span class="label lbl-games">${games.map(esc).join(" · ")}</span><span class="label lbl-shown">${num(groups.length)} shown</span>` : "") + `<h1>${title}</h1>${statsHtml(counts(list), true)}</header>`;
   const mid = `${readOnlyNote()}
     <div class="toolbar filters" id="toolbar">
       <div class="frow"><div class="worktabs">` +

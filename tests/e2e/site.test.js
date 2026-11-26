@@ -1137,7 +1137,7 @@
       if (!name || name.textContent !== "Jemma’s Pokédex") problems.push(`${h}: the name`);
       if (lines.length !== 2 || lines[0].textContent !== "No cookies, no tracking, no ads. Made with HTML, CSS, JavaScript and Python, kept on GitHub.") problems.push(`${h}: line 1`);
       const credits = [...foot.querySelectorAll("[data-jj-credits] .cr")].map(c => c.textContent);
-      if (credits.join(" | ") !== "Pokémon pictures, backgrounds and region maps from the Pokémon games | Fonts: Instrument Serif and Manrope | Icons by Lucide, Phosphor, Tabler, MingCute and Solar (480 Design)") problems.push(`${h}: credits ${credits.join(" | ")}`);
+      if (credits.join(" | ") !== "Pokémon pictures, backgrounds and region maps from the Pokémon games | Key Stone picture by RainbowSans15 | Fonts: Instrument Serif and Manrope | Icons by Lucide, Phosphor, Tabler, MingCute and Solar (480 Design)") problems.push(`${h}: credits ${credits.join(" | ")}`);
       { const cl = foot.querySelector("p[data-jj-credits]"); if (cl.scrollWidth > cl.clientWidth + 1) problems.push(`${h}: the credits line can’t wrap`); }   // round-2 review: it couldn’t, so pages scrolled sideways at 601–1113
     }
     eq(problems, [], "problems:");
@@ -1481,32 +1481,33 @@
     await go("#la-gen-hisui"); eq(two(), picks.hisui, "Arceus's lists Hisui's green");
     await go("#go"); eq(view().querySelector('.gen[href="#gen-8"]').style.getPropertyValue("--rc2").toUpperCase(), "#BF004F", "GO's region cards: their second colour");
     await go("#home"); eq(two().split("+")[0], two().split("+")[1], "a page with no region: one colour");
+    await go("#gen-8"); { const h = view().querySelector(".hero"), a = getComputedStyle(h, "::after");
+      ok(h.classList.contains("mapmid") && Math.abs(parseFloat(a.width) / h.getBoundingClientRect().width - 0.64) < 0.03 && /90deg/.test(getComputedStyle(h).backgroundImage), "the map in the middle, wider, a colour either side (her pick, 26 Nov)"); }
+    await go("#za-gen-hyperspace"); ok(/hyperspace-2/.test(view().querySelector(".hero").getAttribute("style") || ""), "Hyperspace: the clearer distortion (her pick)");
+    await go("#za-gen-mega"); ok(/mega-keystone-fan-1/.test(view().querySelector(".hero").getAttribute("style") || ""), "Mega Evolution: the Key Stone, fan art (her pick, 26 Nov)");
+    ok(/Key Stone picture by RainbowSans15/.test(document.querySelector("[data-jj-credits]").textContent), "credited in the footer");
   });
 
-  test("TRIAL Try switch Violet and Z-A (24 Nov): switching games, the Mega Evolution picture, region colours (two, blended), sliding toggles", async () => {
+  test("TRIAL Try switch Violet and Z-A (24 Nov): switching games, the banner's text, the sidebar highlight", async () => {
     const pick = async (row, v) => { click(document.querySelector(`.trybox [data-row="${row}"] [data-v="${v}"]`)); await wait(150); };
     const was = {...tryVz};
     try {
-      eq([...document.querySelectorAll(".trybox [data-row]")].map(r => r.dataset.row), ["gameSwitch", "bannerLayout", "titlePlace", "bannerFade", "navMark", "mega"], "this round’s rows");
-      await go("#za-gen-hyperspace"); ok(/hyperspace-2/.test(view().querySelector(".hero").getAttribute("style") || ""), "Hyperspace: the clearer distortion (her pick)");
-      await go("#za-gen-mega");
-      for (const v of ["mega-keystone", "mega-keystone-fan", "mega-all", "mega-glossy", "mega-fan"]) { await pick("mega", v);
-        ok((view().querySelector(".hero").getAttribute("style") || "").includes(REGION_CHOSEN[v]) && !view().querySelector(".hero.ratio"), `${v}: fills the banner`); }
-      await go("#za"); ok(/mega-fan/.test(view().querySelector('.gen[href="#za-gen-mega"] .genmap').getAttribute("style")), "and the card on Z-A’s Home");
-      await go("#za-gen-mega"); for (const v of ["mega-three", "mega-one", "mega-two"]) { await pick("mega", v);
-        const a = getComputedStyle(view().querySelector(".hero"), "::after"), w = parseFloat(a.width), h = parseFloat(a.height);
-        ok(view().querySelector(".hero.ratio") && Math.abs(w / h - 16 / 9) < 0.05, `${v}: shown whole, in its own 16:9 shape (${Math.round(w)} × ${Math.round(h)})`); }
-      await go("#za-gen-mega"); await pick("mega", "mega-big"); { const a = getComputedStyle(view().querySelector(".hero"), "::after");
-        ok(/mega-big-1/.test(view().querySelector(".hero").getAttribute("style") || "") && Math.abs(parseFloat(a.width) / parseFloat(a.height) - 1) < 0.05, "the big stone, whole and square"); }
+      eq([...document.querySelectorAll(".trybox [data-row]")].map(r => r.dataset.row), ["gameSwitch", "mainBanner", "bannerText", "navMark"], "this round’s rows");
+      await go("#go"); const strip = () => view().querySelector(".hero > .heropics");
+      for (const v of ["mid", "mid-narrow", "across", "right"]) { await pick("mainBanner", v); ok(strip() && getComputedStyle(strip()).display !== "none", `main pages' maps: ${v}`); }
       ok(!document.querySelector('.trybox [data-row^="rc-"]'), "the colours aren't in the Try box (her note, 26 Nov)");
-      await go("#gen-8"); const bg = () => getComputedStyle(view().querySelector(".hero")).backgroundImage;
-      await pick("bannerFade", "diag"); ok(/135deg/.test(bg()), "banner: diagonal"); await pick("bannerFade", "steep"); ok(/160deg/.test(bg()), "or top to bottom");
-      await pick("bannerFade", "now"); ok(/100deg/.test(bg()), "or as now");
-      const mark = () => getComputedStyle(nav.querySelector("a.on"), "::before");
-      await pick("navMark", "two"); ok(/linear-gradient/.test(mark().backgroundImage) && mark().width === "3px", "sidebar: the region's two colours");
-      await pick("navMark", "two-wide"); eq(mark().width, "5px", "wider");
+      await go("#gen-1"); const shown = s => getComputedStyle(view().querySelector(".hero " + s)).display !== "none";
+      await pick("bannerText", "right"); ok(shown(".lbl-games") && shown(".lbl-shown") && !shown(".lbl-now"), "the games on the right, how many shown on the left");
+      ok(/Let’s Go, Eevee!/.test(view().querySelector(".hero .lbl-games").textContent), "every game set in Kanto");
+      await pick("bannerText", "right-noshown"); ok(shown(".lbl-games") && !shown(".lbl-shown"), "or no number");
+      await pick("bannerText", "left"); ok(shown(".lbl-games") && !shown(".lbl-now"), "or the games on the left");
+      await pick("bannerText", "now"); ok(shown(".lbl-now") && !shown(".lbl-games"), "or as now");
+      const path = n => getComputedStyle(nav.querySelector("a.on svg path:nth-child(" + n + ")"));
+      await pick("navMark", "icon"); ok(path(1).fill !== "none" && /26, 18, 20/.test(getComputedStyle(nav.querySelector("a.on")).boxShadow), "sidebar: the icon in two colours, the black line kept");
+      await pick("navMark", "icon-bar"); ok(path(1).fill !== "none" && /linear-gradient/.test(getComputedStyle(nav.querySelector("a.on"), "::before").backgroundImage), "the icon and a small bar");
+      await pick("navMark", "bar"); ok(path(1).fill === "none" && /linear-gradient/.test(getComputedStyle(nav.querySelector("a.on"), "::before").backgroundImage), "a small bar");
       await go("#go"); ok(/26, 18, 20/.test(getComputedStyle(nav.querySelector("a.on")).boxShadow), "no region: black");
-      await go("#gen-8"); await pick("navMark", "black"); ok(/26, 18, 20/.test(getComputedStyle(nav.querySelector("a.on")).boxShadow), "or black as now");
+      await go("#gen-1"); await pick("navMark", "black"); ok(/26, 18, 20/.test(getComputedStyle(nav.querySelector("a.on")).boxShadow), "or black as now");
       await go("#za");
       await pick("gameSwitch", "h"); await wait(400);
       let el = document.querySelector(".games [data-slide]"); const links = el.querySelectorAll("a");
