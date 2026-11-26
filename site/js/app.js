@@ -37,6 +37,24 @@ const keepPrefs = () => store.set(PREFS_KEY, prefs);
 // ---------- what there is ----------
 // the sections, in game order: [key, region, small label]. Hisui stands on its own between Galar and Paldea (her call, 9 Nov)
 // each region with its games, like Legends: Arceus (her ask, 19 Nov: games, not generation numbers)
+// the words on a region's banner, either side of the map (her notes, 26 Nov: no “shown” count, “I want games and region. Nothing in middle”;
+// TRIAL: the Try switch “Banner text”): the region's own pair of games (GENS: “Red and Blue”), its other games (REGION_GAMES), and its
+// National Pokédex numbers (DEX_RANGE). A game's own lists and pages without one region keep their line and title
+function bannerWords(region, label, title){
+  const games = !bySections() && REGION_GAMES[region], plain = `<span class="label">${esc(label)}</span><h1>${title}</h1>`;
+  if (!games || !(mapFiles(region).length === 1)) return plain;
+  const pair = (GENS.find(x => x[0] === region) || [])[2] || "", [g1, g2] = pair.split(" and "), others = games.filter(x => x !== g1 && x !== g2);
+  const list = a => a.map(esc).join(" · "), right = h => `<div class="bt-right">${h}</div>`, range = DEX_RANGE[region] ? `${dexNo(DEX_RANGE[region][0])}–${dexNo(DEX_RANGE[region][1])}` : "";
+  switch (tryPick("bannerText")) {
+    case "sides": return `<span class="label bt-game">${esc(g1)}</span><h1>${title}</h1>` +
+      right((g2 ? `<b class="bt-name bt-side">${esc(g2)}</b>` : "") + (others.length ? `<span class="label">${list(others)}</span>` : ""));
+    case "pair": return `<h1>${title}</h1>` + right(`<b class="bt-name">${esc(g2 ? `${g1} & ${g2}` : g1)}</b>` + (others.length ? `<span class="label">${list(others)}</span>` : ""));
+    case "range": return `<span class="label">${range}</span><h1>${title}</h1>` + right(`<span class="label bt-stack">${games.map(g => `<span>${esc(g)}</span>`).join("")}</span>`);
+    case "under": return `<h1>${title}</h1><span class="label bt-under">${list(games)}</span>`;
+    case "swap": return `<span class="label bt-stack">${games.map(g => `<span>${esc(g)}</span>`).join("")}</span>` + right(`<h1 class="bt-title">${title}</h1>`);
+  }
+  return plain;
+}
 // every main game set in each region (her question, 26 Nov: “don't some regions have multiple games?”), in release order
 const REGION_GAMES = {"1": ["Red", "Green", "Blue", "Yellow", "FireRed", "LeafGreen", "Let’s Go, Pikachu!", "Let’s Go, Eevee!"],
   "2": ["Gold", "Silver", "Crystal", "HeartGold", "SoulSilver"], "3": ["Ruby", "Sapphire", "Emerald", "Omega Ruby", "Alpha Sapphire"],
@@ -481,20 +499,10 @@ const SHOT_FIT = {"hyperspace-2.jpg": "center/cover", "mega-big-1.jpg": "center/
 // it isn't obvious you only select one. The rows was good as it looked like a toggle before there were too many”).
 const TRY_VZ_KEY = "jemmas-pokedex-try-violetza";
 const TRY_VZ = [
-  // her notes, 24 Nov: “I like the idea of a wrapping toggle but it just doesn't seem clear what it is to me”; 25 Nov: “the original one
-  // you did was good. But think like an actual toggle you'd drag back and forth, is there a better way to do it?”, then “I meant with a
-  // single row, that toggle was 100% perfect. Just not sure how to adapt it to a second row”, then “You can't put it over two rows as it
-  // looks like two toggles”: the one-row toggle kept, all six on one row that slides along under the thumb (drag it, click a game
-  // either side, or use the arrow keys); or the toggle as now
-  ["gameSwitch", "Switching games", [["h", "One row, sliding"], ["label", "As now"]], "h"],
-  // her notes, 26 Nov (the map in the middle, wider, her pick): “I need more text options for left and right sides. Like you could wrap
-  // number shown (if it is even needed idk?). Also don't some regions have multiple games?”: the region's games (every main game set
-  // there, REGION_GAMES) on the right, how many are shown on the left under the title or left out; or the games on the left; or as now
-  // her note, 26 Nov, on the pages with every region's map: “idk if it works well on ones with all I'm not sure. Just show me good options”
-  ["mainBanner", "Banner with all the maps", [["across", "Maps across, darkened behind the words"], ["right", "Maps on the right (as before)"], ["mid", "Maps in the middle"], ["mid-narrow", "Maps in the middle, narrower"]], "across"],
-  ["bannerText", "Banner text", [["right", "Games on the right, shown on the left"], ["right-noshown", "Games on the right, no number shown"], ["left", "Games on the left, no number"], ["now", "As now"]], "right"],
-  // her question: “could maybe the two colours fill the stacked icon or something?” (instead of the two-colour line)
-  ["navMark", "Sidebar highlight", [["icon", "Two-colour icon"], ["icon-bar", "Two-colour icon and small bar"], ["bar", "Small bar"], ["black", "Black (as now)"]], "icon"],
+  // the banner's words (her note, 26 Nov: “Banner text needs better options. Shown seems pointless so remove that. I want games and region.
+  // Nothing in middle as that is over map. Come up with better ideas for that using left, right and combination of the two”): the map
+  // stays clear in the middle; the words in the two colours either side
+  ["bannerText", "Banner text", [["sides", "Each side names its game"], ["pair", "Region left, the pair right"], ["range", "Region and numbers left, all games right"], ["under", "Region with its games under it"], ["swap", "Games left, region right"]], "sides"],
 ];
 let tryVz = store.get(TRY_VZ_KEY, {});
 if (!tryVz || typeof tryVz !== "object" || Array.isArray(tryVz)) tryVz = {};
@@ -503,7 +511,7 @@ if (!tryVz || typeof tryVz !== "object" || Array.isArray(tryVz)) tryVz = {};
 for (const k of Object.keys(tryVz)) if (k.startsWith("rc-")) delete tryVz[k];
 const tryPick = id => { const row = TRY_VZ.find(r => r[0] === id); if (!row) return null; return row[2].some(([k]) => k === tryVz[id]) ? tryVz[id] : row[3]; };
 const tryPicKey = k => k;
-function tryVzApply(){ const d = document.documentElement.dataset; d.bannerText = tryPick("bannerText"); d.mainBanner = tryPick("mainBanner"); d.navMark = tryPick("navMark"); }   // the two CSS rows
+function tryVzApply(){ document.documentElement.dataset.bannerText = tryPick("bannerText"); }   // read where the banner is drawn too
 const trySw = k => k;   // a swatch
 tryVzApply();
 (function tryBox(){
@@ -863,9 +871,7 @@ function dexPage(title, label, list, region, search = false){
   setRegion(region);
   const fs = region ? mapFiles(region) : [];
   const shot = fs.length === 1 ? regionShot(region) : {style: "", sw: heroPics(fs.length ? fs.map(homeCopy) : ALL_MAPS()), cls: " withshot"};
-  const games = !bySections() && REGION_GAMES[region];   // the map in the middle (her pick, 26 Nov), its text in the colour either side (TRIAL: which text)
-  const hero = `<header class="hero${shot.cls || ""}${fs.length === 1 ? " mapmid" : ""}"${shot.style}>${shot.sw}<span class="label lbl-now">${esc(label)} · ${num(groups.length)} shown</span>` +
-    (games ? `<span class="label lbl-games">${games.map(esc).join(" · ")}</span><span class="label lbl-shown">${num(groups.length)} shown</span>` : "") + `<h1>${title}</h1>${statsHtml(counts(list), true)}</header>`;
+  const hero = `<header class="hero${shot.cls || ""}${fs.length === 1 ? " mapmid" : ""}"${shot.style}>${shot.sw}${bannerWords(region, label, title)}${statsHtml(counts(list), true)}</header>`;
   const mid = `${readOnlyNote()}
     <div class="toolbar filters" id="toolbar">
       <div class="frow"><div class="worktabs">` +
@@ -1665,10 +1671,11 @@ function gameNavHtml(route, link, regions, more){
   const game = gameOf(route), all = route === "games";
   brandSmall.textContent = GAMES.find(g => g.id === game).name; brandSmall.hidden = true;   // the switch shows the game
   const cur = g => g.id === game && !all;
-  const look = tryPick("gameSwitch");   // TRIAL: the Try switch "Switching games" (25 Nov): One row, sliding · As now
+  // the game switch (her pick, 26 Nov: “Keep switching games as is now”): her one-row toggle, all the games on one row that slides along
+  // under the thumb (“think like an actual toggle you'd drag back and forth”; never two rows: “it looks like two toggles”); drawn where
+  // the last game was, then the games slide so this one is under the thumb; drag it, click a game either side, or the arrow keys
   const all_ = `<a class="allgames${all ? " on" : ""}" href="#games"${all ? ' aria-current="page"' : ""}>${ic("layers")}All games</a>`;
-  if (look === "label") { gameSwitch.innerHTML = all_ + `<div class="game-toggle"><span class="gt-head">${ic("layers")}Game</span><div class="game-switch wrap labelled" role="group" aria-label="Game">${GAMES.map(g => `<a href="${g.href}" style="--gc:${g.colour}"${cur(g) ? ' aria-current="true"' : ""}>${esc(g.short)}</a>`).join("")}</div></div>`   /* no tick on the game shown (her note, 26 Nov: “not sold on tick … remove the checkmark”) */; }
-  else {   // one row, sliding: drawn where the last game was, then the games slide so this one is under the thumb
+  {
     const k = GAMES.findIndex(cur), from = Math.max(0, GAMES.findIndex(g => g.id === wasBefore)), at = k >= 0 ? k : from;
     const seg = (g, n) => `<a href="${g.href}" draggable="false"${cur(g) ? ' aria-current="true"' : ""}${n === from ? ' class="hot"' : ""}>${esc(g.short)}</a>`;
     gameSwitch.innerHTML = all_ + `<div class="game-slide h" role="group" aria-label="Game" data-slide data-i="${at}" style="--i:${from};--gc:${(GAMES[at] || GAMES[0]).colour}">` +

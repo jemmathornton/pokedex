@@ -319,12 +319,12 @@
 
   test("games (her decisions, 22 Nov): HOME is the default; the sidebar switch changes game; GO's Home is #go", async () => {
     await go("#home");
-    eq(document.querySelector('.game-switch a[aria-current]').textContent, "HOME", "opens on HOME");
+    eq(document.querySelector('.game-slide a[aria-current]').textContent, "HOME", "opens on HOME");
     ok(!/Placeholder/.test(view().textContent), "HOME is built: no Placeholder (her ask, 22 Nov)");
     ok(!nav.querySelector('a[href="#gen-1"]') && nav.querySelector('a[href="#hm-gen-1"]') && nav.querySelector('a[href="#hm-fast"]'), "HOME's sidebar: its own regions and Fast tick, no GO pages");
     ok(!nav.querySelector('a[href="#sets"], a[href="#want"], a[href="#coming"]'), "no events, Looking for or What’s on in HOME");
     await go("#go");
-    eq(document.querySelector('.game-switch a[aria-current]').textContent, "GO", "GO chosen");
+    eq(document.querySelector('.game-slide a[aria-current]').textContent, "GO", "GO chosen");
     ok(nav.querySelector('a[href="#gen-1"]') && nav.querySelector('a[href="#go"].on'), "GO's sidebar as before, its Home lit");
     ok(view().querySelector(".hero .stats") && view().querySelectorAll(".gen .genmap").length === 10, "GO's Home: the totals, then the region hub with a map on each region");
     ok(!view().querySelector('.gen[href^="#gen-"] img'), "no Pokémon pictures on the region hub");
@@ -337,7 +337,7 @@
     const hk = countsIn("home");
     eq(view().querySelector(".hero .stats .stat b").textContent.replace(/\s+/g, " ").trim(), `${num(hk.species)} of ${num(hk.speciesAll)}`, "HOME's Pokémon total");
     await go("#games");
-    ok(document.querySelector(".games a.allgames.on"), "All games lit above the switch (her pick, 22 Nov evening)"); ok(!document.querySelector(".game-switch a[aria-current]"), "no game chosen there");
+    ok(document.querySelector(".games a.allgames.on"), "All games lit above the switch (her pick, 22 Nov evening)"); ok(!document.querySelector(".game-slide a[aria-current]"), "no game chosen there");
     eq(view().querySelectorAll(".allgame").length, GAMES.length, "a card per game");
     ok(!/Lucky|4★|Placeholder/.test(view().querySelector(".allgame").textContent), "HOME's card has real figures and no Lucky or 4★");
     eq(view().querySelector(".allgame .v").textContent, `${num(hk.species)} / ${num(hk.speciesAll)}`, "HOME's card counts as HOME's Home");
@@ -345,7 +345,7 @@
     eq(getComputedStyle(view().querySelector(".hero h1.dex-title em")).color, "rgb(26, 18, 20)", "“Pokédex” black in the banner's title (her pick, 24 Nov)");
     ok(/26, 18, 20/.test(getComputedStyle(document.querySelector(".games a.allgames.on")).boxShadow), "the highlight black (her pick, 24 Nov)");
     await go("#gen-1"); ok(document.querySelector('.games a.allgames[href="#games"]:not(.on)'), "the link is there on every page");
-    eq(document.querySelector('.game-switch a[aria-current]').textContent, "GO", "a GO page shows GO");
+    eq(document.querySelector('.game-slide a[aria-current]').textContent, "GO", "a GO page shows GO");
     eq(getComputedStyle(document.querySelector(".brand b em")).color, "rgb(26, 18, 20)", "the italic Pokédex black, not yellow (her notes, 22 and 24 Nov)");
   });
 
@@ -1287,8 +1287,8 @@
   // ---------- Pokémon Shield (23 Nov: the games in release order, Shield first) ----------
   test("Shield: its own Home with a card per Pokédex, base game then DLC, and its own sidebar", async () => {
     await go("#shield");
-    eq(document.querySelector('.game-switch a[aria-current]').textContent, "Shield", "Shield chosen on the switch");
-    eq([...document.querySelectorAll(".game-switch a")].map(a => a.textContent), ["HOME", "GO", "Shield", "Arceus", "Violet", "Z-A"], "the games, in release order after HOME and GO");
+    eq(document.querySelector('.game-slide a[aria-current]').textContent, "Shield", "Shield chosen on the switch");
+    eq([...document.querySelectorAll(".game-slide a")].map(a => a.textContent), ["HOME", "GO", "Shield", "Arceus", "Violet", "Z-A"], "the games, in release order after HOME and GO");
     const names = [...view().querySelectorAll(".gen h3")].map(h => h.textContent);
     eq(names.slice(0, 3), ["Galar", "Isle of Armor", "Crown Tundra"], "the three Pokédexes first: the base game, then the two DLCs");
     eq(view().querySelector('.gen[href="#sh-gen-galar"] .genno').textContent, "#001–#400", "Galar’s own numbers");
@@ -1365,8 +1365,8 @@
   // ---------- Pokémon Legends: Arceus (23 Nov: next in release order) ----------
   test("Arceus: its Home, the Hisui Pokédex then Bonus Pokémon, its six boxes, its sidebar", async () => {
     await go("#arceus");
-    eq(document.querySelector('.game-switch a[aria-current]').textContent, "Arceus", "Arceus chosen on the switch");
-    const sw = document.querySelector(".game-switch"); ok(sw.scrollWidth <= sw.clientWidth + 1, "the four games fit the switch");
+    eq(document.querySelector('.game-slide a[aria-current]').textContent, "Arceus", "Arceus chosen on the switch");
+    ok(document.querySelector(".games .game-slide.h"), "the one-row switch (her pick, 26 Nov)");
     eq([...view().querySelectorAll(".gen h3")].map(h => h.textContent), ["Hisui", "Bonus Pokémon"], "her lists (23 Nov)");
     eq(view().querySelector('.gen[href="#la-gen-hisui"] .genno').textContent, "#001–#242", "Hisui’s own numbers");
     eq([...view().querySelectorAll(".hero .stats .slt")].map(x => x.textContent), ["Pokémon", "Female", "Male", "Shiny", "Alpha", "Complete"], "Arceus’s boxes (her answer, 23 Nov)");
@@ -1425,7 +1425,7 @@
   // ---------- Pokémon Violet and Legends: Z-A (23 Nov, built overnight at her ask) ----------
   test("Violet: its three Pokédexes in the game’s order, Bonus Pokémon and HOME Transfers; Scarlet’s marked; its four boxes", async () => {
     await go("#violet");
-    eq(document.querySelector('.game-switch a[aria-current]').textContent, "Violet", "Violet chosen on the switch");
+    eq(document.querySelector('.game-slide a[aria-current]').textContent, "Violet", "Violet chosen on the switch");
     eq([...view().querySelectorAll(".gen h3")].map(h => h.textContent), ["Paldea", "Kitakami", "Blueberry", "Bonus Pokémon", "HOME Transfers"], "its lists");
     eq([...view().querySelectorAll(".hero .stats .slt")].map(x => x.textContent), ["Pokémon", "Female", "Male", "Shiny"], "Violet’s boxes (her answer, 23 Nov)");
     await go("#vi-gen-paldea");
@@ -1486,30 +1486,24 @@
     await go("#za-gen-hyperspace"); ok(/hyperspace-2/.test(view().querySelector(".hero").getAttribute("style") || ""), "Hyperspace: the clearer distortion (her pick)");
     await go("#za-gen-mega"); ok(/mega-keystone-fan-1/.test(view().querySelector(".hero").getAttribute("style") || ""), "Mega Evolution: the Key Stone, fan art (her pick, 26 Nov)");
     ok(/Key Stone picture by RainbowSans15/.test(document.querySelector("[data-jj-credits]").textContent), "credited in the footer");
+    await go("#gen-1"); const path = n => getComputedStyle(nav.querySelector("a.on svg path:nth-child(" + n + ")"));
+    ok(path(1).fill !== "none" && getComputedStyle(nav.querySelector("a.on")).boxShadow === "none", "the sidebar: the icon in the region's two colours, no line (her pick, 26 Nov)");
+    await go("#go"); const strip = view().querySelector(".hero > .heropics"); ok(strip && Math.abs(strip.getBoundingClientRect().width / view().querySelector(".hero").getBoundingClientRect().width - 0.64) < 0.03, "the maps in the middle on Home too (her pick)");
   });
 
-  test("TRIAL Try switch Violet and Z-A (24 Nov): switching games, the banner's text, the sidebar highlight", async () => {
+  test("TRIAL Try switch (26 Nov): the banner's words; the one-row game switch (her pick)", async () => {
     const pick = async (row, v) => { click(document.querySelector(`.trybox [data-row="${row}"] [data-v="${v}"]`)); await wait(150); };
     const was = {...tryVz};
     try {
-      eq([...document.querySelectorAll(".trybox [data-row]")].map(r => r.dataset.row), ["gameSwitch", "mainBanner", "bannerText", "navMark"], "this round’s rows");
-      await go("#go"); const strip = () => view().querySelector(".hero > .heropics");
-      for (const v of ["mid", "mid-narrow", "across", "right"]) { await pick("mainBanner", v); ok(strip() && getComputedStyle(strip()).display !== "none", `main pages' maps: ${v}`); }
-      ok(!document.querySelector('.trybox [data-row^="rc-"]'), "the colours aren't in the Try box (her note, 26 Nov)");
-      await go("#gen-1"); const shown = s => getComputedStyle(view().querySelector(".hero " + s)).display !== "none";
-      await pick("bannerText", "right"); ok(shown(".lbl-games") && shown(".lbl-shown") && !shown(".lbl-now"), "the games on the right, how many shown on the left");
-      ok(/Let’s Go, Eevee!/.test(view().querySelector(".hero .lbl-games").textContent), "every game set in Kanto");
-      await pick("bannerText", "right-noshown"); ok(shown(".lbl-games") && !shown(".lbl-shown"), "or no number");
-      await pick("bannerText", "left"); ok(shown(".lbl-games") && !shown(".lbl-now"), "or the games on the left");
-      await pick("bannerText", "now"); ok(shown(".lbl-now") && !shown(".lbl-games"), "or as now");
-      const path = n => getComputedStyle(nav.querySelector("a.on svg path:nth-child(" + n + ")"));
-      await pick("navMark", "icon"); ok(path(1).fill !== "none" && /26, 18, 20/.test(getComputedStyle(nav.querySelector("a.on")).boxShadow), "sidebar: the icon in two colours, the black line kept");
-      await pick("navMark", "icon-bar"); ok(path(1).fill !== "none" && /linear-gradient/.test(getComputedStyle(nav.querySelector("a.on"), "::before").backgroundImage), "the icon and a small bar");
-      await pick("navMark", "bar"); ok(path(1).fill === "none" && /linear-gradient/.test(getComputedStyle(nav.querySelector("a.on"), "::before").backgroundImage), "a small bar");
-      await go("#go"); ok(/26, 18, 20/.test(getComputedStyle(nav.querySelector("a.on")).boxShadow), "no region: black");
-      await go("#gen-1"); await pick("navMark", "black"); ok(/26, 18, 20/.test(getComputedStyle(nav.querySelector("a.on")).boxShadow), "or black as now");
-      await go("#za");
-      await pick("gameSwitch", "h"); await wait(400);
+      eq([...document.querySelectorAll(".trybox [data-row]")].map(r => r.dataset.row), ["bannerText"], "this round’s rows");
+      await go("#gen-1"); const hero = () => view().querySelector(".hero"), txt = () => hero().textContent;
+      for (const v of ["sides", "pair", "range", "under", "swap"]) { await pick("bannerText", v);
+        ok(/Kanto/.test(txt()) && /Red/.test(txt()) && /Blue/.test(txt()) && !/shown/.test(txt()), `${v}: the region and its games, no “shown” (her note)`); }
+      await pick("bannerText", "sides"); eq(hero().querySelector(".bt-game").textContent, "Red", "each side names its game: Red left"); eq(hero().querySelector(".bt-right .bt-name").textContent, "Blue", "Blue right");
+      ok(/Let’s Go, Eevee!/.test(hero().querySelector(".bt-right").textContent), "and the other games under it");
+      await pick("bannerText", "range"); ok(/#0001–#0151/.test(txt()), "the numbers");
+      await go("#sh-gen-galar"); ok(!view().querySelector(".hero .bt-right"), "a game's own lists keep their line");
+      await go("#za"); await wait(400);
       let el = document.querySelector(".games [data-slide]"); const links = el.querySelectorAll("a");
       ok(el && links.length === 6 && el.querySelector("a[aria-current]").href.endsWith("#za"), "one row: all six, Z-A chosen");
       eq(el.dataset.i, "5", "the row slid so Z-A is under the thumb"); ok(el.querySelector("a.hot[aria-current]"), "Z-A lit");
@@ -1526,8 +1520,6 @@
       // the arrow keys
       document.querySelector(".games [data-slide] a[aria-current]").dispatchEvent(new KeyboardEvent("keydown", {key: "ArrowDown", bubbles: true})); await wait(300);
       eq(location.hash, "#za", "the arrow key: the next game");
-      await go("#za"); await pick("gameSwitch", "label"); ok(document.querySelector(".games .gt-head") && !document.querySelector(".game-switch a[aria-current] svg"), "As now: the heading, no tick (her note, 26 Nov)");
-      await pick("gameSwitch", "h"); eq(JSON.parse(localStorage.getItem(TRY_VZ_KEY)).gameSwitch, "h", "kept");
     } finally { tryVz = was; store.set(TRY_VZ_KEY, was); tryVzApply(); rerender(); }
   });
 
@@ -1560,7 +1552,7 @@
       eq(view().querySelectorAll(".card").length, counts(ENTRIES.filter(e => e.gen === "5")).shinyOut, "one card for each that can be shiny");
     } finally { prefs.unreleased = false; prefs.work = "all"; keepPrefs(); }
     await go("#hm-set-nothing");
-    eq(document.querySelector('.game-switch a[aria-current]').textContent, "HOME", "an unknown HOME address: HOME in the switch");
+    eq(document.querySelector('.game-slide a[aria-current]').textContent, "HOME", "an unknown HOME address: HOME in the switch");
     ok(nav.querySelector('a[href="#hm-dex"]') && !nav.querySelector('a[href="#dex"]'), "and HOME's sidebar only");
     const before = localStorage.getItem(AUTO_KEYS.home);
     try {
@@ -1603,9 +1595,9 @@
 
   test("the HOME | GO switch: each game lights its own pages, and All games counts both", async () => {
     await go("#hm-p-25");
-    eq(document.querySelector('.game-switch a[aria-current]').textContent, "HOME"); eq(nav.querySelector("a.on").getAttribute("href"), "#hm-gen-1", "its region lit in HOME");
-    click(document.querySelector('.game-switch a[href="#go"]')); await until(() => location.hash === "#go");  await wait(50);
-    eq(document.querySelector('.game-switch a[aria-current]').textContent, "GO"); ok(view().querySelector('.gen[href="#gen-1"]'), "GO's Home");
+    eq(document.querySelector('.game-slide a[aria-current]').textContent, "HOME"); eq(nav.querySelector("a.on").getAttribute("href"), "#hm-gen-1", "its region lit in HOME");
+    click(document.querySelector('.game-slide a[href="#go"]')); await until(() => location.hash === "#go");  await wait(50);
+    eq(document.querySelector('.game-slide a[aria-current]').textContent, "GO"); ok(view().querySelector('.gen[href="#gen-1"]'), "GO's Home");
     eq(+nav.querySelector('a[href="#dex"] .n').textContent.replace(/,/g, ""), groupByNumber(WORLDS.go.ENTRIES).length, "GO's Every Pokémon count");
     await go("#home");
     eq(+nav.querySelector('a[href="#hm-dex"] .n').textContent.replace(/,/g, ""), groupByNumber(WORLDS.home.ENTRIES).length, "HOME's Every Pokémon count");
@@ -1617,7 +1609,7 @@
     await wait(500);
     const out = [];
     for (const [name, fn, known] of tests) {
-      try { useGame("go"); if (!/TRIAL Try switch Violet/.test(name)) { tryVz = {...tryVz, gameSwitch: "label"}; tryVzApply(); }   // the switch's own test tries every way; the rest use the buttons (TRIAL, 24 Nov)
+      try { useGame("go");   // the switch's own test tries every way; the rest use the buttons (TRIAL, 24 Nov)
         await fn(); out.push(known ? {name, ok: false, error: `passes now: take it off knownBug (${known})`} : {name, ok: true}); }
       catch (e) {
         if (known) out.push({name, ok: true, known: `${known} [${String(e && e.message || e).slice(0, 200)}]`});

@@ -415,12 +415,6 @@ a.formsbtn{text-decoration:none}
 .jj-menu-open .trybox{display:none}   /* never over the Menu drawer */
 @media (max-width:900px){ body{padding-bottom:var(--trypad,0px)} .tryrow button{padding:5px 8px} }
 .games{position:relative}
-/* the toggle as now: one track that wraps, each game its own width, a heading above and a tick on the game shown */
-.game-switch.wrap{display:flex;flex-wrap:wrap;border-radius:18px;gap:2px}
-.game-switch.wrap a{flex:1 1 auto;display:inline-flex;align-items:center;justify-content:center;gap:4px}
-.game-toggle .gt-head{display:flex;align-items:center;gap:6px;margin:0 0 6px 4px;color:var(--on-deep-mute);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
-.game-toggle .gt-head .i{width:13px;height:13px}
-.game-switch.labelled a .i{width:13px;height:13px;flex:none}
 /* one row, sliding (her asks, 25 Nov: “think like an actual toggle you'd drag back and forth”; the one-row toggle “was 100% perfect”;
    not two rows, which “looks like two toggles”): the toggle as it was, all the games on one row that slides along under the thumb;
    drag it (app.js slideShow) */
@@ -1348,36 +1342,33 @@ main{background:linear-gradient(90deg,rgba(70,40,30,.18),rgba(70,40,30,0) 54px) 
 }
 /* the pages without one region too (her note, 26 Nov: “map in middle doesn't seem to work for main pages”): each game's Home, All games,
    Every Pokémon, Fast tick, a Pokémon's page… their strip of maps in the middle the same way, the words in the colour on the left */
-/* TRIAL (her note: “idk if it works well on ones with all … Just show me good options”): the strip on the right as before, in the
-   middle, narrower in the middle, or across the whole banner with the colour darkening it behind the words */
+/* the banners with all the maps (each game's Home, All games, Every Pokémon, Fast tick, a Pokémon's page): their strip in the middle too
+   (her pick, 26 Nov: “Banner map in middle”; she had asked about these pages, “idk if it works well on ones with all”) */
 @media (min-width:701px){
-  :root:is([data-main-banner="mid"],[data-main-banner="mid-narrow"]) .hero.withshot > .heropics:not(.mons){left:50%;right:auto;width:64%;transform:translateX(-50%);
+  .hero.withshot > .heropics:not(.mons){left:50%;right:auto;width:64%;transform:translateX(-50%);
     -webkit-mask:linear-gradient(90deg,transparent,#000 18%,#000 82%,transparent);mask:linear-gradient(90deg,transparent,#000 18%,#000 82%,transparent)}
-  :root[data-main-banner="mid-narrow"] .hero.withshot > .heropics:not(.mons){width:46%}
-  :root:is([data-main-banner="mid"],[data-main-banner="mid-narrow"]) .hero.withshot:has(> .heropics:not(.mons)) > :is(.label,h1,p){max-width:24%}
-  :root:is([data-main-banner="mid"],[data-main-banner="mid-narrow"]) .hero.withshot:has(> .heropics:not(.mons)) > h1{font-size:clamp(30px,3vw,42px);line-height:1.02}
-  :root[data-main-banner="across"] .hero.withshot > .heropics:not(.mons){left:0;right:0;width:auto;
-    -webkit-mask:linear-gradient(90deg,rgba(0,0,0,.28),rgba(0,0,0,.28) 22%,#000 48%);mask:linear-gradient(90deg,rgba(0,0,0,.28),rgba(0,0,0,.28) 22%,#000 48%)}
+  .hero.withshot:has(> .heropics:not(.mons)) > :is(.label,h1,p){max-width:24%}
+  .hero.withshot:has(> .heropics:not(.mons)) > h1{font-size:clamp(30px,3vw,42px);line-height:1.02}
 }
-.hero .lbl-games,.hero .lbl-shown{display:none}
 
-/* ===== TRIAL: banner text and sidebar highlight (26 Nov), START: remove with the Try switch once she has picked ===== */
-/* the text in the banner's colour bands (her note: “more text options for left and right sides … wrap number shown (if it is even
-   needed idk?) … don't some regions have multiple games?”) */
+/* the sidebar highlight on a region's page (her pick, 26 Nov: “Sidebar highlight two colour icon, no bar and no black bit around left
+   edge”): the stacked icon's top layer filled with the region's first colour, its lines the blend and the second; no line at the edge */
+:root[data-region] .nav a.on,:root[data-region][data-look] .nav a.on{box-shadow:none}
+:root[data-region] .nav a.on svg path:nth-child(1){fill:var(--rc)}
+:root[data-region] .nav a.on svg path:nth-child(3){stroke:color-mix(in srgb,var(--rc) 50%,var(--rc2,var(--rc)));stroke-width:2.6}
+:root[data-region] .nav a.on svg path:nth-child(2){stroke:var(--rc2,var(--rc));stroke-width:2.6}
+
+/* ===== TRIAL: banner text (26 Nov), START: remove with the Try switch once she has picked ===== */
+/* the words either side of the map (her note: “I want games and region. Nothing in middle … using left, right and combination”) */
+.bt-right{display:none}
 @media (min-width:701px){
-  :root:is([data-banner-text="right"],[data-banner-text="right-noshown"],[data-banner-text="left"]) .hero.mapmid:has(.lbl-games) .lbl-now{display:none}
-  :root:is([data-banner-text="right"],[data-banner-text="right-noshown"]) .hero.mapmid .lbl-games{display:block;position:absolute;z-index:1;top:56px;
-    right:clamp(16px,3vw,40px);width:15%;text-align:right;line-height:1.75}
-  :root[data-banner-text="right"] .hero.mapmid .lbl-shown{display:block}   /* above the title, where the line was */
-  :root[data-banner-text="left"] .hero.mapmid .lbl-games{display:block;line-height:1.75}
+  .hero.mapmid .bt-right{display:grid;justify-items:end;gap:6px;position:absolute;z-index:1;top:56px;right:clamp(16px,3vw,40px);width:17%;text-align:right}
+  .hero.mapmid .bt-name{font:400 clamp(28px,2.6vw,38px)/1.02 var(--display);color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.5)}
+  .hero.mapmid .bt-right .label{line-height:1.7}
+  .hero.mapmid .label.bt-game,.hero.mapmid .bt-name.bt-side{font:400 clamp(22px,2vw,28px)/1.05 var(--display);letter-spacing:0;text-transform:none;color:#fff;margin-bottom:4px}
+  .hero.mapmid .bt-stack{display:grid;gap:2px;line-height:1.5}
+  .hero.mapmid .bt-under{margin-top:10px;line-height:1.7;max-width:24%}
+  .hero.mapmid .bt-right h1.bt-title{margin:0;max-width:none}
 }
-/* the sidebar highlight in the page's two colours (her question: “could maybe the two colours fill the stacked icon or something?”):
-   the stacked icon's top layer filled with the first colour, its lower lines the blend and the second; or a small bar of the two */
-:root[data-region]:is([data-nav-mark="icon"],[data-nav-mark="icon-bar"]) .nav a.on svg path:nth-child(1){fill:var(--rc)}
-:root[data-region]:is([data-nav-mark="icon"],[data-nav-mark="icon-bar"]) .nav a.on svg path:nth-child(3){stroke:color-mix(in srgb,var(--rc) 50%,var(--rc2,var(--rc)));stroke-width:2.6}
-:root[data-region]:is([data-nav-mark="icon"],[data-nav-mark="icon-bar"]) .nav a.on svg path:nth-child(2){stroke:var(--rc2,var(--rc));stroke-width:2.6}
-.nav a.on,.allgames.on{position:relative;overflow:hidden}
-:root[data-region]:is([data-nav-mark="icon-bar"],[data-nav-mark="bar"]) .nav a.on{box-shadow:none}
-:root[data-region]:is([data-nav-mark="icon-bar"],[data-nav-mark="bar"]) .nav a.on::before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:5px;border-radius:3px;
-  background:linear-gradient(180deg,var(--rc),var(--rc2,var(--rc)))}
-/* ===== TRIAL: banner text and sidebar highlight, END ===== */
+@media (max-width:700px){ .hero .bt-right{display:block;position:relative;z-index:1;margin-top:8px} .hero .bt-right h1{margin:0} }
+/* ===== TRIAL: banner text, END ===== */
