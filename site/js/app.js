@@ -488,29 +488,34 @@ const TRY_VZ = [
   // box art and Japanese logos) darkened only as far as white writing needs (5:1); deeper; richer and softer; turned a little towards
   // the next colours round the wheel (so the reds and blues of different regions can differ); the remake's, box art's or logo's colour;
   // and the colour as before. Second colours also lighter (3:1; no writing sits on them). White can't hold white writing, so it is
-  // pale and only ever second. Hisui one colour (one game). Made by tools/region_shades.py from those sources.
-  ["rc-1:a", "Kanto · Red", [["#CF3613", "Red"], ["#96270E", "Deeper"], ["#D72800", "Richer"], ["#AF5541", "Softer"], ["#B35410", "More orange"], ["#DD141D", "More pink"], ["#C04901", "FireRed"], ["#A3302A", "As before"]], "#CF3613"],
-  ["rc-1:b", "Kanto · Blue", [["#2E50D8", "Blue"], ["#7B90E6", "Lighter"], ["#2744B9", "Deeper"], ["#385FFB", "Richer"], ["#596BB4", "Softer"], ["#625DE1", "More purple"], ["#266ECC", "More teal"], ["#19779F", "Box art"], ["#1F4E9C", "As before"]], "#2E50D8"],
-  ["rc-2:a", "Johto · Gold", [["#8C6A14", "Gold"], ["#654D0F", "Deeper"], ["#916800", "Richer"], ["#826D37", "Softer"], ["#777211", "More yellow"], ["#A55D18", "More red"], ["#8E6520", "Old gold"], ["#896B01", "HeartGold"], ["#8E6A0E", "As before"]], "#8C6A14"],
-  ["rc-2:b", "Johto · Silver", [["#6F6F6F", "Silver"], ["#949494", "Lighter"], ["#505050", "Deeper"], ["#5F6875", "Blue-grey"], ["#6E6A62", "Warm grey"], ["#67707D", "SoulSilver"], ["#6B6F73", "Logo"]], "#6F6F6F"],
-  ["rc-3:a", "Hoenn · Ruby", [["#CD2236", "Ruby"], ["#9D1A29", "Deeper"], ["#E0001A", "Richer"], ["#B34F5B", "Softer"], ["#CE3622", "More orange"], ["#D32361", "More pink"], ["#AB2813", "Omega Ruby"], ["#9B1B30", "As before"]], "#CD2236"],
-  ["rc-3:b", "Hoenn · Sapphire", [["#3D51A7", "Sapphire"], ["#8391D2", "Lighter"], ["#384A99", "Deeper"], ["#4B65D9", "Richer"], ["#606DA1", "Softer"], ["#6863C6", "More purple"], ["#4170B1", "More teal"], ["#26649C", "Alpha Sapphire"], ["#1172A9", "Box art"], ["#16618A", "As before"]], "#3D51A7"],
-  ["rc-4:a", "Sinnoh · Diamond", [["#56728E", "Diamond"], ["#3E5266", "Deeper"], ["#006CDB", "Richer"], ["#4572A1", "Softer"], ["#3C67DF", "More blue"], ["#19789A", "More teal"], ["#2C7793", "Brilliant Diamond"], ["#156288", "Dialga"], ["#2F5D9E", "As before"]], "#56728E"],
-  ["rc-4:b", "Sinnoh · Pearl", [["#9E597F", "Pearl"], ["#D376A9", "Lighter"], ["#73405C", "Deeper"], ["#D3157D", "Richer"], ["#CA3463", "More red"], ["#BF32A1", "More purple"], ["#9E5B6F", "Shining Pearl"], ["#9C4A7A", "As before"]], "#9E597F"],
+  // pale and only ever second. Hisui one colour (one game). Made by tools/region_shades.py from those sources. 26 Nov: her first picks
+  // (“an initial glance”) are each row's chosen one; Brighter shades added (as bright as the banner's darkening still lets white writing
+  // read, 4.6:1), and more golds and oranges (her note: the Gold and Sun ones “didn't have the right ones there at all”).
+  ["rc-1:a", "Kanto · Red", [["#CF3613", "Red"], ["#ED5A39", "Brighter"], ["#96270E", "Deeper"], ["#D72800", "Richer"], ["#AF5541", "Softer"], ["#B35410", "More orange"], ["#DD141D", "More pink"], ["#C04901", "FireRed"], ["#A3302A", "As before"]], "#CF3613"],
+  ["rc-1:b", "Kanto · Blue", [["#2E50D8", "Blue"], ["#7B90E6", "Lighter"], ["#2744B9", "Deeper"], ["#385FFB", "Richer"], ["#596BB4", "Softer"], ["#625DE1", "More purple"], ["#266ECC", "More teal"], ["#19779F", "Box art"], ["#1F4E9C", "As before"]], "#385FFB"],
+  ["rc-2:a", "Johto · Gold", [["#8C6A14", "Gold"], ["#AE831A", "Brighter"], ["#654D0F", "Deeper"], ["#916800", "Richer"], ["#826D37", "Softer"], ["#777211", "More yellow"], ["#A55D18", "More red"], ["#8E6520", "Old gold"], ["#AA8501", "HeartGold, brighter"], ["#9A8A17", "Brighter, more yellow"], ["#C4781D", "Brighter, more red"], ["#896B01", "HeartGold"], ["#8E6A0E", "As before"]], "#916800"],
+  ["rc-2:b", "Johto · Silver", [["#6F6F6F", "Silver"], ["#949494", "Lighter"], ["#505050", "Deeper"], ["#5F6875", "Blue-grey"], ["#6E6A62", "Warm grey"], ["#67707D", "SoulSilver"], ["#6B6F73", "Logo"]], "#6B6F73"],
+  ["rc-3:a", "Hoenn · Ruby", [["#CD2236", "Ruby"], ["#E45C6C", "Brighter"], ["#9D1A29", "Deeper"], ["#E0001A", "Richer"], ["#B34F5B", "Softer"], ["#CE3622", "More orange"], ["#D32361", "More pink"], ["#AB2813", "Omega Ruby"], ["#9B1B30", "As before"]], "#AB2813"],
+  ["rc-3:b", "Hoenn · Sapphire", [["#3D51A7", "Sapphire"], ["#8391D2", "Lighter"], ["#384A99", "Deeper"], ["#4B65D9", "Richer"], ["#606DA1", "Softer"], ["#6863C6", "More purple"], ["#4170B1", "More teal"], ["#26649C", "Alpha Sapphire"], ["#1172A9", "Box art"], ["#16618A", "As before"]], "#384A99"],
+  ["rc-4:a", "Sinnoh · Diamond", [["#56728E", "Diamond"], ["#3B8CDF", "Brighter"], ["#3E5266", "Deeper"], ["#006CDB", "Richer"], ["#4572A1", "Softer"], ["#3C67DF", "More blue"], ["#19789A", "More teal"], ["#2C7793", "Brilliant Diamond"], ["#156288", "Dialga"], ["#2F5D9E", "As before"]], "#2C7793"],
+  ["rc-4:b", "Sinnoh · Pearl", [["#9E597F", "Pearl"], ["#D376A9", "Lighter"], ["#73405C", "Deeper"], ["#D3157D", "Richer"], ["#CA3463", "More red"], ["#BF32A1", "More purple"], ["#9E5B6F", "Shining Pearl"], ["#9C4A7A", "As before"]], "#9E5B6F"],
   ["rc-5:a", "Unova · Black", [["#444444", "Black"], ["#2C2C2C", "Charcoal"], ["#303E51", "Black 2"], ["#36353D", "As before"]], "#444444"],
   ["rc-5:b", "Unova · White", [["#E1E1E1", "White"], ["#C8C8C8", "Light grey"], ["#D4D7DB", "Silver-white"], ["#EBC5C3", "White 2"]], "#E1E1E1"],
-  ["rc-6:a", "Kalos · X", [["#025DA6", "X"], ["#025292", "Deeper"], ["#0070CB", "Richer"], ["#3373A8", "Softer"], ["#1962FC", "More blue"], ["#027999", "More teal"], ["#126190", "Logo"], ["#2B55A3", "As before"]], "#025DA6"],
+  ["rc-6:a", "Kalos · X", [["#025DA6", "X"], ["#038BF9", "Brighter"], ["#025292", "Deeper"], ["#0070CB", "Richer"], ["#3373A8", "Softer"], ["#1962FC", "More blue"], ["#027999", "More teal"], ["#126190", "Logo"], ["#2B55A3", "As before"]], "#025DA6"],
   ["rc-6:b", "Kalos · Y", [["#DA183A", "Y"], ["#F1677F", "Lighter"], ["#A0122A", "Deeper"], ["#E00027", "Richer"], ["#BB485C", "Softer"], ["#DA2014", "More orange"], ["#D71464", "More pink"], ["#C72038", "Logo"], ["#A3283A", "As before"]], "#DA183A"],
-  ["rc-7:a", "Alola · Sun", [["#A0601D", "Sun"], ["#724514", "Deeper"], ["#AC5900", "Richer"], ["#946534", "Softer"], ["#8B6A09", "More yellow"], ["#C6420D", "More red"], ["#BE4A23", "Ultra Sun"], ["#99641B", "Logo"], ["#B5531C", "As before"]], "#A0601D"],
-  ["rc-7:b", "Alola · Moon", [["#41749A", "Moon"], ["#599BCB", "Lighter"], ["#2F546F", "Deeper"], ["#1B74B3", "Richer"], ["#4E738E", "Softer"], ["#3F6DC3", "More blue"], ["#2B788A", "More teal"], ["#226DB5", "Ultra Moon"], ["#393075", "Lunala"], ["#4B3F8F", "As before"]], "#41749A"],
-  ["rc-8:a", "Galar · Shield", [["#BF004F", "Shield"], ["#A20043", "Deeper"], ["#DC005B", "Richer"], ["#C43973", "Softer"], ["#DF0028", "More red"], ["#D5008A", "More pink"], ["#C13339", "Zamazenta"], ["#A3283E", "As before"]], "#BF004F"],
-  ["rc-8:b", "Galar · Sword", [["#0076AB", "Sword"], ["#009DE3", "Lighter"], ["#00557B", "Deeper"], ["#2C7798", "Softer"], ["#0069E6", "More blue"], ["#007B86", "More teal"], ["#1E5FA8", "As before"]], "#0076AB"],
-  ["rc-hisui", "Hisui · Legends: Arceus", [["#36597B", "Legends: Arceus"], ["#3472B0", "Richer"], ["#59728A", "Softer"], ["#526DB3", "More blue"], ["#3D768B", "More teal"], ["#3C6150", "As before"]], "#36597B"],
-  ["rc-9:a", "Paldea · Violet", [["#8334B7", "Violet"], ["#732DA0", "Deeper"], ["#A136E6", "Richer"], ["#8A5CA9", "Softer"], ["#AF38C5", "More pink"], ["#8356CF", "More blue"], ["#7B248A", "Logo"], ["#6A3D9A", "As before"]], "#8334B7"],
-  ["rc-9:b", "Paldea · Scarlet", [["#CD372C", "Scarlet"], ["#F5675D", "Lighter"], ["#952820", "Deeper"], ["#DE0F00", "Richer"], ["#BD4941", "Softer"], ["#C4440C", "More orange"], ["#DD0D30", "More pink"], ["#B3261E", "As before"]], "#CD372C"],
+  ["rc-7:a", "Alola · Sun", [["#A0601D", "Sun"], ["#CF720E", "Brighter"], ["#724514", "Deeper"], ["#AC5900", "Richer"], ["#946534", "Softer"], ["#8B6A09", "More yellow"], ["#C6420D", "More red"], ["#E95D2E", "Ultra Sun, brighter"], ["#B57F0C", "Brighter, more yellow"], ["#EB5C10", "Brighter, more red"], ["#D56D00", "Brighter, richer"], ["#BE4A23", "Ultra Sun"], ["#99641B", "Logo"], ["#B5531C", "As before"]], "#99641B"],
+  ["rc-7:b", "Alola · Moon", [["#41749A", "Moon"], ["#599BCB", "Lighter"], ["#2F546F", "Deeper"], ["#1B74B3", "Richer"], ["#4E738E", "Softer"], ["#3F6DC3", "More blue"], ["#2B788A", "More teal"], ["#226DB5", "Ultra Moon"], ["#393075", "Lunala"], ["#4B3F8F", "As before"]], "#393075"],
+  ["rc-8:a", "Galar · Shield", [["#BF004F", "Shield"], ["#FF3488", "Brighter"], ["#A20043", "Deeper"], ["#DC005B", "Richer"], ["#C43973", "Softer"], ["#DF0028", "More red"], ["#D5008A", "More pink"], ["#C13339", "Zamazenta"], ["#A3283E", "As before"]], "#A20043"],
+  ["rc-8:b", "Galar · Sword", [["#0076AB", "Sword"], ["#009DE3", "Lighter"], ["#00557B", "Deeper"], ["#2C7798", "Softer"], ["#0069E6", "More blue"], ["#007B86", "More teal"], ["#1E5FA8", "As before"]], "#00557B"],
+  ["rc-hisui", "Hisui · Legends: Arceus", [["#36597B", "Legends: Arceus"], ["#608DB9", "Brighter"], ["#3472B0", "Richer"], ["#59728A", "Softer"], ["#526DB3", "More blue"], ["#3D768B", "More teal"], ["#3C6150", "As before"]], "#3C6150"],
+  ["rc-9:a", "Paldea · Violet", [["#8334B7", "Violet"], ["#AD70D6", "Brighter"], ["#732DA0", "Deeper"], ["#A136E6", "Richer"], ["#8A5CA9", "Softer"], ["#AF38C5", "More pink"], ["#8356CF", "More blue"], ["#7B248A", "Logo"], ["#6A3D9A", "As before"]], "#8334B7"],
+  ["rc-9:b", "Paldea · Scarlet", [["#CD372C", "Scarlet"], ["#F5675D", "Lighter"], ["#952820", "Deeper"], ["#DE0F00", "Richer"], ["#BD4941", "Softer"], ["#C4440C", "More orange"], ["#DD0D30", "More pink"], ["#B3261E", "As before"]], "#F5675D"],
 ];
 let tryVz = store.get(TRY_VZ_KEY, {});
 if (!tryVz || typeof tryVz !== "object" || Array.isArray(tryVz)) tryVz = {};
+// the region colours left the Try box (her note, 26 Nov: “I'm struggling to use the try as it goes up so much for all the colours”):
+// she picks them in a colour picker in the chat instead, so the page shows the first shade of each until her picks are put in
+for (const k of Object.keys(tryVz)) if (k.startsWith("rc-")) delete tryVz[k];
 const tryPick = id => { const row = TRY_VZ.find(r => r[0] === id); if (!row) return null; return row[2].some(([k]) => k === tryVz[id]) ? tryVz[id] : row[3]; };
 const tryPicKey = k => k === "mega" ? tryPick("mega") : k;   // the Mega Evolution list's picture, as picked
 function tryVzApply(){   // the colour rows: each region's colour, or two ("first+second": the first holds the writing), and how two show
@@ -524,7 +529,7 @@ tryVzApply();
   let folded = matchMedia("(max-width: 900px)").matches;   // folded away on phones and narrow windows: its rows would cover the page
   const draw = () => {
     box.classList.toggle("folded", folded);
-    box.innerHTML = `<button type="button" class="try-fold" aria-expanded="${!folded}">Try${ic("chevron-down")}</button>` + TRY_VZ.map(([id, name, opts]) => `<div class="tryrow" role="group" aria-label="${name}" data-row="${id}"><span>${name}</span>` +
+    box.innerHTML = `<button type="button" class="try-fold" aria-expanded="${!folded}">Try${ic("chevron-down")}</button>` + TRY_VZ.filter(([id]) => !id.startsWith("rc-")).map(([id, name, opts]) => `<div class="tryrow" role="group" aria-label="${name}" data-row="${id}"><span>${name}</span>` +
       opts.map(([k, l]) => `<button type="button" data-v="${k}" aria-pressed="${tryPick(id) === k}">${/^#/.test(k) ? `<i class="sw" style="background:${trySw(k)}"></i>` : ""}${l}</button>`).join("") + `</div>`).join("");
   };
   const pad = () => document.documentElement.style.setProperty("--trypad", box.offsetHeight + 24 + "px");   // room under the page on phones (site.css)
@@ -1678,7 +1683,7 @@ function gameNavHtml(route, link, regions, more){
   const cur = g => g.id === game && !all;
   const look = tryPick("gameSwitch");   // TRIAL: the Try switch "Switching games" (25 Nov): One row, sliding · As now
   const all_ = `<a class="allgames${all ? " on" : ""}" href="#games"${all ? ' aria-current="page"' : ""}>${ic("layers")}All games</a>`;
-  if (look === "label") { gameSwitch.innerHTML = all_ + `<div class="game-toggle"><span class="gt-head">${ic("layers")}Game</span><div class="game-switch wrap labelled" role="group" aria-label="Game">${GAMES.map(g => `<a href="${g.href}" style="--gc:${g.colour}"${cur(g) ? ' aria-current="true"' : ""}>${cur(g) ? ic("check") : ""}${esc(g.short)}</a>`).join("")}</div></div>`; }
+  if (look === "label") { gameSwitch.innerHTML = all_ + `<div class="game-toggle"><span class="gt-head">${ic("layers")}Game</span><div class="game-switch wrap labelled" role="group" aria-label="Game">${GAMES.map(g => `<a href="${g.href}" style="--gc:${g.colour}"${cur(g) ? ' aria-current="true"' : ""}>${esc(g.short)}</a>`).join("")}</div></div>`   /* no tick on the game shown (her note, 26 Nov: “not sold on tick … remove the checkmark”) */; }
   else {   // one row, sliding: drawn where the last game was, then the games slide so this one is under the thumb
     const k = GAMES.findIndex(cur), from = Math.max(0, GAMES.findIndex(g => g.id === wasBefore)), at = k >= 0 ? k : from;
     const seg = (g, n) => `<a href="${g.href}" draggable="false"${cur(g) ? ' aria-current="true"' : ""}${n === from ? ' class="hot"' : ""}>${esc(g.short)}</a>`;

@@ -64,6 +64,26 @@ def toward(h, deg):   # "More orange": the named colour it turns towards
     return 'More ' + min(ANCHORS, key=lambda a: min(abs(a[0] - target), 360 - abs(a[0] - target)))[1]
 
 
+def banner_ok(h, t=4.6):   # the banner darkens the colour (85% with black) under the white title and its small label
+    r, g, b = [int(h[i:i + 2], 16) for i in (0, 2, 4)]
+    return cr('%02X%02X%02X' % (round(r * .85), round(g * .85), round(b * .85))) >= t
+
+
+def brighter(h, sat=1.0, deg=0):   # the brightest shade of h whose banner still holds white writing (her note, 26 Nov: the golds and
+    r, g, b = [int(h[i:i + 2], 16) / 255 for i in (0, 2, 4)]   # oranges darkened to 5:1 on their own looked brown)
+    H, L, S = colorsys.rgb_to_hls(r, g, b)
+    H = ((H * 360 + deg) % 360) / 360; S = max(0, min(1, S * sat))
+    lo, hi = 0.0, 1.0
+    for _ in range(40):
+        mid = (lo + hi) / 2
+        x = '%02X%02X%02X' % tuple(round(v * 255) for v in colorsys.hls_to_rgb(H, mid, S))
+        if banner_ok(x):
+            lo = mid
+        else:
+            hi = mid
+    return '%02X%02X%02X' % tuple(round(v * 255) for v in colorsys.hls_to_rgb(H, lo, S))
+
+
 def dist(a, b):
     return sum(abs(int(a[i:i + 2], 16) - int(b[i:i + 2], 16)) for i in (0, 2, 4))
 
@@ -103,14 +123,20 @@ def options(name, second=False):
         out += [('Richer', hls_to(main, 5.0, 1.4)), ('Softer', hls_to(main, 5.0, 0.55)),
                 (toward(main, 14), shifted(main, 14)), (toward(main, -14), shifted(main, -14))]
     out += [(lab, c) for lab, c in EXTRA_FIXED.get(name, [])]
+    if not second and not grey:
+        out.insert(1, ('Brighter', brighter(main)))
+    if name in ('Gold', 'Sun'):   # her note, 26 Nov: the golds and the Sun oranges “didn't have the right ones there at all”
+        out += [(lab + ', brighter', brighter(c)) for lab, c in extra]
+        out += [('Brighter, ' + toward(main, d).lower(), brighter(main, 1.0, d)) for d in (10, -10)]
+        out += [('Brighter, richer', brighter(main, 1.3))]
     if second:
         out.insert(1, ('Lighter', scale(main, 3.0) if cr(main) < 3.0 else hls_to(main, 3.0)))
     out += [(lab, scale(c, 5.0)) for lab, c in extra]
     if before:
         out.append(('Before', before))
-    keep, made = [], {'Deeper', 'Richer', 'Softer', 'Lighter'}
+    keep, made = [], {'Deeper', 'Richer', 'Softer', 'Lighter', 'Brighter'}
     for lab, c in out:   # leave out a made shade too close to one already offered (her colours, remakes, box art and Before stay)
-        if all(dist(c, k) > (22 if lab in made or lab.startswith('More ') else 6) for _, k in keep):
+        if all(dist(c, k) > (22 if lab in made or lab.startswith(('More ', 'Brighter')) or lab.endswith(', brighter') else 6) for _, k in keep):
             keep.append((lab, c))
     return keep
 
@@ -119,16 +145,26 @@ def options(name, second=False):
 EXTRA_FIXED = {'Gold': [('Old gold', '8E6520')], 'Silver': [('Blue-grey', '5F6875'), ('Warm grey', '6E6A62')], 'Black': [('Charcoal', '2C2C2C')],
                'Platinum': []}
 
+# her picks, 26 Nov (“an initial glance”), from the colour picker in the chat
+PICKS = {'Red': 'Red', 'Blue': 'Richer', 'Gold': 'Richer', 'Silver': 'Logo', 'Ruby': 'Omega Ruby', 'Sapphire': 'Deeper',
+         'Diamond': 'Brilliant Diamond', 'Pearl': 'Shining Pearl', 'Black': 'Black', 'White': 'White', 'X': 'X', 'Y': 'Y',
+         'Sun': 'Logo', 'Moon': 'Lunala', 'Shield': 'Deeper', 'Sword': 'Deeper', 'Legends: Arceus': 'Before', 'Violet': 'Violet',
+         'Scarlet': 'Lighter'}
+
 REGIONS = [('1', 'Kanto', 'Red', 'Blue'), ('2', 'Johto', 'Gold', 'Silver'), ('3', 'Hoenn', 'Ruby', 'Sapphire'), ('4', 'Sinnoh', 'Diamond', 'Pearl'),
            ('5', 'Unova', 'Black', 'White'), ('6', 'Kalos', 'X', 'Y'), ('7', 'Alola', 'Sun', 'Moon'), ('8', 'Galar', 'Shield', 'Sword'),
            ('hisui', 'Hisui', 'Legends: Arceus', None), ('9', 'Paldea', 'Violet', 'Scarlet')]
 rows = []
 for rid, region, a, b in REGIONS:
     oa = options(a)
-    rows.append([f'rc-{rid}' + (':a' if b else ''), f'{region} · {a}', [[f'#{c}', l] for l, c in oa], f'#{oa[0][1]}'])
+    pa = dict((l, c) for l, c in oa)[PICKS[a]]
+    rows.append([f'rc-{rid}' + (':a' if b else ''), f'{region} · {a}', [[f'#{c}', l] for l, c in oa], f'#{pa}'])
     if b:
         ob = options(b, second=True)
-        rows.append([f'rc-{rid}:b', f'{region} · {b}', [[f'#{c}', l] for l, c in ob], f'#{ob[0][1]}'])
+        rows.append([f'rc-{rid}:b', f'{region} · {b}', [[f'#{c}', l] for l, c in ob], f'#{dict((l, c) for l, c in ob)[PICKS[b]]}'])
+import sys
+if '--json' in sys.argv:
+    print(json.dumps(rows, ensure_ascii=False)); sys.exit()
 for r in rows:
     print(json.dumps(r, ensure_ascii=False))
     for c, l in r[2]:

@@ -1472,7 +1472,7 @@
     const pick = async (row, v) => { click(document.querySelector(`.trybox [data-row="${row}"] [data-v="${v}"]`)); await wait(150); };
     const was = {...tryVz};
     try {
-      eq([...document.querySelectorAll(".trybox [data-row]")].map(r => r.dataset.row), ["gameSwitch", "mega", ...["1", "2", "3", "4", "5", "6", "7", "8"].flatMap(r => [`rc-${r}:a`, `rc-${r}:b`]), "rc-hisui", "rc-9:a", "rc-9:b"], "this round’s rows");
+      eq([...document.querySelectorAll(".trybox [data-row]")].map(r => r.dataset.row), ["gameSwitch", "mega"], "this round’s rows");
       await go("#za-gen-hyperspace"); ok(/hyperspace-2/.test(view().querySelector(".hero").getAttribute("style") || ""), "Hyperspace: the clearer distortion (her pick)");
       await go("#za-gen-mega");
       for (const v of ["mega-all", "mega-glossy", "mega-fan"]) { await pick("mega", v);
@@ -1483,19 +1483,18 @@
         ok(view().querySelector(".hero.ratio") && Math.abs(w / h - 16 / 9) < 0.05, `${v}: shown whole, in its own 16:9 shape (${Math.round(w)} × ${Math.round(h)})`); }
       await go("#za-gen-mega"); await pick("mega", "mega-big"); { const a = getComputedStyle(view().querySelector(".hero"), "::after");
         ok(/mega-big-1/.test(view().querySelector(".hero").getAttribute("style") || "") && Math.abs(parseFloat(a.width) / parseFloat(a.height) - 1) < 0.05, "the big stone, whole and square"); }
-      const opts = row => [...document.querySelectorAll(`.trybox [data-row="${row}"] [data-v]`)].map(b => b.dataset.v);
       const two = () => ["--rc", "--rc2"].map(v => getComputedStyle(document.documentElement).getPropertyValue(v).trim().toUpperCase()).join("+");
-      await go("#vi-gen-paldea"); const [v1, v2] = opts("rc-9:a"), [s1, s2] = opts("rc-9:b");
-      await pick("rc-9:a", v1); await pick("rc-9:b", s1); eq(two(), `${v1}+${s1}`.toUpperCase(), "Paldea's two colours, Violet's lists too");
-      await pick("rc-9:a", v2); await pick("rc-9:b", s2); eq(two(), `${v2}+${s2}`.toUpperCase(), "a shade of each, picked apart");
-      ok(opts("rc-2:a").length >= 5 && opts("rc-2:b").length >= 5, "several golds and several silvers (her ask, 25 Nov)");
-      eq(opts("rc-hisui").some(v => v.includes("+")), false, "Hisui one colour");
-      await go("#sh-gen-galar"); const pair8 = opts("rc-8:a")[0] + "+" + opts("rc-8:b")[0]; await pick("rc-8:a", opts("rc-8:a")[0]); await pick("rc-8:b", opts("rc-8:b")[0]); eq(two(), pair8.toUpperCase(), "Shield's lists Galar's two");
+      const first = id => TRY_VZ.find(r => r[0] === id)[3], shades = id => TRY_VZ.find(r => r[0] === id)[2].map(o => o[0]);
+      ok(!document.querySelector('.trybox [data-row^="rc-"]'), "the colours aren't in the Try box (her note, 26 Nov)");
+      await go("#vi-gen-paldea"); eq(two(), `${first("rc-9:a")}+${first("rc-9:b")}`.toUpperCase(), "Paldea's two colours, the first shades, Violet's lists too");
+      ok(shades("rc-2:a").length >= 5 && shades("rc-2:b").length >= 5, "several golds and several silvers (her ask, 25 Nov)");
+      ok(!TRY_VZ.some(r => r[0] === "rc-hisui:b"), "Hisui one colour");
+      ok(shades("rc-3:a").includes("#AB2813") && shades("rc-3:b").includes("#26649C"), "the remakes' colours among the shades (Omega Ruby, Alpha Sapphire)");
+      await go("#sh-gen-galar"); const pair8 = `${first("rc-8:a")}+${first("rc-8:b")}`; eq(two(), pair8.toUpperCase(), "Shield's lists Galar's two");
       await go("#gen-8"); eq(two(), pair8.toUpperCase(), "GO's Galar the same");
       const card = getComputedStyle(view().querySelector(".card"));
       ok(/linear-gradient/.test(card.backgroundImage) && card.borderTopColor === "rgba(0, 0, 0, 0)", "the frame blends the two (her pick, 25 Nov)");
       ok(/linear-gradient/.test(getComputedStyle(view().querySelector(".hero")).backgroundImage), "and the banner");
-      ok(opts("rc-3:a").includes("#AB2813") && opts("rc-3:b").includes("#26649C"), "the remakes' colours among the shades (Omega Ruby, Alpha Sapphire)");
       await go("#go"); eq(view().querySelector('.gen[href="#gen-8"]').style.getPropertyValue("--rc2").toUpperCase(), pair8.split("+")[1].toUpperCase(), "GO's region cards: their second colour");
       ok(/26, 18, 20/.test(getComputedStyle(nav.querySelector("a.on")).boxShadow), "the sidebar highlight black (her pick)");
       await go("#za");
@@ -1516,7 +1515,7 @@
       // the arrow keys
       document.querySelector(".games [data-slide] a[aria-current]").dispatchEvent(new KeyboardEvent("keydown", {key: "ArrowDown", bubbles: true})); await wait(300);
       eq(location.hash, "#za", "the arrow key: the next game");
-      await go("#za"); await pick("gameSwitch", "label"); ok(document.querySelector(".games .gt-head") && document.querySelector(".game-switch a[aria-current] svg"), "As now: heading and a tick on the game shown");
+      await go("#za"); await pick("gameSwitch", "label"); ok(document.querySelector(".games .gt-head") && !document.querySelector(".game-switch a[aria-current] svg"), "As now: the heading, no tick (her note, 26 Nov)");
       await pick("gameSwitch", "h"); eq(JSON.parse(localStorage.getItem(TRY_VZ_KEY)).gameSwitch, "h", "kept");
     } finally { tryVz = was; store.set(TRY_VZ_KEY, was); tryVzApply(); rerender(); }
   });
