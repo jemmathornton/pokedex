@@ -1,5 +1,5 @@
 {
- "fetched": "2026-11-25",
+ "fetched": "2026-11-26",
  "source": "Leek Duck (leekduck.com/events), via ScrapedDuck",
  "events": [
   {
@@ -118,24 +118,6 @@
      "as": [
       "mega"
      ]
-    }
-   ]
-  },
-  {
-   "id": "raidhour20261125",
-   "name": "Deoxys (Normal, Defense, Attack, and Speed Formes) Raid Hour",
-   "type": "Raid Hour",
-   "kind": "raid-hour",
-   "start": "2026-11-25T18:00:00.000",
-   "end": "2026-11-25T19:00:00.000",
-   "link": "https://leekduck.com/events/raidhour20261125/",
-   "mons": [
-    {
-     "name": "Deoxys",
-     "key": null,
-     "shiny": null,
-     "id": "386",
-     "as": []
     }
    ]
   },
@@ -312,14 +294,24 @@
    ]
   },
   {
-   "id": "max-battle-day-december-2026",
-   "name": "Max Battle Day",
+   "id": "gigantamax-inteleon-max-battle-day-2026",
+   "name": "Gigantamax Inteleon Max Battle Day",
    "type": "Max Battles",
    "kind": "max-battles",
    "start": "2026-12-05T14:00:00.000",
    "end": "2026-12-05T17:00:00.000",
-   "link": "https://leekduck.com/events/max-battle-day-december-2026/",
-   "mons": []
+   "link": "https://leekduck.com/events/gigantamax-inteleon-max-battle-day-2026/",
+   "mons": [
+    {
+     "name": "Inteleon",
+     "key": null,
+     "shiny": null,
+     "id": "818",
+     "as": [
+      "gmax"
+     ]
+    }
+   ]
   },
   {
    "id": "max-mondays-2026-12-07",
@@ -342,13 +334,13 @@
    ]
   },
   {
-   "id": "unannounced-event-december-2026",
-   "name": "Unannounced Event",
+   "id": "pokemon-champions-celebration-event-2026",
+   "name": "Pokémon Champions Celebration Event 2026",
    "type": "Event",
    "kind": "event",
    "start": "2026-12-08T10:00:00.000",
    "end": "2026-12-14T20:00:00.000",
-   "link": "https://leekduck.com/events/unannounced-event-december-2026/",
+   "link": "https://leekduck.com/events/pokemon-champions-celebration-event-2026/",
    "mons": []
   },
   {
@@ -372,14 +364,71 @@
    ]
   },
   {
-   "id": "unannounced-pokemon-in-5-star-raid-battles-december-2026",
-   "name": "Unannounced Pokémon in 5-star Raid Battles",
+   "id": "pokemon-champions-celebration-5-star-raid-battles-december-2026",
+   "name": "Pokémon Champions Celebration 5-star Raid Battles",
    "type": "Raid Battles",
    "kind": "raid-battles",
    "start": "2026-12-09T06:00:00.000",
    "end": "2026-12-15T22:00:00.000",
-   "link": "https://leekduck.com/events/unannounced-pokemon-in-5-star-raid-battles-december-2026/",
-   "mons": []
+   "link": "https://leekduck.com/events/pokemon-champions-celebration-5-star-raid-battles-december-2026/",
+   "mons": [
+    {
+     "name": "Latias",
+     "key": "380_00",
+     "shiny": true,
+     "id": "380",
+     "as": []
+    },
+    {
+     "name": "Latios",
+     "key": "381_00",
+     "shiny": true,
+     "id": "381",
+     "as": []
+    },
+    {
+     "name": "Heatran",
+     "key": "485_00",
+     "shiny": true,
+     "id": "485",
+     "as": []
+    },
+    {
+     "name": "Cobalion",
+     "key": "638_00",
+     "shiny": true,
+     "id": "638",
+     "as": []
+    },
+    {
+     "name": "Terrakion",
+     "key": "639_00",
+     "shiny": true,
+     "id": "639",
+     "as": []
+    },
+    {
+     "name": "Virizion",
+     "key": "640_00",
+     "shiny": true,
+     "id": "640",
+     "as": []
+    },
+    {
+     "name": "Regieleki",
+     "key": "pm894",
+     "shiny": true,
+     "id": "894",
+     "as": []
+    },
+    {
+     "name": "Regidrago",
+     "key": "pm895",
+     "shiny": true,
+     "id": "895",
+     "as": []
+    }
+   ]
   },
   {
    "id": "raidhour20261209",
