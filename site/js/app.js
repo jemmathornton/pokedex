@@ -37,23 +37,14 @@ const keepPrefs = () => store.set(PREFS_KEY, prefs);
 // ---------- what there is ----------
 // the sections, in game order: [key, region, small label]. Hisui stands on its own between Galar and Paldea (her call, 9 Nov)
 // each region with its games, like Legends: Arceus (her ask, 19 Nov: games, not generation numbers)
-// the words on a region's banner, either side of the map (her notes, 26 Nov: no “shown” count, “I want games and region. Nothing in middle”;
-// TRIAL: the Try switch “Banner text”): the region's own pair of games (GENS: “Red and Blue”), its other games (REGION_GAMES), and its
-// National Pokédex numbers (DEX_RANGE). A game's own lists and pages without one region keep their line and title
+// the words on a region's banner, either side of the map (her pick, 26 Nov: “I think 3 is definitely best. Game list is good”; her notes:
+// no “shown” count, “I want games and region. Nothing in middle”): on the left its National Pokédex numbers (DEX_RANGE) over its name, on
+// the right every main game set there (REGION_GAMES), one under another. A game's own lists and pages without one region keep their line
 function bannerWords(region, label, title){
   const games = !bySections() && REGION_GAMES[region], plain = `<span class="label">${esc(label)}</span><h1>${title}</h1>`;
   if (!games || !(mapFiles(region).length === 1)) return plain;
-  const pair = (GENS.find(x => x[0] === region) || [])[2] || "", [g1, g2] = pair.split(" and "), others = games.filter(x => x !== g1 && x !== g2);
-  const list = a => a.map(esc).join(" · "), right = h => `<div class="bt-right">${h}</div>`, range = DEX_RANGE[region] ? `${dexNo(DEX_RANGE[region][0])}–${dexNo(DEX_RANGE[region][1])}` : "";
-  switch (tryPick("bannerText")) {
-    case "sides": return `<span class="label bt-game">${esc(g1)}</span><h1>${title}</h1>` +
-      right((g2 ? `<b class="bt-name bt-side">${esc(g2)}</b>` : "") + (others.length ? `<span class="label">${list(others)}</span>` : ""));
-    case "pair": return `<h1>${title}</h1>` + right(`<b class="bt-name">${esc(g2 ? `${g1} & ${g2}` : g1)}</b>` + (others.length ? `<span class="label">${list(others)}</span>` : ""));
-    case "range": return `<span class="label">${range}</span><h1>${title}</h1>` + right(`<span class="label bt-stack">${games.map(g => `<span>${esc(g)}</span>`).join("")}</span>`);
-    case "under": return `<h1>${title}</h1><span class="label bt-under">${list(games)}</span>`;
-    case "swap": return `<span class="label bt-stack">${games.map(g => `<span>${esc(g)}</span>`).join("")}</span>` + right(`<h1 class="bt-title">${title}</h1>`);
-  }
-  return plain;
+  const range = DEX_RANGE[region] ? `${dexNo(DEX_RANGE[region][0])}–${dexNo(DEX_RANGE[region][1])}` : "";
+  return `<span class="label">${range}</span><h1>${title}</h1><div class="bt-right"><span class="label bt-stack">${games.map(g => `<span>${esc(g)}</span>`).join("")}</span></div>`;
 }
 // every main game set in each region (her question, 26 Nov: “don't some regions have multiple games?”), in release order
 const REGION_GAMES = {"1": ["Red", "Green", "Blue", "Yellow", "FireRed", "LeafGreen", "Let’s Go, Pikachu!", "Let’s Go, Eevee!"],
@@ -469,7 +460,12 @@ const REGION_SPLIT = {"1": "#385FFB", "2": "#949494", "3": "#384A99", "4": "#9E5
   "8": "#BF004F", "9": "#8334B7"};
 const regionOf = g => REGION_COLOURS[g] ? g : g && bySections() && secById(g) && REGION_COLOURS[GAME_REGION[GAME]] ? GAME_REGION[GAME] : null;
 const secondOf = g => REGION_SPLIT[regionOf(g)] || colourOf(g);
-const setRegion = g => { const d = document.documentElement, s = d.style; s.setProperty("--rc", colourOf(g)); s.setProperty("--rc2", secondOf(g));
+// the writing on each side of a banner (her note, 26 Nov: “for some regions the text is near unreadable on banner”): white, or dark where
+// the banner's colour (80% with black, site.css) is too pale for white, as Unova's White
+const inkOn = hex => { const lum = h => { const c = [1, 3, 5].map(i => parseInt(h.substr(i, 2), 16) * .8 / 255).map(v => v <= .04045 ? v / 12.92 : ((v + .055) / 1.055) ** 2.4);
+  return .2126 * c[0] + .7152 * c[1] + .0722 * c[2]; }; return 1.05 / (lum(hex) + .05) >= 4.5 ? "#FFFFFF" : "#1A1214"; };
+const setRegion = g => { const d = document.documentElement, s = d.style, a = colourOf(g), b = secondOf(g); s.setProperty("--rc", a); s.setProperty("--rc2", b);
+  s.setProperty("--rc-ink", inkOn(a)); s.setProperty("--rc2-ink", inkOn(b));
   d.toggleAttribute("data-region", !!g); };   // data-region: a page with a region's colours (the sidebar highlight can take them: TRIAL)   // a page with no region: the game's own colour
 const REGION_CHOSEN = {"1": "kanto-map-2.jpg", "2": "johto-map-1.jpg", "3": "hoenn-map-2.jpg", "4": "sinnoh-map-3.jpg", "5": "unova-map-2.jpg", "6": "kalos-map-2.jpg", "7": "alola-map-1.jpg", "8": "galar-map-1.jpg", "hisui": "hisui-map-1.jpg", "9": "paldea-map-1.jpg", "isle-of-armor": "isle-of-armor-1.jpg", "crown-tundra": "crown-tundra-1.jpg",
   // Violet's DLCs and Legends: Z-A (23 Nov, downloaded with her yes: “Do it if you can”): The Teal Mask's and The Indigo Disk's key art
@@ -499,10 +495,6 @@ const SHOT_FIT = {"hyperspace-2.jpg": "center/cover", "mega-big-1.jpg": "center/
 // it isn't obvious you only select one. The rows was good as it looked like a toggle before there were too many”).
 const TRY_VZ_KEY = "jemmas-pokedex-try-violetza";
 const TRY_VZ = [
-  // the banner's words (her note, 26 Nov: “Banner text needs better options. Shown seems pointless so remove that. I want games and region.
-  // Nothing in middle as that is over map. Come up with better ideas for that using left, right and combination of the two”): the map
-  // stays clear in the middle; the words in the two colours either side
-  ["bannerText", "Banner text", [["sides", "Each side names its game"], ["pair", "Region left, the pair right"], ["range", "Region and numbers left, all games right"], ["under", "Region with its games under it"], ["swap", "Games left, region right"]], "sides"],
 ];
 let tryVz = store.get(TRY_VZ_KEY, {});
 if (!tryVz || typeof tryVz !== "object" || Array.isArray(tryVz)) tryVz = {};
@@ -515,6 +507,7 @@ function tryVzApply(){ document.documentElement.dataset.bannerText = tryPick("ba
 const trySw = k => k;   // a swatch
 tryVzApply();
 (function tryBox(){
+  if (!TRY_VZ.length) return;   // nothing to try just now
   const box = document.createElement("div"); box.className = "trybox"; box.setAttribute("role", "group"); box.setAttribute("aria-label", "Try");
   let folded = matchMedia("(max-width: 900px)").matches;   // folded away on phones and narrow windows: its rows would cover the page
   const draw = () => {

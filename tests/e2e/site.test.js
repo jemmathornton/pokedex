@@ -1491,17 +1491,16 @@
     await go("#go"); const strip = view().querySelector(".hero > .heropics"); ok(strip && Math.abs(strip.getBoundingClientRect().width / view().querySelector(".hero").getBoundingClientRect().width - 0.64) < 0.03, "the maps in the middle on Home too (her pick)");
   });
 
-  test("TRIAL Try switch (26 Nov): the banner's words; the one-row game switch (her pick)", async () => {
+  test("the banner's words and the one-row game switch (her picks, 26 Nov)", async () => {
     const pick = async (row, v) => { click(document.querySelector(`.trybox [data-row="${row}"] [data-v="${v}"]`)); await wait(150); };
     const was = {...tryVz};
     try {
-      eq([...document.querySelectorAll(".trybox [data-row]")].map(r => r.dataset.row), ["bannerText"], "this round’s rows");
+      ok(!document.querySelector(".trybox"), "nothing on the Try switch just now");
       await go("#gen-1"); const hero = () => view().querySelector(".hero"), txt = () => hero().textContent;
-      for (const v of ["sides", "pair", "range", "under", "swap"]) { await pick("bannerText", v);
-        ok(/Kanto/.test(txt()) && /Red/.test(txt()) && /Blue/.test(txt()) && !/shown/.test(txt()), `${v}: the region and its games, no “shown” (her note)`); }
-      await pick("bannerText", "sides"); eq(hero().querySelector(".bt-game").textContent, "Red", "each side names its game: Red left"); eq(hero().querySelector(".bt-right .bt-name").textContent, "Blue", "Blue right");
-      ok(/Let’s Go, Eevee!/.test(hero().querySelector(".bt-right").textContent), "and the other games under it");
-      await pick("bannerText", "range"); ok(/#0001–#0151/.test(txt()), "the numbers");
+      ok(/#0001–#0151/.test(txt()) && /Kanto/.test(txt()) && !/shown/.test(txt()), "the numbers over the name, no “shown” (her pick, 26 Nov)");
+      eq([...hero().querySelectorAll(".bt-right .bt-stack > span")].map(x => x.textContent).join(", "), "Red, Green, Blue, Yellow, FireRed, LeafGreen, Let’s Go, Pikachu!, Let’s Go, Eevee!", "every game on the right");
+      await go("#gen-5"); eq(getComputedStyle(hero().querySelector(".bt-right .label")).color, "rgb(26, 18, 20)", "Unova's games dark on White's pale grey (her note: near unreadable)");
+      eq(getComputedStyle(hero().querySelector("h1")).color, "rgb(255, 255, 255)", "its name white on Black");
       await go("#sh-gen-galar"); ok(!view().querySelector(".hero .bt-right"), "a game's own lists keep their line");
       await go("#za"); await wait(400);
       let el = document.querySelector(".games [data-slide]"); const links = el.querySelectorAll("a");

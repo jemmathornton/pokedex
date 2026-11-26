@@ -1334,7 +1334,7 @@ main{background:linear-gradient(90deg,rgba(70,40,30,.18),rgba(70,40,30,0) 54px) 
    wider map”; she had asked “would it be better with the map more central and a pair of colour on either side?”): the map 64% wide,
    fading both sides; the title smaller in the left colour, wrapping to fit it. Wider screens only; phones keep the map in its own band */
 @media (min-width:701px){
-  :root[data-look] .hero.withshot.mapmid{background:linear-gradient(90deg,color-mix(in srgb,var(--rc) 85%,#000) 28%,color-mix(in srgb,var(--rc2,var(--rc)) 85%,#000) 72%)}
+  :root[data-look] .hero.withshot.mapmid{background:linear-gradient(90deg,color-mix(in srgb,var(--rc) 80%,#000) 28%,color-mix(in srgb,var(--rc2,var(--rc)) 80%,#000) 72%)}
   .hero.withshot.mapmid:not(.ratio)::after{left:50%;right:auto;width:64%;transform:translateX(-50%);
     -webkit-mask:linear-gradient(90deg,transparent,#000 18%,#000 82%,transparent);mask:linear-gradient(90deg,transparent,#000 18%,#000 82%,transparent)}
   .hero.withshot.mapmid > :is(.label,h1){position:relative;z-index:1;max-width:24%}
@@ -1358,17 +1358,15 @@ main{background:linear-gradient(90deg,rgba(70,40,30,.18),rgba(70,40,30,0) 54px) 
 :root[data-region] .nav a.on svg path:nth-child(3){stroke:color-mix(in srgb,var(--rc) 50%,var(--rc2,var(--rc)));stroke-width:2.6}
 :root[data-region] .nav a.on svg path:nth-child(2){stroke:var(--rc2,var(--rc));stroke-width:2.6}
 
-/* ===== TRIAL: banner text (26 Nov), START: remove with the Try switch once she has picked ===== */
-/* the words either side of the map (her note: “I want games and region. Nothing in middle … using left, right and combination”) */
+/* the words either side of the map (her pick, 26 Nov: the numbers over the name on the left, every game on the right); each side's
+   writing white, or dark on a pale colour (app.js inkOn), the small lines full strength, not faded (her note: “near unreadable”) */
 .bt-right{display:none}
+.hero.mapmid > :is(.label,h1){color:var(--rc-ink,#fff)}
+.hero.mapmid .label{opacity:1}
 @media (min-width:701px){
   .hero.mapmid .bt-right{display:grid;justify-items:end;gap:6px;position:absolute;z-index:1;top:56px;right:clamp(16px,3vw,40px);width:17%;text-align:right}
-  .hero.mapmid .bt-name{font:400 clamp(28px,2.6vw,38px)/1.02 var(--display);color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.5)}
-  .hero.mapmid .bt-right .label{line-height:1.7}
-  .hero.mapmid .label.bt-game,.hero.mapmid .bt-name.bt-side{font:400 clamp(22px,2vw,28px)/1.05 var(--display);letter-spacing:0;text-transform:none;color:#fff;margin-bottom:4px}
+  .hero.mapmid .bt-right .label{color:var(--rc2-ink,#fff)}
   .hero.mapmid .bt-stack{display:grid;gap:2px;line-height:1.5}
-  .hero.mapmid .bt-under{margin-top:10px;line-height:1.7;max-width:24%}
-  .hero.mapmid .bt-right h1.bt-title{margin:0;max-width:none}
+  :root .hero.mapmid :is(.label,h1){text-shadow:0 1px 3px rgba(0,0,0,.35)}
 }
-@media (max-width:700px){ .hero .bt-right{display:block;position:relative;z-index:1;margin-top:8px} .hero .bt-right h1{margin:0} }
-/* ===== TRIAL: banner text, END ===== */
+@media (max-width:700px){ .hero .bt-right{display:block;position:relative;z-index:1;margin-top:8px} .hero.mapmid .bt-right .label{color:var(--rc-ink,#fff)} }
