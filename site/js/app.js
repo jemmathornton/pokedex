@@ -452,7 +452,7 @@ function card(e, more = "", inForms = false, forms = null){
 // (the first named first, as the games' names read on the page: her note, 26 Nov, “the order should be the same as the text”);
 // Hisui one colour, the forest green (her pick: “it didn't have a pair or colour on box like others so i think the green is best as we
 // already have so many red & blue options”)
-const REGION_COLOURS = {"1": "#D72800", "2": "#AE831A", "3": "#CD2236", "4": "#2C7793", "5": "#444444", "6": "#025292",
+const REGION_COLOURS = {"1": "#D72800", "2": "#AA8501", "3": "#CD2236", "4": "#2C7793", "5": "#444444", "6": "#025292",
   "7": "#EB5C10", "8": "#0076AB", "hisui": "#3C6150", "9": "#CD372C"};
 document.documentElement.dataset.look = "mix";
 // each game after HOME takes its region's colour for all its lists (DLC lists their own later: her note, 24 Nov)
@@ -460,14 +460,17 @@ const GAME_REGION = {shield: "8", arceus: "hisui", violet: "9", za: "6"};
 const colourOf = g => REGION_COLOURS[g] || (g && bySections() && secById(g) ? REGION_COLOURS[GAME_REGION[GAME]] || secById(g).colour : null) || GAME_COLOUR;
 // a region's second colour (her idea, 24 Nov: “half/half for the two colours”; shown blended, her pick 25 Nov: site.css “Two colours”;
 // her picks, 26 Nov, above): --rc2 beside --rc
-const REGION_SPLIT = {"1": "#385FFB", "2": "#949494", "3": "#384A99", "4": "#9E5B6F", "5": "#E1E1E1", "6": "#A0122A", "7": "#226DB5",
+// Unova's second colour a light grey that keeps white writing (her pick, 27 Nov: #B4B4B4, 3.2:1 on the banner with its
+// soft shadow; she found one region with black writing odd, and White itself is too pale for white writing)
+// Johto: HeartGold (brighter) and SoulSilver (her picks, 27 Nov: “do johto to brighter heartgold and soulsilver”)
+const REGION_SPLIT = {"1": "#385FFB", "2": "#67707D", "3": "#384A99", "4": "#9E5B6F", "5": "#B4B4B4", "6": "#A0122A", "7": "#226DB5",
   "8": "#BF004F", "9": "#8334B7"};
 const regionOf = g => REGION_COLOURS[g] ? g : g && bySections() && secById(g) && REGION_COLOURS[GAME_REGION[GAME]] ? GAME_REGION[GAME] : null;
 const secondOf = g => REGION_SPLIT[regionOf(g)] || colourOf(g);
 // the writing on each side of a banner (her note, 26 Nov: “for some regions the text is near unreadable on banner”): white, or dark where
 // the banner's colour (80% with black, site.css) is too pale for white, as Unova's White
 const inkOn = hex => { const lum = h => { const c = [1, 3, 5].map(i => parseInt(h.substr(i, 2), 16) * .8 / 255).map(v => v <= .04045 ? v / 12.92 : ((v + .055) / 1.055) ** 2.4);
-  return .2126 * c[0] + .7152 * c[1] + .0722 * c[2]; }; return 1.05 / (lum(hex) + .05) >= 3.6 ? "#FFFFFF" : "#1A1214"; };   // (3.6: her lighter Unova grey keeps white writing, 27 Nov)
+  return .2126 * c[0] + .7152 * c[1] + .0722 * c[2]; }; return 1.05 / (lum(hex) + .05) >= 3.1 ? "#FFFFFF" : "#1A1214"; };   // (3.1: her light Unova grey keeps white writing, 27 Nov)
 const setRegion = g => { const d = document.documentElement, s = d.style, a = colourOf(g), b = secondOf(g); s.setProperty("--rc", a); s.setProperty("--rc2", b);
   s.setProperty("--rc-ink", inkOn(a)); s.setProperty("--rc2-ink", inkOn(b));
   d.toggleAttribute("data-region", !!g); };   // data-region: a page with a region's colours (the sidebar highlight can take them: TRIAL)   // a page with no region: the game's own colour
@@ -499,13 +502,6 @@ const SHOT_FIT = {"hyperspace-2.jpg": "center/cover", "mega-big-1.jpg": "center/
 // it isn't obvious you only select one. The rows was good as it looked like a toggle before there were too many”).
 const TRY_VZ_KEY = "jemmas-pokedex-try-violetza";
 const TRY_VZ = [
-  // her note, 26 Nov: “it seems weird to only have 1 region have just games in black … Or maybe we need to reassess colours?”: Unova's
-  // White is the one colour too pale for white writing, so a deeper grey for it, or as now; her ask: “What is the lightest possible grey
-  // that white could work on?”: #949494 (the banner darkens it to 4.5:1, the least small writing needs; #989898 is 4.3)
-  // her note, 27 Nov: “I think we could go a little lighter for that maybe a small amount and then redecide for Johto?”: lighter greys
-  // dip under 4.5:1 for the small game names (4.1 and 3.8), so the white writing keeps its soft shadow; Johto's Silver shades again
-  ["unova2", "Unova’s second colour", [["#9C9C9C", "A little lighter (4.1:1)"], ["#A4A4A4", "Lighter still (3.8:1)"], ["#949494", "Lightest at 4.5:1"], ["#E1E1E1", "White, dark writing (as before)"]], "#9C9C9C"],
-  ["johto2", "Johto’s Silver", [["#949494", "Lighter (as now)"], ["#6F6F6F", "Silver"], ["#67707D", "SoulSilver"], ["#6B6F73", "Logo"], ["#5F6875", "Blue-grey"], ["#6E6A62", "Warm grey"], ["#505050", "Deeper"]], "#949494"],
 ];
 let tryVz = store.get(TRY_VZ_KEY, {});
 if (!tryVz || typeof tryVz !== "object" || Array.isArray(tryVz)) tryVz = {};
@@ -514,7 +510,7 @@ if (!tryVz || typeof tryVz !== "object" || Array.isArray(tryVz)) tryVz = {};
 for (const k of Object.keys(tryVz)) if (k.startsWith("rc-")) delete tryVz[k];
 const tryPick = id => { const row = TRY_VZ.find(r => r[0] === id); if (!row) return null; return row[2].some(([k]) => k === tryVz[id]) ? tryVz[id] : row[3]; };
 const tryPicKey = k => k;
-function tryVzApply(){ REGION_SPLIT["5"] = tryPick("unova2"); REGION_SPLIT["2"] = tryPick("johto2"); }   // read where the banner is drawn too
+function tryVzApply(){}   // read where the banner is drawn too
 const trySw = k => k;   // a swatch
 tryVzApply();
 (function tryBox(){
