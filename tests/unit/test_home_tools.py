@@ -60,7 +60,7 @@ class ImportGames(unittest.TestCase):
     def test_arceus_violet_and_za_reimport_give_the_same_data(self):   # Legends: Arceus, Violet, Legends: Z-A (23 Nov)
         before = fingerprint()
         with Sandbox(imports=True) as box:
-            for game in ('arceus', 'violet', 'za'):
+            for game in ('diamond', 'arceus', 'violet', 'za'):
                 r = subprocess.run([PYTHON, '-X', 'utf8', os.path.join(REAL, 'tools', 'import_games.py'), game, '--reuse', '--apply'],
                                    capture_output=True, text=True, env={**os.environ, 'POKEDEX_ROOT': box.root}, timeout=300)
                 self.assertEqual(r.returncode, 0, r.stdout[-2000:] + r.stderr[-2000:])

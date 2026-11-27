@@ -42,7 +42,10 @@ const keepPrefs = () => store.set(PREFS_KEY, prefs);
 // the right every main game set there (REGION_GAMES), one under another. A game's own lists and pages without one region keep their line
 function bannerWords(region, label, title){
   const games = !bySections() && REGION_GAMES[region], plain = `<span class="label">${esc(label)}</span><h1>${title}</h1>`;
-  if (!games || !(mapFiles(region).length === 1)) return plain;
+  if (!(mapFiles(region).length === 1)) return plain;
+  // a game's own list with one picture (Crown Tundra…): the title on the left, its line on the right, a part a line (her note, 27 Nov:
+  // “look at crown tundra why is that word on left? This seems inconsistent”)
+  if (!games) return `<h1>${title}</h1><div class="bt-right"><span class="label bt-stack">${String(label).split(" · ").map(x => `<span>${esc(x)}</span>`).join("")}</span></div>`;
   const range = DEX_RANGE[region] ? `${dexNo(DEX_RANGE[region][0])}–${dexNo(DEX_RANGE[region][1])}` : "";
   const gen = REGION_GENERATION[region];   // the generation under the numbers (her pick, 26 Nov: “I like showing generation but maybe it should be under numbers”)
   return `<span class="label">${range}</span>${gen ? `<span class="label">Generation ${gen}</span>` : ""}<h1>${title}</h1>` +
@@ -99,10 +102,11 @@ const HOME_DATA = DATA.home || {entries: [], collection: {}};   // Pokémon HOME
 // the games beside GO, in release order after HOME (her ask, 23 Nov: “we should do them in release order”): each its list, its
 // sections (HOME: the ten regions; Shield: its own Pokédexes and the rest of what Shield can hold) and her ticks
 const GAME_DATA = {home: HOME_DATA, shield: DATA.shield || {entries: [], sections: [], collection: {}},
+  diamond: DATA.diamond || {entries: [], sections: [], collection: {}},   // Pokémon Brilliant Diamond (her ask, 27 Nov: “I do have Brilliant Diamond as well”)
   arceus: DATA.arceus || {entries: [], sections: [], collection: {}},   // Pokémon Legends: Arceus (her yes, 23 Nov: next in release order)
   violet: DATA.violet || {entries: [], sections: [], collection: {}},   // Pokémon Violet and Legends: Z-A (her ask, 23 Nov: built overnight)
   za: DATA.za || {entries: [], sections: [], collection: {}}};
-const COLS = {go: COL, home: norm(HOME_DATA.collection), shield: norm(GAME_DATA.shield.collection), arceus: norm(GAME_DATA.arceus.collection),
+const COLS = {go: COL, home: norm(HOME_DATA.collection), shield: norm(GAME_DATA.shield.collection), diamond: norm(GAME_DATA.diamond.collection), arceus: norm(GAME_DATA.arceus.collection),
   violet: norm(GAME_DATA.violet.collection), za: norm(GAME_DATA.za.collection)};   // each game's ticks; COL is the game shown's
 // viewOnly (22 Nov, like her Library's read-only mode): no save server at this address at all (plain web hosting once it's online:
 // api/collection missing, refused or not JSON), so the page just shows her ticks as at the last build, quietly: no banner, and the
@@ -141,6 +145,7 @@ const EXTRAS = [
 // Shiny and Gigantamax (a Pokémon kept with the Gigantamax Factor; HOME has no Dynamax box: research/home-tracking.md)
 let GAME = "go";
 const GAME_BOXES = {go: null, home: new Set(["c", "cf", "cm", "s", "gx"]), shield: new Set(["c", "cf", "cm", "s", "gx"]),   // Shield: her answer, 23 Nov
+  diamond: new Set(["c", "cf", "cm", "s"]),   // Brilliant Diamond: Caught, Female, Male, Shiny (her answer, 27 Nov)
   arceus: new Set(["c", "cf", "cm", "s", "al", "rc"]),   // Legends: Arceus: Caught, Female, Male, Shiny, Alpha, Complete (her answer, 23 Nov)
   violet: new Set(["c", "cf", "cm", "s"]),   // Violet: Caught, Female, Male, Shiny (her answer, 23 Nov)
   za: new Set(["c", "cf", "cm", "s", "al", "mega"])};   // Legends: Z-A: and Alpha and Mega (her answer, 23 Nov; Mega X, Y and Z a box each)
@@ -325,8 +330,8 @@ const isRegional = e => !!REGION_GEN[(e.form || "").split(" ")[0]];
 // card and page); other forms (Unown, Rotom, Vivillon…) stay one card and one page per number. The three Paldean Tauros are one.
 const groupKey = e => isRegional(e) ? `${e.dex}-${e.form.split(" ")[0].toLowerCase()}` : String(e.dex);
 // each game's addresses: GO's as ever, HOME's after #hm-, Shield's after #sh-; each game's Home: #go, #home, #shield
-const GAME_PREFIX = {go: "", home: "hm-", shield: "sh-", arceus: "la-", violet: "vi-", za: "za-"},
-  GAME_HOME = {go: "go", home: "home", shield: "shield", arceus: "arceus", violet: "violet", za: "za"};   // Legends: Arceus after #la-
+const GAME_PREFIX = {go: "", home: "hm-", shield: "sh-", diamond: "bd-", arceus: "la-", violet: "vi-", za: "za-"},
+  GAME_HOME = {go: "go", home: "home", shield: "shield", diamond: "diamond", arceus: "arceus", violet: "violet", za: "za"};   // Legends: Arceus after #la-
 const R = path => "#" + GAME_PREFIX[GAME] + path;   // an address in the game shown: #gen-1 in GO, #hm-gen-1 in HOME, #sh-gen-galar in Shield
 const pageOf = e => R("p-" + groupKey(e));
 // a game's sections: GO and HOME the ten regions (e.gen); a game with its own Pokédexes (Shield) its sections from its data, each
@@ -345,7 +350,7 @@ const secOf = e => bySections() ? secList().find(s => inSec(s.id)(e)) : null;   
 let NUM_IN = null;   // the section whose numbers the cards show (a Pokédex page in Shield), else the National number
 const cardNo = e => NUM_IN && secNo(e, NUM_IN) != null ? String(secNo(e, NUM_IN)).padStart(3, "0") : pad(e.dex);
 const gameName = (g = GAME) => (GAMES.find(x => x.id === g) || {}).name || "";
-const ONLY = {sword: "Sword only", shield: "Shield only", scarlet: "Scarlet only", violet: "Violet only"};   // her answer, 23 Nov: shown with a mark
+const ONLY = {sword: "Sword only", shield: "Shield only", shiningPearl: "Shining Pearl only", scarlet: "Scarlet only", violet: "Violet only"};   // her answer, 23 Nov: shown with a mark
 const cosName = c => c.form ? `${c.costume} · ${c.form}` : c.costume;   // a costume on a form says which (Halloween · Small, 15 Nov)
 // a form's name; the plain form is named after its own region, not "usual" (her ask, 13 Nov: Tauros is Kanto)
 const formTag = e => e.form || (ENTRIES.some(x => x.dex === e.dex && isRegional(x)) && (genById[e.gen] || [])[1]) || "";   // a region name only tells apart a regional form's usual one (Tauros); 19 Nov review: plain Rotom showed "Sinnoh"
@@ -456,7 +461,7 @@ const REGION_COLOURS = {"1": "#D72800", "2": "#AA8501", "3": "#CD2236", "4": "#2
   "7": "#EB5C10", "8": "#0076AB", "hisui": "#3C6150", "9": "#CD372C"};
 document.documentElement.dataset.look = "mix";
 // each game after HOME takes its region's colour for all its lists (DLC lists their own later: her note, 24 Nov)
-const GAME_REGION = {shield: "8", arceus: "hisui", violet: "9", za: "6"};
+const GAME_REGION = {shield: "8", diamond: "4", arceus: "hisui", violet: "9", za: "6"};
 const colourOf = g => REGION_COLOURS[g] || (g && bySections() && secById(g) ? REGION_COLOURS[GAME_REGION[GAME]] || secById(g).colour : null) || GAME_COLOUR;
 // a region's second colour (her idea, 24 Nov: “half/half for the two colours”; shown blended, her pick 25 Nov: site.css “Two colours”;
 // her picks, 26 Nov, above): --rc2 beside --rc
@@ -842,7 +847,7 @@ function home(){
   }
   const went = EVENTS.filter(e => COL.went.includes(e.id)).length;
   setRegion(null);
-  view.innerHTML = `<header class="hero withshot">${heroPics(homeMaps())}<span class="label">Pokémon GO · ${num(c.speciesOut)} Pokémon out, plus their forms</span>
+  view.innerHTML = `<header class="hero withshot">${heroPics(homeMaps())}<span class="label"><span>Pokémon GO</span> <span>${num(c.speciesOut)} Pokémon out, plus their forms</span></span>
     <h1 class="dex-title">Jemma’s <em>Pokédex</em></h1>${statsHtml(c)}</header>${readOnlyNote()}
     <section class="section"><h2>By region</h2><div class="gens">${gens}</div></section>
     <section class="section"><h2>Event Pokémon</h2><div class="gens">${setTiles()}</div></section>`;
@@ -1362,7 +1367,7 @@ function fastPage(){
 }
 // Caught that Fast tick ticked only because another box was ticked there (her note, 12 Nov: tick all the shinies, untick the
 // ones she hasn't got, and those shouldn't stay Caught): unticking that box unticks Caught again, unless something else is ticked
-const AUTO_KEYS = {go: "jemmas-pokedex-autocaught", home: "jemmas-pokedex-autocaught-home", shield: "jemmas-pokedex-autocaught-shield", arceus: "jemmas-pokedex-autocaught-arceus",
+const AUTO_KEYS = {go: "jemmas-pokedex-autocaught", home: "jemmas-pokedex-autocaught-home", shield: "jemmas-pokedex-autocaught-shield", diamond: "jemmas-pokedex-autocaught-diamond", arceus: "jemmas-pokedex-autocaught-arceus",
   violet: "jemmas-pokedex-autocaught-violet", za: "jemmas-pokedex-autocaught-za"};   // each game its own (the same ids are in each)
 const AUTOS = Object.fromEntries(Object.entries(AUTO_KEYS).map(([g, k]) => [g, new Set(store.get(k, []))]));
 let autoCaught = AUTOS.go;
@@ -1653,6 +1658,7 @@ const GAMES = [
   {id: "home", name: "Pokémon HOME", short: "HOME", colour: HOME_COLOUR, href: "#home"},
   {id: "go", name: "Pokémon GO", short: "GO", colour: "#7E2530", href: "#go"},
   {id: "shield", name: "Pokémon Shield", short: "Shield", colour: GAME_COLOUR, href: "#shield"},   // the first game in release order (her ask, 23 Nov)
+  {id: "diamond", name: "Pokémon Brilliant Diamond", short: "Diamond", colour: GAME_COLOUR, href: "#diamond"},   // her ask and name, 27 Nov (released 2021, before Arceus)
   {id: "arceus", name: "Pokémon Legends: Arceus", short: "Arceus", colour: GAME_COLOUR, href: "#arceus"},   // the next (her yes, 23 Nov)
   {id: "violet", name: "Pokémon Violet", short: "Violet", colour: GAME_COLOUR, href: "#violet"},   // built overnight (her ask, 23 Nov)
   {id: "za", name: "Pokémon Legends: Z-A", short: "Z-A", colour: GAME_COLOUR, href: "#za"},
@@ -1671,18 +1677,12 @@ function gameNavHtml(route, link, regions, more){
   const game = gameOf(route), all = route === "games";
   brandSmall.textContent = GAMES.find(g => g.id === game).name; brandSmall.hidden = true;   // the switch shows the game
   const cur = g => g.id === game && !all;
-  // the game switch (her pick, 26 Nov: “Keep switching games as is now”): her one-row toggle, all the games on one row that slides along
-  // under the thumb (“think like an actual toggle you'd drag back and forth”; never two rows: “it looks like two toggles”); drawn where
-  // the last game was, then the games slide so this one is under the thumb; drag it, click a game either side, or the arrow keys
+  // the game switch (her ask, 27 Nov: “toggle should be back to 2 rows not moving along”): every game in a pill grid,
+  // always two rows (seven games: 4 then 3, her pick 27 Nov), the one shown on the light thumb; the sliding row of 26 Nov is gone
   const all_ = `<a class="allgames${all ? " on" : ""}" href="#games"${all ? ' aria-current="page"' : ""}>${ic("layers")}All games</a>`;
-  {
-    const k = GAMES.findIndex(cur), from = Math.max(0, GAMES.findIndex(g => g.id === wasBefore)), at = k >= 0 ? k : from;
-    const seg = (g, n) => `<a href="${g.href}" draggable="false"${cur(g) ? ' aria-current="true"' : ""}${n === from ? ' class="hot"' : ""}>${esc(g.short)}</a>`;
-    gameSwitch.innerHTML = all_ + `<div class="game-slide h" role="group" aria-label="Game" data-slide data-i="${at}" style="--i:${from};--gc:${(GAMES[at] || GAMES[0]).colour}">` +
-      `<span class="gs-thumb" aria-hidden="true"></span><div class="gs-strip">${GAMES.map(seg).join("")}</div></div>`;
-    const el = gameSwitch.querySelector("[data-slide]");
-    if (at !== from) requestAnimationFrame(() => requestAnimationFrame(() => slideShow(el, at, 0)));   // from where the last game was
-  }
+  gameSwitch.innerHTML = all_ + `<div class="game-switch rows" role="group" aria-label="Game" style="grid-template-columns:repeat(${GAMES.length > 4 ? Math.ceil(GAMES.length / 2) : GAMES.length},1fr)">` +
+    GAMES.map(g => `<a href="${g.href}" style="--gc:${g.colour}"${cur(g) ? ' aria-current="true"' : ""}>${esc(g.short)}</a>`).join("") + `</div>`;
+  void wasBefore;
   if (game !== "go") return `<div class="nav-group">${link("#" + GAME_HOME[game], "house", "Home")}${link(R("dex"), "layout-grid", "Every Pokémon", groupByNumber(ENTRIES).length)}</div>${regions}${more}`;
   return `<div class="nav-group">${link("#go", "house", "Home")}${link("#dex", "layout-grid", "Every Pokémon", groupByNumber(ENTRIES).length)}</div>${regions}${more}`;
 }
@@ -1741,7 +1741,7 @@ function hmHome(){   // a game's Home (HOME, Shield…): its totals and a card p
   }
   setRegion(null);
   const pics = bySections() ? secList().map(s => mapFile(s.id)).filter((f, i, a) => f && a.indexOf(f) === i).map(f => `regions/home/${f.replace(/\.\w+$/, "")}.webp`) : homeMaps();
-  view.innerHTML = `<header class="hero withshot">${heroPics(pics)}<span class="label">${esc(gameName())} · ${num(c.speciesOut)} Pokémon, plus their forms</span>
+  view.innerHTML = `<header class="hero withshot">${heroPics(pics)}<span class="label"><span>${esc(gameName())}</span> <span>${num(c.speciesOut)} Pokémon, plus their forms</span></span>
     <h1 class="dex-title">Jemma’s <em>Pokédex</em></h1>${statsHtml(c)}</header>${readOnlyNote()}
     <section class="section"><h2>${bySections() ? "By Pokédex" : "By region"}</h2><div class="gens">${gens}</div></section>`;
 }
@@ -1761,7 +1761,8 @@ function lockBoxes(){ if (viewOnly) view.querySelectorAll(SAVE_BOXES).forEach(b 
 function route(to){ const out = drawRoute(to); lockBoxes(); return out; }
 // GO's addresses; anything else is Pokémon HOME's (#home, #hm-…), the default game, and an unknown address goes to HOME's Home
 const GO_ROUTE = /^(go|dex|fast|want|coming|sets|games|costumes|events|hm|set-.+|gen-\w+|p-\d+(-[a-z]+)?)$/;
-const gameOfRoute = full => GO_ROUTE.test(full) ? "go" : full === "shield" || full.startsWith("sh-") ? "shield" : full === "arceus" || full.startsWith("la-") ? "arceus" :
+const gameOfRoute = full => GO_ROUTE.test(full) ? "go" : full === "shield" || full.startsWith("sh-") ? "shield" :
+  full === "diamond" || full.startsWith("bd-") ? "diamond" : full === "arceus" || full.startsWith("la-") ? "arceus" :
   full === "violet" || full.startsWith("vi-") ? "violet" : full === "za" || full.startsWith("za-") ? "za" : "home";   // anything else: HOME, the default
 function drawRoute(to){   // to: draw that page without changing the address (the tests' sweep over every page)
   const full = to || (location.hash || "#home").slice(1);
@@ -1790,7 +1791,7 @@ function drawRoute(to){   // to: draw that page without changing the address (th
   }
   const g = /^gen-(\w+)$/.exec(r);
   if (g && genById[g[1]]) return dexPage(esc(genById[g[1]][1]), genById[g[1]][2], ENTRIES.filter(e => e.gen === g[1]), g[1]);
-  if (r === "dex") return dexPage("Every <em>Pokémon</em>", "Pokémon GO", ENTRIES);
+  if (r === "dex") return dexPage("Every <em class=\"ink\">Pokémon</em>", "Pokémon GO", ENTRIES);
   if (r === "go") return home();   // GO's Home
   if (r === "games") return allGamesPage();   // All games (games, above)
   if (r === "hm") { location.replace("#home"); return; }
@@ -1807,7 +1808,7 @@ function hmRoute(r, term){   // Pokémon HOME's pages: the same as GO's, from HO
   }
   const g = /^gen-([\w-]+)$/.exec(r), sec = g && secById(g[1]);
   if (sec) { NUM_IN = bySections() ? sec.id : null; return dexPage(esc(sec.name), sec.small, secEntries(sec.id), sec.id); }
-  if (r === "dex") return dexPage("Every <em>Pokémon</em>", gameName(), ENTRIES);
+  if (r === "dex") return dexPage("Every <em class=\"ink\">Pokémon</em>", gameName(), ENTRIES);
   return hmHome();
 }
 function focusKey(el){   // a way to find the same control after the page is drawn again: its data-* attributes, and its card's
@@ -1827,7 +1828,7 @@ const toastEl = document.getElementById("toast");
 let toastTimer;
 function toast(msg){ toastEl.textContent = msg; toastEl.hidden = false; clearTimeout(toastTimer); toastTimer = setTimeout(() => toastEl.hidden = true, 3500); }
 
-const READY = {go: false, home: false, shield: false, arceus: false, violet: false, za: false};   // her ticks for that game read from the server (HOME's need a server that knows HOME)
+const READY = {go: false, home: false, shield: false, diamond: false, arceus: false, violet: false, za: false};   // her ticks for that game read from the server (HOME's need a server that knows HOME)
 async function save(body){
   if (viewOnly) return false;
   const game = body.game || GAME;

@@ -198,7 +198,8 @@ main{margin-left:var(--side);min-height:100vh;container-type:inline-size}
 .hero .label{color:var(--on-deep-mute)}
 .hero h1{font-size:clamp(40px,5vw,58px);line-height:1;margin-top:10px}
 .hero h1 em{color:inherit}   /* not yellow: her note, 22 Nov */
-.hero h1.dex-title em{color:#1A1214}   /* the title “Jemma’s Pokédex”: “Pokédex” black (her pick, 24 Nov) */
+.hero > .label > span + span::before{content:"· "}   /* the two halves of a game Home’s line, stacked on the right over 700px */
+.hero h1.dex-title em,.hero h1 em.ink{color:#1A1214}   /* the title “Jemma’s Pokédex”: “Pokédex” black (her pick, 24 Nov); “Every Pokémon” too (her note, 27 Nov) */
 .hero p{margin:12px 0 0;color:var(--on-deep-mute);max-width:62ch}
 
 .section{margin-top:34px}
@@ -944,7 +945,10 @@ body{background:var(--stock),linear-gradient(var(--page-hi),var(--page-lo));back
 /* the highlight (her note, 27 Nov: “nothing should have black outline bit when selected … for all other options just fill whatever
    icon with black”): no line at the edge; the icon filled black (a region's page fills its stacked icon in its colours, below) */
 .nav a.on,:root[data-look] .nav a.on{background:rgba(255,240,230,.16);box-shadow:none}
-:root:not([data-region]) .nav a.on svg :is(path,rect,circle,ellipse,polygon){fill:#1A1214}
+:is(.nav a.on,.allgames.on) svg :is(path,rect,circle,ellipse,polygon){fill:#1A1214}
+/* the lines inside an icon stay lines on top (her note, 27 Nov: “Home basically door outline should have stayed”): the house's door
+   (icons.js draws it after the walls), the stack's lower layers */
+:is(.nav a.on,.allgames.on) svg :is(path[d^="M15 21v-8"],path[d^="m22 1"]){fill:none}
 .search input{background:rgba(0,0,0,.18);border-color:rgba(255,226,210,.22)}
 
 /* the binder gap: a soft shadow where the page meets the cover, over the banner too */
@@ -1298,6 +1302,8 @@ main{background:linear-gradient(90deg,rgba(70,40,30,.18),rgba(70,40,30,0) 54px) 
 .game-switch a{text-align:center;padding:7px 6px;border-radius:999px;color:var(--on-deep-mute);text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
 .game-switch a:hover{color:var(--on-deep)}
 .game-switch a[aria-current]{background:#FFFBF2;color:#2B1A1C;box-shadow:0 1px 3px rgba(0,0,0,.3),inset 0 -2px 0 var(--gc)}
+.game-switch.rows{border-radius:14px;row-gap:2px}   /* two rows (her ask, 27 Nov) */
+.game-switch.rows[style*="repeat(4"] a{font-size:11px;letter-spacing:.01em;padding-inline:1px;min-width:0}   /* four across: “Diamond” fits whole */
 /* the stamp on every placeholder */
 .stamp{display:inline-block;padding:2px 7px;border:1.5px dashed currentColor;border-radius:4px;font:800 10px/1.3 var(--body);letter-spacing:.14em;text-transform:uppercase;vertical-align:middle}
 /* HOME's banner: plain, in HOME's colour (--rc) */
@@ -1307,7 +1313,7 @@ main{background:linear-gradient(90deg,rgba(70,40,30,.18),rgba(70,40,30,0) 54px) 
 .allgames .i{width:16px;height:16px;color:var(--on-deep-mute)}
 .allgames:hover{background:rgba(255,255,255,.07)}
 .allgames.on{background:rgba(255,240,230,.16);box-shadow:none}
-.allgames.on svg :is(path,rect,circle,ellipse,polygon){fill:#1A1214}   /* no edge line, the icon filled black (her note, 27 Nov) */
+/* no edge line, the icon filled black (her note, 27 Nov; the fill is with .nav a.on) */
 .allg{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:20px;max-width:1000px}
 .allgame{padding:16px 20px 18px;border-radius:12px;background:var(--stock),var(--card-stock);color:var(--card-ink);box-shadow:inset 0 5px 0 var(--gc),var(--card-shadow)}
 .allgame h2{font-size:30px;margin:4px 0 10px}
@@ -1351,8 +1357,17 @@ main{background:linear-gradient(90deg,rgba(70,40,30,.18),rgba(70,40,30,0) 54px) 
 @media (min-width:701px){
   .hero.withshot > .heropics:not(.mons){left:50%;right:auto;width:64%;transform:translateX(-50%);
     -webkit-mask:linear-gradient(90deg,transparent,#000 18%,#000 82%,transparent);mask:linear-gradient(90deg,transparent,#000 18%,#000 82%,transparent)}
-  .hero.withshot:has(> .heropics:not(.mons)) > :is(.label,h1,p){max-width:24%}
-  .hero.withshot:has(> .heropics:not(.mons)) > h1{font-size:clamp(30px,3vw,42px);line-height:1.02}
+  /* split either side of the maps (her note, 27 Nov: “the home for each game should have stuff split on left and right it's on left and
+     overlapping map”): the title in the left band, the small line on the right, as on a region's banner */
+  .hero.withshot:has(> .heropics:not(.mons)) > h1{max-width:13%}
+  @media (min-width:1100px){   /* narrower, a long one (Fast tick's) would run off the banner's foot: there it stays under the title */
+    .hero.withshot:has(> .heropics:not(.mons)) > p{position:absolute;z-index:1;top:56px;right:clamp(16px,3vw,40px);width:17%;max-width:none !important;
+      margin:0;text-align:right;font-size:12.5px;line-height:1.5}
+  }
+  .hero.withshot:has(> .heropics:not(.mons)) > h1{font-size:clamp(26px,2.5vw,40px);line-height:1.02}
+  .hero.withshot:has(> .heropics:not(.mons)):not(:has(> p)) > .label{position:absolute;z-index:1;top:56px;right:clamp(16px,3vw,40px);width:15%;text-align:right;line-height:1.6}
+  .hero.withshot:has(> .heropics:not(.mons)) > .label > span{display:block}
+  .hero.withshot:has(> .heropics:not(.mons)) > .label > span + span::before{content:none}
 }
 
 /* the sidebar highlight on a region's page (her pick, 26 Nov: “Sidebar highlight two colour icon, no bar and no black bit around left

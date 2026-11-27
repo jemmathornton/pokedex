@@ -191,6 +191,29 @@ class VioletData(unittest.TestCase):
         self.assertEqual(self.by['901-bloodmoon']['sec'], {'kitakami': 196})
 
 
+class DiamondData(unittest.TestCase):
+    """Pokémon Brilliant Diamond (tools/import_games.py diamond; her ask, 27 Nov): the Sinnoh and National Pokédexes, Bonus Pokémon
+    (another game's save), HOME Transfers; Shining Pearl's marked; no regional forms."""
+    @classmethod
+    def setUpClass(cls):
+        cls.entries = real('diamond', 'dex.json')['entries']
+        cls.by = {e['id']: e for e in cls.entries}
+
+    def test_each_pokedex_has_every_number(self):
+        for sec, n in (('sinnoh', 151), ('national', 493)):
+            self.assertEqual({e['sec'][sec] for e in self.entries if e['sec'].get(sec) is not None}, set(range(1, n + 1)), sec)
+
+    def test_493_species_pearls_marked_no_regional_forms(self):
+        self.assertEqual(len({e['id'].split('-')[0] for e in self.entries}), 493)
+        self.assertEqual(self.by['200'].get('only'), 'shiningPearl'); self.assertIsNone(self.by['198'].get('only'))   # Misdreavus, Murkrow
+        self.assertEqual(self.by['484'].get('only'), 'shiningPearl'); self.assertIsNone(self.by['483'].get('only'))   # Palkia, Dialga
+        self.assertFalse([e['id'] for e in self.entries if any(w in e['id'] for w in ('alolan', 'galarian', 'hisuian', 'paldean'))])
+        self.assertEqual(self.by['251']['sec'], {'national': 251, 'from-home': None})   # Celebi: only by transfer
+        self.assertEqual(self.by['151']['sec'], {'national': 151, 'elsewhere': None})   # Mew: Let's Go's save data
+        self.assertEqual(len([e for e in self.entries if e['id'].startswith('201')]), 28)   # Unown A–Z, ! and ?
+        self.assertIn('487-origin', self.by); self.assertIn('492-sky', self.by)
+
+
 class ZaData(unittest.TestCase):
     """Pokémon Legends: Z-A (tools/import_games.py za; 23 Nov): Lumiose, Hyperspace, the Mega Evolution list; Alpha and Mega."""
     @classmethod

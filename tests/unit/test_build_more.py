@@ -111,6 +111,7 @@ class BuildMore(unittest.TestCase):
         os.remove(self.box.path('data', 'shield', 'dex.json'))   # Shield's list names HOME's entries
         os.remove(self.box.path('data', 'arceus', 'dex.json'))   # and so does Legends: Arceus's
         os.remove(self.box.path('data', 'violet', 'dex.json')); os.remove(self.box.path('data', 'za', 'dex.json'))   # and Violet's and Z-A's
+        os.remove(self.box.path('data', 'diamond', 'dex.json'))   # and Brilliant Diamond's (27 Nov)
         if os.path.exists(self.box.path('data', 'collection', 'home.json')):
             os.remove(self.box.path('data', 'collection', 'home.json'))
         d = self.ok()
@@ -140,6 +141,7 @@ class BuildMore(unittest.TestCase):
         self.assertEqual([s['id'] for s in d['arceus']['sections']], ['hisui', 'elsewhere'])
         self.assertEqual([s['id'] for s in d['violet']['sections']][:3], ['paldea', 'kitakami', 'blueberry'])   # and Violet and Z-A (23 Nov)
         self.assertEqual([s['id'] for s in d['za']['sections']][:3], ['lumiose', 'hyperspace', 'mega'])
+        self.assertEqual([s['id'] for s in d['diamond']['sections']], ['sinnoh', 'national', 'elsewhere', 'from-home'])   # Brilliant Diamond (27 Nov)
         self.assertEqual(d['arceus']['collection']['have'], {'d:722': ['al']})
 
     def test_homes_picture_only_where_go_has_none_and_only_if_it_is_there(self):

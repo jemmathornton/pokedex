@@ -144,6 +144,12 @@ class Server(unittest.TestCase):
         for t in ('gx', 'rc', 'l'):
             self.assertFalse(self.post({'game': 'za', 'list': 'have', 'key': 'd:359', 'tick': t, 'on': True})[1]['ok'], t)
 
+    def test_diamond_ticks_go_to_its_file(self):   # Pokémon Brilliant Diamond (27 Nov)
+        self.assertEqual(self.post({'game': 'diamond', 'list': 'have', 'key': 'd:483', 'tick': 's', 'on': True}), (200, {'ok': True}))
+        self.assertEqual(self.box.read('collection', 'diamond.json')['have'], {'d:483': ['s']})
+        for t in ('al', 'gx', 'mg', 'l'):
+            self.assertFalse(self.post({'game': 'diamond', 'list': 'have', 'key': 'd:483', 'tick': t, 'on': True})[1]['ok'], t)
+
     def test_an_unknown_game_is_refused(self):
         for game in ('red', '../go', 5, ['go']):   # not 'za' any more: Legends: Z-A is a game since 23 Nov
             with self.subTest(game):

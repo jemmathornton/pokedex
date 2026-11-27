@@ -54,7 +54,7 @@
         if (seen.has(h) || h === "#") continue; seen.add(h);
         await show(h);
         const r = h.slice(1);
-        if (!/^(home|shield|arceus|violet|za|([a-z]+-)?(dex|gen-[\w-]+|p-\d+(-[a-z]+)?)|costumes|events)$/.test(r)) problems.push(`a link to ${h}, which isn’t a page`);
+        if (!/^(home|shield|diamond|arceus|violet|za|([a-z]+-)?(dex|gen-[\w-]+|p-\d+(-[a-z]+)?)|costumes|events)$/.test(r)) problems.push(`a link to ${h}, which isn’t a page`);
         if (/^(hm-)?p-\d+$/.test(r) && !view().querySelector(".mondetail")) problems.push(`link to ${h}: no Pokémon page`);
       }
     } finally { removeEventListener("error", onErr); }
@@ -319,12 +319,12 @@
 
   test("games (her decisions, 22 Nov): HOME is the default; the sidebar switch changes game; GO's Home is #go", async () => {
     await go("#home");
-    eq(document.querySelector('.game-slide a[aria-current]').textContent, "HOME", "opens on HOME");
+    eq(document.querySelector('.game-switch a[aria-current]').textContent, "HOME", "opens on HOME");
     ok(!/Placeholder/.test(view().textContent), "HOME is built: no Placeholder (her ask, 22 Nov)");
     ok(!nav.querySelector('a[href="#gen-1"]') && nav.querySelector('a[href="#hm-gen-1"]') && nav.querySelector('a[href="#hm-fast"]'), "HOME's sidebar: its own regions and Fast tick, no GO pages");
     ok(!nav.querySelector('a[href="#sets"], a[href="#want"], a[href="#coming"]'), "no events, Looking for or What’s on in HOME");
     await go("#go");
-    eq(document.querySelector('.game-slide a[aria-current]').textContent, "GO", "GO chosen");
+    eq(document.querySelector('.game-switch a[aria-current]').textContent, "GO", "GO chosen");
     ok(nav.querySelector('a[href="#gen-1"]') && nav.querySelector('a[href="#go"].on'), "GO's sidebar as before, its Home lit");
     ok(view().querySelector(".hero .stats") && view().querySelectorAll(".gen .genmap").length === 10, "GO's Home: the totals, then the region hub with a map on each region");
     ok(!view().querySelector('.gen[href^="#gen-"] img'), "no Pokémon pictures on the region hub");
@@ -337,15 +337,19 @@
     const hk = countsIn("home");
     eq(view().querySelector(".hero .stats .stat b").textContent.replace(/\s+/g, " ").trim(), `${num(hk.species)} of ${num(hk.speciesAll)}`, "HOME's Pokémon total");
     await go("#games");
-    ok(document.querySelector(".games a.allgames.on"), "All games lit above the switch (her pick, 22 Nov evening)"); ok(!document.querySelector(".game-slide a[aria-current]"), "no game chosen there");
+    ok(document.querySelector(".games a.allgames.on"), "All games lit above the switch (her pick, 22 Nov evening)"); ok(!document.querySelector(".game-switch a[aria-current]"), "no game chosen there");
     eq(view().querySelectorAll(".allgame").length, GAMES.length, "a card per game");
     ok(!/Lucky|4★|Placeholder/.test(view().querySelector(".allgame").textContent), "HOME's card has real figures and no Lucky or 4★");
     eq(view().querySelector(".allgame .v").textContent, `${num(hk.species)} / ${num(hk.speciesAll)}`, "HOME's card counts as HOME's Home");
     ok(!view().querySelector(".card, img[src*='sprites/']"), "no Pokémon on All games");
     eq(getComputedStyle(view().querySelector(".hero h1.dex-title em")).color, "rgb(26, 18, 20)", "“Pokédex” black in the banner's title (her pick, 24 Nov)");
-    ok(/26, 18, 20/.test(getComputedStyle(document.querySelector(".games a.allgames.on")).boxShadow), "the highlight black (her pick, 24 Nov)");
+    { const on = document.querySelector(".games a.allgames.on"); eq(getComputedStyle(on).boxShadow, "none", "no line at the edge (her note, 27 Nov)");
+      eq(getComputedStyle(on.querySelector("svg path")).fill, "rgb(26, 18, 20)", "the icon filled black (her note, 27 Nov)"); }
+    await go("#home"); { const on = document.querySelector(".nav a.on"); eq(getComputedStyle(on).boxShadow, "none", "no line on Home either");
+      const ps = on.querySelectorAll("svg path"); eq([getComputedStyle(ps[0]).fill, getComputedStyle(ps[1]).fill].join(" "), "rgb(26, 18, 20) none", "the house filled black, its door still an outline (her note, 27 Nov)"); }
+    await go("#games");
     await go("#gen-1"); ok(document.querySelector('.games a.allgames[href="#games"]:not(.on)'), "the link is there on every page");
-    eq(document.querySelector('.game-slide a[aria-current]').textContent, "GO", "a GO page shows GO");
+    eq(document.querySelector('.game-switch a[aria-current]').textContent, "GO", "a GO page shows GO");
     eq(getComputedStyle(document.querySelector(".brand b em")).color, "rgb(26, 18, 20)", "the italic Pokédex black, not yellow (her notes, 22 and 24 Nov)");
   });
 
@@ -1287,8 +1291,8 @@
   // ---------- Pokémon Shield (23 Nov: the games in release order, Shield first) ----------
   test("Shield: its own Home with a card per Pokédex, base game then DLC, and its own sidebar", async () => {
     await go("#shield");
-    eq(document.querySelector('.game-slide a[aria-current]').textContent, "Shield", "Shield chosen on the switch");
-    eq([...document.querySelectorAll(".game-slide a")].map(a => a.textContent), ["HOME", "GO", "Shield", "Arceus", "Violet", "Z-A"], "the games, in release order after HOME and GO");
+    eq(document.querySelector('.game-switch a[aria-current]').textContent, "Shield", "Shield chosen on the switch");
+    eq([...document.querySelectorAll(".game-switch a")].map(a => a.textContent), ["HOME", "GO", "Shield", "Diamond", "Arceus", "Violet", "Z-A"], "the games, in release order after HOME and GO");
     const names = [...view().querySelectorAll(".gen h3")].map(h => h.textContent);
     eq(names.slice(0, 3), ["Galar", "Isle of Armor", "Crown Tundra"], "the three Pokédexes first: the base game, then the two DLCs");
     eq(view().querySelector('.gen[href="#sh-gen-galar"] .genno').textContent, "#001–#400", "Galar’s own numbers");
@@ -1365,8 +1369,8 @@
   // ---------- Pokémon Legends: Arceus (23 Nov: next in release order) ----------
   test("Arceus: its Home, the Hisui Pokédex then Bonus Pokémon, its six boxes, its sidebar", async () => {
     await go("#arceus");
-    eq(document.querySelector('.game-slide a[aria-current]').textContent, "Arceus", "Arceus chosen on the switch");
-    ok(document.querySelector(".games .game-slide.h"), "the one-row switch (her pick, 26 Nov)");
+    eq(document.querySelector('.game-switch a[aria-current]').textContent, "Arceus", "Arceus chosen on the switch");
+    ok(document.querySelector(".games .game-switch.rows"), "the two-row switch (her ask, 27 Nov)");
     eq([...view().querySelectorAll(".gen h3")].map(h => h.textContent), ["Hisui", "Bonus Pokémon"], "her lists (23 Nov)");
     eq(view().querySelector('.gen[href="#la-gen-hisui"] .genno').textContent, "#001–#242", "Hisui’s own numbers");
     eq([...view().querySelectorAll(".hero .stats .slt")].map(x => x.textContent), ["Pokémon", "Female", "Male", "Shiny", "Alpha", "Complete"], "Arceus’s boxes (her answer, 23 Nov)");
@@ -1425,7 +1429,7 @@
   // ---------- Pokémon Violet and Legends: Z-A (23 Nov, built overnight at her ask) ----------
   test("Violet: its three Pokédexes in the game’s order, Bonus Pokémon and HOME Transfers; Scarlet’s marked; its four boxes", async () => {
     await go("#violet");
-    eq(document.querySelector('.game-slide a[aria-current]').textContent, "Violet", "Violet chosen on the switch");
+    eq(document.querySelector('.game-switch a[aria-current]').textContent, "Violet", "Violet chosen on the switch");
     eq([...view().querySelectorAll(".gen h3")].map(h => h.textContent), ["Paldea", "Kitakami", "Blueberry", "Bonus Pokémon", "HOME Transfers"], "its lists");
     eq([...view().querySelectorAll(".hero .stats .slt")].map(x => x.textContent), ["Pokémon", "Female", "Male", "Shiny"], "Violet’s boxes (her answer, 23 Nov)");
     await go("#vi-gen-paldea");
@@ -1435,6 +1439,26 @@
     await go("#vi-gen-from-home");
     ok(view().querySelector('.card[data-id="215-hisuian"]') && view().querySelector('.card[data-id="150"]'), "only by transfer: Hisuian Sneasel, Mewtwo");
     await go("#vi-gen-elsewhere"); ok(view().querySelector('.card[data-id="249"]'), "Lugia: in Violet, in no Pokédex");
+  });
+
+  test("Brilliant Diamond (her ask, 27 Nov): Sinnoh, National, Bonus Pokémon, HOME Transfers; Shining Pearl’s marked; four boxes; saves to its own file", async () => {
+    await go("#diamond");
+    eq(document.querySelector('.game-switch a[aria-current]').textContent, "Diamond", "Diamond chosen on the switch (her name for it)");
+    eq([...view().querySelectorAll(".gen h3")].map(h => h.textContent), ["Sinnoh", "National", "Bonus Pokémon", "HOME Transfers"], "its lists (her pick)");
+    eq([...view().querySelectorAll(".hero .stats .slt")].map(x => x.textContent), ["Pokémon", "Female", "Male", "Shiny"], "its boxes (her answer, 27 Nov)");
+    eq(getComputedStyle(document.documentElement).getPropertyValue("--rc").trim().toUpperCase(), "#7E2530", "its Home the binder red");
+    await go("#bd-gen-sinnoh");
+    eq([...view().querySelectorAll(".card")].slice(0, 3).map(c => c.querySelector(".no").textContent + " " + c.querySelector(".nm").textContent), ["#001 Turtwig", "#002 Grotle", "#003 Torterra"], "Sinnoh’s order");
+    ok(/Shining Pearl only/.test(view().querySelector('.card[data-id="200"]').textContent) && !/Shining Pearl only/.test(view().querySelector('.card[data-id="198"]').textContent), "Misdreavus Shining Pearl only, Murkrow not");
+    eq(getComputedStyle(document.documentElement).getPropertyValue("--rc").trim().toUpperCase(), "#2C7793", "Sinnoh’s colours");
+    await go("#bd-gen-from-home"); ok(view().querySelector('.card[data-id="251"]'), "Celebi: only by transfer");
+    const before = {}; for (const g of ["go", "home", "shield", "arceus", "violet", "za"]) before[g] = JSON.stringify((await server(g)).have);
+    try {
+      await go("#bd-p-483"); click(view().querySelector('.bigboxes [data-tick="s"]'));
+      for (let t = 0; t < 5000 && !((await server("diamond")).have["d:483"] || []).includes("s"); t += 200) await wait(200);
+      ok(((await server("diamond")).have["d:483"] || []).includes("s"), "Shiny Dialga saved in Brilliant Diamond");
+      for (const g of Object.keys(before)) eq(JSON.stringify((await server(g)).have), before[g], `${g}’s ticks unchanged`);
+    } finally { for (const t of ["s", "c"]) await save({game: "diamond", list: "have", key: "d:483", tick: t, on: false}); COLS.diamond.have = {}; }
   });
 
   test("Z-A: Lumiose, Hyperspace, Mega Evolution; Alpha and Mega boxes; Mega X, Y and Z", async () => {
@@ -1502,24 +1526,15 @@
       eq([...hero().querySelectorAll(".bt-right .bt-stack > span")].map(x => x.textContent).join(", "), "Red, Green, Blue, Yellow, FireRed, LeafGreen, Let’s Go, Pikachu!, Let’s Go, Eevee!", "every game on the right");
       await go("#gen-5"); eq(getComputedStyle(hero().querySelector(".bt-right .label")).color, "rgb(255, 255, 255)", "or white on a deeper grey (her note: one region in black looked odd)");
       eq(getComputedStyle(hero().querySelector("h1")).color, "rgb(255, 255, 255)", "its name white on Black");
-      await go("#sh-gen-galar"); ok(!view().querySelector(".hero .bt-right"), "a game's own lists keep their line");
-      await go("#za"); await wait(400);
-      let el = document.querySelector(".games [data-slide]"); const links = el.querySelectorAll("a");
-      ok(el && links.length === 6 && el.querySelector("a[aria-current]").href.endsWith("#za"), "one row: all six, Z-A chosen");
-      eq(el.dataset.i, "5", "the row slid so Z-A is under the thumb"); ok(el.querySelector("a.hot[aria-current]"), "Z-A lit");
-      const th = el.querySelector(".gs-thumb").getBoundingClientRect(), za = links[5].getBoundingClientRect();
-      ok(Math.abs(th.left + th.width / 2 - (za.left + za.width / 2)) < 3, "Z-A sits under the thumb");
-      ok(new Set([...links].map(a => Math.round(a.getBoundingClientRect().top))).size === 1, "all on one row (her note: two rows look like two toggles)");
-      // drag the row one game to the right: Violet comes under the thumb; let go and it's shown
-      const w = links[0].offsetWidth, y = th.top + th.height / 2, x0 = th.left + th.width / 2;
-      const ptr = (type, x) => el.dispatchEvent(new PointerEvent(type, {bubbles: true, pointerId: 7, button: 0, clientX: x, clientY: y}));
-      ptr("pointerdown", x0); ptr("pointermove", x0 + w / 2); ptr("pointermove", x0 + w);
-      ok(links[4].classList.contains("hot") && el.style.getPropertyValue("--dx") === w + "px", "the row follows the drag");
-      ptr("pointerup", x0 + w); await wait(400); eq(location.hash, "#violet", "let go on Violet: Violet shown");
-      ok(document.querySelector(".games [data-slide] a[aria-current]").href.endsWith("#violet"), "and lit");
-      // the arrow keys
-      document.querySelector(".games [data-slide] a[aria-current]").dispatchEvent(new KeyboardEvent("keydown", {key: "ArrowDown", bubbles: true})); await wait(300);
-      eq(location.hash, "#za", "the arrow key: the next game");
+      await go("#sh-gen-crown-tundra"); ok(view().querySelector(".hero .bt-right .bt-stack > span"), "a game's own list: its line on the right (her note, 27 Nov)");
+      await go("#za"); await wait(200);
+      const links = document.querySelectorAll(".games .game-switch a");
+      ok(links.length === 7 && document.querySelector(".games .game-switch a[aria-current]").href.endsWith("#za"), "all seven, Z-A chosen");
+      ok([...links].every(a => a.scrollWidth <= a.clientWidth), "every name whole (Diamond)");
+      eq(new Set([...links].map(a => Math.round(a.getBoundingClientRect().top))).size, 2, "two rows (her ask, 27 Nov: “back to 2 rows not moving along”)");
+      await go("#home"); const hh = view().querySelector(".hero"), lb = hh.querySelector(":scope > .label").getBoundingClientRect(), h1 = hh.querySelector("h1").getBoundingClientRect();
+      ok(lb.left > hh.getBoundingClientRect().left + hh.offsetWidth * .7 && h1.right < hh.getBoundingClientRect().left + hh.offsetWidth * .3, "a game's Home: title left, its line right (her note, 27 Nov)");
+      await go("#hm-dex"); eq(getComputedStyle(view().querySelector(".hero h1 em")).color, "rgb(26, 18, 20)", "“Pokémon” black in Every Pokémon (her note, 27 Nov)");
     } finally { tryVz = was; store.set(TRY_VZ_KEY, was); tryVzApply(); rerender(); }
   });
 
@@ -1552,7 +1567,7 @@
       eq(view().querySelectorAll(".card").length, counts(ENTRIES.filter(e => e.gen === "5")).shinyOut, "one card for each that can be shiny");
     } finally { prefs.unreleased = false; prefs.work = "all"; keepPrefs(); }
     await go("#hm-set-nothing");
-    eq(document.querySelector('.game-slide a[aria-current]').textContent, "HOME", "an unknown HOME address: HOME in the switch");
+    eq(document.querySelector('.game-switch a[aria-current]').textContent, "HOME", "an unknown HOME address: HOME in the switch");
     ok(nav.querySelector('a[href="#hm-dex"]') && !nav.querySelector('a[href="#dex"]'), "and HOME's sidebar only");
     const before = localStorage.getItem(AUTO_KEYS.home);
     try {
@@ -1595,9 +1610,9 @@
 
   test("the HOME | GO switch: each game lights its own pages, and All games counts both", async () => {
     await go("#hm-p-25");
-    eq(document.querySelector('.game-slide a[aria-current]').textContent, "HOME"); eq(nav.querySelector("a.on").getAttribute("href"), "#hm-gen-1", "its region lit in HOME");
-    click(document.querySelector('.game-slide a[href="#go"]')); await until(() => location.hash === "#go");  await wait(50);
-    eq(document.querySelector('.game-slide a[aria-current]').textContent, "GO"); ok(view().querySelector('.gen[href="#gen-1"]'), "GO's Home");
+    eq(document.querySelector('.game-switch a[aria-current]').textContent, "HOME"); eq(nav.querySelector("a.on").getAttribute("href"), "#hm-gen-1", "its region lit in HOME");
+    click(document.querySelector('.game-switch a[href="#go"]')); await until(() => location.hash === "#go");  await wait(50);
+    eq(document.querySelector('.game-switch a[aria-current]').textContent, "GO"); ok(view().querySelector('.gen[href="#gen-1"]'), "GO's Home");
     eq(+nav.querySelector('a[href="#dex"] .n').textContent.replace(/,/g, ""), groupByNumber(WORLDS.go.ENTRIES).length, "GO's Every Pokémon count");
     await go("#home");
     eq(+nav.querySelector('a[href="#hm-dex"] .n').textContent.replace(/,/g, ""), groupByNumber(WORLDS.home.ENTRIES).length, "HOME's Every Pokémon count");

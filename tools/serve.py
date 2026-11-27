@@ -32,6 +32,7 @@ FILE = os.path.join(ROOT, 'data', 'collection', 'go.json')
 # each game its own ticks file (her decision, 22 Nov: GO's file and its keys never change; HOME's ticks beside it)
 FILES = {'go': FILE, 'home': os.path.join(ROOT, 'data', 'collection', 'home.json'),
          'shield': os.path.join(ROOT, 'data', 'collection', 'shield.json'),   # Pokémon Shield (23 Nov: the games in release order)
+         'diamond': os.path.join(ROOT, 'data', 'collection', 'diamond.json'),   # Pokémon Brilliant Diamond (27 Nov, her ask)
          'arceus': os.path.join(ROOT, 'data', 'collection', 'arceus.json'),   # Pokémon Legends: Arceus (23 Nov)
          'violet': os.path.join(ROOT, 'data', 'collection', 'violet.json'),   # Pokémon Violet and Legends: Z-A (23 Nov, overnight)
          'za': os.path.join(ROOT, 'data', 'collection', 'za.json')}
@@ -81,10 +82,10 @@ TICKS = {'c', 'cm', 'cf', 's', 'l', 'h', 'sd', 'pu', 'dx', 'gx', 'ss', 'mg', 'mx
 HOME_TICKS = {'c', 'cm', 'cf', 's', 'gx'}
 # Legends: Arceus: Caught, Female, Male, Shiny, Alpha ("al") and Complete ("rc", Research Level 10) (her answer, 23 Nov)
 ARCEUS_TICKS = {'c', 'cm', 'cf', 's', 'al', 'rc'}
-# Violet: Caught, Female, Male, Shiny; Legends: Z-A: and Alpha and Mega (Mega, X, Y and Z) (her answers, 23 Nov)
+# Violet (and Brilliant Diamond, her answer 27 Nov): Caught, Female, Male, Shiny; Legends: Z-A: and Alpha and Mega (Mega, X, Y and Z) (her answers, 23 Nov)
 VIOLET_TICKS = {'c', 'cm', 'cf', 's'}
 ZA_TICKS = {'c', 'cm', 'cf', 's', 'al', 'mg', 'mx', 'my', 'mz'}
-GAME_TICKS = {'go': TICKS, 'home': HOME_TICKS, 'shield': HOME_TICKS, 'arceus': ARCEUS_TICKS, 'violet': VIOLET_TICKS, 'za': ZA_TICKS}   # Shield: Caught, Female, Male, Shiny, Gigantamax (her answer, 23 Nov)
+GAME_TICKS = {'go': TICKS, 'home': HOME_TICKS, 'shield': HOME_TICKS, 'diamond': VIOLET_TICKS, 'arceus': ARCEUS_TICKS, 'violet': VIOLET_TICKS, 'za': ZA_TICKS}   # Shield: Caught, Female, Male, Shiny, Gigantamax (her answer, 23 Nov)
 
 
 def read(file=None):

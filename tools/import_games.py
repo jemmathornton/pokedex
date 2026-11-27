@@ -53,6 +53,30 @@ GAMES = {
         # or Spectrier, so Ice or Shadow Rider Calyrex; the other needs a trade. Marked "Choose one" on both (her answer, 23 Nov)
         'chooseOne': ['894', '895', '896', '897', '898-ice', '898-shadow'],
     },
+    'diamond': {
+        # her ask (27 Nov: “I do have Brilliant Diamond as well I forgot so add that to the site”) and answers: boxes Caught, Female,
+        # Male, Shiny; the Sinnoh Pokédex, the National Pokédex (#001–#493), then Bonus Pokémon and HOME Transfers, as Shield and
+        # Violet; Shining Pearl's Pokémon marked. research/data/games/brilliant-diamond.json (Serebii and PokeAPI, read 27 Nov)
+        'research': 'brilliant-diamond',
+        'pokedexes': [('sinnoh', 5), ('national', 1)],
+        'maxNational': 493,   # PokeAPI's National list goes on to #1025; Brilliant Diamond's stops at Arceus
+        'sections': [
+            {'id': 'sinnoh', 'name': 'Sinnoh', 'small': 'Brilliant Diamond', 'map': '4', 'colour': '#2C7793'},
+            {'id': 'national', 'name': 'National', 'small': 'Brilliant Diamond', 'map': ['1', '2', '3', '4'], 'colour': '#2C7793'},
+            {'id': 'elsewhere', 'name': 'Bonus Pokémon', 'small': 'Another game’s save', 'map': '4', 'colour': '#2C7793'},
+            {'id': 'from-home', 'name': 'HOME Transfers', 'small': 'Pokémon HOME', 'map': 'all', 'colour': '#2C7793'},
+        ],
+        'other': 'shiningPearl',
+        'gmax': False,
+        # only the forms Brilliant Diamond has (research `forms`): no regional forms can come in (Serebii's Unobtainable list)
+        'forms': {201: '*', 412: '*', 413: '*', 422: '*', 423: '*', 479: '*', 386: '*',
+                  487: ['Altered', 'Origin'], 492: ['Land', 'Sky'],
+                  493: ['Normal', 'Fighting', 'Flying', 'Poison', 'Ground', 'Rock', 'Bug', 'Ghost', 'Steel', 'Fire', 'Water', 'Grass', 'Electric', 'Psychic', 'Ice', 'Dragon', 'Dark', 'Fairy']},
+        # in the National Pokédex and in a list beside it: Mew, Jirachi and Arceus need another game's save data (Bonus Pokémon, as
+        # Arceus's Darkrai and Shaymin); Celebi, Deoxys, Phione and Manaphy only by transfer, Darkrai and Shaymin too now their
+        # Mystery Gifts have ended (research transferOnly, eventEndedNowHomeOnly)
+        'alsoIn': {'elsewhere': [151, 385, 493], 'from-home': [251, 386, 489, 490, 491, 492]},
+    },
     'arceus': {
         'research': 'legends-arceus',   # research/data/games/legends-arceus.json
         'pokedexes': [('hisui', 30)],
@@ -286,6 +310,8 @@ def main():
         for sec, pid in cfg['pokedexes']:
             if r['pokedex_id'] == str(pid):
                 nums.setdefault(sec, {})[int(r['species_id'])] = int(r['pokedex_number'])
+    if cfg.get('maxNational'):
+        nums = {sec: {n: v for n, v in d.items() if n <= cfg['maxNational']} for sec, d in nums.items()}
     dex_form = {}
     for d in research['dexes']:
         for x in d.get('entries') or []:
