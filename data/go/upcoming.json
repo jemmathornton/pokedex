@@ -1,5 +1,5 @@
 {
- "fetched": "2026-11-26",
+ "fetched": "2026-11-27",
  "source": "Leek Duck (leekduck.com/events), via ScrapedDuck",
  "events": [
   {
@@ -118,24 +118,6 @@
      "as": [
       "mega"
      ]
-    }
-   ]
-  },
-  {
-   "id": "pokemonspotlighthour2026-11-26",
-   "name": "Noibat Spotlight Hour",
-   "type": "Pokémon Spotlight Hour",
-   "kind": "pokemon-spotlight-hour",
-   "start": "2026-11-26T18:00:00.000",
-   "end": "2026-11-26T19:00:00.000",
-   "link": "https://leekduck.com/events/pokemonspotlighthour2026-11-26/",
-   "mons": [
-    {
-     "name": "Noibat",
-     "key": "714_00",
-     "shiny": true,
-     "id": "714",
-     "as": []
     }
    ]
   },
