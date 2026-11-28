@@ -1,5 +1,5 @@
 {
- "fetched": "2026-11-27",
+ "fetched": "2026-11-28",
  "source": "Leek Duck (leekduck.com/events), via ScrapedDuck",
  "events": [
   {
@@ -935,6 +935,16 @@
    "start": "2027-01-02T14:00:00.000",
    "end": "2027-01-02T17:00:00.000",
    "link": "https://leekduck.com/events/january-communitydayclassic2027/",
+   "mons": []
+  },
+  {
+   "id": "super-mega-raid-day-january-2027",
+   "name": "Super Mega Raid Day",
+   "type": "Raid Day",
+   "kind": "raid-day",
+   "start": "2027-01-09T14:00:00.000",
+   "end": "2027-01-09T17:00:00.000",
+   "link": "https://leekduck.com/events/super-mega-raid-day-january-2027/",
    "mons": []
   }
  ]
